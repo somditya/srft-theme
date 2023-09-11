@@ -58,6 +58,7 @@
        src="https://kit.fontawesome.com/37e9fe1e7c.js"
        crossorigin="anonymous"
      ></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>

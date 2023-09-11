@@ -760,6 +760,7 @@ z-index: 1;
   background-image: url(/web2w/images/footerbg.jpg);
   background-repeat: repeat;
   padding: 0 24px;
+  
 }
 
 .footer_inner_container {
@@ -779,6 +780,7 @@ z-index: 1;
   text-align: center;
   justify-content: center;
   padding: 15px;
+  position: fixed;
 }
 
 

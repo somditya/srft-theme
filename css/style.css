@@ -751,6 +751,7 @@ z-index: 1;
   background-image: url(/web2w/images/footerbg.jpg);
   background-repeat: repeat;
   padding: 0 24px;
+  position: fixed;
 }
 
 .footer_inner_container {

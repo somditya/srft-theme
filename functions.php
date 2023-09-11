@@ -513,6 +513,27 @@ function twenty_twenty_one_skip_link_focus_fix() {
 	}
 }
 
+
+function custom_rest_api_route() {
+	register_rest_route('faculty/v2', 'posts', array(
+			'methods' => 'GET',
+			'callback' => 'get_faculty_posts',
+	));
+}
+
+function get_faculty_posts() {
+	$args = array(
+			'post_type' => 'faculty', // Replace with your custom post type name
+			'posts_per_page' => -1, // Display all posts
+	);
+
+	$faculty_posts = get_posts($args);
+
+	return $faculty_posts;
+}
+
+add_action('rest_api_init', 'custom_rest_api_route');
+
 /**
  * Enqueues non-latin language styles.
  *
