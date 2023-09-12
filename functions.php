@@ -521,6 +521,7 @@ function custom_rest_api_route() {
 	));
 }
 
+
 function get_faculty_posts() {
 	$args = array(
 			'post_type' => 'faculty', // Replace with your custom post type name
@@ -533,6 +534,29 @@ function get_faculty_posts() {
 }
 
 add_action('rest_api_init', 'custom_rest_api_route');
+
+// Add custom fields to REST API response
+// Add custom fields to REST API response
+function add_custom_fields_to_json($data, $post, $request) {
+	// Define an array of custom field names you want to include
+	$custom_field_names = array(
+			'Designation',
+			'Department'	
+			// Add more custom field names as needed
+	);
+
+	// Loop through the custom field names and include their values in the JSON response
+	foreach ($custom_field_names as $field_name) {
+			$custom_field_value = get_post_meta($post->ID, $field_name, true);
+			$data->data[$field_name] = $custom_field_value;
+	}
+
+	return $data;
+}
+
+add_filter('rest_prepare_post', 'add_custom_fields_to_json', 10, 3);
+
+
 
 /**
  * Enqueues non-latin language styles.
