@@ -1,7 +1,7 @@
 <?php
 /**
  * /*
- * Template Name: Faculty
+ * Template Name: News
  * Template Post Type: post
  * 
  */

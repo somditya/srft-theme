@@ -29,81 +29,37 @@ get_header(); ?>
    <h2 class="section-intro-header-text" style="padding-left: 0; color: white ">Featured News</h2>
    <div class="frame">
    <div class="static owl-carousel">
-     <div class="news-item">
-       <a href="#">
-       <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Goti-final-poster.png" width="370" height="270" alt="" style="display: block;">
-     <div class="news-item-title">
-       <h3 href="#">Congratulations mahasrshi Kashyap </h3>
-       <p>Mahasrhip Kashyap's film 'The horse from heaven' tool entry in Oscar</p>
-       <!--<div class="primary__header-arrow">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
-     </div>
-     </a>
-     </div>
-    <div class="news-item">
-     <a href="#">
-     <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Guras.jpg" width="370"  alt="" style="display: block;">
-   <div class="news-item-title">
-     <h3 href="#">Congratulations Saurav Rai, SRFTI Alumnus </h3>
-     <p>Saurav's feature film 'Guras' won karlovy vary award.... </p>
-   </div>
-   </a>
-   </div>
-  <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Agra.jpg" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#">Congratulations! kanu Behl</h3>
-   <p>Kanu Behls's Agra selected for Kannes Film Festival</p>
- </div>
- </a>
- </div>
- <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Guras1.jpg" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#"> Congratulations Saurav!</h3>
-   <p>Saurav rai's Guras tool entry in Karlovy Vary International Film Fesitival.. </p>
- </div>
- </a>
- </div>
- <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-   <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
- </div>
- </a>
- </div>
- <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-   <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
- </div>
- </a>
- </div>
- <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-   <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
- </div>
- </a>
- </div>
- <div class="news-item">
-   <a href="#">
-   <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
- <div class="news-item-title">
-   <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-   <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
- </div>
- </a>
- </div>
- 
+   <?php
+
+    $post_id = get_the_ID();
+    $post_content = apply_filters('the_content', $post->post_content);
+    $category_posts = new WP_Query(array(
+        'category_name' => 'news-en', // Replace with your category slug
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+    ?>
+    
+      <div class="news-item">
+      <a href="<?php the_permalink(); ?>" target="_blank">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?> ?>" style="display: block;">
+      <div class="news-item-title">
+        <h3 href="#"><?php the_title(); ?></h3>
+        <p><?php echo $post_content; ?></p>
+        <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
+        <!--<div class="primary__header-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
+      </div>
+      </a>
+      </div>
+      <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>  
  </div>
  <div class="link-div" style="align-items: center;"">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
    <div class="link-div" style="align-items: center; margin-top: 0;">
@@ -111,8 +67,10 @@ get_header(); ?>
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
      </span>
    </a>
-     
+  </div> 
    </div>
+ </div>
+ 
  </div>
  </div>
  </section>
@@ -391,87 +349,35 @@ Students are immersed in creative settings, where teamwork is valued, with an em
     <h2 class="section-intro-header-text" style="padding-left: 0; color: white ">Award Winnng Student Films</h2>
     <div class="frame">
     <div class="static owl-carousel">
+    <?php
+    $category_posts = new WP_Query(array(
+        'category_name' => 'film', // Replace with your category slug
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+    ?>
+    
       <div class="news-item">
-        <a href="#">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Meena Jha.jpg" width="370"  alt="" style="display: block;">
+      <a href="<?php the_permalink(); ?>" target="_blank">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?> ?>" style="display: block;">
       <div class="news-item-title">
-        <h3 href="#">Meena Jha</h3>
-        <p>National Award, 2001</p>
+        <h3 href="#"><?php the_title(); ?></h3>
+        <p><?php echo get_post_meta(get_the_ID(), 'Award', true); ?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
       </div>
       </a>
       </div>
-     <div class="news-item">
-      <a href="#">
-      <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Shundar Jeebon.jpg" width="370"  alt="" style="display: block;">
-    <div class="news-item-title" style="flex-grow: 1;">
-      <h3 href="#">Sundar Jeebon</h3>
-      <!--<p>National Award, 2003</p>-->
-      <p><i class="fa-solid fa-play" style="color: #161718;"></i></p>
-    </div>
-    </a>
-    </div>
-   <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Khoj.jpg" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#">Khoj</h3>
-    <!--<p>IDPA Award (Best first film)/MIFF</p>-->
-    <p><i class="fa-solid fa-play" style="color: #161718;"></i></p>
-  </div>
-  </a>
-  </div>
-  <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Lal Juto.jpg" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#"> Lal Juto</h3>
-    <!--<p>SBest creative idea, 11th Shanghai International Film Festival.</p>-->
-    <p><i class="fa-solid fa-play" style="color: #161718;"></i></p>
-  </div>
-  </a>
-  </div>
-  <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Pocha Apple.jpg" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#">Pocha Apel</h3>
-    <p><i class="fa-solid fa-play" style="color: #161718;"></i></p>
-  </div>
-  </a>
-  </div>
-  <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/Germ.jpg" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#">Germ</h3>
-    <p>
-
-      
-    </p>
-  </div>
-  </a>
-  </div>
-  <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-    <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
-  </div>
-  </a>
-  </div>
-  <div class="news-item">
-    <a href="#">
-    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php bloginfo('template_url'); ?>/images/suchana-saha.webp" width="370"  alt="" style="display: block;">
-  <div class="news-item-title">
-    <h3 href="#">Congratulations Meizi Liu, PhD, Winter 2022 </h3>
-    <p>;fg,kkodomgoogoo ogoog l,g l pogol ppgpp [,g ;,pg..</p>
-  </div>
-  </a>
-  </div>
+      <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>
+     
   
   </div>
   <!--<div class="link-div" style="align-items: center; margin-top:0;">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

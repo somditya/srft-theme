@@ -151,6 +151,28 @@
              <!--<li><a>govmail</a></li>-->
              <li><a>ehrms</a></li>
              <li><a>हिन्दी &nbsp;<i class="fa-solid fa-language" aria-hidden="true"></i></a></li>
+             <li><?php if (function_exists('pll_the_languages')) : ?>
+    <div id="language-switcher">
+        <?php
+        pll_the_languages(
+            array(
+                'show_flags' => 1,
+                'show_names' => 1,
+                'display_names_as' => 'name',
+                'hide_if_empty' => 0,
+                'force_home' => 0,
+                'hide_if_no_translation' => 0,
+                'echo' => 1,
+                'post_id' => null,
+                'raw' => 0,
+                'item_spacing' => 'preserve',
+                'dropdown' => 1, // Use a dropdown for multiple languages
+                'menu' => 'language-menu', // Set a unique CSS class for styling
+            )
+        );
+        ?>
+    </div>
+<?php endif; ?></li>
              <li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>
              <li><a>Screen Reader</a></li>
              <li><a>Skip to main content</a></li>

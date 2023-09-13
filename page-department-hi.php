@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Department
+Template Name: Department Hindi
 
  */
 
@@ -57,7 +57,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
    <div class="widget">
      <div class="widget-content">
-       <h2>Course Duration</h2>
+       <h2>पाठ्यक्रम की अवधि</h2>
        <hr />
        <div>
          <p> <?php if (!empty($duration)) {
@@ -68,7 +68,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
    <div class="widget">
      <div class="widget-content">
-       <h2>Total No. of Seats</h2>
+       <h2>सीटों की कुल संख्या</h2>
        <hr />
        <div>
          <p> <?php if (!empty($seats)) {
@@ -79,7 +79,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
    <div class="widget">
      <div class="widget-content">
-       <h2>Elibility Criteria</h2>
+       <h2>पात्रता मापदंड</h2>
        <hr />
        <div>
          <p>Bachelor’s Degree in any discipline.</p>
@@ -98,7 +98,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
  <div class="main-content">
    <div style="margin-top: 3.2rem">
      <h2 class="section-intro-header-text" style="padding-left: 0; ">
-       About the department
+     विभाग के बारे में
      </h2>
      <?php if (!empty($about)) {
     echo $about;
@@ -110,7 +110,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
    <div style="margin-top: 3.2rem">
      <h2 class="section-intro-header-text" style="padding-left: 0; ">
-       Course objective
+     पाठ्यक्रम का उद्देश्य
      </h2>
 
      <?php if (!empty($objective)) {
@@ -123,7 +123,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
 <div style="margin-top: 3.2rem;">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
-        Faculty & Academic Support Staff</h2>
+    फैकल्टी और एकेडमिक सपोर्ट स्टाफ</h2>
     <section class="faculty">
         <div class="faculty-img">
             <ul>
@@ -134,7 +134,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
   // Custom query to retrieve faculty posts in the specified department
   $faculty_query = new WP_Query(array(
       'post_type' => 'post',         // Change to your post type if needed
-      'category_name' => 'faculty-en', // Name of the "Faculty" category
+      'category_name' => 'faculty-hi', // Name of the "Faculty" category
       'meta_query' => array(
           array(
               'key' => 'Department', // Custom field name for department
@@ -143,6 +143,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
           ),
       ),
   ));
+
 
   // Loop through faculty posts
   if ($faculty_query->have_posts()) :
@@ -166,9 +167,9 @@ $seats=get_post_meta($page_id, 'Seats', true);
                 <!-- Add more faculty members here if needed -->
             </ul>
         </div>
-        <div class="link-span" style="margin-top: 0;">
+        <!--<div class="link-span" style="margin-top: 0;">
             <a href="#">Learn More About Them</a>
-        </div>
+        </div>-->
     </section>
 </div>
 
