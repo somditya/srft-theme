@@ -24,20 +24,21 @@ $post_content = apply_filters('the_content', $post->post_content);
     padding-top: 1.25rem; grid-column: 3;">
             <a href="#" alt="News" class="c-headline__topic t-heading--topic">
   </a> 
-  <h1 style="font-size: 4.375rem;
+  <h1 style="
+    font-family: GthD;
+    font-size: 5.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
-    font-style: normal;
     font-weight: 600;">
   <?php echo get_the_title($post_id);?>
 </h1> 
-<p style="margin: 1rem 0 0;">
+<p style="margin: 1rem 0 0; font-family: GthD; font-weight: 600;">
     <time><?php
 $post_date = get_the_date('F j, Y');
 echo $post_date;
 ?></time></p>
 </div> 
-<div style="grid-column: 2/5;">
+<div style="grid-column: 2/5; ">
     <div class="c-photo">
     <img src="<?php echo get_post_meta(get_the_ID(), 'Post-Image1', true); ?>"  alt="" class="img-responsive"/>
 </div>
@@ -51,9 +52,8 @@ echo $post_date;
     justify-content: center; line-height: 32px;">
 </div>
 <div style="grid-column: 3/4;  
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 28px;">
+    
+    line-height: 28px; text-align: left;">
 <?php echo $post_content; ?>
 </div>
 </div>
