@@ -1,7 +1,7 @@
-dd<?php
+<?php
 /**
  * /*
- * Template Name: News
+ * Template Name: Announement
  * Template Post Type: post
  * 
  */
@@ -22,8 +22,7 @@ $post_content = apply_filters('the_content', $post->post_content);
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 3;">
-            <a href="#" alt="News" class="c-headline__topic t-heading--topic"><label><?php echo __('Label Text', 'Srfti'); ?>
-</label>
+            <a href="#" alt="News" class="c-headline__topic t-heading--topic">
   </a> 
   <h1 style="
     font-family: GthD;
