@@ -1,4 +1,4 @@
-<?php
+dd<?php
 /**
  * /*
  * Template Name: News
@@ -17,32 +17,49 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 ?>
 
-<section style="padding: 0 1.25rem;">
+<section style="margin: 15rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
-        <header role="article" style="text-align: center;max-width: 56.25rem;
+        <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 3;">
             <a href="#" alt="News" class="c-headline__topic t-heading--topic">
-  News</a> 
+  </a> 
   <h1 style="font-size: 4.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
     font-style: normal;
-    font-weight: 500;">
+    font-weight: 600;">
   <?php echo get_the_title($post_id);?>
 </h1> 
-<p class="c-headline__date">
-    <time datetime="2023-08-08T12:00:00Z"><?php ?></time></p>
-</header> 
-<div stle="grid-column: 2/5;">
+<p style="margin: 1rem 0 0;">
+    <time><?php
+$post_date = get_the_date('F j, Y');
+echo $post_date;
+?></time></p>
+</div> 
+<div style="grid-column: 2/5;">
     <div class="c-photo">
-    <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" width="220" height="220" alt="" />
+    <img src="<?php echo get_post_meta(get_the_ID(), 'Post-Image1', true); ?>"  alt="" class="img-responsive"/>
 </div>
 </div>
-<div style="">
+<div style="border-top: 3px solid #000; grid-column: 3/4;
+    margin: 0;
+    padding: 0;
+    text-align: center;">
+    <div style="display: flex;
+    align-items: flex-end;
+    justify-content: center; line-height: 32px;">
 </div>
-<div style="">
+<div style="grid-column: 3/4;  
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;">
+<?php echo $post_content; ?>
 </div>
+</div>
+
+</div>
+
 </article>       
 </section> 
   
