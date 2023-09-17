@@ -63,6 +63,9 @@ echo $post_date;
 <div style="grid-column: 3/4;  
     
     line-height: 28px; text-align: left;">
+    <div style="padding: 1rem; text-align: center;">
+    <?php echo do_shortcode('[addtoany buttons]'); ?>
+</div>
 <?php echo $post_content; ?>
 </div>
 </div>
