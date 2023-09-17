@@ -1,4 +1,4 @@
-dd<?php
+<?php
 /**
  * /*
  * Template Name: News
@@ -6,10 +6,11 @@ dd<?php
  * 
  */
 get_header();
-
+$current_language = pll_current_language(); 
 ?>
 
 <?php
+
 $post_id = get_the_ID();
 $post_content = apply_filters('the_content', $post->post_content);
 
@@ -22,7 +23,14 @@ $post_content = apply_filters('the_content', $post->post_content);
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 3;">
-            <a href="#" alt="News" class="c-headline__topic t-heading--topic"><label><?php echo __('Label Text', 'Srfti'); ?>
+            <a href="#" alt="News" class="c-headline__topic t-heading--topic"><label><?php if ($current_language === 'hi') {
+    // Display Hindi label text here
+    echo __('News', 'srfti');
+} else {
+    // Display English label text here
+    echo __('News', 'srfti');
+}
+?>
 </label>
   </a> 
   <h1 style="

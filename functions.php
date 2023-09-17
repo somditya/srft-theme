@@ -671,6 +671,13 @@ function twentytwentyone_the_html_classes() {
 	echo 'class="' . esc_attr( $classes ) . '"';
 }
 
+
+
+/*function srft_theme_load_theme_textdomain() {
+	load_theme_textdomain( 'srft-theme', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'srft_theme_load_theme_textdomain' );
+*/
 /**
  * Adds "is-IE" class to body if the user is on Internet Explorer.
  *
