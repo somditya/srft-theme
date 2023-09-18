@@ -541,7 +541,12 @@ function add_custom_fields_to_json($data, $post, $request) {
 	// Define an array of custom field names you want to include
 	$custom_field_names = array(
 			'Designation',
-			'Department'	
+			'Department',	
+			'Tender-Corrigendum',
+			'Tender-Doc',
+			'Tender-Extension',
+			'Tender-ID',
+			'Tender-Submission-Date'
 			// Add more custom field names as needed
 	);
 

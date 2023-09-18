@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SRFTI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-17 06:32+0000\n"
-"PO-Revision-Date: 2023-09-17 06:33+0000\n"
+"POT-Creation-Date: 2023-09-18 07:57+0000\n"
+"PO-Revision-Date: 2023-09-18 07:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -53,4 +53,8 @@ msgstr ""
 
 #. Name of the template
 msgid "Students-film"
+msgstr ""
+
+#. Name of the template
+msgid "Tender"
 msgstr ""
