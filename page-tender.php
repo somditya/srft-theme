@@ -48,21 +48,38 @@ get_header();
 
             <div ng-app="myApp">
                 <div ng-controller="TenderController">
+                <div class="wrapper">
+  <div class="Rtable Rtable--5cols Rtable--collapse">
+    <div class="Rtable-row Rtable-row--head">
+      <div class="Rtable-cell date-cell column-heading">SL.No.</div>
+      <div class="Rtable-cell topic-cell column-heading">Tender ID</div>
+      <div class="Rtable-cell access-link-cell column-heading">Access Link</div>
+      <div class="Rtable-cell replay-link-cell column-heading">Replay</div>
+      <div class="Rtable-cell pdf-cell column-heading">Checklist</div>
+    </div>
 
+    <div class="Rtable-row" ng-repeat="tender in tenderList">
+      <div class="Rtable-cell date-cell">
+       
+        <div class="Rtable-cell--content date-content"><span class="webinar-date">August 2nd, 2016</span><br />6:00 pm (CDT)</div>
+      </div>
+      <div class="Rtable-cell topic-cell">
+        <div class="Rtable-cell--content title-content">{{ tender.title }}</div>
+      </div>
+      <div class="Rtable-cell access-link-cell">
+        <div class="Rtable-cell--content access-link-content"><a href="#0"><i class="ion-link"></i></a></div>
+      </div>
+      <div class="Rtable-cell replay-link-cell">
+        
+        <div class="Rtable-cell--content replay-link-content"><a href="#0"><i class="ion-ios-videocam"></i></a></div>
+      </div>
+      <div class="Rtable-cell Rtable-cell--foot pdf-cell">
+        <div class="Rtable-cell--content pdf-content"><a href="#0"><i class="ion-document-text"></i></a></div>
+      </div>
+    </div>    
+  </div>
                     <!-- Use a CSS grid for layout -->
-                    <div class="tender-grid">
-                       
-                        <div ng-repeat="tender in tenderList" class="tender-item">{{ tender.title }}</div>
-
-                        
-                        <div ng-repeat="tender in tenderList" class="tender-item">{{ tender.ID }}</div>
-
-                       
-                        <div ng-repeat="tender in tenderList" class="tender-item">{{ tender.subdate }}</div>
-
-                       
-                        <div ng-repeat="tender in tenderList" class="tender-item"><a href="{{ tender.link }}">Visit</a></div>
-                    </div>
+                   
 
                 </div>
             </div>
