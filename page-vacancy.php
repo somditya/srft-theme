@@ -1,7 +1,6 @@
 <?php
 /*
-Template Name: Tender
-
+Template Name: Vacancy
  */
 
 
@@ -12,19 +11,19 @@ get_header();
 ?>
 
 
-<body ng-controller="TenderController">
+<body ng-controller="VacancyController">
   <main>
     <section class="cine-header">
       <div class="page-banner">
-        <div class="page-banner-title">Tender</div>
+        <div class="page-banner-title">Vacancy</div>
       </div>
     </section>
 
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-        <h2 class="section-intro-header-text" style="padding-left: 0;">Tender List</h2>
+        <h2 class="section-intro-header-text" style="padding-left: 0;">Vanancy List</h2>
         <div ng-app="myApp">
-          <div ng-controller="TenderController">
+          <div ng-controller="VacancyController">
             <p style="padding: 15px;">
               From date: <input type="date" ng-model="fromDate" ng-change="applyFilters()">
               To date: <input type="date" ng-model="toDate" ng-change="applyFilters()">
@@ -36,27 +35,27 @@ get_header();
               <div class="Rtable Rtable--5cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell slno-cell column-heading">SL.No.</div>
-                  <div class="Rtable-cell id-cell column-heading">Tender ID</div>
-                  <div class="Rtable-cell topic-cell column-heading">Tender Title</div>
-                  <div class="Rtable-cell date-cell column-heading">Due Date</div>
+                  <div class="Rtable-cell id-cell column-heading">Recruitment ID</div>
+                  <div class="Rtable-cell topic-cell column-heading">Recruitment for</div>
+                  <div class="Rtable-cell date-cell column-heading">Last Date to Apply</div>
                   <div class="Rtable-cell access-link-cell column-heading">Access Link</div>
                 </div>
 
-                <div class="Rtable-row" ng-repeat="tender in pagedTender">
+                <div class="Rtable-row" ng-repeat="vacancy in pagedVacancy">
                   <div class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
                   </div>
                   <div class="Rtable-cell id-cell">
-                    <div class="Rtable-cell--content title-content">{{ tender.ID }}</div>
+                    <div class="Rtable-cell--content title-content">{{ vacancy.ID }}</div>
                   </div>
                   <div class="Rtable-cell topic-cell">
-                    <div class="Rtable-cell--content title-content">{{ tender.title }}</div>
+                    <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
                   </div>
                   <div class="Rtable-cell date-cell">
-                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ tender.subdate | date:'yyyy-MM-dd' }}</span></div>
+                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ vacancy.subdate | date:'yyyy-MM-dd' }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> Visit</a></div>
                   </div>
                 </div>
               </div>
@@ -89,11 +88,11 @@ get_header();
 
   <script>
     angular.module('myApp', [])
-      .controller('TenderController', function ($scope, $http, $filter) {
+      .controller('VacancyController', function ($scope, $http, $filter) {
         // Initialize the tenderList
-        $scope.tenderList = [];
-        $scope.filteredTender = [];
-        $scope.pagedTender = [];
+        $scope.vacancyList = [];
+        $scope.filteredVacancy = [];
+        $scope.pagedVacancy = [];
         $scope.filterField = '';
         $scope.fromDate = '';
         $scope.toDate = '';
@@ -101,9 +100,9 @@ get_header();
         $scope.currentPage = 1;
 
         // Fetch the data
-        $http.get('http://localhost/wordpress/wp-json/wp/v2/posts?categories=45')
+        $http.get('http://localhost/wordpress/wp-json/wp/v2/posts?categories=51')
           .then(function (response) {
-            $scope.tenderList = response.data.map(function (post) {
+            $scope.vacancyList = response.data.map(function (post) {
               return {
                 title: post.title.rendered || '',
                 link: post.link,
@@ -113,19 +112,19 @@ get_header();
             });
 
             // Apply initial filters and pagination
-            updateFilteredTender();
+            updateFilteredVacancy();
           })
           .catch(function (error) {
             console.error('Error fetching tender data:', error);
           });
 
         // Function to update filtered tender based on filters
-        function updateFilteredTender() {
-          $scope.filteredTender = $scope.tenderList.filter(function (tender) {
-            const titleMatch = !$scope.filterField || tender.title.toLowerCase().includes($scope.filterField.toLowerCase());
+        function updateFilteredVacancy() {
+          $scope.filteredVacancy = $scope.vacancyList.filter(function (vacancy) {
+            const titleMatch = !$scope.filterField || vacancy.title.toLowerCase().includes($scope.filterField.toLowerCase());
             const fromDate = $scope.fromDate ? new Date($scope.fromDate) : null;
             const toDate = $scope.toDate ? new Date($scope.toDate) : null;
-            const subdate = new Date(tender.subdate); // Convert to JavaScript Date object
+            const subdate = new Date(vacancy.subdate); // Convert to JavaScript Date object
 
             if (fromDate && toDate) {
               // Check if the subdate is within the selected date range
@@ -140,12 +139,12 @@ get_header();
           $scope.currentPage = 1;
 
           // Update pagedTender based on currentPage and itemsPerPage
-          $scope.updatePagedTender();
+          $scope.updatePagedVacancy();
         }
 
         // Function to apply filters when input changes
         $scope.applyFilters = function () {
-          updateFilteredTender();
+          updateFilteredVacancy();
         };
 
         // Function to reset filters
@@ -154,19 +153,19 @@ get_header();
           $scope.filterField = '';
           $scope.fromDate = '';
           $scope.toDate = '';
-          updateFilteredTender();
+          updateFilteredVacancy();
         };
 
         // Function to update pagedTender based on currentPage and itemsPerPage
-        $scope.updatePagedTender = function () {
+        $scope.updatePagedVacancy = function () {
           const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
           const endIndex = startIndex + $scope.itemsPerPage;
-          $scope.pagedTender = $scope.filteredTender.slice(startIndex, endIndex);
+          $scope.pagedVacancy = $scope.filteredVacancy.slice(startIndex, endIndex);
         };
 
         // Function to get the total number of pages
         $scope.getTotalPages = function () {
-          return Math.ceil($scope.filteredTender.length / $scope.itemsPerPage);
+          return Math.ceil($scope.filteredVacancy.length / $scope.itemsPerPage);
         };
 
         // Function to generate an array of page numbers for pagination
@@ -179,7 +178,7 @@ get_header();
         $scope.setPage = function (page) {
           if (page >= 1 && page <= $scope.getTotalPages()) {
             $scope.currentPage = page;
-            $scope.updatePagedTender();
+            $scope.updatePagedVacancy();
           }
         };
 
@@ -187,7 +186,7 @@ get_header();
         $scope.prevPage = function () {
           if ($scope.currentPage > 1) {
             $scope.currentPage--;
-            $scope.updatePagedTender();
+            $scope.updatePagedVacancy();
           }
         };
 
@@ -195,18 +194,18 @@ get_header();
         $scope.nextPage = function () {
           if ($scope.currentPage < $scope.getTotalPages()) {
             $scope.currentPage++;
-            $scope.updatePagedTender();
+            $scope.updatePagedVacancy();
           }
         };
 
         $scope.firstPage = function () {
   $scope.currentPage = 1;
-  $scope.updatePagedTender();
+  $scope.updatePagedVacancy();
 };
 
 $scope.lastPage = function () {
   $scope.currentPage = $scope.getTotalPages();
-  $scope.updatePagedTender();
+  $scope.updatePagedVacancy();
 };
         // Initialize pagedTender
         

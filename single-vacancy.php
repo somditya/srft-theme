@@ -18,18 +18,18 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 ?>
 
-<section style="margin: 15rem; padding: 0 1.25rem; display: block;">
+<section style="margin: 10rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; border: 1px solid #000;">
         <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 2/5;">
-            <a href="#" alt="Tender" class="c-headline__topic t-heading--topic">
+            <a href="#" alt="vacancy" class="c-headline__topic t-heading--topic">
               <label><?php if ($current_language === 'hi') {
     // Display Hindi label text here
-    echo __('Tender', 'srfti');
+    echo __('Vacancy', 'srfti');
 } else {
     // Display English label text here
-    echo __('Tender', 'srfti');
+    echo __('Vacancy', 'srfti');
 }
 ?>
 </label>
@@ -43,30 +43,30 @@ $post_content = apply_filters('the_content', $post->post_content);
   <?php echo get_the_title($post_id);?>
 </h1> 
 <p style="margin: 1rem 0 0; font-family: GthD; font-weight: 600;">
-    <time>Tender Issue Date: <?php
+    <time>Application publish Date: <?php
 $post_date = get_the_date('F j, Y');
 echo $post_date;
 ?></time></p>
 </div> 
 <div style="grid-column: 1/2;">
     <div>
-    Tender ID:
+    Vacancy ID:
 </div>
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    NIT Document:
+    Advertisement:
 </div>
 </div>
 
 <div style="grid-column: 3/4;"  >
     
-    <div>Tender Description: </div>
+    <div>Recruitment title: </div>
 </div>
 
 <div style="grid-column: 4/5; ">
     <div>
-    Submission Date:
+    Last Date of  Application:
 </div>
 </div>
 
@@ -77,17 +77,17 @@ echo $post_date;
 </div>
 <div style="grid-column: 6/7; ">
     <div>
-    Extension:
+   Apply Online:
 </div>
 </div>
 <div style="grid-column: 1/2;">
     <div>
-    <?php echo get_post_meta(get_the_ID(), 'Tender-ID', true); ?>
+    <?php echo get_post_meta(get_the_ID(), 'Vacancy-ID', true); ?>
 </div>
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Doc', true)); ?>">Download</a>
+    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Vacancy-Doc', true)); ?>">Download</a>
 </div>
 </div>
 <div style="grid-column: 3/4;  
@@ -98,18 +98,35 @@ echo $post_date;
 
 <div style="grid-column: 4/5; ">
     <div>
-    <?php echo get_post_meta(get_the_ID(), 'Tender-Submission-Date', true); ?>
+    <?php echo get_post_meta(get_the_ID(), 'Vacancy-Submission-Date', true); ?>
 </div>
 </div>
 
 <div style="grid-column: 5/6; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Corriengendum', true)); ?>">Download</a>
+    <?php
+$pdf_url = get_post_meta(get_the_ID(), 'Vacancy-Corriengendum', true);
+
+if (!empty($pdf_url)) {
+    echo '<a href="' . esc_url($pdf_url) . '" download>Download</a>';
+}
+?>
 </div>
 </div>
 <div style="grid-column: 6/7; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Extension', true)); ?>">Download</a>
+    <?php
+$online_url = get_post_meta(get_the_ID(), 'Apply-Online-URL', true);
+
+if (!empty($online_url)) {
+    echo '<a href="' . esc_url($online_url) . '" download>Click to Apply</a>';
+}
+else 
+
+echo "Not Applicable for this recruitment"; 
+
+?>
+
 </div>
 </div>
 
@@ -122,7 +139,9 @@ echo $post_date;
 </div>
 
 </article>    
-<?php echo do_shortcode('[addtoany buttons]'); ?>   
+<div style="padding: 1rem; text-align: center;">
+    <?php echo do_shortcode('[addtoany buttons]'); ?>
+</div>
 </section> 
   
 <?php get_footer(); ?>

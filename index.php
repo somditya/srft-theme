@@ -483,32 +483,71 @@ Students are immersed in creative settings, where teamwork is valued, with an em
 <div class="box-container" style="display:flex;">  
 <div class="cell">
 <span class="update-title">Announcements</span>
-  <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-  <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-  <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-  <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-  <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
+<?php
+    $category_posts = new WP_Query(array(
+        'category_name' => 'announcement', // Replace with your category slug
+        'posts_per_page' => 5,
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+        $post_link = get_permalink();
+    ?>
+    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+    <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>
   <div class="link-span"><a  href="#"">More</a></div>
 </div>
 
   <div class="cell">
   <span class="update-title">Tender</span>
-    <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-    <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-    <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-    <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-    <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
+  <?php
+    $category_posts = new WP_Query(array(
+        'category_name' => 'tender', // Replace with your category slug
+        'posts_per_page' => 5,
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+        $post_link = get_permalink();
+    ?>
+    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+    <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>
     <div class="link-span"><a  href="#"">More</a></div>
   </div>
   
       <div class="cell">
       <span class="update-title">Vacancy</span>
-        <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-        <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-        <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-        <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-        <h3><a href="#">Drawing Stand Cum Seating Stool</a></h3>
-        <div class="link-span"><a  href="#"">More</a></div>
+      <?php
+    $category_posts = new WP_Query(array(
+        'category_name' => 'vacancy', // Replace with your category slug
+        'posts_per_page' => 5,
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+        $post_link = get_permalink();
+    ?>
+    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+    <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>
+        <div class="link-span"><a  href="#">More</a></div>
       </div>
       
 </div>
