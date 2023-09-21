@@ -1,22 +1,18 @@
 <?php
-
 /*
+Template Name: Home
 
-Theme Name: SRFTI
-Theme URI: https://srfti.ac.in
-Author: Somaditya Majumder
-Description: Custom SRFTI Theme
-Version: 1.0
-Text Domain: srfti 
-*/
+ */
 
-get_header(); 
+ get_header();
+ $excerpt = get_the_excerpt();
 ?>
 
 <main>
+ 
  <section class="section-home" style="background-color: #161a1d; padding:10px">
  <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
- <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">What's New</div>
+ <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;"><?php echo __('Whats New', 'srft-theme' ); ?></div>
  <div class="secondary__header-arrow" class="margin-left: 0px;  padding:0px; calc(15% - 40px); "> 
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:white;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: white;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
  </span>
@@ -25,7 +21,7 @@ get_header();
  </section>
  <section class="section-news" style="background-color: #0b6b39; ">
    <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
-   <h2 class="section-intro-header-text" style="padding-left: 0; color: white ">Featured News</h2>
+   <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Featured News', 'srft-theme' ); ?></h2>
    <div class="frame">
    <div class="static owl-carousel">
    <?php
@@ -33,7 +29,7 @@ get_header();
     $post_id = get_the_ID();
     $post_content = apply_filters('the_content', $post->post_content);
     $category_posts = new WP_Query(array(
-        'category_name' => 'news-en', // Replace with your category slug
+        'category_name' => 'news-hi', // Replace with your category slug
     ));
 
     if ($category_posts->have_posts()) :
@@ -62,7 +58,7 @@ get_header();
  </div>
  <div class="link-div" style="align-items: center;"">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
    <div class="link-div" style="align-items: center; margin-top: 0;">
-     <a class="link-text-big" href="#"><span class="lbl"> Read More Here</span><span class="primary__header-arrow"> 
+     <a class="link-text-big" href="#"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
      </span>
    </a>
@@ -74,30 +70,21 @@ get_header();
  </div>
  </section>
  
- 
-
-   
 <section class="section-home"; style="padding: 0;">
   <div  style="display:flex; flex-wrap: wrap; background-color: #777777">
     <div class="abtimg-box">
     </div>
     <div class="text-box">
       <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3; ">
-        The Institute
+      <?php echo __('The Institute', 'srft-theme' ); ?>
       </h2>
       <p style="color:white; font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.8rem; line-height: 1.5;">
-SRFTI (Satyajit Ray Film & Television Institute)
-based in Kolkata, West Bengal,
-is an academic Institute in the field of cinema,
-television,
-oriented towards the students' development with the aim of improving their inclinations,
-talents and skills.
-Students are immersed in creative settings, where teamwork is valued, with an eminently practical planning guidance.
+    font-size: 1.8rem; line-height: 1.5;"><?php echo $excerpt ; ?>
+
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
-          <a class="link-text-big" href="#"><span> Read More Here</span><span class="primary__header-arrow"> 
+          <a class="link-text-big" href="#"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
@@ -108,8 +95,6 @@ Students are immersed in creative settings, where teamwork is valued, with an em
    
   </div>
 </section>
-
-
 
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
@@ -146,7 +131,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
   </div>
   </div>
   <div class="link-div" style="align-items: center; margin-top: 0;">
-    <a class="link-text-big" href="#"><span> Read More Here</span><span class="primary__header-arrow"> 
+    <a class="link-text-big" href="#"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
     </span> </a>
     
@@ -158,7 +143,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
   <div class="container grid grid--2-cols">
     <div class="course-head">
       <h2 class="section-intro-header-text" style= "color:white; font-size: 6.2rem; margin-top: 5%;"  >
-        Study options  
+      <?php echo __('Study options', 'srft-theme' ); ?>  
       </h2>
     </div>
     <div class="course-text">
@@ -166,7 +151,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
         <a class="button-link-course" href="pgcinema.html">
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-        </div>Post Graduate Programme in Cinema&nbsp;
+        </div><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?> &nbsp;
       </a>
         </div>
 
@@ -174,7 +159,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
           <a class="button-link-course" href="pgcinema.html">
             <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-          </div>Post Graduate Programme in EDM&nbsp;
+          </div><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?> &nbsp;
         </a>
           </div>
 
@@ -182,11 +167,9 @@ Students are immersed in creative settings, where teamwork is valued, with an em
             <a class="button-link-course" href="pgcinema.html">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-            </div>Short Courses&nbsp;
+            </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
           </a>
             </div>
-        
-          
           
   </div>
 </section>
@@ -197,7 +180,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
 
   <div style="margin-top: 3.2rem">
     <h2 class="section-intro-header-text" style="padding-left: 0; ">
-      Notable Alumni    </h2>
+    <?php echo __('Notable Alumni', 'srft-theme' ); ?>    </h2>
     <div class="alumni">
       <div class="nonstatic owl-carousel">
         <div class="alumni-item">
@@ -332,7 +315,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
     </div>
     <div class="link-div" style="align-items: center;>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
       <div class="link-div" style="align-items: center; margin-top: 0;">
-        <a class="link-text-big" href="#"><span> Read Alumni News</span><span class="primary__header-arrow"> 
+        <a class="link-text-big" href="#"><span><?php echo __('Read Alumni News', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
         </span>
       </a>
@@ -345,7 +328,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
   <section class="section-home" style="background-color: rgb(228, 118, 15);
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">
     <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
-    <h2 class="section-intro-header-text" style="padding-left: 0; color: white ">Award Winnng Student Films</h2>
+    <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winnng Student Films', 'srft-theme' ); ?></h2>
     <div class="frame">
     <div class="static owl-carousel">
     <?php
@@ -386,19 +369,17 @@ Students are immersed in creative settings, where teamwork is valued, with an em
   </section>
 
 
-
-
     <section class="section-home" style="background-color: #f0e9e9;"  >
       <div class="section-intro-header">
         <h2 class="section-intro-header-text" style="padding-left: 0; ">
-          Media gallery  </h2>
+        <?php echo __('Media gallery', 'srft-theme' ); ?>  </h2>
       </div>
       <div class="container" style="display:flex; padding:24px; max-width: 1450px;">     
         <div class="img_card">
           <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="events">
             <img alt="Events & Festvals" width="302" height="416"  class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
                       <div class="img_caption" >
-                        <p class="img-caption-text">Events & Festivals</p>
+                        <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme' ); ?></p>
                       </div></a>
                 </div>
 
@@ -406,26 +387,26 @@ Students are immersed in creative settings, where teamwork is valued, with an em
                   <a href="<?php bloginfo('template_url'); ?>/images/animation_cinema.png" data-lightbox="workshops">
                     <img alt="Master Classess & workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
                   <div class="img_caption">
-                    <p class="img-caption-text">Master Classess & workshops</p>
+                    <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
                   </div></a>
                 </div>
 
             <div class="img_card">
               <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="stills"><img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/still_sf.jpg">
               <div class="img_caption">
-                <p class="img-caption-text">Still from Students Film</p>
+                <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
               </div></a>
             </div>
         <div class="img_card">
           <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="moments"><img alt="Campus moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar Retro.JPG">
           <div class="img_caption" >
-            <p class="img-caption-text">Campus moments</p>
+            <p class="img-caption-text"><?php echo __('Campus moments', 'srft-theme' ); ?></p>
           </div></a>
       </div>
     <div class="img_card">
       <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="news"><img alt="SRFTI in News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
       <div class="img_caption">
-        <p class="img-caption-text">SRFTI in News &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       </div></a>
     </div>
     </div>
@@ -477,11 +458,11 @@ Students are immersed in creative settings, where teamwork is valued, with an em
   <div class="updates-container">
   <div class="section-intro-header">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
-      Updates    </h2>
+    <?php echo __('Updates', 'srft-theme' ); ?>    </h2>
   </div>
 <div class="box-container" style="display:flex;">  
 <div class="cell">
-<span class="update-title">Announcements</span>
+<span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
     $category_posts = new WP_Query(array(
         'category_name' => 'announcement', // Replace with your category slug
@@ -500,11 +481,11 @@ Students are immersed in creative settings, where teamwork is valued, with an em
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-  <div class="link-span"><a  href="#"">More</a></div>
+  <div class="link-span"><a  href="#""><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
   <div class="cell">
-  <span class="update-title">Tender</span>
+  <span class="update-title"><?php echo __('Tender', 'srft-theme' ); ?></span>
   <?php
     $category_posts = new WP_Query(array(
         'category_name' => 'tender', // Replace with your category slug
@@ -523,11 +504,11 @@ Students are immersed in creative settings, where teamwork is valued, with an em
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-    <div class="link-span"><a  href="#"">More</a></div>
+    <div class="link-span"><a  href="#""><?php echo __('More', 'srft-theme' ); ?></a></div>
   </div>
   
       <div class="cell">
-      <span class="update-title">Vacancy</span>
+      <span class="update-title"><?php echo __('Vacancy', 'srft-theme' ); ?></span>
       <?php
     $category_posts = new WP_Query(array(
         'category_name' => 'vacancy', // Replace with your category slug
@@ -546,7 +527,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-        <div class="link-span"><a  href="#">More</a></div>
+        <div class="link-span"><a  href="#"><?php echo __('More', 'srft-theme' ); ?></a></div>
       </div>
       
 </div>
@@ -554,5 +535,7 @@ Students are immersed in creative settings, where teamwork is valued, with an em
 </div>
 </section>
 
+<?php
+get_footer(); 
+?>
 
-<?php get_footer(); ?>

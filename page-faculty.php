@@ -34,6 +34,12 @@ get_header();
                 <option value="Editing">Editing</option>
                 <option value="PFT">Producing for Film & Television</option>
                 <option value="SRD">Sound Recording & Design</option>
+                <option value="EDMM">EDM Management</option>
+                <option value="EDMC">Cinematography for EDM</option>
+                <option value="EDMDP">Direction & Producing for EDM</option>
+                <option value="EDME">Editing for EDM</option>
+                <option value="EDMS">Sound for EDM</option>
+                <option value="EDMW">Writing for EDM</option>
             </select>
         
             <ul class="alphabet">

@@ -678,6 +678,8 @@ function twentytwentyone_the_html_classes() {
 
 
 
+
+
 /*function srft_theme_load_theme_textdomain() {
 	load_theme_textdomain( 'srft-theme', get_template_directory() . '/languages' );
 }
@@ -714,3 +716,28 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+function custom_post_type_news() {
+	register_post_type('news', array(
+			'labels' => array(
+					'name' => __('News'),
+					'singular_name' => __('News'),
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'news'),
+	));
+}
+add_action('init', 'custom_post_type_news');
+
+function set_custom_template($single_template) {
+	global $post;
+
+	if ($post->post_type == 'news') {
+			$single_template = dirname(__FILE__) . '/single-news.php';
+	}
+
+	return $single_template;
+}
+add_filter('single_template', 'set_custom_template');
+add_post_type_support( 'page', 'excerpt' );

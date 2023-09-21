@@ -147,11 +147,10 @@
        </div>
          <div>
              <ul style="display:flex;">
-             <li><a>webmail &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+             <li><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
-             <li><a>ehrms</a></li>
-             <li><a>हिन्दी &nbsp;<i class="fa-solid fa-language" aria-hidden="true"></i></a></li>
-             <li><?php if (function_exists('pll_the_languages')) : ?>
+             <li><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
+             <li><a><i class="fa-solid fa-language" aria-hidden="true"></i><?php if (function_exists('pll_the_languages')) : ?></a></li>
     <div id="language-switcher">
         <?php
         pll_the_languages(
@@ -174,9 +173,9 @@
     </div>
 <?php endif; ?></li>
              <li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>
-             <li><a>Screen Reader</a></li>
-             <li><a>Skip to main content</a></li>
-             <li><a>Contact Us</a></li>
+             <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
+             <li><a><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li><a><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
          </div>
          
@@ -194,7 +193,7 @@
 
         <div class="logo-container">
           <div> <a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>
-          <h3 class="logo_frame">SRFTI</span></h3>
+          <h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>
         </div>
 
         <div class="menu-btn">

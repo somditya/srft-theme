@@ -40,6 +40,7 @@ get_header();
                   <div class="Rtable-cell topic-cell column-heading">Tender Title</div>
                   <div class="Rtable-cell date-cell column-heading">Due Date</div>
                   <div class="Rtable-cell access-link-cell column-heading">Access Link</div>
+                  <div class="Rtable-cell access-link-cell column-heading">Tender Status</div>
                 </div>
 
                 <div class="Rtable-row" ng-repeat="tender in pagedTender">
@@ -57,6 +58,10 @@ get_header();
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
+                  </div>
+                  <div class="Rtable-cell access-link-cell">
+                    <div class="Rtable-cell--content access-link-content"> <p ng-if="isSubmissionOpen">Submission is open.</p>
+        <p ng-if="!isSubmissionOpen">Submission is closed.</p></div>
                   </div>
                 </div>
               </div>
@@ -80,6 +85,7 @@ get_header();
   <li ng-class="{ 'disabled': currentPage === totalPages }">
     <a href="#" ng-click="lastPage()"><i class="fas fa-step-forward"  style="color: #8b5b2b;"></i></a>
   </li>
+  
 </ul>
           </div>
         </div>
@@ -99,16 +105,20 @@ get_header();
         $scope.toDate = '';
         $scope.itemsPerPage = 2;
         $scope.currentPage = 1;
+        $scope.currentDate = new Date();
 
         // Fetch the data
         $http.get('http://localhost/wordpress/wp-json/wp/v2/posts?categories=45')
           .then(function (response) {
             $scope.tenderList = response.data.map(function (post) {
+              var isSubmissionOpen = new Date(post.subdate) > $scope.currentDate;
               return {
                 title: post.title.rendered || '',
                 link: post.link,
                 ID: post.id,
-                subdate: post.date // Keep it as is
+                //subdate: post.Tender-Submission-Date, // Keep it as is
+                subdate: post.date,
+                isSubmissionOpen: isSubmissionOpen
               };
             });
 

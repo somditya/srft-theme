@@ -41,23 +41,23 @@ $seats=get_post_meta($page_id, 'Seats', true);
    <div class="childnavs">
      <ul class="childnav-lists">
        <li class="childnav-list-item">
-         <a class="item">Prospectus</a>
+         <a class="item"> <a class="item"><?php echo __('Prospectus', 'srft-theme' ); ?></a>
        </li>
        <li class="childnav-list-item">
-         <a class="item"><span class="">Scholarship</span></a>
+         <a class="item"><span class=""><?php echo __('Scholarship', 'srft-theme' ); ?></span></a>
        </li>
        <li class="childnav-list-item">
-         <a class="item">Academic Calendar</a>
+         <a class="item"><?php echo __('Academic Calendar', 'srft-theme' ); ?></a>
        </li>
        <li class="childnav-list-item">
-         <a class="item">Academic By-law</a>
+         <a class="item"><?php echo __('Academic By-law', 'srft-theme' ); ?></a>
        </li>
      </ul>
    </div>
 
    <div class="widget">
      <div class="widget-content">
-       <h2>Course Duration</h2>
+       <h2><?php echo __('Course Duration', 'srft-theme' ); ?></h2>
        <hr />
        <div>
          <p> <?php if (!empty($duration)) {
