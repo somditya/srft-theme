@@ -59,7 +59,7 @@ get_header();
             </div>
             </div>
             <div class="sub-intro-text" >
-             <div class="sub-intro-text-head">History</div>
+             <div class="sub-intro-text-head"><?php echo __('History', 'srft-theme'); ?></div>
             
              <div class="sub-intro-text-description" >
               <p>Satyajit Ray Film & Television Institute, popularly known as SRFTI, was established in 1995 by the Government of India as an autonomous academic institution under the Ministry of Information & Broadcasting. The institute is registered under the West Bengal Society Registration Act, 1961.</p>
