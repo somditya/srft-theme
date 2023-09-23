@@ -72,7 +72,7 @@
         </div>-->
     </div>
     <div class="footer_copyright_container">©2023 Satyajit Ray Film & Television Institute</div>
-		<script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
+    <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.waypoints.js"></script>
     <script>
     lightbox.option({
@@ -187,6 +187,15 @@ $(document).ready(function(){
 
     keyboard: true,
   });
+</script>
+<script>
+$(document).ready(function () {
+  $(".single-image").click(function(){
+    var t = $(this).attr("src");
+    $(".modal-body").html("<img src='"+t+"' class='modal-img'>");
+    $("#myModal").modal();
+  });
+});
 </script>
 
 

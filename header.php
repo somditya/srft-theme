@@ -35,13 +35,14 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
     <link href="https://fonts.cdnfonts.com/css/helmet" rel="stylesheet">
-                
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>           
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
     <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://fonts.cdnfonts.com/css/trajan-pro" rel="stylesheet">             
@@ -82,7 +83,7 @@
             <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1>Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
-              <h2>An autonomous body under ministry of information & broadcasting Govt of India</h2>
+              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
             </div>
           </div>
           
@@ -97,7 +98,7 @@
           <div class="swipper-title">
             <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1>Satyajit Ray Film & Television Institute</h1>
-            <div class="swipper-subtitle"><h2>An autonomous body under ministry of information & broadcasting Govt of India</h2></div>
+            <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
           </div>
           
          
@@ -112,7 +113,7 @@
          <div class="swipper-title">
           <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
           <h1>Satyajit Ray Film & Television Institute</h1>
-          <div class="swipper-subtitle"><h2>An autonomous body under ministry of information & broadcasting Govt of India</h2></div>
+          <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
         </div>
           
          </div>
@@ -126,7 +127,7 @@
          <div class="swipper-title">
           <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
           <h1>Satyajit Ray Film & Television Institute</h1>
-          <div class="swipper-subtitle"><h2>An autonomous body under ministry of information & broadcasting Govt of India</h2></div>
+          <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
         </div>
           
          </div>
@@ -203,91 +204,66 @@
                 <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#">About <i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
+                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#">History</a>
+                      <a href="#"><?php echo __('About', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Leadership</a>
+                      <a href="#"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Management</a>
+                      <a href="#"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#">Campus</a>
+                      <a href="#"><?php echo __('campus', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#">Academics<i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Academics', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#">Post Graduate Programmes</a>
+                      <a href="#"><?php echo __('Post Graduate Programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Certficate Programmes</a>
+                      <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#">Faculty</a>
+                      <a href="#"><?php echo __('Faculty', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#">Admission<i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Admission', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#">Course Overview</a>
+                      <a href="#"><?php echo __('Course Overview', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Essental Qualification</a>
-                    </li>
-                   
-                    <li class="dropdown-link">
-                      <a href="#">Admission Process</a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#">International students</a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#">Fee Structure</a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#">Previous Year Papers</a>
-                    </li>
-                    <div class="arrow"></div>
-                  </ul>
-                </div>
-              
-              </li>
-              <li class="nav-link" style="--i: 1.35s">
-                <a href="#">Facilities<i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul>
-                    <li class="dropdown-link">
-                      <a href="#">Library</a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#">Screening facilities</a>
+                      <a href="#"><?php echo __('Essental Qualification', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#">IT Infrastrure</a>
+                      <a href="#"><?php echo __('Admission Process', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">International students</a>
+                      <a href="#"><?php echo __('International students', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Accomodation</a>
+                      <a href="#"><?php echo __('Fee Structure', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('Previous Year Papers', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
@@ -295,30 +271,55 @@
               
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#">Students<!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
+                <a href="#"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <div class="dropdown">
+                  <ul>
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('Library', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
+                    </li>
+                   
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('International students', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="#"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
+                    </li>
+                    <div class="arrow"></div>
+                  </ul>
+                </div>
+              
+              </li>
+              <li class="nav-link" style="--i: 1.35s">
+                <a href="#"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
                
               
               </li>
              
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#">Resources<i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Resources', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#">Committees</a>
+                      <a href="#"><?php echo __('Committees', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#">Tenders</a>
+                      <a href="#"><?php echo __('Tenders', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">RTI</a>
+                      <a href="#"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Citizen Charter</a>
+                      <a href="#"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#">Online Fee deposit</a>
+                      <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>
                     </li>
                     
                     <div class="arrow"></div>

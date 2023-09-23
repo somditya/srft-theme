@@ -6,6 +6,7 @@ Template Name: Home
 
  get_header();
  $excerpt = get_the_excerpt();
+ $current_language = get_locale();
 ?>
 
 <main>
@@ -28,9 +29,18 @@ Template Name: Home
 
     $post_id = get_the_ID();
     $post_content = apply_filters('the_content', $post->post_content);
-    $category_posts = new WP_Query(array(
-        'category_name' => 'news-hi', // Replace with your category slug
-    ));
+    
+    if ($current_language === 'en_US') {
+      $catslug='news-en'; 
+     }
+      else
+      {
+        $catslug='news-hi';
+      }
+      $category_posts = new WP_Query(array(
+          'category_name' => $catslug, // Replace with your category slug
+      ));
+  
 
     if ($category_posts->have_posts()) :
         while ($category_posts->have_posts()) : $category_posts->the_post();
@@ -332,8 +342,15 @@ Template Name: Home
     <div class="frame">
     <div class="static owl-carousel">
     <?php
+    if ($current_language === 'en_US') {
+    $catslug='film-en'; 
+   }
+    else
+    {
+      $catslug='film-hi';
+    }
     $category_posts = new WP_Query(array(
-        'category_name' => 'film', // Replace with your category slug
+        'category_name' => $catslug, // Replace with your category slug
     ));
 
     if ($category_posts->have_posts()) :
