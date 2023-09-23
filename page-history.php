@@ -46,11 +46,11 @@ get_header();
         </div>
 
         <div class="main-content">
-          <section class="page-title">
+          
             <div>
               <p class="office-header-text">About the Institute</p>
             </div>
-          </section>
+          
           <div class="intro"></div>
           <section class="sub-intro">
             <div class="sub-intro-images" >
@@ -70,7 +70,9 @@ get_header();
             </div>
           </section>
 
-
+          <div>
+              <p class="office-header-text"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
+            </div>
         <scction class="one-flex" >
         <div class="container">
 	<div class="gallery">
@@ -93,7 +95,7 @@ get_header();
 
         </scction>
         <scction class="one-flex" style="margin: 10px;" >
-          <video autoplay="true" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true" playsinline="true" poster="#" width="100%">
+          <video autoplay="false" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true" playsinline="true" poster="#" width="100%">
             <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">
           </video>
         </scction>
@@ -102,11 +104,11 @@ get_header();
         </section>
     </main>
 
-    <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-      </div>
+    <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-body">
+      <!-- Modal content goes here -->
     </div>
   </div>
 </div>
