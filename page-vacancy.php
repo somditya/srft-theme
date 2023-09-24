@@ -8,20 +8,34 @@ Template Name: Vacancy
 
 <?php
 get_header(); 
+
+function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	$cat = get_term_by( 'name', $cat_name, 'category' );
+
+	if ( $cat ) {
+		return $cat->term_id;
+	}
+
+	return 0;
+}
+
+$category_name = 'vacancy'; // Ensure this matches the exact category name.
+$category_id = get_category_ID($category_name);
 ?>
+
 
 
 <body ng-controller="VacancyController">
   <main>
     <section class="cine-header">
       <div class="page-banner">
-        <div class="page-banner-title">Vacancy</div>
+        <div class="page-banner-title"><?php echo __('Vacancy', 'srft-theme' ); ?></div>
       </div>
     </section>
 
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-        <h2 class="section-intro-header-text" style="padding-left: 0;">Vanancy List</h2>
+        <h2 class="section-intro-header-text" style="padding-left: 0;"><?php echo __('Vacancy List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">
             <p style="padding: 15px;">
@@ -29,16 +43,16 @@ get_header();
               To date: <input type="date" ng-model="toDate" ng-change="applyFilters()">
               <input type="text" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
-              <button ng-click="resetFilters()">Reset</button>
+              <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </p>
             <div class="wrapper">
               <div class="Rtable Rtable--5cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell slno-cell column-heading">SL.No.</div>
-                  <div class="Rtable-cell id-cell column-heading">Recruitment ID</div>
-                  <div class="Rtable-cell topic-cell column-heading">Recruitment for</div>
-                  <div class="Rtable-cell date-cell column-heading">Last Date to Apply</div>
-                  <div class="Rtable-cell access-link-cell column-heading">Access Link</div>
+                  <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Last Date to Apply', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
                 </div>
 
                 <div class="Rtable-row" ng-repeat="vacancy in pagedVacancy">
@@ -87,6 +101,8 @@ get_header();
   </main>
 
   <script>
+    var categoryID = <?php echo json_encode($category_id); ?>;
+     var siteURL = '<?php echo esc_url(site_url('/')); ?>';
     angular.module('myApp', [])
       .controller('VacancyController', function ($scope, $http, $filter) {
         // Initialize the tenderList
@@ -100,7 +116,7 @@ get_header();
         $scope.currentPage = 1;
 
         // Fetch the data
-        $http.get('http://localhost/wordpress/wp-json/wp/v2/posts?categories=51')
+        $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID)
           .then(function (response) {
             $scope.vacancyList = response.data.map(function (post) {
               return {

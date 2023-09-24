@@ -35,24 +35,24 @@ $category_id = get_category_ID($category_name);
 
       <section class="section-home">
         <div class="container" style="width: 1170px;">
-          <h2 class="section-intro-header-text" style="padding-left: 0; ">Meet our Faculty</h2>
+          <h2 class="section-intro-header-text" style="padding-left: 0; "><?php echo __('Meet our Faculty', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController">
             <!-- Filter options -->
-            <label for="filter">Programmes:</label>
+            <label for="filter"><?php echo __('Meet our Faculty', 'srft-theme' ); ?>Programmes:</label>
             <select class="filter" ng-model="filterField">
-                <option value="">All</option>
-                <option value="Animation Cinema">Animation Cinema</option>
-                <option value="Cinematography">Cinematography</option>
-                <option value="DirSPW">Direction & Screenplay Writing</option>
-                <option value="Editing">Editing</option>
-                <option value="PFT">Producing for Film & Television</option>
-                <option value="SRD">Sound Recording & Design</option>
-                <option value="EDMM">EDM Management</option>
-                <option value="EDMC">Cinematography for EDM</option>
-                <option value="EDMDP">Direction & Producing for EDM</option>
-                <option value="EDME">Editing for EDM</option>
-                <option value="EDMS">Sound for EDM</option>
-                <option value="EDMW">Writing for EDM</option>
+                <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
+                <option value="Animation Cinema"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
+                <option value="Cinematography"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
+                <option value="DirSPW"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
+                <option value="Editing"><?php echo __('Editing', 'srft-theme' ); ?></option>
+                <option value="PFT"><?php echo __('Producing for Film & Television', 'srft-theme' ); ?></option>
+                <option value="SRD"><?php echo __('Sound Recording & Design', 'srft-theme' ); ?></option>
+                <option value="EDMM"><?php echo __('EDM Management', 'srft-theme' ); ?></option>
+                <option value="EDMC"><?php echo __('Cinematography for EDM', 'srft-theme' ); ?></option>
+                <option value="EDMDP"><?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?></option>
+                <option value="EDME"><?php echo __('Editing for EDM', 'srft-theme' ); ?></option>
+                <option value="EDMS"><?php echo __('Sound for EDM', 'srft-theme' ); ?></option>
+                <option value="EDMW"><?php echo __('Writing for EDM', 'srft-theme' ); ?></option>
             </select>
         
             <ul class="alphabet">
@@ -87,13 +87,15 @@ $category_id = get_category_ID($category_name);
   
        
         <script>
-             var categoryID = <?php echo $category_id; ?>;
-             alert(categoryID);
+             var categoryID = <?php echo json_encode($category_id); ?>;
+             var siteURL = '<?php echo esc_url(site_url('/')); ?>';
+             
     angular.module('myApp', [])
 .controller('FacultyController', function($scope, $http) {
     // Initialize the faculty data (replace this with your actual data)
-    $http.get('http://localhost/wp-json/wp/v2/posts?58')
+    $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID)
     .then(function (response) {
+        console.log('HTTP request success');
         // Map the retrieved data to the format you want in $scope.facultyList
         $scope.facultyList = response.data.map(function (post) {
             return {
@@ -107,7 +109,7 @@ $category_id = get_category_ID($category_name);
 
         angular.forEach($scope.facultyList, function(faculty) {
             if (faculty.featured_media) {
-                $http.get('http://localhost/wordpress/wp-json/wp/v2/media/' + faculty.featured_media)
+                $http.get('http://localhost/wp-json/wp/v2/media/' + faculty.featured_media)
                     .then(function(imageResponse) {
                         faculty.image = imageResponse.data.source_url;
                         console.log('Image Loaded for:', faculty.name);

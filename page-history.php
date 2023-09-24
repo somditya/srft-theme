@@ -29,13 +29,13 @@ $page_content = apply_filters('the_content', $post->post_content);
               <a class="item"><?php echo __('The Leaderships', 'srft-theme'); ?></a>
             </li>
             <li class="childnav-list-item">
-              <a class="item"><?php echo __('Administrative Structure', 'srft-theme'); ?></a>
+              <a class="item"><?php echo __('Management', 'srft-theme'); ?></a>
               </li>
               <li class="childnav-list-item">
                 <a class="item"><?php echo __('Organization Structure', 'srft-theme'); ?></a>
                 </li>
                 <li class="childnav-list-item">
-                  <a class="item"><?php echo __('Important Committee', 'srft-theme'); ?></a>
+                  <a class="item"><?php echo __('Important Committees', 'srft-theme'); ?></a>
                 </li>
                 <li class="childnav-list-item">
                   <a class="item"><?php echo __('Annual Reports', 'srft-theme'); ?></a>

@@ -211,14 +211,20 @@
                     <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('About', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/leadership/')); ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
+                    <li class="dropdown-link">
+                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Organization Structure', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
+                    </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('campus', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>

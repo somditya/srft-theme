@@ -7,8 +7,22 @@ Template Name: Tender
 
 ?>
 
+
 <?php
 get_header(); 
+
+function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	$cat = get_term_by( 'name', $cat_name, 'category' );
+
+	if ( $cat ) {
+		return $cat->term_id;
+	}
+
+	return 0;
+}
+
+$category_name = 'tender'; // Ensure this matches the exact category name.
+$category_id = get_category_ID($category_name);
 ?>
 
 
@@ -16,13 +30,13 @@ get_header();
   <main>
     <section class="cine-header">
       <div class="page-banner">
-        <div class="page-banner-title">Tender</div>
+        <div class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></div>
       </div>
     </section>
 
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-        <h2 class="section-intro-header-text" style="padding-left: 0;">Tender List</h2>
+        <h2 class="section-intro-header-text" style="padding-left: 0;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="TenderController">
             <p style="padding: 15px;">
@@ -35,12 +49,12 @@ get_header();
             <div class="wrapper">
               <div class="Rtable Rtable--5cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell slno-cell column-heading">SL.No.</div>
-                  <div class="Rtable-cell id-cell column-heading">Tender ID</div>
-                  <div class="Rtable-cell topic-cell column-heading">Tender Title</div>
-                  <div class="Rtable-cell date-cell column-heading">Due Date</div>
-                  <div class="Rtable-cell access-link-cell column-heading">Access Link</div>
-                  <div class="Rtable-cell access-link-cell column-heading">Tender Status</div>
+                  <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell id-cell column-heading"><?php echo __('Tender ID', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell topic-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
                 </div>
 
                 <div class="Rtable-row" ng-repeat="tender in pagedTender">
@@ -94,7 +108,9 @@ get_header();
   </main>
 
   <script>
-    angular.module('myApp', [])
+     var categoryID = <?php echo json_encode($category_id); ?>;
+     var siteURL = '<?php echo esc_url(site_url('/')); ?>';
+      angular.module('myApp', [])
       .controller('TenderController', function ($scope, $http, $filter) {
         // Initialize the tenderList
         $scope.tenderList = [];
@@ -108,7 +124,7 @@ get_header();
         $scope.currentDate = new Date();
 
         // Fetch the data
-        $http.get('http://localhost/wordpress/wp-json/wp/v2/posts?categories=45')
+        $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID)
           .then(function (response) {
             $scope.tenderList = response.data.map(function (post) {
               var isSubmissionOpen = new Date(post.subdate) > $scope.currentDate;
