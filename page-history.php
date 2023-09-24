@@ -4,6 +4,8 @@ Template Name: About
 
  */
 get_header(); 
+$post_id = get_the_ID();
+$page_content = apply_filters('the_content', $post->post_content);
 ?>
 <main>
       <body>
@@ -21,22 +23,22 @@ get_header();
         <div class="childnavs">
           <ul class="childnav-lists">
             <li class="childnav-list-item">
-              <a class="item">About</a>
+              <a class="item"><?php echo __('About', 'srft-theme'); ?></a>
             </li>
             <li class="childnav-list-item">
-              <a class="item">The Leaderships</a>
+              <a class="item"><?php echo __('The Leaderships', 'srft-theme'); ?></a>
             </li>
             <li class="childnav-list-item">
-              <a class="item">Administrative Structure</a>
+              <a class="item"><?php echo __('Administrative Structure', 'srft-theme'); ?></a>
               </li>
               <li class="childnav-list-item">
-                <a class="item">Organization Structure</a>
+                <a class="item"><?php echo __('Organization Structure', 'srft-theme'); ?></a>
                 </li>
                 <li class="childnav-list-item">
-                  <a class="item">Important Committee</a>
+                  <a class="item"><?php echo __('Important Committee', 'srft-theme'); ?></a>
                 </li>
                 <li class="childnav-list-item">
-                  <a class="item">Annual Reports</a>
+                  <a class="item"><?php echo __('Annual Reports', 'srft-theme'); ?></a>
                 </li>
           </ul>
         </div>
@@ -47,11 +49,8 @@ get_header();
 
         <div class="main-content">
           
-            <div>
-              <p class="office-header-text">About the Institute</p>
-            </div>
-          
-          <div class="intro"></div>
+           
+              <p class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></p>
           <section class="sub-intro">
             <div class="sub-intro-images" >
             <div>
@@ -59,19 +58,17 @@ get_header();
             </div>
             </div>
             <div class="sub-intro-text" >
-             <div class="sub-intro-text-head"><?php echo __('History', 'srft-theme'); ?></div>
+             <!--<div class="sub-intro-text-head"><?php echo __('History', 'srft-theme'); ?></div>-->
             
              <div class="sub-intro-text-description" >
-              <p>Satyajit Ray Film & Television Institute, popularly known as SRFTI, was established in 1995 by the Government of India as an autonomous academic institution under the Ministry of Information & Broadcasting. The institute is registered under the West Bengal Society Registration Act, 1961.</p>
-
-              <p>The inaugural session commenced on September 1, 1996, offering four specializations. Subsequently, in 2017, the institute introduced its Electronics & Digital Media Wing, incorporating six additional courses.</p>
+             <?php echo $page_content; ?>
 
             </div>
             </div>
           </section>
 
           <div>
-              <p class="office-header-text"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
+              <p class="page-header-text"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
             </div>
         <scction class="one-flex" >
         <div class="container">
@@ -94,6 +91,7 @@ get_header();
  
 
         </scction>
+        <div><p class="page-header-text"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>
         <scction class="one-flex" style="margin: 10px;" >
           <video autoplay="false" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true" playsinline="true" poster="#" width="100%">
             <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">

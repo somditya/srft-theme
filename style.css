@@ -2305,7 +2305,6 @@ transform: rotate(90deg);
 .sub-intro {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
 }
 
 .sub-intro-images {
@@ -2677,16 +2676,11 @@ transform: scale(1.2);
 }
 
 /*   Admin Pages */
-.office-header {
-  background-image: url("https://mc-1b49d921-43a2-4264-88fd-647979-cdn-endpoint.azureedge.net/-/jssmedia/project/uchicago-tenant/president/rubensteinforum-byjasonsmith-1550.png");
-  background-position: 50%;
-  background-size: cover;
-  height: 400px;
-  color: #4d4d4d;
-}
 
-.office-header-text {
-  margin-top: 40px;
+
+.page-header-text {
+  /*margin-top: 40px;*/
+  margin-bottom: 1.4rem;
   color: #8b5b2b;
   font-size: 30px;
   font-family: GthA;

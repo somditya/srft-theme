@@ -678,6 +678,12 @@ function twentytwentyone_the_html_classes() {
 
 
 
+function register_custom_menu() {
+	register_nav_menu('custom-menu', __('Custom Menu'));
+}
+add_action('init', 'register_custom_menu');
+
+
 
 
 /*function srft_theme_load_theme_textdomain() {

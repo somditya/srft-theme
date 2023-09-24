@@ -48,7 +48,7 @@ Template Name: Home
     
       <div class="news-item">
       <a href="<?php the_permalink(); ?>" target="_blank">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?> ?>" style="display: block;">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="display: block;">
       <div class="news-item-title">
         <h3 href="#"><?php the_title(); ?></h3>
         <p><?php echo $post_content; ?></p>
@@ -359,7 +359,7 @@ Template Name: Home
     
       <div class="news-item">
       <a href="<?php the_permalink(); ?>" target="_blank">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?> ?>" style="display: block;">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="display: block;">
       <div class="news-item-title">
         <h3 href="#"><?php the_title(); ?></h3>
         <p><?php echo get_post_meta(get_the_ID(), 'Award', true); ?></p>
