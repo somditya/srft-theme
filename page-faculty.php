@@ -10,23 +10,19 @@ Template Name: Faculty
 <?php
 get_header(); 
 
-function get_category_id_by_name($category_name) {
-    // Find the category by name.
-    $category = get_term_by('name', $category_name, 'category');
+function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	$cat = get_term_by( 'name', $cat_name, 'category' );
 
-    if ($category) {
-        return $category->term_id;
-    } else {
-        return 0; // Return 0 or any other value to indicate that the category was not found.
-    }
+	if ( $cat ) {
+		return $cat->term_id;
+	}
+
+	return 0;
 }
 
-$category_id = get_category_id_by_name('faculty');
+$category_name = 'faculty'; // Ensure this matches the exact category name.
+$category_id = get_category_ID($category_name);
 ?>
-
-<script>
-    var categoryID = <?php echo $category_id; ?>;
-</script>
 
 <body ng-controller="FacultyController">
     
@@ -91,10 +87,12 @@ $category_id = get_category_id_by_name('faculty');
   
        
         <script>
+             var categoryID = <?php echo $category_id; ?>;
+             alert(categoryID);
     angular.module('myApp', [])
 .controller('FacultyController', function($scope, $http) {
     // Initialize the faculty data (replace this with your actual data)
-    $http.get('http://localhost/wp-json/wp/v2/posts?categories=5')
+    $http.get('http://localhost/wp-json/wp/v2/posts?58')
     .then(function (response) {
         // Map the retrieved data to the format you want in $scope.facultyList
         $scope.facultyList = response.data.map(function (post) {
