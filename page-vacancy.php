@@ -35,7 +35,7 @@ $category_id = get_category_ID($category_name);
 
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-        <h2 class="section-intro-header-text" style="padding-left: 0;"><?php echo __('Vacancy List', 'srft-theme' ); ?></h2>
+        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Vacancy List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">
             <p style="padding: 15px;">
@@ -51,7 +51,7 @@ $category_id = get_category_ID($category_name);
                   <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Last Date to Apply', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
                 </div>
 
@@ -66,7 +66,7 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
                   </div>
                   <div class="Rtable-cell date-cell">
-                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ vacancy.subdate | date:'yyyy-MM-dd' }}</span></div>
+                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ vacancy.subdate | date:'dd-MM-yyyy' }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> Visit</a></div>

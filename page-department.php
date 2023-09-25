@@ -41,7 +41,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    <div class="childnavs">
      <ul class="childnav-lists">
        <li class="childnav-list-item">
-         <a class="item"> <a class="item"><?php echo __('Prospectus', 'srft-theme' ); ?></a>
+         <a class="item"><?php echo __('Prospectus', 'srft-theme' ); ?></a>
        </li>
        <li class="childnav-list-item">
          <a class="item"><span class=""><?php echo __('Scholarship', 'srft-theme' ); ?></span></a>
@@ -68,7 +68,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
    <div class="widget">
      <div class="widget-content">
-       <h2>Total No. of Seats</h2>
+       <h2><?php echo __('Total No. of Seats', 'srft-theme' ); ?></h2>
        <hr />
        <div>
          <p> <?php if (!empty($seats)) {
@@ -79,7 +79,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
    <div class="widget">
      <div class="widget-content">
-       <h2>Elibility Criteria</h2>
+       <h2><?php echo __('Elibility Criteria', 'srft-theme' ); ?></h2>
        <hr />
        <div>
          <p>Bachelor’s Degree in any discipline.</p>
@@ -96,9 +96,9 @@ $seats=get_post_meta($page_id, 'Seats', true);
  </div>
 
  <div class="main-content">
-   <div style="margin-top: 3.2rem">
-     <h2 class="section-intro-header-text" style="padding-left: 0; ">
-       About the department
+   <div style="margin-top: 0rem">
+     <h2 class="page-header-text" style="padding-left: 0; ">
+     <?php echo __('About the department', 'srft-theme' ); ?>
      </h2>
      <?php if (!empty($about)) {
     echo $about;
@@ -109,8 +109,8 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
 
    <div style="margin-top: 3.2rem">
-     <h2 class="section-intro-header-text" style="padding-left: 0; ">
-       Course objective
+     <h2 class="page-header-text" style="padding-left: 0; ">
+     <?php echo __('Course objective', 'srft-theme' ); ?>
      </h2>
 
      <?php if (!empty($objective)) {
@@ -122,8 +122,8 @@ $seats=get_post_meta($page_id, 'Seats', true);
   
 
 <div style="margin-top: 3.2rem;">
-    <h2 class="section-intro-header-text" style="padding-left: 0;">
-        Faculty & Academic Support Staff</h2>
+    <h2 class="page-header-text" style="padding-left: 0;">
+    <?php echo __('Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
     <section class="faculty">
         <div class="faculty-img">
             <ul>
@@ -151,7 +151,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
   ?>
                   <li>
                       <a href="<?php the_permalink(); ?>" target="_blank">
-                      <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" width="220" height="220" alt="" />
+                      <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"  alt="" />
 
                           <h4><?php the_title(); ?></h4>
                           <span><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></span>
@@ -167,7 +167,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
             </ul>
         </div>
         <div class="link-span" style="margin-top: 0;">
-            <a href="#">Learn More About Them</a>
+            <a href="#"> <?php echo __('Learn More About Them', 'srft-theme' ); ?></a>
         </div>
     </section>
 </div>
@@ -179,10 +179,10 @@ $seats=get_post_meta($page_id, 'Seats', true);
      <div class="box-container" style="width: 100%">
        <div class="facility-text-box">
          <div
-           class="section-intro-header-text"
-           style="padding-left: 0;font-size: 3.2rem;"
+           class="page-header-text"
+           style="padding-left: 0;"
          >
-          Facilities
+         <?php echo __('Facilities', 'srft-theme' ); ?>
          </div>
          <div>
            <ul>
@@ -206,13 +206,13 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
 
 <div style="margin-top: 3.2rem">
-<h2 class="section-intro-header-text" style="padding-left: 0; ">
-Visiting Faculty </h2>
+<h2 class="page-header-text" style="padding-left: 0; text-align:center;">
+<?php echo __('Visiting Faculty', 'srft-theme' ); ?> </h2>
 <div class="visitingprof">
 <div class="visiting owl-carousel">
 <div class="alumni-item">
    <a class="alumni-img"
-     href="https://philosophy.uchicago.edu/faculty/a-callard"
+     href="#"
      target="_blank"
      ><img 
        src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"

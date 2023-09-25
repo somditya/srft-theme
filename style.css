@@ -2587,7 +2587,6 @@ transform: scale(1.2);
   color: currentColor;
   margin: 1em 0;
 }
-
 .faculty {
   /*background-color: #350e20;*/
   text-align: center;
@@ -2633,7 +2632,7 @@ transform: scale(1.2);
 }
 
 .faculty-img img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 50%;
 }
@@ -2680,6 +2679,7 @@ transform: scale(1.2);
 
 .page-header-text {
   /*margin-top: 40px;*/
+  
   margin-bottom: 1.4rem;
   color: #8b5b2b;
   font-size: 30px;
@@ -2687,7 +2687,11 @@ transform: scale(1.2);
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0.5rem;
+  
 }
+
+
+
 
 .profile {
   border-radius: 8px;

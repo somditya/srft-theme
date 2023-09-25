@@ -30,15 +30,15 @@ $category_id = get_category_ID($category_name);
       <body>
       <section class="cine-header">
         <div class="page-banner">
-          <div class="page-banner-title">Faculty</div>
+          <div class="page-banner-title"><?php echo __('Faculty', 'srft-theme' ); ?></div>
       </section>
 
       <section class="section-home">
         <div class="container" style="width: 1170px;">
-          <h2 class="section-intro-header-text" style="padding-left: 0; "><?php echo __('Meet our Faculty', 'srft-theme' ); ?></h2>
+          <h2 class="page-header-text" style="padding-left: 0; text-align: center"><?php echo __('Meet our Faculty', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController">
             <!-- Filter options -->
-            <label for="filter"><?php echo __('Meet our Faculty', 'srft-theme' ); ?>Programmes:</label>
+            <label for="filter"><?php echo __('Programmes:', 'srft-theme' ); ?></label>
             <select class="filter" ng-model="filterField">
                 <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
                 <option value="Animation Cinema"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
