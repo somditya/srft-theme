@@ -41,9 +41,15 @@ $page_content = apply_filters('the_content', $post->post_content);
                 </li>
           </ul>
         </div>
-        <!--<div class="widget">
-         
-        </div> --->
+        
+        <div class="widget" style="line-height: 1.5">
+        <ul style="list-style-type: none ">
+          <li>Regulations</li>
+          <li>Service By-laws</li>
+          <li>Service By-laws</li>
+          <li>Service By-laws</li>
+        </ul>   
+        </div>
         </div>
 
         <div class="main-content">
