@@ -195,7 +195,7 @@ Template Name: Home
       <div class="nonstatic owl-carousel">
         <div class="alumni-item">
             <a class="alumni-img"
-              href="https://philosophy.uchicago.edu/faculty/a-callard"
+              href="#"
               target="_blank"
               ><img 
                 src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"
@@ -248,7 +248,7 @@ Template Name: Home
 
           <div class="alumni-item">
             <a class="alumni-img"
-              href="https://philosophy.uchicago.edu/faculty/a-callard"
+              href="#"
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"

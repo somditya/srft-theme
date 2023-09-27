@@ -214,10 +214,10 @@
                     <a href="<?php echo esc_url(site_url('/leadership/')); ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/management/')); ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Organization Structure', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/organization-chart/')); ?>"><?php echo __('Organization Structure', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>

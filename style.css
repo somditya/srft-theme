@@ -531,8 +531,6 @@ animation-duration: 4s;
 }
 
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -554,8 +552,15 @@ animation-duration: 4s;
 .access-link-cell  { width: 13%; }
 .replay-link-cell  { width: 13%; }
 .pdf-cell  { width: 13%; }
-.slno-cell {width: 6%}
+.slno-cell {width: 10%}
 .id-cell {width: 20%}
+.name-cell {width: 30%}
+.designation-cell {width: 60%}
+.committee-cell {width: 25%}
+.composition-cell {width: 15% }
+.tenure-cell {width: 15%}
+.openmeeting-cell {width: 25%}
+.openminutes-cell {width: 25%}
 /* Apply styles
 ================================== */
 .Rtable {

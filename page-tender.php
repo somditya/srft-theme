@@ -62,16 +62,16 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
                   </div>
                   <div class="Rtable-cell id-cell">
-                    <div class="Rtable-cell--content title-content">{{ tender.ID }}</div>
+                    <div class="Rtable-cell--content ">{{ tender.ID }}</div>
                   </div>
                   <div class="Rtable-cell topic-cell">
-                    <div class="Rtable-cell--content title-content">{{ tender.title }}</div>
+                    <div class="Rtable-cell--content ">{{ tender.title }}</div>
                   </div>
                   <div class="Rtable-cell date-cell">
-                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ tender.subdate | date:'yyyy-MM-dd' }}</span></div>
+                    <div class="Rtable-cell--content "><span class="webinar-date">{{ tender.subdate | date:'yyyy-MM-dd' }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
+                    <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"> <p ng-if="isSubmissionOpen">Submission is open.</p>
