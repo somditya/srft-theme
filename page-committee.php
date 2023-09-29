@@ -5,6 +5,7 @@ Template Name: committee
  */
 get_header(); 
 $post_id = get_the_ID();
+$catslug = get_the_category($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 
@@ -72,18 +73,17 @@ $current_language = get_locale();
                 </div>
                 <?php
                 
-               
 
-                  $args = array(
-                    'category_name' => $catslug, // Specify the category by slug
-                    'posts_per_page' => 1, // Limit to one post
-                    'orderby' => 'modified', //  Order by modification date (most recently updated)
-                    'order' => 'DESC', // Display in descending order (latest first)
-                );
-                  
-                $category_posts = new WP_Query(array(
-                      'category_name' => $catslug, // Replace with your category slug
-                  ));  
+                  if ($current_language === 'en_US') {
+                    $catslug='committee-en'; 
+                   }
+                    else
+                    {
+                      $catslug='committee-hi';
+                    }
+                    $category_posts = new WP_Query(array(
+                        'category_name' => $catslug, // Replace with your category slug
+                    ));
                   
                 $count = 1; // Initialize the serial number/
              if ($category_posts->have_posts()) :
@@ -95,9 +95,11 @@ $current_language = get_locale();
                   <div class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content "><?php echo $count; ?></div>
                   </div>
+                  
                   <div class="Rtable-cell committee-cell">
-                    <div class="Rtable-cell--content "><?php echo get_post_meta(get_the_ID(), 'Committee', true); ?></div>
+                    <div class="Rtable-cell--content "><a href="<?php the_permalink(); ?>" ><?php echo get_the_title(); ?> </a></div>
                   </div>
+                
                   <div class="Rtable-cell composition-cell">
                     <div class="Rtable-cell--content "><?php echo get_post_meta(get_the_ID(), 'Composition', true); ?></div>
                   </div>
