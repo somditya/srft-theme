@@ -224,7 +224,7 @@
                     </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/annual-reports//')); ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
@@ -235,7 +235,10 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Post Graduate Programmes', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>"><?php echo __('Post Graduate Programmes in Cinema', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="<?php echo esc_url(site_url('/annual-reports/')); ?>"><?php echo __('Post Graduate Programmes in EDM', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
@@ -312,11 +315,11 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Committees', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/Vacancy/')); ?>"><?php echo __('vacancy', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Tenders', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/tender/')); ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('RTI', 'srft-theme' ); ?></a>

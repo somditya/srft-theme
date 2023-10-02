@@ -540,6 +540,7 @@ animation-duration: 4s;
   max-width: 1250px;
   margin: 1em auto;
   padding: 1em;
+  text-align: left;
 }
 
 .is-striped {
@@ -603,6 +604,7 @@ animation-duration: 4s;
   margin: 0 0 3em 0;
   padding: 0;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
 .Rtable-row {
@@ -2265,7 +2267,7 @@ transform: rotate(90deg);
 }
 
 .cine-header {
-  background-image: url("images/workshop001.JPG");
+  /*background-image: url("images/workshop001.JPG");*/
   background-position: 50%;
   background-size: cover;
   height: 400px;
@@ -2335,6 +2337,7 @@ transform: rotate(90deg);
   font-size: 1.6rem;
   line-height: 1.8;
   padding-top: 3.2rem;
+  flex-direction: column;
 }
 
 .intro {
@@ -3286,10 +3289,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .faculty-image {
-    width: 260px;
-    height: 260px;
-    object-fit: cover;
-    margin: 0 auto 10px;
+  width: 100%; /* Make the image responsive by setting the width to 100% */
+  max-width: 220px; /* Set a maximum width if needed */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  object-fit: cover;
+  margin: 0 auto 10px;
 }
 
 .pagination {
@@ -3846,6 +3850,9 @@ font-size: 16px;
     margin-top: 20px;
   }
   
+  .faculty-card {
+    flex: 0 0 calc(33% - 20px);
+  }
   
 }
 

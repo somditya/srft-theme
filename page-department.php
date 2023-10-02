@@ -22,8 +22,11 @@ $about = get_post_meta($page_id, 'About', true);
 $objective = get_post_meta($page_id, 'Objective', true);
 $department_name=get_post_meta($page_id, 'Department', true);
 $duration=get_post_meta($page_id, 'Duration', true);
-$eligibilty=get_post_meta($page_id, 'Eligibilty', true);
+$eligibilty=get_post_meta($page_id, 'Eligibility', true);
 $seats=get_post_meta($page_id, 'Seats', true);
+$facilities=get_post_meta($page_id, 'Facilities', true);
+
+
 
 
 // Check if the custom field has a value
@@ -82,14 +85,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
        <h2><?php echo __('Elibility Criteria', 'srft-theme' ); ?></h2>
        <hr />
        <div>
-         <p>Bachelor’s Degree in any discipline.</p>
-         <br />
-         <p>
-           Candidates successful in the Joint Entrance Test (JET) will
-           be called for Orientation and Interview. Final merit list
-           will be prepared on the basis of written examination(JET),
-           orientation and interview.
-         </p>
+         <?php echo $eligibilty; ?>
        </div>
      </div>
    </div>
@@ -129,7 +125,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
             <ul>
               <?php
   // Define the department name you want to display
-  $department_name = 'cinematography'; // Replace with the actual department name
+  //$department_name = 'cinematography'; // Replace with the actual department name
 
   // Custom query to retrieve faculty posts in the specified department
   $faculty_query = new WP_Query(array(
@@ -185,14 +181,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
          <?php echo __('Facilities', 'srft-theme' ); ?>
          </div>
          <div>
-           <ul>
-             <li>Film studio 70’x50’ dimension</li>
-             <li>Television studio 40’x40’ dimension</li>
-             <li>Practice studio 60’x45’dimension</li>
-             <li>Film studio 70’x50’ dimension</li>
-             <li>Television studio 40’x40’ dimension</li>
-             <li>Practice studio 60’x45’dimension</li>
-           </ul>
+           <?php echo $facilities ?>
          </div>
        </div>
 
@@ -204,7 +193,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
    </div>
   
 
-
+<!--
 <div style="margin-top: 3.2rem">
 <h2 class="page-header-text" style="padding-left: 0; text-align:center;">
 <?php echo __('Visiting Faculty', 'srft-theme' ); ?> </h2>
@@ -265,7 +254,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
  <div class="alumni-item">
    <a class="alumni-img"
-     href="https://philosophy.uchicago.edu/faculty/a-callard"
+     href="#"
      target="_blank"
      ><img
        src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"
@@ -341,7 +330,7 @@ $seats=get_post_meta($page_id, 'Seats', true);
 
 </div>
 
-</div>
+</div>-->
 
 </section>
 

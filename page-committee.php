@@ -58,11 +58,11 @@ $current_language = get_locale();
 
         <div class="main-content">
     <div>
-        <p class="page-header-text"><?php echo __('Administrative Structure', 'srft-theme'); ?></p>
+        <p class="page-header-text"><?php echo __('Committees', 'srft-theme'); ?></p>
     </div>  
 <section style="margin-bottom: 4rem;">    
       <div class="wrapper">
-              <div class="Rtable Rtable--5cols Rtable--collapse">
+              <div class="Rtable Rtable--6cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell committee-cell column-heading"><?php echo __('Committee', 'srft-theme' ); ?></div>
@@ -125,3 +125,7 @@ $current_language = get_locale();
               <!-- Use a CSS grid for layout -->
             </div>
     </section>     
+
+    <?php 
+
+    ?>

@@ -684,7 +684,10 @@ function register_custom_menu() {
 add_action('init', 'register_custom_menu');
 
 
-
+function add_categories_to_pages() {
+	register_taxonomy_for_object_type('category', 'page');
+}
+add_action('init', 'add_categories_to_pages');
 
 /*function srft_theme_load_theme_textdomain() {
 	load_theme_textdomain( 'srft-theme', get_template_directory() . '/languages' );
@@ -745,5 +748,6 @@ function set_custom_template($single_template) {
 
 	return $single_template;
 }
+
 add_filter('single_template', 'set_custom_template');
 add_post_type_support( 'page', 'excerpt' );
