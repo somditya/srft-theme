@@ -47,8 +47,6 @@ $title=get_the_title($post_id);
         $intro = get_post_meta(get_the_ID(), '$Intro', true);
         $subintro= get_post_meta(get_the_ID(), '$SubIntro', true);
         $subintrodesc= get_post_meta(get_the_ID(), '$SubIntroDescription', true);
-        
-        
         ?>
                 
         <div class="intro"><p><?php echo get_post_meta(get_the_ID(), 'Intro', true);?></p></div>
@@ -85,7 +83,15 @@ $title=get_the_title($post_id);
            <?php echo get_post_meta(get_the_ID(), 'SubIntroDescription', true);?> 
           </div>
           </div>
+           <div>
+        <p class="page-header-text" style="margin-top: 2rem;"><?php echo __('The T of SRFTI', 'srft-theme'); ?></p>
+    </div> 
+          <div>
+           
+            <?php echo get_post_meta(get_the_ID(), 'AbtPGProgramme', true);?>
+          </div>
         </section>
+        
         <div>
         <p class="page-header-text" style="margin-top: 2rem;"><?php echo __('Specializations', 'srft-theme'); ?></p>
     </div> 
