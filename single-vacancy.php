@@ -1,7 +1,7 @@
 <?php
 /**
  * /*
- * Template Name: Tender
+ * Template Name: Vacancy
  * Template Post Type: post
  * 
  */

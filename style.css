@@ -763,7 +763,7 @@ z-index: 1;
 }
 
 .swiper-button-next {
-  background-image: url(/web2/images/right-arrow-big.svg);
+  background-image: url(images/right-arrow-big.svg);
   background-repeat: no-repeat;
   background-size: 200% auto;
   background-position: center;
@@ -880,7 +880,7 @@ z-index: 1;
   background: #494949;
   background: #62371F;;
   background: #161a1d;
-  background-image: url(/web2w/images/footerbg.jpg);
+  background-image: url(images/footerbg.jpg);
   background-repeat: repeat;
   padding: 0 24px;
   
@@ -905,10 +905,6 @@ z-index: 1;
   padding: 15px;
  
 }
-
-
-
-
 
 
 .footer_sub {
@@ -1002,12 +998,12 @@ opacity: 0.2;
 }
 
 .owl-carousel .prev-slide{
-  background: url(/web2/images/nav-icon.webp) no-repeat scroll 0 0;
+  background: url('images/nav-icon.webp') no-repeat scroll 0 0;
   filter: brightness(0) invert(1);
   left: -20px;
 }
 .owl-carousel .next-slide{
-  background: url(/web2/images/nav-icon.webp) no-repeat scroll -24px 0px;
+  background: url('images/nav-icon.webp') no-repeat scroll -24px 0px;
   filter: brightness(0) invert(1);
   right: -20px;
 }

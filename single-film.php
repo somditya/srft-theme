@@ -31,19 +31,22 @@ $custom_fields = get_post_custom();
 
 // Check if there are custom fields
 if ($custom_fields) {
-    echo '<ul>';
-    
+    echo '<ul style="list-style-type:none;">';
+
     foreach ($custom_fields as $key => $values) {
         // Skip WordPress internal fields, which start with an underscore
         if (strpos($key, '_') !== 0) {
-            echo '<li><strong>' . esc_html($key) . ':</strong>';
-            foreach ($values as $value) {
-                echo ' ' . esc_html($value);
+            // Exclude the "video" custom field by name (case-insensitive)
+            if (strcasecmp(trim($key), 'video') !== 0) {
+                echo '<li><strong>' . esc_html($key) . ':</strong>';
+                foreach ($values as $value) {
+                    echo ' ' . esc_html($value);
+                }
+                echo '</li>';
             }
-            echo '</li>';
         }
     }
-    
+
     echo '</ul>';
 } else {
     echo '<p>No custom fields found for this post.</p>';
@@ -75,34 +78,11 @@ if ($custom_fields) {
 <?php echo $post_content; ?>
 
 <!--<div style="margin-top: 4rem;">
-<?php
-// Get all custom fields for the current post
-$custom_fields = get_post_custom();
 
-// Check if there are custom fields
-if ($custom_fields) {
-    echo '<ul style="list-style-type:none;">';
-    
-    foreach ($custom_fields as $key => $values) {
-        // Skip WordPress internal fields, which start with an underscore
-        if (strpos($key, '_') !== 0) {
-            echo '<li><strong>' . esc_html($key) . ':</strong>';
-            foreach ($values as $value) {
-                echo ' ' . esc_html($value);
-            }
-            echo '</li>';
-        }
-    }
-    
-    echo '</ul>';
-} else {
-    echo '<p>No custom fields found for this post.</p>';
-}
-?>
 
 </div>-->
 <div style="margin-top: 4rem;">
-    <iframe src="https://player.vimeo.com/video/749039149" title="Meena Jha" width="560" height="315" frameborder="0" scrolling="no" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+    <iframe src="<?php echo get_post_meta(get_the_ID(), 'Video', true); ?>" title=<?php echo get_the_title($post_id);?>" width="560" height="315" frameborder="0" scrolling="no" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 </div> 
 </div>
    

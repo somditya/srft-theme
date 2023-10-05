@@ -33,6 +33,7 @@ if ( ! function_exists( 'twenty_twenty_one_setup' ) ) {
 		 * WordPress will provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'Video' );
 
 		/**
 		 * Add post-formats support.
@@ -751,3 +752,8 @@ function set_custom_template($single_template) {
 
 add_filter('single_template', 'set_custom_template');
 add_post_type_support( 'page', 'excerpt' );
+
+function increase_postmeta_form_limit() {
+	return 120;
+}
+add_filter('postmeta_form_limit', 'increase_postmeta_form_limit');

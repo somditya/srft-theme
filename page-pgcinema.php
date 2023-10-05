@@ -77,14 +77,15 @@ $title=get_the_title($post_id);
             </div>
           </div>
           <div class="sub-intro-text">
-           <div class="sub-intro-text-head"><?php echo get_post_meta(get_the_ID(), 'SubIntro', true);?></div>
+           <!--<div class="sub-intro-text-head"><?php echo get_post_meta(get_the_ID(), 'SubIntro', true);?></div>-->
+           <div class="sub-intro-text-head"><?php echo __('Take a tour of the Departments', 'srft-theme'); ?></div>
           
            <div class="sub-intro-text-description">
            <?php echo get_post_meta(get_the_ID(), 'SubIntroDescription', true);?> 
           </div>
           </div>
            <div>
-        <p class="page-header-text" style="margin-top: 2rem;"><?php echo __('The T of SRFTI', 'srft-theme'); ?></p>
+        <p class="page-header-text" style="margin-top: 2rem;"><?php echo get_post_meta(get_the_ID(), 'Tagline', true);?></p>
     </div> 
           <div>
            
