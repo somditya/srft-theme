@@ -39,6 +39,7 @@ Template Name: Home
       }
       $category_posts = new WP_Query(array(
           'category_name' => $catslug, // Replace with your category slug
+          'posts_per_page' => -1,
       ));
   
 
@@ -351,6 +352,7 @@ Template Name: Home
     }
     $category_posts = new WP_Query(array(
         'category_name' => $catslug, // Replace with your category slug
+        'posts_per_page' => -1,
     ));
 
     if ($category_posts->have_posts()) :
