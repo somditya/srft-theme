@@ -1,32 +1,29 @@
-<?php
+<?php 
+
 /*
-Template Name: Organization
+Template Name: Admisison Subpages
  */
-get_header(); 
+get_header();
 $post_id = get_the_ID();
+$catslug = get_the_category($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
-$page_title = get_the_title($post_id);
 $current_language = get_locale();
 ?>
+
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __($page_title, 'srft-theme' ); ?></div>
+          <div class="page-banner-title"><?php echo __('Admission to post graduate courses', 'srft-theme'); ?></div>
       </section>
-
       <section class="cine-detail">
-        <div class="leftnav">
-          <!--<div>
-          <p class="office-header-text">Management</p>-->
-          <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
-        </div>-->
-        <div class="childnavs">
+      <div class="leftnav">
+      <div class="childnavs">
     <ul class="childnav-lists">
         <?php
         $current_language = get_locale(); // Get the current language/locale.
 
-        $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu'; // Define menu name based on language.
+        $menu_name = ($current_language === 'hi_IN') ? 'hindi_admission_menu' : 'english_admission_menu'; // Define menu name based on language.
 
         // Get the current page title
         $current_page_title = get_the_title();
@@ -68,41 +65,62 @@ $current_language = get_locale();
         ?>
     </ul>
 </div>
-        
+
+
+
         <div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
-          <li><?php echo __('Memorandum of Association', 'srft-theme' ); ?>  <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
-          <li><?php echo __('Academic Bye-Laws ', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
-          <li><?php echo __('Financial Bye-Laws', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
-          <li><?php echo __('Service By-laws', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
+          <li><?php echo __('Prsopectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
+        </ul>   
+        </div>
+        <div class="widget" style="line-height: 1.5">
+        <h4><?php echo __('Admission Notification', 'srft-theme'); ?></h4>
+        <ul style="list-style-type: none ">
+          
         </ul>   
         </div>
         </div>
-
         <div class="main-content">
-    <div>
-        <p class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></p>
-    </div>  
-    <!--<section class="sub-intro" style="margin-bottom: 4rem;">
-        <div class="sub-intro-text" style="max-width: 100%;">
-            <div class="sub-intro-text-description">
-                <?php
-                // Retrieve and display the introduction of the page content
-                $intro = get_post_meta(get_the_ID(), 'Admin_Intro', true);
-                echo $intro;
-                ?>
-            </div>
-        </div>
-    </section>  -->
-    <section style="margin-bottom: 4rem;">
-    <div class="wrapper">
-    <?php echo $page_content; ?>
-    </div>
-    </setion>
-</div>
-        
-</main>
+        <section class="page-title">
+          <div><p class="page-header-text"><?php the_title(); ?></p></div>
+        </section>
+        <div>
+        <?php the_content(); ?>
+        <div>
+        <div class="spacer"> </div>
+      <section>  
+  </main>
 
-<?php
-get_footer(); 
+
+  <?php 
+
+/*
+Template Name: Admisison Subpages
+ */
+get_footer();
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+get_footer();
 ?>

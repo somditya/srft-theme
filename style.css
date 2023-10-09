@@ -359,7 +359,27 @@ animation-duration: 4s;
   padding-right: 10px;
 }
 
+.myTable {
+  background-color: #fff;
+  border-collapse: collapse;
+}
 
+.myTable th {
+  padding: 5px;
+  border: 1px solid #CCCCCC;
+  background-color: #8F8F8F;
+  font-weight: normal;
+  color: white;
+}
+
+.myTable td, .myTable th {
+  padding: 5px;
+  border: 1px solid #CCCCCC;
+}
+
+div .spacer {
+margin-bottom: 4rem;
+}
 
 .section-intro-header {
   display: flex;
@@ -2316,6 +2336,11 @@ transform: rotate(90deg);
 .childnav-lists li:hover a {
   background-color: #666;
   color: white;
+}
+
+.childnav-list-item.active {
+  background-color: #f0f0f0; /* Highlight color for the active menu item */
+  /* Add any other styles you want for the active menu item */
 }
 
 .item::after {

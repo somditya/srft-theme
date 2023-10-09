@@ -235,10 +235,10 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>"><?php echo __('Post Graduate Programmes in Cinema', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-edm/')); ?>"><?php echo __('Post Graduate Programmes in EDM', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-edm/')); ?>"><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
@@ -256,13 +256,13 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Course Overview', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/course-overview/')); ?>"><?php echo __('Admission to post graduate courses', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Essental Qualification', 'srft-theme' ); ?></a>
+                      <a href="#"><?php echo __('Admission to short courses', 'srft-theme' ); ?></a>
                     </li>
                    
-                    <li class="dropdown-link">
+                    <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Admission Process', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
@@ -273,7 +273,7 @@
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Previous Year Papers', 'srft-theme' ); ?></a>
-                    </li>
+                    </li>-->
                     <div class="arrow"></div>
                   </ul>
                 </div>
