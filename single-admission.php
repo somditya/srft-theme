@@ -1,29 +1,40 @@
 <?php
 /**
  * /*
- * Template Name: News
+ * Template Name: Admission
  * Template Post Type: post
  * 
  */
 get_header();
-
-?>
-
-<?php
-
+$current_language = pll_current_language(); 
 $post_id = get_the_ID();
 $post_content = apply_filters('the_content', $post->post_content);
-
-// You can now echo or manipulate $post_content as needed.
-
 ?>
 
-<section style="margin: 15rem; padding: 0 1.25rem; display: block;">
+<div style="margin: 15rem;  max-width: 1250px;">
+<div style="display: flex;">
+<div style="flex: 30% 1; max-width: 30%; padding-right: 10px;">
+
+
+<img src="<?php the_post_thumbnail_url('thumbnail'); ?>" max-width="100%" height="220" alt="" />
+
+<div style="margin-top: 4rem;">
+<?php
+// Get all custom fields for the current post
+echo "hi";
+?>
+
+</div>
+
+</div> 
+
+<div style="padding: 0 1.25rem;   flex: 1 1 70%;
+    max-width: 70%;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 3;">
-            <a href="#" alt="News" class="c-headline__topic t-heading--topic"><label><?php echo __('News', 'srft-theme' ); ?>
+            <a href="#" alt="News" class="c-headline__topic t-heading--topic"><label><?php echo __('Admission', 'srft-theme' ); ?>
 </label>
   </a> 
   <h1 style="
@@ -66,6 +77,6 @@ echo $post_date;
 </div>
 
 </article>       
-</section> 
-  
+</div> 
+</div>
 <?php get_footer(); ?>

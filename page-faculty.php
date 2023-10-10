@@ -110,7 +110,7 @@ $category_id = get_category_ID($category_name);
 
         angular.forEach($scope.facultyList, function(faculty) {
             if (faculty.featured_media) {
-                $http.get('http://localhost/wp-json/wp/v2/media/' + faculty.featured_media)
+                $http.get(siteURL+'wp-json/wp/v2/media/' + faculty.featured_media)
                     .then(function(imageResponse) {
                         faculty.image = imageResponse.data.source_url;
                         console.log('Image Loaded for:', faculty.name);

@@ -193,7 +193,7 @@ body {
 }
 
 .link-div {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -404,7 +404,7 @@ margin-bottom: 4rem;
   line-height: 36px;
   color: #4d4d4d;
   color: #161a1d;
-  margin-bottom: 5.2rem;
+  margin-bottom: 2.2rem;
   /*text-transform: uppercase;*/
   position: relative;
 }
@@ -2653,6 +2653,18 @@ transform: scale(1.2);
   color: currentColor;
   margin: 1em 0;
 }
+
+.widget h3 {
+  font-weight: 400;
+  font-size: 1.1em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+  color: #6d2f6a;
+  font-style: normal;
+  border-bottom: 2px solid #6d2f6a;
+}
+
 .faculty {
   /*background-color: #350e20;*/
   text-align: center;
@@ -3009,7 +3021,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* News */
 .section-news {
   margin-top: 0rem;
-  padding-top: 3rem;;
+  padding-top: 1.5rem;;
   background-color:  rgb(190, 187, 187); 
     
   /*background-image: var(--bgqImage);*/

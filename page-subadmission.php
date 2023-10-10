@@ -74,7 +74,7 @@ $current_language = get_locale();
         </ul>   
         </div>
         <div class="widget" style="line-height: 1.5">
-        <h4><?php echo __('Admission Notification', 'srft-theme'); ?></h4>
+        <h3><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
         <ul style="list-style-type: none ">
           
         </ul>   

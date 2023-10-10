@@ -19,10 +19,10 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 <div style="margin: 15rem;  max-width: 1250px;">
 <div style="display: flex;">
-<div style="flex: 30% 1; max-width: 30%;">
+<div style="flex: 30% 1; max-width: 30%; padding-right: 10px;">
 
 
-<img src="<?php the_post_thumbnail_url('thumbnail'); ?>" width="220" height="220" alt="" />
+<img src="<?php the_post_thumbnail_url('thumbnail'); ?>" max-width="100%" height="220" alt="" />
 
 <div style="margin-top: 4rem;">
 <?php
