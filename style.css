@@ -617,6 +617,16 @@ margin-bottom: 4rem;
   width: 40%;
 }
 
+.location-cell {
+  width: 9%;
+}
+
+.fees-cell {
+  width: 9%;
+}
+
+
+
 /* Apply styles ================================== */
 .Rtable {
   display: flex;
@@ -2663,6 +2673,17 @@ transform: scale(1.2);
   color: #6d2f6a;
   font-style: normal;
   border-bottom: 2px solid #6d2f6a;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.4em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+  color: #6d2f6a;
+  font-style: normal;
+  border-bottom: 2px solid #6d2f6a;  
 }
 
 .faculty {

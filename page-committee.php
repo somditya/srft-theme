@@ -152,5 +152,5 @@ $current_language = get_locale();
     </section>     
 
     <?php 
-
+get_footer();
     ?>

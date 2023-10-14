@@ -240,9 +240,9 @@
                     <li class="dropdown-link">
                       <a href="<?php echo esc_url(site_url('/post-graduate-programme-in-edm/')); ?>"><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
-                    </li>
+                    </li>-->
                    
                     <li class="dropdown-link">
                       <a href="<?php echo esc_url(site_url('/faculty/')); ?>"><?php echo __('Faculty', 'srft-theme' ); ?></a>
@@ -256,10 +256,10 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="<?php echo esc_url(site_url('/course-overview/')); ?>"><?php echo __('Admission to post graduate courses', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/course-overview/')); ?>"><?php echo __('Post graduate programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Admission to short courses', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('Short programmes', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
