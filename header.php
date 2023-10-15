@@ -284,20 +284,20 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Library', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/library/')); ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/screening-facility/')); ?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/accomodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('International students', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('International students', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
