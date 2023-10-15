@@ -208,7 +208,6 @@ $category_id = get_category_ID($category_name);
           
     </main>
 
-
-        <?php
+<?php
 get_footer(); 
 ?>

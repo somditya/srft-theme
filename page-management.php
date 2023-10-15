@@ -95,7 +95,7 @@ $current_language = get_locale();
     </section>
 
     <div>
-        <p class="page-header-text"><?php echo __('Society', 'srft-theme' ); ?></p>
+        <h4><?php echo __('Society', 'srft-theme' ); ?></h4>
     </div>
     <section style="margin-bottom: 4rem;">
     <div><h3><?php echo __('Composition', 'srft-theme' ); ?></h3></div>
@@ -158,7 +158,7 @@ $current_language = get_locale();
     </section>     
 
     <div>
-        <p class="page-header-text"><?php echo __('Governing Council', 'srft-theme' ); ?></p>
+        <h4><?php echo __('Governing Council', 'srft-theme' ); ?></h4>
     </div>
     <section style="margin-bottom: 4rem;">
     <div><h3><?php echo __('Composition', 'srft-theme' ); ?></h3></div>
@@ -220,7 +220,7 @@ $current_language = get_locale();
             </div>
     </section>
     <div>
-        <p class="page-header-text"><?php echo __('Standing Finance Council', 'srft-theme' ); ?></p>
+        <h4><?php echo __('Standing Finance Council', 'srft-theme' ); ?></h4>
     </div>
     
     <section style="margin-bottom: 4rem;">
@@ -283,7 +283,7 @@ $current_language = get_locale();
             </div>
     </section>
     <div>
-        <p class="page-header-text"><?php echo __('Academic Council', 'srft-theme' ); ?></p>
+        <h4><?php echo __('Academic Council', 'srft-theme' ); ?></h4>
     </div>
     <section style="margin-bottom: 4rem;">
     <div><h3><?php echo __('Composition', 'srft-theme' ); ?></h3></div>
