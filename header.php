@@ -259,7 +259,7 @@
                       <a href="<?php echo esc_url(site_url('/course-overview/')); ?>"><?php echo __('Post graduate programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('Short programmes', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/short-prorammes/')); ?>"><?php echo __('Short programmes', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
@@ -297,7 +297,7 @@
                     <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('International students', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/short-courses/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>

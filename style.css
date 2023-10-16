@@ -377,6 +377,31 @@ animation-duration: 4s;
   border: 1px solid #CCCCCC;
 }
 
+.status-green:before {
+  display: inline-block;
+  content: '';
+  background-color: #a8ce3c;
+}
+
+.status-red:before {
+  display: inline-block;
+  content: '';
+  background-color: #a32034;
+}
+
+.status:before {
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 13px;
+  left: 4px;
+}
+
+
+
+
 div .spacer {
 margin-bottom: 4rem;
 }

@@ -1,7 +1,7 @@
 <?php 
 
 /*
-Template Name: Courses Subpages
+Template Name: Short Courses Subpage
  */
 get_header();
 $post_id = get_the_ID();
@@ -16,6 +16,7 @@ $current_language = get_locale();
         <div class="page-banner">
           <div class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></div>
       </section>
+
       <section class="cine-detail">
       <div class="leftnav">
       <div class="childnavs">
@@ -68,39 +69,22 @@ $current_language = get_locale();
       </div>
 
 
-
-        <!--<div class="widget" style="line-height: 1.5">
-        <ul style="list-style-type: none ">
-          <li><?php echo __('Prsopectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
-        </ul>   
-        </div>
         
-        <div class="widget" style="line-height: 1.5">
-        <h3><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
-        <ul style="list-style-type: none ">
-          
-        </ul>   
-        </div>
-        </div>-->
-        
-        <div class="main-content">
+  <div class="main-content">
         <section class="page-title">
-          <div><p class="page-header-text"><?php the_title(); ?></p></div>
+          <div>
+            <p class="page-header-text"><?php the_title(); ?></p>
+          </div>
         </section>
+        
+        <section style="margin-bottom: 4rem;">
         <div>
         <?php the_content(); ?>
-        <div>
-        
-  
-        <div class="spacer"> </div>
-      <section>  
-  </main>
+        </div>
+        </section>
 
-
+  </div>
+        </main>
   <?php 
-
-/*
-Template Name: Admisison Subpages
- */
 get_footer();
 ?>
