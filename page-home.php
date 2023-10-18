@@ -110,7 +110,7 @@ Template Name: Home
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
     <div class="section-into-text" style="padding:25px;">
-      <h3 style="color:beige"><i>SRFTI, since 2014 is an active member of CILECT,<br>
+      <h3 style="color:beige"><i>SRFTI is an active member of CILECT,<br>
       an association that gathers the best film school in the world.</i></h3>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank">

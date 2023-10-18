@@ -34,7 +34,7 @@ $current_language = get_locale();
 
   <div class="main-content">
     <div>
-        <p class="page-header-text"><?php the_title(); ?></p>
+        <p class="page-header-text"><?php echo __('Right to Information Act (RTI)2005', 'srft-theme' ); ?></p>
     </div>  
     <section class="sub-intro" style="margin-bottom: 4rem;">
         <div class="sub-intro-text" style="max-width: 100%;">

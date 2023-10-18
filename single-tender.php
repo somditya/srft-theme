@@ -19,9 +19,8 @@ $post_content = apply_filters('the_content', $post->post_content);
 ?>
 
 <section style="margin: 15rem; padding: 0 1.25rem; display: block;">
-    <article style="display: grid; grid-gap: 1.875rem;
-    grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; border: 1px solid #000;">
-        <div role="article" style="text-align: center;
+    <article class="narticle">
+    <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 2/5;">
             <a href="#" alt="Tender" class="c-headline__topic t-heading--topic">
               <label><?php if ($current_language === 'hi') {
@@ -43,73 +42,74 @@ $post_content = apply_filters('the_content', $post->post_content);
   <?php echo get_the_title($post_id);?>
 </h1> 
 <p style="margin: 1rem 0 0; font-family: GthD; font-weight: 600;">
-    <time>Tender Issue Date: <?php
+    <time><?php echo __('Tender Issue Date:', 'srft-theme' ); ?> <?php
 $post_date = get_the_date('F j, Y');
 echo $post_date;
-?></time></p>
+?></time>
+</p>
 </div> 
+
+
 <div style="grid-column: 1/2;">
     <div>
-    Tender ID:
+    <?php echo __('Tender ID:', 'srft-theme' ); ?>
+</div>
+<div>
+    <?php echo get_post_meta(get_the_ID(), 'Tender-ID', true); ?>
 </div>
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    NIT Document:
-</div>
-</div>
-
-<div style="grid-column: 3/4;"  >
-    
-    <div>Tender Description: </div>
-</div>
-
-<div style="grid-column: 4/5; ">
-    <div>
-    Submission Date:
-</div>
-</div>
-
-<div style="grid-column: 5/6; ">
-    <div>
-    Corrigendum:
-</div>
-</div>
-<div style="grid-column: 6/7; ">
-    <div>
-    Extension:
-</div>
-</div>
-<div style="grid-column: 1/2;">
-    <div>
-    <?php echo get_post_meta(get_the_ID(), 'Tender-ID', true); ?>
-</div>
+    <?php echo __('NIT Document:', 'srft-theme' ); ?>
 </div>
 <div style="grid-column: 2/3; ">
     <div>
     <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Doc', true)); ?>">Download</a>
 </div>
 </div>
-<div style="grid-column: 3/4;  
+</div>
+
+<div style="grid-column: 3/4;"  >
+    
+    <div><?php echo __('Tender Description:', 'srft-theme' ); ?> </div>
+    <div style="grid-column: 3/4;  
     
     line-height: 28px; text-align: left;">
 <?php echo $post_content; ?>
 </div>
+</div>
 
 <div style="grid-column: 4/5; ">
     <div>
+    <?php echo __('Submission Date:', 'srft-theme' ); ?>
+</div>
+<div>
     <?php echo get_post_meta(get_the_ID(), 'Tender-Submission-Date', true); ?>
 </div>
 </div>
 
 <div style="grid-column: 5/6; ">
-    <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Corriengendum', true)); ?>">Download</a>
+<div>
+    <?php echo __('Corrigendum:', 'srft-theme' ); ?>
+</div>
+<div>
+    <?php
+    if (!empty(get_post_meta(get_the_ID(), 'Tender-Corriengendum', true))) {
+        echo '<a href="' . esc_url(get_post_meta(get_the_ID(), 'Tender-Corriengendum', true)) . '">Download</a>';
+    }
+    ?>
 </div>
 </div>
 <div style="grid-column: 6/7; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Extension', true)); ?>">Download</a>
+    <?php echo __('Extension:', 'srft-theme' ); ?>
+</div>
+<div>
+    <?php
+    if (!empty(get_post_meta(get_the_ID(), 'Tender-Extension', true))) {
+        echo '<a href="' . esc_url(get_post_meta(get_the_ID(), 'Tender-Extension', true)) . '">Download</a>';
+    }
+    ?>
 </div>
 </div>
 

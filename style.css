@@ -293,6 +293,10 @@ animation-duration: 4s;
   grid-template-columns: repeat(5, 1fr);
 }
 
+.grid--6-cols {
+  grid-template-columns: repeat(, 1fr);
+}
+
 .grid--8-cols {
   grid-template-columns: repeat(8, 1fr);
 }
@@ -595,6 +599,13 @@ margin-bottom: 4rem;
   box-sizing: border-box;
 }
 
+.narticle {
+  display: grid; 
+  grid-gap: 1.875rem;
+  grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; 
+  border: 1px solid #000;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1250px;
@@ -665,6 +676,10 @@ margin-bottom: 4rem;
   width: 9%;
 }
 
+.tenderid-cell
+{
+  width: 22%;
+}
 
 
 /* Apply styles ================================== */
@@ -3540,7 +3555,12 @@ font-size: 16px;
 /**************************/
 @media (max-width: 1024px) {
 
-  .main-nav{
+  .narticle {
+    display: block; /* Change to a block layout for smaller screens */
+    padding: 1rem; /* Adjust padding as needed */
+  }
+ 
+.main-nav{
     display: none;
   }
 
@@ -3964,6 +3984,8 @@ font-size: 16px;
     flex: 0 0 calc(33% - 20px);
   }
   
+ 
+
 }
 
 @media (min-width: 1024px) {
@@ -3992,11 +4014,15 @@ font-size: 16px;
 
   }
 
-}
-
+ 
 /* Responsive
 ==================================== */
 @media all and (max-width: 1250px) {
+
+  .narticle {
+    display: block; /* Change to a block layout for smaller screens */
+    padding: 1rem; /* Adjust padding as needed */
+  }
  
   .Rtable--collapse  {
     display: block;
@@ -4060,7 +4086,7 @@ font-size: 16px;
     width: 100%;
   }
 }
-
+}
 /**************************/
 /* BELOW 544px (Phones) */
 /**************************/

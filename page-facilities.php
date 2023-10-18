@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Library
+Template Name: Facilities
  */
 get_header(); 
 $post_id = get_the_ID();
@@ -68,32 +68,21 @@ $current_language = get_locale();
     </ul>
 </div>
         
-        <!--<div class="widget" style="line-height: 1.5">
+        <div class="widget" style="line-height: 1.5">
+        <h3><?php echo __('Important Links', 'srft-theme' ); ?></h3>
         <ul style="list-style-type: none ">
-          <li><?php echo __('Memorandum of Association', 'srft-theme' ); ?>  <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
-          <li><?php echo __('Academic Bye-Laws ', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
-          <li><?php echo __('Financial Bye-Laws', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
-          <li><?php echo __('Service By-laws', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
+          <li><?php echo __('OPAC', 'srft-theme' ); ?>  </li> 
+          <li><?php echo __('NDLI', 'srft-theme' ); ?></li>
+          <li><?php echo __('Vimeo', 'srft-theme'); ?></li>
         </ul>   
-        </div>-->
+        </div>
         </div>
 
   <div class="main-content">
     <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div>  
-    <section class="sub-intro" style="margin-bottom: 4rem;">
-        <div class="sub-intro-text" style="max-width: 100%;">
-            <div class="sub-intro-text-description">
-                <?php
-                // Retrieve and display the introduction of the page content
-                $intro = get_post_meta(get_the_ID(), 'SubIntroDescription', true);
-                echo $intro;
-                ?>
-            </div>
-        </div>
-    </section>
-
+   
     <!--<div>
         <p class="page-header-text"><?php echo __('Library of SRFTI', 'srft-theme' ); ?></p>
     </div>-->

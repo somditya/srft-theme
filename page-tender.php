@@ -49,33 +49,42 @@ $category_id = get_category_ID($category_name);
             <div class="wrapper">
               <div class="Rtable Rtable--5cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell id-cell column-heading"><?php echo __('Tender ID', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell topic-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></div>
-                  <!--<div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>-->
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell location-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
                 </div>
 
                 <div class="Rtable-row" ng-repeat="tender in pagedTender">
-                  <div class="Rtable-cell slno-cell">
-                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
+                  <div class="Rtable-cell location-cell">
+                    <div class="Rtable-cell--content date-content"><span class="SL">{{$index+1 }}</span></div>
                   </div>
                   <div class="Rtable-cell id-cell">
                     <div class="Rtable-cell--content ">{{ tender.ID }}</div>
                   </div>
-                  <div class="Rtable-cell topic-cell">
+                  <div class="Rtable-cell name-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}">{{ tender.title }}</a></div>
                   </div>
-                  <div class="Rtable-cell date-cell">
-                    <div class="Rtable-cell--content "><span class="webinar-date">{{ tender.subdate | date:'yyyy-MM-dd' }}</span></div>
+                  <div class="Rtable-cell tenure-cell">
+                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate | date:'dd-MM-yyyy' }}</span></div>
+                  </div>
+                  <div class="Rtable-cell tenure-cell">
+                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate | date:'dd-MM-yyyy' }}</span></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
                   </div>-->
-                  <div class="Rtable-cell access-link-cell">
-                    <div class="Rtable-cell--content access-link-content"> <p ng-if="isSubmissionOpen">Submission is open.</p>
-        <p ng-if="!isSubmissionOpen">Submission is closed.</p></div>
+                  <div class="Rtable-cell location-cell">
+                  <div class="Rtable-cell--content access-link-content">
+                  <p ng-if="tender.isSubmissionOpen"><?php echo __('Open', 'srft-theme' ); ?></p>
+  <p ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
+                    
+                  <div>
+  
+</div>
+</div>
                   </div>
                 </div>
               </div>
@@ -119,31 +128,43 @@ $category_id = get_category_ID($category_name);
         $scope.filterField = '';
         $scope.fromDate = '';
         $scope.toDate = '';
-        $scope.itemsPerPage = 2;
+        $scope.itemsPerPage = 20;
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
-
         // Fetch the data
-        $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID)
-          .then(function (response) {
-            $scope.tenderList = response.data.map(function (post) {
-              var isSubmissionOpen = new Date(post.subdate) > $scope.currentDate;
-              return {
-                title: post.title.rendered || '',
-                link: post.link,
-                ID: post.id,
-                //subdate: post.Tender-Submission-Date, // Keep it as is
-                subdate: post.date,
-                isSubmissionOpen: isSubmissionOpen
-              };
-            });
+        $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID)
+  .then(function (response) {
+      $scope.tenderList = response.data.map(function (post) {
+      var submissionDateParts = post['Tender-Submission-Date'].split('/'); // Split by '/'
+      var day = parseInt(submissionDateParts[0], 10); // Parse day as an integer
+      var month = parseInt(submissionDateParts[1], 10) - 1; // Parse month as an integer (subtract 1 as months are zero-based)
+      var year = parseInt(submissionDateParts[2], 10); // Parse year as an integer
+      var submissionDate = new Date(year, month, day);
 
-            // Apply initial filters and pagination
-            updateFilteredTender();
-          })
-          .catch(function (error) {
-            console.error('Error fetching tender data:', error);
-          });
+      var isSubmissionOpen = submissionDate > $scope.currentDate;
+
+
+      console.log ('submissionDateParts');
+      console.log('submissionDate:', submissionDate);
+      console.log('currentDate:', $scope.currentDate);
+      console.log('isSubmissionOpen:', isSubmissionOpen);
+      
+      return {
+        title: post.title.rendered || '',
+        link: post.link,
+        ID: post['Tender-ID'],
+        subdate: submissionDate, // Use the parsed submission date
+        isSubmissionOpen: isSubmissionOpen,
+        pubdate: post.date,
+      };
+    });
+     
+    // Apply initial filters and pagination
+    updateFilteredTender();
+  })
+  .catch(function (error) {
+    console.error('Error fetching tender data:', error);
+  });
 
         // Function to update filtered tender based on filters
         function updateFilteredTender() {
