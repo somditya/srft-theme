@@ -202,7 +202,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"
                 alt=""
               /></a>
-              <h4>Amal Neerad</h4>
+              <h5>Amal Neerad</h5>
            </div>
 
            <div class="alumni-item">   
@@ -213,7 +213,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg"
                 alt=""
               /></a>
-              <h4>Kanu Behl</h4>
+              <h5>Kanu Behl</h5>
               </div>
 
             <div class="alumni-item">  
@@ -223,7 +223,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Vipin-Vijay-small.jpg"
                 alt=""
               /></a>
-              <h4>Vipin Vijay</h4>
+              <h5>Vipin Vijay</h5>
               </div>
 
               <div class="alumni-item">  
@@ -233,7 +233,7 @@ Template Name: Home
                     src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp"
                     alt=""
                   /></a>
-                  <h4>Namrata Rao</h4>
+                  <h5>Namrata Rao</h5>
                   </div>
 
                   <div class="alumni-item">  
@@ -243,7 +243,7 @@ Template Name: Home
                         src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp"
                         alt=""
                       /></a>
-                      <h4>Hawam Pabam Kumar</h4>       
+                      <h5>Hawam Pabam Kumar</h5>       
                       </div>
     
 
@@ -255,7 +255,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"
                 alt=""
               /></a>
-              <h4>Pritha Chakraborty</h4>
+              <h5>Pritha Chakraborty</h5>
               </div>
 
           <div class="alumni-item">
@@ -266,7 +266,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png"
                 alt=""
               /></a>
-              <h4>Madhura Palit</h4>
+              <h5>Madhura Palit</h5>
               
               </div>
 
@@ -278,7 +278,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png"
                 alt=""
               /></a>
-              <h4>Abhijit Sen</h4>
+              <h5>Abhijit Sen</h5>
               </div>
 
               <div class="alumni-item">
@@ -289,7 +289,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png"
                 alt=""
               /></a>
-              <h4>Sagar Ballary</h4>
+              <h5>Sagar Ballary</h5>
               </div>
             <div class="alumni-item">  
             <a class="alumni-img"
@@ -299,7 +299,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Pritam Das.png"
                 alt=""
               /></a>
-              <h4>Pritam Das</h4>
+              <h5>Pritam Das</h5>
               </div>
               <div class="alumni-item">  
                 <a class="alumni-img"
@@ -309,7 +309,7 @@ Template Name: Home
                     src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png"
                     alt=""
                   /></a>
-                  <h4>Sourav Rai</h4>
+                  <h5>Sourav Rai</h5>
                   </div>
                   <div class="alumni-item">  
                     <a class="alumni-img"
@@ -319,7 +319,7 @@ Template Name: Home
                         src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png"
                         alt=""
                       /></a>
-                      <h4>Dominic Sangma</h4>
+                      <h5>Dominic Sangma</h5>
                       </div>
       </div>
   

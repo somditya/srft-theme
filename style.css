@@ -2233,8 +2233,9 @@ font-size: 17px;
   width: 110px;
 }
 
-.alumni h4 {  
+.alumni h5 {  
 padding-top: 1.5rem;
+font-size: 1.5rem;
 margin:0
 }
 
@@ -2995,6 +2996,14 @@ position: relative;
   margin-top: 14px;
   z-index: 2;
 }
+
+.news-list {
+
+
+  
+}
+
+
 
 .page-title {
 
