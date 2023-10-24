@@ -132,7 +132,7 @@ $category_id = get_category_ID($category_name);
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
         // Fetch the data
-        $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID)
+        $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID+'&per_page=100')
   .then(function (response) {
       $scope.tenderList = response.data.map(function (post) {
       var submissionDateParts = post['Tender-Submission-Date'].split('/'); // Split by '/'
