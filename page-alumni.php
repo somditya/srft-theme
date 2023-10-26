@@ -54,6 +54,24 @@ echo "Hello";
                             </div>
                         </a>
                     </div>
+                    <ul class="pagination">
+  <li ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" ng-click="firstPage()"><i class="fas fa-step-backward"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
+    <a href="#" ng-click="setPage(page)">{{ page }}</a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" ng-click="lastPage()"><i class="fas fa-step-forward"  style="color: #8b5b2b;"></i></a>
+  </li>
+  
+</ul>
                 </div>
             </div>
         </section>
@@ -65,6 +83,9 @@ echo "Hello";
             angular.module('myApp', [])
     .controller('NewsController', function($scope, $http) {
         // Initialize the news data
+        $scope.itemsPerPage = 20;
+        $scope.currentPage = 1;
+        
         $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
             .then(function(response) {
                 console.log('HTTP request success');
