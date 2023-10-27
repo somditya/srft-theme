@@ -23,7 +23,6 @@ function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventi
 
 $category_name = 'news'; // Ensure this matches the exact category name.
 $category_id = get_category_ID($category_name);
-echo "Hello";
 ?>
 
 <body ng-controller="NewsController">
@@ -40,7 +39,7 @@ echo "Hello";
                 <div ng-app="myApp" ng-controller="NewsController" style="margin-top: 4.5rem;">
                     <!-- News grid without pagination -->
                     <div class="news-grid">
-                        <a class="news-card" ng-repeat="news in newsList" href="{{news.link}}">
+                        <a class="news-card" ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)"" href="{{news.link}}">
                             <div class="news-link-left">
                                 <span class="news-link-left-date"> {{ news.formattedDate }}</span>
                                     <h3 class="news-link-left-title">{{ news.name }}</h3>
@@ -56,99 +55,106 @@ echo "Hello";
                     </div>
                     <ul class="pagination">
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()"><i class="fas fa-step-backward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="setPage(1)"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
+  <li ng-repeat="page in getPages()" ng-class="{ 'active': currentPage === page }">
     <a href="#" ng-click="setPage(page)">{{ page }}</a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()"><i class="fas fa-step-forward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="setPage(totalPages)"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
   </li>
-  
 </ul>
                 </div>
             </div>
         </section>
 
         <script>
-            var categoryID = <?php echo json_encode($category_id); ?>;
-            var siteURL = '<?php echo esc_url(site_url('/')); ?>';
+        var categoryID = <?php echo json_encode($category_id); ?>;
+        var siteURL = '<?php echo esc_url(site_url('/')); ?>';
 
-            angular.module('myApp', [])
-    .controller('NewsController', function($scope, $http) {
-        // Initialize the news data
-        $scope.itemsPerPage = 20;
-        $scope.currentPage = 1;
-        
-        $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
-            .then(function(response) {
-                console.log('HTTP request success');
-                $scope.newsList = response.data.map(function(post) {
-                    const postDate = new Date(post.date);
-                    const day = String(postDate.getDate()).padStart(2, '0');
-                    const month = String(postDate.getMonth() + 1).padStart(2, '0');
-                    const year = postDate.getFullYear();
-                    const formattedDate = `${day}-${month}-${year}`;
-                    return {
-                        name: post.title.rendered || '',
-                        link: post.link,
-                        featured_media: post.featured_media,
-                        formattedDate: formattedDate,
+        angular.module('myApp', [])
+        .controller('NewsController', function($scope, $http) {
+            $scope.currentPage = 1;
+            $scope.itemsPerPage = 4; // Number of items per page
+
+            $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
+                .then(function(response) {
+                    console.log('HTTP request success');
+                    $scope.newsList = response.data.map(function(post) {
+                        const postDate = new Date(post.date);
+                        const day = String(postDate.getDate()).padStart(2, '0');
+                        const month = String(postDate.getMonth() + 1).padStart(2, '0');
+                        const year = postDate.getFullYear();
+                        const formattedDate = `${day}-${month}-${year}`;
+                        return {
+                            name: post.title.rendered || '',
+                            link: post.link,
+                            featured_media: post.featured_media,
+                            formattedDate: formattedDate,
+                        };
+                    });
+
+                    angular.forEach($scope.newsList, function(news) {
+                        if (news.featured_media) {
+                            $http.get(siteURL + 'wp-json/wp/v2/media/' + news.featured_media)
+                                .then(function(imageResponse) {
+                                    news.image = imageResponse.data.source_url;
+                                    console.log('Image Loaded for:', news.name);
+                                })
+                                .catch(function(error) {
+                                    console.error('Error fetching featured image:', error);
+                                });
+                        }
+                    });
+
+                    // Initialize the total pages
+                    $scope.totalPages = Math.ceil($scope.newsList.length / $scope.itemsPerPage);
+
+                    // Function to filter and display news based on the current page
+                    $scope.getDisplayedNews = function() {
+                        const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+                        const endIndex = startIndex + $scope.itemsPerPage;
+                        return $scope.newsList.slice(startIndex, endIndex);
                     };
+
+                    console.log('News List:', $scope.newsList);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching news data:', error);
                 });
 
-                angular.forEach($scope.newsList, function(news) {
-                    if (news.featured_media) {
-                        $http.get(siteURL + 'wp-json/wp/v2/media/' + news.featured_media)
-                            .then(function(imageResponse) {
-                                news.image = imageResponse.data.source_url;
-                                console.log('Image Loaded for:', news.name);
-                            })
-                            .catch(function(error) {
-                                console.error('Error fetching featured image:', error);
-                            });
-                    }
-                });
+            // Previous page
+            $scope.prevPage = function() {
+                if ($scope.currentPage > 1) {
+                    $scope.setPage($scope.currentPage - 1);
+                }
+            };
 
-                // Pagination settings
-                $scope.currentPage = 1;
-                $scope.itemsPerPage = 10; // Number of items per page
+            // Next page
+            $scope.nextPage = function() {
+                if ($scope.currentPage < $scope.totalPages) {
+                    $scope.setPage($scope.currentPage + 1);
+                }
+            };
 
-                // Function to get the total number of pages
-                $scope.getTotalPages = function() {
-                    return Math.ceil($scope.newsList.length / $scope.itemsPerPage);
-                };
-
-                // Function to generate an array of page numbers
-                $scope.getPages = function() {
-                    const totalPages = $scope.getTotalPages();
-                    return new Array(totalPages).fill().map((_, i) => i + 1);
-                };
-
-                // Function to set the current page
-                $scope.setPage = function(pageNumber) {
+            // Set the current page
+            $scope.setPage = function(pageNumber) {
+                if (pageNumber >= 1 && pageNumber <= $scope.totalPages) {
                     $scope.currentPage = pageNumber;
-                };
+                }
+            };
 
-                // Function to filter and display news based on the current page
-                $scope.getDisplayedNews = function() {
-                    const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
-                    const endIndex = startIndex + $scope.itemsPerPage;
-                    return $scope.newsList.slice(startIndex, endIndex);
-                };
-
-                console.log('News List:', $scope.newsList);
-            })
-            .catch(function(error) {
-                console.error('Error fetching news data:', error);
-            });
-    });
-        </script>
+            // Function to generate an array of page numbers
+            $scope.getPages = function() {
+                return new Array($scope.totalPages).fill().map((_, i) => i + 1);
+            };
+        });
+    </script>
           
     </main>

@@ -287,7 +287,7 @@
                     <a href="<?php echo esc_url(site_url('/library/')); ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/screening-facility/')); ?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/screening-room/')); ?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
