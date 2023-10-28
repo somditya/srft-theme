@@ -71,9 +71,25 @@ $current_language = get_locale();
         </div>
         <div class="widget" style="line-height: 1.5">
         <h3>Admission Notification</h3>
-        <ul style="list-style-type: none ">
-          
-        </ul>   
+        <?php
+    $category_posts = new WP_Query(array(
+        'category_name' => 'admissionshort-en', // Replace with your category slug
+        'posts_per_page' => 5,
+    ));
+
+    if ($category_posts->have_posts()) :
+        while ($category_posts->have_posts()) : $category_posts->the_post();
+        $post_link = get_permalink();
+    ?>
+    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+    <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>
+        <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>  
         </div>
         </div>
 

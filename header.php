@@ -9,9 +9,12 @@
  * @package WordPress
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
- */
-
+ **/
 ?>
+<?php 
+$current_language = get_locale();
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
 <head>
@@ -291,13 +294,13 @@
                     </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/accomodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('International students', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/short-courses/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
@@ -315,14 +318,20 @@
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                      <a href="<?php echo esc_url(site_url('/Vacancy/')); ?>"><?php echo __('vacancy', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/Vacancy/')); ?>"><?php echo __('Vacancy', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/tender/')); ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
+                    <a href="<?php 
+if ($current_language === 'en_US') {
+    echo esc_url(site_url('/tender/'));
+} else {
+    echo esc_url(site_url('/hi/निविदा/'));
+}
+?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('RTI', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/rti/')); ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>

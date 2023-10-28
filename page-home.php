@@ -69,7 +69,7 @@ Template Name: Home
  </div>
  <div class="link-div" style="align-items: center;"">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
    <div class="link-div" style="align-items: center; margin-top: 0;">
-     <a class="link-text-big" href="#"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+     <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
      </span>
    </a>
@@ -484,7 +484,7 @@ Template Name: Home
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
     $category_posts = new WP_Query(array(
-        'category_name' => 'announcement', // Replace with your category slug
+        'category_name' => 'announcement-en', // Replace with your category slug
         'posts_per_page' => 5,
     ));
 
@@ -500,7 +500,7 @@ Template Name: Home
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-  <div class="link-span"><a  href="#""><?php echo __('More', 'srft-theme' ); ?></a></div>
+  <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/course-overview/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
   <div class="cell">
@@ -523,7 +523,7 @@ Template Name: Home
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-    <div class="link-span"><a  href="#""><?php echo __('More', 'srft-theme' ); ?></a></div>
+    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
   </div>
   
       <div class="cell">
@@ -546,7 +546,7 @@ Template Name: Home
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-        <div class="link-span"><a  href="#"><?php echo __('More', 'srft-theme' ); ?></a></div>
+        <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
       </div>
       
 </div>

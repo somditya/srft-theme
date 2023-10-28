@@ -66,6 +66,13 @@ $current_language = get_locale();
         ?>
     </ul>
 </div>
+
+<div class="widget" style="line-height: 1.5">
+        <h3>Admission Notification</h3>
+        <ul style="list-style-type: none ">
+          
+        </ul>   
+        </div>
       </div>
 
 
