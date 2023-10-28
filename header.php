@@ -297,9 +297,6 @@ $current_language = get_locale();
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/admission-to-short-courses/')); ?>"><?php echo __('International students', 'srft-theme' ); ?></a>
-                    </li>
-                    <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>

@@ -11,7 +11,7 @@ $current_language = get_locale();
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('RTI', 'srft-theme' ); ?></div>
+          <div class="page-banner-title"><?php the_title(); ?></div>
       </section>
 
       <section class="cine-detail">
@@ -33,23 +33,14 @@ $current_language = get_locale();
         </div>
 
   <div class="main-content">
-    <div>
-        <p class="page-header-text"><?php echo __('Right to Information Act (RTI)2005', 'srft-theme' ); ?></p>
-    </div>  
-    <section class="sub-intro" style="margin-bottom: 4rem;">
-        <div class="sub-intro-text" style="max-width: 100%;">
-            <div class="sub-intro-text-description">
-                <?php
-                // Retrieve and display the introduction of the page content
-                $intro = get_post_meta(get_the_ID(), 'SubIntroDescription', true);
-                echo $intro;
-                ?>
-            </div>
-        </div>
-    </section>
+  <section class="page-title">
+          <div>
+            <p class="page-header-text"><?php the_title(); ?></p>
+          </div>
+  </section>
 
     <section style="margin-bottom: 4rem;">
-    <?php the_content(); ?>   
+    <div><?php the_content(); ?></div>   
     </section>
 </div>
         
