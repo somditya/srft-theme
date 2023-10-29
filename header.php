@@ -204,10 +204,10 @@ $current_language = get_locale();
           <div class="nav-links">
             <ul class="custom-menu">
               <li class="nav-link" style="--i: 0.6s">
-                <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                <a href="<?php echo esc_url(site_url('/home/')); ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="<a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
+                <a href="<a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">

@@ -126,7 +126,7 @@ $current_language = get_locale();
                   </div>
                 
                   <div class="Rtable-cell composition-cell">
-                    <div class="Rtable-cell--content "><?php echo get_post_meta(get_the_ID(), 'Composition', true); ?></div>
+                    <div class="Rtable-cell--content "><a href="<?php echo get_post_meta(get_the_ID(), 'Composition', true); ?>" ><?php echo __('Download', 'srft-theme' ); ?></a></div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><?php echo get_post_meta(get_the_ID(), 'Tenure', true); ?></div>
@@ -149,6 +149,7 @@ $current_language = get_locale();
               </div>
               <!-- Use a CSS grid for layout -->
             </div>
+  </div>
     </section>     
 
     <?php 

@@ -95,7 +95,7 @@ Template Name: Home
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
-          <a class="link-text-big" href="#"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+          <a class="link-text-big" href=""><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
@@ -110,8 +110,8 @@ Template Name: Home
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
     <div class="section-into-text" style="padding:25px;">
-      <h3 style="color:beige"><i>SRFTI is an active member of CILECT,<br>
-      an association that gathers the best film school in the world.</i></h3>
+      <h3 style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
+      <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></h3>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/cilect.png" target="_blanK" alt="CILECT">
@@ -125,19 +125,19 @@ Template Name: Home
   <div style="display:flex; flex-direction: column;">
     <h2><span class="counter">4 </span></h2>
   <div class="accolades-text">
-    <p>Presence in Cannes</p>
+    <p><?php echo __('Presence in Cannes', 'srft-theme' ); ?></p>
   </div>
   </div>
   <div style="display:flex; flex-direction: column;">
     <h2><span class="counter">36</span></h2>
   <div class="accolades-text">
-    <p>National Awards</p>
+    <p><?php echo __('National Awards', 'srft-theme' ); ?></p>
   </div>
   </div>
   <div style="display:flex; flex-direction: column;">
     <h2><span class="counter">65</span>+</h2>
   <div class="accolades-text">
-    <p>National & Internal Festival Selections</p>
+    <p><?php echo __('National & Internal Festival Selections', 'srft-theme' ); ?></p>
   </div>
   </div>
   </div>

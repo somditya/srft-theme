@@ -1,4 +1,4 @@
-
+<a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('About', 'srft-theme' ); ?></a>
 
 <div class="footer_container">
       <div class="footer_inner_container">
@@ -7,21 +7,22 @@
         </div>
         <div class="footer_sub"><h3>Satyajit Ray Film & Television Institute</h3>
           <ul>  
-          <li>E.M. Bypass Road, Panchasayar</li>
-          <li>Kolkata-700094</li>
-          <li>West Bengal</li>carausal          <li>Phone: 91-33-2432-8355, 2432-8356, 2432-9300</li>
-          <li>email: contact@srfti.ac.in</li>
+          <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme' ); ?></li>
+          <li><?php echo __('Kolkata-700094', 'srft-theme' ); ?></li>
+          <li><?php echo __('West Bengal', 'srft-theme' ); ?></li>
+          <li><?php echo __('Phone:', 'srft-theme' ); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
+          <li><?php echo __('email:', 'srft-theme' ); ?>contact@srfti.ac.in</li>
         </ul>
         </div>
-        <div class="footer_sub"><h3>Quick Links</h3>
+        <div class="footer_sub"><h3><?php echo __('Quick Links:', 'srft-theme' ); ?></h3>
         <ul>
-        <li>Departments</li>
-        <li>Admission</li>
-        <li>Library</li>
-        <li>Important Committes</li>
-        <li>Right to Information</li>
-        <li>Citizen Charter</li>
-        <li>Telephone Directory</li>
+        <li><?php echo __('Admission', 'srft-theme' ); ?></li>
+        <li><?php echo __('Library', 'srft-theme' ); ?></li>
+        <li><?php echo __('Important Committes', 'srft-theme' ); ?></li>
+        <li><?php echo __('Right to Information', 'srft-theme' ); ?></li>
+        <li><?php echo __('Citizen Charter', 'srft-theme' ); ?></li>
+        <li><?php echo __('Telephone Directory', 'srft-theme' ); ?></li>
+        <li><?php echo __('Holiday List', 'srft-theme' ); ?></li>
       </ul>
       </div>
       <div class="footer_sub"><h3>Site map</h3>
@@ -33,17 +34,17 @@
       </div>
      
       <div class="footer_sub">
-        <h3>Follow us</h3>
+        <h3><?php echo __('Follow us', 'srft-theme' ); ?></h3>
         <ul class="social">
         <!--<li><a href="https://www.facebook.com/chicagoboothbusiness" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Facebook - This Link Opens in New Window"><img src="images/facebook.svg" alt="facebook"></a></li>
         <li><a href="https://www.instagram.com/chicagobooth/" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Instagram - This Link Opens in New Window"><img src="images/instagram.svg" alt="Instagram"></a></li>
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->  
-        <li><a href="https://www.facebook.com/chicagoboothbusiness" ><i class="fa fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://www.instagram.com/chicagobooth/" ><i class="fa fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://twitter.com/ChicagoBooth" ><i class="fa fa-twitter footer_icon"></i></a></li>
-        <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" ><i class="fa fa-youtube footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" ><i class="fa fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/" ><i class="fa fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" ><i class="fa fa-twitter footer_icon"></i></a></li>
+        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" ><i class="fa fa-youtube footer_icon"></i></a></li>
         
       </ul>
       </div>
@@ -71,7 +72,7 @@
           </div>
         </div>-->
     </div>
-    <div class="footer_copyright_container">©2023 Satyajit Ray Film & Television Institute</div>
+    <div class="footer_copyright_container">©2023<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme' ); ?></div>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.waypoints.js"></script>
     <script>
