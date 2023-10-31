@@ -331,7 +331,7 @@ if ($current_language === 'en_US') {
                       <a href="<?php echo esc_url(site_url('/rti/')); ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="#"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
+                      <a href="<?php echo esc_url(site_url('/citizen-charter//')); ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>

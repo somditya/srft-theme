@@ -69,7 +69,7 @@ $title=get_the_ID
               <iframe src="https://www.youtube.com/embed/XznE74RwM3E" title="SRFTI Film Wing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>-->
             <div class="iframe-wrapper">
-              <iframe class="wrapped-iframe" src="https://www.youtube.com/embed/XznE74RwM3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe class="wrapped-iframe" src="https://www.youtube.com/watch?v=FLGvL6glSd0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
           <div class="sub-intro-text">

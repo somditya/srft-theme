@@ -2545,7 +2545,7 @@ transform: scale(1.2);
 }
 
 .box-container {
- width: 75%;
+ width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

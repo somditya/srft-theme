@@ -149,7 +149,7 @@ $facilities=get_post_meta($page_id, 'Facilities', true);
                       <a href="<?php the_permalink(); ?>" target="_blank">
                       <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"  alt="" />
 
-                          <h4><?php the_title(); ?></h4>
+                          <h3><?php the_title(); ?></h3>
                           <span><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></span>
                       </a>
                   </li><?php

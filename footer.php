@@ -1,5 +1,3 @@
-<a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('About', 'srft-theme' ); ?></a>
-
 <div class="footer_container">
       <div class="footer_inner_container">
         <div class="footer_sub">
