@@ -207,11 +207,11 @@ $current_language = get_locale();
                 <a href="<?php echo esc_url(site_url('/home/')); ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="<a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
+                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('About', 'srft-theme' ); ?></a>
+                    <a href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><?php echo __('History', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/leadership/')); ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
@@ -249,6 +249,9 @@ $current_language = get_locale();
                    
                     <li class="dropdown-link">
                       <a href="<?php echo esc_url(site_url('/faculty/')); ?>"><?php echo __('Faculty', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="<?php echo esc_url(site_url('/research/')); ?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
