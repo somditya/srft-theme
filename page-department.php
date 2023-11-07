@@ -92,6 +92,10 @@ $facilities=get_post_meta($page_id, 'Facilities', true);
  </div>
 
  <div class="main-content">
+ <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
    <div style="margin-top: 0rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
      <?php echo __('About the department', 'srft-theme' ); ?>

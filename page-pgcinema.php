@@ -42,6 +42,10 @@ $title=get_the_title($post_id);
         </div>
 
         <div class="main-content">
+        <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
         
         <?php 
         $intro = get_post_meta(get_the_ID(), '$Intro', true);

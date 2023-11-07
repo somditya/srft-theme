@@ -73,7 +73,10 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div class="main-content">
-          
+        <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
            
               <p class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></p>
           <section class="sub-intro">

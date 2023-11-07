@@ -71,6 +71,10 @@ $current_language = get_locale();
 
         
   <div class="main-content">
+  <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
         <section class="page-title">
           <div>
             <p class="page-header-text"><?php the_title(); ?></p>

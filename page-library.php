@@ -21,6 +21,7 @@ $current_language = get_locale();
           <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
         </div>-->
         <div class="childnavs">
+            
     <ul class="childnav-lists">
         <?php
         $current_language = get_locale(); // Get the current language/locale.
@@ -79,6 +80,10 @@ $current_language = get_locale();
         </div>
 
   <div class="main-content">
+  <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
     <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div>  

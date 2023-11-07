@@ -75,6 +75,10 @@ if ($latest_convocation_post->have_posts()) :
         </div>
 
         <div class="main-content">
+        <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
           <section class="page-title">
             <div>
               <p class="page-header-text"><?php echo $latest_post_title; // Display the title of the latest convocation post ?></p>

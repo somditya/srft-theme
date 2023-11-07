@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Research
+Template Name: Film Research
  */
 get_header(); 
 $post_id = get_the_ID();
@@ -22,15 +22,14 @@ if ($current_language === 'en_US') {
         <div class="page-banner">
           <div class="page-banner-title"><?php the_title(); ?></div>
       </section>
-
       <section class="cine-detail">
         <div class="leftnav">
-          <!--<div>
+        <!--<div>
           <p class="office-header-text">Management</p>-->
           <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
         </div>-->
         
-        <div class="widget" style="line-height: 1.5">
+        <div class="widget" style="line-height: 1.5; margin-top:1rem;">
         <h4><?php echo __('Take One', 'srft-theme' ); ?></h4>
         <ul style="list-style-type: none ">
         <?php
@@ -56,18 +55,22 @@ if ($current_language === 'en_US') {
         </div>
 
   <div class="main-content">
+  <div><?php if(function_exists('bcn_display'))
+{
+bcn_display();
+}?></div>
   <section class="page-title">
           <div>
-            <p class="page-header-text"><?php the_title(); ?></p>
+            <p class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></p>
           </div>
   </section>
 
     <section style="margin-bottom: 4rem;">
     <div><?php the_content(); ?></div>   
     </section>
-</div>
-        
+</div>        
 </main>
+
 
 <?php
 get_footer(); 
