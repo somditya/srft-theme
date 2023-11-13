@@ -757,3 +757,32 @@ function increase_postmeta_form_limit() {
 	return 120;
 }
 add_filter('postmeta_form_limit', 'increase_postmeta_form_limit');
+
+
+add_filter('render_block_data', function($parsed_block) {
+	if (isset($parsed_block['innerContent'])) {
+			foreach ($parsed_block['innerContent'] as &$innerContent) {
+					if (empty($innerContent)) {
+							continue;
+					}
+
+					$innerContent = do_shortcode($innerContent);
+			}
+	}
+
+	if (isset($parsed_block['innerBlocks'])) {
+			foreach ($parsed_block['innerBlocks'] as $key => &$innerBlock) {
+					if (! empty($innerBlock['innerContent'])) {
+							foreach ($innerBlock['innerContent'] as &$innerContent) {
+									if (empty($innerContent)) {
+											continue;
+									}
+
+									$innerContent = do_shortcode($innerContent);
+							}
+					}
+			}
+	}
+
+	return $parsed_block;
+}, 10, 1);
