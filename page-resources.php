@@ -72,8 +72,7 @@ bcn_display();
   </section>
 
     <section style="margin-bottom: 4rem;">
-    <div><?php  echo wp_kses_post($post->post_content); ?>
-  </div>   
+    <div><?php  echo wp_kses_post($post->post_content); ?></div>   
     </section>
 </div>
         

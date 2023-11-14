@@ -9,7 +9,7 @@
  * @since Twenty Twenty-One 1.0
  */
 
-get_header();
+
 
 /* Start the Loop */
 while ( have_posts() ) :
@@ -22,4 +22,3 @@ while ( have_posts() ) :
 	}
 endwhile; // End of the loop.
 
-get_footer();

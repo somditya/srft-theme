@@ -31,7 +31,7 @@ get_header();
    <?php
 
     $post_id = get_the_ID();
-    $post_content = apply_filters('the_content', $post->post_content);
+    $post_content = wpautop($s->post_content);
     $category_posts = new WP_Query(array(
         'category_name' => 'news-en', // Replace with your category slug
     ));

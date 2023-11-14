@@ -59,12 +59,27 @@ if ($current_language === 'en_US') {
 {
 bcn_display();
 }?></div>
-  <section class="page-title">
-          <div>
+
+<div>
+        <p class="page-header-text"><?php the_title(); ?></p>
+    </div> 
+ 
+  <section class="sub-intro" style="margin-bottom: 4rem;">
+        <div class="sub-intro-text" style="max-width: 100%;">
+            <div class="sub-intro-text-description">
+                <?php
+                // Retrieve and display the introduction of the page content
+                $intro = get_post_meta(get_the_ID(), 'SubIntroDescription', true);
+                echo $intro;
+                ?>
+            </div>
+        </div>
+    </section>
+
+    <div>
             <p class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></p>
           </div>
-  </section>
-
+ 
     <section style="margin-bottom: 4rem;">
     <div><?php the_content(); ?></div>   
     </section>
