@@ -140,7 +140,7 @@ Montreal, Japan, Vladivostok, IFFL, IFFK etc. Recipient of film grants from Rott
             <li>
               <input type="checkbox" checked>
               <i></i>
-              <h2>Previous Chairmans</h2>
+              <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
               
             </li>
           </ul>
@@ -148,28 +148,29 @@ Montreal, Japan, Vladivostok, IFFL, IFFK etc. Recipient of film grants from Rott
               <li>
                 <input type="checkbox" checked>
                 <i></i>
-                <h2>Previous Directors</h2>
+                <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
                 <p>
-                  <p> 1.  Shri. Himansu Sekhar Khatua	from 04.08.2022 </p>
+              <p> 1.  Shri. Himansu Sekhar Khatua	from 04.08.2022 </p>
               <p> 2.	Shri. Samiran Datta Additional Charge [ 04.02.2022 ]</p>
               <p> 3.	Shri. Debasish Ghoshal Additional Charge	01.06.2021</p>
               <p> 4.	Shri. Amaresh Chakrabarti Additional Charge	05.02.2020</p>
               <p> 5.	Dr. Debamitra Mitra	27.01.2017
               <p> 6.	Shri Amaresh Chakrabarti Additional Charge	03.06.2016</p>
               <p> 7.	Shri Debanjan Chakrabarti Additional Charge	24.03.2016 </p>
-              <p>8.	  Shri Sanjaya Pattanayak	27.03.2012 </p>
+              <p> 8.	Shri Sanjaya Pattanayak	27.03.2012 </p>
               <p> 9.	Shri Shankar Mohan Additional Charge	19.06.2010 </p>
               <p>10.	Shri Swapan Mullick	19.06.2006 </p>
               <p>11.	Shri Abhay Shrivastava	03.01.2005 </p>
               <p>12.	Shri Jatin Sarkar	24.12.2001 </p>
-              <p>13.	Dr. Debasish Majumdar	29.08.1997</p> </p>
+              <p>13.	Dr. Debasish Majumdar	29.08.1997</p> 
+            </p>
                 </table>
               </li>
               <ul>
                 <li>
                   <input type="checkbox" checked>
                   <i></i>
-                  <h2>Previous Registrars</h2>
+                  <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>
                   <p>
                     <tbody>
                       <th>Name</th>

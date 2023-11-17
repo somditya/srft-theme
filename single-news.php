@@ -19,6 +19,13 @@ $post_content = apply_filters('the_content', $post->post_content);
 ?>
 
 <section style="margin: 15rem; padding: 0 1.25rem; display: block;">
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+<?php
+if(function_exists('bcn_display'))
+{
+bcn_display();
+}?>
+</div>
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;

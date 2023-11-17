@@ -98,7 +98,7 @@ bcn_display();
           <div>
               <p class="page-header-text"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
             </div>
-        <scction class="one-flex" >
+        <!--<scction class="one-flex" >
         <div class="container">
 	<div class="gallery">
 		<img src="<?php bloginfo('template_url'); ?>/images/foundation-01.jpg" target="_blanK" class="single-image" />
@@ -118,7 +118,27 @@ bcn_display();
 </div>
  
 
-        </scction>
+        </scction>-->
+        <div class="container">
+  <div class="grid-gallery">
+  <img src="<?php bloginfo('template_url'); ?>/images/foundation-01.jpg" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-02.jpg" target="_blanK" class="single-image" />	
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-03.jpg" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-04.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-05.jpg" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-06.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-07.jpg" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-08.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-09.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-10.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-11.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-12.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-13.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-14.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-15.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-16.jpg" target="_blanK" class="single-image" />
+  </div>
+</div>
         <div><p class="page-header-text"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>
         <scction class="one-flex" style="margin: 10px;" >
           <video autoplay="false" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true" playsinline="true" poster="#" width="100%">
@@ -129,12 +149,11 @@ bcn_display();
 
         </section>
     </main>
-
     <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <div class="modal-body">
-      <!-- Modal content goes here -->
+     
     </div>
   </div>
 </div>
