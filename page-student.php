@@ -35,20 +35,21 @@ $category_id = get_category_ID($category_name);
 
       <section class="section-home">
             <div class="container" style="width: 1170px;">
-                <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
-                <div ng-app="myApp" ng-controller="ProductionController" style="margin-top: 4.5rem;">
+                <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students Films', 'srft-theme' ); ?></h2>
+                <div ng-app="myApp" ng-controller="ProductionController" style="margin-top: 4.5rem; display">
                     <!-- News grid without pagination -->
                     <div class="award-tree">
-                        <a class="newss-card" ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)"" href="{{production.link}}">                        
-        <div>
-            <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="150px;" alt="Left Leaf">
-        </div>
-        <div ><h3 class="news-link-left-title">{{ production.name }}</h3></div>
-        <div>
-        <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="150px;" alt="Left Leaf">
-        </div>
-       </a>
-        </div>
+  <div ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)" style="display: inline-block; margin-right: 10px;">
+    <a href="{{production.link}}" style="display: flex; align-items: center;">
+      <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="150px;" alt="Left Leaf">
+      <h3 class="news-link-left-title">{{ production.name }}</h3>
+      <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="150px;" alt="Right Leaf">
+    </a>
+  </div>
+</div>
+
+                </div>
+            </div>
                     <!--<ul class="pagination">
   <li ng-class="{ 'disabled': currentPage === 1 }">
     <a href="#" ng-click="setPage(1)"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>

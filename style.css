@@ -3120,31 +3120,14 @@ position: relative;
   align-items: center !important;
   flex-direction: row !important;* Set the flex direction to row */
 }
-.award-tree ul li {
-  padding: 0px 17px;
-  margin: 0px;
-  float: left;
-  font-size: 13px;
-  font-weight: bold;
-  display: flex;
-  line-height: 66px;
-}
-
-.award-tree ul li:before {
-  content: url(images/leftleaf.png);
-}
-
-.award-tree ul li:atter {
-  content: url(images/rightleaf.png);
-}
 
 .leaf {
   text-align: center;
   padding: 10px;
 }
 
-.leaf img {
- height: 100px;
+.award-tree img {
+ width: 100%;
 }
 
 
