@@ -36,13 +36,13 @@ $category_id = get_category_ID($category_name);
       <section class="section-home">
             <div class="container" style="width: 1170px;">
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students Films', 'srft-theme' ); ?></h2>
-                <div ng-app="myApp" ng-controller="ProductionController" style="margin-top: 4.5rem; display">
+                <div ng-app="myApp" ng-controller="ProductionController" style="margin-top: 4.5rem;">
                     <!-- News grid without pagination -->
                     <div class="award-tree">
   <div ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)" style="display: inline-block; margin-right: 10px;">
-    <a href="{{production.link}}" style="display: flex; align-items: center;">
+    <a href="{{production.link}}" style="display: flex; align-items: center; padding: 0px; margin-bottom: 10px;">
       <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="150px;" alt="Left Leaf">
-      <h3 class="news-link-left-title">{{ production.name }}</h3>
+      <h3 style=" width: 100%; color: #161a1d;">{{ production.name }}</h3>
       <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="150px;" alt="Right Leaf">
     </a>
   </div>

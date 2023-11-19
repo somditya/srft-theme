@@ -3116,7 +3116,6 @@ position: relative;
 /* Award */
 
 .award-tree {
-  display: flex !important;
   align-items: center !important;
   flex-direction: row !important;* Set the flex direction to row */
 }
