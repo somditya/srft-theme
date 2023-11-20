@@ -141,6 +141,36 @@
     dots:true,
     });
 
+    $('.student').owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:2,
+            nav:true,
+            loop:true
+        },
+        600:{
+            items:2,
+            nav:true,
+            loop:true
+        },
+        1000:{
+            items:2,
+            nav:true,
+            loop:true
+        }
+    },
+    autoplay:true,
+    autoplayTimeout:1500,
+    autoplayHoverPause:true,
+    nav:true,
+    navText : ["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+    dots:false,
+    });
+
   </script>
 
 <script>

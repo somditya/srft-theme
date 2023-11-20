@@ -308,7 +308,7 @@ $current_language = get_locale();
               
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
+                <a href="<?php echo esc_url(site_url('/students/')); ?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
                
               
               </li>
