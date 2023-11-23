@@ -28,12 +28,11 @@ $category_id = get_category_ID($category_name);
 
 <body ng-controller="TenderController">
   <main>
-    <section class="cine-header">
+    <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');>
       <div class="page-banner">
         <div class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></div>
       </div>
     </section>
-
     <section class="section-home">
       <div class="container" style="width: 1170px;">
       <div><?php if(function_exists('bcn_display'))

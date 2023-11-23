@@ -137,6 +137,7 @@ bcn_display();
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-14.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-15.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-16.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/SAKTI-SAMANTA.jpg" target="_blanK" class="single-image" />
   </div>
 </div>
         <div><p class="page-header-text"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>

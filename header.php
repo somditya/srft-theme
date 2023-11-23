@@ -179,12 +179,9 @@ $current_language = get_locale();
              <li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>
              <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
              <li><a><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
-             <li><a><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
+             <li><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
          </div>
-         
-      
-        
         <div class="form-item form-type-textfield form-item-search-block-form">
           
          <input title="Enter the terms you wish to search for." placeholder="Search..." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text form-autocomplete ui-autocomplete-processed ui-autocomplete-input" data-sa-theme="basic-green" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
