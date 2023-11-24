@@ -17,13 +17,13 @@ Template Name: Contact
 <section class="cine-detail">
 
 <div class="leftnav">
-  <div class="widget">
-  <strong>Satyajit Ray Film &amp; Television Institute</strong>
-E.M.Byepass Road, P.O. Panchasayar,
-Kolkata-700094
+  <div class="widget" style="line-height: 1.5">
+  <strong><p><?php echo __('Satyajit Ray Film &amp; Television Institute' , 'srft-theme');?></p></strong>
+  <p><?php echo __('E.M.Byepass Road, P.O. Panchasayar','srft-theme') ?></p>
+  <p><?php echo __('Kolkata-700094', 'srft-theme');?> </p>
 
-Phone-(033)2432 8355/8356/9300
-Fax - (033)2432-0723/9436
+  <p><?php echo __('Phone-(033)2432 8355/8356/9300', 'srft-theme'); ?></p>
+  <?php echo __('Fax - (033)2432-0723/9436', 'srft-theme'); ?>
 </div>
         </div>
 
@@ -48,7 +48,9 @@ bcn_display();
               <input type="checkbox" checked>
               <i></i>
               <h2><?php echo __('Contact a Section', 'srft-theme' ); ?></h2>
-              
+              <p>
+                <?php echo get_post_meta(get_the_ID(), 'Sections', true); ?>
+              </p>
             </li>
           </ul>
             <ul>
@@ -57,21 +59,8 @@ bcn_display();
                 <i></i>
                 <h2><?php echo __('Directories and Listings', 'srft-theme' ); ?></h2>
                 <p>
-              <p> 1.  Shri. Himansu Sekhar Khatua	from 04.08.2022 </p>
-              <p> 2.	Shri. Samiran Datta Additional Charge [ 04.02.2022 ]</p>
-              <p> 3.	Shri. Debasish Ghoshal Additional Charge	01.06.2021</p>
-              <p> 4.	Shri. Amaresh Chakrabarti Additional Charge	05.02.2020</p>
-              <p> 5.	Dr. Debamitra Mitra	27.01.2017
-              <p> 6.	Shri Amaresh Chakrabarti Additional Charge	03.06.2016</p>
-              <p> 7.	Shri Debanjan Chakrabarti Additional Charge	24.03.2016 </p>
-              <p> 8.	Shri Sanjaya Pattanayak	27.03.2012 </p>
-              <p> 9.	Shri Shankar Mohan Additional Charge	19.06.2010 </p>
-              <p>10.	Shri Swapan Mullick	19.06.2006 </p>
-              <p>11.	Shri Abhay Shrivastava	03.01.2005 </p>
-              <p>12.	Shri Jatin Sarkar	24.12.2001 </p>
-              <p>13.	Dr. Debasish Majumdar	29.08.1997</p> 
-            </p>
-                </table>
+                <?php echo get_post_meta(get_the_ID(), 'Directories', true); ?>
+                </p>
               </li>
               <ul>
                 <li>

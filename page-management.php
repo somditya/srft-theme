@@ -77,7 +77,6 @@ $current_language = get_locale();
         </ul>   
         </div>
         </div>
-
         <div class="main-content">
         <div><?php if(function_exists('bcn_display'))
 {
