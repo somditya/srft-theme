@@ -381,6 +381,17 @@ animation-duration: 4s;
   border: 1px solid #CCCCCC;
 }
 
+
+#heading {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
 /*
 .status-green:before {
   display: inline-block;
@@ -449,6 +460,7 @@ margin-bottom: 4rem;
   color: #4d4d4d;
   color: #161a1d;
   margin-bottom: 2.2rem;
+  position: relative;
   /*text-transform: uppercase;*/
 
   

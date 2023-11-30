@@ -11,7 +11,7 @@ Template Name: Home
 
 <main>
  
- <section class="section-home" style="background-color: #161a1d; padding:10px">
+ <section class="section-home" style="background-color: #161a1d; padding:10px;">
  <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
  <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;"><?php echo __('Whats New', 'srft-theme' ); ?></div>
  <div class="secondary__header-arrow" class="margin-left: 0px;  padding:0px; calc(15% - 40px); "> 
@@ -20,9 +20,9 @@ Template Name: Home
  </div>
  <div style="color:white; font-size: 18px; width: calc(90% - 40px); "><marquee direction="right">JET 2022 result published please follow the link to know your rank</marquee></div>
  </section>
- <section class="section-news" style="background-color: #0b6b39; ">
+ <section class="section-news" style="background-color: #0b6b39;" id="section-1">
    <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
-   <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Featured News', 'srft-theme' ); ?></h2>
+   <h2 id="heading" class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Featured News', 'srft-theme' ); ?></h2>
    <div class="frame">
    <div class="static owl-carousel">
    <?php

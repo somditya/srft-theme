@@ -66,7 +66,13 @@ $current_language = get_locale();
      <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
-                
+    <!-- ScrollMagic -->
+<script src="https://unpkg.com/scrollmagic@2.0.8/scrollmagic/uncompressed/ScrollMagic.js"></script>
+<!-- GSAP TweenMax -->
+<script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+<!-- GSAP CSSPlugin (required for certain animations) -->
+<script src="https://unpkg.com/gsap@3.9.0/dist/CSSPlugin.min.js"></script>
+
     <title>Satyajit Ray Film & Television Institute</title>
 </head>
 

@@ -740,6 +740,14 @@ function custom_post_type_news() {
 }
 add_action('init', 'custom_post_type_news');
 
+function enqueue_scrollmagic() {
+	wp_enqueue_script('gsap', 'https://unpkg.com/gsap@3.9.0/dist/gsap.min.js', array(), null, true);
+	wp_enqueue_script('scrollmagic', 'https://unpkg.com/scrollmagic@2.0.7/scrollmagic/minified/ScrollMagic.min.js', array('gsap'), null, true);
+	wp_enqueue_script('scrollmagic-gsap', 'https://unpkg.com/scrollmagic@2.0.7/scrollmagic/minified/plugins/animation.gsap.min.js', array('scrollmagic'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_scrollmagic');
+
+
 function set_custom_template($single_template) {
 	global $post;
 
