@@ -234,25 +234,7 @@ $(document).ready(function () {
 
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var controller = new ScrollMagic.Controller();
 
-        // Scene for the first section
-        var scene = new ScrollMagic.Scene({
-    triggerElement: '#section-1',
-    triggerHook: 0.8,
-    reverse: false,
-})
-.setClassToggle('#section-1', 'fade-in') // Add a class for the fade-in effect
-.addTo(controller);
-
-
-        // You can add more scenes for other sections
-
-        // Add other animations as needed
-    });
-</script>
 
 
 </body>

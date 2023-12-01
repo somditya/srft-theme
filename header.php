@@ -42,13 +42,13 @@ $current_language = get_locale();
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
-    <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+    <!--<link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href="https://fonts.cdnfonts.com/css/trajan-pro" rel="stylesheet">             
+    <!--<link href="https://fonts.cdnfonts.com/css/trajan-pro" rel="stylesheet">             -->
     <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
      <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
      <link
@@ -66,12 +66,7 @@ $current_language = get_locale();
      <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
      <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
-    <!-- ScrollMagic -->
-<script src="https://unpkg.com/scrollmagic@2.0.8/scrollmagic/uncompressed/ScrollMagic.js"></script>
-<!-- GSAP TweenMax -->
-<script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-<!-- GSAP CSSPlugin (required for certain animations) -->
-<script src="https://unpkg.com/gsap@3.9.0/dist/CSSPlugin.min.js"></script>
+    
 
     <title>Satyajit Ray Film & Television Institute</title>
 </head>
