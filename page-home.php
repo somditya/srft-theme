@@ -96,7 +96,7 @@ Template Name: Home
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
-          <a class="link-text-big" href=""><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+          <a class="link-text-big" href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
@@ -160,7 +160,7 @@ Template Name: Home
     </div>
     <div class="course-text">
        <div class="course-highlight">
-        <a class="button-link-course" href="pgcinema.html">
+        <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>">
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
         </div><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?> &nbsp;
@@ -168,7 +168,7 @@ Template Name: Home
         </div>
 
         <div class="course-highlight">
-          <a class="button-link-course" href="pgcinema.html">
+          <a class="button-link-course" href="<?php echo esc_url(site_url('//post-graduate-programme-in-edm//')); ?>">
             <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
           </div><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?> &nbsp;
@@ -176,7 +176,7 @@ Template Name: Home
           </div>
 
           <div class="course-highlight">
-            <a class="button-link-course" href="pgcinema.html">
+            <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
             </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
@@ -327,7 +327,7 @@ Template Name: Home
     </div>
     <div class="link-div" style="align-items: center;>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
       <div class="link-div" style="align-items: center; margin-top: 0;">
-        <a class="link-text-big" href="#"><span><?php echo __('Read Alumni News', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+        <a class="link-text-big" href="news-list/"><span><?php echo __('Read Alumni News', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
         </span>
       </a>

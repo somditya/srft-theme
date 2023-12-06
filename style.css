@@ -3571,7 +3571,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .faculty-bio h1 {
- 
     font-family: GthD;
     font-size: 5.375rem;
     font-weight: 600;
@@ -3580,10 +3579,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     line-height: 1.1rem;
     color: #8b5b2b;
     margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-bottom: 2.75rem; /* Adjusted padding-bottom */
+    padding-top: 2.75rem; /* Adjusted padding-bottom */
     border-bottom: 2px solid #d6d6ce;
     width: 100%;
-
+    
 }
 
 .faculty-bio-left {
@@ -3720,7 +3719,11 @@ font-size: 16px;
 /* BELOW 1344px (Smaller desktops) */
 /**************************/
 @media (max-width: 1344px) {
- 
+  .faculty-bio {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
 }
 
 /**************************/
