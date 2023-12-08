@@ -110,6 +110,7 @@ bcn_display();
     <div>
         <p class="page-header-text"><?php echo __('Administrative Structure', 'srft-theme'); ?></p>
     </div>  
+    <?php wp_reset_postdata(); ?> 
     <section class="sub-intro" style="margin-bottom: 4rem;">
         <div class="sub-intro-text" style="max-width: 100%;">
             <div class="sub-intro-text-description">
@@ -121,7 +122,7 @@ bcn_display();
             </div>
         </div>
     </section>
-
+   
     <div>
         <h4><?php echo __('Society', 'srft-theme' ); ?></h4>
     </div>
@@ -371,7 +372,9 @@ bcn_display();
               </div>
               <!-- Use a CSS grid for layout -->
             </div>
+
     </section>
+    
 </div>
         
 </main>
