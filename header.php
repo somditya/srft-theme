@@ -78,6 +78,23 @@ $current_language = get_locale();
 <?php if (is_front_page()) : ?>
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
+        
+      <div class="swiper-slide" >
+          <div class="slider-bg">
+             <picture>
+             
+             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" >
+           </picture>
+         </div>
+           <div class="swipper-title">
+            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h1>Satyajit Ray Film & Television Institute </h1>
+            <div class="swipper-subtitle">
+              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
+            </div>
+          </div>
+         </div>
+      
         <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>

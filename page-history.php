@@ -16,10 +16,6 @@ $page_content = apply_filters('the_content', $post->post_content);
 
       <section class="cine-detail" >
         <div class="leftnav">
-          <!--<div>
-          <p class="office-header-text">Management</p>-->
-          <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
-        </div>-->
         <div class="childnavs">
     <ul class="childnav-lists">
         <?php
@@ -82,7 +78,7 @@ bcn_display();
           <section class="sub-intro">
             <div class="sub-intro-images" >
             <div>
-              <img  src="<?php bloginfo('template_url'); ?>/images/Ray-by-Nemai-Ghosh-1024x677.jpg" width="500px;" alt="Black and white photo of Satyajit Ray holding a film camera" >
+              <img class="intro-images" src="<?php bloginfo('template_url'); ?>/images/Ray-by-Nemai-Ghosh-1024x677.jpg" width="100%" alt="Black and white photo of Satyajit Ray holding a film camera" >
             </div>
             </div>
             <div class="sub-intro-text" >
@@ -119,7 +115,7 @@ bcn_display();
  
 
         </scction>-->
-        <div class="container">
+<div class="container">
   <div class="grid-gallery">
   <img src="<?php bloginfo('template_url'); ?>/images/foundation-01.jpg" target="_blanK" class="single-image" />
 		<img src="<?php bloginfo('template_url'); ?>/images/foundation-02.jpg" target="_blanK" class="single-image" />	
@@ -134,10 +130,10 @@ bcn_display();
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-11.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-12.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-13.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-14.jpg" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-17.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-15.jpg" target="_blanK" class="single-image" />
     <img src="<?php bloginfo('template_url'); ?>/images/foundation-16.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/SAKTI-SAMANTA.jpg" target="_blanK" class="single-image" />
+    
   </div>
 </div>
         <div><p class="page-header-text"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>

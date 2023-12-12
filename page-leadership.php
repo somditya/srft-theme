@@ -83,7 +83,7 @@ bcn_display();
             </div>
           </section>
           
-          <section class="profile">
+    <section class="profile">
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
@@ -108,7 +108,7 @@ bcn_display();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="imgg-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DirectorPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DirectorPhoto', true)); ?>">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></div>
                 <div class="profile-desg"><?php echo __('Director', 'srft-theme' ); ?></div>
@@ -150,7 +150,7 @@ bcn_display();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="imgg-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'RegistrarPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'RegistrarPhoto', true)); ?>">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Registrar', true); ?></div>
                 <div class="profile-desg"><?php echo __('Registrar', 'srft-theme' ); ?></div>

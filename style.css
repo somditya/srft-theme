@@ -86,6 +86,8 @@ color: #8b5b2b;
 text-decoration: none;  
 }
 
+/* Font Section */
+
 @font-face {
   font-family: GthA;
   src: url(fonts/GothamBook.ttf);
@@ -139,12 +141,11 @@ body {
   letter-spacing: 1px;
 
 
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  /*font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.6rem;
 
   font-family: "cofo-sans-variable",sans-serif;
   font-variation-settings: 'wght' 400, 'slnt' 0;
-  
   
 
   font-family: 'Helmet', sans-serif;
@@ -161,6 +162,7 @@ body {
   font-weight: 400;
   font-size: 16px;
 }
+
 
 html,
 body {
@@ -632,7 +634,23 @@ margin-bottom: 4rem;
 .wrapper {
   width: 100%;
   max-width: 1250px;
-  margin: 1em auto;
+  margin: 1em auto;.two-flex {
+    flex-direction: column;
+  }
+
+  .col-left {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .col-right {
+    margin-top: 20px; /* Add some spacing between col-left and col-right */
+  }
+
+  .profile-desc {
+    width: 100%; /* Make profile-desc occupy the entire width */
+    box-sizing: border-box; /* Ensure padding and border don't add to the width */
+  }media
   padding: 1em;
   text-align: left;
 }
@@ -706,15 +724,6 @@ margin-bottom: 4rem;
 
 
 /* Apply styles ================================== */
-.Rtable {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 3em 0;
-  padding: 0;
-  /*box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);*/
-  text-align: left;
-}
-
 .Rtable-row {
   width: 100%;
   display: flex;
@@ -757,12 +766,12 @@ margin-bottom: 4rem;
 
   .Rtable-cell--content {
     a {
-      font-size: 2em;
+      font-size: 1.8rem;
       color: #333;
     }
 
     .webinar-date {
-      font-weight: 700;
+      font-weight: 400;
     }
   }
 }
@@ -806,7 +815,7 @@ margin-bottom: 4rem;
   top: 0;
   left: 0;
   background-color: #161a1d;
-  opacity: 0.5; 
+  opacity: 0.7;* 
 }
 
 .slider-bg img {
@@ -1258,7 +1267,29 @@ background-position: -24px -53px;
 
   & img {
     object-fit: cover;
-    width: calc(var(--size) * 2);
+    width: calc(var(--size) * 2);.grid-gallery {
+      --size: 50px;
+      grid-template-columns: repeat(3, var(--size));
+      grid-auto-rows: var(--size);
+      margin-bottom: var(--size);
+      gap: 5px;
+  
+      & img {
+        width: calc(var(--size) * 1.5);
+        height: calc(var(--size) * 1.5);
+        grid-column: auto / span 1;
+  
+        &:nth-child(3n - 1) {
+          grid-column: 1 / span 1;
+        }
+  
+        &:hover,
+        &:focus {
+          clip-path: path("M0,0 C0,0 100,0 100,0 100,0 100,100 100,100 100,100 100,100 100,100 100,100 0,100 0,100 0,0 0,0 0,0 0,0Z");
+          transition: clip-path 0.25s, filter 0.25s;
+        }
+      }
+    }
     height: calc(var(--size) * 2);
     clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
     transition: clip-path 0.25s, filter 0.75s;
@@ -4010,8 +4041,16 @@ font-size: 16px;
     gap: 20px;
   }
 
-
+  .cine-header {
+  height: 300px;
   
+  }
+    
+  .profile-desc {
+    width: 100%; /* Make profile-desc occupy the entire width */
+   
+  }
+
   .cell {
     width: 100%;
     margin-bottom: 20px;
@@ -4202,6 +4241,29 @@ font-size: 16px;
     width: 90%;
 }
 
+.grid-gallery {
+  --size: 50px;
+  grid-template-columns: repeat(3, var(--size));
+  grid-auto-rows: var(--size);
+  margin-bottom: var(--size);
+  gap: 5px;
+
+  & img {
+    width: calc(var(--size) * 1.5);
+    height: calc(var(--size) * 1.5);
+    grid-column: auto / span 1;
+
+    &:nth-child(3n - 1) {
+      grid-column: 1 / span 1;
+    }
+
+    &:hover,
+    &:focus {
+      clip-path: path("M0,0 C0,0 100,0 100,0 100,0 100,100 100,100 100,100 100,100 100,100 100,100 0,100 0,100 0,0 0,0 0,0 0,0Z");
+      transition: clip-path 0.25s, filter 0.25s;
+    }
+  }
+}
 
 
 }

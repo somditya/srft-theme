@@ -65,10 +65,10 @@ bcn_display();
                     <div class="Rtable-cell--content date-content"><span class="SL">{{$index+1 }}</span></div>
                   </div>
                   <div class="Rtable-cell id-cell">
-                    <div class="Rtable-cell--content ">{{ tender.ID }}</div>
+                    <div class="Rtable-cell--content">{{ tender.ID }}</div>
                   </div>
                   <div class="Rtable-cell name-cell">
-                    <div class="Rtable-cell--content "><a href="{{tender.link}}">{{ tender.title }}</a></div>
+                    <div class="Rtable-cell--content"><a href="{{tender.link}}">{{ tender.title }}</a></div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate | date:'dd-MM-yyyy' }}</span></div>
