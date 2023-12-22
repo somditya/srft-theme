@@ -71,6 +71,7 @@ $current_language = get_locale();
     
 
     <title>Satyajit Ray Film & Television Institute</title>
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>

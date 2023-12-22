@@ -740,6 +740,14 @@ function custom_post_type_news() {
 }
 add_action('init', 'custom_post_type_news');
 
+function admin_bar(){
+
+  if(is_user_logged_in()){
+    add_filter( 'show_admin_bar', '__return_true' , 1000 );
+  }
+}
+add_action('init', 'admin_bar' );
+
 function enqueue_scrollmagic() {
 	wp_enqueue_script('gsap', 'https://unpkg.com/gsap@3.9.0/dist/gsap.min.js', array(), null, true);
 	wp_enqueue_script('scrollmagic', 'https://unpkg.com/scrollmagic@2.0.7/scrollmagic/minified/ScrollMagic.min.js', array('gsap'), null, true);
