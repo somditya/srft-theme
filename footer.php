@@ -41,9 +41,9 @@
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->  
-        <li><a href="https://facebook.com/srftikol" ><i class="fa fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" ><i class="fa-brands fa-facebook footer_icon"></i></a></li>
         <li><a href="https://instagram.com/srfti_official/" ><i class="fa fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" ><i class="fa fa-twitter footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" style="color: white;" ><i class="fa-brands fa-x-twitter"></i></a></li>
         <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" ><i class="fa fa-youtube footer_icon"></i></a></li>
         
       </ul>
