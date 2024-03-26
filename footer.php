@@ -72,7 +72,7 @@
           </div>
         </div>-->
     </div>
-    <div class="footer_copyright_container">©2023<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme' ); ?></div>
+    <div class="footer_copyright_container">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme' ); ?></div>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.waypoints.js"></script>
     <script>

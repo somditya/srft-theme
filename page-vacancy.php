@@ -116,7 +116,7 @@ bcn_display();
         $scope.filterField = '';
         $scope.fromDate = '';
         $scope.toDate = '';
-        $scope.itemsPerPage = 2;
+        $scope.itemsPerPage = 10;
         $scope.currentPage = 1;
 
         // Fetch the data
