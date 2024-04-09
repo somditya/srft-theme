@@ -230,6 +230,7 @@ body {
   align-items: center;
   font-family: GthC;
   /*font-family: "Plain Medium Regular";*/
+  font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -348,6 +349,7 @@ animation-duration: 4s;
 
 .profile-name {
   font-family: GthD;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: #8b5b2b;
@@ -459,8 +461,9 @@ margin-bottom: 4rem;
   font-variation-settings: 'wght' 408, 'slnt' 0;*/
 
   font-family: GthD;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
-  letter-spacing: -.0775rem;line-height: 1.1;
+  /*letter-spacing: -.0775rem;line-height: 1.1;*/
   font-size: 36px;
   line-height: 36px;
   color: #4d4d4d;
@@ -839,6 +842,7 @@ z-index: 1;
 .swipper-title h1{
   /*font-family: GthD;*/
     font-family: "Plain Medium Regular";
+    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 5.6rem;
@@ -852,6 +856,7 @@ z-index: 1;
 .swipper-title h3{
   /*font-family: GthD;*/
     font-family: "Plain Medium Regular";
+    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 4.2rem;
@@ -868,6 +873,7 @@ z-index: 1;
   min-width: 410px;
   /*font-family: GthD; */
   font-family: "Plain Medium Regular";
+  font-family: 'Noto Sans', sans-serif;
   font-family: GthC;
   font-style: normal;
   font-weight: 600;
@@ -1029,6 +1035,7 @@ z-index: 1;
 .footer_copyright_container {
   display: flex;
   font-family: GthC;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
@@ -1042,6 +1049,7 @@ z-index: 1;
 
 .footer_sub {
   font-family: GthC;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
   padding: 1.8rem;
@@ -1750,6 +1758,7 @@ header{
   padding: 0 .8rem;
   letter-spacing: 1px;
   font-family: GthA;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 600; 
   font-size: 1.3rem;
   display: flex;
@@ -2051,7 +2060,8 @@ font-size: 17px;
   text-align: center;
   left: 25%;
   /*font-family: GthC;*/
-  font-family: GthD
+  font-family: GthD;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 6.2rem;
   line-height: 8.8rem;
@@ -2240,6 +2250,7 @@ font-size: 17px;
   display: flex;
   font-family: "Plain Medium Regular";
   font-family: GthC;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 2.8rem;
   font-weight: 300;
   line-height: 2rem;
@@ -2385,6 +2396,7 @@ margin:0
   padding-bottom: 16px;
   font-weight: 500;
   font-family: GthC;
+  font-family: 'Noto Sans', sans-serif;
   color: #161a1d;
 }
 
@@ -2505,6 +2517,7 @@ transform: rotate(90deg);
 .item {
   padding: 10px;
   font-family: GthC;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 28px;
@@ -2950,6 +2963,7 @@ h4 {
   
   margin-bottom: 1.4rem;
   color: #8b5b2b;
+  color: #6C4713;
   font-size: 30px;
   font-family: GthA;
   font-family: 'Noto Sans', sans-serif;
@@ -3440,6 +3454,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   padding-left: 4rem;
   padding-bottom: 1rem;
   font-family: GthD;
+  font-family: Noto Sans;
   font-weight: 600;
   font-size: 3rem;
 }
