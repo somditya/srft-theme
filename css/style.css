@@ -2905,7 +2905,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   padding-left: 4rem;
   padding-bottom: 1rem;
   font-family: GthD;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 3rem;
 }
 

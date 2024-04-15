@@ -15,6 +15,7 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 <h1 style="
     font-family: GthD;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 5.375rem;
     font-weight: 600;
     margin: 0 0 2rem;

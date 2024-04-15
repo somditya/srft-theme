@@ -81,7 +81,7 @@ $category_id = get_category_ID($category_name);
         angular.module('myApp', [])
         .controller('NewsController', function($scope, $http) {
             $scope.currentPage = 1;
-            $scope.itemsPerPage = 4; // Number of items per page
+            $scope.itemsPerPage = 8; // Number of items per page
 
             $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
                 .then(function(response) {

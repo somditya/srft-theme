@@ -35,13 +35,14 @@ bcn_display();
   </a> 
   <h1 style="
     font-family: GthD;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 5.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
-    font-weight: 600;">
+    font-weight: 400;">
   <?php echo get_the_title($post_id);?>
 </h1> 
-<p style="margin: 1rem 0 0; font-family: GthD; font-weight: 600;">
+<p style="margin: 1rem 0 0; font-family: 'Noto Sans', sans-serif; font-weight: 600;">
     <time><?php
 $post_date = get_the_date('F j, Y');
 echo $post_date;

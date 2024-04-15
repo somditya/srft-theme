@@ -214,13 +214,16 @@ $current_language = get_locale();
         <input type="checkbox" name="" id="check" />
 
         <div class="logo-container">
-          <div> <a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>
-          <h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>
+          <!--<div> <a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>-->
+          
+					<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>
+				
+          <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->
         </div>
 
         <div class="menu-btn">
           <div class="nav-links">
-            <ul class="custom-menu">
+            <ul class="custom-menu" style="display: flex; align-items: center; justify-content: center;">
               <li class="nav-link" style="--i: 0.6s">
                 <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
