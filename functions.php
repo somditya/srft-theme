@@ -561,6 +561,8 @@ function add_custom_fields_to_json($data, $post, $request) {
 }
 
 add_filter('rest_prepare_post', 'add_custom_fields_to_json', 10, 3);
+	
+add_filter('acf/settings/remove_wp_meta_box', '__return_false'); /* To enable the default custom field while enabling the ACF features */
 
 
 
