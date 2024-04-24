@@ -12,7 +12,7 @@ $current_language = pll_current_language();
 <?php
 
 $post_id = get_the_ID();
-$post_content = apply_filters('the_content', $post->post_content);
+//$post_content = apply_filters('the_content', $post->post_content);
 
 // You can now echo or manipulate $post_content as needed.
 
@@ -44,8 +44,9 @@ $post_content = apply_filters('the_content', $post->post_content);
 </h1> 
 <p style="margin: 1rem 0 0; font-family: GthD; font-family: 'Noto Sans', sans-serif; font-weight: 400;">
     <time><?php echo __('Tender Issue Date:', 'srft-theme' ); ?> <?php
-$post_date = get_the_date('F j, Y');
-echo $post_date;
+//$post_date = get_the_date('F j, Y');
+//echo $post_date;
+echo get_field('Tender-Publish-Date'); 
 ?></time>
 </p>
 </div> 
@@ -65,7 +66,8 @@ echo $post_date;
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Doc', true)); ?>">Download</a>
+    <!--<a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Doc', true)); ?>">Download</a>-->
+    <a href="<?php echo esc_url(get_field('Tender-Doc')); ?>">Download</a>
 </div>
 </div>
 </div>
@@ -76,7 +78,7 @@ echo $post_date;
     <div style="grid-column: 3/4;  
     
     line-height: 28px; text-align: left;">
-<?php echo $post_content; ?>
+<?php echo get_field('Tender-Description'); ?>
 </div>
 </div>
 
@@ -85,7 +87,8 @@ echo $post_date;
     <?php echo __('Submission Date:', 'srft-theme' ); ?>
 </div>
 <div>
-    <?php echo get_post_meta(get_the_ID(), 'Tender-Submission-Date', true); ?>
+    
+<?php echo get_field('Tender-Submission-Date'); ?>
 </div>
 </div>
 

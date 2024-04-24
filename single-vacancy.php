@@ -12,7 +12,7 @@ $current_language = pll_current_language();
 <?php
 
 $post_id = get_the_ID();
-$post_content = apply_filters('the_content', $post->post_content);
+//$post_content = apply_filters('the_content', $post->post_content);
 
 // You can now echo or manipulate $post_content as needed.
 
@@ -44,8 +44,7 @@ $post_content = apply_filters('the_content', $post->post_content);
 </h1> 
 <p style="margin: 1rem 0 0; font-family: GthD; font-weight: 600;">
     <time>Application publish Date: <?php
-$post_date = get_the_date('F j, Y');
-echo $post_date;
+echo get_field('Vacancy-Publish-Date'); 
 ?></time></p>
 </div> 
 <div style="grid-column: 1/2;">
@@ -87,18 +86,20 @@ echo $post_date;
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    <a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Vacancy-Doc', true)); ?>">Download</a>
+    <a href="<?php echo esc_url(get_field('Vacancy-Doc')); ?>">Download</a>
 </div>
 </div>
 <div style="grid-column: 3/4;  
     
     line-height: 28px; text-align: left;">
-<?php echo $post_content; ?>
+
+<?php echo get_post_meta(get_the_ID(), 'Vacancy-Description', true); ?>
+
 </div>
 
 <div style="grid-column: 4/5; ">
     <div>
-    <?php echo get_post_meta(get_the_ID(), 'Vacancy-Submission-Date', true); ?>
+    <?php echo get_field('Vacancy-LastDate'); ?>
 </div>
 </div>
 

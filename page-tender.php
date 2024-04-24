@@ -71,10 +71,10 @@ bcn_display();
                     <div class="Rtable-cell--content"><a href="{{tender.link}}">{{ tender.title }}</a></div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
-                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate | date:'dd-MM-yyyy' }}</span></div>
+                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate }}</span></div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
-                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate | date:'dd-MM-yyyy' }}</span></div>
+                    <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate }}</span></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
@@ -135,16 +135,12 @@ bcn_display();
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
         // Fetch the data
-        $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID+'&per_page=100')
+        $http.get(siteURL + 'wp-json/wp/v2/tender?categories='+categoryID+'&per_page=100')
   .then(function (response) {
-      $scope.tenderList = response.data.map(function (post) {
-      var submissionDateParts = post['Tender-Submission-Date'].split('/'); // Split by '/'
-      var day = parseInt(submissionDateParts[0], 10); // Parse day as an integer
-      var month = parseInt(submissionDateParts[1], 10) - 1; // Parse month as an integer (subtract 1 as months are zero-based)
-      var year = parseInt(submissionDateParts[2], 10); // Parse year as an integer
-      var submissionDate = new Date(year, month, day);
-
-      var isSubmissionOpen = submissionDate > $scope.currentDate;
+       $scope.tenderList = response.data.map(function (post) {
+        var submissionDate = post.acf['Tender-Submission-Date'];
+        //var submissionDate = submissionDateStr ? new Date(submissionDateStr.replace(/(\d+)\/(\d+)\/(\d+)/, '$2/$1/$3')) : null;
+        var isSubmissionOpen = submissionDate > $scope.currentDate;
 
 
       console.log ('submissionDateParts');
@@ -155,10 +151,10 @@ bcn_display();
       return {
         title: post.title.rendered || '',
         link: post.link,
-        ID: post['Tender-ID'],
+        ID: post.acf['Tender-ID'],
         subdate: submissionDate, // Use the parsed submission date
         isSubmissionOpen: isSubmissionOpen,
-        pubdate: post.date,
+        pubdate: post.acf['Tender-Publish-Date'],
       };
     });
      

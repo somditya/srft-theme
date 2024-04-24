@@ -504,28 +504,38 @@ Template Name: Home
   <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/course-overview/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
-  <div class="cell">
-  <span class="update-title"><?php echo __('Tender', 'srft-theme' ); ?></span>
-  <?php
+<div class="cell">
+    <span class="update-title"><?php echo __('Tender', 'srft-theme' ); ?></span>
+    <?php
+    $category = get_term_by('name', 'Tender', 'category'); // Replace 'Tender' with the name of your category
+    $category_id = $category->term_id;
+
     $category_posts = new WP_Query(array(
-        'category_name' => 'tender', // Replace with your category slug
+        'post_type'      => 'any', // Query all post types
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'term_id',
+                'terms'    => $category_id,
+            ),
+        ),
         'posts_per_page' => 5,
     ));
 
     if ($category_posts->have_posts()) :
         while ($category_posts->have_posts()) : $category_posts->the_post();
-        $post_link = get_permalink();
+            $post_link = get_permalink();
     ?>
-    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+            <h3>
+                <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
+            </h3>
     <?php
         endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
     endif;
     ?>
     <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
-  </div>
+</div>
+
   
       <div class="cell">
       <span class="update-title"><?php echo __('Vacancy', 'srft-theme' ); ?></span>

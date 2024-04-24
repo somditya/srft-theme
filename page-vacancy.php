@@ -70,7 +70,7 @@ bcn_display();
                     <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
                   </div>
                   <div class="Rtable-cell date-cell">
-                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{ vacancy.subdate | date:'dd-MM-yyyy' }}</span></div>
+                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.pubdate | date:'dd-MM-yyyy' }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> Visit</a></div>
@@ -120,14 +120,24 @@ bcn_display();
         $scope.currentPage = 1;
 
         // Fetch the data
-        $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID)
+        //$http.get(siteURL + 'wp-json/wp/v2/tender?categories='+categoryID+'&per_page=100')
+        $http.get(siteURL + 'wp-json/wp/v2/vacancy?categories='+categoryID+'&per_page=100')
           .then(function (response) {
             $scope.vacancyList = response.data.map(function (post) {
+              //console.log('Vacancy-Submission-Date:', Vacancy-LastDatee);
+              var submissionDate = post.acf['Vacancy-LastDate'];
+              var pubdate= post.acf['Vacancy-Publish-Date'];
+               console.log('Vacancy-Submission-Date:',submissionDate );
+               console.log('Vacancy-Last Date:',submissionDate );
+              //var submissionDate = submissionDateStr ? new Date(submissionDateStr.replace(/(\d+)\/(\d+)\/(\d+)/, '$2/$1/$3')) : null;
+       
+              //console.log('Vacancy-Publish-Date:', isSubmissionOpen);
               return {
                 title: post.title.rendered || '',
                 link: post.link,
-                ID: post.id,
-                subdate: post.date // Keep it as is
+                ID: post.acf['Vacancy-ID'],
+                subdate: post.acf['Vacancy-LastDate'],
+                pubdate: post.acf['Vacancy-Publish-Date'],
               };
             });
 

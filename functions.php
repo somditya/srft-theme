@@ -515,30 +515,10 @@ function twenty_twenty_one_skip_link_focus_fix() {
 }
 
 
-function custom_rest_api_route() {
-	register_rest_route('faculty/v2', 'posts', array(
-			'methods' => 'GET',
-			'callback' => 'get_faculty_posts',
-	));
-}
-
-
-function get_faculty_posts() {
-	$args = array(
-			'post_type' => 'faculty', // Replace with your custom post type name
-			'posts_per_page' => -1, // Display all posts
-	);
-
-	$faculty_posts = get_posts($args);
-
-	return $faculty_posts;
-}
-
-add_action('rest_api_init', 'custom_rest_api_route');
 
 // Add custom fields to REST API response
 // Add custom fields to REST API response
-function add_custom_fields_to_json($data, $post, $request) {
+/*function add_custom_fields_to_json($data, $post, $request) {
 	// Define an array of custom field names you want to include
 	$custom_field_names = array(
 			'Designation',
@@ -558,6 +538,23 @@ function add_custom_fields_to_json($data, $post, $request) {
 	}
 
 	return $data;
+}
+*/
+function acf_rest_api_init() {
+	// Replace 'your_post_type' with your custom post type slug
+	$post_types = array( 'tender', 'vacancy' );
+
+	foreach ( $post_types as $post_type ) {
+			register_rest_field( $post_type, 'acf', array(
+					'get_callback'    => 'acf_rest_api_get_fields',
+					'schema'          => null,
+			) );
+	}
+}
+add_action( 'rest_api_init', 'acf_rest_api_init' );
+
+function acf_rest_api_get_fields( $object, $field_name, $request ) {
+	return get_fields( $object['id'] );
 }
 
 add_filter('rest_prepare_post', 'add_custom_fields_to_json', 10, 3);
@@ -729,7 +726,7 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 	}
 endif;
 
-function custom_post_type_news() {
+/*function custom_post_type_news() {
 	register_post_type('news', array(
 			'labels' => array(
 					'name' => __('News'),
@@ -740,7 +737,7 @@ function custom_post_type_news() {
 			'rewrite' => array('slug' => 'news'),
 	));
 }
-add_action('init', 'custom_post_type_news');
+add_action('init', 'custom_post_type_news');*/
 
 function admin_bar(){
 
