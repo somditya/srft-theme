@@ -12,14 +12,23 @@ $current_language = pll_current_language();
 <?php
 
 $post_id = get_the_ID();
+// Retrieve the background image URL from the query parameter
+$bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
+
 //$post_content = apply_filters('the_content', $post->post_content);
 
 // You can now echo or manipulate $post_content as needed.
 
 ?>
+<section class="cine-header" style="background-image: url('<?php echo esc_url($bg_image_url); ?>');">
+    <div class="page-banner">
+        <div class="page-banner-title" style="margin-top: 10px;"><?php echo __('Vacancy', 'srft-theme'); ?></div>
+    </div>
+</section>
 
-<section style="margin: 15rem; padding: 0 1.25rem; display: block;">
-    <article class="narticle">
+<section style="margin: 10rem; padding: 0 1.25rem; display: block;">
+    <article style="display: grid; grid-gap: 1.875rem;
+    grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; border: 1px solid #000;">>
     <div role="article" style="text-align: center;
     padding-top: 1.25rem; grid-column: 2/5;">
             <a href="#" alt="Tender" class="c-headline__topic t-heading--topic">

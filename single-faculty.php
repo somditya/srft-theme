@@ -11,11 +11,17 @@ get_header();
 
 <?php
 $post_id = get_the_ID();
+$bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
 $post_content = apply_filters('the_content', $post->post_content);
 
 // You can now echo or manipulate $post_content as needed.
 
 ?>
+<!--<section class="cine-header" style="background-image: url('<?php echo esc_url($bg_image_url); ?>');">
+    <div class="page-banner">
+        <div class="page-banner-title" style="margin-top: 10px;"><?php echo __('Faculty', 'srft-theme'); ?></div>
+    </div>
+</section>-->
 
 <div style="margin: 15rem;  max-width: 1250px; align: center;">
 <div class="faculty-bio" style="display: flex;">

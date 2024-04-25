@@ -12,12 +12,17 @@ $current_language = pll_current_language();
 <?php
 
 $post_id = get_the_ID();
+$bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
 //$post_content = apply_filters('the_content', $post->post_content);
 
 // You can now echo or manipulate $post_content as needed.
-
 ?>
 
+<section class="cine-header" style="background-image: url('<?php echo esc_url($bg_image_url); ?>');">
+    <div class="page-banner">
+        <div class="page-banner-title" style="margin-top: 10px;"><?php echo __('Tender', 'srft-theme'); ?></div>
+    </div>
+</section>
 <section style="margin: 10rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; border: 1px solid #000;">
@@ -36,6 +41,7 @@ $post_id = get_the_ID();
   </a> 
   <h1 style="
     font-family: GthD;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 3.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
@@ -49,34 +55,35 @@ echo get_field('Vacancy-Publish-Date');
 </div> 
 <div style="grid-column: 1/2;">
     <div>
-    Vacancy ID:
+    <?php echo __('Vacancy ID:', 'srft-theme' ); ?>
+    
 </div>
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    Advertisement:
+    <?php echo __('Advertisement::', 'srft-theme' ); ?>
 </div>
 </div>
 
 <div style="grid-column: 3/4;"  >
     
-    <div>Recruitment title: </div>
+    <div> <?php echo __('Recruitment title:', 'srft-theme' ); ?> </div>
 </div>
 
 <div style="grid-column: 4/5; ">
     <div>
-    Last Date of  Application:
+    <?php echo __('Last Date of  Application:', 'srft-theme' ); ?> 
 </div>
 </div>
 
 <div style="grid-column: 5/6; ">
     <div>
-    Corrigendum:
+     <?php echo __('Corrigendum:', 'srft-theme' ); ?> 
 </div>
 </div>
 <div style="grid-column: 6/7; ">
     <div>
-   Apply Online:
+    <?php echo __('Apply Online:', 'srft-theme' ); ?> 
 </div>
 </div>
 <div style="grid-column: 1/2;">
@@ -132,10 +139,10 @@ echo "Not Applicable for this recruitment";
 </div>
 
 <div style="grid-column: 3/4;  line-height: 28px; text-align: left;">
-<div>Satyajit Ray Film & Televsion Institute</div>
-<div>Kolkata -700094 </div>
-<div>email: po@srfti.ac.in</div>
-<div>Telephone:+91 3324321040 </div>
+<div> <?php echo __('Satyajit Ray Film & Televsion Institute', 'srft-theme' ); ?> </div>
+<div><?php echo __('Kolkata -700094 ', 'srft-theme' ); ?></div>
+<div><?php echo __('email: po@srfti.ac.in', 'srft-theme' ); ?></div>
+<div><?php echo __('Telephone:+91 3324321040 ', 'srft-theme' ); ?></div>
 
 </div>
 

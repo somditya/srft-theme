@@ -12,7 +12,7 @@
           <li><?php echo __('email:', 'srft-theme' ); ?>contact@srfti.ac.in</li>
         </ul>
         </div>
-        <div class="footer_sub"><h3><?php echo __('Quick Links:', 'srft-theme' ); ?></h3>
+        <div class="footer_sub"><h3><?php echo __('Related Links:', 'srft-theme' ); ?></h3>
         <ul>
         <li><?php echo __('Admission', 'srft-theme' ); ?></li>
         <li><?php echo __('Library', 'srft-theme' ); ?></li>
@@ -25,11 +25,14 @@
         <li><?php echo __('Holiday List', 'srft-theme' ); ?></li>
       </ul>
       </div>
-      <div class="footer_sub"><h3>Site map</h3>
-        <ul> 
-        <li>E.M. Bypass Road, Panchasayar</li>
-        <li>Kolkata-700094</li>
-        <li>West Bengal</li>
+      <div class="footer_sub"><h3>Useful Links</h3>
+      <ul>
+        <li><?php echo __('Sitemap', 'srft-theme' ); ?></li>
+        <li><?php echo __('Frequently Asked Qusetions', 'srft-theme' ); ?></li>
+        <li><?php echo __('Feedback', 'srft-theme' ); ?></li>
+        <li><?php echo __('Archives', 'srft-theme' ); ?></li>
+        <li><?php echo __('Gallery', 'srft-theme' ); ?></li>
+        <li><?php echo __('Grievance Redressal', 'srft-theme' ); ?></li>
       </ul>
       </div>
      

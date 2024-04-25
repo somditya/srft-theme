@@ -518,7 +518,7 @@ function twenty_twenty_one_skip_link_focus_fix() {
 
 // Add custom fields to REST API response
 // Add custom fields to REST API response
-/*function add_custom_fields_to_json($data, $post, $request) {
+function add_custom_fields_to_json($data, $post, $request) {
 	// Define an array of custom field names you want to include
 	$custom_field_names = array(
 			'Designation',
@@ -539,7 +539,7 @@ function twenty_twenty_one_skip_link_focus_fix() {
 
 	return $data;
 }
-*/
+
 function acf_rest_api_init() {
 	// Replace 'your_post_type' with your custom post type slug
 	$post_types = array( 'tender', 'vacancy' );
@@ -726,7 +726,7 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 	}
 endif;
 
-/*function custom_post_type_news() {
+function custom_post_type_news() {
 	register_post_type('news', array(
 			'labels' => array(
 					'name' => __('News'),
@@ -737,7 +737,7 @@ endif;
 			'rewrite' => array('slug' => 'news'),
 	));
 }
-add_action('init', 'custom_post_type_news');*/
+add_action('init', 'custom_post_type_news');
 
 function admin_bar(){
 

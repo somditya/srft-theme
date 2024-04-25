@@ -1748,7 +1748,7 @@ header{
 
 .nav-link{
   position: relative;
-  padding: 10px;
+  padding: 20px;
 }
 
 .nav-link > a{
@@ -2854,6 +2854,7 @@ transform: scale(1.2);
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
   color: #6d2f6a;
+  color: #A37A29;
   font-style: normal;
   border-bottom: 2px solid #6d2f6a;
 }
@@ -3624,15 +3625,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 .faculty-bio h1 {
     font-family: GthD;
-    font-size: 5.375rem;
-    font-weight: 600;
+    font-family: Noto Sans;
+    font-size: 4.375rem;
+    font-weight: 400;
     margin: 0 0 2rem;
     letter-spacing: -.0875rem;
     line-height: 1.1rem;
     color: #8b5b2b;
-    margin-bottom: 1.25rem; /* Adjusted margin-bottom */
+    /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
     padding-top: 2.75rem; /* Adjusted padding-bottom */
-    border-bottom: 2px solid #d6d6ce;
+    /*border-bottom: 1px solid #d6d6ce;*/
     width: 100%;
     
 }

@@ -135,29 +135,31 @@ bcn_display();
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
         // Fetch the data
-        $http.get(siteURL + 'wp-json/wp/v2/tender?categories='+categoryID+'&per_page=100')
+        $http.get(siteURL + 'wp-json/wp/v2/tender?categories=' + categoryID + '&per_page=100')
   .then(function (response) {
-       $scope.tenderList = response.data.map(function (post) {
-        var submissionDate = post.acf['Tender-Submission-Date'];
-        //var submissionDate = submissionDateStr ? new Date(submissionDateStr.replace(/(\d+)\/(\d+)\/(\d+)/, '$2/$1/$3')) : null;
-        var isSubmissionOpen = submissionDate > $scope.currentDate;
+    $scope.tenderList = response.data.map(function (post) {
+      var submissionDate = post.acf['Tender-Submission-Date'];
+      var isSubmissionOpen = submissionDate > $scope.currentDate;
+      var postLink = post.link;
+// Append the background image URL as a query parameter to the post link
+      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
+      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
 
-
-      console.log ('submissionDateParts');
-      console.log('submissionDate:', submissionDate);
-      console.log('currentDate:', $scope.currentDate);
-      console.log('isSubmissionOpen:', isSubmissionOpen);
-      
       return {
         title: post.title.rendered || '',
-        link: post.link,
+        link: linkWithImage,
         ID: post.acf['Tender-ID'],
         subdate: submissionDate, // Use the parsed submission date
         isSubmissionOpen: isSubmissionOpen,
         pubdate: post.acf['Tender-Publish-Date'],
       };
     });
-     
+
+    // Sort the tenderList by publish date (newest to oldest)
+    $scope.tenderList.sort(function (a, b) {
+      return new Date(b.pubdate) - new Date(a.pubdate);
+    });
+
     // Apply initial filters and pagination
     updateFilteredTender();
   })

@@ -3,7 +3,6 @@
 Template Name: Vacancy
  */
 
-
 ?>
 
 <?php
@@ -126,6 +125,11 @@ bcn_display();
             $scope.vacancyList = response.data.map(function (post) {
               //console.log('Vacancy-Submission-Date:', Vacancy-LastDatee);
               var submissionDate = post.acf['Vacancy-LastDate'];
+              var postLink = post.link;
+// Append the background image URL as a query parameter to the post link
+      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
+      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
+      
               var pubdate= post.acf['Vacancy-Publish-Date'];
                console.log('Vacancy-Submission-Date:',submissionDate );
                console.log('Vacancy-Last Date:',submissionDate );
@@ -134,7 +138,7 @@ bcn_display();
               //console.log('Vacancy-Publish-Date:', isSubmissionOpen);
               return {
                 title: post.title.rendered || '',
-                link: post.link,
+                link: linkWithImage,
                 ID: post.acf['Vacancy-ID'],
                 subdate: post.acf['Vacancy-LastDate'],
                 pubdate: post.acf['Vacancy-Publish-Date'],

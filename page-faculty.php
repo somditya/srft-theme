@@ -103,9 +103,13 @@ bcn_display();
         console.log('HTTP request success');
         // Map the retrieved data to the format you want in $scope.facultyList
         $scope.facultyList = response.data.map(function (post) {
+            var postLink = post.link;
+// Append the background image URL as a query parameter to the post link
+      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
+      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
             return {
                 name: post.title.rendered || '',
-                link: post.link,
+                link: linkWithImage,
                 featured_media: post.featured_media,
                 designation: post.Designation,
                 department: post.Department
