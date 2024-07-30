@@ -83,7 +83,7 @@ $category_id = get_category_ID($category_name);
             $scope.currentPage = 1;
             $scope.itemsPerPage = 8; // Number of items per page
 
-            $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
+            $http.get(siteURL + 'wp-json/wp/v2/news?categories=' + categoryID + '&per_page=100')
                 .then(function(response) {
                     console.log('HTTP request success');
                     $scope.newsList = response.data.map(function(post) {
@@ -95,12 +95,13 @@ $category_id = get_category_ID($category_name);
                         return {
                             name: post.title.rendered || '',
                             link: post.link,
-                            featured_media: post.featured_media,
+                            image: post.acf['News-Image'],
+                            //featured_media: post.featured_media,
                             formattedDate: formattedDate,
                         };
                     });
 
-                    angular.forEach($scope.newsList, function(news) {
+                    /*angular.forEach($scope.newsList, function(news) {
                         if (news.featured_media) {
                             $http.get(siteURL + 'wp-json/wp/v2/media/' + news.featured_media)
                                 .then(function(imageResponse) {
@@ -111,7 +112,7 @@ $category_id = get_category_ID($category_name);
                                     console.error('Error fetching featured image:', error);
                                 });
                         }
-                    });
+                    });*/
 
                     // Initialize the total pages
                     $scope.totalPages = Math.ceil($scope.newsList.length / $scope.itemsPerPage);

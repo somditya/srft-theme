@@ -5,7 +5,7 @@ Template Name: Contact
 ?>
 
 <?php get_header(); ?>
-
+<div data-scroll-container>
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
@@ -97,3 +97,4 @@ Template Name: Contact
 </main>
 
 <?php get_footer(); ?>
+

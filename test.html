@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locomotive Scroll Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css"
+    />
+    <style>
+      [data-scroll-container] {
+        overflow: hidden;
+      }
+
+      [data-scroll] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      [data-scroll].is-inview {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-scroll-container>
+      <section>
+        <h1 data-scroll data-scroll-call="text-appear">Hello, World!</h1>
+        <p data-scroll data-scroll-call="text-appear">
+          This is a paragraph that will appear with a scrolling effect.
+        </p>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scroll = new LocomotiveScroll({
+          el: document.querySelector("[data-scroll-container]"),
+          smooth: true,
+        });
+
+        scroll.on("call", (value, way, obj) => {
+          if (value === "text-appear") {
+            obj.el.classList.add("is-inview");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

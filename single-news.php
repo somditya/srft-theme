@@ -17,15 +17,8 @@ $post_content = apply_filters('the_content', $post->post_content);
 // You can now echo or manipulate $post_content as needed.
 
 ?>
-
+<div data-scroll-container>
 <section style="margin: 15rem; padding: 0 1.25rem; display: block;">
-<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-<?php
-if(function_exists('bcn_display'))
-{
-bcn_display();
-}?>
-</div>
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;
@@ -50,7 +43,7 @@ echo $post_date;
 </div> 
 <div style="grid-column: 2/5; ">
     <div class="c-photo">
-    <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"  class="img-responsive"/>
+    <img src="<?php echo get_field('News-Image');?> ?>"  class="img-responsive"/>
 </div>
 </div>
 <div style="border-top: 3px solid #000; grid-column: 3/4;
@@ -67,7 +60,7 @@ echo $post_date;
     <div style="padding: 1rem; text-align: center;">
     <?php echo do_shortcode('[addtoany buttons]'); ?>
 </div>
-<?php echo $post_content; ?>
+<?php echo get_field('News-Text');?>
 </div>
 </div>
 
@@ -77,3 +70,4 @@ echo $post_date;
 </section> 
   
 <?php get_footer(); ?>
+</div>

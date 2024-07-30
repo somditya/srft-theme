@@ -27,6 +27,7 @@ $category_id = get_category_ID($category_name);
 
 
 <body ng-controller="TenderController">
+
   <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');>
       <div class="page-banner">
@@ -35,16 +36,13 @@ $category_id = get_category_ID($category_name);
     </section>
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-      <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
+      
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="TenderController">
             <p style="padding: 15px;">
-              From date: <input type="date" ng-model="fromDate" ng-change="applyFilters()">
-              To date: <input type="date" ng-model="toDate" ng-change="applyFilters()">
+            <?php echo __('From date: ', 'srft-theme' ); ?> <input type="date" ng-model="fromDate" ng-change="applyFilters()">
+            <?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" ng-model="toDate" ng-change="applyFilters()">
               <input type="text" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button ng-click="resetFilters()">Reset</button>
@@ -57,6 +55,7 @@ bcn_display();
                   <div class="Rtable-cell name-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell location-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
                 </div>
 
@@ -68,13 +67,18 @@ bcn_display();
                     <div class="Rtable-cell--content">{{ tender.ID }}</div>
                   </div>
                   <div class="Rtable-cell name-cell">
-                    <div class="Rtable-cell--content"><a href="{{tender.link}}">{{ tender.title }}</a></div>
+                    <!--<div class="Rtable-cell--content"><a href="{{tender.link}}">{{ tender.title }}</a></div>-->
+                    <div class="Rtable-cell--content">{{ tender.title }}</div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate }}</span></div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate }}</span></div>
+                  </div>
+                  <div class="Rtable-cell access-link-cell">
+                    <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
+                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
@@ -118,7 +122,7 @@ bcn_display();
       </div>
     </section>
   </main>
-
+  
   <script>
      var categoryID = <?php echo json_encode($category_id); ?>;
      var siteURL = '<?php echo esc_url(site_url('/')); ?>';
@@ -134,32 +138,42 @@ bcn_display();
         $scope.itemsPerPage = 20;
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
+         // Function to parse dd/mm/yyyy date format
+       function parseDate(dateString) {
+      var parts = dateString.split('/');
+      // Note: JavaScript months are 0-based, so subtract 1 from the month.
+      return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+        
         // Fetch the data
         $http.get(siteURL + 'wp-json/wp/v2/tender?categories=' + categoryID + '&per_page=100')
   .then(function (response) {
-    $scope.tenderList = response.data.map(function (post) {
+    // Sort the data by publish date (newest to oldest)
+  // Sort the data by ACF publish date (newest to oldest)
+  var sortedData = response.data.sort(function (a, b) {
+          return parseDate(b.acf['Tender-Publish-Date']) - parseDate(a.acf['Tender-Publish-Date']);
+        });
+
+    $scope.tenderList =  sortedData.map(function (post) {
+      var publishDate= post.acf['Tender-Publish-Date'];
       var submissionDate = post.acf['Tender-Submission-Date'];
-      var isSubmissionOpen = submissionDate > $scope.currentDate;
+      var isSubmissionOpen = parseDate(submissionDate) > $scope.currentDate;
       var postLink = post.link;
 // Append the background image URL as a query parameter to the post link
       var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
       var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
-
+      console.log('Publish Date', publishDate, 'Submission Date:', submissionDate, 'Current Date:', $scope.currentDate, 'Is Submission Open:', isSubmissionOpen);
       return {
         title: post.title.rendered || '',
         link: linkWithImage,
         ID: post.acf['Tender-ID'],
         subdate: submissionDate, // Use the parsed submission date
         isSubmissionOpen: isSubmissionOpen,
+        file: post.acf['Tender-Doc'],
         pubdate: post.acf['Tender-Publish-Date'],
       };
     });
-
-    // Sort the tenderList by publish date (newest to oldest)
-    $scope.tenderList.sort(function (a, b) {
-      return new Date(b.pubdate) - new Date(a.pubdate);
-    });
-
+ 
     // Apply initial filters and pagination
     updateFilteredTender();
   })
@@ -260,5 +274,4 @@ $scope.lastPage = function () {
         
       });
   </script>
-</body>
-</html>
+<?php get_template_part('footer-html'); ?>

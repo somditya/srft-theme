@@ -8,7 +8,7 @@
 get_header();
 $current_language = pll_current_language(); 
 $post_id = get_the_ID();
-$post_content = apply_filters('the_content', $post->post_content);
+//$post_content = apply_filters('the_content', $post->post_content);
 ?>
 
 <div style="margin: 15rem;  max-width: 1250px;">
@@ -39,6 +39,7 @@ echo "hi";
   </a> 
   <h1 style="
     font-family: GthD;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 5.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;

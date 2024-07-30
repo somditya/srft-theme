@@ -23,6 +23,7 @@ $bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
         <div class="page-banner-title" style="margin-top: 10px;"><?php echo __('Tender', 'srft-theme'); ?></div>
     </div>
 </section>
+<div data-scroll-container>
 <section style="margin: 10rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 16.7% 26.67% 16.7% 1fr 1fr; border: 1px solid #000;">

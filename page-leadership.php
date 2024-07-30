@@ -7,6 +7,7 @@ Template Name: Leadership
 get_header();
 $current_language = get_locale();
 ?>
+ <div data-scroll-container>
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">

@@ -78,7 +78,10 @@ html {
   /* 10px / 16px = 0.625 = 62.5% */
   /* Percentage of user's browser font-size setting */
   font-size: 62.5%;
+ 
+
 }
+
 
 a {
 
@@ -422,6 +425,26 @@ animation-duration: 4s;
   top: 13px;
   left: 4px;
 }*/
+
+/* For single page */
+.static-container {
+  max-width: 1200px; /* Adjust width as needed */
+  margin: 0 auto; /* Center-aligns the content */
+  padding: 20px; /* Adds some padding around the content */
+  box-sizing: border-box; /* Ensure padding does not affect width */
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.header-image {
+    width: 100%; /* Full width */
+    height: 400px; /* Adjust height as needed */
+    background-size: cover; /* Ensure image covers the section */
+    /*background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+/* end of singel page */
 
 .status-symbol {
   display: inline-block;
@@ -770,7 +793,7 @@ margin-bottom: 4rem;
 
   .Rtable-cell--content {
     a {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: #333;
     }
 
@@ -1044,7 +1067,7 @@ z-index: 1;
   text-align: center;
   justify-content: center;
   padding: 15px;
- 
+  
 }
 
 
@@ -2202,6 +2225,22 @@ font-size: 17px;
   background-color: #ffffff;
 }
 
+
+[data-scroll-container] {
+  overflow: visible;
+  height: auto;
+}
+
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+[data-scroll].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
 /*Course Section */
 
 #courses {
@@ -2214,7 +2253,9 @@ font-size: 17px;
   /*background-size: cover;
   background-repeat: repeat;
   background-position: center;*/
-  background-color: rgb(33, 115, 163); background-image: url(images/5.2.jpg); background-blend-mode: multiply;
+  background-color: #350e20; background-image: url(images/5.2.jpg); background-blend-mode: multiply;
+  background-color: #800000;
+
   background-size: cover;
   background-repeat: no-repeat;
   /*background-position: 30%;*/
@@ -3264,6 +3305,9 @@ position: relative;
 .accordian ul li i:after {
   transform: translate(2px, 0) rotate(-45deg);
 }
+
+
+
 ul li input[type="checkbox"] {
   position: absolute;
   cursor: pointer;
@@ -3309,6 +3353,23 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }
 
+#page1 {
+height: 100vh;
+width: 100%;
+background-color: red;
+}
+
+#page2 {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(139, 197,216);
+  }
+
+  #page3 {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(19, 197,216);
+    }
 /* News */
 .section-news {
   margin-top: 0rem;

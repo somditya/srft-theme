@@ -25,14 +25,22 @@ $duration=get_post_meta($page_id, 'Duration', true);
 $eligibilty=get_post_meta($page_id, 'Eligibility', true);
 $seats=get_post_meta($page_id, 'Seats', true);
 $facilities=get_post_meta($page_id, 'Facilities', true);
+$facilities_img=get_post_meta($page_id, 'Facility_url', true);
+$current_language = get_locale();
 
-
+if ($current_language === 'en_US') {
+  $catslug='faculty-en'; 
+ }
+  else
+  {
+    $catslug='faculty-hi';
+  }
 
 
 // Check if the custom field has a value
 
 ?>
-
+<div data-scroll-container>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
       <div class="page-banner-title"><?php the_title(); ?></div>
@@ -41,7 +49,7 @@ $facilities=get_post_meta($page_id, 'Facilities', true);
 
 <section class="cine-detail">
  <div class="leftnav">
-   <div class="childnavs">
+   <!--<div class="childnavs">
      <ul class="childnav-lists">
        <li class="childnav-list-item">
          <a class="item"><?php echo __('Prospectus', 'srft-theme' ); ?></a>
@@ -56,7 +64,7 @@ $facilities=get_post_meta($page_id, 'Facilities', true);
          <a class="item"><?php echo __('Academic By-law', 'srft-theme' ); ?></a>
        </li>
      </ul>
-   </div>
+   </div>-->
 
    <div class="widget">
      <div class="widget-content">
@@ -92,16 +100,12 @@ $facilities=get_post_meta($page_id, 'Facilities', true);
  </div>
 
  <div class="main-content">
- <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
    <div style="margin-top: 0rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
      <?php echo __('About the department', 'srft-theme' ); ?>
      </h2>
      <?php if (!empty($about)) {
-    echo $about;
+    echo wp_kses_post($about);
     }?>
    <div>
      
@@ -114,12 +118,11 @@ bcn_display();
      </h2>
 
      <?php if (!empty($objective)) {
-    echo $objective;
+    echo wp_kses_post($objective);
     }?>
     
    </div>
 
-  
 
 <div style="margin-top: 3.2rem;">
     <h2 class="page-header-text" style="padding-left: 0;">
@@ -133,28 +136,44 @@ bcn_display();
 
   // Custom query to retrieve faculty posts in the specified department
   $faculty_query = new WP_Query(array(
-      'post_type' => 'post',         // Change to your post type if needed
-      'category_name' => 'faculty-en', // Name of the "Faculty" category
-      'meta_query' => array(
-          array(
-              'key' => 'Department', // Custom field name for department
-              'value' => $department_name,
-              'compare' => '=',
-          ),
-      ),
-  ));
+    'post_type' => 'faculty',          // Change to your post type if needed
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',  // Taxonomy name
+            'field' => 'slug',
+            'terms' => $catslug,       // Term slug (replace with your actual variable)
+        ),
+    ),
+    'meta_key' => 'Faculty-Category',   // ACF field name for category
+    'orderby' => 'meta_value_num',      // Order by meta value as number
+    'order' => 'ASC',                   // Order direction (ASC or DESC)
+    'meta_query' => array(
+        'relation' => 'AND',            // Ensures both conditions must be met
+        array(
+            'key' => 'Faculty-Department',     // ACF field name for department
+            'value' => $department_name,       // Replace with the actual value you want to query
+            'compare' => '=',                  // Comparison operator
+        ),
+        array(
+            'key' => 'Faculty-Category',       // ACF field name for category
+            'compare' => 'EXISTS',             // Check if the field exists
+            'type' => 'NUMERIC'                // Ensure numeric comparison
+        ),
+    ),
+));
 
+  
   // Loop through faculty posts
   if ($faculty_query->have_posts()) :
       while ($faculty_query->have_posts()) : 
         $faculty_query->the_post();
+        $post_link = get_permalink();
   ?>
                   <li>
-                      <a href="<?php the_permalink(); ?>" target="_blank">
-                      <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"  alt="" />
-
+                      <a href="<?php echo esc_url($post_link); ?>" target="_blank">
+                      <img src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
                           <h3><?php the_title(); ?></h3>
-                          <span><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></span>
+                          <span><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
                       </a>
                   </li><?php
       endwhile;
@@ -167,12 +186,18 @@ bcn_display();
             </ul>
         </div>
         <div class="link-span" style="margin-top: 0;">
-            <a href="#"> <?php echo __('Learn More About Them', 'srft-theme' ); ?></a>
+        <?php 
+if ($current_language === 'en_US') {
+    $facurl = esc_url(site_url('/faculty'));  
+} else {
+    $facurl = 'faculty-hi';
+}
+?>
+<a href="<?php echo esc_url($facurl); ?>"><?php echo esc_html__('Learn More About Them', 'srft-theme'); ?></a>
+
         </div>
     </section>
 </div>
-
-
 
    
    <div style="margin-top: 3.2rem">
@@ -190,13 +215,12 @@ bcn_display();
        </div>
 
        <div class="facility-img-box">
-         <img src="<?php bloginfo('template_url'); ?>/images/osrf_cores.png" class="container-image"" />
+       <img src="<?php echo $facilities_img ?>" class="container-image" />
        </div>
        
      </div>
    </div>
-  
-
+ 
 <!--
 <div style="margin-top: 3.2rem">
 <h2 class="page-header-text" style="padding-left: 0; text-align:center;">

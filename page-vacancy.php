@@ -25,6 +25,7 @@ $category_id = get_category_ID($category_name);
 
 
 <body ng-controller="VacancyController">
+  <div data-scroll-container>
   <main>
     <section class="cine-header"  style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
@@ -34,17 +35,13 @@ $category_id = get_category_ID($category_name);
 
     <section class="section-home">
       <div class="container" style="width: 1170px;">
-      <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Vacancy List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">
             <p style="padding: 15px;">
-              From date: <input type="date" ng-model="fromDate" ng-change="applyFilters()">
-              To date: <input type="date" ng-model="toDate" ng-change="applyFilters()">
-              <input type="text" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
+            <?php echo __('From date: ', 'srft-theme' ); ?><input type="date" ng-model="fromDate" ng-change="applyFilters()">
+            <?php echo __('To date: ', 'srft-theme' ); ?><input type="date" ng-model="toDate" ng-change="applyFilters()">
+              <input type="text" ng-model="filterField" placeholder= <?php echo __('Search by keyword:', 'srft-theme' ); ?> ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </p>
@@ -55,6 +52,8 @@ bcn_display();
                   <div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell date-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Submission Date', 'srft-theme' ); ?></div>
+                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Extended Submission Date', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
                 </div>
 
@@ -71,8 +70,15 @@ bcn_display();
                   <div class="Rtable-cell date-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.pubdate | date:'dd-MM-yyyy' }}</span></div>
                   </div>
+                  <div class="Rtable-cell date-cell">
+                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.subdate | date:'dd-MM-yyyy' }}</span></div>
+                  </div>
+                  <div class="Rtable-cell date-cell">
+                    <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.extsubdate | date:'dd-MM-yyyy' }}</span></div>
+                  </div>
                   <div class="Rtable-cell access-link-cell">
-                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> Visit</a></div>
+                    <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
+                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>
                   </div>
                 </div>
               </div>
@@ -117,18 +123,22 @@ bcn_display();
         $scope.toDate = '';
         $scope.itemsPerPage = 10;
         $scope.currentPage = 1;
+        var url = siteURL + 'wp-json/wp/v2/vacancy?categories=' + categoryID + '&per_page=100';
+        //alert('Fetching data from URL:\n' + url); // Alert the URL before making the request
+
 
         // Fetch the data
         //$http.get(siteURL + 'wp-json/wp/v2/tender?categories='+categoryID+'&per_page=100')
-        $http.get(siteURL + 'wp-json/wp/v2/vacancy?categories='+categoryID+'&per_page=100')
+        $http.get(url)
           .then(function (response) {
             $scope.vacancyList = response.data.map(function (post) {
               //console.log('Vacancy-Submission-Date:', Vacancy-LastDatee);
               var submissionDate = post.acf['Vacancy-LastDate'];
+              var file = post.acf['Vacancy-Doc'];
               var postLink = post.link;
 // Append the background image URL as a query parameter to the post link
-      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
-      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
+              var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
+              var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
       
               var pubdate= post.acf['Vacancy-Publish-Date'];
                console.log('Vacancy-Submission-Date:',submissionDate );
@@ -142,8 +152,14 @@ bcn_display();
                 ID: post.acf['Vacancy-ID'],
                 subdate: post.acf['Vacancy-LastDate'],
                 pubdate: post.acf['Vacancy-Publish-Date'],
+                file: post.acf['Vacancy-Doc'],
+                extsubdate: post.acf['Vacancy-LastDateExtended'],
               };
             });
+          // Sort the tenderList by publish date (newest to oldest)
+      $scope.vacancyList.sort(function (a, b) {
+      return new Date(b.pubdate) - new Date(a.pubdate);
+    });
 
             // Apply initial filters and pagination
             updateFilteredVacancy();
@@ -245,7 +261,6 @@ $scope.lastPage = function () {
         
       });
   </script>
-</main>
-<?php
-get_footer(); 
-?>
+<?php get_template_part('footer-html'); ?>
+    </body>
+    </html>

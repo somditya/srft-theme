@@ -10,6 +10,7 @@ Template Name: Faculty
 <?php
 get_header(); 
 
+
 function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	$cat = get_term_by( 'name', $cat_name, 'category' );
 
@@ -23,9 +24,9 @@ function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventi
 $category_name = 'faculty'; // Ensure this matches the exact category name.
 $category_id = get_category_ID($category_name);
 ?>
-
+<div data-scroll-container>
 <body ng-controller="FacultyController">
-    
+
     <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
@@ -35,10 +36,7 @@ $category_id = get_category_ID($category_name);
 
       <section class="section-home">
         <div class="container" style="width: 1170px;">
-        <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
+        
           <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController" style="margin-top: 4.5rem;">
             <!-- Filter options -->
@@ -47,7 +45,7 @@ bcn_display();
                 <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
                 <option value="Animation Cinema"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
                 <option value="Cinematography"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
-                <option value="Direction & SPW"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
+                <option value="Direction & Screenplay Writing"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
                 <option value="Editing"><?php echo __('Editing', 'srft-theme' ); ?></option>
                 <option value="Producing for Film & Television"><?php echo __('Producing for Film & Television', 'srft-theme' ); ?></option>
                 <option value="Sound Recording & Design"><?php echo __('Sound Recording & Design', 'srft-theme' ); ?></option>
@@ -75,15 +73,28 @@ bcn_display();
                 <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" class="faculty-image">
                 <h2><a href="{{ faculty.link }}">{{faculty.name }}</a></h2>
                 <p>{{faculty.designation }}</p>
+                <p>{{faculty.department}}</p>
             </div>
             
           </div>
           
             <!-- Pagination -->
             <ul class="pagination">
-              <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': page === currentPage }" ng-click="setPage(page)">
-                  <a href="">{{ page }}</a>
-              </li>
+            <li ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" ng-click="firstPage()"><i class="fas fa-step-backward"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
+    <a href="#" ng-click="setPage(page)">{{ page }}</a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+  </li>
+  <li ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" ng-click="lastPage()"><i class="fas fa-step-forward"  style="color: #8b5b2b;"></i></a>
+  </li>
              
           </ul>
         </div>
@@ -97,8 +108,8 @@ bcn_display();
     angular.module('myApp', [])
 .controller('FacultyController', function($scope, $http) {
     // Initialize the faculty data (replace this with your actual data)
-    $http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
-
+    //$http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
+    $http.get(siteURL+'wp-json/wp/v2/faculty?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
     .then(function (response) {
         console.log('HTTP request success');
         // Map the retrieved data to the format you want in $scope.facultyList
@@ -110,13 +121,17 @@ bcn_display();
             return {
                 name: post.title.rendered || '',
                 link: linkWithImage,
-                featured_media: post.featured_media,
-                designation: post.Designation,
-                department: post.Department
+                //featured_media: post.featured_media,
+                image: post.acf['Faculty-Image'],
+                //designation: post.Designation,
+                designation: post.acf['Faculty-Designation'],
+                //department: post.Department
+                //department: post.acf['Department']
+                department: post.acf['Faculty-Department']
             };
         });
 
-        angular.forEach($scope.facultyList, function(faculty) {
+        /*angular.forEach($scope.facultyList, function(faculty) {
             if (faculty.featured_media) {
                 $http.get(siteURL+'wp-json/wp/v2/media/' + faculty.featured_media)
                     .then(function(imageResponse) {
@@ -127,7 +142,7 @@ bcn_display();
                         console.error('Error fetching featured image:', error);
                     });
             }
-        });
+        });*/
 
         console.log('Faculty List:', $scope.facultyList);
   // Initialize $scope.filteredFaculty as an empty array here
@@ -197,6 +212,40 @@ bcn_display();
         };
 
 
+    // Function to set the current page
+    $scope.setPage = function (page) {
+          if (page >= 1 && page <= $scope.getTotalPages()) {
+            $scope.currentPage = page;
+            $scope.updateilteredFaculty();
+          }
+        };
+
+        // Function to go to the previous page
+        $scope.prevPage = function () {
+          if ($scope.currentPage > 1) {
+            $scope.currentPage--;
+            $scope.updateilteredFaculty();
+          }
+        };
+
+        // Function to go to the next page
+        $scope.nextPage = function () {
+          if ($scope.currentPage < $scope.getTotalPages()) {
+            $scope.currentPage++;
+            $scope.updateilteredFaculty();
+          }
+        };
+
+        $scope.firstPage = function () {
+  $scope.currentPage = 1;
+  $scope.updateilteredFaculty();
+};
+
+$scope.lastPage = function () {
+  $scope.currentPage = $scope.getTotalPages();
+  $scope.updateilteredFaculty();
+};
+        // Initialize pagedTender    
     // Helper function to update the filtered faculty data based on pagination and filtering
     function updateFilteredFaculty() {
     $scope.filteredFaculty = $scope.facultyList.filter($scope.filterFaculty);
@@ -211,11 +260,10 @@ bcn_display();
 }
 });
 
-
 </script>
           
     </main>
 
-<?php
-get_footer(); 
-?>
+    <?php get_template_part('footer-html'); ?>
+</body>
+</html>

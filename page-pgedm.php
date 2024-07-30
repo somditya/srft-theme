@@ -8,6 +8,7 @@ $current_language = get_locale();
 $catslug=get_post_meta(get_the_ID(), 'Category', true);
 $title=get_the_ID
 ?>
+<div data-scroll-container>
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">

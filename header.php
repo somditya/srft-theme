@@ -58,7 +58,8 @@ $current_language = get_locale();
        href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css"
      />
      <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">
+    
     
      <script
        src="https://kit.fontawesome.com/37e9fe1e7c.js"
@@ -77,6 +78,7 @@ $current_language = get_locale();
 <body <?php body_class(); ?>>
 
 <?php if (is_front_page()) : ?>
+<div data-scroll-container>
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
         
@@ -88,10 +90,10 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-            <h1>Satyajit Ray Film & Television Institute </h1>
+            <h3 data-scroll data-scroll-call="text-appear">सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h1 data-scroll data-scroll-call="text-appear">Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
-              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
+              <h2 data-scroll data-scroll-call="text-appear"><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
             </div>
           </div>
          </div>

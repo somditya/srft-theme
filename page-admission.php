@@ -9,6 +9,7 @@ $catslug = get_the_category($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
+<div data-scroll-container>
     <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
@@ -94,10 +95,7 @@ $current_language = get_locale();
         </div>
 
         <div class="main-content">
-        <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
+        
         <section class="page-title"><div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div></section>
         <section class="sub-intro">
           <div class="sub-intro-images">

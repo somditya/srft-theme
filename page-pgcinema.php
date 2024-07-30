@@ -14,8 +14,10 @@ $catslug=get_post_meta(get_the_ID(), 'Category', true);
 
 $title=get_the_title($post_id);
 ?>
+ <div data-scroll-container>
 <main>
       <body>
+       
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php echo __($title, 'srft-theme'); ?></div>
@@ -42,10 +44,6 @@ $title=get_the_title($post_id);
         </div>
 
         <div class="main-content">
-        <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
         
         <?php 
         $intro = get_post_meta(get_the_ID(), '$Intro', true);

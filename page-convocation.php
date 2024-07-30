@@ -39,6 +39,7 @@ if ($latest_convocation_post->have_posts()) :
     $latest_post_title = get_the_title();
     $latest_post_content = get_the_content();
 ?>
+<div data-scroll-container>
     <main>
       <section class="cine-header" style="background-image: url('<?php echo $latest_post_thumbnail_url; ?>');">
         <div class="page-banner">

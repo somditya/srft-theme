@@ -542,7 +542,7 @@ function add_custom_fields_to_json($data, $post, $request) {
 
 function acf_rest_api_init() {
 	// Replace 'your_post_type' with your custom post type slug
-	$post_types = array( 'tender', 'vacancy' );
+	$post_types = array( 'tender', 'vacancy', 'admission' ,'faculty', 'announnement', 'news' );
 
 	foreach ( $post_types as $post_type ) {
 			register_rest_field( $post_type, 'acf', array(
@@ -726,7 +726,7 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 	}
 endif;
 
-function custom_post_type_news() {
+/*function custom_post_type_news() {
 	register_post_type('news', array(
 			'labels' => array(
 					'name' => __('News'),
@@ -737,7 +737,10 @@ function custom_post_type_news() {
 			'rewrite' => array('slug' => 'news'),
 	));
 }
-add_action('init', 'custom_post_type_news');
+add_action('init', 'custom_post_type_news');*/
+
+
+
 
 function admin_bar(){
 
