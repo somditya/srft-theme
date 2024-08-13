@@ -69,6 +69,9 @@
     </div>
   </div>-->
 </div>
-<div class="footer_copyright_container">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></div>
+<div class="footer_copyright_container">
+    <p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
+    <p class="last-updated"><?php echo do_shortcode('[last_updated]'); ?></p>
+</div>
 </body>
 </html>
