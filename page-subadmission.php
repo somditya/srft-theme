@@ -66,8 +66,6 @@ $current_language = get_locale();
     </ul>
 </div>
 
-
-
         <div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
           <li><?php echo __('Prsopectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
@@ -81,10 +79,6 @@ $current_language = get_locale();
         </div>
         </div>
         <div class="main-content">
-        <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
         <section class="page-title">
           <div><p class="page-header-text"><?php the_title(); ?></p></div>
         </section>

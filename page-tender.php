@@ -101,19 +101,19 @@ $category_id = get_category_ID($category_name);
             <!-- Pagination -->
             <ul class="pagination">
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()"><i class="fas fa-step-backward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="prevPage()"><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
     <a href="#" ng-click="setPage(page)">{{ page }}</a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="nextPage()"><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()"><i class="fas fa-step-forward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
   </li>
   
 </ul>

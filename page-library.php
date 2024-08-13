@@ -81,10 +81,6 @@ $current_language = get_locale();
         </div>
 
   <div class="main-content">
-  <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
     <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div>  
@@ -112,5 +108,6 @@ bcn_display();
 
  
     <?php
-get_footer(); 
+//get_footer(); 
+get_template_part('footer-html');
 ?>

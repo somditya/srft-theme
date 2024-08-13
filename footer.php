@@ -49,9 +49,9 @@
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->
         <li><a href="https://facebook.com/srftikol"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/"><i class="fa fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" style="color: white;"><i class="fa-brands fa-x-twitter"></i></a></li>
-        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/"><i class="fa fa-youtube footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
+        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
       </ul>
     </div>
     <div class="footer_sub">
@@ -74,7 +74,11 @@
     </div>
   </div>-->
 </div>
-<div class="footer_copyright_container">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></div>
+<div class="footer_copyright_container">
+    <p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
+    <p class="last-updated"><?php echo do_shortcode('[last_updated]'); ?></p>
+</div>
+
 </div>
 
 <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>

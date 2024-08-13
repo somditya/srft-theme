@@ -294,4 +294,3 @@ $current_language = get_locale();
     <?php get_footer(); ?>
 </main>
 </div>
-

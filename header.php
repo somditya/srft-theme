@@ -46,8 +46,9 @@ $current_language = get_locale();
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
     <!--<link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!--<link href="https://fonts.cdnfonts.com/css/trajan-pro" rel="stylesheet">             -->
@@ -196,12 +197,13 @@ $current_language = get_locale();
                 'menu' => 'language-menu', // Set a unique CSS class for styling
             )
         );
-        ?>
+        ?> &nbsp;
     </div>
-<?php endif; ?></li>
-             <li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>
+   
+    <?php endif; ?></li>
+             <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
              <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
-             <li><a><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <li><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
          </div>
@@ -232,7 +234,7 @@ $current_language = get_locale();
                     ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></i></a>
+                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -263,7 +265,7 @@ $current_language = get_locale();
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('Academics', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -290,7 +292,7 @@ $current_language = get_locale();
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Admission', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Admission', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -318,7 +320,7 @@ $current_language = get_locale();
               
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -331,9 +333,9 @@ $current_language = get_locale();
                     <a href="<?php echo esc_url(site_url('/screening-room/')); ?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
                    
-                    <li class="dropdown-link">
+                    <!--<li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
-                    </li>
+                    </li>-->
                     <li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
@@ -349,7 +351,7 @@ $current_language = get_locale();
               </li>
              
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Resources', 'srft-theme' ); ?><i class="fas fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('Resources', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -371,9 +373,9 @@ if ($current_language === 'en_US') {
                     <li class="dropdown-link">
                       <a href="<?php echo esc_url(site_url('/citizen-charter//')); ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>
-                    </li>
+                    </li>-->
                     
                     <div class="arrow"></div>
                   </ul>

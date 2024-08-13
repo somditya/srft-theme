@@ -13,7 +13,7 @@ Text Domain: srfti
 get_header(); 
 ?>
 
-<main>
+<main id="#main-content">
  <section class="section-home" style="background-color: #161a1d; padding:10px">
  <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
  <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">What's New</div>
