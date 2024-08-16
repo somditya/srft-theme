@@ -740,18 +740,17 @@ endif;
 add_action('init', 'custom_post_type_news');*/
 
 function display_last_updated() {
-	// Check if the post/page was modified, and display the last modified date and time
+	// Check if the post/page was modified, and display the last modified date
 	if (get_the_modified_time() != get_the_time()) {
-			return '<p class="last-updated">Last updated on: ' . get_the_modified_date() . ' at ' . get_the_modified_time() . '</p>';
+			return '<p class="last-updated">Last updated on: ' . get_the_modified_date() . '</p>';
 	} else {
 			// If the post/page was never modified, display the published date instead
-			return '<p class="last-updated">Published on: ' . get_the_date() . ' at ' . get_the_time() . '</p>';
+			return '<p class="last-updated">Published on: ' . get_the_date() . '</p>';
 	}
 }
 
 // Create a shortcode to use the function in posts or pages
 add_shortcode('last_updated', 'display_last_updated');
-
 
 
 function admin_bar(){

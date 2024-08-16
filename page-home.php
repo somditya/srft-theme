@@ -466,45 +466,223 @@ Template Name: Home
     </div>
     </div>
     <!-- Container for Category 1 Gallery Images -->
-<div id="events" style="display: none;">
-  <a href="<?php bloginfo('template_url'); ?>/images/5.2.jpg" data-lightbox="events">  
-  </a>
-  <a href="<?php bloginfo('template_url'); ?>/images/6.1.jpg" data-lightbox="events">
-  </a>
-    <!-- Add more images for Category 1 -->
+    <div id="events" style="display: none;">
+<?php
+    // Determine the category slug based on the current language
+    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+    // Query posts in the specified category with Picture_Category set to "Event"
+    $category_posts = new WP_Query(array(
+        'post_type' => 'picture', // Assuming 'picture' is your custom post type
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'Picture_Category', // ACF field name
+               'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
+            'compare' => 'IN' // Match any of the values
+            ),
+        ),
+        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+    ));
+
+    if ($category_posts->have_posts()) :
+      while ($category_posts->have_posts()) : $category_posts->the_post();
+          // Get the image file from ACF
+          $image = get_field('Picture_File');
+          if ($image) : ?>
+            <a href="<?php echo esc_url($image); ?>" data-lightbox="events">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
+            </a>
+          <?php
+          endif;
+      endwhile;
+      wp_reset_postdata(); // Reset the post data
+  else :
+      echo '<p>No posts found in this category.</p>';
+  endif;
+?>   
 </div>
+
 
 <!-- Container for Category 2 Gallery Images -->
 <div id="workshops" style="display: none;">
-    <a href="<?php bloginfo('template_url'); ?>/images/_MG_0850.JPG" data-lightbox="workshops">  
-    </a>
-    <a href="/web2/images/about.jpg" data-lightbox="workshops">
-    </a>
-    <!-- Add more images for Category 2 -->
+<?php
+    // Determine the category slug based on the current language
+    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+    // Query posts in the specified category with Picture_Category set to "Event"
+    $category_posts = new WP_Query(array(
+        'post_type' => 'picture', // Assuming 'picture' is your custom post type
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'Picture_Category', // ACF field name
+                'value'   => 'Workshops', // Value to match
+                'compare' => '='
+            ),
+        ),
+        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+    ));
+
+    if ($category_posts->have_posts()) :
+      while ($category_posts->have_posts()) : $category_posts->the_post();
+          // Get the image file from ACF
+          $image = get_field('Picture_File');
+          if ($image) : ?>
+            <a href="<?php echo esc_url($image); ?>" data-lightbox="workshops">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
+            </a>
+          <?php
+          endif;
+      endwhile;
+      wp_reset_postdata(); // Reset the post data
+  else :
+      echo '<p>No posts found in this category.</p>';
+  endif;
+?>   
 </div>
 <!-- Container for Category 3 Gallery Images -->
-<div id="stills" style="display: none;" >
-  <a href="/web2/images/5.2.jpg" data-lightbox="stills">  
-  </a>
-  <a href="/web2/images/6.1.jpg" data-lightbox="stills">
-  </a>
-    <!-- Add more images for Category 3 -->
+<div id="stills" style="display: none;">
+<?php
+    // Determine the category slug based on the current language
+    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+    // Query posts in the specified category with Picture_Category set to "Event"
+    $category_posts = new WP_Query(array(
+        'post_type' => 'picture', // Assuming 'picture' is your custom post type
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'Picture_Category', // ACF field name
+                'value'   => 'Student Stills', // Value to match
+                'compare' => '='
+            ),
+        ),
+        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+    ));
+
+    if ($category_posts->have_posts()) :
+      while ($category_posts->have_posts()) : $category_posts->the_post();
+          // Get the image file from ACF
+          $image = get_field('Picture_File');
+          if ($image) : ?>
+            <a href="<?php echo esc_url($image); ?>" data-lightbox="stills">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
+            </a>
+          <?php
+          endif;
+      endwhile;
+      wp_reset_postdata(); // Reset the post data
+  else :
+      echo '<p>No posts found in this category.</p>';
+  endif;
+?>   
 </div>
 
 <!-- Container for Category 4 Gallery Images -->
 <div id="moments" style="display: none;">
-  <a href="<?php bloginfo('template_url'); ?>/images/5.2.jpg" data-lightbox="moments">  
-  </a>
-  <a href="<?php bloginfo('template_url'); ?>/images/6.1.jpg" data-lightbox="moments">
-  </a>
-    <!-- Add more images for Category 4 -->
+<?php
+    // Determine the category slug based on the current language
+    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+    // Query posts in the specified category with Picture_Category set to "Event"
+    $category_posts = new WP_Query(array(
+        'post_type' => 'picture', // Assuming 'picture' is your custom post type
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'Picture_Category', // ACF field name
+                'value'   => 'Campus Life', // Value to match
+                'compare' => '='
+            ),
+        ),
+        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+    ));
+
+    if ($category_posts->have_posts()) :
+      while ($category_posts->have_posts()) : $category_posts->the_post();
+          // Get the image file from ACF
+          $image = get_field('Picture_File');
+          if ($image) : ?>
+            <a href="<?php echo esc_url($image); ?>" data-lightbox="moments">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
+            </a>
+          <?php
+          endif;
+      endwhile;
+      wp_reset_postdata(); // Reset the post data
+  else :
+      echo '<p>No posts found in this category.</p>';
+  endif;
+?>   
 </div>
+
+<!-- Container for Category 4 Gallery Images -->
 <div id="news" style="display: none;">
-  <a href="<?php bloginfo('template_url'); ?>/images/5.2.jpg" data-lightbox="news">  
-  </a>
-  <a href="<?php bloginfo('template_url'); ?>/images/6.1.jpg" data-lightbox="news">
-  </a>
-    <!-- Add more images for Category 4 -->
+<?php
+    // Determine the category slug based on the current language
+    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+    // Query posts in the specified category with Picture_Category set to "Event"
+    $category_posts = new WP_Query(array(
+        'post_type' => 'picture', // Assuming 'picture' is your custom post type
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'Picture_Category', // ACF field name
+                'value'   => 'Media Publication', // Value to match
+                'compare' => '='
+            ),
+        ),
+        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+    ));
+
+    if ($category_posts->have_posts()) :
+      while ($category_posts->have_posts()) : $category_posts->the_post();
+          // Get the image file from ACF
+          $image = get_field('Picture_File');
+          if ($image) : ?>
+            <a href="<?php echo esc_url($image); ?>" data-lightbox="news">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
+            </a>
+          <?php
+          endif;
+      endwhile;
+      wp_reset_postdata(); // Reset the post data
+  else :
+      echo '<p>No posts found in this category.</p>';
+  endif;
+?>   
 </div>
   </section>
 

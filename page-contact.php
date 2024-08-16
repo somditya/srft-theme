@@ -28,15 +28,6 @@ Template Name: Contact
 </div>
 
 <div class="main-content">
-  <div>
-  <?php 
-    wp_reset_postdata();
-  if(function_exists('bcn_display'))
-    {
-     bcn_display();
-    }?>
-  </div>
-
   <section class="page-title">
           <div>
             </p>
