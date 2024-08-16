@@ -212,9 +212,10 @@
 </script>
 <script>
   var swiper = new Swiper(".home-slider", {
-    autoplay: 500,
-    speed: 600,
+    autoplay:{delay: 3500,
+    speed: 100,
     loop: true,
+    },
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
