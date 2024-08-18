@@ -24,7 +24,7 @@ Template Name: Home
  <div style="color:white; font-size: 18px; width: calc(90% - 40px); "><marquee direction="right">JET 2022 result published please follow the link to know your rank</marquee></div>
  </section>
  
- <section class="section-news" style="background-color: #0b6b39;" id="section-1">
+ <section id="main-content" class="section-news" style="background-color: #0b6b39;" >
  <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;" >
       <?php echo __('Featured News', 'srft-theme' ); ?>
       </h2>
