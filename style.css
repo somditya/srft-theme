@@ -2271,8 +2271,8 @@ font-size: 17px;
   /*background-size: cover;
   background-repeat: repeat;
   background-position: center;*/
-  background-color: #350e20; background-image: url(images/5.2.jpg); background-blend-mode: multiply;
-  background-color: #800000;
+  background-color: #86797f; background-image: url(images/5.2_grey.jpg); background-blend-mode: multiply;
+  background-color: grey;
 
   background-size: cover;
   background-repeat: no-repeat;
