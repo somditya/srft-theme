@@ -243,7 +243,7 @@
 </script>
 
 <?php wp_footer(); ?>
-<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
 
 </body>

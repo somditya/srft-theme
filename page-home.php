@@ -98,11 +98,11 @@ Template Name: Home
     <div class="abtimg-box">
     </div>
     <div class="text-box">
-      <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3; " data-scroll data-scroll-call="text-appear">
+      <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3; " >
       <?php echo __('The Institute', 'srft-theme' ); ?>
       </h2>
       <p style="padding-top: 20px; color:white; font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.8rem; line-height: 1.5;" data-scroll data-scroll-call="text-appear"><?php echo $excerpt ; ?>
+    font-size: 1.8rem; line-height: 1.5;" ><?php echo $excerpt ; ?>
 
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -189,12 +189,12 @@ Template Name: Home
 <section id="courses">
   <div class="container grid grid--2-cols">
     <div class="course-head">
-      <h2 data-scroll data-scroll-call="text-appear" class="section-intro-header-text" style= "color:white; font-size: 5.2rem; margin-top: 5%;"  >
+      <h2  class="section-intro-header-text" style= "color:white; font-size: 5.2rem; margin-top: 5%;"  >
       <?php echo __('Study options', 'srft-theme' ); ?>  
       </h2>
     </div>
     <div class="course-text">
-       <div class="course-highlight" data-scroll data-scroll-call="text-appear">
+       <div class="course-highlight">
         <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>">
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
@@ -202,7 +202,7 @@ Template Name: Home
       </a>
         </div>
 
-        <div class="course-highlight" data-scroll data-scroll-call="text-appear">
+        <div class="course-highlight" >
           <a class="button-link-course" href="<?php echo esc_url(site_url('//post-graduate-programme-in-edm//')); ?>">
             <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
@@ -210,7 +210,7 @@ Template Name: Home
         </a>
           </div>
 
-          <div class="course-highlight" data-scroll data-scroll-call="text-appear">
+          <div class="course-highlight">
             <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
@@ -226,7 +226,7 @@ Template Name: Home
 <section class="section-home" style="background-color: #f0e9e9;;  ">
 
   <div style="margin-top: 3.2rem">
-    <h2 data-scroll data-scroll-call="text-appear" class="section-intro-header-text" style="padding-left: 0; ">
+    <h2  class="section-intro-header-text" style="padding-left: 0; ">
     <?php echo __('Notable Alumni', 'srft-theme' ); ?>    </h2>
     <div class="alumni">
       <div class="nonstatic owl-carousel">
@@ -399,7 +399,7 @@ Template Name: Home
       <a href="<?php the_permalink(); ?>" target="_blank">
         <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="display: block;">
       <div class="news-item-title">
-        <h3 data-scroll data-scroll-call="text-appear" href="#"><?php the_title(); ?></h3>
+        <h3 href="#"><?php the_title(); ?></h3>
         <p><?php echo get_post_meta(get_the_ID(), 'Award', true); ?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
@@ -426,7 +426,7 @@ Template Name: Home
 
     <section class="section-home" style="background-color: #f0e9e9;"  >
       <div class="section-intro-header">
-        <h2 data-scroll data-scroll-call="text-appear" class="section-intro-header-text" style="padding-left: 0; ">
+        <h2 class="section-intro-header-text" style="padding-left: 0; ">
         <?php echo __('Media gallery', 'srft-theme' ); ?>  </h2>
       </div>
       <div class="container" style="display:flex; padding:24px; max-width: 1450px;">     
@@ -690,12 +690,12 @@ Template Name: Home
 <section class="section-home" style="background-color: #f5f5f5;  ;">
   <div class="updates-container">
   <div class="section-intro-header">
-    <h2 data-scroll data-scroll-call="text-appear" class="section-intro-header-text" style="padding-left: 0;">
+    <h2 class="section-intro-header-text" style="padding-left: 0;">
     <?php echo __('Updates', 'srft-theme' ); ?>    </h2>
   </div>
 <div class="box-container" style="display:flex;">  
 <div class="cell">
-<span class="update-title" data-scroll data-scroll-call="text-appear"><?php echo __('Announcements', 'srft-theme' ); ?></span>
+<span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
     $category_posts = new WP_Query(array(
         'category_name' => 'announcement-en', // Replace with your category slug
@@ -718,7 +718,7 @@ Template Name: Home
 </div>
 
 <div class="cell">
-    <span class="update-title" data-scroll data-scroll-call="text-appear"><?php echo __('Tender', 'srft-theme' ); ?></span>
+    <span class="update-title" ><?php echo __('Tender', 'srft-theme' ); ?></span>
     <?php
     if ($current_language === 'en_US') {
       $catslug='tender'; 
@@ -759,7 +759,7 @@ Template Name: Home
 
   
 <div class="cell">
-      <span class="update-title" data-scroll data-scroll-call="text-appear"><?php echo __('Vacancy', 'srft-theme' ); ?></span>
+      <span class="update-title" ><?php echo __('Vacancy', 'srft-theme' ); ?></span>
       <?php
        if ($current_language === 'en_US') {
         $catslug='vacancy'; 
