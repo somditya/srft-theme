@@ -214,9 +214,7 @@ $current_language = get_locale();
              </ul>         
          </div>
         <div class="form-item form-type-textfield form-item-search-block-form">
-          
-         <input title="Enter the terms you wish to search for." placeholder="Search..." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text form-autocomplete ui-autocomplete-processed ui-autocomplete-input" data-sa-theme="basic-green" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-        <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" data-sa-theme="basic-green" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
+        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
       </div>
 
        </div>
