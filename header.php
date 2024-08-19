@@ -97,10 +97,10 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3 data-scroll data-scroll-call="text-appear">सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-            <h1 data-scroll data-scroll-call="text-appear">Satyajit Ray Film & Television Institute </h1>
+            <h3 >सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h1 >Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
-              <h2 data-scroll data-scroll-call="text-appear"><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
+              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
             </div>
           </div>
          </div>
