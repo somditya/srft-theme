@@ -161,13 +161,15 @@ document
   });
 
 // Text Resize Functions
-// Initial scaling factor
+// Initial root font size in pixels
+let rootFontSize = 16; // Starting base font size in pixels
+
+// Scaling factor
 let scaleFactor = 1;
 
-// Apply scaling factor to the body
+// Apply scaling factor to root font size
 function applyScale() {
-  document.body.style.transform = `scale(${scaleFactor})`;
-  document.body.style.transformOrigin = "0 0"; // Ensures scaling from the top-left corner
+  document.documentElement.style.fontSize = `${rootFontSize * scaleFactor}px`;
 }
 
 // Increase text size
@@ -176,6 +178,7 @@ document.getElementById("increase-text").addEventListener("click", function () {
     // Adjust maximum scale as needed
     scaleFactor += 0.1;
     applyScale();
+    console.log("Increased scale factor to:", scaleFactor); // Debugging line
   }
 });
 
@@ -185,6 +188,7 @@ document.getElementById("decrease-text").addEventListener("click", function () {
     // Adjust minimum scale as needed
     scaleFactor -= 0.1;
     applyScale();
+    console.log("Decreased scale factor to:", scaleFactor); // Debugging line
   }
 });
 
@@ -192,6 +196,7 @@ document.getElementById("decrease-text").addEventListener("click", function () {
 document.getElementById("reset-text").addEventListener("click", function () {
   scaleFactor = 1; // Reset scale factor to 1
   applyScale();
+  console.log("Reset scale factor to:", scaleFactor); // Debugging line
 });
 
 // Color Adjustment Functions

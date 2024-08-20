@@ -416,9 +416,9 @@ if ($current_language === 'en_US') {
                 </div>
               
               </li>
-            <li><div class="search">
+            <!--<li><div class="search">
         <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-      </div> </li>
+      </div> </li>-->
              
             </ul>
           </div>
