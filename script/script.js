@@ -161,25 +161,37 @@ document
   });
 
 // Text Resize Functions
-let currentFontSize = 1;
+// Initial scaling factor
+let scaleFactor = 1;
 
+// Apply scaling factor to the body
+function applyScale() {
+  document.body.style.transform = `scale(${scaleFactor})`;
+  document.body.style.transformOrigin = "0 0"; // Ensures scaling from the top-left corner
+}
+
+// Increase text size
 document.getElementById("increase-text").addEventListener("click", function () {
-  if (currentFontSize < 1.5) {
-    currentFontSize += 0.1;
-    document.body.style.fontSize = `${currentFontSize}em`;
+  if (scaleFactor < 1.5) {
+    // Adjust maximum scale as needed
+    scaleFactor += 0.1;
+    applyScale();
   }
 });
 
+// Decrease text size
 document.getElementById("decrease-text").addEventListener("click", function () {
-  if (currentFontSize > 0.8) {
-    currentFontSize -= 0.1;
-    document.body.style.fontSize = `${currentFontSize}em`;
+  if (scaleFactor > 0.5) {
+    // Adjust minimum scale as needed
+    scaleFactor -= 0.1;
+    applyScale();
   }
 });
 
+// Reset text size
 document.getElementById("reset-text").addEventListener("click", function () {
-  currentFontSize = 1;
-  document.body.style.fontSize = "1em";
+  scaleFactor = 1; // Reset scale factor to 1
+  applyScale();
 });
 
 // Color Adjustment Functions
