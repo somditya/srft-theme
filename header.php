@@ -208,7 +208,6 @@ $current_language = get_locale();
     <!-- Accessibility Icon -->   
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
-             <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
              <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
@@ -239,6 +238,10 @@ $current_language = get_locale();
         <button id="dark-mode">
             <i class="fas fa-moon"></i>
         </button>
+    </div>
+    <div class="color-adjustment">
+        <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
+        <?php echo __('Screen Reader', 'srft-theme' ); ?>
     </div>
 </div>
 
@@ -413,7 +416,7 @@ if ($current_language === 'en_US') {
                 </div>
               
               </li>
-            <li><div class="form-item form-type-textfield form-item-search-block-form">
+            <li><div class="search">
         <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
       </div> </li>
              

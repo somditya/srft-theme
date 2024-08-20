@@ -1713,12 +1713,12 @@ background-position: -24px -53px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 200px;
-  z-index:10;
+  z-index: 1001;
 }
 
 #accessibility-menu h4 {
   margin: 10px 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 #accessibility-menu button {
