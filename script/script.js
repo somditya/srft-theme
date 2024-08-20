@@ -160,45 +160,6 @@ document
     menu.classList.toggle("hidden");
   });
 
-// Text Resize Functions
-// Initial root font size in pixels
-let rootFontSize = 16; // Starting base font size in pixels
-
-// Scaling factor
-let scaleFactor = 1;
-
-// Apply scaling factor to root font size
-function applyScale() {
-  document.documentElement.style.fontSize = `${rootFontSize * scaleFactor}px`;
-}
-
-// Increase text size
-document.getElementById("increase-text").addEventListener("click", function () {
-  if (scaleFactor < 1.5) {
-    // Adjust maximum scale as needed
-    scaleFactor += 0.1;
-    applyScale();
-    console.log("Increased scale factor to:", scaleFactor); // Debugging line
-  }
-});
-
-// Decrease text size
-document.getElementById("decrease-text").addEventListener("click", function () {
-  if (scaleFactor > 0.5) {
-    // Adjust minimum scale as needed
-    scaleFactor -= 0.1;
-    applyScale();
-    console.log("Decreased scale factor to:", scaleFactor); // Debugging line
-  }
-});
-
-// Reset text size
-document.getElementById("reset-text").addEventListener("click", function () {
-  scaleFactor = 1; // Reset scale factor to 1
-  applyScale();
-  console.log("Reset scale factor to:", scaleFactor); // Debugging line
-});
-
 // Color Adjustment Functions
 document.getElementById("high-contrast").addEventListener("click", function () {
   document.body.classList.remove("dark-mode");
@@ -208,4 +169,17 @@ document.getElementById("high-contrast").addEventListener("click", function () {
 document.getElementById("dark-mode").addEventListener("click", function () {
   document.body.classList.remove("high-contrast");
   document.body.classList.add("dark-mode");
+});
+
+$(document).ready(function () {
+  $(".increaseFont, .decreaseFont").click(function () {
+    var type = $(this).val();
+    var curFontSize = parseFloat($("html").css("font-size")); // Get root font size in pixels
+
+    if (type === "increase") {
+      $("html").css("font-size", curFontSize + 1 + "px");
+    } else if (type === "decrease") {
+      $("html").css("font-size", curFontSize - 1 + "px");
+    }
+  });
 });
