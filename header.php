@@ -181,9 +181,9 @@ $current_language = get_locale();
        </div>
          <div>
              <ul style="display:flex;">
-             <li><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+             <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
-             <li><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
+             <li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
              <li><a><i class="fa-solid fa-language" aria-hidden="true"></i><?php if (function_exists('pll_the_languages')) : ?></a></li>
     <div id="language-switcher">
         <?php
@@ -205,12 +205,42 @@ $current_language = get_locale();
         );
         ?> &nbsp;
     </div>
+    <!-- Accessibility Icon -->
+<button id="accessibility-icon">
+    <i class="fas fa-universal-access"></i>
+</button>
+
+<!-- Accessibility Menu -->
+<div id="accessibility-menu" class="hidden">
+    <div class="text-resize">
+        <h4>Text Resize</h4>
+        <button id="increase-text">
+            <i class="fas fa-search-plus"></i>
+        </button>
+        <button id="decrease-text">
+            <i class="fas fa-search-minus"></i>
+        </button>
+        <button id="reset-text">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    </div>
+    <div class="color-adjustment">
+        <h4>Color Adjustment</h4>
+        <button id="high-contrast">
+            <i class="fas fa-adjust"></i>
+        </button>
+        <button id="dark-mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</div>
+
    
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
              <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
              <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
-             <li><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
+             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
          </div>
         <div class="form-item form-type-textfield form-item-search-block-form">
