@@ -205,8 +205,15 @@ $current_language = get_locale();
         );
         ?> &nbsp;
     </div>
-    <!-- Accessibility Icon -->
-<button id="accessibility-icon">
+    <!-- Accessibility Icon -->   
+    <?php endif; ?></li>
+             <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
+             <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
+             <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
+             </ul>         
+         </div>
+      <button id="accessibility-icon">
     <i class="fas fa-universal-access"></i>
 </button>
 
@@ -235,17 +242,7 @@ $current_language = get_locale();
     </div>
 </div>
 
-   
-    <?php endif; ?></li>
-             <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
-             <li><a><?php echo __('Screen Reader', 'srft-theme' ); ?></a></li>
-             <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
-             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
-             </ul>         
-         </div>
-        <div class="form-item form-type-textfield form-item-search-block-form">
-        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-      </div>
+
 
        </div>
        <div class="menu-container">
@@ -416,13 +413,15 @@ if ($current_language === 'en_US') {
                 </div>
               
               </li>
-            
+            <li><div class="form-item form-type-textfield form-item-search-block-form">
+        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+      </div> </li>
              
             </ul>
           </div>
 
         </div>
-
+        
         <div class="hamburger-menu-container">
           <div class="hamburger-menu">
             <div></div>

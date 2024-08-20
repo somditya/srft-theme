@@ -1,14 +1,3 @@
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-});
-
-scroll.on("call", (value, way, obj) => {
-  if (value === "text-appear") {
-    obj.el.classList.add("is-inview");
-  }
-});
-
 lightbox.option({
   resizeDuration: 200,
   wrapAround: true,
@@ -161,4 +150,45 @@ $(document).ready(function () {
   $(".close").click(function () {
     $("#myModal").hide();
   });
+});
+
+// Toggle Accessibility Menu
+document
+  .getElementById("accessibility-icon")
+  .addEventListener("click", function () {
+    const menu = document.getElementById("accessibility-menu");
+    menu.classList.toggle("hidden");
+  });
+
+// Text Resize Functions
+let currentFontSize = 1;
+
+document.getElementById("increase-text").addEventListener("click", function () {
+  if (currentFontSize < 1.5) {
+    currentFontSize += 0.1;
+    document.body.style.fontSize = `${currentFontSize}em`;
+  }
+});
+
+document.getElementById("decrease-text").addEventListener("click", function () {
+  if (currentFontSize > 0.8) {
+    currentFontSize -= 0.1;
+    document.body.style.fontSize = `${currentFontSize}em`;
+  }
+});
+
+document.getElementById("reset-text").addEventListener("click", function () {
+  currentFontSize = 1;
+  document.body.style.fontSize = "1em";
+});
+
+// Color Adjustment Functions
+document.getElementById("high-contrast").addEventListener("click", function () {
+  document.body.classList.remove("dark-mode");
+  document.body.classList.add("high-contrast");
+});
+
+document.getElementById("dark-mode").addEventListener("click", function () {
+  document.body.classList.remove("high-contrast");
+  document.body.classList.add("dark-mode");
 });
