@@ -1713,7 +1713,7 @@ background-position: -24px -53px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 200px;
-  z-index: 1001;
+  z-index: 10001;
 }
 
 #accessibility-menu h4 {
