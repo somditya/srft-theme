@@ -141,6 +141,41 @@ var swiper = new Swiper(".home-slider", {
 });
 
 $(document).ready(function () {
+  console.log("Document is ready.");
+
+  // Check for stored dark mode state
+  if (localStorage.getItem("darkMode") === "enabled") {
+    $("body").addClass("dark-mode");
+    console.log("Dark mode is enabled.");
+  }
+
+  // Toggle Accessibility Menu
+  $("#accessibility-icon").click(function () {
+    $("#accessibility-menu").toggleClass("hidden");
+    console.log("Menu toggled.");
+  });
+
+  // Dark Mode Toggle
+  $("#dark-mode").click(function () {
+    $("body").removeClass("high-contrast").addClass("dark-mode");
+    localStorage.setItem("darkMode", "enabled"); // Store dark mode state
+    console.log("Dark mode activated.");
+  });
+
+  // High Contrast Mode Toggle
+  $("#high-contrast").click(function () {
+    $("body").removeClass("dark-mode").addClass("high-contrast");
+    localStorage.setItem("darkMode", "disabled"); // Disable dark mode in storage
+    console.log("High contrast mode activated.");
+  });
+
+  // Reset Font Size
+  $("#reset-text").click(function () {
+    $("html").css("font-size", "16px"); // Reset to default font size
+    console.log("Font size reset to default.");
+  });
+
+  // Modal functionality
   $(".single-image").click(function () {
     var t = $(this).attr("src");
     $(".modal-body").html("<img src='" + t + "' class='modal-img'>");
@@ -151,35 +186,24 @@ $(document).ready(function () {
     $("#myModal").hide();
   });
 });
+// Font Size Adjustment
+$(".increaseFont, .decreaseFont").click(function () {
+  var type = $(this).val();
+  var curFontSize = parseFloat($("html").css("font-size")); // Get root font size in pixels
 
-// Toggle Accessibility Menu
-document
-  .getElementById("accessibility-icon")
-  .addEventListener("click", function () {
-    const menu = document.getElementById("accessibility-menu");
-    menu.classList.toggle("hidden");
-  });
+  console.log("Current font size:", curFontSize);
 
-// Color Adjustment Functions
-document.getElementById("high-contrast").addEventListener("click", function () {
-  document.body.classList.remove("dark-mode");
-  document.body.classList.add("high-contrast");
-});
-
-document.getElementById("dark-mode").addEventListener("click", function () {
-  document.body.classList.remove("high-contrast");
-  document.body.classList.add("dark-mode");
-});
-
-$(document).ready(function () {
-  $(".increaseFont, .decreaseFont").click(function () {
-    var type = $(this).val();
-    var curFontSize = parseFloat($("html").css("font-size")); // Get root font size in pixels
-
-    if (type === "increase") {
+  if (type === "increase") {
+    if (curFontSize < 30) {
+      // Max font size limit
       $("html").css("font-size", curFontSize + 1 + "px");
-    } else if (type === "decrease") {
-      $("html").css("font-size", curFontSize - 1 + "px");
+      console.log("Font size increased to:", curFontSize + 1);
     }
-  });
+  } else if (type === "decrease") {
+    if (curFontSize > 10) {
+      // Min font size limit
+      $("html").css("font-size", curFontSize - 1 + "px");
+      console.log("Font size decreased to:", curFontSize - 1);
+    }
+  }
 });

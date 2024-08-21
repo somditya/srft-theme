@@ -137,7 +137,7 @@ body {
   /*color: rgba(48, 69, 92, 0.8);
   font-size: 17px;
   line-height: 26px;*/
-
+  background: white;
   line-height: 1;
   font-weight: 400;
   color: #555;
@@ -166,6 +166,72 @@ body {
   font-size: 16px;
 }
 
+body.dark-mode {
+  background-color: #000 !important; /* Dark background for the body */
+  color: #EEE !important; /* Light text color for better contrast */
+}
+
+/* Header section */
+body.dark-mode header,
+body.dark-mode header div,
+body.dark-mode header nav {
+  background-color: #000 !important; /* Dark background for header and its children */
+  color: #EEE !important; /* Light text color in the header */
+}
+
+/* Navigation section */
+body.dark-mode nav,
+body.dark-mode nav div {
+  background-color: #000 !important; /* Dark background for navigation and its children */
+  color: #EEE !important; /* Light text color in navigation */
+}
+
+/* Main content area */
+body.dark-mode main,
+body.dark-mode main div {
+  background-color: #000 !important; /* Dark background for main content area and its children */
+  color: #EEE !important; /* Light text color in main content area */
+}
+
+
+/* Hyperlink styles in dark mode */
+body.dark-mode a {
+  color: yellow !important; /* Yellow text color for hyperlinks */
+  background-color: transparent !important; /* Transparent background for hyperlinks */
+  text-decoration: none !important; /* Remove underline */
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+  background-color: #444 !important; /* Darker background on hover/focus */
+  color: lightyellow !important; /* Light yellow text color on hover/focus */
+  text-decoration: underline !important; /* Underline on hover/focus */
+}
+
+body.dark-mode .abtimg-box {
+  background-color: transparent !important; /* No background color in dark mode */
+  background-blend-mode: normal !important; /* Disable blending in dark mode */
+}
+
+
+/* Ensure text color changes are applied globally */
+body.high-contrast * {
+  color: #FFF !important;
+}
+
+body.dark-mode * {
+  color: #EEE !important;
+}
+
+/* Hidden class for toggling visibility */
+.hidden {
+  display: none;
+}
+
+/* Button styling */
+.increaseFont, .decreaseFont {
+  cursor: pointer;
+}
 
 html,
 body {
