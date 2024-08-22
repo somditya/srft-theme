@@ -97,7 +97,7 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3 >सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3 >सत्यजित रे ddd फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1 >Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
               <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
@@ -113,7 +113,7 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3>सत्यजित  रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1>Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
               <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
