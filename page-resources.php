@@ -8,21 +8,17 @@ $post = get_post($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
-<div data-scroll-container>
 <main>
-      <body>
+      
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php the_title(); ?></div>
+        </div> 
       </section>
 
       <section class="cine-detail">
         <div class="leftnav">
-          <!--<div>
-          <p class="office-header-text">Management</p>-->
-          <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
-        </div>-->
-
+        
         <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
         <?php 
         if ($current_language === 'en_US') {
@@ -58,25 +54,23 @@ $current_language = get_locale();
         </div>
         </div>
 
-  <div class="main-content">
-  <div><?php 
-  wp_reset_postdata();
-  if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
-  <section class="page-title">
+      <div class="main-content">
+           <?php 
+            wp_reset_postdata();
+            ?>
+  
+        <section class="page-title">
           <div>
             </p>
             <?php echo '<p class="page-header-text">' . esc_html($post->post_title) . '</p>';?>
           </div>
-  </section>
+        </section>
 
-    <section style="margin-bottom: 4rem;">
-    <div><?php  echo wp_kses_post($post->post_content); ?></div>   
-    </section>
+        <section style="margin-bottom: 4rem;">
+           <div><?php  echo wp_kses_post($post->post_content); ?></div>   
+        </section>
 </div>
-        
+      </section>        
 </main>
 
 <?php

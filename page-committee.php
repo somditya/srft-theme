@@ -16,7 +16,7 @@ $current_language = get_locale();
         </div>
     </section>
 
-    <section class="cine-detail">
+    <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
                 <ul class="childnav-lists">

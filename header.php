@@ -30,17 +30,7 @@ $current_language = get_locale();
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans&display=swap" rel="stylesheet">
-    <!--<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-	  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.cdnfonts.com/css/helmet" rel="stylesheet">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>     -->      
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans&display=swap" rel="stylesheet">    
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
@@ -78,7 +68,7 @@ $current_language = get_locale();
      <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
     
 
-    <title>Satyajit Ray Film & Television Institute</title>
+    <title><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme')?></title>
     <?php wp_head(); ?>
 </head>
 
@@ -97,7 +87,7 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3 >सत्यजित रे ddd फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1 >Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
               <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
@@ -140,7 +130,7 @@ $current_language = get_locale();
         <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/DOC03875_1 copy.jpg">
+             <img src="<?php bloginfo('template_url'); ?>/images/DOC03875_1 copy.jpg">
            </picture>
          </div>
          <div class="swipper-title">
@@ -208,7 +198,7 @@ $current_language = get_locale();
     <!-- Accessibility Icon -->   
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
-             <li><a href="#main-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li><a href="#skip-to-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
              </ul>         
          </div>
@@ -219,19 +209,19 @@ $current_language = get_locale();
 <!-- Accessibility Menu -->
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
-        <h4>Text Resize</h4>
+        <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
         <button type="button" value="increase" class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
         <button type="button" value="decrease" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
-        <button id="reset-text">
+        <!--<button id="reset-text">
             <i class="fas fa-sync-alt"></i>
-        </button>
+        </button>-->
     </div>
     <div class="color-adjustment">
-        <h4>Color Adjustment</h4>
+        <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
         <button id="high-contrast">
             <i class="fas fa-adjust"></i>
         </button>
@@ -244,8 +234,6 @@ $current_language = get_locale();
         <?php echo __('Screen Reader', 'srft-theme' ); ?>
     </div>
 </div>
-
-
 
        </div>
        <div class="menu-container">

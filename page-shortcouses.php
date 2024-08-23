@@ -17,7 +17,7 @@ $current_language = get_locale();
           <div class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></div>
       </section>
 
-      <section class="cine-detail">
+      <section id="skip-to-content" class="cine-detail">
       <div class="leftnav">
       <div class="childnavs">
     <ul class="childnav-lists">

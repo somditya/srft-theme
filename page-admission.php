@@ -9,14 +9,13 @@ $catslug = get_the_category($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
-<div data-scroll-container>
     <main>
-      <body>
-      <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+      <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Admission to post graduate courses', 'srft-theme'); ?></div>
+          <div class="page-banner-title"><?php echo __('Admission to post graduate courses', 'srft-theme'); ?></div>  
+        </div>
       </section>
-      <section class="cine-detail">
+      <section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
         <div class="childnavs">
     <ul class="childnav-lists">
@@ -94,9 +93,9 @@ $current_language = get_locale();
         </div>
         </div>
 
-        <div class="main-content">
+        <div class="main-content" >
         
-        <section class="page-title"><div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div></section>
+        <section  class="page-title"><div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div></section>
         <section class="sub-intro">
           <div class="sub-intro-images">
           <div>

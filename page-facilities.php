@@ -15,7 +15,7 @@ $current_language = get_locale();
           <div class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></div>
       </section>
 
-      <section class="cine-detail">
+      <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
           <!--<div>
           <p class="office-header-text">Management</p>-->

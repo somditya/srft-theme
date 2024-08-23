@@ -15,7 +15,7 @@ $page_content = apply_filters('the_content', $post->post_content);
           <div class="page-banner-title">About SRFTI</div>
       </section>
 
-      <section class="cine-detail" >
+      <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
         <div class="childnavs">
     <ul class="childnav-lists">

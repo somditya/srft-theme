@@ -8,7 +8,7 @@ $current_language = get_locale();
 $catslug=get_post_meta(get_the_ID(), 'Category', true);
 $title=get_the_ID
 ?>
-<div data-scroll-container>
+
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
@@ -16,7 +16,7 @@ $title=get_the_ID
           <div class="page-banner-title"><?php echo __('Post Graduate Courses in EDM', 'srft-theme'); ?></div>
       </section>
 
-      <section class="cine-detail">
+      <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
         <div class="childnavs">
           <ul class="childnav-lists">

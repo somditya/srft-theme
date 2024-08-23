@@ -16,14 +16,14 @@ if ($current_language === 'en_US') {
 }
 
 ?>
-<div data-scroll-container>
+
 <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php the_title(); ?></div>
       </section>
-      <section class="cine-detail">
+      <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
         <!--<div>
           <p class="office-header-text">Management</p>-->
