@@ -168,17 +168,17 @@ $current_language = get_locale();
            <ul style="display:flex;">
            <li></li>
            </ul>         
-       </div>
+          </div>
          <div>
              <ul style="display:flex;">
              <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
              <li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
              <li><a><i class="fa-solid fa-language" aria-hidden="true"></i><?php if (function_exists('pll_the_languages')) : ?></a></li>
-    <div id="language-switcher">
-        <?php
-        pll_the_languages(
-            array(
+              <div id="language-switcher">
+             <?php
+              pll_the_languages(
+               array(
                 'show_flags' => 1,
                 'show_names' => 1,
                 'display_names_as' => 'name',
@@ -199,12 +199,15 @@ $current_language = get_locale();
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
              <li><a href="#skip-to-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
-             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>
-             </ul>         
-         </div>
-      <button id="accessibility-icon">
+             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>         
+             <li><button id="accessibility-icon">
     <i class="fas fa-universal-access"></i>
-</button>
+</button></li>&nbsp; &nbsp;
+<div class="search-container"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
+<li></li>
+            </div>
+      
+      </ul>
 
 <!-- Accessibility Menu -->
 <div id="accessibility-menu" class="hidden">
@@ -403,11 +406,7 @@ if ($current_language === 'en_US') {
                   </ul>
                 </div>
               
-              </li>
-            <li><div class="search">
-        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-      </div> </li>
-             
+              </li>         
             </ul>
           </div>
 

@@ -341,7 +341,13 @@ animation-duration: 4s;
   padding-right: 10px;
 }
 
-
+#accessibility-icon{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: white!important;
+}
 
 .section-intro-header {
   display: flex;
@@ -3431,20 +3437,20 @@ font-size: 16px;
 
 }
 
-
 /**************************/
 /* BELOW 704px (Smaller tablets) */
 /**************************/
 @media (max-width: 768px) {
 
- 
+  .top_header li {
+    font-size: 8px; /* Smaller font size for mobile */
+}
+
   .box-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-
-
   
   .cell {
     width: 100%;
