@@ -198,7 +198,7 @@ $current_language = get_locale();
     <!-- Accessibility Icon -->   
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
-             <li><a href="#skip-to-content" class="skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li class="hide-on-mobile"><a href="#skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>         
              <li><button id="accessibility-icon">
     <i class="fas fa-universal-access"></i>
