@@ -181,10 +181,6 @@ body {
   flex-direction: column;
 }
 
-.link-text-big:hover {
-  
-  
-}
 
 @keyframes slideright {
     from {
@@ -287,6 +283,7 @@ animation-duration: 4s;
   display: flex;
   justify-content: space-between;
   grid-gap: 0px;
+  flex-direction: column;
 }
 
 .one-flex {
@@ -3441,9 +3438,9 @@ font-size: 16px;
 /**************************/
 /* BELOW 704px (Smaller tablets) */
 /**************************/
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
-  .top_header  {
+  .top_header li {
     font-size: 1rem; /* Smaller font size for mobile */
 }
 
@@ -3513,6 +3510,7 @@ font-size: 16px;
 .abtimg-box {
   flex: 0 0 100%;
   max-width: 100%;
+  font-size: 10px;;
 }
 
 .text-box{
@@ -3626,8 +3624,24 @@ font-size: 16px;
     margin-top: 20px;
   }
   
-  
+  .two-flex {
+    flex-direction: column;
+  }
+
+.col-left, .col-right {
+    margin: 0 auto;
+    width: 100%;
 }
+
+.profile-container {
+    text-align: left;
+}
+
+.profile-text {
+    margin-top: 0.5rem;
+}
+} 
+
 
 @media (min-width: 1024px) {
   .nav{

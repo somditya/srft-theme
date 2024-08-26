@@ -4294,6 +4294,24 @@ font-size: 16px;
     font-size: 14px;
   }
   
+  .two-flex {
+    flex-direction: column;
+}
+
+.col-left, .col-right {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.profile-container {
+    text-align: left;
+}
+
+.profile-text {
+    margin-top: 0.5rem;
+}
+
+
   .swipper-title {
     width: 90%;
     min-width: auto;

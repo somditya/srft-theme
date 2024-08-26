@@ -9,7 +9,6 @@ $current_language = get_locale();
 ?>
  <!--<div data-scroll-container>-->
 <main>
-      <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php echo __('About SRFTI', 'srft-theme'); ?></div>
@@ -84,7 +83,7 @@ $current_language = get_locale();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="imgg-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'ChairmanPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'ChairmanPhoto', true)); ?>">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></div>
                 <div class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></div>
