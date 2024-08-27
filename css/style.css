@@ -7413,6 +7413,12 @@ font-size: 16px;
 /**************************/
 @media (max-width: 768px) {
 
+  .Rtable--collapse  {
+    display: block;
+    > .Rtable-cell { width: 100% !important; }
+    > .Rtable-cell--foot { margin-bottom: 1em; }
+  }
+
   .hide-on-mobile {
     display: none;
   }

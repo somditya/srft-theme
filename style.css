@@ -8224,6 +8224,11 @@ font-size: 16px;
 /**************************/
 @media only screen and (max-width: 768px) {
 
+  .Rtable--collapse  {
+    display: block;
+    > .Rtable-cell { width: 100% !important; }
+  }
+
   .hide-on-mobile {
     display: none;
   }
