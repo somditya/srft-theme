@@ -75,7 +75,6 @@ $current_language = get_locale();
 <body <?php body_class(); ?>>
 
 <?php if (is_front_page()) : ?>
-<div data-scroll-container>
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
         

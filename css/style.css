@@ -3924,9 +3924,10 @@ margin-bottom: 4rem;
   .profile-desc {
     width: 100%; /* Make profile-desc occupy the entire width */
     box-sizing: border-box; /* Ensure padding and border don't add to the width */
-  }media
+  }
+  /*media
   padding: 1em;
-  text-align: left;
+  text-align: left;*/
 }
 
 .is-striped {
