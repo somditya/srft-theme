@@ -432,6 +432,10 @@ body {
   padding-right: 10px;
 }
 
+.show-on-mobile {
+  display: none;
+}
+
 .myTable {
   background-color: #fff;
   border-collapse: collapse;
@@ -1723,7 +1727,7 @@ div .spacer {
 
 .top_header a {
   padding: 0 0.75em;
-  border-left: 1px solid #fff;
+  /*border-left: 1px solid #fff;*/
 }
 
 .top_header ul {
@@ -5619,7 +5623,7 @@ div .spacer {
 
 .top_header a {
   padding: 0 0.75em;
-  border-left: 1px solid #fff;
+  /*border-left: 1px solid #fff;*/
 }
 
 .top_header ul {
@@ -7799,7 +7803,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 1250px (Landscape Tablets) */
 /**************************/
 
-@media all and (max-width: 1250px) {
+@media all and (max-width: 1024px) {
   .Rtable--collapse {
     display: block;
     width: 100%;
@@ -7820,6 +7824,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100% !important;
     display: flex;
     align-items: center;
+    border: 1px solid #dad9da;;
   }
 
   .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--heading {
@@ -8112,6 +8117,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: none;
   }
 
+  .show-on-mobile {
+    display: block;
+  }
   .top_header li {
     font-size: 1rem; /* Smaller font size for mobile */
   }
