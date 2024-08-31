@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <!--<div class="brand-spacer" style=" justify-content: center; ">
+  <div class="brand-spacer" style=" justify-content: center; ">
     <div class="logo-wrapper">
       <a><img class="logo-gov" src="images/g20-logo.png"/></a>
     </div>
@@ -72,7 +72,7 @@
     <div class="logo-wrapper">
       <a><img class="logo-gov" src="images/india-gov-logo.png"/></a>
     </div>
-  </div>-->
+  </div>
 </div>
 <div class="footer_copyright_container">
     <p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>

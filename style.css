@@ -160,8 +160,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   */                                               
-  font-family: 'Inter', sans-serif;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
@@ -296,9 +295,6 @@ body {
 .link-text-big {
   display:flex;
   align-items: center;
-  font-family: GthC;
-  /*font-family: "Plain Medium Regular";*/
-  font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -416,8 +412,6 @@ animation-duration: 4s;
 }
 
 .profile-name {
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: #8b5b2b;
@@ -549,8 +543,6 @@ margin-bottom: 4rem;
   /*font-family: "cofo-sans-variable",sans-serif;
   font-variation-settings: 'wght' 408, 'slnt' 0;*/
 
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
   /*letter-spacing: -.0775rem;line-height: 1.1;*/
   font-size: 36px;
@@ -929,8 +921,6 @@ z-index: 1;
 
 .swipper-title h1{
   /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 5.6rem;
@@ -942,9 +932,6 @@ z-index: 1;
 }
 
 .swipper-title h3{
-  /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 4.2rem;
@@ -960,9 +947,6 @@ z-index: 1;
   width: 100%;
   min-width: 375px;
   /*font-family: GthD; */
-  font-family: "Plain Medium Regular";
-  font-family: 'Noto Sans', sans-serif;
-  font-family: GthC;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -1830,13 +1814,12 @@ header{
   align-items: center;
 }
 
-.logo {
+/*.logo {
   display: flex;
-  align-items: center;
-  /*padding: 1.4rem;*/ 
+  align-items: center; 
   padding-right: 2rem;
-  height: 4rem;
-}
+  height: 6rem;
+}*/
 
 .menu-btn{
   flex: 3;
@@ -1908,8 +1891,6 @@ header{
   text-decoration: none;
   padding: 0 .8rem;
   letter-spacing: 1px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 600; 
   font-size: 1.3rem;
   display: flex;
@@ -2210,9 +2191,6 @@ font-size: 17px;
   position: absolute;
   text-align: center;
   left: 25%;
-  /*font-family: GthC;*/
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 6.2rem;
   line-height: 8.8rem;
@@ -2417,9 +2395,6 @@ font-size: 17px;
 
 .button-link-course {
   display: flex;
-  font-family: "Plain Medium Regular";
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 2.8rem;
   font-weight: 300;
   line-height: 2rem;
@@ -2564,8 +2539,6 @@ margin:0
   margin-bottom: 16px;
   padding-bottom: 16px;
   font-weight: 500;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   color: #161a1d;
 }
 
@@ -2685,8 +2658,6 @@ transform: rotate(90deg);
 
 .item {
   padding: 10px;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 28px;
@@ -3135,8 +3106,6 @@ h4 {
   color: #8b5b2b;
   color: #6C4713;
   font-size: 30px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0.5rem;
@@ -3643,8 +3612,6 @@ background-color: red;
   padding-right: 4rem;
   padding-left: 4rem;
   padding-bottom: 1rem;
-  font-family: GthD;
-  font-family: Noto Sans;
   font-weight: 400;
   font-size: 3rem;
 }
@@ -3812,8 +3779,6 @@ background-color: red;
 }
 
 .faculty-bio h1 {
-    font-family: GthD;
-    font-family: Noto Sans;
     font-size: 4.375rem;
     font-weight: 400;
     margin: 0 0 2rem;
@@ -3823,8 +3788,7 @@ background-color: red;
     /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
     padding-top: 2.75rem; /* Adjusted padding-bottom */
     /*border-bottom: 1px solid #d6d6ce;*/
-    width: 100%;
-    
+    width: 100%;   
 }
 
 .faculty-bio-left {
@@ -4078,47 +4042,13 @@ text-decoration: none;
 }
 
 body {
-  /*font-family: "futura-pt", Arial, sans-serif;*/
-  /*font-family: "Gotham", "Gotham B";*/
-  /*font-family: "Gotham", sans-serif;
-  font-family: "Gotham Black", sans-serif;
-  font-family: "Gotham Light", sans-serif;
-  font-family: "Gotham Thin", sans-serif;
-  font-family: "Gotham XLight", sans-serif;
-  font-family: "Gotham Book", sans-serif;
-  font-family: "Gotham Ultra", sans-serif;*/
-  /*font-family: GthA, sans-serif;
-  font-size: 16px;
-  font-weight: 400;*/
-
-  /*color: rgba(48, 69, 92, 0.8);
-  font-size: 17px;
-  line-height: 26px;*/
-  background: white;
+ 
+  /*background: white;
   line-height: 1;
   font-weight: 400;
   color: #555;
-  letter-spacing: 1px;
-
-
-  /*font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1.6rem;
-
-  font-family: "cofo-sans-variable",sans-serif;
-  font-variation-settings: 'wght' 400, 'slnt' 0;
-  
-
-  font-family: 'Helmet', sans-serif;
-  font-family: GthA, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-
-  /*font-family: 'Helmet', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  */                                               
-  font-family: 'Inter', sans-serif;
-  font-family: 'Noto Sans', sans-serif;
+  letter-spacing: 1px;*/
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
@@ -4253,9 +4183,6 @@ body {
 .link-text-big {
   display:flex;
   align-items: center;
-  font-family: GthC;
-  /*font-family: "Plain Medium Regular";*/
-  font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -4373,8 +4300,6 @@ animation-duration: 4s;
 }
 
 .profile-name {
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: #8b5b2b;
@@ -4502,13 +4427,7 @@ margin-bottom: 4rem;
   display: flex;
   text-align: center;
   flex-direction: column;
-  /*font-family: Lato, sans-serif;*/
-  /*font-family: "cofo-sans-variable",sans-serif;
-  font-variation-settings: 'wght' 408, 'slnt' 0;*/
-
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 600;
+   font-weight: 600;
   /*letter-spacing: -.0775rem;line-height: 1.1;*/
   font-size: 36px;
   line-height: 36px;
@@ -4516,14 +4435,6 @@ margin-bottom: 4rem;
   color: #161a1d;
   margin-bottom: 2.2rem;
   position: relative;
-  /*text-transform: uppercase;*/
-
-  
-  /*font-family: GthD;
-  font-size: 4.375rem;
-  letter-spacing: -.0875rem;line-height: 1.1;
-  margin: 0;
-  font-weight: 600;
   position: relative;*/
 }
 
@@ -4662,7 +4573,6 @@ margin-bottom: 4rem;
   /* Only necessary for .btn */
   border: none;
   cursor: pointer;
-  font-family: inherit;
 
   /* Put transition on original "state" */
   /* transition: background-color 0.3s; */
@@ -4890,8 +4800,6 @@ z-index: 1;
 
 .swipper-title h1{
   /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 5.6rem;
@@ -4904,8 +4812,6 @@ z-index: 1;
 
 .swipper-title h3{
   /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 4.2rem;
@@ -4921,9 +4827,6 @@ z-index: 1;
   width: 100%;
   min-width: 410px;
   /*font-family: GthD; */
-  font-family: "Plain Medium Regular";
-  font-family: 'Noto Sans', sans-serif;
-  font-family: GthC;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -5086,8 +4989,6 @@ z-index: 1;
 
 .footer_copyright_container {
   /*display: flex;*/
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
@@ -5117,8 +5018,6 @@ z-index: 1;
 
 
 .footer_sub {
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
   padding: 1.8rem;
@@ -5223,64 +5122,6 @@ opacity: 0.2;
 .owl-carousel .next-slide:hover{
 background-position: -24px -53px;
 }   
-
-
-
-/*
- .carousel-wrapper {
-      width: 1200px;
-      margin: auto;
-      position: relative;
-      text-align: center;
-      font-family: sans-serif;
-    }
-
-.owl-carousel .owl-nav {
-  overflow: hidden;
-  height: 0px;
-}
-.owl-theme .owl-dots .owl-dot.active span,
-.owl-theme .owl-dots .owl-dot:hover span {
-  background: #5110e9;
-}
-
-.owl-carousel .item {
-  text-align: center;
-}
-.owl-carousel .nav-button {
-  height: 50px;
-  width: 25px;
-  cursor: pointer;
-  position: absolute;
-  top: 110px !important;
-}
-.owl-carousel .owl-prev.disabled,
-.owl-carousel .owl-next.disabled {
-  pointer-events: none;
-  opacity: 0.25;
-}
-.owl-carousel .owl-prev {
-  left: -35px;
-}
-.owl-carousel .owl-next {
-  right: -35px;
-}
-.owl-theme .owl-nav [class*=owl-] {
-  color: #ffffff;
-  font-size: 39px;
-  background: #000000;
-  border-radius: 3px;
-}
-.owl-carousel .prev-carousel:hover {
-  background-position: 0px -53px;
-}
-.owl-carousel .next-carousel:hover {
-  background-position: -24px -53px;
-}
-
-
-
-
 
 
 /* resposnive table */
@@ -5398,273 +5239,6 @@ background-position: -24px -53px;
     display: inline;
 }
 
-
-/* NAVIGATION 
-
-#nav-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  top: 0;
-  height: 60%;
-}
-
-.top_header {
-  display: flex;
-  background-color: #8b5b2b;
-  min-height: 2.2px;
-  width: 100%;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.top_header a {
-  padding: 0 0.75em; border-left: 1px solid #fff 
-}
-
-.top_header ul {
-  list-style: none;
-}
-
-.top_header li {
-
-  font-size: 1.8rem;
-}
-
-.top_header a {
-  text-decoration: none;
-  font-size: 1.3rem;
-  color: white;
-}
-
-.left_brands {
-  display: flex;
-}
-
-.logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.brand-heading {
-  align-items: center;
-  justify-content: center;
-  margin-left: 1.2rem;
-  margin-top: 1.2rem;
-  font-family: GthB;
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-.brand-subheading {
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.2rem;
-  font-family: GthA;
-  font-size: 1.5rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  padding: 1.4rem;
-  
-  height: 8rem;
-}
-
-
-
-#intro h2 {
-  margin: 60px 0 30px 0;
-  background-color: #666;
-  text-align: right;
-  font-size: 3rem;
-  color: white;
-  width: 100%;
-  max-width: 60%;
-  padding: 20px;
-  font-weight: 100;
-  margin: 30px 0;
-}
-
-.container {
-
-
-}
-
-
-}
-
-.brand-spacer {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.brand-spacer .logo-gov {
-  display: flex;
-  align-items: center;
-  padding: 1.2rem;
-
-  height: 8rem;
-}
-
-.brand-spacer ul {
-  display: flex;
-  list-style: none;
-}
-
-.brand-wrapper {
-  margin-right: 2rem;
-}
-
-.brand-spacer a {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 5px;
-  text-decoration: none;
-  color: #8b5b2b;
-}
-.utilty-nav {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.sticky {
-  position: fixed;
-  top:0;
-  width:100%;
-  z-index: 25;
-}
-
-.main-nav {
-  width: 100%;
-  border-top: 8px solid #8b5b2b;
-  border-bottom: none;
-  height: 6rem;
-  display: flex;
- 
-  background-color: #161a1d;
-  background-color: rgba(255, 255, 255, 0.9);
-  
-  background-color: white;
- 
- 
-  
-}
-.main-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  list-style: none;
-  max-height: none;
-}
-
-.dropdown-parent {
-  display: flex;
- 
-  position: relative;
-  font-family: GthC;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.0.5ch;
- 
-  color: #161a1d;
-  
-  align-items: flex-start;
-  padding-top: 0px;
-}
-
-.caret-down {
-  width: 20px;
-  height: 20px;
-  padding-left: 10px;
-}
-
-.dropdown-wrapper {
-  display: flex;
-  align-items: center;
-  padding: 10px 10px 10px 10px;
-  
-}
-
-.dropdown-link {
-  display: flex;
-}
-
-.dropdown-link:hover {
-  padding:0px;
-  border-bottom: solid 2px #8b5b2b;
-}
-.dropdown-child {
-  display: none;
-  position: absolute;
-  margin-top: -5px;
-  min-width: 350px;
-  left: 0;
-  top: 100%;
-  width: 100%;
-  background-color: white;
-  z-index: 100;
-
-}
-
-.main-menu .dropdown-parent:hover .dropdown-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.4rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  cursor: pointer;
-  list-style: none;
-  
-}
-
-.main-menu .dropdown-parent:hover .dropdown-wrapper {
-  background-color:  #8b5b2b;
- 
-  color: white;
-}
-
-.dropdown-child li {
-  display: flex;
-  padding-left: 4rem;
-  padding-top: 1rem;
-
-}
-
-.dropdown-child li a {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: start;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  color: white;
-  color: #161a1d;
-  
-}
-
-
-
-.dropdown-child li a:hover {
-  border-bottom: dotted 2px #8b5b2b;
-}
-
-
-.menu-item-brand {
-  border-right: 1px solid #888888;
-  line-height: 1rem;
-}
-
-*/
 /* Mobile Menu*/
 
 #nav-wrapper {
@@ -5796,7 +5370,7 @@ header{
   align-items: center;
   /*padding: 1.4rem;*/ 
   padding-right: 2rem;
-  height: 4rem;
+  height: 5rem;
 }
 
 .menu-btn{
@@ -5869,8 +5443,6 @@ header{
   text-decoration: none;
   padding: 0 .8rem;
   letter-spacing: 1px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 600; 
   font-size: 1.3rem;
   display: flex;
@@ -6172,8 +5744,6 @@ font-size: 17px;
   text-align: center;
   left: 25%;
   /*font-family: GthC;*/
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 6.2rem;
   line-height: 8.8rem;
@@ -6378,9 +5948,6 @@ font-size: 17px;
 
 .button-link-course {
   display: flex;
-  font-family: "Plain Medium Regular";
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 2.8rem;
   font-weight: 300;
   line-height: 2rem;
@@ -6525,8 +6092,6 @@ margin:0
   margin-bottom: 16px;
   padding-bottom: 16px;
   font-weight: 500;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   color: #161a1d;
 }
 
@@ -6646,8 +6211,6 @@ transform: rotate(90deg);
 
 .item {
   padding: 10px;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 28px;
@@ -7096,8 +6659,6 @@ h4 {
   color: #8b5b2b;
   color: #6C4713;
   font-size: 30px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0.5rem;
@@ -7214,7 +6775,6 @@ position: relative;
 }
 
 .accordian h2 {
-  font-family: GthC;
   color: #8b5b2b;
   font-size: 1.8rem;
   line-height: 34px;
@@ -7604,8 +7164,6 @@ background-color: red;
   padding-right: 4rem;
   padding-left: 4rem;
   padding-bottom: 1rem;
-  font-family: GthD;
-  font-family: Noto Sans;
   font-weight: 400;
   font-size: 3rem;
 }
@@ -7773,8 +7331,6 @@ background-color: red;
 }
 
 .faculty-bio h1 {
-    font-family: GthD;
-    font-family: Noto Sans;
     font-size: 4.375rem;
     font-weight: 400;
     margin: 0 0 2rem;
@@ -7969,7 +7525,6 @@ font-size: 16px;
     top: 4rem;
     left: 0;
     width: 100%;
-    background-color: #69bde7;
     background-color: white;
     flex-direction: column;
     align-items: center;
@@ -7978,6 +7533,7 @@ font-size: 16px;
     overflow-y: auto;
     transform: translateX(100%);
     transition: 0.65s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
 
@@ -8211,9 +7767,6 @@ font-size: 16px;
   .caption {
     font-size: 16px;
   }
-
-
- 
 
 
 }

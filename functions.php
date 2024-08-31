@@ -542,7 +542,7 @@ function add_custom_fields_to_json($data, $post, $request) {
 
 function acf_rest_api_init() {
 	// Replace 'your_post_type' with your custom post type slug
-	$post_types = array( 'tender', 'vacancy', 'admission' ,'faculty', 'announnement', 'news' );
+	$post_types = array( 'tender', 'vacancy', 'admission' ,'faculty', 'announnement', 'news', 'award' );
 
 	foreach ( $post_types as $post_type ) {
 			register_rest_field( $post_type, 'acf', array(

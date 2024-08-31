@@ -31,6 +31,13 @@ $current_language = get_locale();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans&display=swap" rel="stylesheet">    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    
+    
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
@@ -81,8 +88,7 @@ $current_language = get_locale();
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             
-             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" >
+             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
            </picture>
          </div>
            <div class="swipper-title">
@@ -98,7 +104,7 @@ $current_language = get_locale();
           <div class="slider-bg">
              <picture>
              
-             <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" >
+             <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="picture of student's production in set" >
            </picture>
          </div>
            <div class="swipper-title">
@@ -113,8 +119,7 @@ $current_language = get_locale();
         <div class="swiper-slide" >
           <div class="slider-bg">
             <picture>
-            
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  style="object-fit: cover; ">
+            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  style="object-fit: cover; " alt="picture of animation masterclass">
           </picture>
         </div>
           <div class="swipper-title">
@@ -129,7 +134,7 @@ $current_language = get_locale();
         <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             <img src="<?php bloginfo('template_url'); ?>/images/DOC03875_1 copy.jpg">
+             <img src="<?php bloginfo('template_url'); ?>/images/DOC03875_1 copy.jpg" alt="picture of student's live music exercise">
            </picture>
          </div>
          <div class="swipper-title">
@@ -143,7 +148,7 @@ $current_language = get_locale();
           <div class="slider-bg">
              <picture>
             
-             <img  src="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png">
+             <img  src="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" alt="pictures of students with camera">
            </picture>
          </div>
          <div class="swipper-title">
@@ -198,8 +203,8 @@ $current_language = get_locale();
     <?php endif; ?></li>
              <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
              <li class="hide-on-mobile"><a href="#skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
-             <li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>         
-             <li><button id="accessibility-icon">
+             <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
+             <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty options', 'srft-theme' ); ?>>
     <i class="fas fa-universal-access"></i>
 </button></li>&nbsp; &nbsp;
 <div class="search-container"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
@@ -212,10 +217,10 @@ $current_language = get_locale();
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
         <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-        <button type="button" value="increase" class="increaseFont">
+        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
-        <button type="button" value="decrease" class="decreaseFont">
+        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
         <!--<button id="reset-text">
@@ -239,11 +244,10 @@ $current_language = get_locale();
 
        </div>
        <div class="menu-container">
-        <input type="checkbox" name="" id="check" />
-
+        
         <div class="logo-container">
-          <!--<div> <a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>-->
-					<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>
+          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>
+					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
 				
           <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->
         </div>

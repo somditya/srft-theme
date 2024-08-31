@@ -60,8 +60,8 @@ Template Name: Home
     ?>
     
       <div class="news-item">
-      <a href="<?php the_permalink(); ?>" target="_blank">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image');?> ?>" style="display: block;">
+      <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image');?> ?>" alt="<?php echo get_field('News-Image-Alternativetext'); ?>"  style="display: block;">
       <div class="news-item-title">
         <h3 href="#"><?php the_title(); ?></h3>
         <p><?php echo $post_content; ?></p>
@@ -81,7 +81,7 @@ Template Name: Home
  </div>
  <div class="link-div" style="align-items: center;"">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
    <div class="link-div" style="align-items: center; margin-top: 0;">
-     <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+     <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>" role="link"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
      </span>
    </a>
@@ -107,7 +107,7 @@ Template Name: Home
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
-          <a class="link-text-big" href="<?php echo esc_url(site_url('/about-the-institute/')); ?>"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+          <a class="link-text-big" href="<?php echo esc_url(site_url('/about-the-institute/')); ?>" role="link"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
@@ -125,8 +125,8 @@ Template Name: Home
       <h3 style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
       <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></h3>
       <div class="">
-          <a href="http://www.cilect.org/" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/cilect.png" target="_blanK" alt="CILECT">
+          <a href="http://www.cilect.org/" target="_blank" role="link">
+            <img src="<?php bloginfo('template_url'); ?>/images/cilect.png" target="_blanK" alt="CILECT" >
           </a>
       </div>
     </div>
@@ -195,7 +195,7 @@ Template Name: Home
     </div>
     <div class="course-text">
        <div class="course-highlight">
-        <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>">
+        <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>" role="link">
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
         </div><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?> &nbsp;
@@ -203,7 +203,7 @@ Template Name: Home
         </div>
 
         <div class="course-highlight" >
-          <a class="button-link-course" href="<?php echo esc_url(site_url('//post-graduate-programme-in-edm//')); ?>">
+          <a class="button-link-course" href="<?php echo esc_url(site_url('//post-graduate-programme-in-edm//')); ?>" role="link">
             <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
           </div><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?> &nbsp;
@@ -211,7 +211,7 @@ Template Name: Home
           </div>
 
           <div class="course-highlight">
-            <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>">
+            <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>" role="link">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
             </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
@@ -220,7 +220,6 @@ Template Name: Home
           
   </div>
 </section>
-
 
 
 <section class="section-home" style="background-color: #f0e9e9;;  ">
@@ -236,7 +235,7 @@ Template Name: Home
               target="_blank"
               ><img 
                 src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"
-                alt=""
+                alt="Picture of Amal Neerad"
               /></a>
               <h5>Amal Neerad</h5>
            </div>
@@ -247,7 +246,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg"
-                alt=""
+                alt="Picture of Kanu Behl"
               /></a>
               <h5>Kanu Behl</h5>
               </div>
@@ -257,7 +256,7 @@ Template Name: Home
               href="#"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/Vipin-Vijay-small.jpg"
-                alt=""
+                alt="Picture of Vipin Vijay"
               /></a>
               <h5>Vipin Vijay</h5>
               </div>
@@ -267,7 +266,7 @@ Template Name: Home
                   href="#"
                   ><img
                     src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp"
-                    alt=""
+                    alt="Picture of Namrata Rao"
                   /></a>
                   <h5>Namrata Rao</h5>
                   </div>
@@ -277,7 +276,7 @@ Template Name: Home
                       href="#"
                       ><img
                         src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp"
-                        alt=""
+                        alt="Picture of Hawam Paban Kumar"
                       /></a>
                       <h5>Hawam Pabam Kumar</h5>       
                       </div>
@@ -289,7 +288,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"
-                alt=""
+                alt="Picture of Pritha Chakraborty"
               /></a>
               <h5>Pritha Chakraborty</h5>
               </div>
@@ -300,7 +299,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png"
-                alt=""
+                alt="Picture of Madhura Palit"
               /></a>
               <h5>Madhura Palit</h5>
               
@@ -312,7 +311,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png"
-                alt=""
+                alt="Picture of Avijit Sen"
               /></a>
               <h5>Abhijit Sen</h5>
               </div>
@@ -323,7 +322,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png"
-                alt=""
+                alt="Picture of Sagar Ballary"
               /></a>
               <h5>Sagar Ballary</h5>
               </div>
@@ -333,7 +332,7 @@ Template Name: Home
               target="_blank"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/Pritam Das.png"
-                alt=""
+                alt="Picture of Pritam Das"
               /></a>
               <h5>Pritam Das</h5>
               </div>
@@ -343,7 +342,7 @@ Template Name: Home
                   target="_blank"
                   ><img
                     src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png"
-                    alt=""
+                    alt="Picture of Sourav Rai"
                   /></a>
                   <h5>Sourav Rai</h5>
                   </div>
@@ -353,7 +352,7 @@ Template Name: Home
                       target="_blank"
                       ><img
                         src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png"
-                        alt=""
+                        alt="Picture of Domin Sangma"
                       /></a>
                       <h5>Dominic Sangma</h5>
                       </div>
@@ -379,28 +378,39 @@ Template Name: Home
     <div class="frame">
     <div class="static owl-carousel">
     <?php
+    $post_id = get_the_ID();
+    $post_content = apply_filters('the_content', $post->post_content);
+    
     if ($current_language === 'en_US') {
-    $catslug='film-en'; 
-   }
-    else
-    {
-      $catslug='film-hi';
-    }
-    $category_posts = new WP_Query(array(
-        'category_name' => $catslug, // Replace with your category slug
+      $catslug='award-en'; 
+     }
+      else
+      {
+        $catslug='award-hi';
+      }
+      $category_posts = new WP_Query(array(
+        'post_type' => 'award',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'slug',
+                'terms'    => $catslug,
+            ),
+        ),
         'posts_per_page' => -1,
     ));
+  
 
     if ($category_posts->have_posts()) :
         while ($category_posts->have_posts()) : $category_posts->the_post();
     ?>
     
       <div class="news-item">
-      <a href="<?php the_permalink(); ?>" target="_blank">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="display: block;">
+      <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt="<?php echo get_field('film_still_alt_text'); ?>"  style="display: block;">
       <div class="news-item-title">
-        <h3 href="#"><?php the_title(); ?></h3>
-        <p><?php echo get_post_meta(get_the_ID(), 'Award', true); ?></p>
+        <h3 href="#"><?php echo get_field('Film-Name');?></h3>
+        <p><?php echo get_field('award_received');?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
@@ -413,9 +423,8 @@ Template Name: Home
     else :
         echo '<p>No posts found in this category.</p>';
     endif;
-    ?>
-     
-  
+    ?>  
+      
   </div>
   <!--<div class="link-div" style="align-items: center; margin-top:0;">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     <a class="link-text-big" href="#" >Read More Here</a>
@@ -439,7 +448,7 @@ Template Name: Home
                 </div>
 
                 <div class="img_card">
-                  <a href="<?php bloginfo('template_url'); ?>/images/animation_cinema.png" data-lightbox="workshops">
+                  <a href="<?php bloginfo('template_url'); ?>/images/animation_cinema.png" data-lightbox="workshops" >
                     <img alt="Master Classess & workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
                   <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
@@ -706,7 +715,7 @@ Template Name: Home
         while ($category_posts->have_posts()) : $category_posts->the_post();
         $post_link = get_permalink();
     ?>
-    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
+    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?> role="link"</a></h3>
     <?php
         endwhile;
         wp_reset_postdata(); // Reset the post data
@@ -754,7 +763,7 @@ Template Name: Home
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
+    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
   
