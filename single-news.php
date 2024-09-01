@@ -18,7 +18,7 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 ?>
 <div data-scroll-container>
-<section style="margin: 15rem; padding: 0 1.25rem; display: block;">
+<section id="skip-to-content" style="margin: 15rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;">
         <div role="article" style="text-align: center;
@@ -27,8 +27,6 @@ $post_content = apply_filters('the_content', $post->post_content);
 </label>
   </a> 
   <h1 style="
-    font-family: GthD;
-    font-family: 'Noto Sans', sans-serif;
     font-size: 5.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;

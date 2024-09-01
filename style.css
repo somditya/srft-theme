@@ -485,7 +485,7 @@ body {
 /* For single page */
 .static-container {
   max-width: 1200px; /* Adjust width as needed */
-  margin: 0 auto; /* Center-aligns the content */
+  margin: 15rem auto 0 auto; /* Adds top margin and centers the content */
   padding: 20px; /* Adds some padding around the content */
   box-sizing: border-box; /* Ensure padding does not affect width */
   font-size: 1.6rem;
@@ -1765,7 +1765,7 @@ div .spacer {
   display: none;
 }
 
-header {
+.header {
   position: sticky;
   top: 0px;
   background-color: #ffffff;
@@ -4303,15 +4303,6 @@ body {
   left: 4px;
 }*/
 
-/* For single page */
-.static-container {
-  max-width: 1200px; /* Adjust width as needed */
-  margin: 0 auto; /* Center-aligns the content */
-  padding: 20px; /* Adds some padding around the content */
-  box-sizing: border-box; /* Ensure padding does not affect width */
-  font-size: 1.6rem;
-  line-height: 1.8;
-}
 
 .header-image {
   width: 100%; /* Full width */
@@ -4363,7 +4354,6 @@ div .spacer {
   color: #161a1d;
   margin-bottom: 2.2rem;
   position: relative;
-  position: relative;*/
 }
 
 .section-intro-header-text::after {
@@ -4910,7 +4900,7 @@ div .spacer {
 
 .footer_copyright_container {
   /*display: flex;*/
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
   color: #000;

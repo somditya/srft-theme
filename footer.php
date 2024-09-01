@@ -6,13 +6,13 @@
       </ul>
     </div>
     <div class="footer_sub">
-      <h3>Satyajit Ray Film & Television Institute</h3>
+      <h3><<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
       <ul>
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
         <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
         <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
-        <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
+        <li><?php echo __('email:', 'srft-theme'); ?>ccontact@srfti.ac.in</li>
       </ul>
     </div>
     <div class="footer_sub">
@@ -35,9 +35,11 @@
         <li><?php echo __('Sitemap', 'srft-theme'); ?></li>
         <li><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
         <li><?php echo __('Feedback', 'srft-theme'); ?></li>
-        <li><?php echo __('Archives', 'srft-theme'); ?></li>
+        <li><?php echo __('Help', 'srft-theme'); ?></li>
+        <li><?php echo __('Website Policy', 'srft-theme'); ?></li>
+        <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <li><?php echo __('Gallery', 'srft-theme'); ?></li>
-        <li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>
+        <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
     </div>
     <div class="footer_sub">
@@ -48,10 +50,10 @@
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->
-        <li><a href="https://facebook.com/srftikol"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
-        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" aria-label="<?php echo __('Visit facebook page of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Visit instagram page of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Visit X page of SRFTI', 'srft-theme'); ?>" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
+        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" target="_blank" role="link" aria-label="<?php echo __('Visit youtube channel of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
       </ul>
     </div>
     <div class="footer_sub">
