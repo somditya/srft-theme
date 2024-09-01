@@ -1096,8 +1096,6 @@ div .spacer {
 
 .footer_copyright_container {
   /*display: flex;*/
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
@@ -1125,8 +1123,6 @@ div .spacer {
 }
 
 .footer_sub {
-  font-family: GthC;
-  font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
   padding: 1.8rem;
