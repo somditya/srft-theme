@@ -36,8 +36,6 @@ $current_language = get_locale();
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    
-    
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
@@ -201,7 +199,6 @@ $current_language = get_locale();
     </div>
     <!-- Accessibility Icon -->   
     <?php endif; ?></li>
-             <!--<li><a>+A</a>&nbsp;<a>A</a>&nbsp;<a>A-</a></li>-->
              <li class="hide-on-mobile"><a href="#skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
              <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty options', 'srft-theme' ); ?>>
@@ -244,9 +241,9 @@ $current_language = get_locale();
 
        </div>
        <div class="menu-container">
-        
+       <input type="checkbox" name="" id="check" />
         <div class="logo-container">
-          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png"></a> </div>
+          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
 				
           <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->
@@ -408,7 +405,6 @@ if ($current_language === 'en_US') {
                     <div class="arrow"></div>
                   </ul>
                 </div>
-              
               </li>         
             </ul>
           </div>

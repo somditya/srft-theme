@@ -193,13 +193,13 @@ $(".increaseFont, .decreaseFont").click(function () {
 
   console.log("Current font size:", curFontSize);
 
-  if (type === "increase") {
+  if (type === "Increase") {
     if (curFontSize < 30) {
       // Max font size limit
       $("html").css("font-size", curFontSize + 1 + "px");
       console.log("Font size increased to:", curFontSize + 1);
     }
-  } else if (type === "decrease") {
+  } else if (type === "Decrease") {
     if (curFontSize > 10) {
       // Min font size limit
       $("html").css("font-size", curFontSize - 1 + "px");
@@ -207,3 +207,12 @@ $(".increaseFont, .decreaseFont").click(function () {
     }
   }
 });
+
+// Function to show an alert when an external link is clicked
+function check_url() {
+  alert("External link that opens in a new window");
+  return true; // Allow the link to open
+}
+
+// Optional: Ensure the script loads correctly by logging to the console
+console.log("script.js loaded");

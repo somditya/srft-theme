@@ -264,6 +264,6 @@ $scope.lastPage = function () {
           
     </main>
 
-    <?php get_template_part('footer-html'); ?>
+    <?php get_footer();  ?>
 </body>
 </html>
