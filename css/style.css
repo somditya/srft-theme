@@ -767,8 +767,7 @@ z-index: 1;
 
 .footer_copyright_container {
   display: flex;
-  font-family: GthC;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
   color:#000;
@@ -777,13 +776,7 @@ z-index: 1;
   padding: 15px;
 }
 
-
-
-
-
-
 .footer_sub {
-  font-family: GthC;
   font-weight: 500;
   font-size: 1.6rem;
   padding: 1.8rem;
@@ -887,66 +880,6 @@ opacity: 0.2;
 .owl-carousel .next-slide:hover{
 background-position: -24px -53px;
 }   
-
-
-
-/*
- .carousel-wrapper {
-      width: 1200px;
-      margin: auto;
-      position: relative;
-      text-align: center;
-      font-family: sans-serif;
-    }
-
-.owl-carousel .owl-nav {
-  overflow: hidden;
-  height: 0px;
-}
-.owl-theme .owl-dots .owl-dot.active span,
-.owl-theme .owl-dots .owl-dot:hover span {
-  background: #5110e9;
-}
-
-.owl-carousel .item {
-  text-align: center;
-}
-.owl-carousel .nav-button {
-  height: 50px;
-  width: 25px;
-  cursor: pointer;
-  position: absolute;
-  top: 110px !important;
-}
-.owl-carousel .owl-prev.disabled,
-.owl-carousel .owl-next.disabled {
-  pointer-events: none;
-  opacity: 0.25;
-}
-.owl-carousel .owl-prev {
-  left: -35px;
-}
-.owl-carousel .owl-next {
-  right: -35px;
-}
-.owl-theme .owl-nav [class*=owl-] {
-  color: #ffffff;
-  font-size: 39px;
-  background: #000000;
-  border-radius: 3px;
-}
-.owl-carousel .prev-carousel:hover {
-  background-position: 0px -53px;
-}
-.owl-carousel .next-carousel:hover {
-  background-position: -24px -53px;
-}
-
-
-
-
-
-
 /* resposnive table */
 .flex-table {
   display: flex;
@@ -3341,8 +3274,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   */                                               
-  font-family: 'Inter', sans-serif;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: #4d4643;
   font-weight: 400;
   font-size: 16px;
 }
@@ -3477,9 +3410,6 @@ body {
 .link-text-big {
   display:flex;
   align-items: center;
-  font-family: GthC;
-  /*font-family: "Plain Medium Regular";*/
-  font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -3597,8 +3527,6 @@ animation-duration: 4s;
 }
 
 .profile-name {
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: #8b5b2b;
@@ -3726,12 +3654,6 @@ margin-bottom: 4rem;
   display: flex;
   text-align: center;
   flex-direction: column;
-  /*font-family: Lato, sans-serif;*/
-  /*font-family: "cofo-sans-variable",sans-serif;
-  font-variation-settings: 'wght' 408, 'slnt' 0;*/
-
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
   /*letter-spacing: -.0775rem;line-height: 1.1;*/
   font-size: 36px;
@@ -4113,8 +4035,6 @@ z-index: 1;
 
 .swipper-title h1{
   /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 5.6rem;
@@ -4127,8 +4047,6 @@ z-index: 1;
 
 .swipper-title h3{
   /*font-family: GthD;*/
-    font-family: "Plain Medium Regular";
-    font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 4.2rem;
@@ -4144,9 +4062,6 @@ z-index: 1;
   width: 100%;
   min-width: 410px;
   /*font-family: GthD; */
-  font-family: "Plain Medium Regular";
-  font-family: 'Noto Sans', sans-serif;
-  font-family: GthC;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -4309,8 +4224,6 @@ z-index: 1;
 
 .footer_copyright_container {
   /*display: flex;*/
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   border-top: 1px solid#5e5e5e;
@@ -4340,8 +4253,6 @@ z-index: 1;
 
 
 .footer_sub {
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
   padding: 1.8rem;
@@ -5092,8 +5003,6 @@ header{
   text-decoration: none;
   padding: 0 .8rem;
   letter-spacing: 1px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 600; 
   font-size: 1.3rem;
   display: flex;
@@ -5395,8 +5304,6 @@ font-size: 17px;
   text-align: center;
   left: 25%;
   /*font-family: GthC;*/
-  font-family: GthD;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 6.2rem;
   line-height: 8.8rem;
@@ -5602,8 +5509,6 @@ font-size: 17px;
 .button-link-course {
   display: flex;
   font-family: "Plain Medium Regular";
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 2.8rem;
   font-weight: 300;
   line-height: 2rem;
@@ -5748,8 +5653,6 @@ margin:0
   margin-bottom: 16px;
   padding-bottom: 16px;
   font-weight: 500;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   color: #161a1d;
 }
 
@@ -5869,8 +5772,6 @@ transform: rotate(90deg);
 
 .item {
   padding: 10px;
-  font-family: GthC;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 28px;
@@ -6319,8 +6220,6 @@ h4 {
   color: #8b5b2b;
   color: #6C4713;
   font-size: 30px;
-  font-family: GthA;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0.5rem;
@@ -6827,8 +6726,6 @@ background-color: red;
   padding-right: 4rem;
   padding-left: 4rem;
   padding-bottom: 1rem;
-  font-family: GthD;
-  font-family: Noto Sans;
   font-weight: 400;
   font-size: 3rem;
 }
@@ -6996,8 +6893,6 @@ background-color: red;
 }
 
 .faculty-bio h1 {
-    font-family: GthD;
-    font-family: Noto Sans;
     font-size: 4.375rem;
     font-weight: 400;
     margin: 0 0 2rem;
