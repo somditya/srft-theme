@@ -243,7 +243,7 @@ $current_language = get_locale();
        <div class="menu-container">
        <input type="checkbox" name="" id="check" />
         <div class="logo-container">
-          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/srftilogotr.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
+          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
 				
           <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->
