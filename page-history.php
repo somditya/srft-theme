@@ -7,15 +7,13 @@ get_header();
 $post_id = get_the_ID();
 $page_content = apply_filters('the_content', $post->post_content);
 ?>
-<div data-scroll-container>
+
 <main>
-      <body>
-      <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+<section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title">About SRFTI</div>
-      </section>
-
-      <section id="skip-to-content" class="cine-detail">
+</section>
+<section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
         <div class="childnavs">
     <ul class="childnav-lists">

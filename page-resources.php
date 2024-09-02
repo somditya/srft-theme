@@ -10,7 +10,7 @@ $current_language = get_locale();
 ?>
 
 <main>
-    <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+    <section id="skip-to-content" class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
             <div class="page-banner-title"><?php the_title(); ?></div>
         </div>

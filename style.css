@@ -973,8 +973,8 @@ div .spacer {
 }
 
 #skip-to-content {
-  padding-top: 100px; /* Adjust as needed */
-  margin-top: -100px; /* Adjust as needed to counteract the padding */
+  padding-top: 00px; /* Adjust as needed */
+  margin-top: 0px; /* Adjust as needed to counteract the padding */
 }
 
 .video {
@@ -4774,11 +4774,6 @@ div .spacer {
   background-repeat: no-repeat;
   background-size: 200% auto;
   background-position: center;
-}
-
-#skip-to-content {
-  padding-top: 100px; /* Adjust as needed */
-  margin-top: -100px; /* Adjust as needed to counteract the padding */
 }
 
 .video {
