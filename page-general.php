@@ -16,9 +16,15 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
 
         <!-- Content area -->
         <div class="static-container">
-        <section class="header-image" style="background-image: url('<?php echo esc_url($featured_image_url); ?>');">
+        <section class="page-title">
+                <div>
+                    <p class="page-header-text"><?php echo esc_html($post->post_title); ?></p>
+                </div>
+            </section>
         </section>
-            <?php echo $page_content; ?>
+        <section>
+         
+        </section>
         </div>
     </main>
 </div>
