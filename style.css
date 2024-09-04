@@ -4945,6 +4945,30 @@ div .spacer {
   padding-left: 0;
   line-height: 1.5;
 }
+
+.branspacer {
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly with space around them */
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+.brand-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.brand-list li {
+  margin: 0 10px; /* Adjust margin between items as needed */
+}
+
+.brand-list img {
+  max-width: 100%;
+  height: auto; /* Ensures the images are responsive */
+}
+
+
 .social {
   text-align: center;
 }

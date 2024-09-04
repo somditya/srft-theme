@@ -50,9 +50,9 @@
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->
-        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" aria-label="<?php echo __('Visit facebook page of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Visit instagram page of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Visit X page of SRFTI', 'srft-theme'); ?>" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
         <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" target="_blank" role="link" aria-label="<?php echo __('Visit youtube channel of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
       </ul>
     </div>
@@ -67,15 +67,18 @@
 <div style="margin: 0;background: #fff;box-shadow: 0px -2px 7px 4px #eee;">
     <div class="branspacer">
         <ul class="brand-list">
-            <li><a class="confirmExternalLink" href="https://india.gov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png"></a></li>
-            <li><a class="confirmExternalLink" href="http://www.digitalindia.gov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png"></a></li>
-            <li><a class="confirmExternalLink" href="https://mygov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
-        </ul>
+            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png"></a></li>
+            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png"></a></li>
+            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
+            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png"></a></li>
+            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png"></a></li>
+            <li><a  href="https://gem.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/gem-logo.png"></a></li>       
+          </ul>
     </div>
 </div>
 
-<div> 
-            Designed, Developed & Maintanied  by Satyajit Ray Film & Television Institute
+<div style="margin: 10px;"> 
+<?php echo __('Designed, Developed & Maintained  by Satyajit Ray Film & Television Institute', 'srft-theme'); ?>
 </div>
 <p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
     <p class="last-updated"><?php echo do_shortcode('[last_updated]'); ?></p>
