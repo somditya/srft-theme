@@ -61,23 +61,23 @@
     </div>
   </div>
 
-  <div class="brand-spacer" style=" justify-content: center; ">
-    <div class="logo-wrapper">
-      <a><img class="logo-gov" src="images/g20-logo.png"/></a>
-    </div>
-    <div class="logo-wrapper">
-      <a><img class="logo-gov" src="images/logo-azadi.png"/></a>
-    </div>
-    <div class="logo-wrapper">
-      <a><img class="logo-gov" src="images/digitalindia.webp"/></a>
-    </div>
-    <div class="logo-wrapper">
-      <a><img class="logo-gov" src="images/india-gov-logo.png"/></a>
-    </div>
-  </div>
 </div>
+
 <div class="footer_copyright_container">
-    <p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
+<div style="margin: 0;background: #fff;box-shadow: 0px -2px 7px 4px #eee;">
+    <div class="branspacer">
+        <ul class="brand-list">
+            <li><a class="confirmExternalLink" href="https://india.gov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png"></a></li>
+            <li><a class="confirmExternalLink" href="http://www.digitalindia.gov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png"></a></li>
+            <li><a class="confirmExternalLink" href="https://mygov.in/" target="_blank" title="External Link"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
+        </ul>
+    </div>
+</div>
+
+<div> 
+            Designed, Developed & Maintanied  by Satyajit Ray Film & Television Institute
+</div>
+<p class="copyright-text">©2024&nbsp;<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
     <p class="last-updated"><?php echo do_shortcode('[last_updated]'); ?></p>
 </div>
 
