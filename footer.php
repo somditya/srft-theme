@@ -20,17 +20,18 @@
       <ul>
         <li><?php echo __('Admission', 'srft-theme'); ?></li>
         <li><?php echo __('Library', 'srft-theme'); ?></li>
-        <li><?php echo __('Important Committes', 'srft-theme'); ?></li>
+        <li><?php echo __('Important Committees', 'srft-theme'); ?></li>
         <li><?php echo __('Convocation', 'srft-theme'); ?></li>
         <li><?php echo __('Clapstick', 'srft-theme'); ?></li>
         <li><?php echo __('Right to Information', 'srft-theme'); ?></li>
         <li><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
+        <li><?php echo __('Gallery', 'srft-theme'); ?></li>
         <li><?php echo __('Holiday List', 'srft-theme'); ?></li>
       </ul>
     </div>
     <div class="footer_sub">
-      <h3>Useful Links</h3>
+      <h3><?php echo __('Useful Links', 'srfti-theme'); ?></h3>
       <ul>
         <li><?php echo __('Sitemap', 'srft-theme'); ?></li>
         <li><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
@@ -38,7 +39,6 @@
         <li><?php echo __('Help', 'srft-theme'); ?></li>
         <li><?php echo __('Website Policy', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
-        <li><?php echo __('Gallery', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
     </div>

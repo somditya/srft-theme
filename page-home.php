@@ -237,7 +237,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"
                 alt="Picture of Amal Neerad"
               /></a>
-              <h5>Amal Neerad</h5>
+              <h5><?php echo __('Amal Neerad', 'srft-theme' ); ?></h5>
            </div>
 
            <div class="alumni-item">   
@@ -248,18 +248,18 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg"
                 alt="Picture of Kanu Behl"
               /></a>
-              <h5>Kanu Behl</h5>
+              <h5><?php echo __('Kanu Behl', 'srft-theme' ); ?></h5>
               </div>
 
-            <div class="alumni-item">  
+            <!--<div class="alumni-item">  
             <a class="alumni-img"
               href="#"
               ><img
                 src="<?php bloginfo('template_url'); ?>/images/Vipin-Vijay-small.jpg"
                 alt="Picture of Vipin Vijay"
               /></a>
-              <h5>Vipin Vijay</h5>
-              </div>
+              <h5><?php echo __('Vipin Vijay', 'srft-theme' ); ?></h5>
+              </div>-->
 
               <div class="alumni-item">  
                 <a class="alumni-img"
@@ -268,7 +268,7 @@ Template Name: Home
                     src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp"
                     alt="Picture of Namrata Rao"
                   /></a>
-                  <h5>Namrata Rao</h5>
+                  <h5><?php echo __('Namrata Rao', 'srft-theme' ); ?></h5>
                   </div>
 
                   <div class="alumni-item">  
@@ -278,7 +278,7 @@ Template Name: Home
                         src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp"
                         alt="Picture of Hawam Paban Kumar"
                       /></a>
-                      <h5>Hawam Pabam Kumar</h5>       
+                      <h5><?php echo __('Hawam Pabam Kumar', 'srft-theme' ); ?></h5>       
                       </div>
     
 
@@ -290,7 +290,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"
                 alt="Picture of Pritha Chakraborty"
               /></a>
-              <h5>Pritha Chakraborty</h5>
+              <h5><?php echo __('Pritha Chakraborty', 'srft-theme' ); ?></h5>
               </div>
 
           <div class="alumni-item">
@@ -301,7 +301,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png"
                 alt="Picture of Madhura Palit"
               /></a>
-              <h5>Madhura Palit</h5>
+              <h5><?php echo __('Madhura Palit', 'srft-theme' ); ?></h5>
               
               </div>
 
@@ -313,7 +313,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png"
                 alt="Picture of Avijit Sen"
               /></a>
-              <h5>Abhijit Sen</h5>
+              <h5><?php echo __('Abhijit Sen', 'srft-theme' ); ?></h5>
               </div>
 
               <div class="alumni-item">
@@ -324,7 +324,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png"
                 alt="Picture of Sagar Ballary"
               /></a>
-              <h5>Sagar Ballary</h5>
+              <h5><?php echo __('Sagar Ballary', 'srft-theme' ); ?></h5>
               </div>
             <div class="alumni-item">  
             <a class="alumni-img"
@@ -334,7 +334,7 @@ Template Name: Home
                 src="<?php bloginfo('template_url'); ?>/images/Pritam Das.png"
                 alt="Picture of Pritam Das"
               /></a>
-              <h5>Pritam Das</h5>
+              <h5><?php echo __('Pritam Das', 'srft-theme' ); ?></h5>
               </div>
               <div class="alumni-item">  
                 <a class="alumni-img"
@@ -344,7 +344,7 @@ Template Name: Home
                     src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png"
                     alt="Picture of Sourav Rai"
                   /></a>
-                  <h5>Sourav Rai</h5>
+                  <h5><?php echo __('Sourav Rai', 'srft-theme' ); ?></h5>
                   </div>
                   <div class="alumni-item">  
                     <a class="alumni-img"
@@ -354,7 +354,7 @@ Template Name: Home
                         src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png"
                         alt="Picture of Domin Sangma"
                       /></a>
-                      <h5>Dominic Sangma</h5>
+                      <h5><?php echo __('Dominic Sangma', 'srft-theme' ); ?></h5>
                       </div>
       </div>
   
