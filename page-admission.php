@@ -179,7 +179,7 @@ $current_language = get_locale();
                     <li>
                       <input type="checkbox" checked>
                       <i></i>
-                      <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
+                      <h2><?php echo __('Duration', 'srft-theme'); ?>
                       <p><?php echo __('2 years (full time)', 'srfti-theme') ?></p>
 
                     </li>
