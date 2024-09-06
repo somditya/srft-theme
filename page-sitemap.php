@@ -21,24 +21,37 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
         </section>
         <section>
         <?php
-// Replace 'primary' with your menu's location or the menu name/ID
-$menu_items = wp_get_nav_menu_items('primary');
+// Function to get the menu structure by location or ID
+function get_menu_structure($menu_location) {
+    $menu_items = wp_get_nav_menu_items($menu_location);
+    $menu_structure = [];
 
-$menu_structure = [];
-foreach ($menu_items as $item) {
-    if (!$item->menu_item_parent) {
-        $menu_structure[$item->ID] = [
-            'title' => $item->title,
-            'url' => $item->url,
-            'children' => []
-        ];
-    } else {
-        $menu_structure[$item->menu_item_parent]['children'][] = $item;
+    if ($menu_items) {
+        foreach ($menu_items as $item) {
+            if (!$item->menu_item_parent) {
+                $menu_structure[$item->ID] = [
+                    'title' => $item->title,
+                    'url' => $item->url,
+                    'children' => []
+                ];
+            } else {
+                $menu_structure[$item->menu_item_parent]['children'][] = $item;
+            }
+        }
     }
+    
+    return $menu_structure;
 }
+
+// Get the menu structures for both primary and footer menus
+$primary_menu_structure = get_menu_structure('primary');
+$footer_menu_structure = get_menu_structure('footer');
 ?>
+
 <div class="sitemap-container">
-    <?php foreach ($menu_structure as $item): ?>
+
+    <!-- Display Primary Menu Items -->
+    <?php foreach ($primary_menu_structure as $item): ?>
         <div class="sitemap-item">
             <span class="sitemap-main-item"><?php echo esc_html($item['title']); ?></span>
             <?php if (!empty($item['children'])): ?>
@@ -50,6 +63,27 @@ foreach ($menu_items as $item) {
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
+
+    <!-- Display Footer Menu Items -->
+    <?php foreach ($footer_menu_structure as $item): ?>
+        <div class="sitemap-item">
+            <span class="sitemap-main-item"><?php echo esc_html($item['title']); ?></span>
+            <?php if (!empty($item['children'])): ?>
+                <div class="sitemap-submenu">
+                    <?php foreach ($item['children'] as $child): ?>
+                        <a href="<?php echo esc_url($child->url); ?>"><?php echo esc_html($child->title); ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+
+</div>
+
+    </div>
+
+</div>
+
 </div>
 
         </section>

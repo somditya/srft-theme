@@ -2127,38 +2127,40 @@ div .spacer {
 .sitemap-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Distribute space evenly between items */
+  gap: 20px;
+  justify-content: flex-start; /* Align items to the start of the row */
 }
 
 .sitemap-item {
-  flex: 0 1 23%; /* Each item takes up 23% of the row */
-  box-sizing: border-box; /* Include padding and border in width calculation */
+  flex: 0 1 calc(25% - 20px); /* Each item takes up about 25% of the row */
+  box-sizing: border-box;
   margin-bottom: 20px;
-  padding: 15px; /* Add padding around each item */
-  border: 1px solid #ddd; /* Optional: Add a border around each item */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  background-color: #f9f9f9; /* Optional: Add a background color */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 .sitemap-main-item {
   font-weight: bold;
-  font-size: 1.5em; /* Increase the font size of the main items */
+  font-size: 1.5em;
   display: block;
   margin-bottom: 10px;
 }
 
 .sitemap-submenu {
   margin-left: 20px;
-  padding-left: 10px; /* Add padding to the left of the submenu */
-  border-left: 2px solid #ddd; /* Optional: Add a border to the left of the submenu */
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
 }
 
 .sitemap-submenu a {
   display: block;
   margin-bottom: 5px;
   text-decoration: none;
-  padding: 5px 0; /* Add padding around each submenu item */
+  padding: 5px 0;
 }
+
 
 
 /*Show reel */
