@@ -43,8 +43,6 @@ $bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
 </label>
   </a> 
   <h1 style="
-    font-family: GthD;
-    font-family: 'Noto Sans', sans-serif;
     font-size: 3.375rem;
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
