@@ -118,7 +118,7 @@ $current_language = get_locale();
               <label for="tab2-1"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?></label>
               <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
               <div>
-                  <p><?php echo __('The programme is a 3-year full time programme divided into 6 semester.', 'srfti-theme')?></p>
+                  <p><?php echo __('The programme is a 3-year full time programme divided into 6 semester', 'srfti-theme')?></p>
                   <br/><br/>
                   <div class="accordian">
                     <ul>
@@ -126,7 +126,7 @@ $current_language = get_locale();
                         <input type="checkbox" checked>
                         <i></i>
                         <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-                        <p><?php echo __('3 years (full time)', 'srfti-theme') ?></p>
+                        <p><?php echo __('3 years(full time)', 'srfti-theme') ?></p>
                       </li>
                     </ul>
                     <ul>
