@@ -67,13 +67,13 @@
 <div style="margin: 0;background: #fff;box-shadow: 0px -2px 7px 4px #eee;">
     <div class="branspacer">
         <ul class="brand-list">
-            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png"></a></li>
-            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png"></a></li>
-            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
-            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png"></a></li>
-            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png"></a></li>
-            <li><a  href="https://gem.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/gem-logo.png"></a></li>       
-          </ul>
+            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png" alt="Logo of india.gov.in"></a></li>
+            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png" alt="Logo of digitalindia.gov.in"></a></li>
+            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png" alt="Logo of mygov.in"></a></li>
+            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png" alt="Logo of mib.gov.in"></a></li>
+            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png" alt="Logo of swachhbharatmission.ddws.gov.in"></a></li>
+            <li><a  href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" ></a></li>       
+        </ul>
     </div>
 </div>
 
