@@ -86,7 +86,7 @@ foreach ($categories as $category) {
             $field = get_field_object($key);
 
             // Exclude fields by label name (case-insensitive) and apply translation if needed
-            if (!in_array($field['label'], ['Video', 'Film Synposis', 'Film Still', 'Film Still ALt Text'])) {
+            if (!in_array($field['label'], ['Video', 'Course' 'Film Synposis', 'Film Still', 'Film Still ALt Text'])) {
                 // Translate the label if the post is in Hindi and the label is in the translation list
                 $label = ($post_language === 'hi' && isset($translations[$field['label']])) ? $translations[$field['label']] : $field['label'];
 
