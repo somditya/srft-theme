@@ -79,6 +79,7 @@ foreach ($categories as $category) {
             'Award Received' => 'प्राप्त पुरस्कार',
             'Film Format' => 'फिल्म प्रारूप',
             'Film Production Year' => 'फिल्म उत्पादन वर्ष',
+            'Production credits' => 'प्रोडक्शन क्रेडिट्स',
         ];
 
         foreach ($fields as $key => $value) {
