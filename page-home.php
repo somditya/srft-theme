@@ -715,7 +715,8 @@ Template Name: Home
         while ($category_posts->have_posts()) : $category_posts->the_post();
         $post_link = get_permalink();
     ?>
-    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?> role="link"</a></h3>
+    <h3><a href="<?php echo esc_url($post_link); ?>" role="link"><?php the_title(); ?></a>
+    </h3>
     <?php
         endwhile;
         wp_reset_postdata(); // Reset the post data
