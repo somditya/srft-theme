@@ -709,7 +709,7 @@ div .spacer {
 }
 
 .wrapper {
-  width: 100%;
+  width: 100%;  
   max-width: 1250px;
   margin: 1em auto;
   .two-flex {
@@ -821,6 +821,7 @@ div .spacer {
   overflow: hidden; /* Or flex might break */
   list-style: none;
   text-align: left; /* Added to left-align content */
+  font-size: 14px;
 
   &.column-heading {
     background-color: white;
@@ -830,8 +831,8 @@ div .spacer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: bold;
     /*margin-bottom: 30px;*/
-    color: #a32034;
-    font-size: 12px;
+    color: #8b5b2b;
+    font-size: 14px;
   }
 
   .Rtable-cell--heading {
@@ -4671,8 +4672,8 @@ div .spacer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: bold;
     /*margin-bottom: 30px;*/
-    color: #a32034;
-    font-size: 12px;
+    color: #8b5b2b;
+    font-size: 14px;
   }
 
   .Rtable-cell--heading {
@@ -4681,7 +4682,7 @@ div .spacer {
 
   .Rtable-cell--content {
     a {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #333;
     }
 
@@ -4892,7 +4893,7 @@ div .spacer {
   flex: 0 0 40%;
   flex-direction: column;
   max-width: 100%;
-  padding: 48px 76px 16px 60px;
+  padding: 28px 26px 16px 26px;
   position: relative;
 }
 
@@ -7409,7 +7410,19 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 1250px (Landscape Tablets) */
 /**************************/
 
-@media all and (max-width: 1024px) {
+
+@media (max-width: 1200px) {
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .caption {
+    font-size: 16px;
+  }
   .Rtable--collapse {
     display: block;
     width: 100%;
@@ -7430,7 +7443,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100% !important;
     display: flex;
     align-items: center;
-    border: 1px solid #dad9da;;
+    border: 1px solid #dad9da;
+    box-sizing: border-box;
   }
 
   .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--heading {
@@ -7438,47 +7452,24 @@ ul li input[type="checkbox"]:checked ~ i:after {
     flex: 1;
     max-width: 120px;
     min-width: 120px;
-    color: #724b26;
-    font-weight: 700;
     border-right: 1px solid #ccc;
     margin-right: 1em;
+    
+  }
+  .Rtable-cell.column-heading {
+    background-color: #724b26;
+    color: white; /* Change the text color to black */
   }
 
   .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--content {
     flex: 2;
     padding-left: 1em;
   }
-
-  .Rtable--collapse .topic-cell {
-    background-color: #724b26;
-    color: white;
-    font-weight: 700;
-    order: -1;
-  }
-
-  .Rtable--collapse .topic-cell .Rtable-cell--content {
-    padding-left: 0 !important;
-  }
-
-  .Rtable--collapse .Rtable-row--head {
-    display: none;
-  }
+  
 }
-
-/* Non-Flex modernizer fallback */
-.no-flexbox .Rtable {
-  display: block;
-}
-
-.no-flexbox .Rtable-cell {
-  width: 100%;
-}
-
-
-
 
 /**************************/
-/* BELOW 944px (Tablets) */
+/* BELOW 1024px (Tablets) */
 /**************************/
 @media (max-width: 1024px) {
   .main-nav {
@@ -7703,10 +7694,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
     /*height: auto;*/
   }
 
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px;
+    max-width: 100%;
+  }
+
   .caption {
     font-size: 16px;
   }
-
 
 }
 
@@ -7714,13 +7711,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 704px (Smaller tablets) */
 /**************************/
 @media only screen and (max-width: 768px) {
-  .Rtable--collapse {
-    display: block;
-    > .Rtable-cell {
-      width: 100% !important;
-    }
-  }
-
+    
   .hide-on-mobile {
     display: none;
   }

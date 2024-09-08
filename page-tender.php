@@ -4,11 +4,6 @@ Template Name: Tender
 
  */
 
-
-?>
-
-
-<?php
 get_header(); 
 
 function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
@@ -45,10 +40,10 @@ $category_id = get_category_ID($category_name);
             <?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" ng-model="toDate" ng-change="applyFilters()">
               <input type="text" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
-              <button ng-click="resetFilters()">Reset</button>
+              <button ng-click="resetFilters()"><?php echo __('Reset: ', 'srft-theme' ); ?></button>
             </p>
             <div class="wrapper">
-              <div class="Rtable Rtable--5cols Rtable--collapse">
+              <div class="Rtable Rtable--7cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell id-cell column-heading"><?php echo __('Tender ID', 'srft-theme' ); ?></div>
@@ -78,7 +73,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><?php echo __('View', 'srft-theme' ); ?>&nbsp;({{tender.file.type}} - {{tender.file.size}} MB)</a></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
@@ -138,6 +133,11 @@ $category_id = get_category_ID($category_name);
         $scope.itemsPerPage = 20;
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
+         // Function to convert bytes to megabytes
+    function bytesToMB(bytes) {
+      return (bytes / 1048576).toFixed(2); // Convert bytes to MB and format to 2 decimal places
+    }
+    
          // Function to parse dd/mm/yyyy date format
        function parseDate(dateString) {
       var parts = dateString.split('/');
@@ -169,7 +169,13 @@ $category_id = get_category_ID($category_name);
         ID: post.acf['Tender-ID'],
         subdate: submissionDate, // Use the parsed submission date
         isSubmissionOpen: isSubmissionOpen,
-        file: post.acf['Tender-Doc'],
+        //file: post.acf['Tender-Doc'],
+        file: {
+            url: post.acf['Tender-Doc']['url'],
+            title: post.acf['Tender-Doc']['title'],
+            size: bytesToMB(post.acf['Tender-Doc']['filesize']),
+            type: post.acf['Tender-Doc']['subtype']
+          },
         pubdate: post.acf['Tender-Publish-Date'],
       };
     });
@@ -274,4 +280,4 @@ $scope.lastPage = function () {
         
       });
   </script>
-<?php get_template_part('footer-html'); ?>
+<?php get_footer(); ?>

@@ -47,7 +47,7 @@ $category_id = get_category_ID($category_name);
               <div class="Rtable Rtable--5cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>
+                  <!--<div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>-->
                   <div class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell date-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
                   <div class="Rtable-cell date-cell column-heading"><?php echo __('Submission Date', 'srft-theme' ); ?></div>
@@ -59,9 +59,9 @@ $category_id = get_category_ID($category_name);
                   <div class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
                   </div>
-                  <div class="Rtable-cell id-cell">
+                  <!--<div class="Rtable-cell id-cell">
                     <div class="Rtable-cell--content title-content">{{ vacancy.ID }}</div>
-                  </div>
+                  </div>-->
                   <div class="Rtable-cell topic-cell">
                     <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
                   </div>
@@ -76,7 +76,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file.url}}"><?php echo __('View', 'srft-theme' ); ?>&nbsp;({{vacancy.file.type}} - {{vacancy.file.size}} MB)</a></div>
                   </div>
                 </div>
               </div>
@@ -121,6 +121,10 @@ $category_id = get_category_ID($category_name);
         $scope.toDate = '';
         $scope.itemsPerPage = 10;
         $scope.currentPage = 1;
+        
+        function bytesToMB(bytes) {
+       return (bytes / 1048576).toFixed(2); // Convert bytes to MB and format to 2 decimal places
+       }
         var url = siteURL + 'wp-json/wp/v2/vacancy?categories=' + categoryID + '&per_page=100';
         //alert('Fetching data from URL:\n' + url); // Alert the URL before making the request
 
@@ -150,7 +154,12 @@ $category_id = get_category_ID($category_name);
                 ID: post.acf['Vacancy-ID'],
                 subdate: post.acf['Vacancy-LastDate'],
                 pubdate: post.acf['Vacancy-Publish-Date'],
-                file: post.acf['Vacancy-Doc'],
+                file: {
+                url: post.acf['Vacancy-Doc']['url'],
+                title: post.acf['Vacancy-Doc']['title'],
+                size: bytesToMB(post.acf['Vacancy-Doc']['filesize']),
+                type: post.acf['Vacancy-Doc']['subtype']
+                    },
                 extsubdate: post.acf['Vacancy-LastDateExtended'],
               };
             });
@@ -260,6 +269,6 @@ $scope.lastPage = function () {
       });
   </script>
   
-<?php get_template_part('footer-html'); ?>
+<<?php get_footer(); ?>
     </body>
     </html>

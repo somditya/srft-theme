@@ -753,6 +753,24 @@ function display_last_updated() {
 add_shortcode('last_updated', 'display_last_updated');
 
 
+function get_file_details_by_id() {
+	$attachment_id = isset($_GET['attachment_id']) ? intval($_GET['attachment_id']) : 0;
+	if (!$attachment_id) {
+			wp_send_json_error('Invalid attachment ID');
+	}
+
+	$file_details = get_file_details($attachment_id);
+
+	if (!$file_details) {
+			wp_send_json_error('Attachment not found');
+	}
+
+	wp_send_json_success($file_details);
+}
+add_action('wp_ajax_get_file_details', 'get_file_details_by_id');
+add_action('wp_ajax_nopriv_get_file_details', 'get_file_details_by_id');
+
+
 function admin_bar(){
 
   if(is_user_logged_in()){
