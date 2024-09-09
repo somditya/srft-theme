@@ -4973,6 +4973,12 @@ div .spacer {
   /*border-right: 1px solid #5e5e5e;*/
 }
 
+.footer_sub a{
+  color: white;
+  /*border-right: 1px solid #5e5e5e;*/
+}
+
+
 .footer_icon {
   font-size: 2rem;
   color: #fff;
