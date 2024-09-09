@@ -2992,9 +2992,9 @@ div .spacer {
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
   color: #6d2f6a;
-  color: #a37a29;
+  color: #6c4713;
   font-style: normal;
-  border-bottom: 2px solid #6d2f6a;
+  border-bottom: 2px solid #6c4713;
 }
 
 h4 {
@@ -3003,9 +3003,9 @@ h4 {
   /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
-  color: #6d2f6a;
+  color: #6c4713;
   font-style: normal;
-  border-bottom: 1px solid #6d2f6a;
+  border-bottom: 1px solid #6c4713;
 }
 
 .faculty {
@@ -6512,9 +6512,9 @@ h4 {
   /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
-  color: #6d2f6a;
+  color: #6c4713;;
   font-style: normal;
-  border-bottom: 1px solid #6d2f6a;
+  border-bottom: 1px solid #6c4713;;
 }
 
 .faculty {
@@ -7941,7 +7941,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 3rem; /* Adjusted font size for mobile */
     margin-top: 2%; /* Adjusted margin for mobile */
   }
-  
+
   /* Other mobile-specific styles */
   .hide-on-mobile {
     display: none;
