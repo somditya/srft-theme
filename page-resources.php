@@ -32,13 +32,13 @@ $current_language = get_locale();
                     'order' => 'DESC',
                 ));
 
-                if ($download_post->have_posts()) {
-                    while ($download_post->have_posts()) {
-                        $download_post->the_post();
-                    }
-                } else {
-                    echo 'No posts found in the specified category.';
-                }
+                //if ($download_post->have_posts()) {
+                  //  while ($download_post->have_posts()) {
+                    //    $download_post->the_post();
+                    //}
+                //} else {
+                  //  echo 'No posts found in the specified category.';
+                //}
                 wp_reset_postdata(); // Reset after custom query
                 ?>
 

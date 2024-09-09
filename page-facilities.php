@@ -69,14 +69,14 @@ $current_language = get_locale();
     </ul>
 </div>
         
-        <div class="widget" style="line-height: 1.5">
+        <!--<div class="widget" style="line-height: 1.5">
         <h3><?php echo __('Important Links', 'srft-theme' ); ?></h3>
         <ul style="list-style-type: none ">
           <li><?php echo __('OPAC', 'srft-theme' ); ?>  </li> 
           <li><?php echo __('NDLI', 'srft-theme' ); ?></li>
           <li><?php echo __('Vimeo', 'srft-theme'); ?></li>
         </ul>   
-        </div>
+        </div>-->
         </div>
 
   <div class="main-content">
