@@ -541,7 +541,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -584,7 +584,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -628,7 +628,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -672,7 +672,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
