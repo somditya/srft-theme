@@ -12,19 +12,33 @@
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
         <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
         <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
-        <li><?php echo __('email:', 'srft-theme'); ?>ccontact@srfti.ac.in</li>
+        <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
       </ul>
     </div>
     <div class="footer_sub">
       <h3><?php echo __('Related Links:', 'srft-theme'); ?></h3>
       <ul>
-        <li><?php echo __('Admission', 'srft-theme'); ?></li>
-        <li><?php echo __('Library', 'srft-theme'); ?></li>
-        <li><?php echo __('Important Committees', 'srft-theme'); ?></li>
-        <li><?php echo __('Convocation', 'srft-theme'); ?></li>
-        <li><?php echo __('Clapstick', 'srft-theme'); ?></li>
-        <li><?php echo __('Right to Information', 'srft-theme'); ?></li>
-        <li><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Admission', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Library', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Important Committees', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Convocation', 'srft-theme'); ?></li>
+        <li>><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Clapstick', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
         <li><?php echo __('Gallery', 'srft-theme'); ?></li>
         <li><?php echo __('Holiday List', 'srft-theme'); ?></li>
@@ -33,11 +47,21 @@
     <div class="footer_sub">
       <h3><?php echo __('Useful Links', 'srfti-theme'); ?></h3>
       <ul>
-        <li><?php echo __('Sitemap', 'srft-theme'); ?></li>
-        <li><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
-        <li><?php echo __('Feedback', 'srft-theme'); ?></li>
-        <li><?php echo __('Help', 'srft-theme'); ?></li>
-        <li><?php echo __('Website Policy', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Help', 'srft-theme'); ?></li>
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    ?>"><?php echo __('Website Policy', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
@@ -71,7 +95,7 @@
             <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
             <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png"></a></li>
             <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png"></a></li>
-            <li><a  href="https://gem.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/gem-logo.png"></a></li>       
+            <li><a  href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" ></a></li>       
           </ul>
     </div>
 </div>

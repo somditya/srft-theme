@@ -189,7 +189,7 @@ Template Name: Home
 <section id="courses">
   <div class="container grid grid--2-cols">
     <div class="course-head">
-      <h2  class="section-intro-header-text" style= "color:white; font-size: 5.2rem; margin-top: 5%;"  >
+      <h2  class="section-intro-header-text" >
       <?php echo __('Study options', 'srft-theme' ); ?>  
       </h2>
     </div>
@@ -432,7 +432,6 @@ Template Name: Home
   </div>
   </section>
 
-
     <section class="section-home" style="background-color: #f0e9e9;"  >
       <div class="section-intro-header">
         <h2 class="section-intro-header-text" style="padding-left: 0; ">
@@ -542,7 +541,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -585,7 +584,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -629,7 +628,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -673,7 +672,7 @@ Template Name: Home
                 'compare' => '='
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -696,12 +695,13 @@ Template Name: Home
   </section>
 
 
-<section class="section-home" style="background-color: #f5f5f5;  ;">
-  <div class="updates-container">
-  <div class="section-intro-header">
+<section class="section-home" style="background-color: #f5f5f5; ">
+<div class="section-intro-header">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
     <?php echo __('Updates', 'srft-theme' ); ?>    </h2>
-  </div>
+  </div>  
+<div class="updates-container">
+  
 <div class="box-container" style="display:flex;">  
 <div class="cell">
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
