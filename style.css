@@ -4430,13 +4430,19 @@ div .spacer {
 
 .course-head .section-intro-header-text::after {
   background: white;
-  bottom: -20px;
+  bottom: -30px;
   content: "";
   height: 2px;
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
   width: 100px;
+}
+
+.course-head h2 {
+  color: white; /* Text color */
+  font-size: 5.2rem; /* Font size */
+  margin-top: 5%; /* Margin from the top */
 }
 
 .section-intro-title-text {
@@ -7918,6 +7924,205 @@ ul li input[type="checkbox"]:checked ~ i:after {
     margin-top: 0.5rem;
   }
 }
+
+/**************************/
+/* BELOW 576px (Mobile) */
+/**************************/
+@media only screen and (max-width: 576px) {
+
+  .section-intro-header-text {
+    font-size: 24px; /* Adjusted font size for mobile */
+    line-height: 28px; /* Adjusted line height to match font size */
+    margin-bottom: 1.5rem; /* Adjusted margin for mobile */
+  }
+
+  .course-head h2 {
+    color: white; /* Text color */
+    font-size: 3rem; /* Adjusted font size for mobile */
+    margin-top: 2%; /* Adjusted margin for mobile */
+  }
+  
+  /* Other mobile-specific styles */
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .show-on-mobile {
+    display: block;
+  }
+
+  .top_header li {
+    font-size: 0.875rem; /* Smaller font size for mobile */
+  }
+
+  .box-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Adjust gap for smaller screens */
+  }
+
+  .cell,
+  .cell_1 {
+    width: 100%;
+    margin-bottom: 10px; /* Reduced margin for mobile */
+  }
+
+  .sub-intro {
+    flex-direction: column;
+  }
+
+  .sub-intro-images .iframe-wrapper {
+    padding-bottom: 75%; /* Keep aspect ratio adjustment */
+  }
+
+  .sub-intro-text {
+    padding: 0 5px; /* Reduced padding for mobile */
+  }
+
+  .sub-intro-text-head {
+    font-size: 18px; /* Adjusted font size for smaller screens */
+  }
+
+  .sub-intro-text-description {
+    font-size: 12px; /* Adjusted font size for smaller screens */
+  }
+
+  .swipper-title {
+    width: 100%;
+    padding-top: 20px; /* Reduced padding for mobile */
+  }
+
+  .swipper-title h1 {
+    padding-top: 5%;
+    font-size: 28px; /* Adjusted font size */
+    line-height: 32px; /* Adjusted line height */
+  }
+
+  .swipper-title h3 {
+    padding-top: 5%;
+    font-size: 28px; /* Adjusted font size */
+    line-height: 32px; /* Adjusted line height */
+  }
+
+  .swipper-subtitle h2 {
+    padding-top: 5%;
+    width: 100%;
+    font-size: 14px; /* Adjusted font size */
+    line-height: 2rem; /* Adjusted line height */
+  }
+
+  .abtimg-box,
+  .text-box {
+    font-size: 8px; /* Adjusted font size */
+  }
+
+  .img_card {
+    width: 100%;
+    padding: 4px; /* Reduced padding for mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img_card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-caption-text {
+    font-size: 20px; /* Adjusted font size */
+  }
+
+  .accolades {
+    gap: 10px; /* Reduced gap for smaller screens */
+  }
+
+  .accolades-text p {
+    font-size: 20px; /* Adjusted font size */
+  }
+
+  .accolades h2 {
+    font-size: 5rem; /* Adjusted font size */
+  }
+
+  .link-div {
+    margin-top: 10px; /* Reduced margin for smaller screens */
+  }
+
+  .link-text-big {
+    font-size: 14px; /* Adjusted font size */
+  }
+   
+  .update-title {
+    border-bottom: 1px solid #666; /* Thinner border for mobile */
+    font-size: 1.8rem; /* Adjusted font size for mobile */
+    line-height: 1.8rem; /* Adjusted line height to match font size */
+    margin-bottom: 12px; /* Reduced margin for mobile */
+    padding-bottom: 12px; /* Reduced padding for mobile */
+    font-weight: 500; /* Maintained font weight */
+    color: #161a1d; /* Maintained text color */
+  }
+
+
+  .primary__header-arrow {
+    margin-left: 4px; /* Reduced margin */
+  }
+ 
+  .button-link-course {
+    font-size: 1.8rem; /* Adjusted font size for mobile */
+    line-height: 1.8rem; /* Adjusted line height to match font size */
+    padding-top: 12px; /* Reduced padding for mobile */
+    padding-bottom: 12px; /* Reduced padding for mobile */
+    border: 1px solid white; /* Thinner border for mobile */
+    border-radius: 4px; /* Maintained border radius */
+    background-color: rgba(0, 0, 0, 0.7); /* Maintained background color */
+    color: white; /* Maintained text color */
+    text-align: center; /* Centered text alignment */
+    width: 100%; /* Full width */
+    margin-bottom: 8px; /* Reduced margin for mobile */
+    align-items: center; /* Centered alignment for items */
+    display: flex; /* Flex display to maintain layout */
+    text-decoration: none; /* No underline for text decoration */
+    font-weight: 300; /* Maintained font weight */
+  }
+  .img-list {
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reduced gap for smaller screens */
+  }
+
+  .footer_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer_sub {
+    padding: 5px; /* Reduced padding for mobile */
+  }
+
+  .social {
+    margin-top: 10px; /* Reduced margin for smaller screens */
+  }
+
+  .two-flex {
+    flex-direction: column;
+  }
+
+  .col-left,
+  .col-right {
+    width: 100%;
+  }
+
+  .profile-container {
+    text-align: center; /* Center text for mobile */
+  }
+
+  .profile-text {
+    margin-top: 0.25rem; /* Reduced margin */
+  }
+}
+
+
 
 @media (min-width: 1024px) {
   .nav {
