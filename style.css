@@ -973,10 +973,6 @@ div .spacer {
   background-position: center;
 }
 
-#skip-to-content {
-  padding-top: 00px; /* Adjust as needed */
-  margin-top: 0px; /* Adjust as needed to counteract the padding */
-}
 
 .video {
   position: relative;
