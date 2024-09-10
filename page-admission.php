@@ -66,11 +66,11 @@ $current_language = get_locale();
 </div>
         <div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
-          <li><?php echo __('Prsopectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
+          <li><?php echo __('Prospectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
         </ul>   
         </div>
         <div class="widget" style="line-height: 1.5">
-        <h3>Admission Notification</h3>
+        <h3><?php echo __('Admission Notification', 'srft-theme');?></h3>
         <?php
     $category_posts = new WP_Query(array(
         'category_name' => 'admissionshort-en', // Replace with your category slug
