@@ -72,9 +72,9 @@ $title=get_the_title($post_id);
         <div class="widget" style="line-height: 1.5; margin-top: 3rem;">
         <?php 
                 if ($current_language === 'en_US') {
-                    $catslug = 'document-en'; 
+                    $catslg = 'document-en'; 
                 } else {
-                    $catslug = 'document-hi';
+                    $catslg = 'document-hi';
                 }
 
                 $download_post = new WP_Query(array(
@@ -83,7 +83,7 @@ $title=get_the_title($post_id);
                         array(
                             'taxonomy' => 'category',
                             'field'    => 'slug',
-                            'terms'    => $catslug,
+                            'terms'    => $catslg,
                         ),
                     ),
                     'posts_per_page' => -1,       
@@ -277,4 +277,4 @@ $title=get_the_title($post_id);
     <?php
 get_footer();
 
-?>
+?> 
