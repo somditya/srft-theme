@@ -45,7 +45,7 @@ $current_language = get_locale();
                         
                         // ACF Fields
                         $document_file = get_field('document');
-                        $document_category = get_field('document_category'); // Returns an array with URL and other data
+                        $document_category = get_field('document-category'); // Returns an array with URL and other data
                         $document_description = get_field('document_description');
                         if ($document_category === 'Statutory') {
                         if ($document_file) :
@@ -67,7 +67,7 @@ $current_language = get_locale();
                             </li>
 
                         <?php endif; 
-                    }
+                    } }
                     echo '</ul>';
                 } else {
                     echo __('No posts found in the specified category.', 'srft-theme');
