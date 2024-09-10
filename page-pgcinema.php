@@ -24,21 +24,21 @@ $title=get_the_title($post_id);
         <div class="leftnav">
         <div class="childnavs">
           <ul class="childnav-lists">
-            <li class="childnav-list-item">
+            <!--<li class="childnav-list-item">
               <a class="item"><?php echo __('Prospectus', 'srft-theme'); ?></a>
-            </li>
+            </li>-->
             <li class="childnav-list-item">
               <a class="item"><?php echo __('Scholarship', 'srft-theme'); ?></a>
               </li>
-              <li class="childnav-list-item">
+              <!--<li class="childnav-list-item">
                 <a class="item"><?php echo __('Academic Calendar', 'srft-theme'); ?></a>
-                </li>
-                <li class="childnav-list-item">
-                  <a class="item"><?php echo __('Academic By-law', 'srft-theme'); ?></a>
-                </li>
+                </li>-->
+                <!--<li class="childnav-list-item">
+                  <a class="item"><?php echo __('Students Handbook', 'srft-theme'); ?></a>
+                </li>-->
           </ul>
         </div>
-        <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
+        <div class="widget" style="line-height: 1.5; margin-top: 3rem;">
         <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
