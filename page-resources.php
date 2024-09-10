@@ -44,9 +44,10 @@ $current_language = get_locale();
                         $download_post->the_post(); 
                         
                         // ACF Fields
-                        $document_file = get_field('document'); // Returns an array with URL and other data
+                        $document_file = get_field('document');
+                        $document_category = get_field('document_category'); // Returns an array with URL and other data
                         $document_description = get_field('document_description');
-
+                        if ($document_category === 'Statutory') {
                         if ($document_file) :
                             // Get the file URL, file size, and file type (mime type)
                             $file_url = $document_file['url'];
