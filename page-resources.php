@@ -77,7 +77,7 @@ $current_language = get_locale();
             </div>
         </div>
 
-        <div  class="main-content">
+        <div  id="skip-to-content" class="main-content">
             <section class="page-title">
           <div>
             <?php echo '<p class="page-header-text">' . esc_html($post->post_title) . '</p>';?>
