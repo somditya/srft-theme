@@ -39,7 +39,7 @@ $title=get_the_title($post_id);
           </ul>
         </div>
         <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
-                <?php 
+        <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
                 } else {
@@ -64,9 +64,10 @@ $title=get_the_title($post_id);
                         $download_post->the_post(); 
                         
                         // ACF Fields
-                        $document_file = get_field('document'); // Returns an array with URL and other data
+                        $document_file = get_field('document');
+                        $document_category = get_field('document-category'); // Returns an array with URL and other data
                         $document_description = get_field('document_description');
-
+                        if ($document_category === 'Prospectus') {
                         if ($document_file) :
                             // Get the file URL, file size, and file type (mime type)
                             $file_url = $document_file['url'];
@@ -86,14 +87,14 @@ $title=get_the_title($post_id);
                             </li>
 
                         <?php endif; 
-                    }
+                    } }
                     echo '</ul>';
                 } else {
                     echo __('No posts found in the specified category.', 'srft-theme');
                 }
 
                 wp_reset_postdata(); // Reset after custom query
-                ?>
+                ?>   
             </div>
         </div>
 
