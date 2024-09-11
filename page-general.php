@@ -22,8 +22,9 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
                 </div>
             </section>
         </section>
+
         <section>
-         
+         <?php echo $page_content; ?> 
         </section>
         </div>
     </main>
