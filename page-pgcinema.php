@@ -22,8 +22,11 @@ $title=get_the_title($post_id);
 
       <section id="skip-to-content"class="cine-detail">
         <div class="leftnav">
+          
         <div class="childnavs">
+       
     <ul class="childnav-lists">
+    <h4> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
         <?php
         $current_language = get_locale(); // Get the current language/locale.
 
