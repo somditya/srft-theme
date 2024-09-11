@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Genearl
+Template Name: General
 */
 get_header(); 
 

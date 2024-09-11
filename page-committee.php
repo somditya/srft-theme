@@ -63,7 +63,7 @@ $current_language = get_locale();
                 </ul>
             </div>
 
-            <div class="widget" style="line-height: 1.5; margin-top: 2.5rem;">
+            <!--<div class="widget" style="line-height: 1.5; margin-top: 2.5rem;">
                 <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'download-en'; 
@@ -95,7 +95,7 @@ $current_language = get_locale();
                     <li><a href="<?php echo get_post_meta(get_the_ID(), 'RL', true); ?>"><?php echo __('Rules & Regulation', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
                     <li><a href="<?php echo get_post_meta(get_the_ID(), 'RR', true); ?>"><?php echo __('Recruitment Rule', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
                 </ul>   
-            </div>
+            </div>-->
         </div>
 
         <div class="main-content">

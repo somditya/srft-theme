@@ -62,37 +62,63 @@ $current_language = get_locale();
                 </ul>
             </div>
 
-            <div class="widget" style="line-height: 1.5; margin-top: 2.5rem;">
+            <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
                 <?php 
                 if ($current_language === 'en_US') {
-                    $catslug = 'download-en'; 
+                    $catslug = 'document-en'; 
                 } else {
-                    $catslug = 'download-hi';
+                    $catslug = 'document-hi';
                 }
+
                 $download_post = new WP_Query(array(
-                    'category_name' => $catslug, // Replace with your custom category name
-                    'posts_per_page' => 1,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
+                    'post_type' => 'document',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'category',
+                            'field'    => 'slug',
+                            'terms'    => $catslug,
+                        ),
+                    ),
+                    'posts_per_page' => -1,       
                 ));
 
                 if ($download_post->have_posts()) {
+                    echo '<ul style="list-style-type: none">';
                     while ($download_post->have_posts()) {
-                        $download_post->the_post();
-                    }
-                } else {
-                    echo 'No posts found in the specified category.';
-                }
-                ?>
+                        $download_post->the_post(); 
+                        
+                        // ACF Fields
+                        $document_file = get_field('document');
+                        $document_category = get_field('document-category'); // Returns an array with URL and other data
+                        $document_description = get_field('document_description');
+                        if ($document_category === 'Statutory') {
+                        if ($document_file) :
+                            // Get the file URL, file size, and file type (mime type)
+                            $file_url = $document_file['url'];
+                            $file_id = $document_file['ID'];
+                            $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
+                            $file_type_info = wp_check_filetype($file_url);
+                            $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+                            $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown'; // Convert file size to MB with 2 decimal points
+                            ?>
 
-                <ul style="list-style-type: none;">
-                    <li><a href="<?php echo esc_html(get_post_meta(get_the_ID(), 'MOA', true)); ?>"><?php echo __('Memorandum of Association', 'srft-theme'); ?> <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li> 
-                    <li><a href="<?php echo get_post_meta(get_the_ID(), 'ABL', true); ?>"><?php echo __('Academic Bye-Laws', 'srft-theme'); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
-                    <li><a href="<?php echo get_post_meta(get_the_ID(), 'FBL', true); ?>"><?php echo __('Financial Bye-Laws', 'srft-theme'); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
-                    <li><a href="<?php echo get_post_meta(get_the_ID(), 'SBL', true); ?>"><?php echo __('Service By-laws', 'srft-theme'); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
-                    <li><a href="<?php echo get_post_meta(get_the_ID(), 'RL', true); ?>"><?php echo __('Rules & Regulation', 'srft-theme'); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
-                    <li><a href="<?php echo get_post_meta(get_the_ID(), 'RR', true); ?>"><?php echo __('Recruitment Rule', 'srft-theme'); ?> <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></a></li>
-                </ul>   
+                            <li>
+                                <a href="<?php echo esc_url($file_url); ?>">
+                                    <?php echo esc_html(get_the_title()); ?> 
+                                    (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" />
+                                </a>
+                            </li>
+
+                        <?php endif; 
+                    } }
+                    echo '</ul>';
+                } else {
+                    echo __('No posts found in the specified category.', 'srft-theme');
+                }
+
+                wp_reset_postdata(); // Reset after custom query
+                ?>
             </div>
         </div>
 
