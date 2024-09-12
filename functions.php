@@ -479,7 +479,7 @@ add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_scripts' );
  *
  * @return void
  */
-function twentytwentyone_block_editor_script() {
+ function twentytwentyone_block_editor_script() {
 
 	wp_enqueue_script( 'twentytwentyone-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
@@ -513,6 +513,69 @@ function twenty_twenty_one_skip_link_focus_fix() {
 		<?php
 	}
 }
+
+/* This function outputs the url and the size of ACF filed document */
+
+function display_selected_documents($atts) {
+	$atts = shortcode_atts(
+			array(
+					'id' => '', // Post ID
+			), 
+			$atts
+	);
+
+	$post_id = intval($atts['id']); // Ensure it's an integer
+
+	// Debugging: Output the post ID and existence
+	if (!$post_id) {
+			return '<p>Invalid post ID.</p>';
+	}
+
+	$post = get_post($post_id);
+	if (!$post) {
+			return '<p>No document found.</p>';
+	}
+
+	// Fetch ACF fields
+	$document_file = get_field('document', $post_id);
+	$document_description = get_field('document-description', $post_id);
+
+	// Check if the required field is set
+	if (!$document_file) {
+			return '<p>No document file found.</p>';
+	}
+
+	// Get file URL, ID, and size
+	$file_url = $document_file['url'];
+	$file_id = $document_file['ID'];
+	$file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
+
+	// Convert file size to MB if not already defined
+	if (!function_exists('convertFileSizeToMB')) {
+			function convertFileSizeToMB($bytes) {
+					return ($bytes !== false) ? number_format($bytes / 1048576, 2) . ' MB' : 'Unknown';
+			}
+	}
+
+	$file_size_mb = convertFileSizeToMB($file_size);
+	$file_type_info = wp_check_filetype($file_url);
+	$file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+
+	// Generate the output
+	ob_start();
+	?>
+	<div>
+			<strong><?php echo esc_html(get_the_title($post_id)); ?></strong><br>
+			<a href="<?php echo esc_url($file_url); ?>" target="_blank">
+					Download Document (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+			</a>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+// Register the shortcode
+add_shortcode('selected_document', 'display_selected_documents');
 
 
 
