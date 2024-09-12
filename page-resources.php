@@ -86,8 +86,9 @@ $current_language = get_locale();
   </section>
 
             <section style="margin-bottom: 4rem;">
-                <div><?php echo wp_kses_post($post->post_content); ?></div>   
-            </section>
+    <div><?php echo do_shortcode(wp_kses_post($post->post_content)); ?></div>   
+</section>
+
         </div>
     </section>
 </main>

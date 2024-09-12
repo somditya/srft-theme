@@ -517,6 +517,9 @@ function twenty_twenty_one_skip_link_focus_fix() {
 /* This function outputs the url and the size of ACF filed document */
 
 function display_selected_documents($atts) {
+	// Remove wpautop filter to prevent auto <br> insertion
+	remove_filter('the_content', 'wpautop');
+	
 	$atts = shortcode_atts(
 			array(
 					'id' => '', // Post ID
@@ -526,7 +529,6 @@ function display_selected_documents($atts) {
 
 	$post_id = intval($atts['id']); // Ensure it's an integer
 
-	// Debugging: Output the post ID and existence
 	if (!$post_id) {
 			return '<p>Invalid post ID.</p>';
 	}
@@ -540,7 +542,6 @@ function display_selected_documents($atts) {
 	$document_file = get_field('document', $post_id);
 	$document_description = get_field('document-description', $post_id);
 
-	// Check if the required field is set
 	if (!$document_file) {
 			return '<p>No document file found.</p>';
 	}
@@ -550,7 +551,6 @@ function display_selected_documents($atts) {
 	$file_id = $document_file['ID'];
 	$file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
 
-	// Convert file size to MB if not already defined
 	if (!function_exists('convertFileSizeToMB')) {
 			function convertFileSizeToMB($bytes) {
 					return ($bytes !== false) ? number_format($bytes / 1048576, 2) . ' MB' : 'Unknown';
@@ -564,18 +564,19 @@ function display_selected_documents($atts) {
 	// Generate the output
 	ob_start();
 	?>
-	<div>
-			<strong><?php echo esc_html(get_the_title($post_id)); ?></strong><br>
-			<a href="<?php echo esc_url($file_url); ?>" target="_blank">
-					Download Document (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
-			</a>
-	</div>
-	<?php
-	return ob_get_clean();
+	<a href="<?php echo esc_url($file_url); ?>" target="_blank" style="text-decoration: none; "><?php echo esc_html(get_the_title($post_id)); ?> (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="display: inline-block; vertical-align: middle;"></a><?php
+	$output = ob_get_clean();
+	
+	// Reapply wpautop filter to avoid affecting other content
+	add_filter('the_content', 'wpautop');
+
+	return $output;
 }
 
 // Register the shortcode
 add_shortcode('selected_document', 'display_selected_documents');
+
+
 
 
 
