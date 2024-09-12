@@ -43,18 +43,18 @@ $category_id = get_category_ID($category_name);
             <label for="filter"><?php echo __('Programmes:', 'srft-theme' ); ?></label>
             <select class="filter" ng-model="filterField">
                 <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
-                <option value="Animation Cinema"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
-                <option value="Cinematography"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
-                <option value="Direction & Screenplay Writing"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
-                <option value="Editing"><?php echo __('Editing', 'srft-theme' ); ?></option>
-                <option value="Producing for Film & Television"><?php echo __('Producing for Film & Television', 'srft-theme' ); ?></option>
-                <option value="Sound Recording & Design"><?php echo __('Sound Recording & Design', 'srft-theme' ); ?></option>
-                <option value="EDM Management"><?php echo __('EDM Management', 'srft-theme' ); ?></option>
-                <option value="Cinematography for EDM"><?php echo __('Cinematography for EDM', 'srft-theme' ); ?></option>
-                <option value="Direction & Producing for EDM"><?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?></option>
-                <option value="Editing for EDM"><?php echo __('Editing for EDM', 'srft-theme' ); ?></option>
-                <option value="Sound for EDM"><?php echo __('Sound for EDM', 'srft-theme' ); ?></option>
-                <option value="Writing for EDM"><?php echo __('Writing for EDM', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Animation Cinema', 'srft-theme' ); ?>"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Cinematography', 'srft-theme' ); ?>"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?>"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Editing', 'srft-theme' ); ?>"><?php echo __('Editing', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Producing for Film & Television', 'srft-theme' ); ?>"><?php echo __('Producing for Film & Television', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Sound Recording & Design', 'srft-theme' ); ?>"><?php echo __('Sound Recording & Design', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('EDM Management', 'srft-theme' ); ?>"><?php echo __('EDM Management', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Cinematography for EDM', 'srft-theme' ); ?>"><?php echo __('Cinematography for EDM', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?>"><?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Editing for EDM', 'srft-theme' ); ?>"><?php echo __('Editing for EDM', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Sound for EDM', 'srft-theme' ); ?>"><?php echo __('Sound for EDM', 'srft-theme' ); ?></option>
+                <option value="<?php echo __('Writing for EDM', 'srft-theme' ); ?>"><?php echo __('Writing for EDM', 'srft-theme' ); ?></option>
             </select>
         
             <ul class="alphabet">
