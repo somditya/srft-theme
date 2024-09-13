@@ -1,6 +1,7 @@
 <?php
 /*
 Template Name: General
+Template Post Type: post
 */
 get_header(); 
 

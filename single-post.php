@@ -36,6 +36,7 @@ $post_content = apply_filters('the_content', $post->post_content);
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid #d6d6ce;"><?php echo get_the_title($post_id);?></h1>   
+
 <?php echo $post_content; ?>
 </div>
 

@@ -187,12 +187,10 @@ $current_language = get_locale();
                 <li>
                   <input type="checkbox" checked>
                   <i></i>
-                  <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>
+                  <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
                   <p>
-                    <tbody>
-                      <th>Name</th>
-                      <th>Tenure</th>
-                    </tbody> </p>
+                <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
+                  </p> 
                   </table>
                 </li>
               </ul>
