@@ -390,7 +390,6 @@ $current_language = get_locale();
               <li class="nav-link" style="--i: 1.35s">
                 <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
                 else  { echo esc_url(site_url('/screening-room/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
-               
               
               </li>
              
