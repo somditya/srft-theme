@@ -44,8 +44,16 @@ function get_menu_structure($menu_location) {
 }
 
 // Get the menu structures for both primary and footer menus
+$locale = get_locale(); // You can also set $locale manually if
+if ($locale === 'hi_IN') { // Define menu name based on language.
+$primary_menu_structure = get_menu_structure('primary_hindi');
+$footer_menu_structure = get_menu_structure('footer_hindi');
+}
+else 
+{
 $primary_menu_structure = get_menu_structure('primary');
-$footer_menu_structure = get_menu_structure('footer');
+$footer_menu_structure = get_menu_structure('footer')
+}
 ?>
 
 <div class="sitemap-container">

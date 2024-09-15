@@ -1,3 +1,7 @@
+<?php 
+
+$current_language = get_locale();
+?>
 <div class="footer_container">
   <div class="footer_inner_container">
     <div class="footer_sub">
@@ -21,46 +25,46 @@
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Admission', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/library/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Library', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+       <!-- <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Convocation', 'srft-theme'); ?></li>
         <li>><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-                    ?>"><?php echo __('Clapstick', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+                    ?>"><?php echo __('Clapstick', 'srft-theme'); ?></li>-->
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/citizen-charter/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
-        <li><?php echo __('Gallery', 'srft-theme'); ?></li>
+        <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
         <li><?php echo __('Holiday List', 'srft-theme'); ?></li>
       </ul>
     </div>
     <div class="footer_sub">
       <h3><?php echo __('Useful Links', 'srfti-theme'); ?></h3>
       <ul>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
+                    else  { echo esc_url(site_url('/site-map/'));}
                     ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
+                    else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
                     ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/frequently-asked-question/'));}
+                    else  { echo esc_url(site_url('/अक्सर-पूछे-जाने-वाले-प्रश/'));}
                     ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/help/'));}
+                    else  { echo esc_url(site_url('/सहयत/'));}
                     ?>"><?php echo __('Help', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/website-policies/'));}
+                    else  { echo esc_url(site_url('/वेबसाइट-नीतियाँ/'));}
                     ?>"><?php echo __('Website Policy', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
@@ -74,14 +78,14 @@
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->
-        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
-        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" target="_blank" role="link" aria-label="<?php echo __('Visit youtube channel of SRFTI', 'srft-theme'); ?>"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
+        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" target="_blank" role="link" aria-label="<?php echo __('Visit youtube channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
       </ul>
     </div>
     <div class="footer_sub">
-      <a href="javascript:void(0);" id="backToTop" class="back-to-top"></a>
+      <a href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
     </div>
   </div>
 </div>
