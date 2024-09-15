@@ -400,7 +400,7 @@ $current_language = get_locale();
                   <ul>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
-                      else  { echo esc_url(site_url('/screening-room/'));} ?>"><?php echo __('Vacancy', 'srft-theme' ); ?></a>
+                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Vacancy', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
@@ -418,7 +418,7 @@ if ($current_language === 'en_US') {
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter//'));} else
-                       { echo esc_url(site_url('/screening-room/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
                     <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>
