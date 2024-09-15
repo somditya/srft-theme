@@ -52,7 +52,7 @@ $current_language = get_locale();
       <h3><?php echo __('Useful Links', 'srfti-theme'); ?></h3>
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
-                    else  { echo esc_url(site_url('/site-map/'));}
+                    else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
                     ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
                     else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
