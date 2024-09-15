@@ -28,18 +28,7 @@ foreach ($categories as $category) {
 <div data-scroll-container>
 <div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
 
-<h1 style="
-    font-size: 5.375rem;
-    font-weight: 600;
-    margin: 0 0 2rem;
-    letter-spacing: -.0875rem;
-    line-height: 1.1rem;
-    color: #8b5b2b;
-    margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-bottom: 2.75rem; /* Adjusted padding-bottom */
-    border-bottom: 2px solid #d6d6ce;
-    width: 100%;
-">
+<h1 class="posttitle">
         <?php echo get_the_title($post_id); ?>
     </h1>
 

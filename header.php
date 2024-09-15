@@ -201,7 +201,7 @@ $current_language = get_locale();
     <?php endif; ?></li>
              <li class="hide-on-mobile"><a href="#skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
-             <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty options', 'srft-theme' ); ?>>
+             <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty tool', 'srft-theme' ); ?>>
     <i class="fas fa-universal-access"></i>
 </button></li>&nbsp; &nbsp;
 <div class="search-container"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
@@ -324,7 +324,7 @@ $current_language = get_locale();
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
-                      else { echo esc_url(site_url('/संकाय/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
+                      else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
                     <div class="arrow"></div>
                   </ul>
@@ -336,7 +336,7 @@ $current_language = get_locale();
                   <ul>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
-                      else { echo esc_url(site_url('/संकाय/'));}
+                      else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
                       ?>"><?php echo __('Post graduate programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">

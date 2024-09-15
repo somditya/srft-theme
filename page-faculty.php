@@ -57,7 +57,7 @@ $category_id = get_category_ID($category_name);
                 <option value="<?php echo __('Writing for EDM', 'srft-theme' ); ?>"><?php echo __('Writing for EDM', 'srft-theme' ); ?></option>
             </select>
         
-            <ul class="alphabet">
+            <!--<ul class="alphabet">
               <li ng-class="{ 'active': !currentLetter }" ng-click="filterByLetter('')">
                 <a href="" ng-class="{ 'all-option': true }">All</a>
             </li>
@@ -65,7 +65,7 @@ $category_id = get_category_ID($category_name);
                   <a href="">{{ letter }}</a>
               </li>
               
-          </ul>
+          </ul>-->
       
             <!-- Faculty grid using Flexbox -->
             <div class="faculty-grid">
@@ -104,6 +104,17 @@ $category_id = get_category_ID($category_name);
         <script>
              var categoryID = <?php echo json_encode($category_id); ?>;
              var siteURL = '<?php echo esc_url(site_url('/')); ?>';
+             
+              var language = '<?php echo $current_language; ?>';
+              var alphabet;
+
+              if (language === 'en_US') {
+                alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+              } else if (language === 'hi_IN') {
+                alphabet = 'अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह'.split('');
+              } else {
+              alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''); // Fallback to English
+              } 
              
     angular.module('myApp', [])
 .controller('FacultyController', function($scope, $http) {
@@ -182,9 +193,6 @@ $category_id = get_category_ID($category_name);
     return departmentMatch && letterMatch;
 };
 
-
-
-
     // Initialize $scope.filteredFaculty as an empty array
     $scope.filteredFaculty = [];
 
@@ -204,7 +212,7 @@ $category_id = get_category_ID($category_name);
     };
 
     // Alphabet links data
-    $scope.alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
+    //$scope.alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
 
     // Function to filter faculty by starting letter
     $scope.filterByLetter = function(letter) {

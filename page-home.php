@@ -7,6 +7,7 @@ Template Name: Home
  get_header();
  $excerpt = get_the_excerpt();  
  $current_language = get_locale();
+
 ?>
 
 
