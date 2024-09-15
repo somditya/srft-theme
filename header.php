@@ -414,7 +414,7 @@ if ($current_language === 'en_US') {
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
-                      else  { echo esc_url(site_url('/screening-room/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
+                      else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter//'));} else
