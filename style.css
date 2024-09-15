@@ -1329,67 +1329,38 @@ div .spacer {
   margin-bottom: var(--size);
   place-items: start center;
   gap: 5px;
-
-  &:has(:hover) img:not(:hover),
-  &:has(:focus) img:not(:focus) {
-    filter: brightness(0.5) contrast(0.5);
-  }
-
-  & img {
-    object-fit: cover;
-    width: calc(var(--size) * 2);
-    .grid-gallery {
-      --size: 50px;
-      grid-template-columns: repeat(3, var(--size));
-      grid-auto-rows: var(--size);
-      margin-bottom: var(--size);
-      gap: 5px;
-
-      & img {
-        width: calc(var(--size) * 1.5);
-        height: calc(var(--size) * 1.5);
-        grid-column: auto / span 1;
-
-        &:nth-child(3n - 1) {
-          grid-column: 1 / span 1;
-        }
-
-        &:hover,
-        &:focus {
-          clip-path: path(
-            "M0,0 C0,0 100,0 100,0 100,0 100,100 100,100 100,100 100,100 100,100 100,100 0,100 0,100 0,0 0,0 0,0 0,0Z"
-          );
-          transition: clip-path 0.25s, filter 0.25s;
-        }
-      }
-    }
-    height: calc(var(--size) * 2);
-    clip-path: path(
-      "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-    );
-    transition: clip-path 0.25s, filter 0.75s;
-    grid-column: auto / span 2;
-    border-radius: 5px;
-
-    &:nth-child(5n - 1) {
-      grid-column: 2 / span 2;
-    }
-
-    &:hover,
-    &:focus {
-      clip-path: path(
-        "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
-      );
-      z-index: 1;
-      transition: clip-path 0.25s, filter 0.25s;
-    }
-
-    &:focus {
-      outline: 1px dashed black;
-      outline-offset: -5px;
-    }
-  }
 }
+
+.grid-gallery img {
+  object-fit: cover;
+  width: calc(var(--size) * 2);
+  height: calc(var(--size) * 2);
+  clip-path: path(
+    "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
+  );
+  transition: clip-path 0.25s, filter 0.75s;
+  grid-column: auto / span 2;
+  border-radius: 5px;
+}
+
+.grid-gallery img:nth-child(5n - 1) {
+  grid-column: 2 / span 2;
+}
+
+.grid-gallery img:hover,
+.grid-gallery img:focus {
+  clip-path: path(
+    "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
+  );
+  z-index: 1;
+  transition: clip-path 0.25s, filter 0.25s;
+}
+
+.grid-gallery img:focus {
+  outline: 1px dashed black;
+  outline-offset: -5px;
+}
+
 
 /* HEADER*/
 
@@ -7765,6 +7736,21 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
   .top_header li {
     font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensure images take full width */
+    grid-auto-rows: 1fr; /* Ensures square aspect ratio */
+    gap: 5px;
+  }
+
+  .grid-gallery img {
+    width: 100%; /* Images take up full width of their grid cell */
+    height: auto; /* Allow height to adjust proportionally */
+    aspect-ratio: 1 / 1; /* Forces images to stay square */
+    clip-path: none; /* Remove custom clip-path for simplicity */
+    border-radius: 0; /* Optional: remove border-radius for square corners */
   }
 
   .box-container {

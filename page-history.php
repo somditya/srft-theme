@@ -88,7 +88,7 @@ $page_content = apply_filters('the_content', $post->post_content);
           </section>
 
           <div>
-              <p class="page-header-text"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
+              <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme' ); ?></p>
             </div>
         <!--<scction class="one-flex" >
         <div class="container">
@@ -113,26 +113,26 @@ $page_content = apply_filters('the_content', $post->post_content);
         </scction>-->
 <div class="container">
   <div class="grid-gallery">
-  <img src="<?php bloginfo('template_url'); ?>/images/foundation-01.jpg" target="_blanK" class="single-image" />
-		<img src="<?php bloginfo('template_url'); ?>/images/foundation-02.jpg" target="_blanK" class="single-image" />	
-		<img src="<?php bloginfo('template_url'); ?>/images/foundation-03.jpg" target="_blanK" class="single-image" />
-		<img src="<?php bloginfo('template_url'); ?>/images/foundation-04.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-05.jpg" target="_blanK" class="single-image" />
-		<img src="<?php bloginfo('template_url'); ?>/images/foundation-06.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-07.jpg" target="_blanK" class="single-image" />
-		<img src="<?php bloginfo('template_url'); ?>/images/foundation-08.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-09.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-10.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-11.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-12.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-13.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-17.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-15.jpg" target="_blanK" class="single-image" />
-    <img src="<?php bloginfo('template_url'); ?>/images/foundation-16.jpg" target="_blanK" class="single-image" />
+  <img src="<?php bloginfo('template_url'); ?>/images/foundation-01.jpg" alt="Picture 1 of construction of SRFTI" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-02.jpg" alt="Picture 2 of construction of SRFTI" target="_blanK" class="single-image" />	
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-03.jpg" alt="Picture 3 of construction of SRFTI" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-04.jpg" alt="Picture 4 of construction of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-05.jpg" alt="Picture 5 of construction of SRFTI" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-06.jpg" alt="Picture 6 of construction of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-07.jpg" alt="Picture 7 of construction of SRFTI" target="_blanK" class="single-image" />
+		<img src="<?php bloginfo('template_url'); ?>/images/foundation-08.jpg" alt="Picture 8 of construction of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-09.jpg" alt="Picture 9 of construction of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-10.jpg" alt="Picture of 1st GC Meeting of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-11.jpg" alt="Picture of Buddhadeb Dasgupta visiting SRFTI construction site" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-12.jpg" alt="Picture of 1st GC Meeting of SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-13.JPG" alt="Picture Adoor Gopalakrishnan visiting SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-17.jpg" alt="Picture Shakti Samanta inaugurating Clapstick 2004" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-15.jpg" alt="Picture Said Mirza & Mrinal Sen in SRFTI" target="_blanK" class="single-image" />
+    <img src="<?php bloginfo('template_url'); ?>/images/foundation-16.jpg" alt="Picture Basu Chatterjee & Shaji N Karun in SRFTI" target="_blanK" class="single-image" />
     
   </div>
 </div>
-        <div><p class="page-header-text"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>
+        <div><p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Explore Our Story', 'srft-theme' ); ?></p></div>
         <scction class="one-flex" style="margin: 10px;" >
           <video autoplay="false" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true" playsinline="true" poster="#" width="100%">
             <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">
