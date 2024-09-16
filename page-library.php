@@ -69,7 +69,14 @@ $current_language = get_locale();
     </ul>
 </div>
         
-        <!--<div class="widget" style="line-height: 1.5">
+     <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
+        <ul class="childnav-lists">
+            <ul class="submenu">
+          <li class="childnav-list-item"><a class="item" href="http://192.168.1.231:8000/" target="_blank" role="link" title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank" role="link" title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
+        </ul>
+        </ul>       <!--<div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
           <li><?php echo __('Memorandum of Association', 'srft-theme' ); ?>  <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
           <li><?php echo __('Academic Bye-Laws ', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
