@@ -340,7 +340,7 @@ $current_language = get_locale();
                       ?>"><?php echo __('Post graduate programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/short-prorammes/')); } else  { echo esc_url(site_url('/screening-room/'));}?>"><?php echo __('Short programmes', 'srft-theme' ); ?></a>
+                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Post graduate programmes in FTI AR', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
