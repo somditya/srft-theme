@@ -115,5 +115,4 @@ $current_language = get_locale();
  
     <?php
 //get_footer(); 
-get_template_part('footer-html');
 ?>
