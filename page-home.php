@@ -707,10 +707,25 @@ Template Name: Home
 <div class="cell">
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
+    if ($current_language === 'en_US') {
+      $catslug='annoucement-en'; 
+     }
+      else
+      {
+        $catslug='announcement-hi';
+      }
     $category_posts = new WP_Query(array(
-        'category_name' => 'announcement-en', // Replace with your category slug
-        'posts_per_page' => 5,
-    ));
+      'post_type' => 'tender',
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'category',
+              'field'    => 'slug',
+              'terms'    => $catslug,
+          ),
+      ),
+      'posts_per_page' => 5,
+  ));
+
 
     if ($category_posts->have_posts()) :
         while ($category_posts->have_posts()) : $category_posts->the_post();
