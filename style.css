@@ -4125,6 +4125,8 @@ body {
   flex-direction: column;
 }
 
+
+
 @keyframes slideright {
   from {
     margin-left: 0%;
@@ -6197,6 +6199,17 @@ header {
   font-size: 1.6rem;
   line-height: 1.8;
   padding-top: 3.2rem;
+  flex-direction: column;
+}
+
+.main-content-col1 {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  padding-top: 3.2rem;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
   flex-direction: column;
 }
 

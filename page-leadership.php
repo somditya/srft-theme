@@ -170,7 +170,9 @@ $current_language = get_locale();
               <input type="checkbox" checked>
               <i></i>
               <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
-              
+              <p>
+                <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>
+            </p>
             </li>
           </ul>
             <ul>

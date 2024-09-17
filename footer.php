@@ -26,17 +26,14 @@ $current_language = get_locale();
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Admission', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/library/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    else  { echo esc_url(site_url('/पुस्तकालय/'));}
                     ?>"><?php echo __('Library', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    else  { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme'); ?></li>
-       <!-- <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-                    ?>"><?php echo __('Convocation', 'srft-theme'); ?></li>
-        <li>><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-                    ?>"><?php echo __('Clapstick', 'srft-theme'); ?></li>-->
+        <li> <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/itec-programme/'));}
+                    else  { echo esc_url(site_url('/भारतीय-तकनीकी-और-आर्थिक-स-2/'));}
+                    ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
                     ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>

@@ -11,84 +11,27 @@ $current_language = get_locale();
 ?>
 
 <main>
-      <body>
-      <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+
+  <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></div>
-      </section>
-
-      <section class="cine-detail">
-      <div class="leftnav">
-      <div class="childnavs">
-    <ul class="childnav-lists">
-        <?php
-        $current_language = get_locale(); // Get the current language/locale.
-
-        $menu_name = ($current_language === 'hi_IN') ? 'hindi_shortadmission_menu' : 'english_shortadmission_menu'; // Define menu name based on language.
-
-        // Get the current page title
-        $current_page_title = get_the_title();
-
-        // Define a custom menu walker to modify the menu output.
-        class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-            public function start_lvl(&$output, $depth = 0, $args = null) {
-                // Customize the submenu opening tag as needed.
-                $output .= '<ul class="submenu">';
-            }
-
-            public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                // Check if the current page title matches the menu item title.
-                $is_current = ($item->title === $GLOBALS['current_page_title']) ? 'active' : '';
-
-                // Customize the menu item HTML structure as needed.
-                $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-            }
-
-            public function end_el(&$output, $item, $depth = 0, $args = null) {
-                // Close the menu item tag.
-                $output .= '</li>';
-            }
-
-            public function end_lvl(&$output, $depth = 0, $args = null) {
-                // Customize the submenu closing tag as needed.
-                $output .= '</ul>';
-            }
-        }
-
-        // Display the menu based on the language and custom walker.
-        wp_nav_menu(array(
-            'menu' => $menu_name,
-            'container' => false, // No container element.
-            'menu_class' => 'childnav-lists', // You can customize this class as needed.
-            'walker' => new Custom_Walker_Nav_Menu(),
-        ));
-        ?>
-    </ul>
-</div>
-      </div>
-
-
-        
-  <div class="main-content">
-  <div><?php if(function_exists('bcn_display'))
-{
-bcn_display();
-}?></div>
-        <section class="page-title">
-          <div>
-            <p class="page-header-text"><?php the_title(); ?></p>
-          </div>
-        </section>
-        
-        <section style="margin-bottom: 4rem;">
-        <div>
-        <?php the_content(); ?>
+            <div class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></div>
         </div>
-        </section>
+  </section>
 
-  </div>
-        </main>
-  <?php 
+  <section class="cine-detail" style="flex-direction: column; margin-top: 32px; margin-left: 32px; margin-right: 32px;">
+        <section class="page-title">
+            <div>
+                <p class="page-header-text" style="margin-left: 32px;"><?php the_title(); ?></p>
+            </div>
+        </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="main-content-col1">
+            <div><?php echo $page_content; ?></div>   
+            </div>
+        </section>
+  </section>
+</main>
+
+<?php 
 get_footer();
 ?>
