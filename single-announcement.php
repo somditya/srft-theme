@@ -25,7 +25,7 @@ $post_content = apply_filters('the_content', get_the_content());
             </p>
         </div> 
         <div style="grid-column: 2/5;">
-            <div class="c-photo">
+            <div style="text-align: center;">
                 <img src="<?php echo get_field('Announement-Image1'); ?>" class="img-responsive" />
             </div>
         </div>
