@@ -726,21 +726,21 @@ Template Name: Home
       'posts_per_page' => 5,
   ));
 
-
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
+  if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
         $post_link = get_permalink();
-    ?>
-    <h3><a href="<?php echo esc_url($post_link); ?>" role="link"><?php the_title(); ?></a>
-    </h3>
-    <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
-  <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/announcement-list/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
+?>
+        <h3>
+            <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
+        </h3>
+        <?php
+    endwhile;
+    wp_reset_postdata(); // Reset the post data
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
+<div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
 <div class="cell">
