@@ -715,7 +715,7 @@ Template Name: Home
         $catslug='announcement-hi';
       }
     $category_posts = new WP_Query(array(
-      'post_type' => 'tender',
+      'post_type' => 'announcement',
       'tax_query' => array(
           array(
               'taxonomy' => 'category',
