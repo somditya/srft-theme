@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: News
+ * Template Name: Announcement
  * Template Post Type: post
  */
 get_header();
@@ -15,7 +15,7 @@ $post_content = apply_filters('the_content', get_the_content());
     <article class="narticle">
         <div role="article" style="grid-column: 3; margin:0">
             <a href="#" alt="News" class="c-headline__topic t-heading--topic">
-                <label><?php echo __('News', 'srft-theme'); ?></label>
+                <label><?php echo __('Announcement', 'srft-theme'); ?></label>
             </a>
             <h1 class="nheadline">
                 <?php echo get_the_title($post_id); ?>
@@ -26,7 +26,7 @@ $post_content = apply_filters('the_content', get_the_content());
         </div> 
         <div style="grid-column: 2/5;">
             <div style="text-align: center;">
-                <img src="<?php echo get_field('News-Image'); ?>" class="img-responsive" />
+                <img src="<?php echo get_field('Announement-Image1'); ?>" class="img-responsive" />
             </div>
         </div>
         <div style="border-top: 3px solid #000; grid-column: 3/4; margin: 0; padding: 0; text-align: center;">
@@ -35,7 +35,7 @@ $post_content = apply_filters('the_content', get_the_content());
             </div>
             <div style="grid-column: 3/4; line-height: 28px; text-align: left;">
                 <div style="padding: 1rem; text-align: center;">
-                    <?php echo get_field('News-Text'); ?>
+                    <?php echo get_field('Announement-Text'); ?>
                 </div>
             </div>
         </div>

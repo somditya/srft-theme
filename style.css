@@ -2259,6 +2259,7 @@ div .spacer {
 }
 
 .narticle { 
+  text-align: center;
   display: grid;
   grid-gap: 1.875rem;
   grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;
@@ -2270,6 +2271,7 @@ div .spacer {
     letter-spacing: -.0875rem;line-height: 1.1;
     margin: 0;
     font-weight: 400;
+    text-align: center;
 }
 
 

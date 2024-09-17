@@ -707,25 +707,40 @@ Template Name: Home
 <div class="cell">
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
+    if ($current_language === 'en_US') {
+      $catslug='announcement-en'; 
+     }
+      else
+      {
+        $catslug='announcement-hi';
+      }
     $category_posts = new WP_Query(array(
-        'category_name' => 'announcement-en', // Replace with your category slug
-        'posts_per_page' => 5,
-    ));
+      'post_type' => 'announcement',
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'category',
+              'field'    => 'slug',
+              'terms'    => $catslug,
+          ),
+      ),
+      'posts_per_page' => 5,
+  ));
 
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
+  if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
         $post_link = get_permalink();
-    ?>
-    <h3><a href="<?php echo esc_url($post_link); ?>" role="link"><?php the_title(); ?></a>
-    </h3>
-    <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
-  <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/course-overview/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
+?>
+        <h3>
+            <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
+        </h3>
+        <?php
+    endwhile;
+    wp_reset_postdata(); // Reset the post data
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
+<div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
 <div class="cell">
