@@ -740,7 +740,7 @@ Template Name: Home
         echo '<p>No posts found in this category.</p>';
     endif;
     ?>
-  <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/course-overview/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
+  <div class="link-span"><a  href="<a  href="<?php echo esc_url(site_url('/announcement-list/')); ?>""><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
 <div class="cell">
