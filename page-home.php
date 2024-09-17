@@ -708,7 +708,7 @@ Template Name: Home
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
     if ($current_language === 'en_US') {
-      $catslug='annoucement-en'; 
+      $catslug='announcement-en'; 
      }
       else
       {
