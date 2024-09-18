@@ -35,10 +35,10 @@ $current_language = get_locale();
                     else  { echo esc_url(site_url('/भारतीय-तकनीकी-और-आर्थिक-स-2/'));}
                     ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));}
                     ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/citizen-charter/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
+                    else  { echo esc_url(site_url('/नगरक-अधकर-पतर//'));}
                     ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
@@ -46,17 +46,17 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Useful Links', 'srfti-theme'); ?></h3>
+      <h3><?php echo __('Useful Links', 'srft-theme'); ?></h3>
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
                     else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
                     ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
                     else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
-                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/frequently-asked-question/'));}
                     else  { echo esc_url(site_url('/अक्सर-पूछे-जाने-वाले-प्रश/'));}
-                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/help/'));}
                     else  { echo esc_url(site_url('/सहयत/'));}
                     ?>"><?php echo __('Help', 'srft-theme'); ?></li>
@@ -78,7 +78,7 @@ $current_language = get_locale();
         <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
         <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
         <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
-        <li><a href="https://youtube.com/channel/UCcyt3kW5zADnei6dDYyU98A/" target="_blank" role="link" aria-label="<?php echo __('Visit youtube channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-youtube footer_icon"></i></a></li>
+        <li><a href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" aria-label="<?php echo __('Visit vimeo channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-vimeo footer_icon"></i></a></li>
       </ul>
     </div>
     <div class="footer_sub">
