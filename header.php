@@ -199,7 +199,9 @@ $current_language = get_locale();
     </div>
     <!-- Accessibility Icon -->   
     <?php endif; ?></li>
-             <li class="hide-on-mobile"><a href="#skip-to-content"><?php echo __('Skip to main content', 'srft-theme' ); ?></a></li>
+             <li><a href="#skip-to-content"><span class="skp-to-main"><?php echo __('Skip to main content', 'srft-theme' ); ?></span>
+             <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
+            </li>
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
              <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty tool', 'srft-theme' ); ?>>
     <i class="fas fa-universal-access"></i>

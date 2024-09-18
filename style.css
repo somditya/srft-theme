@@ -1763,6 +1763,10 @@ div .spacer {
   height: 6rem;
 }*/
 
+.mobile-icon {
+  display: none; /* Shows the image icon on mobile */
+ 
+}
 .menu-btn {
   flex: 3;
   display: flex;
@@ -8001,6 +8005,20 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .hide-on-mobile {
     display: none;
   }
+
+  
+  .show-on-mobile {
+    display: block;
+  }
+  
+  
+  .mobile-icon {
+    display: inline-block; /* Shows the image icon on mobile */
+    width: 24px; /* Adjust width as needed */
+    margin-right: 10px; /* Adds padding around the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
 
   .show-on-mobile {
     display: block;
