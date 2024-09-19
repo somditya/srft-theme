@@ -211,13 +211,13 @@ Template Name: Home
         </a>
           </div>
 
-          <div class="course-highlight">
+          <!--<div class="course-highlight">
             <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>" role="link">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
             </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
           </a>
-            </div>
+            </div>-->
           
   </div>
 </section>
@@ -746,40 +746,48 @@ endif;
 <div class="cell">
     <span class="update-title" ><?php echo __('Tender', 'srft-theme' ); ?></span>
     <?php
-    if ($current_language === 'en_US') {
-      $catslug='tender'; 
-     }
-      else
-      {
-        $catslug='tender-hi';
-      }
-    $category_posts = new WP_Query(array(
-      'post_type' => 'tender',
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'category',
-              'field'    => 'slug',
-              'terms'    => $catslug,
-          ),
-      ),
-      'posts_per_page' => 5,
-  ));
+if ($current_language === 'en_US') {
+    $catslug = 'tender';
+} else {
+    $catslug = 'tender-hi';
+}
 
+$category_posts = new WP_Query(array(
+    'post_type' => 'tender',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => $catslug,
+        ),
+    ),
+    'posts_per_page' => 5,
+));
 
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-            $post_link = get_permalink();
-    ?>
-            <h3>
-                <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
-            </h3>
-            <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
+if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
+        // Retrieve the ACF field 'NIT-DOC' which returns an array
+        $nit_doc = get_field('Tender-Doc');
+        
+        if ($nit_doc && isset($nit_doc['url'])) {
+            // Use the 'url' key from the array
+            $link = esc_url($nit_doc['url']);
+        } else {
+            // Fallback to post permalink if NIT-DOC URL is not available
+            $link = get_permalink();
+        }
+?>
+        <h3>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
+        </h3>
+<?php
+    endwhile;
+    wp_reset_postdata(); // Reset the post data
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
+
     <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
@@ -806,20 +814,29 @@ endif;
       'posts_per_page' => 5,
   ));
 
-
-
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-        $post_link = get_permalink();
-    ?>
-    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
-    <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
+  if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
+        // Retrieve the ACF field 'NIT-DOC' which returns an array
+        $nit_doc = get_field('Vacancy-Doc');
+        
+        if ($nit_doc && isset($nit_doc['url'])) {
+            // Use the 'url' key from the array
+            $link = esc_url($nit_doc['url']);
+        } else {
+            // Fallback to post permalink if NIT-DOC URL is not available
+            $link = get_permalink();
+        }
+?>
+        <h3>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
+        </h3>
+<?php
+    endwhile;
+    wp_reset_postdata(); // Reset the post data
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
         <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
       </div>
       
