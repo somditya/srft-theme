@@ -7988,6 +7988,13 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 576px (Mobile) */
 /**************************/
 @media only screen and (max-width: 576px) {
+ 
+  .page-header-text {
+    font-size: 22px;
+  }
+  .item {
+    font-size: 1.2rem;
+}
 
   .section-intro-header-text {
     font-size: 24px; /* Adjusted font size for mobile */
@@ -8011,6 +8018,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: block;
   }
   
+  .skp-to-main {
+   
+    display: none;
+
+  }
   
   .mobile-icon {
     display: inline-block; /* Shows the image icon on mobile */

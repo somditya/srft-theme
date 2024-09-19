@@ -20,11 +20,7 @@ $bg_image_url = isset($_GET['bg_image']) ? $_GET['bg_image'] : '';
 // You can now echo or manipulate $post_content as needed.
 
 ?>
-<section class="cine-header" style="background-image: url('<?php echo esc_url($bg_image_url); ?>');">
-    <div class="page-banner">
-        <div class="page-banner-title" style="margin-top: 10px;"><?php echo __('Vacancy', 'srft-theme'); ?></div>
-    </div>
-</section>
+
 <div data-scroll-container>
 <section style="margin: 10rem; padding: 0 1.25rem; display: block;">
     <article style="display: grid; grid-gap: 1.875rem;
@@ -64,7 +60,7 @@ echo get_field('Tender-Publish-Date');
     <?php echo __('Tender ID:', 'srft-theme' ); ?>
 </div>
 <div>
-    <?php echo get_post_meta(get_the_ID(), 'Tender-ID', true); ?>
+<?php echo get_field('Tender-ID'); ?>
 </div>
 </div>
 <div style="grid-column: 2/3; ">
@@ -73,8 +69,7 @@ echo get_field('Tender-Publish-Date');
 </div>
 <div style="grid-column: 2/3; ">
     <div>
-    <!--<a href="<?php echo esc_url(get_post_meta(get_the_ID(), 'Tender-Doc', true)); ?>">Download</a>-->
-    <a href="<?php echo esc_url(get_field('Tender-Doc')); ?>">Download</a>
+    <?php echo __('Tender ID:', 'srft-theme' ); ?>
 </div>
 </div>
 </div>
@@ -85,13 +80,13 @@ echo get_field('Tender-Publish-Date');
     <div style="grid-column: 3/4;  
     
     line-height: 28px; text-align: left;">
-<?php echo get_field('Tender-Description'); ?>
+<?php echo __('Tender ID:', 'srft-theme' ); ?>
 </div>
 </div>
 
 <div style="grid-column: 4/5; ">
     <div>
-    <?php echo __('Submission Date:', 'srft-theme' ); ?>
+    <?php echo __('Tender ID:', 'srft-theme' ); ?>
 </div>
 <div>
     
@@ -132,8 +127,7 @@ echo get_field('Tender-Publish-Date');
 
 </div>
 
-</article>    
-<?php echo do_shortcode('[addtoany buttons]'); ?>   
+</article>       
 </section> 
   
 <?php get_footer(); ?>
