@@ -746,47 +746,6 @@ endif;
 <div class="cell">
     <span class="update-title" ><?php echo __('Tender', 'srft-theme' ); ?></span>
     <?php
-    if ($current_language === 'en_US') {
-      $catslug='tender'; 
-     }
-      else
-      {
-        $catslug='tender-hi';
-      }
-    $category_posts = new WP_Query(array(
-      'post_type' => 'tender',
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'category',
-              'field'    => 'slug',
-              'terms'    => $catslug,
-          ),
-      ),
-      'posts_per_page' => 5,
-  ));
-
-
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-            $post_link = get_permalink();
-    ?>
-            <h3>
-                <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
-            </h3>
-            <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
-    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
-</div>
-
-  
-<div class="cell">
-      <span class="update-title" ><?php echo __('Vacancy', 'srft-theme' ); ?></span>
-      <?php
 if ($current_language === 'en_US') {
     $catslug = 'tender';
 } else {
@@ -829,6 +788,55 @@ else :
 endif;
 ?>
 
+    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
+</div>
+
+  
+<div class="cell">
+      <span class="update-title" ><?php echo __('Vacancy', 'srft-theme' ); ?></span>
+      <?php
+       if ($current_language === 'en_US') {
+        $catslug='vacancy'; 
+       }
+        else
+        {
+          $catslug='vacancy-hi';
+        }
+    $category_posts = new WP_Query(array(
+      'post_type' => 'vacancy',
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'category',
+              'field'    => 'slug',
+              'terms'    => $catslug,
+          ),
+      ),
+      'posts_per_page' => 5,
+  ));
+
+  if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
+        // Retrieve the ACF field 'NIT-DOC' which returns an array
+        $nit_doc = get_field('Vacancy-Doc');
+        
+        if ($nit_doc && isset($nit_doc['url'])) {
+            // Use the 'url' key from the array
+            $link = esc_url($nit_doc['url']);
+        } else {
+            // Fallback to post permalink if NIT-DOC URL is not available
+            $link = get_permalink();
+        }
+?>
+        <h3>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?></a>
+        </h3>
+<?php
+    endwhile;
+    wp_reset_postdata(); // Reset the post data
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
         <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>
       </div>
       
