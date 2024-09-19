@@ -778,7 +778,7 @@ if ($category_posts->have_posts()) :
         }
 ?>
         <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?></a>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
         </h3>
 <?php
     endwhile;
@@ -828,7 +828,7 @@ endif;
         }
 ?>
         <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?></a>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
         </h3>
 <?php
     endwhile;
