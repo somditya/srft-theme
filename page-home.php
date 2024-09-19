@@ -211,13 +211,13 @@ Template Name: Home
         </a>
           </div>
 
-          <div class="course-highlight">
+          <!--<div class="course-highlight">
             <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>" role="link">
               <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
             </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
           </a>
-            </div>
+            </div>-->
           
   </div>
 </section>
