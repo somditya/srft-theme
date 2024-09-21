@@ -173,7 +173,7 @@ $current_language = get_locale();
       // Add aria-labels to navigation buttons after initialization
       $(".owl-prev").attr("aria-label", "Previous Slide");
       $(".owl-next").attr("aria-label", "Next Slide");
-    }
+    },
     dots: false,
   });
 
@@ -232,6 +232,11 @@ $current_language = get_locale();
     autoplayHoverPause: true,
     nav: true,
     navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
+    onInitialized: function() {
+      // Add aria-labels to navigation buttons after initialization
+      $(".owl-prev").attr("aria-label", "Previous Slide");
+      $(".owl-next").attr("aria-label", "Next Slide");
+    },
     dots: false,
   });
 </script>
