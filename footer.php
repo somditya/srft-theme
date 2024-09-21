@@ -50,19 +50,19 @@ $current_language = get_locale();
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
                     else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
-                    ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
+                    ?>" title="link to site map" role="link"><?php echo __('Sitemap', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
                     else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
-                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
+                    ?>" title="link to feedback" role="link"><?php echo __('Feedback', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/frequently-asked-question/'));}
                     else  { echo esc_url(site_url('/अक्सर-पूछे-जाने-वाले-प्रश/'));}
-                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
+                    ?>" title="link to faq" role="link"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/help/'));}
                     else  { echo esc_url(site_url('/सहयत/'));}
-                    ?>"><?php echo __('Help', 'srft-theme'); ?></li>
+                    ?>" role="link" title="link to help"><?php echo __('Help', 'srft-theme'); ?></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/website-policies/'));}
                     else  { echo esc_url(site_url('/वेबसाइट-नीतियाँ/'));}
-                    ?>"><?php echo __('Website Policy', 'srft-theme'); ?></li>
+                    ?>" role="link" title="link to website policy"><?php echo __('Website Policy', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
@@ -91,12 +91,12 @@ $current_language = get_locale();
 <div style="margin: 0;background: #fff;box-shadow: 0px -2px 7px 4px #eee;">
     <div class="branspacer">
         <ul class="brand-list">
-            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png"></a></li>
-            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png"></a></li>
-            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png"></a></li>
-            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png"></a></li>
-            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png"></a></li>
-            <li><a  href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" ></a></li>       
+            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); alt="india govt portal"?>/images/india_gov.png"></a></li>
+            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url' alt="digital india"); ?>/images/digital-india-flogo.png"></a></li>
+            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png" alt="my govin poral"></a></li>
+            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png" alt="mib portal"></a></li>
+            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png" alt="swachta portal"></a></li>
+            <li><a  href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" alt="eci portal"></a></li>       
           </ul>
     </div>
 </div>
