@@ -216,10 +216,10 @@ $current_language = get_locale();
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
         <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> class="increaseFont">
+        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> area-label="increase text" class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
-        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> class="decreaseFont">
+        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> area-label="decrease text" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
         <!--<button id="reset-text">
@@ -228,17 +228,17 @@ $current_language = get_locale();
     </div>
     <div class="color-adjustment">
         <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-        <button id="high-contrast">
+        <button id="high-contrast" area-label="high contrast">
             <i class="fas fa-adjust"></i>
         </button>
         <button id="dark-mode">
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-moon" area-label="low contrast"></i>
         </button>
     </div>
-    <div class="color-adjustment">
+    <!--<div class="color-adjustment">
         <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
         <?php echo __('Screen Reader', 'srft-theme' ); ?>
-    </div>
+    </div>-->
 </div>
 
        </div>
