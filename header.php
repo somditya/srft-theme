@@ -176,29 +176,7 @@ $current_language = get_locale();
              <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
              <li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
-             <li><a><i class="fa-solid fa-language" aria-hidden="true"></i><?php if (function_exists('pll_the_languages')) : ?></a></li>
-              <div id="language-switcher">
-             <?php
-              pll_the_languages(
-               array(
-                'show_flags' => 1,
-                'show_names' => 1,
-                'display_names_as' => 'name',
-                'hide_if_empty' => 0,
-                'force_home' => 0,
-                'hide_if_no_translation' => 0,
-                'echo' => 1,
-                'post_id' => null,
-                'raw' => 0,
-                'item_spacing' => 'preserve',
-                'dropdown' => 1, // Use a dropdown for multiple languages
-                'menu' => 'language-menu', // Set a unique CSS class for styling
-            )
-        );
-        ?> &nbsp;
-    </div>
-    <!-- Accessibility Icon -->   
-    <?php endif; ?></li>
+             
              <li><a href="#skip-to-content"><span class="skp-to-main"><?php echo __('Skip to main content', 'srft-theme' ); ?></span>
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
             </li>
@@ -216,10 +194,10 @@ $current_language = get_locale();
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
         <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> area-label="increase text" class="increaseFont">
+        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
-        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> area-label="decrease text" class="decreaseFont">
+        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="DEcrease Text Size" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
         <!--<button id="reset-text">
@@ -228,11 +206,11 @@ $current_language = get_locale();
     </div>
     <div class="color-adjustment">
         <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-        <button id="high-contrast" area-label="high contrast">
+        <button type="button" id="high-contrast" aria-label="Set high contrast">
             <i class="fas fa-adjust"></i>
         </button>
-        <button id="dark-mode">
-            <i class="fas fa-moon" area-label="low contrast"></i>
+        <button type="button" id="dark-mode" aria-label="Set low contrast">
+            <i class="fas fa-moon" ></i>
         </button>
     </div>
     <!--<div class="color-adjustment">
@@ -243,7 +221,7 @@ $current_language = get_locale();
 
        </div>
        <div class="menu-container">
-       <input type="checkbox" name="" id="check" />
+       <input type="checkbox" name="" id="check" aria-label="Open menu"/>
         <div class="logo-container">
           <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
@@ -258,7 +236,7 @@ $current_language = get_locale();
                 <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
-                    ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    ?>" area-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
                 <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></i></a>

@@ -211,14 +211,14 @@ $title=get_the_title($post_id);
           <?php
            $thumb_url=get_post_meta(get_the_ID(), 'Thumb_url', true);
             if (!empty($thumb_url)) {
-              echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '">';
+              echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="feature image of the department">';
                }
            ?>
             <div class="txt">
               <div class="caption">
                 <?php echo get_post_meta(get_the_ID(), 'Department', true);?>
               </div>
-              <div style="width: 25px;  margin-left:10px;"><img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" style="filter: invert(1);"></div>
+              <div style="width: 25px;  margin-left:10px;"><img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="arrow icon to indicate link" style="filter: invert(1);"></div>
               </div></a>
           </div>
           

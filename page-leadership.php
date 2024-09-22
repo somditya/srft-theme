@@ -83,7 +83,7 @@ $current_language = get_locale();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'ChairmanPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'ChairmanPhoto', true)); ?>" alt="Photo of the chairman">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></div>
                 <div class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></div>
@@ -104,7 +104,7 @@ $current_language = get_locale();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DirectorPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DirectorPhoto', true)); ?>" alt="Photo of the director">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></div>
                 <div class="profile-desg"><?php echo __('Director', 'srft-theme' ); ?></div>
@@ -125,7 +125,7 @@ $current_language = get_locale();
           <div class="two-flex">
             <div class="col-left">
               <div class="profile-container">
-              <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DeanPhoto', true)); ?>">
+              <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DeanPhoto', true)); ?>" alt="Photo of the dean">
                 <div class="profile-text">
                   <div class="profile-name"> <?php echo get_post_meta(get_the_ID(), 'Dean', true); ?></div>
                   <div class="profile-desg"><?php echo __('Dean', 'srft-theme' ); ?></div>
@@ -146,7 +146,7 @@ $current_language = get_locale();
         <div class="two-flex">
           <div class="col-left">
             <div class="profile-container">
-            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'RegistrarPhoto', true)); ?>">
+            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'RegistrarPhoto', true)); ?>" alt="Photo of the registrar">
               <div class="profile-text">
                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Registrar', true); ?></div>
                 <div class="profile-desg"><?php echo __('Registrar', 'srft-theme' ); ?></div>
@@ -164,40 +164,35 @@ $current_language = get_locale();
           </section>
 
         <section class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
-        <div class="accordian">
-          <ul>
-            <li>
-              <input type="checkbox" checked>
-              <i></i>
-              <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
-              <p>
+        <div class="accordion">
+    <ul>
+        <li>
+            <input type="checkbox" id="chairmans" checked>
+            <label for="chairmans"><i></i><?php echo __('Previous Chairmans', 'srft-theme'); ?></label>
+            <p>
                 <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>
             </p>
-            </li>
-          </ul>
-            <ul>
-              <li>
-                <input type="checkbox" checked>
-                <i></i>
-                <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
-                <p>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <input type="checkbox" id="directors" checked>
+            <label for="directors"><i></i><?php echo __('Previous Directors', 'srft-theme'); ?></label>
+            <p>
                 <?php echo get_post_meta(get_the_ID(), 'PreviousDirectors', true); ?>
             </p>
-                </table>
-              </li>
-              <ul>
-                <li>
-                  <input type="checkbox" checked>
-                  <i></i>
-                  <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
-                  <p>
-                <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
-                  </p> 
-                  </table>
-                </li>
-              </ul>
-            </ul>
-          </div>
+        </li>
+        <ul>
+            <li>
+                <input type="checkbox" id="registrars" checked>
+                <label for="registrars"><i></i><?php echo __('Previous Registrars', 'srft-theme'); ?></label>
+                <p>
+                    <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
+                </p>
+            </li>
+        </ul>
+    </ul>
+</div>
           </section>
     </main>
 

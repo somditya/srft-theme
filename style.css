@@ -248,6 +248,8 @@ body {
   padding: 2.8rem 0 2.8rem 0;
 }
 
+
+
 .container {
   /* 1140px */
   max-width: 160rem;
@@ -460,6 +462,19 @@ body {
   opacity: 1 !important;
   transform: translateX(0) !important;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
 /*
 .status-green:before {
   display: inline-block;

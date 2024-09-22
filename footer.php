@@ -10,79 +10,49 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
+      <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
       <ul>
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
         <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-        <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
-        <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
+        <li><?php echo __('Phone:', 'srft-theme'); ?> 91-33-2432-8355, 2432-8356, 2432-9300</li>
+        <li><?php echo __('Email:', 'srft-theme'); ?> contact@srfti.ac.in</li>
       </ul>
     </div>
     <div class="footer_sub">
       <h3><?php echo __('Related Links:', 'srft-theme'); ?></h3>
       <ul>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
-                    else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-                    ?>"><?php echo __('Admission', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/library/'));}
-                    else  { echo esc_url(site_url('/पुस्तकालय/'));}
-                    ?>"><?php echo __('Library', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
-                    else  { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
-                    ?>"><?php echo __('Important Committees', 'srft-theme'); ?></li>
-        <li> <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/itec-programme/'));}
-                    else  { echo esc_url(site_url('/भारतीय-तकनीकी-और-आर्थिक-स-2/'));}
-                    ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/'));}
-                    else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));}
-                    ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/citizen-charter/'));}
-                    else  { echo esc_url(site_url('/नगरक-अधकर-पतर//'));}
-                    ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/course-overview/' : '/सनम-म-सनतकततर-करयकरम/')); ?>" aria-label="<?php echo esc_attr(__('Admission', 'srft-theme')); ?>"><?php echo __('Admission', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/library/' : '/पुस्तकालय/')); ?>" aria-label="<?php echo esc_attr(__('Library', 'srft-theme')); ?>"><?php echo __('Library', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/important-committees/' : '/महत्वपूर्ण-समितियाँ/')); ?>" aria-label="<?php echo esc_attr(__('Important Committees', 'srft-theme')); ?>"><?php echo __('Important Committees', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/itec-programme/' : '/भारतीय-तकनीकी-और-आर्थिक-स-2/')); ?>" aria-label="<?php echo esc_attr(__('Itec Programme', 'srft-theme')); ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/rti/' : '/सूचना-का-अधिकार/')); ?>" aria-label="<?php echo esc_attr(__('Right to Information', 'srft-theme')); ?>"><?php echo __('Right to Information', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/citizen-charter/' : '/नगरक-अधकर-पतर/')); ?>" aria-label="<?php echo esc_attr(__('Citizen Charter', 'srft-theme')); ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></a></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
-        <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
         <li><?php echo __('Holiday List', 'srft-theme'); ?></li>
       </ul>
     </div>
     <div class="footer_sub">
       <h3><?php echo __('Useful Links', 'srft-theme'); ?></h3>
       <ul>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
-                    else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
-                    ?>" title="link to site map" role="link"><?php echo __('Sitemap', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
-                    else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
-                    ?>" title="link to feedback" role="link"><?php echo __('Feedback', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/frequently-asked-question/'));}
-                    else  { echo esc_url(site_url('/अक्सर-पूछे-जाने-वाले-प्रश/'));}
-                    ?>" title="link to faq" role="link"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/help/'));}
-                    else  { echo esc_url(site_url('/सहयत/'));}
-                    ?>" role="link" title="link to help"><?php echo __('Help', 'srft-theme'); ?></li>
-        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/website-policies/'));}
-                    else  { echo esc_url(site_url('/वेबसाइट-नीतियाँ/'));}
-                    ?>" role="link" title="link to website policy"><?php echo __('Website Policy', 'srft-theme'); ?></li>
-        <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
-        <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/site-map/' : '/साइट-मानचित्र/')); ?>" title="link to site map" role="link"><?php echo __('Sitemap', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/feedback/' : '/प्रतिक्रिया/')); ?>" title="link to feedback" role="link"><?php echo __('Feedback', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/frequently-asked-question/' : '/अक्सर-पूछे-जाने-वाले-प्रश/')); ?>" title="link to faq" role="link"><?php echo __('Frequently Asked Questions', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/help/' : '/सहयत/')); ?>" role="link" title="link to help"><?php echo __('Help', 'srft-theme'); ?></a></li>
+        <li><a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/website-policies/' : '/वेबसाइट-नीतियाँ/')); ?>" role="link" title="link to website policy"><?php echo __('Website Policy', 'srft-theme'); ?></a></li>
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Follow us', 'srft-theme'); ?></h3>
+      <h3><?php echo __('Follow Us', 'srft-theme'); ?></h3>
       <ul class="social">
-        <!--<li><a href="https://www.facebook.com/chicagoboothbusiness" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Facebook - This Link Opens in New Window"><img src="images/facebook.svg" alt="facebook"></a></li>
-        <li><a href="https://www.instagram.com/chicagobooth/" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Instagram - This Link Opens in New Window"><img src="images/instagram.svg" alt="Instagram"></a></li>
-        <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
-        <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
-        -->
-        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();" style="color: white;"><i class="fa-brands fa-x footer_icon"></i></a></li>
-        <li><a href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" aria-label="<?php echo __('Visit vimeo channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-vimeo footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" target="_blank" role="link" title="<?php echo __('Follow Us on Facebook - This Link opens in a new window', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-facebook footer_icon"></i></a></li>
+        <li><a href="https://instagram.com/srfti_official/" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Instagram - This Link opens in a new window', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-instagram footer_icon"></i></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" target="_blank" role="link" aria-label="<?php echo __('Follow Us on Twitter - This Link opens in a new window', 'srft-theme'); ?>" onclick="return check_url();"><i class="fa-brands fa-twitter footer_icon"></i></a></li>
+        <li><a href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" aria-label="<?php echo __('Visit Vimeo channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-vimeo footer_icon"></i></a></li>
       </ul>
     </div>
     <div class="footer_sub">
-      <a href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
+      <a href="javascript:void(0);" id="backToTop" aria-label="Back to Top" class="back-to-top"></a>
     </div>
   </div>
 </div>
@@ -91,12 +61,12 @@ $current_language = get_locale();
 <div style="margin: 0;background: #fff;box-shadow: 0px -2px 7px 4px #eee;">
     <div class="branspacer">
         <ul class="brand-list">
-            <li><a  href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); alt="india govt portal"?>/images/india_gov.png"></a></li>
-            <li><a  href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();" ><img src="<?php bloginfo('template_url' alt="digital india"); ?>/images/digital-india-flogo.png"></a></li>
-            <li><a  href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png" alt="my govin poral"></a></li>
-            <li><a  href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png" alt="mib portal"></a></li>
-            <li><a  href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png" alt="swachta portal"></a></li>
-            <li><a  href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" alt="eci portal"></a></li>       
+        <li><a href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/india_gov.png" alt="India Government Portal"></a></li>
+        <li><a href="https://www.digitalindia.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/digital-india-flogo.png" alt="Digital India"></a></li>
+        <li><a href="https://mygov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mygov.png" alt="MyGov Portal"></a></li>
+        <li><a href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png" alt="Ministry of Information and Broadcasting"></a></li>
+        <li><a href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png" alt="Swachh Bharat Mission"></a></li>
+        <li><a href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" alt="Election Commission of India"></a></li>       
           </ul>
     </div>
 </div>
@@ -168,7 +138,7 @@ $current_language = get_locale();
     autoplayTimeout: 1500,
     autoplayHoverPause: true,
     nav: true,
-    navText: ["<div class='nav-btn prev-slide' ></div>", "<div class='nav-btn next-slide'></div>"],
+    navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
     onInitialized: function() {
       // Add aria-labels to navigation buttons after initialization
       $(".owl-prev").attr("aria-label", "Previous Slide");
