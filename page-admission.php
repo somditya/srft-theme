@@ -177,7 +177,8 @@ $current_language = get_locale();
                   <div class="accordian">
                     <ul>
                       <li>
-                        <input type="checkbox" checked>
+                        <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
+                        >
                         <i></i>
                         <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
                         <p><?php echo __('3 years-full time', 'srfti-theme') ?></p>
@@ -185,7 +186,7 @@ $current_language = get_locale();
                     </ul>
                     <ul>
                       <li>
-                        <input type="checkbox" checked>
+                        <input type="checkbox" aria-label="<?php echo __('Show or hide Number of students for Cinema Programme', 'srft-theme'); ?>" checked>
                         <i></i>
                         <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
                         <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>     
@@ -194,7 +195,7 @@ $current_language = get_locale();
                   
                     <ul>
                       <li>
-                        <input type="checkbox" checked>
+                        <input type="checkbox" aria-label="<?php echo __('Show or hide Specialization for Cinema Programme', 'srft-theme'); ?>" checked>
                         <i></i>
                         <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
                         <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>
@@ -203,7 +204,7 @@ $current_language = get_locale();
                     </ul>
                     <ul>
                       <li>
-                        <input type="checkbox" checked>
+                        <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>"checked>
                         <i></i>
                         <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
                         <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
@@ -211,7 +212,7 @@ $current_language = get_locale();
                     </ul>
                       <ul>
                         <li>
-                          <input type="checkbox" checked>
+                          <input type="checkbox" aria-label="<?php echo __('Show or hide Essential Qualification for Cinema Programme', 'srft-theme'); ?>" checked>
                           <i></i>
                           <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
                           <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>
@@ -231,7 +232,7 @@ $current_language = get_locale();
                 <div class="accordian">
                   <ul>
                     <li>
-                      <input type="checkbox" checked>
+                      <input type="checkbox" aria-label="<?php echo __('Show or hide Duration for EDM Programme', 'srft-theme'); ?>" checked>
                       <i></i>
                       <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
                       <p><?php echo __('2 years-full time)', 'srfti-theme') ?></p>
@@ -239,7 +240,7 @@ $current_language = get_locale();
                   </ul>
                   <ul>
                     <li>
-                      <input type="checkbox" checked>
+                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide No. of Student for EDM Programme', 'srft-theme'); ?>">
                       <i></i>
                       <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
                       <?php echo get_post_meta(get_the_ID(), 'StudentEDM', true); ?>    
@@ -248,7 +249,7 @@ $current_language = get_locale();
                 
                   <ul>
                     <li>
-                      <input type="checkbox" checked>
+                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration specialization for EDM Programme', 'srft-theme'); ?>">
                       <i></i>
                       <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
                       <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>    
@@ -256,7 +257,7 @@ $current_language = get_locale();
                   </ul>
                   <ul>
                     <li>
-                      <input type="checkbox" checked>
+                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration course structure for EDM Programme', 'srft-theme'); ?>">
                       <i></i>
                       <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
                       <?php echo get_post_meta(get_the_ID(), 'CourseEDM', true); ?>   
@@ -264,7 +265,7 @@ $current_language = get_locale();
                   </ul>
                     <ul>
                       <li>
-                        <input type="checkbox" checked>
+                        <input type="checkbox" checked aria-label="<?php echo __('Show or hide Essentail qualification for EDM Programme', 'srft-theme'); ?>">
                         <i></i>
                         <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
                         <?php echo get_post_meta(get_the_ID(), 'QualificationEDM', true); ?> 
