@@ -4903,7 +4903,7 @@ div .spacer {
 
 .language-switcher {
   display: inline-block; /* Ensures the dropdown is inline */
-  margin-left: 10px; /* Adjust space between the text and dropdown */
+  margin-left: 5px; /* Adjust space between the text and dropdown */
 }
 
 .header {
