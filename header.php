@@ -175,8 +175,37 @@ $current_language = get_locale();
              <ul style="display:flex;">
              <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
-             <li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>
-             
+             <!--<li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>-->
+             <li>
+    <a href="#" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-language" aria-hidden="true"></i>
+        <?php if (function_exists('pll_the_languages')) : ?>
+            <span class="language-text"><?php echo __('Language', 'srft-theme' ); ?></span>
+        <?php endif; ?>
+    </a>
+    <div id="language-switcher" class="language-switcher" aria-label="Language Selection">
+        <?php
+            pll_the_languages(
+                array(
+                    'show_flags' => 1,
+                    'show_names' => 1,
+                    'display_names_as' => 'name',
+                    'hide_if_empty' => 0,
+                    'force_home' => 0,
+                    'hide_if_no_translation' => 0,
+                    'echo' => 1,
+                    'post_id' => null,
+                    'raw' => 0,
+                    'item_spacing' => 'preserve',
+                    'dropdown' => 1, // Use a dropdown for multiple languages
+                    'menu' => 'language-menu', // Set a unique CSS class for styling
+                )
+            );
+        ?>
+    </div>
+</li>
+
+
              <li><a href="#skip-to-content"><span class="skp-to-main"><?php echo __('Skip to main content', 'srft-theme' ); ?></span>
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
             </li>

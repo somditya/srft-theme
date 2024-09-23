@@ -40,6 +40,9 @@ $current_language = get_locale();
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/citizen-charter/'));}
                     else  { echo esc_url(site_url('/नगरक-अधकर-पतर//'));}
                     ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
+                    <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/contact-us/'));}
+                    else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}
+                    ?>"><?php echo __('Contact Us', 'srft-theme'); ?></li>
         <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
         <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
         <li><?php echo __('Holiday List', 'srft-theme'); ?></li>

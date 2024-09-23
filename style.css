@@ -4901,6 +4901,11 @@ div .spacer {
   padding: 4.8rem 0 9.6rem 0;
 }
 
+.language-switcher {
+  display: inline-block; /* Ensures the dropdown is inline */
+  margin-left: 10px; /* Adjust space between the text and dropdown */
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -8011,6 +8016,21 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
   .item {
     font-size: 1.2rem;
+}
+
+.language-switcher {
+  display: inline-block; /* Ensure it's inline */
+  margin-left: 10px; /* Adjust space between the icon and the dropdown */
+}
+
+.language-text {
+  display: none; /* Hide the language text */
+}
+
+/* Ensure the parent <li> is flex */
+li {
+  display: flex;
+  align-items: center; /* Vertically center the items */
 }
 
   .section-intro-header-text {
