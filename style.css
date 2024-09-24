@@ -3233,18 +3233,20 @@ h4 {
 }
 
 .accordian p {
-  /*color: rgba(48, 69, 92, 0.8);*/
+  color: #8b5b2b;
+   /* Darker color for better contrast */
+  /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
   max-height: 800px;
-  opacity: 1;
   transform: translate(0, 0);
   margin-top: 14px;
   z-index: 2;
 }
+
 
 /* News List */
 
@@ -6753,14 +6755,14 @@ h4 {
 }
 
 .accordian p {
-  /*color: rgba(48, 69, 92, 0.8);*/
+  color: #8b5b2b;/* Darker color for better contrast */
+  /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
   max-height: 800px;
-  opacity: 1;
   transform: translate(0, 0);
   margin-top: 14px;
   z-index: 2;
