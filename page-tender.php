@@ -29,7 +29,7 @@ $category_id = get_category_ID($category_name);
         <div class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></div>
       </div>
     </section>
-    <section class="section-home">
+    <section id="skip-to-content" class="section-home">
       <div class="container" style="width: 1170px;">
       
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
@@ -96,22 +96,22 @@ $category_id = get_category_ID($category_name);
             <!-- Pagination -->
             <ul class="pagination">
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fa fa-step-backward" style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme');><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fa fa-chevron-left" style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
     <a href="#" ng-click="setPage(page)">{{ page }}</a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme');><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fa fa-chevron-right" style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme');><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fa fa-step-forward" style="color: #8b5b2b;"></i></a>
   </li>
-  
 </ul>
+
           </div>
         </div>
       </div>
