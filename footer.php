@@ -24,28 +24,28 @@ $current_language = get_locale();
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-                    ?>"><?php echo __('Admission', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Admission', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/library/'));}
                     else  { echo esc_url(site_url('/पुस्तकालय/'));}
-                    ?>"><?php echo __('Library', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Library', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else  { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
-                    ?>"><?php echo __('Important Committees', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Important Committees', 'srft-theme'); ?></a></li>
         <li> <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/itec-programme/'));}
                     else  { echo esc_url(site_url('/भारतीय-तकनीकी-और-आर्थिक-स-2/'));}
-                    ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Itec Programme', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/'));}
                     else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));}
-                    ?>"><?php echo __('Right to Information', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Right to Information', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/citizen-charter/'));}
                     else  { echo esc_url(site_url('/नगरक-अधकर-पतर//'));}
-                    ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Citizen Charter', 'srft-theme'); ?></a></li>
                     <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/contact-us/'));}
                     else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}
-                    ?>"><?php echo __('Contact Us', 'srft-theme'); ?></li>
-        <li><?php echo __('Telephone Directory', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Contact Us', 'srft-theme'); ?></a></li>
+        <li><?php echo __('Telephone Directory', 'srft-theme'); ?></a></li>
         <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
-        <li><?php echo __('Holiday List', 'srft-theme'); ?></li>
+        <li><?php echo __('Holiday List', 'srft-theme'); ?></a></li>
       </ul>
     </div>
     <div class="footer_sub">
@@ -53,19 +53,19 @@ $current_language = get_locale();
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
                     else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
-                    ?>"><?php echo __('Sitemap', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Sitemap', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/feedback//'));}
                     else  { echo esc_url(site_url('/प्रतिक्रिया/'));}
-                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Feedback', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/frequently-asked-question/'));}
                     else  { echo esc_url(site_url('/अक्सर-पूछे-जाने-वाले-प्रश/'));}
-                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Frequently Asked Qusetions', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/help/'));}
                     else  { echo esc_url(site_url('/सहयत/'));}
-                    ?>"><?php echo __('Help', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Help', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/website-policies/'));}
                     else  { echo esc_url(site_url('/वेबसाइट-नीतियाँ/'));}
-                    ?>"><?php echo __('Website Policy', 'srft-theme'); ?></li>
+                    ?>"><?php echo __('Website Policy', 'srft-theme'); ?></a></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
