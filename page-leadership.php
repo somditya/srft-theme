@@ -167,7 +167,7 @@ $current_language = get_locale();
         <div class="accordian">
           <ul>
             <li>
-              <input type="checkbox" checked>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous chairman', 'srft-theme'); ?>">
               <i></i>
               <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
               <p>
@@ -177,7 +177,7 @@ $current_language = get_locale();
           </ul>
             <ul>
               <li>
-                <input type="checkbox" checked>
+                <input type="checkbox" checked  aria-label="<?php echo __('Show or hide previous directors', 'srft-theme'); ?>">
                 <i></i>
                 <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
                 <p>
@@ -187,7 +187,7 @@ $current_language = get_locale();
               </li>
               <ul>
                 <li>
-                  <input type="checkbox" checked>
+                  <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous registrars', 'srft-theme'); ?>">
                   <i></i>
                   <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
                   <p>

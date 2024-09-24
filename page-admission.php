@@ -178,7 +178,6 @@ $current_language = get_locale();
                     <ul>
                       <li>
                         <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
-                        >
                         <i></i>
                         <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
                         <p><?php echo __('3 years-full time', 'srfti-theme') ?></p>
