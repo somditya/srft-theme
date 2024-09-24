@@ -36,9 +36,9 @@ $category_id = get_category_ID($category_name);
         <div ng-app="myApp">
           <div ng-controller="TenderController">
             <p style="padding: 15px;">
-            <?php echo __('From date: ', 'srft-theme' ); ?> <input type="date" ng-model="fromDate" ng-change="applyFilters()">
-            <?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" ng-model="toDate" ng-change="applyFilters()">
-              <input type="text" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
+            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label> <input type="date" id="fromDate" ng-model="fromDate" ng-change="applyFilters()">
+            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
+            <label for="filterField"><input type="text" id="filterField" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button ng-click="resetFilters()"><?php echo __('Reset: ', 'srft-theme' ); ?></button>
             </p>
