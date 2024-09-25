@@ -7967,6 +7967,23 @@ ul li input[type="checkbox"]:checked ~ i:after {
     text-align: center;
   }
 
+  .footer_copyright_container .brand-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+.footer_copyright_container .brand-list li {
+    margin: 10px;
+}
+
+.footer_copyright_container .brand-list li a img {
+    max-width: 100%;       /* Makes the image responsive while keeping its original size */
+    height: auto;          /* Maintain original aspect ratio based on width */
+}
+}
   .social {
     margin-top: 20px;
   }
