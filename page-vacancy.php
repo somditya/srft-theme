@@ -31,15 +31,15 @@ $category_id = get_category_ID($category_name);
       </div>
     </section>
 
-    <section class="section-home">
+    <section id="skip-to-content" class="section-home">
       <div class="container" style="width: 1170px;">
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Vacancy List', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">
             <p style="padding: 15px;">
-            <?php echo __('From date: ', 'srft-theme' ); ?><input type="date" ng-model="fromDate" ng-change="applyFilters()">
-            <?php echo __('To date: ', 'srft-theme' ); ?><input type="date" ng-model="toDate" ng-change="applyFilters()">
-              <input type="text" ng-model="filterField" placeholder= <?php echo __('Search by keyword:', 'srft-theme' ); ?> ng-change="applyFilters()">
+            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label><input type="date" id="fromDate" ng-model="fromDate" ng-change="applyFilters()">
+            <label for="tomDate"><?php echo __('To date: ', 'srft-theme' ); ?></label><input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
+              <label for="filterField"><input type="text" id="filterField" ng-model="filterField" placeholder= <?php echo __('Search by keyword:', 'srft-theme' ); ?> ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </p>
@@ -86,19 +86,19 @@ $category_id = get_category_ID($category_name);
             <!-- Pagination -->
             <ul class="pagination">
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" aria-label="<?php echo __('First Page', 'srft-theme'); ?>" ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()"><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+    <a href="#" aria-label="<?php echo __('Previuos Page', 'srft-theme'); ?>" ng-click="prevPage()"><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
     <a href="#" ng-click="setPage(page)">{{ page }}</a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()"><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+    <a href="#" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>" ng-click="nextPage()"><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
   </li>
   <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
+    <a href="#" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>" ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
   </li>
 </ul>
           </div>

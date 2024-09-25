@@ -164,35 +164,40 @@ $current_language = get_locale();
           </section>
 
         <section class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
-        <div class="accordion">
-    <ul>
-        <li>
-            <input type="checkbox" id="chairmans" checked>
-            <label for="chairmans"><i></i><?php echo __('Previous Chairmans', 'srft-theme'); ?></label>
-            <p>
+        <div class="accordian">
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous chairman', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
+              <p>
                 <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>
             </p>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <input type="checkbox" id="directors" checked>
-            <label for="directors"><i></i><?php echo __('Previous Directors', 'srft-theme'); ?></label>
-            <p>
+            </li>
+          </ul>
+            <ul>
+              <li>
+                <input type="checkbox" checked  aria-label="<?php echo __('Show or hide previous directors', 'srft-theme'); ?>">
+                <i></i>
+                <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
+                <p>
                 <?php echo get_post_meta(get_the_ID(), 'PreviousDirectors', true); ?>
             </p>
-        </li>
-        <ul>
-            <li>
-                <input type="checkbox" id="registrars" checked>
-                <label for="registrars"><i></i><?php echo __('Previous Registrars', 'srft-theme'); ?></label>
-                <p>
-                    <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
-                </p>
-            </li>
-        </ul>
-    </ul>
-</div>
+                </table>
+              </li>
+              <ul>
+                <li>
+                  <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous registrars', 'srft-theme'); ?>">
+                  <i></i>
+                  <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
+                  <p>
+                <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
+                  </p> 
+                  </table>
+                </li>
+              </ul>
+            </ul>
+          </div>
           </section>
     </main>
 

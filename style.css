@@ -160,8 +160,8 @@ body {
   /*font-family: 'Helmet', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  */                                               
-  font-family: 'Poppins', sans-serif;
+  */
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
@@ -247,8 +247,6 @@ body {
 .section-home {
   padding: 2.8rem 0 2.8rem 0;
 }
-
-
 
 .container {
   /* 1140px */
@@ -384,7 +382,6 @@ body {
 }
 
 .col-left {
-  font-family: GthA;
   padding-top: 32px;
   width: calc(30% - 40px);
 }
@@ -473,7 +470,6 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
 
 /*
 .status-green:before {
@@ -717,9 +713,8 @@ div .spacer {
   box-sizing: border-box;
 }
 
-
 .wrapper {
-  width: 100%;  
+  width: 100%;
   max-width: 1250px;
   margin: 1em auto;
   .two-flex {
@@ -924,22 +919,22 @@ div .spacer {
 
 .swipper-title h1 {
   /*font-family: GthD;*/
-    font-style: normal;
-    font-weight: 600;
-    font-size: 5.6rem;
-    line-height: 60px;
-    letter-spacing: 0px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 5.6rem;
+  line-height: 60px;
+  letter-spacing: 0px;
   color: white;
   /*background-color: #000;
   opacity:0.7;*/
 }
 
-.swipper-title h3{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 4.2rem;
-    line-height: 60px;
-    letter-spacing: 0px;
+.swipper-title h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4.2rem;
+  line-height: 60px;
+  letter-spacing: 0px;
   color: white;
   /*background-color: #000;
   opacity:0.7;*/
@@ -982,7 +977,6 @@ div .spacer {
   background-size: 200% auto;
   background-position: center;
 }
-
 
 .video {
   position: relative;
@@ -1376,7 +1370,6 @@ div .spacer {
   outline: 1px dashed black;
   outline-offset: -5px;
 }
-
 
 /* HEADER*/
 
@@ -1781,7 +1774,6 @@ div .spacer {
 
 .mobile-icon {
   display: none; /* Shows the image icon on mobile */
- 
 }
 .menu-btn {
   flex: 3;
@@ -1855,7 +1847,7 @@ div .spacer {
   text-decoration: none;
   padding: 0 0.8rem;
   letter-spacing: 1px;
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
@@ -2278,22 +2270,22 @@ div .spacer {
   margin-top: 15rem;
 }
 
-.narticle { 
+.narticle {
   text-align: center;
   display: grid;
   grid-gap: 1.875rem;
   grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;
 }
 
-.nheadline{
-    font-size: 4.375rem;
-    color:#8b5b2b;
-    letter-spacing: -.0875rem;line-height: 1.1;
-    margin: 0;
-    font-weight: 400;
-    text-align: center;
+.nheadline {
+  font-size: 4.375rem;
+  color: #8b5b2b;
+  letter-spacing: -0.0875rem;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
 }
-
 
 .newsfeatured {
   padding: 1.2rem;
@@ -3012,16 +3004,16 @@ h4 {
 }
 
 .posttitle {
-    font-size: 5.375rem;
-    font-weight: 600;
-    margin: 0 0 2rem;
-    letter-spacing: -.0875rem;
-    line-height: 1.1rem;
-    color: #8b5b2b;
-    margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-bottom: 2.75rem; /* Adjusted padding-bottom */
-    border-bottom: 2px solid #d6d6ce;
-    width: 100%;
+  font-size: 5.375rem;
+  font-weight: 600;
+  margin: 0 0 2rem;
+  letter-spacing: -0.0875rem;
+  line-height: 1.1rem;
+  color: #8b5b2b;
+  margin-bottom: 1.25rem; /* Adjusted margin-bottom */
+  padding-bottom: 2.75rem; /* Adjusted padding-bottom */
+  border-bottom: 2px solid #d6d6ce;
+  width: 100%;
 }
 
 .faculty {
@@ -3227,7 +3219,7 @@ h4 {
 }
 
 .accordian h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #8b5b2b;
   font-size: 1.8rem;
   line-height: 34px;
@@ -3241,18 +3233,20 @@ h4 {
 }
 
 .accordian p {
-  /*color: rgba(48, 69, 92, 0.8);*/
+  color: #8b5b2b;
+   /* Darker color for better contrast */
+  /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
   max-height: 800px;
-  opacity: 1;
   transform: translate(0, 0);
   margin-top: 14px;
   z-index: 2;
 }
+
 
 /* News List */
 
@@ -3776,16 +3770,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .faculty-bio h1 {
-    font-size: 4.375rem;
-    font-weight: 400;
-    margin: 0 0 2rem;
-    letter-spacing: -.0875rem;
-    line-height: 1.1rem;
-    color: #8b5b2b;
-    /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-top: 2.75rem; /* Adjusted padding-bottom */
-    /*border-bottom: 1px solid #d6d6ce;*/
-    width: 100%;   
+  font-size: 4.375rem;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  letter-spacing: -0.0875rem;
+  line-height: 1.1rem;
+  color: #8b5b2b;
+  /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
+  padding-top: 2.75rem; /* Adjusted padding-bottom */
+  /*border-bottom: 1px solid #d6d6ce;*/
+  width: 100%;
 }
 
 .faculty-bio-left {
@@ -4035,13 +4029,12 @@ a {
 }
 
 body {
- 
   /*background: white;
   line-height: 1;
   font-weight: 400;
   color: #555;
   letter-spacing: 1px;*/
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
@@ -4147,8 +4140,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-
 
 @keyframes slideright {
   from {
@@ -4361,7 +4352,6 @@ body {
   left: 4px;
 }*/
 
-
 .header-image {
   width: 100%; /* Full width */
   height: 400px; /* Adjust height as needed */
@@ -4404,7 +4394,7 @@ div .spacer {
   display: flex;
   text-align: center;
   flex-direction: column;
-   font-weight: 600;
+  font-weight: 600;
   /*letter-spacing: -.0775rem;line-height: 1.1;*/
   font-size: 36px;
   line-height: 36px;
@@ -4563,9 +4553,6 @@ div .spacer {
 * {
   box-sizing: border-box;
 }
-
-
-
 
 .wrapper {
   width: 100%;
@@ -4776,11 +4763,11 @@ div .spacer {
 
 .swipper-title h1 {
   /*font-family: GthD;*/
-    font-style: normal;
-    font-weight: 600;
-    font-size: 5.6rem;
-    line-height: 60px;
-    letter-spacing: 0px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 5.6rem;
+  line-height: 60px;
+  letter-spacing: 0px;
   color: white;
   /*background-color: #000;
   opacity:0.7;*/
@@ -4788,11 +4775,11 @@ div .spacer {
 
 .swipper-title h3 {
   /*font-family: GthD;*/
-    font-style: normal;
-    font-weight: 600;
-    font-size: 4.2rem;
-    line-height: 60px;
-    letter-spacing: 0px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4.2rem;
+  line-height: 60px;
+  letter-spacing: 0px;
   color: white;
   /*background-color: #000;
   opacity:0.7;*/
@@ -4993,11 +4980,10 @@ div .spacer {
   /*border-right: 1px solid #5e5e5e;*/
 }
 
-.footer_sub a{
+.footer_sub a {
   color: white;
   /*border-right: 1px solid #5e5e5e;*/
 }
-
 
 .footer_icon {
   font-size: 2rem;
@@ -5038,7 +5024,6 @@ div .spacer {
   max-width: 100%;
   height: auto; /* Ensures the images are responsive */
 }
-
 
 .social {
   text-align: center;
@@ -5118,10 +5103,9 @@ div .spacer {
 .owl-carousel .prev-slide:hover {
   background-position: 0px -53px;
 }
-.owl-carousel .next-slide:hover{
-background-position: -24px -53px;
-}   
-
+.owl-carousel .next-slide:hover {
+  background-position: -24px -53px;
+}
 
 /* resposnive table */
 .flex-table {
@@ -5446,7 +5430,7 @@ header {
   text-decoration: none;
   padding: 0 0.8rem;
   letter-spacing: 1px;
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
@@ -6549,9 +6533,9 @@ h4 {
   /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
-  color: #6c4713;;
+  color: #6c4713;
   font-style: normal;
-  border-bottom: 1px solid #6c4713;;
+  border-bottom: 1px solid #6c4713;
 }
 
 .faculty {
@@ -6771,14 +6755,14 @@ h4 {
 }
 
 .accordian p {
-  /*color: rgba(48, 69, 92, 0.8);*/
+  color: #8b5b2b;/* Darker color for better contrast */
+  /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
   max-height: 800px;
-  opacity: 1;
   transform: translate(0, 0);
   margin-top: 14px;
   z-index: 2;
@@ -7306,17 +7290,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .faculty-bio h1 {
-    font-size: 4.375rem;
-    font-weight: 400;
-    margin: 0 0 2rem;
-    letter-spacing: -.0875rem;
-    line-height: 1.1rem;
-    color: #8b5b2b;
-    /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-top: 2.75rem; /* Adjusted padding-bottom */
-    /*border-bottom: 1px solid #d6d6ce;*/
-    width: 100%;
-    
+  font-size: 4.375rem;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  letter-spacing: -0.0875rem;
+  line-height: 1.1rem;
+  color: #8b5b2b;
+  /*margin-bottom: 1.25rem; /* Adjusted margin-bottom */
+  padding-top: 2.75rem; /* Adjusted padding-bottom */
+  /*border-bottom: 1px solid #d6d6ce;*/
+  width: 100%;
 }
 
 .faculty-bio-left {
