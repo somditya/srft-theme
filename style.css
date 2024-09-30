@@ -1705,6 +1705,7 @@ div .spacer {
   top: 0;
   width: 100%;
   z-index: 25;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .top_header {
@@ -3273,7 +3274,6 @@ h4 {
 }
 
 .accordian p {
-  color: #8b5b2b;
    /* Darker color for better contrast */
   /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
@@ -6795,7 +6795,6 @@ h4 {
 }
 
 .accordian p {
-  color: #8b5b2b;/* Darker color for better contrast */
   /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
@@ -6805,7 +6804,8 @@ h4 {
   max-height: 800px;
   transform: translate(0, 0);
   margin-top: 14px;
-  z-index: 2;
+  /*z-index: 2;*/
+  color: #12121200;
 }
 
 /* News List */
@@ -8037,7 +8037,68 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .nheadline {
   font-size: 2.5rem;
   }
-  
+
+
+.page-banner-title {
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.leftnav {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.leftnav .widget {
+    margin-bottom: 20px;
+}
+
+.main-content {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.facility-img-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.faculty-img ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.faculty-img li {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.faculty-img li img {
+    max-width: 100px;
+    height: auto;
+}
+
+.visiting.owl-carousel .alumni-item {
+    text-align: center;
+    width: 100%;
+}
+
+.page-header-text {
+    font-size: 1.8rem;
+}
+
+.facility-text-box ul {
+  list-style: circle inside none;
+  font-size: 1rem;
+}
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
@@ -8068,10 +8129,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 /* Ensure the parent <li> is flex */
-li {
-  display: flex;
-  align-items: center; /* Vertically center the items */
-}
+
 
   .section-intro-header-text {
     font-size: 24px; /* Adjusted font size for mobile */
@@ -8302,6 +8360,51 @@ li {
   .profile-text {
     margin-top: 0.25rem; /* Reduced margin */
   }
+
+
+  /*department*/
+
+  .facility-img-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.faculty-img ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.faculty-img li {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.faculty-img li img {
+    max-width: 100px;
+    height: auto;
+}
+
+.visiting.owl-carousel .alumni-item {
+    text-align: center;
+    width: 100%;
+}
+
+.page-header-text {
+    font-size: 1.8rem;
+}
+
+.facility-text-box ul {
+  list-style: circle inside none;
+  font-size: 2rem;
+}
 
 }
 
