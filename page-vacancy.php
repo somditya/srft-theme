@@ -38,7 +38,7 @@ $category_id = get_category_ID($category_name);
           <div ng-controller="VacancyController">
             <p style="padding: 15px;">
             <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label><input type="date" id="fromDate" ng-model="fromDate" ng-change="applyFilters()">
-            <label for="tomDate"><?php echo __('To date: ', 'srft-theme' ); ?></label><input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
+            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?></label><input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
               <label for="filterField"><input type="text" id="filterField" ng-model="filterField" placeholder= <?php echo __('Search by keyword:', 'srft-theme' ); ?> ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
