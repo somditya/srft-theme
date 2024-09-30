@@ -3273,20 +3273,6 @@ h4 {
   padding: 10px 45px 10px 20px;
 }
 
-.accordian p {
-   /* Darker color for better contrast */
-  /* Alternatively, use a hex code like #333333 for more control */
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  max-height: 800px;
-  transform: translate(0, 0);
-  margin-top: 14px;
-  z-index: 2;
-}
-
 
 /* News List */
 
@@ -3443,7 +3429,7 @@ ul li input[type="checkbox"] {
 li input[type="checkbox"]:checked ~ p {
   margin-top: 0;
   max-height: 0;
-  opacity: 0;
+  opacity: 1;
   transform: translate(0, 50%);
 }
 ul li input[type="checkbox"]:checked ~ i:before {
@@ -6795,7 +6781,6 @@ h4 {
 }
 
 .accordian p {
-  /* Alternatively, use a hex code like #333333 for more control */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
@@ -6804,8 +6789,8 @@ h4 {
   max-height: 800px;
   transform: translate(0, 0);
   margin-top: 14px;
-  /*z-index: 2;*/
-  color: #12121200;
+  color: #000; /* Black text */
+  background-color: #f9f9f9; /* Very light gray background */
 }
 
 /* News List */
@@ -6963,7 +6948,7 @@ ul li input[type="checkbox"] {
 li input[type="checkbox"]:checked ~ p {
   margin-top: 0;
   max-height: 0;
-  opacity: 0;
+  opacity: 1;
   transform: translate(0, 50%);
 }
 ul li input[type="checkbox"]:checked ~ i:before {
@@ -7115,7 +7100,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .news-item p {
-  font-family: GthA;
   font-size: 1.4rem;
   color: #555;
   /*color: white;*/
@@ -8040,7 +8024,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 
 .page-banner-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding: 10px;
 }
 
@@ -8403,7 +8387,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 .facility-text-box ul {
   list-style: circle inside none;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 }
