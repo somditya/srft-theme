@@ -7106,8 +7106,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .news-item-title h3 {
-  font-family: GthA;
-  font-weight: 600;
   font-size: 1.6rem;
   letter-spacing: 0.2ch;
   /*font-weight: 500;*/

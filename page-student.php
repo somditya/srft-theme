@@ -56,31 +56,41 @@ $category_id = get_category_ID($category_name);
                     {
                     $catslug='studentnews-hi';
                     }
-                      $category_posts = new WP_Query(array(
-                      'category_name' => $catslug, // Replace with your category slug
-                      'posts_per_page' => -1,
-                  ));
+                    $category_posts = new WP_Query(array(
+                        'post_type' => 'news',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'category',
+                                'field'    => 'slug',
+                                'terms'    => $catslug,
+                            ),
+                        ),
+                        'posts_per_page' => -1,
+                    ));
 
                 if ($category_posts->have_posts()) :
                   while ($category_posts->have_posts()) : $category_posts->the_post();
                 ?>
 
-                  <div class="news-item">
-                    <a href="<?php the_permalink(); ?>" target="_blank">
-                    <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="display: block;">
-                    <div class="news-item-title">
-                      <h3 href="#"><?php the_title(); ?></h3>
-                      <p><?php echo $post_content; ?></p>
-                    </div>
-                    </a>
-                  </div>
-                    <?php
-                       endwhile;
-                        wp_reset_postdata(); // Reset the post data
-                     else :
-                      echo '<p>No posts found in this category.</p>';
-                    endif;
-                    ?>  
+<div class="news-item">
+      <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image');?> ?>" alt="<?php echo get_field('News-Image-Alternativetext'); ?>"  style="display: block;">
+      <div class="news-item-title">
+        <h3 href="#"><?php the_title(); ?></h3>
+        <p><?php echo $post_content; ?></p>
+        <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
+        <!--<div class="primary__header-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
+      </div>
+      </a>
+      </div>
+      <?php
+        endwhile;
+        wp_reset_postdata(); // Reset the post data
+    else :
+        echo '<p>No posts found in this category.</p>';
+    endif;
+    ?>  
             </section>
                     <section class="section-home">
                         <div class="container" style="width: 100%;">
@@ -119,6 +129,10 @@ $category_id = get_category_ID($category_name);
         .controller('ProductionController', function ($scope, $http) {
             $scope.currentPage = 1;
             $scope.itemsPerPage = 14;
+            let requestUrl = siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100';
+
+            // Display the URL in an alert
+            alert('The request URL is: ' + requestUrl);
 
             $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
                 .then(function (response) {
