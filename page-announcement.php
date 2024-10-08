@@ -81,9 +81,9 @@ $category_id = get_category_ID($category_name);
         .controller('AnnouncementController', function($scope, $http) {
             $scope.currentPage = 1;
             $scope.itemsPerPage = 8; // Number of items per page
+         
 
-
-            $http.get(siteURL + 'wp-json/wp/v2/announcement?categories=' + categoryID + '&per_page=100')
+            $http.get(siteURL + 'wp-json/wp/v2/bulletin?categories=' + categoryID + '&per_page=100')
                 .then(function(response) {
                     console.log('HTTP request success');
                     $scope.announcementList = response.data.map(function(post) {
