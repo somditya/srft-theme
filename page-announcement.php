@@ -96,7 +96,7 @@ $category_id = get_category_ID($category_name);
                         return {
                             name: post.title.rendered || '',
                             link: post.link,
-                            image: post.acf['Image'], // Assuming it returns a URL
+                            image: post.acf['bulletin_image'], // Assuming it returns a URL
                             //featured_media: post.featured_media,
                             formattedDate: formattedDate,
                         };
