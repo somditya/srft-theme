@@ -440,14 +440,55 @@ Template Name: Home
       </div>
       <div class="container" style="display:flex; padding:24px; max-width: 1450px;">     
         <div class="img_card">
-          <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="events">
-            <img alt="Events & Festvals" width="302" height="416"  class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
+        <?php
+            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+            $latest_event_post = new WP_Query(array(
+              'post_type' => 'picture', // Assuming 'picture' is your custom post type
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'category',
+                      'field'    => 'slug',
+                      'terms'    => $catslug,
+                  ),
+              ),
+              'meta_query' => array(
+                  array(
+                      'key'     => 'Picture_Category', // ACF field name
+                     'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
+                  'compare' => 'IN' // Match any of the values
+                  ),
+              ),
+              'posts_per_page' => 1, // Adjust the number of posts per page as needed
+          ));
+// Check if there's a post available
+if ($latest_event_post->have_posts()) :
+    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
+        // Get the image file from ACF
+        $image = get_field('Picture_File');
+        if ($image) : ?>
+           <a href="<?php echo esc_url($image); ?>" data-lightbox="events">
+    <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
+        <?php
+        endif;
+    endwhile;
+    wp_reset_postdata(); // Reset the post data after the loop
+else :
+    // Fallback if no post found
+    ?>
+    
+    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="events">
+        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
+    </a>
+<?php
+endif;
+?>
                       <div class="img_caption" >
                         <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme' ); ?></p>
                       </div></a>
-                </div>
+</div>
 
-                <div class="img_card">
+
+<div class="img_card">
                   <a href="<?php bloginfo('template_url'); ?>/images/animation_cinema.png" data-lightbox="workshops" >
                     <img alt="Master Classess & workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
                   <div class="img_caption">
@@ -456,7 +497,55 @@ Template Name: Home
                 </div>
 
             <div class="img_card">
-              <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="stills"><img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/still_sf.jpg">
+              
+            <?php
+            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+
+            $latest_stiil_post = new WP_Query(array(
+    'post_type'      => 'picture', // Assuming 'picture' is your custom post type
+    'tax_query'      => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => $catslug,
+        ),
+    ),
+    'meta_query'     => array(
+        array(
+            'key'     => 'Picture_Category', // ACF field name
+            'value'   => 'Student Stills', // Category value to match
+            'compare' => '='
+        ),
+    ),
+    'posts_per_page' => 1, // Fetch the latest post
+    'orderby'        => 'date',
+    'order'          => 'DESC'
+));
+
+// Check if there's a post available
+if ($latest_stiil_post->have_posts()) :
+    while ($latest_stiil_post->have_posts()) : $latest_stiil_post->the_post();
+        // Get the image file from ACF
+        $image = get_field('Picture_File');
+        if ($image) : ?>
+           <a href="<?php echo esc_url($image); ?>" data-lightbox="stills">
+    <img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/still_sf.jpg">
+
+        <?php
+        endif;
+    endwhile;
+    wp_reset_postdata(); // Reset the post data after the loop
+else :
+    // Fallback if no post found
+    ?>
+    
+    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="stills">
+        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No Workshop Image Available" class="img-responsive lazyOwl" width="302" height="416">
+    </a>
+<?php
+endif;
+?>
+
               <div class="img_caption">
                 <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
               </div></a>
@@ -497,7 +586,7 @@ Template Name: Home
             'compare' => 'IN' // Match any of the values
             ),
         ),
-        'posts_per_page' => 5, // Adjust the number of posts per page as needed
+        'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
 
     if ($category_posts->have_posts()) :
@@ -740,7 +829,7 @@ else :
     echo '<p>No posts found in this category.</p>';
 endif;
 ?>
-<div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
+<div class="link-span"><a  href="<?php echo esc_url(site_url('/announcement/')); ?>" role="link"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
 <div class="cell">

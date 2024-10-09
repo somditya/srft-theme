@@ -21,7 +21,7 @@ function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventi
 	return 0;
 }
 
-$category_name = 'bulletin'; // Ensure this matches the exact category name.
+$category_name = 'announcement'; // Ensure this matches the exact category name.
 $category_id = get_category_ID($category_name);
 ?>
 
@@ -83,7 +83,7 @@ $category_id = get_category_ID($category_name);
             $scope.itemsPerPage = 8; // Number of items per page
          
 
-            $http.get(siteURL + 'wp-json/wp/v2/bulletin?categories=' + categoryID + '&per_page=100')
+            $http.get(siteURL + 'wp-json/wp/v2/announcement?categories=' + categoryID + '&per_page=100')
                 .then(function(response) {
                     console.log('HTTP request success');
                     $scope.announcementList = response.data.map(function(post) {
@@ -96,7 +96,7 @@ $category_id = get_category_ID($category_name);
                         return {
                             name: post.title.rendered || '',
                             link: post.link,
-                            image: post.acf['bulletin_image'], // Assuming it returns a URL
+                            image: post.acf['Announcement-Image'], // Assuming it returns a URL
                             //featured_media: post.featured_media,
                             formattedDate: formattedDate,
                         };
