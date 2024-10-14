@@ -129,10 +129,10 @@ $category_id = get_category_ID($category_name);
         .controller('ProductionController', function ($scope, $http) {
             $scope.currentPage = 1;
             $scope.itemsPerPage = 14;
-            let requestUrl = siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100';
+            //let requestUrl = siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100';
 
             // Display the URL in an alert
-            alert('The request URL is: ' + requestUrl);
+            //alert('The request URL is: ' + requestUrl);
 
             $http.get(siteURL + 'wp-json/wp/v2/posts?categories=' + categoryID + '&per_page=100')
                 .then(function (response) {
