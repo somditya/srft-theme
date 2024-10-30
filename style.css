@@ -234,23 +234,20 @@ body.dark-mode #accessibility-menu button {
   cursor: pointer;
   margin: 5px;
   font-size: 1.5rem;
-  color: #eee;  
+  color: #eee;
 }
 
-
 body.dark-mode .update-title {
-  color: #eee;  
-
+  color: #eee;
 }
 
 body.dark-mode .news-item-title h3 {
-  color: #eee;    
+  color: #eee;
 }
 
 body.dark-mode .news-item p {
-  color: #eee;    
+  color: #eee;
 }
-
 
 /* Ensure text color changes are applied globally */
 body.high-contrast * {
@@ -3272,7 +3269,6 @@ h4 {
   cursor: pointer;
   padding: 10px 45px 10px 20px;
 }
-
 
 /* News List */
 
@@ -7458,9 +7454,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 1250px (Landscape Tablets) */
 /**************************/
 
-
 @media (max-width: 1200px) {
-
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -7502,7 +7496,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     min-width: 120px;
     border-right: 1px solid #ccc;
     margin-right: 1em;
-    
   }
   .Rtable-cell.column-heading {
     background-color: #724b26;
@@ -7513,7 +7506,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     flex: 2;
     padding-left: 1em;
   }
-  
 }
 
 /**************************/
@@ -7706,14 +7698,14 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 5.375rem;
     font-weight: 500;
     margin: 0 0 2rem;
-    letter-spacing: -.0875rem;
+    letter-spacing: -0.0875rem;
     line-height: 1.1rem;
     color: #8b5b2b;
     margin-bottom: 1.25rem; /* Adjusted margin-bottom */
     padding-bottom: 2.75rem; /* Adjusted padding-bottom */
     border-bottom: 2px solid #d6d6ce;
     width: 100%;
-}
+  }
 
   .box-container {
     display: grid;
@@ -7765,14 +7757,12 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .caption {
     font-size: 16px;
   }
-
 }
 
 /**************************/
 /* BELOW 704px (Smaller tablets) */
 /**************************/
 @media only screen and (max-width: 768px) {
-    
   .hide-on-mobile {
     display: none;
   }
@@ -7786,7 +7776,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensure images take full width */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    ); /* Ensure images take full width */
     grid-auto-rows: 1fr; /* Ensures square aspect ratio */
     gap: 5px;
   }
@@ -7978,16 +7971,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
     justify-content: center;
     padding: 0;
     list-style: none;
-}
+  }
 
-.footer_copyright_container .brand-list li {
+  .footer_copyright_container .brand-list li {
     margin: 10px;
-}
+  }
 
-.footer_copyright_container .brand-list li a img {
-    max-width: 100%;       /* Makes the image responsive while keeping its original size */
-    height: auto;          /* Maintain original aspect ratio based on width */
-}
+  .footer_copyright_container .brand-list li a img {
+    max-width: 100%; /* Makes the image responsive while keeping its original size */
+    height: auto; /* Maintain original aspect ratio based on width */
+  }
 
   .social {
     margin-top: 20px;
@@ -8017,101 +8010,97 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 
   .nheadline {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
-
-.page-banner-title {
+  .page-banner-title {
     font-size: 2.5rem;
     padding: 10px;
-}
+  }
 
-.leftnav {
+  .leftnav {
     width: 100%;
     margin-bottom: 20px;
-}
+  }
 
-.leftnav .widget {
+  .leftnav .widget {
     margin-bottom: 20px;
-}
+  }
 
-.main-content {
+  .main-content {
     width: 100%;
     padding: 0 15px;
-}
+  }
 
-.facility-img-box img {
+  .facility-img-box img {
     max-width: 100%;
     height: auto;
-}
+  }
 
-.box-container {
+  .box-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
+  }
 
-.faculty-img ul {
+  .faculty-img ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+  }
 
-.faculty-img li {
+  .faculty-img li {
     width: 100%;
     margin-bottom: 15px;
-}
+  }
 
-.faculty-img li img {
+  .faculty-img li img {
     max-width: 100px;
     height: auto;
-}
+  }
 
-.visiting.owl-carousel .alumni-item {
+  .visiting.owl-carousel .alumni-item {
     text-align: center;
     width: 100%;
-}
+  }
 
-.page-header-text {
+  .page-header-text {
     font-size: 1.8rem;
-}
+  }
 
-.facility-text-box ul {
-  list-style: circle inside none;
-  font-size: 1rem;
-}
+  .facility-text-box ul {
+    list-style: circle inside none;
+    font-size: 1rem;
+  }
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
       grid-template-columns: 100%;
   }*/
-  
 }
 
 /**************************/
 /* BELOW 576px (Mobile) */
 /**************************/
 @media only screen and (max-width: 576px) {
- 
   .page-header-text {
     font-size: 22px;
   }
   .item {
     font-size: 1.2rem;
-}
+  }
 
-.language-switcher {
-  display: inline-block; /* Ensure it's inline */
-  margin-left: 10px; /* Adjust space between the icon and the dropdown */
-}
+  .language-switcher {
+    display: inline-block; /* Ensure it's inline */
+    margin-left: 10px; /* Adjust space between the icon and the dropdown */
+  }
 
-.language-text {
-  display: none; /* Hide the language text */
-}
+  .language-text {
+    display: none; /* Hide the language text */
+  }
 
-/* Ensure the parent <li> is flex */
-
+  /* Ensure the parent <li> is flex */
 
   .section-intro-header-text {
     font-size: 24px; /* Adjusted font size for mobile */
@@ -8130,24 +8119,20 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: none;
   }
 
-  
   .show-on-mobile {
     display: block;
   }
-  
-  .skp-to-main {
-   
-    display: none;
 
+  .skp-to-main {
+    display: none;
   }
-  
+
   .mobile-icon {
     display: inline-block; /* Shows the image icon on mobile */
     width: 24px; /* Adjust width as needed */
     margin-right: 10px; /* Adds padding around the icon */
     height: auto; /* Maintain aspect ratio */
-}
-
+  }
 
   .show-on-mobile {
     display: block;
@@ -8193,14 +8178,14 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 3.375rem;
     font-weight: 500;
     /*margin: 0 0 2rem;*/
-    letter-spacing: -.0875rem;
+    letter-spacing: -0.0875rem;
     line-height: 1.1rem;
     color: #8b5b2b;
     margin-bottom: 1.25rem; /* Adjusted margin-bottom */
     padding-bottom: 2.75rem; /* Adjusted padding-bottom */
     border-bottom: 2px solid #d6d6ce;
     width: 100%;
-}
+  }
 
   .swipper-title {
     width: 100%;
@@ -8268,13 +8253,12 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .link-text-big {
     font-size: 14px; /* Adjusted font size */
   }
-   
-   .artcle 
-   {
-    display: grid; 
+
+  .artcle {
+    display: grid;
     grid-gap: 1.875rem;
     grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;
-   }
+  }
 
   .update-title {
     border-bottom: 1px solid #666; /* Thinner border for mobile */
@@ -8286,11 +8270,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     color: #161a1d; /* Maintained text color */
   }
 
-
   .primary__header-arrow {
     margin-left: 4px; /* Reduced margin */
   }
- 
+
   .button-link-course {
     font-size: 1.8rem; /* Adjusted font size for mobile */
     line-height: 1.8rem; /* Adjusted line height to match font size */
@@ -8343,54 +8326,50 @@ ul li input[type="checkbox"]:checked ~ i:after {
     margin-top: 0.25rem; /* Reduced margin */
   }
 
-
   /*department*/
 
   .facility-img-box img {
     max-width: 100%;
     height: auto;
-}
+  }
 
-.box-container {
+  .box-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
+  }
 
-.faculty-img ul {
+  .faculty-img ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+  }
 
-.faculty-img li {
+  .faculty-img li {
     width: 100%;
     margin-bottom: 15px;
-}
+  }
 
-.faculty-img li img {
+  .faculty-img li img {
     max-width: 100px;
     height: auto;
-}
+  }
 
-.visiting.owl-carousel .alumni-item {
+  .visiting.owl-carousel .alumni-item {
     text-align: center;
     width: 100%;
-}
+  }
 
-.page-header-text {
+  .page-header-text {
     font-size: 1.8rem;
+  }
+
+  .facility-text-box ul {
+    list-style: circle inside none;
+    font-size: 1.5rem;
+  }
 }
-
-.facility-text-box ul {
-  list-style: circle inside none;
-  font-size: 1.5rem;
-}
-
-}
-
-
 
 @media (min-width: 1024px) {
   .nav {
@@ -8417,4 +8396,4 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: none;
   }
 }
-/* Responsive
+/* Responsive */
