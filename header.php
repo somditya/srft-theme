@@ -20,7 +20,11 @@ $current_language = get_locale();
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<?php wp_head(); ?>
+  <meta name="description" content="The Satyajit Ray Film & Television Institute is an autonomous educational institution under the Ministry of Information and Broadcasting, Government of India. It offers postgraduate programs in film and television studies.">
+  <meta name="keywords," content="Home, Contact Us, Courses, Admission, Post Graduate Programme in Cinema, Post Graduate Programme in EDM, FAQ">
+  <meta name="language" content="English">
+  <meta property="title" content="SRFTI - Satyajit Ray Film & Television Institute">
+  <?php wp_head(); ?>
 	  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
