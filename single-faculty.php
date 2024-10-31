@@ -30,7 +30,7 @@ $post_content = apply_filters('the_content', $post->post_content);
                 <div>
                     <img src="<?php echo esc_url(get_field('Faculty-Image')); ?>" 
                          style="width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; margin-bottom: 2rem;" 
-                         alt="<?php echo esc_attr(get_field('Faculty-Image-Alt')); ?>" />
+                         alt="<?php echo get_the_title(); ?>" />
                 </div>
                 
             </div>

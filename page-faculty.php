@@ -140,8 +140,9 @@ $category_id = get_category_ID($category_name);
       var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
             return {
                 name: post.title.rendered || '',
-                link: linkWithImage,
+                //link: linkWithImage,
                 //featured_media: post.featured_media,
+                link: postLink,
                 image: post.acf['Faculty-Image'],
                 //designation: post.Designation,
                 designation: post.acf['Faculty-Designation'],
