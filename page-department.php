@@ -215,7 +215,7 @@ if ($current_language === 'en_US') {
        </div>
 
        <div class="facility-img-box">
-       <img src="<?php echo $facilities_img ?>" class="container-image" />
+       <img src="<?php echo $facilities_img ?>" class="container-image" / alt="Image displaying department's activities">
        </div>
        
      </div>
