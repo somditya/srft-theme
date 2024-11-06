@@ -73,7 +73,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><?php echo __('View', 'srft-theme' ); ?>&nbsp;({{tender.file.type}} - {{tender.file.size}} MB)</a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><?php echo __('View', 'srft-theme' ); ?><img alt="pdf" class="pdf_icon" src="images/pdf_icon.png">&nbsp;({{tender.file.type}} - {{tender.file.size}} MB)</a></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
