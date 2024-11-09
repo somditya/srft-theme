@@ -10,7 +10,7 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><<?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
+      <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
       <ul>
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
@@ -107,7 +107,7 @@ $current_language = get_locale();
 <div style="margin: 10px;"> 
 <?php echo __('Designed, Developed & Maintained  by @2024 Satyajit Ray Film & Television Institute', 'srft-theme'); ?>
 </div>
-    <p class="last-updated"><?php echo do_shortcode('[last_updated]'); ?></p>
+    <?php echo do_shortcode('[last_updated]'); ?>
 </div>
 
 </div>
@@ -199,7 +199,7 @@ $current_language = get_locale();
     autoplayTimeout: 1500,
     autoplayHoverPause: true,
     nav: false,
-    dots: true,
+    dots: false,
   });
 
   $('.student').owlCarousel({
@@ -273,7 +273,7 @@ $current_language = get_locale();
   });
 </script>
 
-<?php wp_footer(); ?>
+<!--<?php wp_footer(); ?>-->
 
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
 

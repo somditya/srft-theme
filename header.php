@@ -37,7 +37,7 @@ $current_language = get_locale();
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
@@ -148,19 +148,19 @@ $current_language = get_locale();
            <li></li>
            </ul>         
           </div>
-         <div>
-             <ul style="display:flex;">
-             <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+          <ul style="display:flex;">
+            <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
              <!--<li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>-->
-             <li>
-    <a href="#" aria-haspopup="true" aria-expanded="false">
-        <i class="fa-solid fa-language" aria-hidden="true"></i>
-        <?php if (function_exists('pll_the_languages')) : ?>
+            <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-language" aria-hidden="true"></i>
+              <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><?php echo __('Language', 'srft-theme' ); ?></span>
-        <?php endif; ?>
-    </a>
+            <?php endif; ?>
+          </a>
     <div id="language-switcher" class="language-switcher" aria-label="Language Selection">
+    <label for="lang_choice_1" class="visually-hidden">Language Selection</label>
         <?php
             pll_the_languages(
                 array(
@@ -187,15 +187,13 @@ $current_language = get_locale();
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
             </li>
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
-             <li><button id="accessibility-icon" aria-label=<?php echo __('Accessibilty tool', 'srft-theme' ); ?>>
-    <i class="fas fa-universal-access"></i>
-</button></li>&nbsp; &nbsp;
-<div class="search-container"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div>
-<li></li>
-            </div>
-      
+             <li><button id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
+              <i class="fas fa-universal-access"></i>
+            </button></li>
+<li>
+<div class="search-container"><?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?></div> </li>
       </ul>
-
+      </div>
 <!-- Accessibility Menu -->
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
@@ -225,9 +223,9 @@ $current_language = get_locale();
     </div>-->
 </div>
 
-       </div>
+       <!--</div>-->
        <div class="menu-container">
-       <input type="checkbox" name="" id="check" aria-label="Open menu"/>
+       <input type="checkbox" id="check" aria-label="Open menu"/>
         <div class="logo-container">
           <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
@@ -242,10 +240,10 @@ $current_language = get_locale();
                 <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
-                    ?>" area-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
+                    ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></i></a>
+                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -281,7 +279,7 @@ $current_language = get_locale();
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
                     ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
-                    <div class="arrow"></div>
+                    <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
               </li>
@@ -312,7 +310,7 @@ $current_language = get_locale();
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
-                    <div class="arrow"></div>
+                    <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
               </li>
@@ -341,7 +339,7 @@ $current_language = get_locale();
                     <li class="dropdown-link">
                       <a href="#"><?php echo __('Previous Year Papers', 'srft-theme' ); ?></a>
                     </li>-->
-                    <div class="arrow"></div>
+                    <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
               
@@ -368,7 +366,7 @@ $current_language = get_locale();
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
                     else  { echo esc_url(site_url('/screening-room/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
-                    <div class="arrow"></div>
+                    <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
               
@@ -409,7 +407,7 @@ if ($current_language === 'en_US') {
                       <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>
                     </li>-->
                     
-                    <div class="arrow"></div>
+                    <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
               </li>         

@@ -15,86 +15,102 @@ Template Name: Home
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
- <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding:10px;" id=skip-link>
- <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
- <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;"><?php echo __('Whats New', 'srft-theme' ); ?></div>
- <div class="secondary__header-arrow" class="margin-left: 0px;  padding:0px; calc(15% - 40px); "> 
-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:white;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: white;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
- </span>
- </div>
- <div style="color:white; font-size: 18px; width: calc(90% - 40px); "><marquee direction="right">JET 2022 result published please follow the link to know your rank</marquee></div>
- </section>
- 
- <section  class="section-news" style="background-color: #0b6b39;" id="section-1">
- <h2  class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;" >
-      <?php echo __('Featured News', 'srft-theme' ); ?>
-      </h2>
-   <div class="frame">
-   <div class="static owl-carousel">
-   <?php
+    <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding:10px;">
+    <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
+        
+        <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">
+            <?php echo __('Whats New', 'srft-theme' ); ?>
+        </div>
+        
+        <div class="secondary__header-arrow" style="margin-left: 0px; padding:0px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;">
+                <defs>
+                    <style>.cls-1-arrow{fill:none;stroke:white;stroke-miterlimit:10;}</style>
+                </defs>
+                <g id="Calque_1-2" data-name="Calque 1">
+                    <path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path>
+                    <line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line>
+                    <polyline class="cls-1-arrow" style="stroke: white;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
+                </g>
+            </svg>
+        </div>
+        
+        <div style="color: white; font-size: 18px; width: calc(90% - 40px); overflow: hidden; white-space: nowrap;">
+          <span class="scrolling-text">JET 2022 result published, please follow the link to know your rank</span>
+        </div>
+        
+    </div> <!-- Closing the .container div -->
+</section>
 
-    $post_id = get_the_ID();
-    $post_content = apply_filters('the_content', $post->post_content);
-    
-    if ($current_language === 'en_US') {
-      $catslug='news-en'; 
-     }
-      else
-      {
-        $catslug='news-hi';
-      }
-      $category_posts = new WP_Query(array(
-        'post_type' => 'news',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'posts_per_page' => -1,
-    ));
-  
+ 
+<section class="section-news" style="background-color: #0b6b39;" id="section-1">
+    <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
+        <?php echo __('Featured News', 'srft-theme' ); ?>
+    </h2>
+    <div class="frame">
+        <div class="static owl-carousel">
+            <?php
+            $post_id = get_the_ID();
+            $post_content = apply_filters('the_content', $post->post_content);
 
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-    ?>
-    
-      <div class="news-item">
-      <a href="<?php the_permalink(); ?>" target="_blank" role="link">
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image');?> ?>" alt="<?php echo get_field('News-Image-Alternativetext'); ?>"  style="display: block;">
-      <div class="news-item-title">
-        <h3 href="#"><?php the_title(); ?></h3>
-        <p><?php echo $post_content; ?></p>
-        <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
-        <!--<div class="primary__header-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
-      </div>
-      </a>
-      </div>
-      <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>  
- </div>
- <div class="link-div" style="align-items: center;"">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-   <div class="link-div" style="align-items: center; margin-top: 0;">
-     <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>" role="link" aria-label="Read more about our latest news"><span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
-       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
-     </span>
-   </a>
-  </div> 
-   </div>
- </div>
+            if ($current_language === 'en_US') {
+                $catslug='news-en'; 
+            } else {
+                $catslug='news-hi';
+            }
+
+            $category_posts = new WP_Query(array(
+                'post_type' => 'news',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'category',
+                        'field'    => 'slug',
+                        'terms'    => $catslug,
+                    ),
+                ),
+                'posts_per_page' => -1,
+            ));
+
+            if ($category_posts->have_posts()) :
+                while ($category_posts->have_posts()) : $category_posts->the_post();
+            ?>
+                    <div class="news-item">
+                        <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
+                            <div class="news-item-title">
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo $post_content; ?></p>
+                            </div>
+                        </a>
+                    </div>
+            <?php
+                endwhile;
+                wp_reset_postdata(); // Reset the post data
+            else :
+                echo '<p>No posts found in this category.</p>';
+            endif;
+            ?>  
+        </div>
+        <div class="link-div" style="align-items: center; margin-top: 10px;">
+            <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>" role="link" aria-label="Read more about our latest news">
+                <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
+                <span class="primary__header-arrow"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
+                        <defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs>
+                        <g id="Calque_1-3" data-name="Calque 1">
+                            <path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path>
+                            <line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line>
+                            <polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
+                        </g>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
  
- </div>
- </div>
- </section>
- 
-<section class="section-home"; style="padding: 0;">
+<section class="section-home;" style="padding: 0;">
   <div  style="display:flex; flex-wrap: wrap; background-color: #777777">
     <div class="abtimg-box">
     </div>
@@ -109,7 +125,7 @@ Template Name: Home
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
           <a class="link-text-big" href="<?php echo esc_url(site_url('/about-the-institute/')); ?>" role="link" aria-label="Read more about our Institute"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-4" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
           
@@ -127,7 +143,7 @@ Template Name: Home
       <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></h3>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank" role="link">
-            <img src="<?php bloginfo('template_url'); ?>/images/cilect.png" target="_blanK" alt="CILECT" >
+            <img src="<?php bloginfo('template_url'); ?>/images/cilect.png"  alt="CILECT" >
           </a>
       </div>
     </div>
@@ -190,186 +206,136 @@ Template Name: Home
 <section id="courses">
   <div class="container grid grid--2-cols">
     <div class="course-head">
-      <h2  class="section-intro-header-text" >
-      <?php echo __('Study options', 'srft-theme' ); ?>  
+      <h2 class="section-intro-header-text">
+        <?php echo __('Study options', 'srft-theme'); ?>
       </h2>
     </div>
     <div class="course-text">
-       <div class="course-highlight">
+      <div class="course-highlight">
         <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-cinema/')); ?>" role="link">
-          <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-        </div><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?> &nbsp;
-      </a>
-        </div>
-
-        <div class="course-highlight" >
-          <a class="button-link-course" href="<?php echo esc_url(site_url('//post-graduate-programme-in-edm//')); ?>" role="link">
-            <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-          </div><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?> &nbsp;
-        </a>
+          <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;">
+              <defs>
+                <style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style>
+              </defs>
+              <g id="Calque_1-5" data-name="Calque 1">
+                <line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line>
+                <polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline>
+              </g>
+            </svg>
           </div>
+          <?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?> &nbsp;
+        </a>
+      </div>
 
-          <!--<div class="course-highlight">
-            <a class="button-link-course" href="<?php echo esc_url(site_url('/short-prorammes/')); ?>" role="link">
-              <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;;">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg>
-            </div><?php echo __('Short Courses', 'srft-theme' ); ?>&nbsp;
-          </a>
-            </div>-->
-          
+      <div class="course-highlight">
+        <a class="button-link-course" href="<?php echo esc_url(site_url('/post-graduate-programme-in-edm/')); ?>" role="link">
+          <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;">
+              <defs>
+                <style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style>
+              </defs>
+              <g id="Calque_1-6" data-name="Calque 1">
+                <line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line>
+                <polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline>
+              </g>
+            </svg>
+          </div>
+          <?php echo __('Post Graduate Programme in EDM', 'srft-theme'); ?> &nbsp;
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 
-<section class="section-home" style="background-color: #f0e9e9;;  ">
 
+<section class="section-home" style="background-color: #f0e9e9;">
   <div style="margin-top: 3.2rem">
-    <h2  class="section-intro-header-text" style="padding-left: 0; ">
-    <?php echo __('Notable Alumni', 'srft-theme' ); ?>    </h2>
+    <h2 class="section-intro-header-text" style="padding-left: 0;">
+      <?php echo __('Notable Alumni', 'srft-theme'); ?>
+    </h2>
     <div class="alumni">
       <div class="nonstatic owl-carousel">
         <div class="alumni-item">
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img 
-                src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg"
-                alt="Picture of Amal Neerad"
-              /></a>
-              <h5><?php echo __('Amal Neerad', 'srft-theme' ); ?></h5>
-           </div>
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
+          </a>
+          <h5><?php echo __('Amal Neerad', 'srft-theme'); ?></h5>
+        </div>
 
-           <div class="alumni-item">   
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg"
-                alt="Picture of Kanu Behl"
-              /></a>
-              <h5><?php echo __('Kanu Behl', 'srft-theme' ); ?></h5>
-              </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="Picture of Kanu Behl" />
+          </a>
+          <h5><?php echo __('Kanu Behl', 'srft-theme'); ?></h5>
+        </div>
 
-            <!--<div class="alumni-item">  
-            <a class="alumni-img"
-              href="#"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/Vipin-Vijay-small.jpg"
-                alt="Picture of Vipin Vijay"
-              /></a>
-              <h5><?php echo __('Vipin Vijay', 'srft-theme' ); ?></h5>
-              </div>-->
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="Picture of Namrata Rao" />
+          </a>
+          <h5><?php echo __('Namrata Rao', 'srft-theme'); ?></h5>
+        </div>
 
-              <div class="alumni-item">  
-                <a class="alumni-img"
-                  href="#"
-                  ><img
-                    src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp"
-                    alt="Picture of Namrata Rao"
-                  /></a>
-                  <h5><?php echo __('Namrata Rao', 'srft-theme' ); ?></h5>
-                  </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
+          </a>
+          <h5><?php echo __('Hawam Paban Kumar', 'srft-theme'); ?></h5>
+        </div>
 
-                  <div class="alumni-item">  
-                    <a class="alumni-img"
-                      href="#"
-                      ><img
-                        src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp"
-                        alt="Picture of Hawam Paban Kumar"
-                      /></a>
-                      <h5><?php echo __('Hawam Pabam Kumar', 'srft-theme' ); ?></h5>       
-                      </div>
-    
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="Picture of Pritha Chakraborty" />
+          </a>
+          <h5><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></h5>
+        </div>
 
-          <div class="alumni-item">
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png"
-                alt="Picture of Pritha Chakraborty"
-              /></a>
-              <h5><?php echo __('Pritha Chakraborty', 'srft-theme' ); ?></h5>
-              </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="Picture of Madhura Palit" />
+          </a>
+          <h5><?php echo __('Madhura Palit', 'srft-theme'); ?></h5>
+        </div>
 
-          <div class="alumni-item">
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png"
-                alt="Picture of Madhura Palit"
-              /></a>
-              <h5><?php echo __('Madhura Palit', 'srft-theme' ); ?></h5>
-              
-              </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="Picture of Avijit Sen" />
+          </a>
+          <h5><?php echo __('Abhijit Sen', 'srft-theme'); ?></h5>
+        </div>
 
-            <div class="alumni-item">  
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png"
-                alt="Picture of Avijit Sen"
-              /></a>
-              <h5><?php echo __('Abhijit Sen', 'srft-theme' ); ?></h5>
-              </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="Picture of Sagar Ballary" />
+          </a>
+          <h5><?php echo __('Sagar Ballary', 'srft-theme'); ?></h5>
+        </div>
 
-              <div class="alumni-item">
-            <a class="alumni-img
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png"
-                alt="Picture of Sagar Ballary"
-              /></a>
-              <h5><?php echo __('Sagar Ballary', 'srft-theme' ); ?></h5>
-              </div>
-            <div class="alumni-item">  
-            <a class="alumni-img"
-              href="#"
-              target="_blank"
-              ><img
-                src="<?php bloginfo('template_url'); ?>/images/Pritam Das.png"
-                alt="Picture of Pritam Das"
-              /></a>
-              <h5><?php echo __('Pritam Das', 'srft-theme' ); ?></h5>
-              </div>
-              <div class="alumni-item">  
-                <a class="alumni-img"
-                  href="#"
-                  target="_blank"
-                  ><img
-                    src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png"
-                    alt="Picture of Sourav Rai"
-                  /></a>
-                  <h5><?php echo __('Sourav Rai', 'srft-theme' ); ?></h5>
-                  </div>
-                  <div class="alumni-item">  
-                    <a class="alumni-img"
-                      href="#"
-                      target="_blank"
-                      ><img
-                        src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png"
-                        alt="Picture of Domin Sangma"
-                      /></a>
-                      <h5><?php echo __('Dominic Sangma', 'srft-theme' ); ?></h5>
-                      </div>
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="Picture of Pritam Das" />
+          </a>
+          <h5><?php echo __('Pritam Das', 'srft-theme'); ?></h5>
+        </div>
+
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="Picture of Sourav Rai" />
+          </a>
+          <h5><?php echo __('Sourav Rai', 'srft-theme'); ?></h5>
+        </div>
+
+        <div class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="Picture of Dominic Sangma" />
+          </a>
+          <h5><?php echo __('Dominic Sangma', 'srft-theme'); ?></h5>
+        </div>
       </div>
-  
     </div>
-    <!--<div class="link-div" style="align-items: center;>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-      <div class="link-div" style="align-items: center; margin-top: 0;">
-        <a class="link-text-big" href="news-list/">
-          <span><?php echo __('Read Alumni News', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
-          </span>
-        </a>
-      </div>
-  </div>-->
-
+  </div>
 </section>
 
   <section class="section-home" style="background-color: rgb(228, 118, 15);
@@ -410,7 +376,7 @@ Template Name: Home
       <a href="<?php the_permalink(); ?>" target="_blank" role="link">
         <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt="<?php echo get_field('film_still_alt_text'); ?>"  style="display: block;">
       <div class="news-item-title">
-        <h3 href="#"><?php echo get_field('Film-Name');?></h3>
+        <h3><?php echo get_field('Film-Name');?></h3>
         <p><?php echo get_field('award_received');?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
@@ -867,7 +833,7 @@ if ($category_posts->have_posts()) :
         }
 ?>
         <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" /></a>
         </h3>
 <?php
     endwhile;
@@ -917,7 +883,7 @@ endif;
         }
 ?>
         <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons8-download-25-color.png" alt="Download" style="vertical-align: middle;" /></a>
+            <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" /></a>
         </h3>
 <?php
     endwhile;
