@@ -7,14 +7,13 @@ $post_id = get_the_ID();
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
-<div data-scroll-container>
-<main>
-      <body>
+
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></div>
+        </div>  
       </section>
-      <section id="skip-to-content" class="cine-detail">
+    <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
           <!--<div>
           <p class="office-header-text">Management</p>-->
@@ -22,7 +21,7 @@ $current_language = get_locale();
         </div>-->
         <div class="childnavs">
             
-    <ul class="childnav-lists">
+    <div class="childnav-lists">
         <?php
         $current_language = get_locale(); // Get the current language/locale.
 
@@ -66,17 +65,17 @@ $current_language = get_locale();
             'walker' => new Custom_Walker_Nav_Menu(),
         ));
         ?>
-    </ul>
+    </div>
 </div>
         
      <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
-        <ul class="childnav-lists">
+        <div class="childnav-lists">
             <ul class="submenu">
           <li class="childnav-list-item"><a class="item" href="http://192.168.1.231:8000/" target="_blank" role="link" title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank" role="link" title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
         </ul>
-        </ul>       <!--<div class="widget" style="line-height: 1.5">
+        </div>       <!--<div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
           <li><?php echo __('Memorandum of Association', 'srft-theme' ); ?>  <img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li> 
           <li><?php echo __('Academic Bye-Laws ', 'srft-theme' ); ?><img src="<?php bloginfo('template_url'); ?>/images/icons8-download-25-color.png" style="vertical-align: middle;"/></li>
@@ -106,11 +105,11 @@ $current_language = get_locale();
         <p class="page-header-text"><?php echo __('Library of SRFTI', 'srft-theme' ); ?></p>
     </div>-->
     <section style="margin-bottom: 4rem;">
-    <?php the_content(); ?>   
+    <?php 
+    the_content(); ?>   
     </section>
 </div>
-        
-</main>
+    </section>        
 
  
     <?php

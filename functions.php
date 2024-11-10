@@ -568,7 +568,7 @@ function display_selected_documents($atts) {
 	$output = ob_get_clean();
 	
 	// Reapply wpautop filter to avoid affecting other content
-	add_filter('the_content', 'wpautop');
+	//add_filter('the_content', 'wpautop');
 
 	return $output;
 }

@@ -26,7 +26,6 @@ $category_id = get_category_ID($category_name);
 ?>
 <div data-scroll-container>
 <body ng-controller="FacultyController">
-
     <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">

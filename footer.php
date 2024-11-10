@@ -106,10 +106,11 @@ $current_language = get_locale();
 
 <div style="margin: 10px;"> 
 <?php echo __('Designed, Developed & Maintained  by @2024 Satyajit Ray Film & Television Institute', 'srft-theme'); ?>
-</div>
+<div>
     <?php echo do_shortcode('[last_updated]'); ?>
 </div>
 
+</div>
 </div>
 
 <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>

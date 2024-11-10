@@ -80,17 +80,20 @@ $current_language = get_locale();
 
         <div  class="main-content">
             <section class="page-title">
-          <div>
-            <?php echo '<p class="page-header-text">' . esc_html($post->post_title) . '</p>';?>
-          </div>
-  </section>
+               <div>
+                 <?php echo '<p class="page-header-text">' . esc_html($post->post_title) . '</p>';?>
+               </div>
+            </section>
 
             <section style="margin-bottom: 4rem;">
-    <div><?php echo do_shortcode(wp_kses_post($post->post_content)); ?></div>   
-</section>
+               <div>
+                <?php echo do_shortcode(wp_kses_post($post->post_content)); ?>
+              </div>   
+            </section>
+
 
         </div>
-    </section>
+    </section>              
 </main>
 
 <?php

@@ -15,58 +15,58 @@ $current_language = get_locale();
           <div class="page-banner-title"><?php echo __('Admission to post graduate courses', 'srft-theme'); ?></div>  
         </div>
       </section>
+
       <section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
-        <div class="childnavs">
-    <ul class="childnav-lists">
-        <?php
-        $current_language = get_locale(); // Get the current language/locale.
+          <div class="childnavs">
+              <?php
+                $current_language = get_locale(); // Get the current language/locale.
 
-        $menu_name = ($current_language === 'hi_IN') ? 'hindi_admission_menu' : 'english_admission_menu'; // Define menu name based on language.
+                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admission_menu' : 'english_admission_menu'; // Define menu name based on language.
 
         // Get the current page title
-        $current_page_title = get_the_title();
+                $current_page_title = get_the_title();
 
         // Define a custom menu walker to modify the menu output.
-        class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-            public function start_lvl(&$output, $depth = 0, $args = null) {
+                  class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+                      public function start_lvl(&$output, $depth = 0, $args = null) {
                 // Customize the submenu opening tag as needed.
-                $output .= '<ul class="submenu">';
-            }
+                      $output .= '<ul class="submenu">';
+                      }
 
-            public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                      public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
                 // Check if the current page title matches the menu item title.
-                $is_current = ($item->title === $GLOBALS['current_page_title']) ? 'active' : '';
+                      $is_current = ($item->title === $GLOBALS['current_page_title']) ? 'active' : '';
 
                 // Customize the menu item HTML structure as needed.
-                $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-            }
+                      $output .= '<li class="childnav-list-item ' . $is_current . '">';
+                      $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+                    }
 
-            public function end_el(&$output, $item, $depth = 0, $args = null) {
+                      public function end_el(&$output, $item, $depth = 0, $args = null) {
                 // Close the menu item tag.
-                $output .= '</li>';
-            }
+                      $output .= '</li>';
+                   }
 
-            public function end_lvl(&$output, $depth = 0, $args = null) {
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
                 // Customize the submenu closing tag as needed.
-                $output .= '</ul>';
-            }
-        }
+                    $output .= '</ul>';
+                   }
+                }
 
         // Display the menu based on the language and custom walker.
-        wp_nav_menu(array(
-            'menu' => $menu_name,
-            'container' => false, // No container element.
-            'menu_class' => 'childnav-lists', // You can customize this class as needed.
-            'walker' => new Custom_Walker_Nav_Menu(),
-        ));
-        ?>
-    </ul>
-</div>
-        <div class="widget" style="line-height: 1.5">
+                wp_nav_menu(array(
+                'menu' => $menu_name,
+                'container' => false, // No container element.
+                'menu_class' => 'childnav-lists', // You can customize this class as needed.
+                'walker' => new Custom_Walker_Nav_Menu(),
+              ));
+          ?>
+    
+          </div>
+          <div class="widget" style="line-height: 1.5">
         
-        <?php 
+            <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
                 } else {
@@ -122,12 +122,12 @@ $current_language = get_locale();
 
                 wp_reset_postdata(); // Reset after custom query
                 ?>   
-        </div>
-        <div class="widget" style="line-height: 1.5">
-        <h3><?php echo __('Admission Notification', 'srft-theme');?></h3>
-        <?php
-    $category_posts = new WP_Query(array(
-        'category_name' => 'admissionshort-en', // Replace with your category slug
+          </div>
+          <div class="widget" style="line-height: 1.5">
+          <h3><?php echo __('Admission Notification', 'srft-theme');?></h3>
+          <?php
+          $category_posts = new WP_Query(array(
+          'category_name' => 'admissionshort-en', // Replace with your category slug
         'posts_per_page' => 5,
     ));
 
@@ -203,7 +203,7 @@ $current_language = get_locale();
                     </ul>
                     <ul>
                       <li>
-                        <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>"checked>
+                        <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>" checked>
                         <i></i>
                         <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
                         <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
@@ -217,8 +217,6 @@ $current_language = get_locale();
                           <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>
                         </li>
                       </ul>
-                     
-                    </ul>
                     </div>
               </div>
             </div>
@@ -270,12 +268,10 @@ $current_language = get_locale();
                         <?php echo get_post_meta(get_the_ID(), 'QualificationEDM', true); ?> 
                       </li>
                     </ul>
-                   
-                  </ul>
                   </div>
             </div>
             </div>
-          </div>
         </section>
+  </div>
     </main>
     <?php get_footer();  ?>

@@ -92,7 +92,7 @@ Template Name: Home
             ?>  
         </div>
         <div class="link-div" style="align-items: center; margin-top: 10px;">
-            <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>" role="link" aria-label="Read more about our latest news">
+            <a class="link-text-big" href="<?php echo esc_url(site_url('/news-list/')); ?>" role="link" aria-label="Read more here">
                 <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
                 <span class="primary__header-arrow"> 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
@@ -902,8 +902,8 @@ endif;
 <?php
 get_footer(); 
 ?>
-  </div>
+  <!--</div>
   </div>
   </main>
 
-
+-->
