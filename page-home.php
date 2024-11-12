@@ -473,7 +473,7 @@ endif;
                   'compare' => 'IN' // Match any of the values
                   ),
               ),
-              'posts_per_page' => 10, // Adjust the number of posts per page as needed
+              'posts_per_page' => 1, // Adjust the number of posts per page as needed
           ));
 // Check if there's a post available
 if ($latest_event_post->have_posts()) :
@@ -481,7 +481,7 @@ if ($latest_event_post->have_posts()) :
         // Get the image file from ACF
         $image = get_field('Picture_File');
         if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="events">
+           <a href="<?php echo esc_url($image); ?>" data-lightbox="workshops">
     <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
         <?php
         endif;
@@ -499,10 +499,11 @@ endif;
 ?>              
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
-                  </div></a>
-        </div>
+                </div></a>
+</div>
 
-            <div class="img_card">
+
+<div class="img_card">
               
             <?php
             $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
@@ -556,21 +557,105 @@ endif;
                 <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
               </div></a>
             </div>
-        <div class="img_card">
-          <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="moments"><img alt="Campus moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar Retro.JPG">
-          <div class="img_caption" >
-            <p class="img-caption-text"><?php echo __('Campus moments', 'srft-theme' ); ?></p>
-          </div></a>
-      </div>
-    <div class="img_card">
-      <a href="<?php bloginfo('template_url'); ?>/images/DSC01842 (1).png" data-lightbox="news"><img alt="SRFTI in News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
-      <div class="img_caption">
-        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      </div></a>
-    </div>
-    </div>
-    <!-- Container for Category 1 Gallery Images -->
-    <div id="events" style="display: none;">
+<div class="img_card">
+        <?php
+            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+            $latest_event_post = new WP_Query(array(
+              'post_type' => 'picture', // Assuming 'picture' is your custom post type
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'category',
+                      'field'    => 'slug',
+                      'terms'    => $catslug,
+                  ),
+              ),
+              'meta_query' => array(
+                  array(
+                      'key'     => 'Picture_Category', // ACF field name
+                     'value'   => array('Campus Life', 'Student Activities', 'Staff Activities'), // Array of values to match
+                  'compare' => 'IN' // Match any of the values
+                  ),
+              ),
+              'posts_per_page' => 1, // Adjust the number of posts per page as needed
+          ));
+// Check if there's a post available
+if ($latest_event_post->have_posts()) :
+    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
+        // Get the image file from ACF
+        $image = get_field('Picture_File');
+        if ($image) : ?>
+           <a href="<?php echo esc_url($image); ?>" data-lightbox="moments">
+    <img alt="campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
+        <?php
+        endif;
+    endwhile;
+    wp_reset_postdata(); // Reset the post data after the loop
+else :
+    // Fallback if no post found
+    ?>
+    
+    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="moments">
+        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
+    </a>
+<?php
+endif;
+?>
+        <div class="img_caption" >
+                        <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme' ); ?></p>
+        </div></a>
+</div>
+
+<div class="img_card">
+        <?php
+            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+            $latest_event_post = new WP_Query(array(
+              'post_type' => 'picture', // Assuming 'picture' is your custom post type
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'category',
+                      'field'    => 'slug',
+                      'terms'    => $catslug,
+                  ),
+              ),
+              'meta_query' => array(
+                  array(
+                      'key'     => 'Picture_Category', // ACF field name
+                      'value'   => array('News', 'Press'), // Array of values to match
+                      'compare' => 'IN' // Match any of the values
+                      ),
+              ),
+              'posts_per_page' => 1, // Adjust the number of posts per page as needed
+          ));
+// Check if there's a post available
+if ($latest_event_post->have_posts()) :
+    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
+        // Get the image file from ACF
+        $image = get_field('Picture_File');
+        if ($image) : ?>
+           <a href="<?php echo esc_url($image); ?>" data-lightbox="news">
+    <img alt="campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
+        <?php
+        endif;
+    endwhile;
+    wp_reset_postdata(); // Reset the post data after the loop
+else :
+    // Fallback if no post found
+    ?>
+    
+    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="news">
+        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
+    </a>
+<?php
+endif;
+?>
+        <div class="img_caption" >
+                        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?></p>
+        </div></a>
+</div>
+
+
+<!-- Container for Category 2 Gallery Images -->
+<div id="events" style="display: none;">
 <?php
     // Determine the category slug based on the current language
     $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
@@ -587,10 +672,10 @@ endif;
         ),
         'meta_query' => array(
             array(
-                'key'     => 'Picture_Category', // ACF field name
-               'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
-            'compare' => 'IN' // Match any of the values
-            ),
+                      'key'     => 'Picture_Category', // ACF field name
+                     'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
+                  'compare' => 'IN' // Match any of the values
+                  ),
         ),
         'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
@@ -633,9 +718,9 @@ endif;
         'meta_query' => array(
             array(
                 'key'     => 'Picture_Category', // ACF field name
-                'value'   => 'Workshops', // Value to match
-                'compare' => '='
-            ),
+                'value'   => array('Workshops', 'Masterclass','Seminars'), // Array of values to match
+                'compare' => 'IN' // Match any of the values
+        ),
         ),
         'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
@@ -718,11 +803,11 @@ endif;
             ),
         ),
         'meta_query' => array(
-            array(
-                'key'     => 'Picture_Category', // ACF field name
-                'value'   => 'Campus Life', // Value to match
-                'compare' => '='
-            ),
+          array(
+            'key'     => 'Picture_Category', // ACF field name
+           'value'   => array('Campus Life', 'Student Activities', 'Staff Activities'), // Array of values to match
+        'compare' => 'IN' // Match any of the values
+        ),
         ),
         'posts_per_page' => 10, // Adjust the number of posts per page as needed
     ));
