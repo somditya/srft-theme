@@ -469,7 +469,7 @@ endif;
               'meta_query' => array(
                   array(
                       'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Workshops', 'Master Class', 'Seminars'), // Array of values to match
+                     'value'   => array('Workshops'), // Array of values to match
                   'compare' => 'IN' // Match any of the values
                   ),
               ),
