@@ -469,11 +469,11 @@ endif;
               'meta_query' => array(
                   array(
                       'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Workshops'), // Array of values to match
+                     'value'   => array('Workshops', 'Masterclass','Seminars'), // Array of values to match
                   'compare' => 'IN' // Match any of the values
                   ),
               ),
-              'posts_per_page' => 1, // Adjust the number of posts per page as needed
+              'posts_per_page' => 10, // Adjust the number of posts per page as needed
           ));
 // Check if there's a post available
 if ($latest_event_post->have_posts()) :
