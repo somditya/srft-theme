@@ -201,12 +201,12 @@ $current_language = get_locale();
         <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
-        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="DEcrease Text Size" class="decreaseFont">
+        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
-        <!--<button id="reset-text">
+        <button id="reset-text">
             <i class="fas fa-sync-alt"></i>
-        </button>-->
+        </button>
     </div>
     <div class="color-adjustment">
         <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
@@ -243,7 +243,7 @@ $current_language = get_locale();
                     ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('About', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
@@ -383,7 +383,7 @@ $current_language = get_locale();
                   <ul>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
-                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Vacancy', 'srft-theme' ); ?></a>
+                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">

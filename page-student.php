@@ -24,7 +24,7 @@ $category_id = get_category_ID($category_name);
     <main>
         <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
             <div class="page-banner">
-                <div class="page-banner-title"><?php echo __('Student Films', 'srft-theme'); ?></div>
+                <div class="page-banner-title"><?php echo __('Students', 'srft-theme'); ?></div>
             </div>
         </section>
 
@@ -43,7 +43,7 @@ $category_id = get_category_ID($category_name);
                     }
                     ?>
                 </div>
-                <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students in News', 'srft-theme'); ?></h2>
+                <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students', 'srft-theme'); ?></h2>
                 <section style="width: 100%; padding: 2.8rem 0 2.8rem 0;">
                 <section class="student owl-carousel">
                     <?php

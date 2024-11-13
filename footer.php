@@ -43,6 +43,9 @@ $current_language = get_locale();
                     <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/contact-us/'));}
                     else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}
                     ?>"><?php echo __('Contact Us', 'srft-theme'); ?></a></li>
+                    <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/Vacancy/'));}
+                    else  { echo esc_url(site_url('/रिक्ति/'));}
+                    ?>"><?php echo __('Recruitment Notices', 'srft-theme'); ?></a></li>
         <li><a href="#"><?php echo __('Telephone Directory', 'srft-theme'); ?></a></li>
         <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
         <li><a href="#"><?php echo __('Holiday List', 'srft-theme'); ?></a></li>
@@ -100,7 +103,10 @@ $current_language = get_locale();
         <li><a href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mib-logo.png" alt="Ministry of Information and Broadcasting"></a></li>
         <li><a href="https://swachhbharatmission.ddws.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/swachhta.png" alt="Swachh Bharat Mission"></a></li>
         <li><a href="https://www.eci.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/eci-logo.jpg" alt="Election Commission of India"></a></li>       
-          </ul>
+        <li><a href="https://www.digilocker.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/digilocker_logo_new.png" alt="DigiLocker Wallet"></a></li>       
+        <li><a href="https://uidai.gov.in/en/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/aadhaar_english_logo.svg" alt="Adhaasr Service"></a></li>       
+        <li><a href="hhttps://meripehchaan.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/mp_logo_ori.png" alt="National Single Sign-On Service"></a></li>           
+      </ul>
     </div>
 </div>
 
