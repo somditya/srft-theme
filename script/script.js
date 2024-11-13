@@ -187,25 +187,26 @@ $(document).ready(function () {
   });
 });
 // Font Size Adjustment
-$(".increaseFont, .decreaseFont").click(function () {
+
+const defaultFontSize = parseFloat($("html").css("font-size")); // Capture the initial root font size
+let currentFontSize = defaultFontSize;
+
+$(".increaseFont, .decreaseFont, .normalFont").click(function () {
   var type = $(this).val();
-  var curFontSize = parseFloat($("html").css("font-size")); // Get root font size in pixels
 
-  console.log("Current font size:", curFontSize);
-
-  if (type === "Increase") {
-    if (curFontSize < 30) {
-      // Max font size limit
-      $("html").css("font-size", curFontSize + 1 + "px");
-      console.log("Font size increased to:", curFontSize + 1);
-    }
-  } else if (type === "Decrease") {
-    if (curFontSize > 10) {
-      // Min font size limit
-      $("html").css("font-size", curFontSize - 1 + "px");
-      console.log("Font size decreased to:", curFontSize - 1);
-    }
+  if (type === "Increase" && currentFontSize < 30) {
+    // Maximum limit
+    currentFontSize += 1;
+  } else if (type === "Decrease" && currentFontSize > 10) {
+    // Minimum limit
+    currentFontSize -= 1;
+  } else if (type === "Normal") {
+    currentFontSize = defaultFontSize; // Reset to the original font size
   }
+
+  $("html").css("font-size", currentFontSize + "px"); // Apply the new font size
+  console.log("Font size adjusted to:", currentFontSize + "px");
+  console.log("Default Font size :", defaultFontSize + "px");
 });
 
 // Function to show an alert when an external link is clicked

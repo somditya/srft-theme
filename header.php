@@ -204,8 +204,8 @@ $current_language = get_locale();
         <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
-        <button id="reset-text">
-            <i class="fas fa-sync-alt"></i>
+        <button type="button" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
+        <i class="fas fa-sync-alt"></i>
         </button>
     </div>
     <div class="color-adjustment">

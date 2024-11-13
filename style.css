@@ -263,7 +263,8 @@ body.high-contrast * {
 
 /* Button styling */
 .increaseFont,
-.decreaseFont {
+.decreaseFont,
+.normalFont {
   cursor: pointer;
 }
 
