@@ -111,7 +111,7 @@ Template Name: Home
 
  
 <section class="section-home;" style="padding: 0;">
-  <div  style="display:flex; flex-wrap: wrap; background-color: #777777">
+  <div  style="display:flex; flex-wrap: wrap; background-color:#5e5e5e;">
     <div class="abtimg-box">
     </div>
     <div class="text-box">

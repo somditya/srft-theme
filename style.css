@@ -4940,7 +4940,19 @@ div .spacer {
   margin-left: 5px; /* Adjust space between the text and dropdown */
 }
 
-.header {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.vis .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
