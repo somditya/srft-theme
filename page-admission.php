@@ -16,9 +16,12 @@ $current_language = get_locale();
         </div>
       </section>
 
+      
+
       <section  id="skip-to-content" class="cine-detail">
-        <div class="leftnav">
-          <div class="childnavs">
+      
+      <div class="leftnav">
+      <div class="childnavs">
               <?php
                 $current_language = get_locale(); // Get the current language/locale.
 
@@ -148,7 +151,11 @@ $current_language = get_locale();
         </div>
 
         <div class="main-content" >
-        
+        <div>      <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+      ?></div>
         <section  class="page-title"><div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div></section>
         <section class="sub-intro">
           <div class="sub-intro-images">

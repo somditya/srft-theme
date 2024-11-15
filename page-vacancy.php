@@ -33,6 +33,13 @@ $category_id = get_category_ID($category_name);
 
     <section id="skip-to-content" class="section-home">
       <div class="container" style="width: 1170px;">
+      <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+       </div>
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">

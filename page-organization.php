@@ -124,6 +124,13 @@ $current_language = get_locale();
         </div>
 
         <div class="main-content">
+        <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+        </div>
             <div>
                 <p class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></p>
             </div>

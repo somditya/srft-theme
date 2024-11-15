@@ -79,6 +79,11 @@ $current_language = get_locale();
         </div>
         </div>
         <div class="main-content">
+        <div>      <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+      ?></div>
         <section class="page-title">
           <div><p class="page-header-text"><?php the_title(); ?></p></div>
         </section>

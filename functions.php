@@ -803,6 +803,86 @@ endif;
 }
 add_action('init', 'custom_post_type_news');*/
 
+add_filter('wpseo_breadcrumb_links', 'custom_menu_based_breadcrumbs');
+
+add_filter('wpseo_breadcrumb_links', 'custom_menu_based_breadcrumbs');
+
+function custom_menu_based_breadcrumbs($links) {
+    $menu_location = 'primary'; // Replace with your menu location slug
+    $menu_locations = get_nav_menu_locations();
+    if (!isset($menu_locations[$menu_location])) {
+        return $links; // Return default breadcrumbs if menu is not set
+    }
+
+    $menu_id = $menu_locations[$menu_location];
+    $menu_items = wp_get_nav_menu_items($menu_id);
+    if (!$menu_items) {
+        return $links; // Return default breadcrumbs if menu is empty
+    }
+
+    $current_id = get_the_ID();
+    $custom_breadcrumbs = array();
+
+    foreach ($menu_items as $menu_item) {
+        if ($menu_item->object_id == $current_id || in_array($current_id, get_post_ancestors($menu_item->object_id))) {
+            $ancestor_items = get_menu_ancestors_excluding_links($menu_item, $menu_items);
+            $custom_breadcrumbs = array_merge($custom_breadcrumbs, $ancestor_items);
+
+            $custom_breadcrumbs[] = array(
+                'url' => is_custom_link($menu_item) ? '' : $menu_item->url, // No hyperlink for custom links
+                'text' => $menu_item->title,
+            );
+            break;
+        }
+    }
+
+    array_unshift($custom_breadcrumbs, $links[0]);
+
+    return $custom_breadcrumbs;
+}
+
+function get_menu_ancestors_excluding_links($menu_item, $menu_items) {
+    $ancestors = array();
+    while ($menu_item->menu_item_parent != 0) {
+        foreach ($menu_items as $item) {
+            if ($item->ID == $menu_item->menu_item_parent) {
+                $ancestors[] = array(
+                    'url' => is_custom_link($item) ? '' : $item->url, // No hyperlink for custom links
+                    'text' => $item->title,
+                );
+                $menu_item = $item;
+                break;
+            }
+        }
+    }
+    return array_reverse($ancestors);
+}
+
+// Helper function to check if a menu item is a custom link
+function is_custom_link($menu_item) {
+    return $menu_item->type === 'custom';
+}
+
+
+function get_menu_ancestors($menu_item, $menu_items) {
+    $ancestors = array();
+    while ($menu_item->menu_item_parent != 0) {
+        foreach ($menu_items as $item) {
+            if ($item->ID == $menu_item->menu_item_parent) {
+                $ancestors[] = array(
+                    'url' => $item->url,
+                    'text' => $item->title,
+                );
+                $menu_item = $item;
+                break;
+            }
+        }
+    }
+    return array_reverse($ancestors); // Return ancestors in correct order
+}
+
+
+
 function display_last_updated() {
 	// Check if the post/page was modified, and display the last modified date
 	if (get_the_modified_time() != get_the_time()) {

@@ -35,13 +35,12 @@ $category_id = get_category_ID($category_name);
                 </div>
             </div>
             <div class="main-content">
-                <div>
-                    <?php
-                    wp_reset_postdata();
-                    if (function_exists('bcn_display')) {
-                        bcn_display();
+                <div>     
+                     <?php
+                     if ( function_exists('yoast_breadcrumb') ) {
+                     yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
                     }
-                    ?>
+                 ?>
                 </div>
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students', 'srft-theme'); ?></h2>
                 <section style="width: 100%; padding: 2.8rem 0 2.8rem 0;">

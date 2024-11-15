@@ -92,8 +92,14 @@ if ($current_language === 'en_US') {
         </div>
 
   <div class="main-content">
-
-<div>
+   <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+    </div>
+   <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div> 
  

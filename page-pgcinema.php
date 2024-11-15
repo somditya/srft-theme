@@ -104,6 +104,13 @@ wp_nav_menu(array(
         </div>
 
         <div class="main-content">
+        <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+       </div>
             <?php 
             $intro = get_post_meta($post_id, 'Intro', true);
             $subintro = get_post_meta($post_id, 'SubIntro', true);

@@ -50,6 +50,13 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 
     <div class="main-content">
+    <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+    </div>
         <p class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></p>
         <section class="sub-intro">
             <div class="sub-intro-images">
