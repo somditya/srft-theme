@@ -8435,3 +8435,42 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }
 /* Responsive */
+
+/* For print*/
+@media print {
+  .container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Ensure images are arranged in a row */
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    gap: 10px; /* Optional: Add spacing between images */
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Align images vertically */
+  }
+
+  .img_card {
+    display: flex; /* Ensure the image card is flex-enabled */
+    flex-direction: column; /* Stack card content (if any) inside vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    box-sizing: border-box; /* Include padding in width */
+  }
+
+  .img_card img {
+    max-width: 100%; /* Ensure the image fits its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  a {
+    text-decoration: none !important; /* Remove underline from all links */
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+
+  /* Prevent URLs for images with links */
+  img::after {
+    content: none; /* Same for linked images */
+  }
+}
