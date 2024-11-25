@@ -497,6 +497,23 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
  *
  * @link https://git.io/vWdr2
  */
+
+ add_filter( 'wpforms_field_properties', 'set_wpforms_autocomplete_on', 10, 3 );
+
+ function set_wpforms_autocomplete_on( $properties, $field, $form_data ) {
+		 // Apply the autocomplete="on" attribute to all fields
+		 if ( isset( $properties['inputs']['primary']['attr'] ) ) {
+				 $properties['inputs']['primary']['attr']['autocomplete'] = 'on';
+		 }
+		 if ( isset( $properties['inputs']['secondary']['attr'] ) ) {
+				 $properties['inputs']['secondary']['attr']['autocomplete'] = 'on';
+		 }
+		 return $properties;
+ }
+ 
+
+
+ 
 function twenty_twenty_one_skip_link_focus_fix() {
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
