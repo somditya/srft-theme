@@ -633,7 +633,7 @@ if ($latest_event_post->have_posts()) :
         $image = get_field('Picture_File');
         if ($image) : ?>
            <a href="<?php echo esc_url($image); ?>" data-lightbox="news">
-    <img alt="campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
+    <img alt="News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
         <?php
         endif;
     endwhile;
