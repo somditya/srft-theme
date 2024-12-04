@@ -25,6 +25,7 @@ $post_content = apply_filters('the_content', $post->post_content);
 <h1 class="posttitle">
     <?php echo get_the_title(); ?>
 </h1>
+
         <section id="skip-to-content" class="sub-intro">
             <div class="sub-intro-images">
                 <div>

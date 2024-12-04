@@ -42,7 +42,7 @@ $category_id = get_category_ID($category_name);
         }
         ?>
     </div>
-          <h2 id="skip-to-content" class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
+          <h2 id="skip-to-content" class="page-header-text" style="padding-left: 0; text-align: center; margin-top: 20px;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController" style="margin-top: 4.5rem;">
             <!-- Filter options -->
             <label for="filter"><?php echo __('Programmes:', 'srft-theme' ); ?></label>
@@ -75,7 +75,7 @@ $category_id = get_category_ID($category_name);
             <!-- Faculty grid using Flexbox -->
             <div class="faculty-grid">
             <div class="faculty-card" ng-repeat="faculty in filteredFaculty.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-                <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" class="faculty-image">
+                <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" style="filter: grayscale(100%);" class="faculty-image">
                 <h2><a href="{{ faculty.link }}">{{faculty.name }}</a></h2>
                 <p>{{faculty.designation }}</p>
                 <p>{{faculty.department}}</p>
