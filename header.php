@@ -351,12 +351,12 @@ $current_language = get_locale();
                     <li class="dropdown-link">
                     <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
                     else 
-                    { echo esc_url(site_url('/library/'));}
+                    { echo esc_url(site_url('/पुस्तकालय/'));}
                     ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/screening-room/'));}
-                    else   { echo esc_url(site_url('/screening-room/'));}?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
+                    else   { echo esc_url(site_url('/स्क्रीनिंग-सुविधाएँ/'));}?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
@@ -364,7 +364,7 @@ $current_language = get_locale();
                     </li>-->
                     <li class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
-                    else  { echo esc_url(site_url('/screening-room/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
+                    else  { echo esc_url(site_url('/निवास/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
@@ -373,7 +373,7 @@ $current_language = get_locale();
               </li>
               <li class="nav-link" style="--i: 1.35s">
                 <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
-                else  { echo esc_url(site_url('/screening-room/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
+                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               
               </li>
              
