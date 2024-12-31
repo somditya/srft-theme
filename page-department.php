@@ -171,7 +171,7 @@ if ($current_language === 'en_US') {
   ?>
                   <li>
                       <a href="<?php echo esc_url($post_link); ?>" target="_blank">
-                      <img class="faculty-image" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt=""  />
+                      <img style="max-width: 220px;" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
                           <h3><?php the_title(); ?></h3>
                           <span><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
                       </a>
