@@ -10,7 +10,10 @@
  */
 
 get_header();
+?>
 
+<div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+	<?php
 if ( have_posts() ) {
 	?>
 	<header class="page-header alignwide">
@@ -61,5 +64,7 @@ if ( have_posts() ) {
 } else {
 	get_template_part( 'template-parts/content/content-none' );
 }
+?>
 
-get_footer();
+</div>
+<?php get_footer(); ?>
