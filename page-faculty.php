@@ -9,7 +9,7 @@ Template Name: Faculty
 
 <?php
 get_header(); 
-
+$current_language = get_locale();
 
 function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	$cat = get_term_by( 'name', $cat_name, 'category' );

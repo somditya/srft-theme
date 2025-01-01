@@ -120,8 +120,8 @@ $current_language = get_locale();
 </div>
 </div>
 
-<script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/script/jquery.waypoints.js"></script>
+<!--<script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/script/jquery.waypoints.js"></script>-->
 <script>
   lightbox.option({
     'resizeDuration': 200,
@@ -130,28 +130,38 @@ $current_language = get_locale();
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const scroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.querySelector("[data-scroll-container]");
+    const btn = document.getElementById("backToTop");
 
-    var btn = $('#backToTop');
+    // Ensure both elements exist before proceeding
+    if (!scrollContainer || !btn) {
+      console.error("Required elements not found: scrollContainer or btn.");
+      return;
+    }
 
-    scroll.on('scroll', function(instance) {
-      if (instance.scroll.y > 300) {
-        btn.addClass('show');
+    // Add scroll event listener to the container
+    scrollContainer.addEventListener("scroll", function () {
+      const scrollY = scrollContainer.scrollTop; // Get the vertical scroll position
+      if (scrollY > 300) {
+        btn.classList.add("show");
       } else {
-        btn.removeClass('show');
+        btn.classList.remove("show");
       }
     });
 
-    btn.on('click', function (e) {
+    // Scroll to top on button click
+    btn.addEventListener("click", function (e) {
       e.preventDefault();
-      scroll.scrollTo('top');
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   });
 </script>
+
+
 
 <script>
   $('.static').owlCarousel({
@@ -241,14 +251,14 @@ $current_language = get_locale();
   });
 </script>
 
-<script>
+<!--<script>
   jQuery(document).ready(function ($) {
     $('.counter').counterUp({
       delay: 10,
       time: 1000
     });
   });
-</script>
+</script>-->
 <script>
   var swiper = new Swiper(".home-slider", {
     autoplay:{delay: 3500,

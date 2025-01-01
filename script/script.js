@@ -96,13 +96,13 @@ $(".student").owlCarousel({
   dots: false,
 });
 
-jQuery(document).ready(function ($) {
-  $(".counter").counterUp({
-    delay: 10,
-    time: 1000,
-  });
-});
-
+//jQuery(document).ready(function ($) {
+//$(".counter").counterUp({
+//delay: 10,
+//time: 1000,
+//});
+//});
+//
 $(document).ready(function () {
   var btn = $("#backToTop");
   $(window).on("scroll", function () {
