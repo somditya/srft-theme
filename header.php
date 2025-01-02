@@ -191,7 +191,7 @@ $current_language = get_locale();
               <i class="fas fa-universal-access"></i>
             </button></li>
 <li>
-<div class="search-container"><?php echo do_shortcode('[ivory-search id="3166" title="Custom Search Form"]'); ?></div> </li>
+<div class="search-box"><?php echo do_shortcode('[ivory-search id="3166" title="Custom Search Form"]'); ?></div> </li>
       </ul>
       </div>
 <!-- Accessibility Menu -->

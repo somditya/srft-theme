@@ -511,9 +511,10 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
 		 return $properties;
  }
  
+// Filter to remove the unwanted classes from pagination links
+// Custom filter to modify pagination output
 
 
- 
 function twenty_twenty_one_skip_link_focus_fix() {
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
