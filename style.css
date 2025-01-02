@@ -551,6 +551,9 @@ body {
 }
 
 .search-box {
+  width: auto;
+  max-width: 300px;
+  display: flex;
 }
 
 /* end of singel page */
