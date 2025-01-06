@@ -1,3 +1,15 @@
+/*$(window).on("load", function () {
+  $(
+    ".is-form-style.is-form-style-3 input.is-search-input, " +
+      ".is-form-style.is-form-style-3 button.is-search-submit, " +
+      ".is-form-style.is-form-style-3 button.is-search-submit .is-search-icon"
+  ).css("display", "flex");
+});*/
+
+$(window).on("load", function () {
+  $(".is-form-style.is-form-style-3").css("display", "flex");
+});
+
 lightbox.option({
   resizeDuration: 200,
   wrapAround: true,

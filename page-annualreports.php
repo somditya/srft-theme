@@ -12,7 +12,7 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __('About SRFTI', 'srft-theme'); ?></div>
+            <div class="page-banner-title"><?php echo __('Annual Reports', 'srft-theme'); ?></div>
         </div>
     </section>
 

@@ -66,7 +66,7 @@ $current_language = get_locale();
              <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
            </picture>
          </div>
-           <div class="swipper-title">
+          <div class="swipper-title">
             <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1 >Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
@@ -148,7 +148,7 @@ $current_language = get_locale();
            <li></li>
            </ul>         
           </div>
-          <ul style="display:flex;">
+          <ul style="display:flex; align-items: center; ">
             <li class="hide-on-mobile"><a><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
              <!--<li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>-->
@@ -193,7 +193,7 @@ $current_language = get_locale();
 <li>
 <div class="search-box"><?php echo do_shortcode('[ivory-search id="3166" title="Custom Search Form"]'); ?></div> </li>
       </ul>
-      </div>
+</div>
 <!-- Accessibility Menu -->
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
@@ -250,7 +250,7 @@ $current_language = get_locale();
                     <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
                     else 
                     { echo esc_url(site_url('/संस्थान के बारे में/'));}
-                    ?>"><?php echo __('History', 'srft-theme' ); ?></a>
+                    ?>"><?php echo __('About the Institute', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }

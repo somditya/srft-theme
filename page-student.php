@@ -99,7 +99,7 @@ $category_id = get_category_ID($category_name);
                                     <div ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)" style="display: inline-block; margin-right: 10px;">
                                         <a href="#" style="display: flex; align-items: center; padding: 0px; margin-bottom: 10px;" ng-click="openModal(production.name, production.content)">
                                             <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="100px;" alt="Left Leaf">
-                                            <h3 style=" width: 100%; color: #161a1d;">{{ production.name }}</h3>
+                                            <h3 style="font-size: 16px; width: 100%; white-space: nowrap; color: #161a1d;">{{ production.name }}</h3>
                                             <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="100px;" alt="Right Leaf">
                                         </a>
                                     </div>

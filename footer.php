@@ -162,7 +162,6 @@ $current_language = get_locale();
 </script>
 
 
-
 <script>
   $('.static').owlCarousel({
     items: 4,
