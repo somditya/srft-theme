@@ -8150,6 +8150,14 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 1.2rem;
   }
 
+  .widget {
+    font-size: 1.2rem;
+  }
+
+  .breadcrumbs {
+    font-size: 1.2rem;
+  }
+
   .language-switcher {
     display: inline-block; /* Ensure it's inline */
     margin-left: 10px; /* Adjust space between the icon and the dropdown */

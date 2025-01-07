@@ -823,81 +823,78 @@ add_action('init', 'custom_post_type_news');*/
 
 add_filter('wpseo_breadcrumb_links', 'custom_menu_based_breadcrumbs');
 
-add_filter('wpseo_breadcrumb_links', 'custom_menu_based_breadcrumbs');
 
 function custom_menu_based_breadcrumbs($links) {
-    $menu_location = 'primary'; // Replace with your menu location slug
-    $menu_locations = get_nav_menu_locations();
-    if (!isset($menu_locations[$menu_location])) {
-        return $links; // Return default breadcrumbs if menu is not set
-    }
+	$menu_locations = ['primary', 'footer']; // Menu locations to check
+	$menu_locations_array = get_nav_menu_locations();
+	$current_id = get_the_ID();
+	$custom_breadcrumbs = array();
 
-    $menu_id = $menu_locations[$menu_location];
-    $menu_items = wp_get_nav_menu_items($menu_id);
-    if (!$menu_items) {
-        return $links; // Return default breadcrumbs if menu is empty
-    }
+	// Loop through menu locations to find the current page
+	foreach ($menu_locations as $menu_location) {
+			if (!isset($menu_locations_array[$menu_location])) {
+					continue; // Skip if menu location is not set
+			}
 
-    $current_id = get_the_ID();
-    $custom_breadcrumbs = array();
+			$menu_id = $menu_locations_array[$menu_location];
+			$menu_items = wp_get_nav_menu_items($menu_id);
 
-    foreach ($menu_items as $menu_item) {
-        if ($menu_item->object_id == $current_id || in_array($current_id, get_post_ancestors($menu_item->object_id))) {
-            $ancestor_items = get_menu_ancestors_excluding_links($menu_item, $menu_items);
-            $custom_breadcrumbs = array_merge($custom_breadcrumbs, $ancestor_items);
+			if (!$menu_items) {
+					continue; // Skip if menu has no items
+			}
 
-            $custom_breadcrumbs[] = array(
-                'url' => is_custom_link($menu_item) ? '' : $menu_item->url, // No hyperlink for custom links
-                'text' => $menu_item->title,
-            );
-            break;
-        }
-    }
+			foreach ($menu_items as $menu_item) {
+					if ($menu_item->object_id == $current_id || in_array($current_id, get_post_ancestors($menu_item->object_id))) {
+							// Add ancestors and current menu item to breadcrumbs
+							$ancestor_items = get_menu_ancestors_excluding_links($menu_item, $menu_items);
+							$custom_breadcrumbs = array_merge($custom_breadcrumbs, $ancestor_items);
 
-    array_unshift($custom_breadcrumbs, $links[0]);
+							$custom_breadcrumbs[] = array(
+									'url' => is_custom_link($menu_item) ? '' : $menu_item->url, // No hyperlink for custom links
+									'text' => $menu_item->title,
+							);
+							break 2; // Stop searching in other menus once a match is found
+					}
+			}
+	}
 
-    return $custom_breadcrumbs;
+	// Fallback: Add the current page to breadcrumbs if no match is found
+	if (empty($custom_breadcrumbs)) {
+			$custom_breadcrumbs[] = array(
+					'url' => get_permalink($current_id),
+					'text' => get_the_title($current_id),
+			);
+	}
+
+	// Prepend the default breadcrumbs (Home link)
+	array_unshift($custom_breadcrumbs, $links[0]);
+
+	return $custom_breadcrumbs;
 }
 
 function get_menu_ancestors_excluding_links($menu_item, $menu_items) {
-    $ancestors = array();
-    while ($menu_item->menu_item_parent != 0) {
-        foreach ($menu_items as $item) {
-            if ($item->ID == $menu_item->menu_item_parent) {
-                $ancestors[] = array(
-                    'url' => is_custom_link($item) ? '' : $item->url, // No hyperlink for custom links
-                    'text' => $item->title,
-                );
-                $menu_item = $item;
-                break;
-            }
-        }
-    }
-    return array_reverse($ancestors);
+	$ancestors = array();
+	while ($menu_item->menu_item_parent != 0) {
+			foreach ($menu_items as $item) {
+					if ($item->ID == $menu_item->menu_item_parent) {
+							$ancestors[] = array(
+									'url' => is_custom_link($item) ? '' : $item->url, // No hyperlink for custom links
+									'text' => $item->title,
+							);
+							$menu_item = $item;
+							break;
+					}
+			}
+	}
+	return array_reverse($ancestors);
 }
 
 // Helper function to check if a menu item is a custom link
 function is_custom_link($menu_item) {
-    return $menu_item->type === 'custom';
+	return $menu_item->type === 'custom';
 }
 
 
-function get_menu_ancestors($menu_item, $menu_items) {
-    $ancestors = array();
-    while ($menu_item->menu_item_parent != 0) {
-        foreach ($menu_items as $item) {
-            if ($item->ID == $menu_item->menu_item_parent) {
-                $ancestors[] = array(
-                    'url' => $item->url,
-                    'text' => $item->title,
-                );
-                $menu_item = $item;
-                break;
-            }
-        }
-    }
-    return array_reverse($ancestors); // Return ancestors in correct order
-}
 
 
 
