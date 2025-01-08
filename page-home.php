@@ -406,473 +406,56 @@ Template Name: Home
       </div>
       <div class="container" style="display:flex; padding:24px; max-width: 1450px;">     
       <div class="img_card">
-        <?php
-            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-            $latest_event_post = new WP_Query(array(
-              'post_type' => 'picture', // Assuming 'picture' is your custom post type
-              'tax_query' => array(
-                  array(
-                      'taxonomy' => 'category',
-                      'field'    => 'slug',
-                      'terms'    => $catslug,
-                  ),
-              ),
-              'meta_query' => array(
-                  array(
-                      'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
-                  'compare' => 'IN' // Match any of the values
-                  ),
-              ),
-              'posts_per_page' => 1, // Adjust the number of posts per page as needed
-          ));
-// Check if there's a post available
-if ($latest_event_post->have_posts()) :
-    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
-        // Get the image file from ACF
-        $image = get_field('Picture_File');
-        if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="events">
-    <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
-        <?php
-        endif;
-    endwhile;
-    wp_reset_postdata(); // Reset the post data after the loop
-else :
-    // Fallback if no post found
-    ?>
-    
-    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="events">
-        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
-    </a>
-<?php
-endif;
-?>
+        <a href="https://staging.srfti.ac.in/photo-gallery/?tab=1">
+            <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
         <div class="img_caption" >
-                        <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme' ); ?></p>
-        </div></a>
-</div>
+        <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme' ); ?></p>
+        </div>
+      </a>
+      </div>
 
 
-<div class="img_card">
-<?php
-            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-            $latest_event_post = new WP_Query(array(
-              'post_type' => 'picture', // Assuming 'picture' is your custom post type
-              'tax_query' => array(
-                  array(
-                      'taxonomy' => 'category',
-                      'field'    => 'slug',
-                      'terms'    => $catslug,
-                  ),
-              ),
-              'meta_query' => array(
-                  array(
-                      'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Workshops', 'Masterclass','Seminars'), // Array of values to match
-                  'compare' => 'IN' // Match any of the values
-                  ),
-              ),
-              'posts_per_page' => 1, // Adjust the number of posts per page as needed
-          ));
-// Check if there's a post available
-if ($latest_event_post->have_posts()) :
-    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
-        // Get the image file from ACF
-        $image = get_field('Picture_File');
-        if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="workshops">
-    <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
-        <?php
-        endif;
-    endwhile;
-    wp_reset_postdata(); // Reset the post data after the loop
-else :
-    // Fallback if no post found
-    ?>
-    
-    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="events">
-        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
-    </a>
-<?php
-endif;
-?>              
-                <div class="img_caption">
-                    <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
-                </div></a>
-</div>
+     <div class="img_card">
+     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=2">
+        <img alt="Master Classess & workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
+      <div class="img_caption">
+        <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
+        </div>
+      </a>
+    </div>
+   
+    <div class="img_card">
+     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=3">
+        <img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
+      <div class="img_caption">
+        <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
+        </div>
+      </a>
+    </div>
 
+    <div class="img_card">
+     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=4">
+        <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
+      <div class="img_caption">
+        <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme' ); ?></p>
+        </div>
+      </a>
+    </div>
 
-<div class="img_card">
-              
-            <?php
-            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
+    <div class="img_card">
+     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=5">
+        <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
+      <div class="img_caption">
+        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?></p>
+        </div>
+      </a>
+    </div>
 
-            $latest_stiil_post = new WP_Query(array(
-    'post_type'      => 'picture', // Assuming 'picture' is your custom post type
-    'tax_query'      => array(
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => $catslug,
-        ),
-    ),
-    'meta_query'     => array(
-        array(
-            'key'     => 'Picture_Category', // ACF field name
-            'value'   => 'Student Stills', // Category value to match
-            'compare' => '='
-        ),
-    ),
-    'posts_per_page' => 1, // Fetch the latest post
-    'orderby'        => 'date',
-    'order'          => 'DESC'
-));
-
-// Check if there's a post available
-if ($latest_stiil_post->have_posts()) :
-    while ($latest_stiil_post->have_posts()) : $latest_stiil_post->the_post();
-        // Get the image file from ACF
-        $image = get_field('Picture_File');
-        if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="stills">
-    <img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
-
-        <?php
-        endif;
-    endwhile;
-    wp_reset_postdata(); // Reset the post data after the loop
-else :
-    // Fallback if no post found
-    ?>
-    
-    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="stills">
-        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No Workshop Image Available" class="img-responsive lazyOwl" width="302" height="416">
-    </a>
-<?php
-endif;
-?>
-
-              <div class="img_caption">
-                <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
-              </div></a>
-            </div>
-<div class="img_card">
-        <?php
-            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-            $latest_event_post = new WP_Query(array(
-              'post_type' => 'picture', // Assuming 'picture' is your custom post type
-              'tax_query' => array(
-                  array(
-                      'taxonomy' => 'category',
-                      'field'    => 'slug',
-                      'terms'    => $catslug,
-                  ),
-              ),
-              'meta_query' => array(
-                  array(
-                      'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Campus Life', 'Student Activities', 'Staff Activities'), // Array of values to match
-                  'compare' => 'IN' // Match any of the values
-                  ),
-              ),
-              'posts_per_page' => 1, // Adjust the number of posts per page as needed
-          ));
-// Check if there's a post available
-if ($latest_event_post->have_posts()) :
-    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
-        // Get the image file from ACF
-        $image = get_field('Picture_File');
-        if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="moments">
-    <img alt="campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
-        <?php
-        endif;
-    endwhile;
-    wp_reset_postdata(); // Reset the post data after the loop
-else :
-    // Fallback if no post found
-    ?>
-    
-    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="moments">
-        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
-    </a>
-<?php
-endif;
-?>
-        <div class="img_caption" >
-                        <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme' ); ?></p>
-        </div></a>
-</div>
-
-<div class="img_card">
-        <?php
-            $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-            $latest_event_post = new WP_Query(array(
-              'post_type' => 'picture', // Assuming 'picture' is your custom post type
-              'tax_query' => array(
-                  array(
-                      'taxonomy' => 'category',
-                      'field'    => 'slug',
-                      'terms'    => $catslug,
-                  ),
-              ),
-              'meta_query' => array(
-                  array(
-                      'key'     => 'Picture_Category', // ACF field name
-                      'value'   => array('News', 'Press'), // Array of values to match
-                      'compare' => 'IN' // Match any of the values
-                      ),
-              ),
-              'posts_per_page' => 1, // Adjust the number of posts per page as needed
-          ));
-// Check if there's a post available
-if ($latest_event_post->have_posts()) :
-    while ($latest_event_post->have_posts()) : $latest_event_post->the_post();
-        // Get the image file from ACF
-        $image = get_field('Picture_File');
-        if ($image) : ?>
-           <a href="<?php echo esc_url($image); ?>" data-lightbox="news">
-    <img alt="News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
-        <?php
-        endif;
-    endwhile;
-    wp_reset_postdata(); // Reset the post data after the loop
-else :
-    // Fallback if no post found
-    ?>
-    
-    <a href="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" data-lightbox="news">
-        <img src="<?php bloginfo('template_url'); ?>/images/placeholder.jpg" alt="No event Image Available" class="img-responsive lazyOwl" width="302" height="416">
-    </a>
-<?php
-endif;
-?>
         <div class="img_caption" >
                         <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?></p>
         </div></a>
 </div>
 
-
-<!-- Container for Category 2 Gallery Images -->
-<div id="events" style="display: none;">
-<?php
-    // Determine the category slug based on the current language
-    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-
-    // Query posts in the specified category with Picture_Category set to "Event"
-    $category_posts = new WP_Query(array(
-        'post_type' => 'picture', // Assuming 'picture' is your custom post type
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'meta_query' => array(
-            array(
-                      'key'     => 'Picture_Category', // ACF field name
-                     'value'   => array('Convocation', 'Event', 'Festival'), // Array of values to match
-                  'compare' => 'IN' // Match any of the values
-                  ),
-        ),
-        'posts_per_page' => 10, // Adjust the number of posts per page as needed
-    ));
-
-    if ($category_posts->have_posts()) :
-      while ($category_posts->have_posts()) : $category_posts->the_post();
-          // Get the image file from ACF
-          $image = get_field('Picture_File');
-          if ($image) : ?>
-            <a href="<?php echo esc_url($image); ?>" data-lightbox="events">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
-            </a>
-          <?php
-          endif;
-      endwhile;
-      wp_reset_postdata(); // Reset the post data
-  else :
-      echo '<p>No posts found in this category.</p>';
-  endif;
-?>   
-</div>
-
-
-<!-- Container for Category 2 Gallery Images -->
-<div id="workshops" style="display: none;">
-<?php
-    // Determine the category slug based on the current language
-    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-
-    // Query posts in the specified category with Picture_Category set to "Event"
-    $category_posts = new WP_Query(array(
-        'post_type' => 'picture', // Assuming 'picture' is your custom post type
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'meta_query' => array(
-            array(
-                'key'     => 'Picture_Category', // ACF field name
-                'value'   => array('Workshops', 'Masterclass','Seminars'), // Array of values to match
-                'compare' => 'IN' // Match any of the values
-        ),
-        ),
-        'posts_per_page' => 10, // Adjust the number of posts per page as needed
-    ));
-
-    if ($category_posts->have_posts()) :
-      while ($category_posts->have_posts()) : $category_posts->the_post();
-          // Get the image file from ACF
-          $image = get_field('Picture_File');
-          if ($image) : ?>
-            <a href="<?php echo esc_url($image); ?>" data-lightbox="workshops">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
-            </a>
-          <?php
-          endif;
-      endwhile;
-      wp_reset_postdata(); // Reset the post data
-  else :
-      echo '<p>No posts found in this category.</p>';
-  endif;
-?>   
-</div>
-<!-- Container for Category 3 Gallery Images -->
-<div id="stills" style="display: none;">
-<?php
-    // Determine the category slug based on the current language
-    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-
-    // Query posts in the specified category with Picture_Category set to "Event"
-    $category_posts = new WP_Query(array(
-        'post_type' => 'picture', // Assuming 'picture' is your custom post type
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'meta_query' => array(
-            array(
-                'key'     => 'Picture_Category', // ACF field name
-                'value'   => 'Student Stills', // Value to match
-                'compare' => '='
-            ),
-        ),
-        'posts_per_page' => 10, // Adjust the number of posts per page as needed
-    ));
-
-    if ($category_posts->have_posts()) :
-      while ($category_posts->have_posts()) : $category_posts->the_post();
-          // Get the image file from ACF
-          $image = get_field('Picture_File');
-          if ($image) : ?>
-            <a href="<?php echo esc_url($image); ?>" data-lightbox="stills">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
-            </a>
-          <?php
-          endif;
-      endwhile;
-      wp_reset_postdata(); // Reset the post data
-  else :
-      echo '<p>No posts found in this category.</p>';
-  endif;
-?>   
-</div>
-
-<!-- Container for Category 4 Gallery Images -->
-<div id="moments" style="display: none;">
-<?php
-    // Determine the category slug based on the current language
-    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-
-    // Query posts in the specified category with Picture_Category set to "Event"
-    $category_posts = new WP_Query(array(
-        'post_type' => 'picture', // Assuming 'picture' is your custom post type
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'meta_query' => array(
-          array(
-            'key'     => 'Picture_Category', // ACF field name
-           'value'   => array('Campus Life', 'Student Activities', 'Staff Activities'), // Array of values to match
-        'compare' => 'IN' // Match any of the values
-        ),
-        ),
-        'posts_per_page' => 10, // Adjust the number of posts per page as needed
-    ));
-
-    if ($category_posts->have_posts()) :
-      while ($category_posts->have_posts()) : $category_posts->the_post();
-          // Get the image file from ACF
-          $image = get_field('Picture_File');
-          if ($image) : ?>
-            <a href="<?php echo esc_url($image); ?>" data-lightbox="moments">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
-            </a>
-          <?php
-          endif;
-      endwhile;
-      wp_reset_postdata(); // Reset the post data
-  else :
-      echo '<p>No posts found in this category.</p>';
-  endif;
-?>   
-</div>
-
-<!-- Container for Category 4 Gallery Images -->
-<div id="news" style="display: none;">
-<?php
-    // Determine the category slug based on the current language
-    $catslug = ($current_language === 'en_US') ? 'picture' : 'picture-hi';
-
-    // Query posts in the specified category with Picture_Category set to "Event"
-    $category_posts = new WP_Query(array(
-        'post_type' => 'picture', // Assuming 'picture' is your custom post type
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $catslug,
-            ),
-        ),
-        'meta_query' => array(
-            array(
-                'key'     => 'Picture_Category', // ACF field name
-                'value'   => 'Media Publication', // Value to match
-                'compare' => '='
-            ),
-        ),
-        'posts_per_page' => 10, // Adjust the number of posts per page as needed
-    ));
-
-    if ($category_posts->have_posts()) :
-      while ($category_posts->have_posts()) : $category_posts->the_post();
-          // Get the image file from ACF
-          $image = get_field('Picture_File');
-          if ($image) : ?>
-            <a href="<?php echo esc_url($image); ?>" data-lightbox="news">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="img-responsive lazyOwl">
-            </a>
-          <?php
-          endif;
-      endwhile;
-      wp_reset_postdata(); // Reset the post data
-  else :
-      echo '<p>No posts found in this category.</p>';
-  endif;
-?>   
-</div>
   </section>
 
 

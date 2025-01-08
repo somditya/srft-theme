@@ -10,6 +10,49 @@ $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });
 
+$(document).ready(function () {
+  // Hide all tab content initially
+  $(".tab-content").hide();
+
+  // Function to activate a specific tab
+  function activateTab(tabIndex) {
+    // Remove active class from all tabs
+    $(".phototab label").removeClass("active");
+
+    // Activate the specified tab
+    $("#tab" + tabIndex)
+      .prop("checked", true)
+      .siblings("label")
+      .addClass("active");
+
+    // Show the content of the active tab
+    $(".tab-content").hide();
+    $(".tab-content" + tabIndex).show();
+  }
+
+  // Check if the "tab" parameter exists in the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabIndex = urlParams.get("tab");
+
+  if (tabIndex) {
+    // Activate the tab specified in the URL
+    activateTab(tabIndex);
+  } else {
+    // Default: Activate the tab that is checked
+    const defaultTab = $('input[type="radio"]:checked')
+      .attr("id")
+      .replace("tab", "");
+    activateTab(defaultTab);
+  }
+
+  // Change tab and content on tab selection
+  $('input[type="radio"]').change(function () {
+    const activeTab = $(this).attr("id").replace("tab", "");
+    activateTab(activeTab);
+  });
+});
+S;
+
 lightbox.option({
   resizeDuration: 200,
   wrapAround: true,
