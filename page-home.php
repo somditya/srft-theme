@@ -16,13 +16,45 @@ Template Name: Home
 <div id="smooth-wrapper">
     <div id="smooth-content">
     <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding:10px;">
-    <div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">
+    <!--<div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">-->
         
-        <div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">
-            <?php echo __('Whats New', 'srft-theme' ); ?>
-        </div>
+        <!--<div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">
+            
+        </div>-->
+        <div class="acme-news-ticker">
+  <div class="acme-news-ticker-label">
+    <?php echo __('Whats New', 'srft-theme'); ?> &nbsp;
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
+      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 12h22"></path>
+        <path d="M12 3l9 9-9 9"></path>
+      </g>
+    </svg>
+  </div>
+
+  <div class="acme-news-ticker-box">
+<div>
+  <ul class="news-ticker">
+      <li>
+        <a href="#">Breaking News 1</a>
+      </li>
+      <li>
+        <a href="#">Breaking News 2</a>
+      </li>
+      <li>
+        <a href="#">Breaking News 3</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
+    <button class="acme-news-ticker-pause" aria-label="Pause News Ticker"></button>
+  </div>
+</div>
+
+  </div>
         
-        <div class="secondary__header-arrow" style="margin-left: 0px; padding:0px;">
+        <!--<div class="secondary__header-arrow" style="margin-left: 0px; padding:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;">
                 <defs>
                     <style>.cls-1-arrow{fill:none;stroke:white;stroke-miterlimit:10;}</style>
@@ -37,9 +69,9 @@ Template Name: Home
         
         <div style="color: white; font-size: 18px; width: calc(90% - 40px); overflow: hidden; white-space: nowrap;">
           <span class="scrolling-text">JET 2022 result published, please follow the link to know your rank</span>
-        </div>
+        </div>-->
         
-    </div> <!-- Closing the .container div -->
+    <!--</div>--> <!-- Closing the .container div -->
 </section>
 
  
