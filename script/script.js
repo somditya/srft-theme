@@ -66,7 +66,6 @@ $(document).ready(function () {
     activateTab(activeTab);
   });
 });
-S;
 
 lightbox.option({
   resizeDuration: 200,

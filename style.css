@@ -4888,7 +4888,6 @@ div .spacer {
   }
 }
 .acme-news-ticker-label {
-  /*background: #1974d2;*/
   padding: 10px;
   width: auto;
   float: left;
@@ -4933,7 +4932,7 @@ div .spacer {
   right: 0;
   top: 0;
 }
-.acme-news-ticker-controls button {
+.acme-news-ticker-controls span {
   height: 100%;
   background: #f6f6f6;
   padding: 0;
@@ -4944,15 +4943,15 @@ div .spacer {
   cursor: pointer;
   display: inline-block;
 }
-.acme-news-ticker-controls button:hover {
+.acme-news-ticker-controls span:hover {
   background: #eeeeee;
 }
-.acme-news-ticker-controls button.acme-news-ticker-arrow {
+.acme-news-ticker-controls span.acme-news-ticker-arrow {
   margin: 0;
   display: inline-block;
   position: relative;
 }
-.acme-news-ticker-controls button.acme-news-ticker-arrow:after {
+.acme-news-ticker-controls span.acme-news-ticker-arrow:after {
   border-color: #999;
   border-bottom-style: solid;
   border-bottom-width: 2px;
@@ -4966,18 +4965,19 @@ div .spacer {
   top: 50%;
   width: 8px;
 }
-.acme-news-ticker-controls button.acme-news-ticker-pause {
+.acme-news-ticker-controls span.acme-news-ticker-pause {
   position: relative;
   display: inline-block;
 }
-.acme-news-ticker-controls button.acme-news-ticker-pause:before {
+.acme-news-ticker-controls span.acme-news-ticker-pause:before {
   position: absolute;
   content: "";
   width: 10px;
   height: 10px;
-  border-color: #999;
+  border-color: white;
   border-style: solid;
   border-width: 0 2px 0;
+  background-color: black;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -4985,29 +4985,31 @@ div .spacer {
   top: 50%;
 }
 .acme-news-ticker-controls.acme-news-ticker-horizontal-controls
-  button.acme-news-ticker-prev:after {
+  span.acme-news-ticker-prev:after {
   -webkit-transform: translate(-50%, -50%) rotate(135deg);
   -ms-transform: translate(-50%, -50%) rotate(135deg);
   transform: translate(-50%, -50%) rotate(135deg);
 }
 .acme-news-ticker-controls.acme-news-ticker-horizontal-controls
-  button.acme-news-ticker-next:after {
+  span.acme-news-ticker-next:after {
   -webkit-transform: translate(-50%, -50%) rotate(315deg);
   -ms-transform: translate(-50%, -50%) rotate(315deg);
   transform: translate(-50%, -50%) rotate(315deg);
 }
 .acme-news-ticker-controls.acme-news-ticker-vertical-controls
-  button.acme-news-ticker-prev:after {
+  span.acme-news-ticker-prev:after {
   -webkit-transform: translate(-50%, -50%) rotate(225deg);
   -ms-transform: translate(-50%, -50%) rotate(225deg);
   transform: translate(-50%, -50%) rotate(225deg);
 }
 .acme-news-ticker-controls.acme-news-ticker-vertical-controls
-  button.acme-news-ticker-next:after {
+  span.acme-news-ticker-next:after {
   -webkit-transform: translate(-50%, -50%) rotate(405deg);
   -ms-transform: translate(-50%, -50%) rotate(405deg);
   transform: translate(-50%, -50%) rotate(405deg);
 }
+
+/*# sourceMappingURL=style.css.map */
 
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {

@@ -48,7 +48,7 @@ Template Name: Home
   </div>
 </div>
   <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
-    <button class="acme-news-ticker-pause" aria-label="Pause News Ticker"></button>
+  <span class="acme-news-ticker-pause"></span>
   </div>
 </div>
 
