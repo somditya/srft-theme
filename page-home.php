@@ -560,26 +560,41 @@ $category_posts = new WP_Query(array(
 ));
 
 if ($category_posts->have_posts()) :
-    while ($category_posts->have_posts()) : $category_posts->the_post();
-        // Retrieve the ACF field 'NIT-DOC' which returns an array
-        $nit_doc = get_field('Tender-Doc');
-        
-        if ($nit_doc && isset($nit_doc['url'])) {
-            // Use the 'url' key from the array
-            $link = esc_url($nit_doc['url']);
-        } else {
-            // Fallback to post permalink if NIT-DOC URL is not available
-            $link = get_permalink();
-        }
+  while ($category_posts->have_posts()) : $category_posts->the_post();
+      // Retrieve the ACF field 'Vacancy-Doc' which returns an array
+      $vacancy_doc = get_field('Tender-Doc');
+      
+      if ($vacancy_doc && isset($vacancy_doc['url'])) {
+          // Use the 'url' key from the array
+          $link = esc_url($vacancy_doc['url']);
+          
+          // Get the file size
+          $file_path = str_replace(home_url('/'), ABSPATH, $vacancy_doc['url']);
+          if (file_exists($file_path)) {
+              $file_size = filesize($file_path); // File size in bytes
+              $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
+          } else {
+              $file_size_mb = 'N/A'; // If the file does not exist locally
+          }
+      } else {
+          // Fallback to post permalink if Vacancy-Doc URL is not available
+          $link = get_permalink();
+          $file_size_mb = 'N/A'; // No file size for permalink fallback
+      }
 ?>
-        <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" /></a>
-        </h3>
+      <h3>
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(PDF - <?php if ($file_size_mb !== 'N/A'): ?>
+              <?php echo $file_size_mb; ?> MB)
+          <?php endif; ?>
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+          </a>
+         
+      </h3>
 <?php
-    endwhile;
-    wp_reset_postdata(); // Reset the post data
+  endwhile;
+  wp_reset_postdata(); // Reset the post data
 else :
-    echo '<p>No posts found in this category.</p>';
+  echo '<p>No posts found in this category.</p>';
 endif;
 ?>
 
@@ -611,20 +626,34 @@ endif;
 
   if ($category_posts->have_posts()) :
     while ($category_posts->have_posts()) : $category_posts->the_post();
-        // Retrieve the ACF field 'NIT-DOC' which returns an array
-        $nit_doc = get_field('Vacancy-Doc');
+        // Retrieve the ACF field 'Vacancy-Doc' which returns an array
+        $vacancy_doc = get_field('Vacancy-Doc');
         
-        if ($nit_doc && isset($nit_doc['url'])) {
+        if ($vacancy_doc && isset($vacancy_doc['url'])) {
             // Use the 'url' key from the array
-            $link = esc_url($nit_doc['url']);
+            $link = esc_url($vacancy_doc['url']);
+            
+            // Get the file size
+            $file_path = str_replace(home_url('/'), ABSPATH, $vacancy_doc['url']);
+            if (file_exists($file_path)) {
+                $file_size = filesize($file_path); // File size in bytes
+                $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
+            } else {
+                $file_size_mb = 'N/A'; // If the file does not exist locally
+            }
         } else {
-            // Fallback to post permalink if NIT-DOC URL is not available
+            // Fallback to post permalink if Vacancy-Doc URL is not available
             $link = get_permalink();
+            $file_size_mb = 'N/A'; // No file size for permalink fallback
         }
 ?>
-        <h3>
-            <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" /></a>
-        </h3>
+         <h3>
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(PDF - <?php if ($file_size_mb !== 'N/A'): ?>
+              <?php echo $file_size_mb; ?> MB)
+          <?php endif; ?>
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+          </a>    
+      </h3>
 <?php
     endwhile;
     wp_reset_postdata(); // Reset the post data
