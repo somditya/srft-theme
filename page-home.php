@@ -502,31 +502,81 @@ Template Name: Home
 <div class="cell">
 <span class="update-title"><?php echo __('Announcements', 'srft-theme' ); ?></span>
 <?php
-    if ($current_language === 'en_US') {
-      $catslug='announcement-en'; 
-     }
-      else
-      {
-        $catslug='announcement-hi';
-      }
-    $category_posts = new WP_Query(array(
-      'post_type' => 'announcement',
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'category',
-              'field'    => 'slug',
-              'terms'    => $catslug,
-          ),
-      ),
-      'posts_per_page' => 5,
-  ));
+if ($current_language === 'en_US') {
+    $catslug = 'announcement-en';
+} else {
+    $catslug = 'announcement-hi';
+}
 
-  if ($category_posts->have_posts()) :
+$category_posts = new WP_Query(array(
+    'post_type' => 'announcement',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => $catslug,
+        ),
+    ),
+    'posts_per_page' => 5,
+));
+
+if ($category_posts->have_posts()) :
     while ($category_posts->have_posts()) : $category_posts->the_post();
-        $post_link = get_permalink();
-?>
+        //$post_link = get_permalink();
+        $announcement_doc = get_field('Announcement-Doc'); // Get the Announcement-Doc field
+        if ($announcement_doc && isset($announcement_doc['url'])) {
+          // Use the 'url' key from the array
+          $link = esc_url($announcement_doc['url']);
+          
+          // Get the file size
+          $file_path = str_replace(home_url('/'), ABSPATH, $announcement_doc['url']);
+          if (file_exists($file_path)) {
+              $file_size = filesize($file_path); // File size in bytes
+              $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
+              $file_type_info = wp_check_filetype($file_path);
+              $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+          } else {
+              $file_size_mb = 'N/A'; // If the file does not exist locally
+          }
+      } else {
+          // Fallback to post permalink if Vacancy-Doc URL is not available
+          $link = get_permalink();
+          $file_size_mb = 'N/A'; // No file size for permalink fallback
+      }
+        ?>
         <h3>
-            <a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a>
+            <div>
+                <i class="fa-regular fa-calendar"></i>
+                <?php 
+                $announcement_date = get_field('Announcement-Publish-Date'); // Retrieve the raw value for announcement date
+                
+                if (!empty($announcement_date)) {
+                    // Handle custom date formats (e.g., d/m/Y)
+                    $date_object = DateTime::createFromFormat('d/m/Y', $announcement_date);
+                    echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
+                } else {
+                    echo 'No date available'; // Handle empty field
+                }
+                ?>
+            </div>
+            <?php if ($announcement_doc): ?>
+    <!-- If Announcement-Doc is not empty, display the PDF link -->
+    <div>
+    <a href="<?php echo $link; ?>">
+            <?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - 
+            <?php if ($file_size_mb !== 'N/A'): ?>
+                <?php echo $file_size_mb; ?> MB
+            <?php endif; ?>)
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+        </a>
+    </div>
+
+
+<?php else: ?>
+    <!-- If Announcement-Doc is empty, show the regular post link -->
+    <a href="<?php echo $link;; ?>"><?php the_title(); ?></a>
+<?php endif; ?>
+
         </h3>
         <?php
     endwhile;
@@ -535,6 +585,7 @@ else :
     echo '<p>No posts found in this category.</p>';
 endif;
 ?>
+
 <div class="link-span"><a  href="<?php echo esc_url(site_url('/announcement/')); ?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
@@ -573,6 +624,8 @@ if ($category_posts->have_posts()) :
           if (file_exists($file_path)) {
               $file_size = filesize($file_path); // File size in bytes
               $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
+              $file_type_info = wp_check_filetype($file_path);
+              $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
           } else {
               $file_size_mb = 'N/A'; // If the file does not exist locally
           }
@@ -583,7 +636,23 @@ if ($category_posts->have_posts()) :
       }
 ?>
       <h3>
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(PDF - <?php if ($file_size_mb !== 'N/A'): ?>
+      <div>
+    <i class="fa-regular fa-calendar"></i>
+    <?php 
+    $tender_date = get_field('Tender-Publish-Date'); // Retrieve the raw value
+    
+    if (!empty($tender_date)) {
+        // Handle custom date formats (e.g., d/m/Y)
+        $date_object = DateTime::createFromFormat('d/m/Y', $tender_date);
+        echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
+    } else {
+        echo 'No date available'; // Handle empty field
+    }
+    ?>
+</div>
+
+
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
               <?php echo $file_size_mb; ?> MB)
           <?php endif; ?>
               <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
@@ -632,12 +701,13 @@ endif;
         if ($vacancy_doc && isset($vacancy_doc['url'])) {
             // Use the 'url' key from the array
             $link = esc_url($vacancy_doc['url']);
-            
             // Get the file size
             $file_path = str_replace(home_url('/'), ABSPATH, $vacancy_doc['url']);
             if (file_exists($file_path)) {
                 $file_size = filesize($file_path); // File size in bytes
                 $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
+                $file_type_info = wp_check_filetype($file_path);
+                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
             } else {
                 $file_size_mb = 'N/A'; // If the file does not exist locally
             }
@@ -648,7 +718,21 @@ endif;
         }
 ?>
          <h3>
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(PDF - <?php if ($file_size_mb !== 'N/A'): ?>
+         <div>
+    <i class="fa-regular fa-calendar"></i>
+    <?php 
+    $tender_date = get_field('Vacancy-Publish-Date'); // Retrieve the raw value
+    
+    if (!empty($tender_date)) {
+        // Handle custom date formats (e.g., d/m/Y)
+        $date_object = DateTime::createFromFormat('d/m/Y', $tender_date);
+        echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
+    } else {
+        echo 'No date available'; // Handle empty field
+    }
+    ?>
+</div>
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
               <?php echo $file_size_mb; ?> MB)
           <?php endif; ?>
               <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />

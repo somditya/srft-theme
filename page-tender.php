@@ -81,7 +81,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;<span>({{tender.file.type}} - {{tender.file.size}} MB)</span></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;<span><?php echo __('Download', 'srft-theme'); ?> ({{tender.file.size}} MB)</span></a></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
