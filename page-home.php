@@ -563,7 +563,7 @@ if ($category_posts->have_posts()) :
     <!-- If Announcement-Doc is not empty, display the PDF link -->
     <div>
     <a href="<?php echo $link; ?>">
-            <?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - 
+            <?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - 
             <?php if ($file_size_mb !== 'N/A'): ?>
                 <?php echo $file_size_mb; ?> MB
             <?php endif; ?>)
@@ -652,7 +652,7 @@ if ($category_posts->have_posts()) :
 </div>
 
 
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
               <?php echo $file_size_mb; ?> MB)
           <?php endif; ?>
               <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
@@ -732,7 +732,7 @@ endif;
     }
     ?>
 </div>
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo esc_html($file_type); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
+          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
               <?php echo $file_size_mb; ?> MB)
           <?php endif; ?>
               <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
