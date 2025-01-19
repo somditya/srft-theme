@@ -159,6 +159,7 @@ $category_id = get_category_ID($category_name);
         // Fetch the data
         $http.get(siteURL + 'wp-json/wp/v2/announcement?categories=' + categoryID + '&per_page=100')
           .then(function (response) {
+            console.log('API Response:', response.data);
             var sortedData = response.data.sort(function (a, b) {
               return parseDate(b.acf['Announcement-Publish-Date']) - parseDate(a.acf['Announcement-Publish-Date']);
             });
@@ -181,6 +182,7 @@ $category_id = get_category_ID($category_name);
             });
 
             // Apply initial filters and pagination
+            console.log('Announcement List:', $scope.announcementList);
             updateFilteredAnnouncement();
           })
           .catch(function (error) {
