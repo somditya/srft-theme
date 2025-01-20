@@ -47,24 +47,23 @@ Template Name: Contact
                 <div class="accordian">
                     <ul>
                         <li>
-                            <input type="checkbox" checked>
-                            <i></i>
+                            
+                            
                             <h2><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
                             <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <input type="checkbox" checked>
-                            <i></i>
+                            
+                            
                             <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
                             <p><?php echo get_post_meta(get_the_ID(), 'Directories', true); ?></p>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <input type="checkbox" checked>
-                            <i></i>
+                           
                             <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
                             <p><?php echo get_post_meta(get_the_ID(), 'Quicklinks', true); ?></p>
                         </li>
