@@ -47,8 +47,11 @@ $current_language = get_locale();
                     else  { echo esc_url(site_url('/रिक्ति/'));}
                     ?>"><?php echo __('Recruitment Notices', 'srft-theme'); ?></a></li>
         <li><a href="#"><?php echo __('Telephone Directory', 'srft-theme'); ?></a></li>
-        <!--<li><?php echo __('Gallery', 'srft-theme'); ?></li>-->
-        <li><a href="#"><?php echo __('Holiday List', 'srft-theme'); ?></a></li>
+        <?php echo __('Gallery', 'srft-theme'); ?></li>
+        <!--<li><a href="#"><?php echo __('Holiday List', 'srft-theme'); ?></a></li>-->
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/downloads/'));}
+                    else  { echo esc_url(site_url('/डाउनलोड/'));}
+                    ?>"><?php echo __('Download', 'srft-theme'); ?></a></li>
       </ul>
     </div>
     <div class="footer_sub">

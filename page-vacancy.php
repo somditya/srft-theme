@@ -40,11 +40,11 @@ $category_id = get_category_ID($category_name);
         }
         ?>
        </div>
-       <section class="page-title">
+       <!--<section class="page-title">
                 <div>
                     <p class="page-header-text">Help</p>
                 </div>
-       </section>
+       </section>-->
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></h2>
         <div ng-app="myApp">
           <div ng-controller="VacancyController">
@@ -88,7 +88,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;<?php echo __('Download', 'srft-theme'); ?> ({{vacancy.file.size}} MB)</span></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;(<?php echo __('Download', 'srft-theme'); ?> - {{vacancy.file.size}} MB)</span></a></div>
                   </div>
                 </div>
               </div>

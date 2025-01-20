@@ -24,7 +24,7 @@ $category_id = get_category_ID($category_name);
   <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
-        <div class="page-banner-title"><?php echo __('Downloads', 'srft-theme'); ?></div>
+        <div class="page-banner-title"><?php echo __('Download', 'srft-theme'); ?></div>
       </div>
     </section>
 
@@ -52,9 +52,9 @@ $category_id = get_category_ID($category_name);
               <div class="Rtable Rtable--7cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Document Title', 'srft-theme'); ?></div>
+                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></div>
                   <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Category', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme'); ?></div>
+                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Document', 'srft-theme'); ?></div>
                 </div>
 
                 <div class="Rtable-row" ng-repeat="document in pagedDocument">
@@ -65,7 +65,7 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content">{{ document.title }}</div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
-                    <div class="Rtable-cell--content"><span>{{ document.category }}</span></div>
+                    <div class="Rtable-cell--content"><span>{{ getLocalizedCategory(document.category) }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
   <div class="Rtable-cell--content" ng-if="document.file && document.file.url">
@@ -130,7 +130,11 @@ $category_id = get_category_ID($category_name);
         $http.get(apiUrl)
   .then(function (response) {
     console.log('API Response:', response.data);
-    $scope.documentList = response.data.map(function (post) {
+    $scope.documentList = response.data.filter(function (post) {
+    // Filter for specific categories
+    return post.acf['document-category'] && 
+           (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students');
+  }).map(function (post) {
       return {
         title: post.title.rendered || '',
         file: 
@@ -163,6 +167,16 @@ $category_id = get_category_ID($category_name);
           console.log('Filtered Documents:', $scope.filteredDocument);
           console.log('Paged Documents:', $scope.pagedDocument);
         };
+
+        $scope.getLocalizedCategory = function (category) {
+    const localizedCategories = {
+        "Students": "<?php echo __('For Students', 'srft-theme'); ?>",
+        "Employees": "<?php echo __('For Employees', 'srft-theme'); ?>",
+        // Add more categories as needed
+    };
+
+    return localizedCategories[category] || category; // Return the translated category or default to the original
+};
 
         // Apply filters when search field changes
         $scope.applyFilters = function () {

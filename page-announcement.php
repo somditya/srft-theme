@@ -80,7 +80,7 @@ $category_id = get_category_ID($category_name);
   <div class="Rtable-cell--content access-link-content" ng-if="announcement.file.url">
     <!-- Show the PDF image and link when the file exists -->
     <a href="{{announcement.file.url}}">
-      <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">
+      <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" style="vertical-align: middle;">
       <span>(<?php echo __('Download', 'srft-theme'); ?> - {{ announcement.file.size }} MB)</span>
     </a>
   </div>
