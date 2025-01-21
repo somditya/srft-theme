@@ -586,8 +586,12 @@ else :
 endif;
 ?>
 
-<div class="link-span"><a  href="<?php echo esc_url(site_url('/announcement/')); ?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
+<div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/')); }
+else 
+{ echo esc_url(site_url('/घोषणा-सूची/'));}
+?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
+
 
 <div class="cell">
     <span class="update-title" ><?php echo __('Tender', 'srft-theme' ); ?></span>
@@ -667,7 +671,10 @@ else :
 endif;
 ?>
 
-    <div class="link-span"><a  href="<?php echo esc_url(site_url('/tender/')); ?>" role="link" aria-label="Read more about our latest tenders"><?php echo __('More', 'srft-theme' ); ?></a></div>
+<div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/tender/')); }
+else 
+{ echo esc_url(site_url('/निविदा/'));}
+?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
 </div>
 
   
@@ -745,8 +752,11 @@ else :
     echo '<p>No posts found in this category.</p>';
 endif;
 ?>
-        <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>" role="link" aria-label="Read more about our latest vacancies"><?php echo __('More', 'srft-theme' ); ?></a></div>
-      </div>
+      <div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/')); }
+else 
+{ echo esc_url(site_url('/रिक्ति/'));}
+?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
+</div>
       
 </div>
 
