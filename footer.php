@@ -114,10 +114,10 @@ $current_language = get_locale();
     </div>
 </div>
 
-<div style="margin: 10px;"> 
+<div style="margin: 10px;" tabindex="0" aria-label="Copyright section"> 
 <?php echo __('Designed, Developed & Maintained  by @2024 Satyajit Ray Film & Television Institute', 'srft-theme'); ?>
-<div>
-    <?php echo do_shortcode('[last_updated]'); ?>
+<div tabindex="0" aria-label="Last updated date" >
+    <?php echo do_shortcode('[global_latest_date]'); ?>
 </div>
 
 </div>

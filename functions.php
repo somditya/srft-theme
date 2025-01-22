@@ -896,20 +896,36 @@ function is_custom_link($menu_item) {
 
 
 
+function display_global_latest_date() {
+	// Query to get the latest modified post from all post types
+	$args = [
+			'post_type'      => ['post','document', 'tender', 'vacancy', 'admission' ,'faculty', 'announcement', 'news', 'award', 'photo'], // Add all relevant custom post types here
+			'posts_per_page' => 1,
+			'orderby'        => 'modified',
+			'order'          => 'DESC',
+	];
 
+	$query = new WP_Query($args);
 
-function display_last_updated() {
-	// Check if the post/page was modified, and display the last modified date
-	if (get_the_modified_time() != get_the_time()) {
-			return '<p class="last-updated">Last updated on: ' . get_the_modified_date() . '</p>';
+	if ($query->have_posts()) {
+			$query->the_post();
+
+			// Get the latest modified date
+			$latest_date = get_the_modified_date();
+
+			// Reset post data
+			wp_reset_postdata();
+
+			// Return the formatted output
+			return '<p class="global-latest-date">' . __('Last updated on', 'srft-theme') . ': ' . esc_html($latest_date) . '</p>';
 	} else {
-			// If the post/page was never modified, display the published date instead
-			return '<p class="last-updated">Published on: ' . get_the_date() . '</p>';
+			return '<p class="global-latest-date">' . __('No posts available.', 'srft-theme') . '</p>';
 	}
 }
 
-// Create a shortcode to use the function in posts or pages
-add_shortcode('last_updated', 'display_last_updated');
+// Create a shortcode to use this function in posts or pages
+add_shortcode('global_latest_date', 'display_global_latest_date');
+
 
 
 function get_file_details_by_id() {
