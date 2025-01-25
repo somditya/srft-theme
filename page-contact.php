@@ -15,13 +15,16 @@ Template Name: Contact
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="widget" style="line-height: 1.5">
-                <strong>
-                    <p><?php echo __('Satyajit Ray Film &amp; Television Institute', 'srft-theme'); ?></p>
-                </strong>
-                <p><?php echo __('E.M.Byepass Road, P.O. Panchasayar', 'srft-theme'); ?></p>
-                <p><?php echo __('Kolkata-700094', 'srft-theme'); ?></p>
-                <p><?php echo __('Phone-(033)2432 8355/8356/9300', 'srft-theme'); ?></p>
-                <p><?php echo __('Fax - (033)2432-0723/9436', 'srft-theme'); ?></p>
+            <div class="footer_sub">
+      <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
+      <ul>
+        <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
+        <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
+        <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
+        <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
+        <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
+      </ul>
+    </div>
             </div>
         </div>
 
