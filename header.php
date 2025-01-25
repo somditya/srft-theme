@@ -311,6 +311,10 @@ $current_language = get_locale();
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
+                    <li class="dropdown-link">
+                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
+                      else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
+                    </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
@@ -401,16 +405,25 @@ if ($current_language === 'en_US') {
                       else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter//'));} else
+                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
-                    <!--<li class="dropdown-link">
-                      <a href="#"><?php echo __('Online Fee deposit', 'srft-theme' ); ?></a>
-                    </li>-->
+                    <li class="dropdown-link">
+                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Annoucement', 'srft-theme' ); ?></a>
+                    </li>
+                    <li class="dropdown-link">
+                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/news/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('News', 'srft-theme' ); ?></a>
+                    </li>
                     
                     <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
+              </li>
+              <li class="nav-link" style="--i: 1.35s">
+                <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
+                else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               </li>         
             </ul>
           </div>

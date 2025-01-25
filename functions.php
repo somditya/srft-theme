@@ -510,6 +510,30 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
 		 }
 		 return $properties;
  }
+
+ function wpf_dev_disallow_numbers_text_field( $fields, $entry, $form_data ) {
+         
+	// Optional, you can limit to specific forms. Below, we restrict output to forms #2344 and #2365.
+	if ( ! in_array( absint( $form_data['id'] ), [ 2344, 2365 ], true ) ) {
+			return $fields;
+	}
+		 
+	// Get the value of the specific field ID and set it to a variable.
+	// Assuming field ID is 1.
+	$mystring = $fields[1]['value'];
+
+	if ( ! preg_match( '/^([a-zA-Z]+)$/', $mystring ) ) {
+			// Check the field ID (e.g., 1) and show error message at the top of the form and under the specific field.
+			wpforms()->process->errors[ $form_data['id'] ]['1'] = esc_html__( 'The name can only contain letters.', 'plugin-domain' );
+	}
+
+	return $fields;
+}
+
+add_action( 'wpforms_process', 'wpf_dev_disallow_numbers_text_field', 10, 3 );
+
+
+
  
 // Filter to remove the unwanted classes from pagination links
 // Custom filter to modify pagination output
