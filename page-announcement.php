@@ -1,4 +1,4 @@
-<?php
+<?php 
 /*
 Template Name: Announcement List
 */
@@ -24,7 +24,7 @@ $category_id = get_category_ID($category_name);
   <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
-        <div class="page-banner-title"><?php echo __('Announcements', 'srft-theme'); ?></div>
+        <div class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></div>
       </div>
     </section>
 
@@ -38,7 +38,7 @@ $category_id = get_category_ID($category_name);
           ?>
         </div>
 
-        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Announcement List', 'srft-theme'); ?></h2>
+        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Circular & Notices', 'srft-theme'); ?></h2>
 
         <div ng-app="myApp">
           <div ng-controller="AnnouncementController">
@@ -49,12 +49,11 @@ $category_id = get_category_ID($category_name);
               <label for="toDate"><?php echo __('To date: ', 'srft-theme'); ?></label>
               <input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
               
-              <label for="filterField">
-                <input type="text" id="filterField" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
-              </label>
+              <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label>
+              <input type="text" id="filterField" ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" ng-change="applyFilters()">
               
               <!-- Add a Reset button to clear filters -->
-              <button ng-click="resetFilters()"><?php echo __('Reset: ', 'srft-theme'); ?></button>
+              <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme'); ?></button>
             </p>
 
             <div class="wrapper">
@@ -77,19 +76,17 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content "><span class="webinar-date">{{ announcement.pubdate }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
-  <div class="Rtable-cell--content access-link-content" ng-if="announcement.file.url">
-    <!-- Show the PDF image and link when the file exists -->
-    <a href="{{announcement.file.url}}">
-      <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" style="vertical-align: middle;">
-      <span>(<?php echo __('Download', 'srft-theme'); ?> - {{ announcement.file.size }} MB)</span>
-    </a>
-  </div>
-  <div ng-if="!announcement.file.url">
-    <!-- Show only the link to the post when no PDF file exists -->
-    <a href="{{announcement.link}}"><?php echo __('View', 'srft-theme'); ?></a>
-  </div>
-</div>
-
+                    <div class="Rtable-cell--content access-link-content" ng-if="announcement.file.url">
+                      <!-- Show the PDF image and link when the file exists -->
+                      <a href="{{announcement.file.url}}">
+                        <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" style="vertical-align: middle;">
+                        <span>(<?php echo __('Download', 'srft-theme'); ?> - {{ announcement.file.size }} MB)</span>
+                      </a>
+                    </div>
+                    <div ng-if="!announcement.file.url">
+                      <!-- Show only the link to the post when no PDF file exists -->
+                      <a href="{{announcement.link}}"><?php echo __('View', 'srft-theme'); ?></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -107,7 +104,7 @@ $category_id = get_category_ID($category_name);
                   <i class="fa fa-chevron-left" style="color: #8b5b2b;"></i>
                 </a>
               </li>
-              <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
+              <li ng-repeat="page in pageNumbers" ng-class="{ 'active': currentPage === page }">
                 <a href="#" ng-click="setPage(page)">{{ page }}</a>
               </li>
               <li ng-class="{ 'disabled': currentPage === totalPages }">
@@ -206,44 +203,41 @@ $category_id = get_category_ID($category_name);
 
           // Reset pagination
           $scope.currentPage = 1;
+          $scope.pageNumbers = getPageNumbers();
           $scope.updatePagedAnnouncement();
         }
 
-        // Function to apply filters when input changes
-        $scope.applyFilters = function () {
-          updateFilteredAnnouncement();
-        };
-
-        // Function to reset filters
-        $scope.resetFilters = function () {
-          $scope.filterField = '';
-          $scope.fromDate = '';
-          $scope.toDate = '';
-          updateFilteredAnnouncement();
-        };
-
-        // Function to update paged announcements
+        // Function to update paged announcement list
         $scope.updatePagedAnnouncement = function () {
-          const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
-          $scope.pagedAnnouncement = $scope.filteredAnnouncement.slice(startIndex, startIndex + $scope.itemsPerPage);
+          var start = ($scope.currentPage - 1) * $scope.itemsPerPage;
+          var end = $scope.currentPage * $scope.itemsPerPage;
+          $scope.pagedAnnouncement = $scope.filteredAnnouncement.slice(start, end);
         };
 
-        // Pagination methods
+        // Function to get the page numbers for pagination
+        $scope.getPageNumbers = function () {
+          var pageNumbers = [];
+          var totalPages = Math.ceil($scope.filteredAnnouncement.length / $scope.itemsPerPage);
+          for (var i = 1; i <= totalPages; i++) {
+            pageNumbers.push(i);
+          }
+          return pageNumbers;
+        };
+
+        // Watch for changes in the filtered announcement length
+        $scope.$watch('filteredAnnouncement.length', function () {
+          $scope.totalPages = Math.ceil($scope.filteredAnnouncement.length / $scope.itemsPerPage);
+          $scope.updatePagedAnnouncement();
+          $scope.pageNumbers = $scope.getPageNumbers();
+        });
+
+        // Set the current page to a specific page
         $scope.setPage = function (page) {
           $scope.currentPage = page;
           $scope.updatePagedAnnouncement();
         };
 
-        $scope.firstPage = function () {
-          $scope.currentPage = 1;
-          $scope.updatePagedAnnouncement();
-        };
-
-        $scope.lastPage = function () {
-          $scope.currentPage = $scope.totalPages;
-          $scope.updatePagedAnnouncement();
-        };
-
+        // Previous and next page
         $scope.prevPage = function () {
           if ($scope.currentPage > 1) {
             $scope.currentPage--;
@@ -258,24 +252,30 @@ $category_id = get_category_ID($category_name);
           }
         };
 
-        // Function to get pagination numbers
-        $scope.getPageNumbers = function () {
-          var totalPages = Math.ceil($scope.filteredAnnouncement.length / $scope.itemsPerPage);
-          var pageNumbers = [];
-          for (var i = 1; i <= totalPages; i++) {
-            pageNumbers.push(i);
-          }
-          return pageNumbers;
+        // First and last page
+        $scope.firstPage = function () {
+          $scope.currentPage = 1;
+          $scope.updatePagedAnnouncement();
         };
 
-        // Watch for changes in filtered announcements and update pagination
-        $scope.$watch('filteredAnnouncement.length', function () {
-          $scope.totalPages = Math.ceil($scope.filteredAnnouncement.length / $scope.itemsPerPage);
+        $scope.lastPage = function () {
+          $scope.currentPage = $scope.totalPages;
           $scope.updatePagedAnnouncement();
-        });
+        };
 
+        // Apply the filters
+        $scope.applyFilters = function () {
+          updateFilteredAnnouncement();
+        };
+
+        // Reset the filters
+        $scope.resetFilters = function () {
+          $scope.filterField = '';
+          $scope.fromDate = '';
+          $scope.toDate = '';
+          updateFilteredAnnouncement();
+        };
       });
   </script>
+  <?php get_footer(); ?>
 </body>
-
-<?php get_footer(); ?>

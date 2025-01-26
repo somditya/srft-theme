@@ -5072,6 +5072,7 @@ div .spacer {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+  color: white;
 }
 
 .vis .header {
@@ -6681,6 +6682,10 @@ header {
   padding: 1.5rem 1.5rem;
 }
 
+.widget ul li {
+  list-style: none;
+}
+
 .widget-content {
   margin: 2rem;
   font-size: 1.6rem;
@@ -6711,7 +6716,7 @@ header {
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
   color: #6d2f6a;
-  color: #a37a29;
+  color: #8b5b2b;
   font-style: normal;
   border-bottom: 2px solid #6d2f6a;
 }

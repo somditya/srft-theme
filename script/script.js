@@ -97,10 +97,21 @@ $(".static").owlCarousel({
   autoplayHoverPause: true,
   nav: true,
   navText: [
-    "<div class='nav-btn prev-slide'></div>",
-    "<div class='nav-btn next-slide'></div>",
+    "<div class='nav-btn prev-slide' aria-label='Previous slide'></div>",
+    "<div class='nav-btn next-slide' aria-label='Next slide'></div>",
   ],
   dots: false,
+});
+
+// Add ARIA attributes for better accessibility
+$(document).ready(function () {
+  // Set ARIA attributes for prev and next buttons
+  $(".owl-prev").attr("aria-label", "Previous slide");
+  $(".owl-next").attr("aria-label", "Next slide");
+
+  // Add aria-disabled to buttons when they're disabled
+  $(".owl-prev.disabled").attr("aria-disabled", "true");
+  $(".owl-next.disabled").attr("aria-disabled", "true");
 });
 
 $(".nonstatic").owlCarousel({

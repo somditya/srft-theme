@@ -14,8 +14,8 @@ Template Name: Contact
 
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
-            <div class="widget" style="line-height: 1.5">
-            <div class="footer_sub">
+            <div class="widget" style=" margin-top: 10px;    line-height: 1.5">
+           
       <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
       <ul>
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
@@ -24,7 +24,7 @@ Template Name: Contact
         <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
         <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
       </ul>
-    </div>
+</div>
             </div>
         </div>
 

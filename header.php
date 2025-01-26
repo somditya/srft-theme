@@ -186,7 +186,7 @@ $current_language = get_locale();
 
              <li><a href="#skip-to-content"><span class="skp-to-main"><?php echo __('Skip to main content', 'srft-theme' ); ?></span>
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
-            </li>
+          
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
              <li><button id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
               <i class="fas fa-universal-access"></i>
@@ -313,7 +313,7 @@ $current_language = get_locale();
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
-                      else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
+                      else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
@@ -410,11 +410,11 @@ if ($current_language === 'en_US') {
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Annoucement', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/घोषणा-सूची/'));} ?>"><?php echo __('Circular & Notices', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/news/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('News', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/समाचार-सूची/'));} ?>"><?php echo __('News', 'srft-theme' ); ?></a>
                     </li>
                     
                     <!--<div class="arrow"></div>-->

@@ -46,8 +46,10 @@ $current_language = get_locale();
                     <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/Vacancy/'));}
                     else  { echo esc_url(site_url('/रिक्ति/'));}
                     ?>"><?php echo __('Recruitment Notices', 'srft-theme'); ?></a></li>
-        <li><a href="#"><?php echo __('Telephone Directory', 'srft-theme'); ?></a></li>
-        <?php echo __('Gallery', 'srft-theme'); ?></li>
+        <!--<li><a href="#"><?php echo __('Telephone Directory', 'srft-theme'); ?></a></li>-->
+        <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/photo-gallery/'));}
+                    else  { echo esc_url(site_url('/फोटो-गैलरी/'));}
+                    ?>"><?php echo __('Photo Gallery', 'srft-theme'); ?></a></li>
         <!--<li><a href="#"><?php echo __('Holiday List', 'srft-theme'); ?></a></li>-->
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/downloads/'));}
                     else  { echo esc_url(site_url('/डाउनलोड/'));}
