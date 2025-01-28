@@ -273,39 +273,95 @@ $current_language = get_locale();
                             <div class="Rtable-cell designation-cell column-heading"><?php echo __('Designation', 'srft-theme'); ?></div>
                         </div>
                         <?php
-                        if ($current_language === 'en_US') {
-                            $catslug='acmember-en'; 
-                        } else {
-                            $catslug='acmember-hi';
-                        }
-                        $category_posts = new WP_Query(array(
-                            'category_name' => $catslug, // Replace with your category slug
-                            'posts_per_page' => -1 // Display all posts in the category
-                        ));
-                        
-                        $count = 1; // Initialize the serial number
-                        if ($category_posts->have_posts()) :
-                            while ($category_posts->have_posts()) : $category_posts->the_post();
-                        ?>
-                            <div class="Rtable-row">
-                                <div class="Rtable-cell slno-cell">
-                                    <div class="Rtable-cell--content"><?php echo $count; ?></div>
-                                </div>
-                                <div class="Rtable-cell name-cell">
-                                    <div class="Rtable-cell--content"><?php the_title(); ?></div>
-                                </div>
-                                <div class="Rtable-cell designation-cell">
-                                    <div class="Rtable-cell--content"><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></div>
-                                </div>
-                            </div>
-                        <?php
-                            $count++;
-                            endwhile;
-                            wp_reset_postdata(); // Reset the post data
-                        else :
-                            echo '<p>No posts found in this category.</p>';
-                        endif;
-                        ?>  
+if ($current_language === 'en_US') {
+    $catslug = 'acmember-en'; 
+
+    // Define priority for English designations
+    $designation_order = array(
+        'President' => 1,
+        'Director' => 2,
+        'Dean (Film), FTII' => 3,
+        'Dean (TV), FTII' => 4,
+        'Registrar, SRFTI' => 5,
+        'External Expert' => 6,
+        'Alumni' => 7
+        
+    );
+
+} else {
+    $catslug = 'acmember-hi'; 
+
+    // Define priority for Hindi designations
+    $designation_order = array(
+        'अध्यक्ष' => 1, // President
+        'निदेशक' => 2, // Director
+        'डीन (फिल्म्स), एफटीआईआई' => 3, // Dean (Film)
+        'डीन (टीवी), एफटीआईआई' => 4, // Dean (TV)
+        'रजिस्ट्रार, एसआरएफटीआई' => 5, // Registrar
+        'पूर्व छात्र' => 7, // Alumni
+        'बाहरी विशेषज्ञ' => 6 // External Expert
+    );
+}
+
+// Fetch posts
+$category_posts = new WP_Query(array(
+    'category_name' => $catslug, // Your category slug
+    'posts_per_page' => -1, // Display all posts in the category
+    'orderby' => 'date', // Default sorting by date
+    'order' => 'ASC', // Sorting order (ascending or descending, depending on your requirement)
+));
+
+$posts = array(); // Initialize an array to store posts
+
+if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
+        // Get the custom field 'Designation'
+        $designation = get_post_meta(get_the_ID(), 'Designation', true);
+
+        // If designation is not set, provide a fallback
+        if (!$designation) {
+            $designation = 'Unknown';
+        }
+
+        // Store post details with priority
+        $posts[] = array(
+            'title' => get_the_title(),
+            'designation' => $designation,
+            'priority' => $designation_order[$designation] ?? PHP_INT_MAX // Assign priority
+        );
+    endwhile;
+
+    // Sort posts by priority
+    usort($posts, function ($a, $b) {
+        return $a['priority'] <=> $b['priority'];
+    });
+
+    // Display the sorted posts
+    $count = 1; // Initialize serial number
+    foreach ($posts as $post) {
+        ?>
+        <div class="Rtable-row">
+            <div class="Rtable-cell slno-cell">
+                <div class="Rtable-cell--content"><?php echo $count; ?></div>
+            </div>
+            <div class="Rtable-cell name-cell">
+                <div class="Rtable-cell--content"><?php echo $post['title']; ?></div>
+            </div>
+            <div class="Rtable-cell designation-cell">
+                <div class="Rtable-cell--content"><?php echo $post['designation']; ?></div>
+            </div>
+        </div>
+        <?php
+        $count++; // Increment the serial number
+    }
+    wp_reset_postdata(); // Reset the post data
+
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>
+
+
                     </div>
                     <!-- Use a CSS grid for layout -->
                 </div>
