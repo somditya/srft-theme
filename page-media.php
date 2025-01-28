@@ -200,7 +200,7 @@ if (!empty($events_grouped)) {
 ?>
  </div>
 
- <div class="tab-content tab-content3">
+<div class="tab-content tab-content3">
                     <?php
 // Query all workshop albums
 $events_albums = get_posts([
@@ -270,6 +270,78 @@ if (!empty($events_grouped)) {
 }
 ?>
  </div>
+
+ <div class="tab-content tab-content4">
+                    <?php
+// Query all workshop albums
+$events_albums = get_posts([
+    'post_type' => 'picture', // Assuming 'picture' is your custom post type
+    'posts_per_page' => -1,   // Fetch all posts
+    'meta_query' => [
+        [
+            'key' => 'Picture_Category', // ACF field name
+            'value'   => 'Campus Life', // Category value to match
+            'compare' => '=' // Match posts with 'students still' in Picture_Category
+        ],
+    ],
+]);
+
+// Group the posts by Album_Name
+// Group the posts by Album_Name
+$events_grouped = [];
+foreach ($events_albums as $album) {
+    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
+    if (!empty($album_name)) {
+        $events_grouped[$album_name][] = $album;
+    }
+}
+
+// Check if there are any albums to display
+if (!empty($events_grouped)) {
+    foreach ($events_grouped as $album_name => $images) {
+        // Use the first image of the album as the representative image
+        $representative_image = $images[0];
+        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
+
+        
+        echo "<div class='album-container'>";
+        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
+        // Display the representative image
+        ?>
+        <a href="<?php echo esc_url($representative_image_url); ?>" 
+           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
+           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
+            <img src="<?php echo esc_url($representative_image_url); ?>" 
+                 alt="<?php echo esc_attr($album_name); ?>" 
+                class="gallery-image">
+        </a>
+        <?php
+
+        // Add all images in the album to the Lightbox group (hidden links)
+        foreach ($images as $image) {
+          if ($image->ID !== $representative_image->ID) {
+              // Get the file URL from ACF's 'picture_file' field for each image
+              $image_url = get_field('Picture_File', $image->ID);
+              // Get the thumbnail URL for other images
+              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
+              ?>
+              <a href="<?php echo esc_url($image_url); ?>" 
+                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
+                 data-title="<?php echo esc_attr($image->post_title); ?>" 
+                 ></a>
+              <?php
+          }
+      }
+
+        echo "</div>";
+    }
+} else {
+    // If no albums are found
+    echo "<p>No albums available for workshops.</p>";
+}
+?>
+ </div>
+
 
         </section>
 </div>
