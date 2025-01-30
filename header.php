@@ -291,11 +291,11 @@ $current_language = get_locale();
                     <li class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programme-in-cinema/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}                   
-                      ?>"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Postgraduate Programmes in Cinema', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programme-in-edm/'));}
-                      else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Post Graduate Programme in EDM', 'srft-theme' ); ?></a>
+                      else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Postgraduate Programmes in EDM', 'srft-theme' ); ?></a>
                     </li>
                     <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
@@ -326,10 +326,10 @@ $current_language = get_locale();
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
-                      ?>"><?php echo __('Post graduate programmes', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Postgraduate programmes', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Post graduate programmes in FTI AR', 'srft-theme' ); ?></a>
+                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTI AR', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
@@ -424,7 +424,8 @@ if ($current_language === 'en_US') {
               <li class="nav-link" style="--i: 1.35s">
                 <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
-              </li>         
+              </li>
+                       
             </ul>
           </div>
 

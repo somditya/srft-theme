@@ -60,7 +60,7 @@ $category_id = get_category_ID($category_name);
               <div class="Rtable Rtable--7cols Rtable--collapse">
                 <div class="Rtable-row Rtable-row--head">
                   <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Announcement Title', 'srft-theme'); ?></div>
+                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></div>
                   <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme'); ?></div>
                   <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme'); ?></div>
                 </div>

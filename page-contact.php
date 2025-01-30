@@ -21,8 +21,8 @@ Template Name: Contact
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
         <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-        <li><?php echo __('Phone:', 'srft-theme'); ?>91-33-2432-8355, 2432-8356, 2432-9300</li>
-        <li><?php echo __('email:', 'srft-theme'); ?>contact@srfti.ac.in</li>
+        <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 <span></li>
+        <li><?php echo __('email:', 'srft-theme'); ?><span> contact@srfti.ac.in<span></li>
       </ul>
 </div>
             </div>

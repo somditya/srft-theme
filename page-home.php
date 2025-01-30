@@ -23,7 +23,7 @@ Template Name: Home
         </div>-->
         <div class="acme-news-ticker">
   <div class="acme-news-ticker-label">
-    <?php echo __('Whats New', 'srft-theme'); ?> &nbsp;
+    <?php echo __('Announcements', 'srft-theme'); ?> &nbsp;
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
       <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M1 12h22"></path>
@@ -261,7 +261,7 @@ else
               </g>
             </svg>
           </div>
-          <?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?> &nbsp;
+          <?php echo __('Postgraduate Programmes in Cinema', 'srft-theme'); ?> &nbsp;
         </a>
       </div>
 
@@ -281,7 +281,7 @@ else
               </g>
             </svg>
           </div>
-          <?php echo __('Post Graduate Programme in EDM', 'srft-theme'); ?> &nbsp;
+          <?php echo __('Postgraduate Programmes in EDM', 'srft-theme'); ?> &nbsp;
         </a>
       </div>
     </div>
