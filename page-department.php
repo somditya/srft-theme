@@ -90,7 +90,7 @@ if ($current_language === 'en_US') {
    </div>
    <div class="widget">
      <div class="widget-content">
-       <h2><?php echo __('Elibility Criteria', 'srft-theme' ); ?></h2>
+       <h2><?php echo __('Eligibility Criteria', 'srft-theme' ); ?></h2>
        <hr />
        <div>
          <?php echo $eligibilty; ?>
@@ -100,6 +100,13 @@ if ($current_language === 'en_US') {
  </div>
 
  <div class="main-content">
+ <div>      
+        <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+        ?>
+       </div>
    <div style="margin-top: 0rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
      <?php echo __('About the department', 'srft-theme' ); ?>
@@ -125,9 +132,9 @@ if ($current_language === 'en_US') {
 
 
 <div style="margin-top: 3.2rem;">
+    <section class="faculty">
     <h2 class="page-header-text" style="padding-left: 0;">
     <?php echo __('Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
-    <section class="faculty">
         <div class="faculty-img">
             <ul>
               <?php
@@ -171,9 +178,9 @@ if ($current_language === 'en_US') {
   ?>
                   <li>
                       <a href="<?php echo esc_url($post_link); ?>" target="_blank">
-                      <img style="max-width: 220px;" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
+                      <img style="max-width: 140px;" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
                           <h3><?php the_title(); ?></h3>
-                          <span><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
+                          <span style="white-space: nowrap;"><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
                       </a>
                   </li><?php
       endwhile;

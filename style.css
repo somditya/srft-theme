@@ -6755,6 +6755,7 @@ h4 {
   letter-spacing: -0.05rem;
   margin: 0 0 0.9375rem;
   font-size: 2.8rem;
+  text-align: left;
 }
 
 .faculty-img ul {
@@ -6763,7 +6764,8 @@ h4 {
   padding-left: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  width: 100%;
 }
 
 .faculty-img ul > li {

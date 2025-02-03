@@ -92,7 +92,7 @@ foreach ($categories as $category) {
 
     </div>
 
-    <?php
+    <!-- <?php
     $video_url = get_field('video');
 
     if ($video_url) {
@@ -100,7 +100,7 @@ foreach ($categories as $category) {
     } else {
         echo '<p>No video URL found.</p>';
     }
-    ?>
+    ?> -->
 
     </div>
 
