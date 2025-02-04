@@ -180,6 +180,5 @@ wp_nav_menu(array(
             </section>
         </div>
     </section>
-</main>
 
 <?php get_footer(); ?>
