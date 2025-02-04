@@ -15,41 +15,38 @@ Template Name: Home
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-    <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding:10px;">
-    <!--<div class="container" style="display:flex; column-gap: 10px; align-items: center; justify-content: space-between;">-->
-        
-        <!--<div style="color:white; font-size: 18px; width: calc(15% - 40px); padding:0px;">
-            
-        </div>-->
-        <div class="acme-news-ticker">
-  <div class="acme-news-ticker-label">
-    <?php echo __('Announcements', 'srft-theme'); ?> &nbsp;
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
-      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M1 12h22"></path>
-        <path d="M12 3l9 9-9 9"></path>
-      </g>
-    </svg>
-  </div>
+        <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding: 10px;">
+            <div class="acme-news-ticker">
+                <div class="acme-news-ticker-label">
+                    Announcements &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
+                        <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12h22"></path>
+                            <path d="M12 3l9 9-9 9"></path>
+                        </g>
+                    </svg>
+                </div>
 
-  <div class="acme-news-ticker-box">
-<div>
-  <ul class="news-ticker">
-      <li>
-        <a href="#">Breaking News 1</a>
-      </li>
-      <li>
-        <a href="#">Breaking News 2</a>
-      </li>
-    </ul>
-  </div>
-</div>
-  <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
-  <span class="acme-news-ticker-pause"></span>
-  </div>
-</div>
+                <div class="acme-news-ticker-box">
+                    <div>
+                        <ul class="news-ticker">
+                            <li>
+                                <a href="#">Breaking News 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Breaking News 2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-  </div>
+                <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
+                    <span class="acme-news-ticker-pause"></span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
         
         <!--<div class="secondary__header-arrow" style="margin-left: 0px; padding:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;">
@@ -69,7 +66,7 @@ Template Name: Home
         </div>-->
         
     <!--</div>--> <!-- Closing the .container div -->
-</section>
+
 
  
 <section class="section-news" style="background-color: #0b6b39;" id="section-1">
@@ -439,335 +436,127 @@ else
   </div>
   </section>
 
-    <section class="section-home" style="background-color: #f0e9e9;"  >
-      <div class="section-intro-header">
-        <h2 class="section-intro-header-text" style="padding-left: 0; ">
-        <?php echo __('Media gallery', 'srft-theme' ); ?>  </h2>
-      </div>
-      <div class="container" style="display:flex; padding:24px; max-width: 1450px;">     
-      <div class="img_card">
-        <a href="https://staging.srfti.ac.in/photo-gallery/?tab=1">
-            <img alt="Events & Festvals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
-        <div class="img_caption" >
-        <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme' ); ?></p>
-        </div>
-      </a>
-      </div>
-
-
-     <div class="img_card">
-     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=2">
-        <img alt="Master Classess & workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
-      <div class="img_caption">
-        <p class="img-caption-text"><?php echo __('Master Classess & workshops', 'srft-theme' ); ?></p>
-        </div>
-      </a>
+  <section class="section-home" style="background-color: #f0e9e9;">
+    <div class="section-intro-header">
+        <h2 class="section-intro-header-text" style="padding-left: 0;">
+            <?php echo __('Media Gallery', 'srft-theme'); ?>
+        </h2>
     </div>
-   
-    <div class="img_card">
-     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=3">
-        <img alt="Still from Students Film" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
-      <div class="img_caption">
-        <p class="img-caption-text"><?php echo __('Still from Students Film', 'srft-theme' ); ?></p>
+    
+    <div class="container" style="display: flex; padding: 24px; max-width: 1450px;">
+        
+        <div class="img_card">
+            <a href="https://staging.srfti.ac.in/photo-gallery/?tab=1">
+                <img alt="Events & Festivals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
+                <div class="img_caption">
+                    <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme'); ?></p>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
 
-    <div class="img_card">
-     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=4">
-        <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
-      <div class="img_caption">
-        <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme' ); ?></p>
+        <div class="img_card">
+            <a href="https://staging.srfti.ac.in/photo-gallery/?tab=2">
+                <img alt="Master Classes & Workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
+                <div class="img_caption">
+                    <p class="img-caption-text"><?php echo __('Master Classes & Workshops', 'srft-theme'); ?></p>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
 
-    <div class="img_card">
-     <a href="https://staging.srfti.ac.in/photo-gallery/?tab=5">
-        <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
-      <div class="img_caption">
-        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?></p>
+        <div class="img_card">
+            <a href="https://staging.srfti.ac.in/photo-gallery/?tab=3">
+                <img alt="Still from Students' Films" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
+                <div class="img_caption">
+                    <p class="img-caption-text"><?php echo __('Still from Students\' Films', 'srft-theme'); ?></p>
+                </div>
+            </a>
         </div>
-      </a>
+
+        <div class="img_card">
+            <a href="https://staging.srfti.ac.in/photo-gallery/?tab=4">
+                <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
+                <div class="img_caption">
+                    <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme'); ?></p>
+                </div>
+            </a>
+        </div>
+
+        <div class="img_card">
+            <a href="https://staging.srfti.ac.in/photo-gallery/?tab=5">
+                <img alt="SRFTI in News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
+                <div class="img_caption">
+                    <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme'); ?></p>
+                </div>
+            </a>
+        </div>
+
     </div>
+</section>
 
-        <div class="img_caption" >
-                        <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme' ); ?></p>
-        </div></a>
-</div>
-
-  </section>
 
 
 <section class="section-home" style="background-color: #f5f5f5; ">
 <div class="section-intro-header">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
-    <?php echo __('Updates', 'srft-theme' ); ?>    </h2>
+    <?php echo __('Updates', 'srft-theme' ); ?></h2>
   </div>  
 <div class="updates-container">
   
-<div class="box-container" style="display:flex;">  
-<div class="cell">
-<span class="update-title"><?php echo __('Circular & Notices', 'srft-theme' ); ?></span>
-<?php
-if ($current_language === 'en_US') {
-    $catslug = 'announcement-en';
-} else {
-    $catslug = 'announcement-hi';
-}
+<div class="box-container" style="display:flex;">
+    <?php 
+    $sections = [
+        'announcement' => __('Circular & Notices', 'srft-theme'),
+        'tender' => __('Tender', 'srft-theme'),
+        'vacancy' => __('Vacancy', 'srft-theme')
+    ];
 
-$category_posts = new WP_Query(array(
-    'post_type' => 'announcement',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => $catslug,
-        ),
-    ),
-    'posts_per_page' => 5,
-));
+    foreach ($sections as $post_type => $title) :
+        $catslug = ($current_language === 'en_US') ? $post_type : $post_type . '-hi';
+        $category_posts = new WP_Query([
+          'post_type'      => $post_type,
+          'posts_per_page' => 5,
+      ]);
+    ?>
+    <div class="cell">
+        <span class="update-title"><?php echo $title; ?></span>
+        <?php if ($category_posts->have_posts()) :
+            while ($category_posts->have_posts()) : $category_posts->the_post();
+                $doc_field = ucfirst($post_type) . '-Doc';
+                $doc = get_field($doc_field);
+                $link = $doc && isset($doc['url']) ? esc_url($doc['url']) : get_permalink();
+                $file_size_mb = 'N/A';
 
-if ($category_posts->have_posts()) :
-    while ($category_posts->have_posts()) : $category_posts->the_post();
-        //$post_link = get_permalink();
-        $announcement_doc = get_field('Announcement-Doc'); // Get the Announcement-Doc field
-        if ($announcement_doc && isset($announcement_doc['url'])) {
-          // Use the 'url' key from the array
-          $link = esc_url($announcement_doc['url']);
-          
-          // Get the file size
-          $file_path = str_replace(home_url('/'), ABSPATH, $announcement_doc['url']);
-          if (file_exists($file_path)) {
-              $file_size = filesize($file_path); // File size in bytes
-              $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
-              $file_type_info = wp_check_filetype($file_path);
-              $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-          } else {
-              $file_size_mb = 'N/A'; // If the file does not exist locally
-          }
-      } else {
-          // Fallback to post permalink if Vacancy-Doc URL is not available
-          $link = get_permalink();
-          $file_size_mb = 'N/A'; // No file size for permalink fallback
-      }
-        ?>
-        <h3>
-            <div>
-                <i class="fa-regular fa-calendar"></i>
-                <?php 
-                $announcement_date = get_field('Announcement-Publish-Date'); // Retrieve the raw value for announcement date
-                
-                if (!empty($announcement_date)) {
-                    // Handle custom date formats (e.g., d/m/Y)
-                    $date_object = DateTime::createFromFormat('d/m/Y', $announcement_date);
-                    echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
-                } else {
-                    echo 'No date available'; // Handle empty field
+                if ($doc && isset($doc['url'])) {
+                    $file_path = str_replace(home_url('/'), ABSPATH, $doc['url']);
+                    if (file_exists($file_path)) {
+                        $file_size = filesize($file_path);
+                        $file_size_mb = round($file_size / (1024 * 1024), 2);
+                    }
                 }
-                ?>
-            </div>
-            <?php if ($announcement_doc): ?>
-    <!-- If Announcement-Doc is not empty, display the PDF link -->
-    <div>
-    <a href="<?php echo $link; ?>">
-            <?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - 
-            <?php if ($file_size_mb !== 'N/A'): ?>
-                <?php echo $file_size_mb; ?> MB
-            <?php endif; ?>)
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
-        </a>
+                $date_field = ucfirst($post_type) . '-Publish-Date';
+                $post_date = get_field($date_field);
+                $formatted_date = !empty($post_date) ? DateTime::createFromFormat('d/m/Y', $post_date) : null;
+        ?>
+        <h3 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
+        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?></h3>
+        <p><a href="<?php echo $link; ?>">
+            <?php the_title(); ?>&nbsp;
+            <?php if ($doc): ?>
+                (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+            <?php endif; ?>
+        </a> </p><br/>
+        <?php endwhile; wp_reset_postdata(); else : ?>
+            <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
+        <?php endif; ?>
+        <div class="link-span">
+            <a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/' . $post_type . '/' : '/'.__('slug-'.$post_type, 'srft-theme').'/')); ?>" role="link" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+                <?php echo __('More', 'srft-theme'); ?>
+            </a>
+        </div>
     </div>
-
-
-<?php else: ?>
-    <!-- If Announcement-Doc is empty, show the regular post link -->
-    <a href="<?php echo $link;; ?>"><?php the_title(); ?></a>
-<?php endif; ?>
-
-        </h3>
-        <?php
-    endwhile;
-    wp_reset_postdata(); // Reset the post data
-else :
-    echo '<p>No posts found in this category.</p>';
-endif;
-?>
-
-<div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/')); }
-else 
-{ echo esc_url(site_url('/घोषणा-सूची/'));}
-?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
+    <?php endforeach; ?>
 </div>
-
-
-<div class="cell">
-    <span class="update-title" ><?php echo __('Tender', 'srft-theme' ); ?></span>
-    <?php
-if ($current_language === 'en_US') {
-    $catslug = 'tender';
-} else {
-    $catslug = 'tender-hi';
-}
-
-$category_posts = new WP_Query(array(
-    'post_type' => 'tender',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'slug',
-            'terms'    => $catslug,
-        ),
-    ),
-    'posts_per_page' => 5,
-));
-
-if ($category_posts->have_posts()) :
-  while ($category_posts->have_posts()) : $category_posts->the_post();
-      // Retrieve the ACF field 'Vacancy-Doc' which returns an array
-      $vacancy_doc = get_field('Tender-Doc');
-      
-      if ($vacancy_doc && isset($vacancy_doc['url'])) {
-          // Use the 'url' key from the array
-          $link = esc_url($vacancy_doc['url']);
-          
-          // Get the file size
-          $file_path = str_replace(home_url('/'), ABSPATH, $vacancy_doc['url']);
-          if (file_exists($file_path)) {
-              $file_size = filesize($file_path); // File size in bytes
-              $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
-              $file_type_info = wp_check_filetype($file_path);
-              $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-          } else {
-              $file_size_mb = 'N/A'; // If the file does not exist locally
-          }
-      } else {
-          // Fallback to post permalink if Vacancy-Doc URL is not available
-          $link = get_permalink();
-          $file_size_mb = 'N/A'; // No file size for permalink fallback
-      }
-?>
-      <h3>
-      <div>
-    <i class="fa-regular fa-calendar"></i>
-    <?php 
-    $tender_date = get_field('Tender-Publish-Date'); // Retrieve the raw value
-    
-    if (!empty($tender_date)) {
-        // Handle custom date formats (e.g., d/m/Y)
-        $date_object = DateTime::createFromFormat('d/m/Y', $tender_date);
-        echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
-    } else {
-        echo 'No date available'; // Handle empty field
-    }
-    ?>
-</div>
-
-
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
-              <?php echo $file_size_mb; ?> MB)
-          <?php endif; ?>
-              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
-          </a>
-         
-      </h3>
-<?php
-  endwhile;
-  wp_reset_postdata(); // Reset the post data
-else :
-  echo '<p>No posts found in this category.</p>';
-endif;
-?>
-
-<div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/tender/')); }
-else 
-{ echo esc_url(site_url('/निविदा/'));}
-?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
-</div>
-
-  
-<div class="cell">
-      <span class="update-title" ><?php echo __('Vacancy', 'srft-theme' ); ?></span>
-      <?php
-       if ($current_language === 'en_US') {
-        $catslug='vacancy'; 
-       }
-        else
-        {
-          $catslug='vacancy-hi';
-        }
-    $category_posts = new WP_Query(array(
-      'post_type' => 'vacancy',
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'category',
-              'field'    => 'slug',
-              'terms'    => $catslug,
-          ),
-      ),
-      'posts_per_page' => 5,
-  ));
-
-  if ($category_posts->have_posts()) :
-    while ($category_posts->have_posts()) : $category_posts->the_post();
-        // Retrieve the ACF field 'Vacancy-Doc' which returns an array
-        $vacancy_doc = get_field('Vacancy-Doc');
-        
-        if ($vacancy_doc && isset($vacancy_doc['url'])) {
-            // Use the 'url' key from the array
-            $link = esc_url($vacancy_doc['url']);
-            // Get the file size
-            $file_path = str_replace(home_url('/'), ABSPATH, $vacancy_doc['url']);
-            if (file_exists($file_path)) {
-                $file_size = filesize($file_path); // File size in bytes
-                $file_size_mb = round($file_size / (1024 * 1024), 2); // Convert to MB
-                $file_type_info = wp_check_filetype($file_path);
-                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-            } else {
-                $file_size_mb = 'N/A'; // If the file does not exist locally
-            }
-        } else {
-            // Fallback to post permalink if Vacancy-Doc URL is not available
-            $link = get_permalink();
-            $file_size_mb = 'N/A'; // No file size for permalink fallback
-        }
-?>
-         <h3>
-         <div>
-    <i class="fa-regular fa-calendar"></i>
-    <?php 
-    $tender_date = get_field('Vacancy-Publish-Date'); // Retrieve the raw value
-    
-    if (!empty($tender_date)) {
-        // Handle custom date formats (e.g., d/m/Y)
-        $date_object = DateTime::createFromFormat('d/m/Y', $tender_date);
-        echo $date_object ? esc_html($date_object->format('d M, Y')) : 'Invalid date';
-    } else {
-        echo 'No date available'; // Handle empty field
-    }
-    ?>
-</div>
-          <a href="<?php echo $link; ?>"><?php the_title(); ?>&nbsp;(<?php echo __('Download', 'srft-theme' ); ?> - <?php if ($file_size_mb !== 'N/A'): ?>
-              <?php echo $file_size_mb; ?> MB)
-          <?php endif; ?>
-              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
-          </a>    
-      </h3>
-<?php
-    endwhile;
-    wp_reset_postdata(); // Reset the post data
-else :
-    echo '<p>No posts found in this category.</p>';
-endif;
-?>
-      <div class="link-span"><a  href=" <?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/')); }
-else 
-{ echo esc_url(site_url('/रिक्ति/'));}
-?>" role="link" aria-label="Read more about latest announcements"><?php echo __('More', 'srft-theme' ); ?></a></div>
-</div>
-      
-</div>
-
 </div>
 </section>
 <?php

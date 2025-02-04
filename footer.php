@@ -298,6 +298,6 @@ $current_language = get_locale();
 <!--<?php wp_footer(); ?>-->
 
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
-
+</main>
 </body>
 </html>
