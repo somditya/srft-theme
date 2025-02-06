@@ -533,6 +533,10 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
 add_action( 'wpforms_process', 'wpf_dev_disallow_numbers_text_field', 10, 3 );
 
 
+add_filter( 'wpforms_phpmailer_init', function( $phpmailer ) {
+	$phpmailer->isSMTP();
+});
+
 
  
 // Filter to remove the unwanted classes from pagination links
