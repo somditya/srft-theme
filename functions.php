@@ -513,8 +513,8 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
 
  function wpf_dev_disallow_numbers_text_field( $fields, $entry, $form_data ) {
          
-	// Optional, you can limit to specific forms. Below, we restrict output to forms #2344 and #2365.
-	if ( ! in_array( absint( $form_data['id'] ), [ 2344, 2365 ], true ) ) {
+	// Optional, you can limit to specific forms. Below, we restrict output to forms #6329 and #2365.
+	if ( ! in_array( absint( $form_data['id'] ), [ 6329, 2365 ], true ) ) {
 			return $fields;
 	}
 		 
