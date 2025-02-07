@@ -52,7 +52,7 @@ $current_language = get_locale();
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcE2c8qAAAAAMSiQUsZUkDlcsbtQX6I7-oZIK0M"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
   </head>
 
 
