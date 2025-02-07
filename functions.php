@@ -532,6 +532,120 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
 
 add_action( 'wpforms_process', 'wpf_dev_disallow_numbers_text_field', 10, 3 );
 
+// Function to display the feedback form
+function custom_feedback_form() {
+	ob_start(); ?>
+
+	<form method="post" action="" onsubmit="return validateForm()">
+			<label for="name">Name:</label>
+			<input type="text" name="name" id="name" required>
+			<span id="nameError" style="color: red;"></span>
+
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" required>
+			<span id="emailError" style="color: red;"></span>
+
+			<label for="phone">Phone:</label>
+			<input type="text" name="phone" id="phone" required>
+			<span id="phoneError" style="color: red;"></span>
+
+			<label for="message">Message:</label>
+			<textarea name="message" id="message" required></textarea>
+
+			<button type="submit" name="custom_feedback_submit">Submit</button>
+	</form>
+
+	<script>
+	// JavaScript Validation
+	function validateForm() {
+			let name = document.getElementById("name").value;
+			let email = document.getElementById("email").value;
+			let phone = document.getElementById("phone").value;
+			let nameError = document.getElementById("nameError");
+			let emailError = document.getElementById("emailError");
+			let phoneError = document.getElementById("phoneError");
+			let valid = true;
+
+			nameError.textContent = "";
+			emailError.textContent = "";
+			phoneError.textContent = "";
+
+			if (/\d/.test(name)) {
+					nameError.textContent = "Name should not contain numbers.";
+					valid = false;
+			}
+
+			let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+			if (!emailPattern.test(email)) {
+					emailError.textContent = "Enter a valid email address.";
+					valid = false;
+			}
+
+			let phonePattern = /^[6-9]\d{9}$/;
+			if (!phonePattern.test(phone)) {
+					phoneError.textContent = "Enter a valid 10-digit phone number.";
+					valid = false;
+			}
+
+			return valid;
+	}
+	</script>
+
+	<?php
+	return ob_get_clean();
+}
+add_shortcode('custom_feedback_form', 'custom_feedback_form');
+
+// Function to handle form submission and send emails
+function custom_feedback_form_handler() {
+	if (isset($_POST['custom_feedback_submit'])) {
+			$name = sanitize_text_field($_POST['name']);
+			$email = sanitize_email($_POST['email']);
+			$phone = sanitize_text_field($_POST['phone']);
+			$message = sanitize_textarea_field($_POST['message']);
+
+			// Validate Name (no numbers allowed)
+			if (preg_match('/\d/', $name)) {
+					wp_die('Error: Name should not contain numbers.');
+			}
+
+			// Validate Email
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					wp_die('Error: Invalid email address.');
+			}
+
+			// Validate Phone (must be 10-digit number starting with 6-9)
+			if (!preg_match('/^[6-9]\d{9}$/', $phone)) {
+					wp_die('Error: Invalid phone number.');
+			}
+
+			// Admin Email
+			$admin_email = get_option('admin_email');
+
+			// Admin Email Content
+			$subject_admin = "New Feedback Received";
+			$message_admin = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message";
+
+			// Send Email to Admin (Using WP Mail SMTP, no need for specific SMTP settings here)
+			$admin_sent = wp_mail($admin_email, $subject_admin, $message_admin);
+
+			// Confirmation Email to User
+			$subject_user = "Thank You for Your Feedback!";
+			$message_user = "Dear $name,\n\nThank you for reaching out to us. We have received your message and will get back to you shortly.\n\nYour Message:\n$message\n\nBest Regards,\nYour Website Team";
+
+			// Send Email to User
+			$user_sent = wp_mail($email, $subject_user, $message_user);
+
+			// Debugging: Log email status
+			error_log("Admin email sent: " . ($admin_sent ? 'Yes' : 'No'));
+			error_log("User email sent: " . ($user_sent ? 'Yes' : 'No'));
+
+			// Success Message
+			echo "<script>alert('Thank you for your feedback! A confirmation email has been sent.'); window.location.href='".$_SERVER['REQUEST_URI']."';</script>";
+			exit;
+	}
+}
+add_action('init', 'custom_feedback_form_handler'); 
 
 
  
