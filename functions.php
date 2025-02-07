@@ -517,6 +517,26 @@ function twenty_twenty_one_skip_link_focus_fix() {
 	}
 }
 
+/* This function helps ContactForm7 name field validation */
+function custom_cf7_validate_name($result, $tag) {
+	$tag_name = $tag['name'];
+
+	if ($tag_name === 'your-name') {
+			$value = isset($_POST[$tag_name]) ? sanitize_text_field($_POST[$tag_name]) : '';
+
+			if (!preg_match("/^[A-Za-z\s]+$/", $value)) {
+					$result->invalidate($tag, "Only letters and spaces are allowed in the name field.");
+			}
+	}
+
+	return $result;
+}
+add_filter('wpcf7_validate_text', 'custom_cf7_validate_name', 10, 2);
+add_filter('wpcf7_validate_text*', 'custom_cf7_validate_name', 10, 2);
+
+
+
+
 /* This function outputs the url and the size of ACF filed document */
 
 function display_selected_documents($atts) {
