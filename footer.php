@@ -76,7 +76,7 @@ $current_language = get_locale();
                     ?>"><?php echo __('Website Policy', 'srft-theme'); ?></a></li>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/web-information-manager/'));}
                     else  { echo esc_url(site_url('/वेब-सूचना-प्रबंधक/'));}
-                    ?>"><?php echo __('Website Policy', 'srft-theme'); ?></a></li>
+                    ?>"><?php echo __('Web Information Manager', 'srft-theme'); ?></a></li>
         <!--<li><?php echo __('Archives', 'srft-theme'); ?></li>-->
         <!--<li><?php echo __('Grievance Redressal', 'srft-theme'); ?></li>-->
       </ul>
