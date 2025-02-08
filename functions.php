@@ -516,6 +516,21 @@ function twenty_twenty_one_skip_link_focus_fix() {
 		<?php
 	}
 }
+/* wp_admin_disable_autocomplete*/
+
+function disable_wp_admin_password_autofill() {
+	echo '<style>
+			input#user_pass { autocomplete: off !important; }
+	</style>';
+}
+add_action('login_enqueue_scripts', 'disable_wp_admin_password_autofill');
+
+function custom_wp_login_form( $args ) {
+	$args['value_remember'] = false; // Disable "Remember Me"
+	return $args;
+}
+add_filter( 'login_form_defaults', 'custom_wp_login_form' );
+
 
 /* This function helps ContactForm7 name field validation */
 function custom_cf7_validate_name($result, $tag) {
