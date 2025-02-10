@@ -526,10 +526,15 @@ function disable_wp_admin_password_autofill() {
 add_action('login_enqueue_scripts', 'disable_wp_admin_password_autofill');
 
 function custom_wp_login_form( $args ) {
-	$args['value_remember'] = false; // Disable "Remember Me"
-	return $args;
+    $args['value_remember'] = false; // Disable "Remember Me"
+    return $args;
 }
 add_filter( 'login_form_defaults', 'custom_wp_login_form' );
+
+function remove_remember_me_checkbox() {
+	echo "<style>#rememberme {display: none !important;}</style>";
+}
+add_action('login_head', 'remove_remember_me_checkbox');
 
 
 /* This function helps ContactForm7 name field validation */
@@ -797,6 +802,8 @@ function add_categories_to_pages() {
 	register_taxonomy_for_object_type('category', 'page');
 }
 add_action('init', 'add_categories_to_pages');
+
+apply_filters( 'loginpress_remember_me', true );
 
 /*function srft_theme_load_theme_textdomain() {
 	load_theme_textdomain( 'srft-theme', get_template_directory() . '/languages' );
