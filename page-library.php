@@ -7,7 +7,7 @@ $post_id = get_the_ID();
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
-
+<main>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <div class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></div>
@@ -112,8 +112,8 @@ $current_language = get_locale();
         <p class="page-header-text"><?php echo __('Library of SRFTI', 'srft-theme' ); ?></p>
     </div>-->
     <section style="margin-bottom: 4rem;">
-    <?php 
-    the_content(); ?>   
+    <?php echo str_replace(array('<p>', '</p>'), '', $page_content);
+ ?>   
     </section>
 </div>
     </section>        
