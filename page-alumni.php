@@ -25,54 +25,59 @@ $category_name = 'news'; // Ensure this matches the exact category name.
 $category_id = get_category_ID($category_name);
 ?>
 
-<body ng-controller="NewsController">
-    <main>
-      <body>
-      <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
-        <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('News', 'srft-theme' ); ?></div>
-      </section>
 
-      <section class="section-home">
-            <div class="container" style="width: 1170px;">
-                <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
-                <div ng-app="myApp" ng-controller="NewsController" style="margin-top: 4.5rem;">
-                    <!-- News grid without pagination -->
-                    <div class="news-grid">
-                        <a class="news-card" ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)"" href="{{news.link}}">
-                            <div class="news-link-left">
-                                <span class="news-link-left-date"> {{ news.formattedDate }}</span>
-                                    <h3 class="news-link-left-title">{{ news.name }}</h3>
-                                    <div class="news-link-left-text">
-                                        <span>{{ news.designation }}</span>
-                                    </div>
-                                </span>
-                            </div>
-                            <div class="news-image-right">
-                                <img ng-src="{{ news.image }}" alt="{{ news.name }}" class="faculty-image">
-                            </div>
-                        </a>
+    <main>
+    <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+    <div class="page-banner">
+        <div class="page-banner-title"><?php echo __('News', 'srft-theme' ); ?></div>
+    </div> <!-- Missing closing div added here -->
+</section>
+
+<section class="section-home">
+    <div class="container" style="width: 1170px;">
+        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
+        <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
+            <!-- News grid without pagination -->
+            <div class="news-grid">
+                <a class="news-card" data-ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)" data-ng-href="{{news.link}}">
+                    <div class="news-link-left">
+                        <span class="news-link-left-date"> {{ news.formattedDate }}</span>
+                        <h3 class="news-link-left-title">{{ news.name }}</h3>
+                        <div class="news-link-left-text">
+                            <span>{{ news.designation }}</span>
+                        </div>
+                    </div> <!-- Fixed span issue -->
+                    <div class="news-image-right">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" 
+     data-ng-src="{{ news.image }}" 
+     alt="{{ news.name }}" 
+     class="faculty-image">
+
                     </div>
-                    <ul class="pagination">
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="setPage(1)"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
-  </li>
-  <li ng-repeat="page in getPages()" ng-class="{ 'active': currentPage === page }">
-    <a href="#" ng-click="setPage(page)">{{ page }}</a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="setPage(totalPages)"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
-  </li>
-</ul>
-                </div>
+                </a>
             </div>
-        </section>
+
+            <ul class="pagination">
+                <li data-ng-class="{ 'disabled': currentPage === 1 }">
+                    <a data-ng-href="#" data-ng-click="setPage(1)"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === 1 }">
+                    <a data-ng-href="#" data-ng-click="prevPage()"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
+                </li>
+                <li data-ng-repeat="page in getPages()" data-ng-class="{ 'active': currentPage === page }">
+                    <a data-ng-href="#" data-ng-click="setPage(page)">{{ page }}</a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+                    <a data-ng-href="#" data-ng-click="nextPage()"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+                    <a data-ng-href="#" data-ng-click="setPage(totalPages)"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
         <script>
         var categoryID = <?php echo json_encode($category_id); ?>;
@@ -158,4 +163,4 @@ $category_id = get_category_ID($category_name);
         });
     </script>
           
-    </main>
+          <?php get_footer(); ?>

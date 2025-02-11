@@ -21,12 +21,11 @@ Template Name: Contact
         <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
         <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
         <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-        <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 <span></li>
-        <li><?php echo __('email:', 'srft-theme'); ?><span> contact@srfti.ac.in<span></li>
+        <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></li>
+        <li><?php echo __('email:', 'srft-theme'); ?><span> contact@srfti.ac.in</span></li>
       </ul>
 </div>
             </div>
-        </div>
 
         <div class="main-content">
         <div>      
@@ -79,11 +78,19 @@ Template Name: Contact
             </div>
 
             <div class="contaactus_map">
-                <iframe title="Map to Satyajit Ray Film &amp; Television Institute" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=SRFTI,+Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;aq=0&amp;oq=srfti+kolkata&amp;sll=37.0625,-95.677068&amp;sspn=37.462243,86.572266&amp;ie=UTF8&amp;hq=SRFTI,&amp;hnear=Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;t=m&amp;ll=22.486017,88.394934&amp;spn=0.008074,0.012007&amp;output=embed" width="100%" height="750" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            <iframe 
+    title="Map to Satyajit Ray Film & Television Institute" 
+    src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=SRFTI,+Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;aq=0&amp;oq=srfti+kolkata&amp;sll=37.0625,-95.677068&amp;sspn=37.462243,86.572266&amp;ie=UTF8&amp;hq=SRFTI,&amp;hnear=Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;t=m&amp;ll=22.486017,88.394934&amp;spn=0.008074,0.012007&amp;output=embed" 
+    height="750" 
+    style="border:0; width:100%;" 
+    allowfullscreen 
+    loading="lazy">
+</iframe>
+
                 <small><a style="color: #0000ff; text-align: left;" href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=SRFTI,+Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;aq=0&amp;oq=srfti+kolkata&amp;sll=37.0625,-95.677068&amp;sspn=37.462243,86.572266&amp;ie=UTF8&amp;hq=SRFTI,&amp;hnear=Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;t=m&amp;ll=22.486017,88.394934&amp;spn=0.008074,0.012007">View Larger Map</a></small>
             </div>
         </div>
     </section>
-</main>
+
 
 <?php get_footer(); ?>

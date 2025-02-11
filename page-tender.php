@@ -21,10 +21,10 @@ $category_id = get_category_ID($category_name);
 ?>
 
 
-<body ng-controller="TenderController">
+
 
   <main>
-  <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+<section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
         <div class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></div>
     </div>
@@ -41,14 +41,14 @@ $category_id = get_category_ID($category_name);
         ?>
     </div>      
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
-        <div ng-app="myApp">
-          <div ng-controller="TenderController">
+        <div data-ng-app="myApp">
+          <div data-ng-controller="TenderController">
             <p style="padding: 15px;">
-            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label> <input type="date" id="fromDate" ng-model="fromDate" ng-change="applyFilters()">
-            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
-            <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" ng-change="applyFilters()">
+            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label> <input type="date" id="fromDate" data-ng-model="fromDate" data-ng-change="applyFilters()">
+            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
+            <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
-              <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
+              <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </p>
             <div class="wrapper">
               <div class="Rtable Rtable--7cols Rtable--collapse">
@@ -62,7 +62,7 @@ $category_id = get_category_ID($category_name);
                   <div class="Rtable-cell location-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
                 </div>
 
-                <div class="Rtable-row" ng-repeat="tender in pagedTender">
+                <div class="Rtable-row" data-ng-repeat="tender in pagedTender">
                   <div class="Rtable-cell location-cell">
                     <div class="Rtable-cell--content date-content"><span class="SL">{{$index+1 }}</span></div>
                   </div>
@@ -81,15 +81,15 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp; (<span><?php echo __('Download', 'srft-theme'); ?> - {{tender.file.size}} MB)</span></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp; (<span><?php echo __('Download', 'srft-theme'); ?> - {{tender.file.size}} MB)</span></a></div>
                   </div>
                   <!--<div class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
                   </div>-->
                   <div class="Rtable-cell location-cell">
                   <div class="Rtable-cell--content access-link-content">
-                  <p ng-if="tender.isSubmissionOpen"><?php echo __('Open', 'srft-theme' ); ?></p>
-  <p ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
+                  <p data-ng-if="tender.isSubmissionOpen"><?php echo __('Open', 'srft-theme' ); ?></p>
+  <p data-ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
                     
                   <div>
   
@@ -103,20 +103,20 @@ $category_id = get_category_ID($category_name);
 
             <!-- Pagination -->
             <ul class="pagination">
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fa fa-step-backward" style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" data-ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fa fa-step-backward" style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fa fa-chevron-left" style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fa fa-chevron-left" style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
-    <a href="#" ng-click="setPage(page)">{{ page }}</a>
+  <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
+    <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fa fa-chevron-right" style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" data-ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fa fa-chevron-right" style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fa fa-step-forward" style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" data-ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fa fa-step-forward" style="color: #8b5b2b;"></i></a>
   </li>
 </ul>
 
@@ -124,7 +124,6 @@ $category_id = get_category_ID($category_name);
         </div>
       </div>
     </section>
-  </main>
   
   <script>
      var categoryID = <?php echo json_encode($category_id); ?>;

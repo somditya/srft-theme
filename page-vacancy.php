@@ -22,8 +22,6 @@ $category_id = get_category_ID($category_name);
 
 
 
-<body ng-controller="VacancyController">
-  <div data-scroll-container>
   <main>
     <section class="cine-header"  style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
@@ -46,14 +44,14 @@ $category_id = get_category_ID($category_name);
                 </div>
        </section>-->
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></h2>
-        <div ng-app="myApp">
-          <div ng-controller="VacancyController">
+        <div data-ng-app="myApp">
+          <div data-ng-controller="VacancyController">
             <p style="padding: 15px;">
-            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label><input type="date" id="fromDate" ng-model="fromDate" ng-change="applyFilters()">
-            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?></label><input type="date" id="toDate" ng-model="toDate" ng-change="applyFilters()">
-            <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" ng-model="filterField" placeholder= <?php echo __('Search by keyword', 'srft-theme' ); ?> ng-change="applyFilters()">
+            <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label><input type="date" id="fromDate" data-ng-model="fromDate" data-ng-change="applyFilters()">
+            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?></label><input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
+            <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" data-ng-model="filterField" placeholder= "<?php echo __('Search by keyword', 'srft-theme' ); ?>" data-ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
-              <button ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
+              <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </p>
             <div class="wrapper">
               <div class="Rtable Rtable--5cols Rtable--collapse">
@@ -67,7 +65,7 @@ $category_id = get_category_ID($category_name);
                   <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
                 </div>
 
-                <div class="Rtable-row" ng-repeat="vacancy in pagedVacancy">
+                <div class="Rtable-row" data-ng-repeat="vacancy in pagedVacancy">
                   <div class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
                   </div>
@@ -88,7 +86,7 @@ $category_id = get_category_ID($category_name);
                   </div>
                   <div class="Rtable-cell access-link-cell">
                     <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
-                    <div class="Rtable-cell--content access-link-content"><a href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;(<?php echo __('Download', 'srft-theme'); ?> - {{vacancy.file.size}} MB)</span></a></div>
+                    <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;(<?php echo __('Download', 'srft-theme'); ?> - {{vacancy.file.size}} MB)</a></div>
                   </div>
                 </div>
               </div>
@@ -97,28 +95,27 @@ $category_id = get_category_ID($category_name);
 
             <!-- Pagination -->
             <ul class="pagination">
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" aria-label="<?php echo __('First Page', 'srft-theme'); ?>" ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" aria-label="<?php echo __('First Page', 'srft-theme'); ?>" data-ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" aria-label="<?php echo __('Previuos Page', 'srft-theme'); ?>" ng-click="prevPage()"><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === 1 }">
+    <a href="#" aria-label="<?php echo __('Previuos Page', 'srft-theme'); ?>" data-ng-click="prevPage()"><i class="fa fa-chevron-left"  style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
-    <a href="#" ng-click="setPage(page)">{{ page }}</a>
+  <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
+    <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>" ng-click="nextPage()"><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>" data-ng-click="nextPage()"><i class="fa fa-chevron-right"  style="color: #8b5b2b;"></i></a>
   </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>" ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
+  <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+    <a href="#" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>" data-ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
   </li>
 </ul>
           </div>
         </div>
       </div>
     </section>
-  </main>
-
+         
   <script>
     var categoryID = <?php echo json_encode($category_id); ?>;
      var siteURL = '<?php echo esc_url(site_url('/')); ?>';
@@ -281,6 +278,5 @@ $scope.lastPage = function () {
       });
   </script>
   
-<<?php get_footer(); ?>
-    </body>
-    </html>
+<?php get_footer(); ?>
+    
