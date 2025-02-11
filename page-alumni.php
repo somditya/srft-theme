@@ -35,6 +35,13 @@ $category_id = get_category_ID($category_name);
 
 <section class="section-home">
     <div class="container" style="width: 1170px;">
+    <div>
+          <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+              yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+            }
+          ?>
+        </div>
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->
