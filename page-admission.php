@@ -12,7 +12,7 @@ $current_language = get_locale();
     <main>
       <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Admission to postgraduate courses', 'srft-theme'); ?></div>  
+          <div class="page-banner-title"><?php echo __('Admission to post graduate courses', 'srft-theme'); ?></div>  
         </div>
       </section>
 
@@ -176,7 +176,7 @@ $current_language = get_locale();
         <section class="section-home">
           <div class="tabs">
             <div class="tab-2">
-              <label for="tab2-1"><?php echo __('Postgraduate Programmes in Cinema', 'srft-theme'); ?></label>
+              <label for="tab2-1"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?></label>
               <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
               <div>
               <p><?php echo __('The programme is a 3-year full time programme divided into 6 semester', 'srft-theme'); ?></p>   
@@ -228,7 +228,7 @@ $current_language = get_locale();
               </div>
             </div>
             <div class="tab-2">
-              <label for="tab2-2"><?php echo __('Postgraduate Programmes in EDM', 'srft-theme'); ?></label>
+              <label for="tab2-2"><?php echo __('Post Graduate Programme in EDM', 'srft-theme'); ?></label>
               <input id="tab2-2" name="tabs-two" type="radio">
               <div>
               <?php echo __('The programme is a 2-year full time programme divided into 4 semester', 'srft-theme'); ?>
@@ -280,5 +280,5 @@ $current_language = get_locale();
             </div>
         </section>
   </div>
-    
+    </main>
     <?php get_footer();  ?>
