@@ -8715,6 +8715,13 @@ ul li input[type="checkbox"]:checked ~ i:after {
     content: none; /* Same for linked images */
   }
 
+  .abtimg-box {
+    background-image: url(images/Pg\ 01.jpg) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    min-height: 400px;
+  }
+
   .page-break {
     page-break-before: always;
   }
