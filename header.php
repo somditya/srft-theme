@@ -52,7 +52,8 @@ $current_language = get_locale();
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
-</head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+  </head>
 
 
 <body <?php body_class(); ?>>
