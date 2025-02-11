@@ -30,8 +30,6 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
         </section>
 
         <section>
-            <?php echo str_replace(array('<p>', '</p>'), '', $page_content);
- ?> 
         </section>
 </div>
 

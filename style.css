@@ -122,6 +122,11 @@ a {
       format("svg");
 }
 
+@page {
+  size: A4;
+  margin: 20mm; /* Adjust as needed */
+}
+
 body {
   /*font-family: "futura-pt", Arial, sans-serif;*/
   /*font-family: "Gotham", "Gotham B";*/
@@ -8708,5 +8713,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
   /* Prevent URLs for images with links */
   img::after {
     content: none; /* Same for linked images */
+  }
+
+  .page-break {
+    page-break-before: always;
   }
 }
