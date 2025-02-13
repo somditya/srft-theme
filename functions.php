@@ -518,12 +518,24 @@ function twenty_twenty_one_skip_link_focus_fix() {
 }
 /* wp_admin_disable_autocomplete*/
 
-function disable_wp_admin_password_autofill() {
-	echo '<style>
-			input#user_pass { autocomplete: off !important; }
-	</style>';
+function disable_wp_admin_autocomplete() {
+?>
+<script>
+	document.addEventListener ("DOMContentLoaded", function()
+{
+	var passInput=document.getElementById("user_pass");
+	var userInput=document.getElementById("user_login"); 
+  if (passInput) passInput.setAttribute("autocomplete", "off");
+	if (userInput) userInput.setAttribute("autocomplete", "off");
+});
+</script>
+<?php	
 }
-add_action('login_enqueue_scripts', 'disable_wp_admin_password_autofill');
+add_action ('login_head', 'disable_wp_admin_autocomplete');
+
+remove_action('do_robots', 'do_robots');
+
+
 
 function custom_wp_login_form( $args ) {
     $args['value_remember'] = false; // Disable "Remember Me"
