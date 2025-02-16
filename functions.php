@@ -567,9 +567,6 @@ add_filter('wpcf7_validate_text', 'custom_cf7_validate_name', 10, 2);
 add_filter('wpcf7_validate_text*', 'custom_cf7_validate_name', 10, 2);
 
 
-
-
-
 /* This function outputs the url and the size of ACF filed document */
 
 function display_selected_documents($atts) {
