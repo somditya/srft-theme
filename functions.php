@@ -573,13 +573,6 @@ add_action('init', function() {
 	}
 });
 
-function disable_duplicate_login_cookies($cookies) {
-	if ( isset($cookies['wordpress_sec_']) ) {
-			unset($cookies['wordpress_sec_']);
-	}
-	return $cookies;
-}
-add_filter('set_cookies', 'disable_duplicate_login_cookies');
 
 
 
