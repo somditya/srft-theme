@@ -566,8 +566,12 @@ function custom_cf7_validate_name($result, $tag) {
 add_filter('wpcf7_validate_text', 'custom_cf7_validate_name', 10, 2);
 add_filter('wpcf7_validate_text*', 'custom_cf7_validate_name', 10, 2);
 
-
-
+/* Check duplicate cookie error log */
+add_action('init', function() {
+	if (headers_sent()) {
+			error_log('Headers already sent, duplicate cookie issue detected.');
+	}
+});
 
 /* This function outputs the url and the size of ACF filed document */
 
