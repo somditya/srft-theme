@@ -68,6 +68,16 @@ $(document).ready(function () {
     });
   });
 
+  jQuery(document).ready(function ($) {
+    // Create an accessible label for the hidden textarea
+    $(
+      '<label id="recaptcha-label" for="g-recaptcha-response" style="position: absolute; width: 0; height: 0; margin: -1px; padding: 0; border: none; clip: rect(0, 0, 0, 0); overflow: hidden;">reCAPTCHA Response</label>'
+    ).insertBefore("#g-recaptcha-response");
+
+    // Associate the label with the hidden textarea using aria-labelledby
+    $("#g-recaptcha-response").attr("aria-labelledby", "recaptcha-label");
+  });
+
   // Check if the "tab" parameter exists in the URL
   const urlParams = new URLSearchParams(window.location.search);
   const tabIndex = urlParams.get("tab");
