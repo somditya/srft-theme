@@ -10,7 +10,7 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
 // Retrieve the featured image URL
 //$featured_image_url = get_the_post_thumbnail_url($post_id, 'large');
 ?>
-<main>
+<main id="skip-to-content">
         <!-- Add an image section with the featured image -->
        
 
@@ -23,9 +23,13 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
             }
             ?>
         </div>
-        <section class="page-title">
+        <section class="page-title" >
             <div>
                 <p class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></p>
+                <div>
+    <?php echo apply_filters('the_content', get_the_content()); ?>
+</div>
+ 
             </div>
         </section>
 

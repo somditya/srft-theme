@@ -30,6 +30,29 @@ $(document).ready(function () {
     $(".tab-content" + tabIndex).show();
   }
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const cookies = document.cookie.split(";");
+    cookies.forEach(function (cookie) {
+      const cookieName = cookie.split("=")[0].trim();
+
+      // Only target the cookie set from /wp-content/plugins (adjust the cookie path as needed)
+      if (cookieName === "wordpress_sec_64791470c9047c046d3c80ab7a1e18c5") {
+        // Expire the cookie from wp-content/plugins path
+        document.cookie =
+          cookieName +
+          "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/wp-content/plugins";
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let recaptchaTextarea = document.getElementById("g-recaptcha-response");
+    if (recaptchaTextarea) {
+      recaptchaTextarea.setAttribute("aria-label", "reCAPTCHA Response");
+      console.log("Hello");
+    }
+  });
+
   // News ticker marquee
 
   $(document).ready(function () {

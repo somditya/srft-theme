@@ -1006,6 +1006,25 @@ function enqueue_scrollmagic() {
 add_action('wp_enqueue_scripts', 'enqueue_scrollmagic');
 
 
+// Function to remove the plugin-specific cookie
+function remove_plugin_specific_cookie() {
+    // Check if the cookie for the plugin path exists
+    if (isset($_COOKIE['wordpress_sec_64791470c9047c046d3c80ab7a1e18c5'])) {
+        // Check the path in which the cookie was set
+        $plugin_path = '/wp-content/plugins'; // The path where the unwanted cookie is being set
+        $admin_path = '/wp-admin'; // The path for the admin panel cookie (we want to keep this intact)
+
+        // Only remove the plugin-specific cookie if we're not in the /wp-admin path
+        if (strpos($_SERVER['REQUEST_URI'], $plugin_path) !== false) {
+            // Expire the plugin cookie, specifically for the /wp-content/plugins path
+            setcookie('wordpress_sec_64791470c9047c046d3c80ab7a1e18c5', '', time() - 3600, '/wp-content/plugins');
+        }
+    }
+}
+add_action('init', 'remove_plugin_specific_cookie');
+
+
+
 function set_custom_template($single_template) {
 	global $post;
 
