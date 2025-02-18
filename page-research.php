@@ -53,7 +53,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                         $document_category = get_field('document-category'); 
                         $document_description = get_field('document_description');
 
-                        if (is_array($document_category) && in_array('Take One', $document_category)) {
+                        if ($document_category === 'Take One') {
                             if ($document_file) :
                                 // Get the file details
                                 $file_url = $document_file['url'];
