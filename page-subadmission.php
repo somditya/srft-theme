@@ -68,7 +68,7 @@ $current_language = get_locale();
 
         <div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
-          <li><?php echo __('Prsopectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/pdf_icon_resized.png" style="vertical-align: middle;"/></li> 
+          <li><?php echo __('Prospectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;"/></li> 
         </ul>   
         </div>
         <div class="widget" style="line-height: 1.5">
