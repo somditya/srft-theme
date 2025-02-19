@@ -33,7 +33,7 @@ $category_id = get_category_ID($category_name);
     </div> <!-- Missing closing div added here -->
 </section>
 
-<section class="section-home">
+<section class="section-home" id="skip-to-content">
     <div class="container" style="width: 1170px;">
     <div>
           <?php
@@ -66,19 +66,19 @@ $category_id = get_category_ID($category_name);
 
             <ul class="pagination">
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                    <a data-ng-href="#" data-ng-click="setPage(1)"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="setPage(1)">aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                    <a data-ng-href="#" data-ng-click="prevPage()"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-repeat="page in getPages()" data-ng-class="{ 'active': currentPage === page }">
                     <a data-ng-href="#" data-ng-click="setPage(page)">{{ page }}</a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                    <a data-ng-href="#" data-ng-click="nextPage()"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                    <a data-ng-href="#" data-ng-click="setPage(totalPages)"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="setPage(totalPages)" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
                 </li>
             </ul>
         </div>

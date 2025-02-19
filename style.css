@@ -7002,7 +7002,8 @@ h4 {
 }
 
 .news-link-left-date {
-  color: #999;
+  /*color: #999;*/
+  color: #2e2f31;
   margin-bottom: 16px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -66,17 +66,53 @@ $current_language = get_locale();
     </ul>
 </div>
 
-        <div class="widget" style="line-height: 1.5">
-        <ul style="list-style-type: none ">
-          <li><?php echo __('Prospectus', 'srft-theme' ); ?> <img src="<?php bloginfo('template_url'); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;"/></li> 
-        </ul>   
-        </div>
-        <div class="widget" style="line-height: 1.5">
-        <h3><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
-        <ul style="list-style-type: none ">
-          
-        </ul>   
-        </div>
+<div class="widget" style="line-height: 1.5; margin-top: 3rem;">
+                <?php 
+                $catslg = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
+
+                $download_post = new WP_Query(array(
+                    'post_type' => 'document',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'category',
+                            'field'    => 'slug',
+                            'terms'    => $catslg,
+                        ),
+                    ),
+                    'posts_per_page' => -1,
+                ));
+
+                if ($download_post->have_posts()) {
+                    echo '<ul style="list-style-type: none">';
+                    while ($download_post->have_posts()) {
+                        $download_post->the_post();
+                        $document_file = get_field('document');
+                        $document_category = get_field('document-category');
+                        if ($document_category === 'Prospectus' && $document_file) {
+                            $file_url = $document_file['url'];
+                            $file_id = $document_file['ID'];
+                            $file_size = @filesize(get_attached_file($file_id));
+                            $file_type_info = wp_check_filetype($file_url);
+                            $file_type = strtoupper($file_type_info['ext'] ?? 'Unknown');
+                            $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
+                            ?>
+                            <li>
+                                <a href="<?php echo esc_url($file_url); ?>">
+                                    <?php echo esc_html(get_the_title()); ?>
+                                    (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="Download" style="vertical-align: middle;" />
+                                </a>
+                            </li>
+                        <?php }
+                    }
+                    echo '</ul>';
+                } else {
+                    echo __('No posts found in the specified category.', 'srft-theme');
+                }
+
+                wp_reset_postdata();
+                ?>
+            </div>
         </div>
         <div class="main-content">
         <div>      <?php

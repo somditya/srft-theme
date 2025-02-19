@@ -158,7 +158,7 @@ $current_language = get_locale();
           <div class="sub-intro-images">
           <div>
             <img class="intro-images" src="<?php bloginfo('template_url'); ?>/images/srfti-front.jpg"
-                 alt="SRFTI Entrance">
+                 alt="FTI Arunachal">
           </div>
           </div>
           <div class="sub-intro-text">
