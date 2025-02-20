@@ -15,8 +15,8 @@ Template Name: Home
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-        <section id="skip-to-content" class="section-home" style="background-color: #161a1d; padding: 10px;">
-            <div class="acme-news-ticker">
+        <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
+            <div id="skip-to-content" class="acme-news-ticker">
                 <div class="acme-news-ticker-label">
                     Announcements &nbsp;
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
@@ -101,7 +101,7 @@ Template Name: Home
                 while ($category_posts->have_posts()) : $category_posts->the_post();
             ?>
                     <div class="news-item">
-                        <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+                        <a href="<?php the_permalink(); ?>" target="_blank">
                             <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
                             <div class="news-item-title">
                                 <h3><?php the_title(); ?></h3>
@@ -120,7 +120,7 @@ Template Name: Home
         <div class="link-div" style="align-items: center; margin-top: 10px;">
             <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
 { echo esc_url(site_url('/समाचार-सूची/'));}
-?>" role="link" aria-label="Read more here">
+?>"  aria-label="Read more here">
                 <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
                 <span class="primary__header-arrow"> 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
@@ -155,7 +155,7 @@ Template Name: Home
           <a class="link-text-big" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/')); }
 else 
 { echo esc_url(site_url('/संस्थान-के-बारे-में/'));}
-?>" role="link" aria-label="Read more about our Institute"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
+?>"  aria-label="Read more about our Institute"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-4" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow"  style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>
@@ -173,7 +173,7 @@ else
       <h3 style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
       <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></h3>
       <div class="">
-          <a href="http://www.cilect.org/" target="_blank" role="link">
+          <a href="http://www.cilect.org/" target="_blank" >
             <img src="<?php bloginfo('template_url'); ?>/images/cilect.png"  alt="CILECT" >
           </a>
       </div>
@@ -246,7 +246,7 @@ else
         <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/post-graduate-programme-in-cinema/')); }
 else 
 { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
-?>" role="link">
+?>" >
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;">
               <defs>
@@ -266,7 +266,7 @@ else
         <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/post-graduate-programme-in-edm/')); }
 else 
 { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));}
-?>" role="link">
+?>" >
           <div class="primary__header-arrow" style="display: inline-block; margin-right: 20px;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;">
               <defs>
@@ -410,7 +410,7 @@ else
     ?>
     
       <div class="news-item">
-      <a href="<?php the_permalink(); ?>" target="_blank" role="link">
+      <a href="<?php the_permalink(); ?>" target="_blank" >
         <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt="<?php echo get_field('film_still_alt_text'); ?>"  style="display: block;">
       <div class="news-item-title">
         <h3><?php echo get_field('Film-Name');?></h3>
@@ -550,7 +550,7 @@ else
             <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
         <?php endif; ?>
         <div class="link-span">
-            <a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/' . $post_type . '/' : '/'.__('slug-'.$post_type, 'srft-theme').'/')); ?>" role="link" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+            <a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/' . $post_type . '/' : '/'.__('slug-'.$post_type, 'srft-theme').'/')); ?>"  aria-label="Read more about latest <?php echo strtolower($title); ?>">
                 <?php echo __('More', 'srft-theme'); ?>
             </a>
         </div>

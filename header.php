@@ -69,7 +69,7 @@ $current_language = get_locale();
            </picture>
          </div>
           <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1 >Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
               <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
@@ -85,7 +85,7 @@ $current_language = get_locale();
            </picture>
          </div>
            <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1>Satyajit Ray Film & Television Institute </h1>
             <div class="swipper-subtitle">
               <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
@@ -100,7 +100,7 @@ $current_language = get_locale();
           </picture>
         </div>
           <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
             <h1>Satyajit Ray Film & Television Institute</h1>
             <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
           </div>
@@ -115,7 +115,7 @@ $current_language = get_locale();
            </picture>
          </div>
          <div class="swipper-title">
-          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
           <h1>Satyajit Ray Film & Television Institute</h1>
           <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
         </div>
@@ -129,7 +129,7 @@ $current_language = get_locale();
            </picture>
          </div>
          <div class="swipper-title">
-          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
+          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
           <h1>Satyajit Ray Film & Television Institute</h1>
           <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
         </div>
@@ -161,27 +161,29 @@ $current_language = get_locale();
             <span class="language-text"><?php echo __('Language', 'srft-theme' ); ?></span>
             <?php endif; ?>
           </a>
-    <div id="language-switcher" class="language-switcher" aria-label="Language Selection">
-    <label for="lang_choice_1" class="visually-hidden">Language Selection</label>
-        <?php
-            pll_the_languages(
-                array(
-                    'show_flags' => 1,
-                    'show_names' => 1,
-                    'display_names_as' => 'name',
-                    'hide_if_empty' => 0,
-                    'force_home' => 0,
-                    'hide_if_no_translation' => 0,
-                    'echo' => 1,
-                    'post_id' => null,
-                    'raw' => 0,
-                    'item_spacing' => 'preserve',
-                    'dropdown' => 1, // Use a dropdown for multiple languages
-                    'menu' => 'language-menu', // Set a unique CSS class for styling
-                )
-            );
-        ?>
-    </div>
+          <div id="language-switcher" class="language-switcher" aria-labelledby="language-switcher-label">
+    <label id="language-switcher-label" for="lang_choice_1" class="visually-hidden">Language Selection</label>
+    
+    <?php
+        pll_the_languages(
+            array(
+                'show_flags' => 1,
+                'show_names' => 1,
+                'display_names_as' => 'name',
+                'hide_if_empty' => 0,
+                'force_home' => 0,
+                'hide_if_no_translation' => 0,
+                'echo' => 1,
+                'post_id' => null,
+                'raw' => 0,
+                'item_spacing' => 'preserve',
+                'dropdown' => 1, // Use a dropdown for multiple languages
+                'menu' => 'language-menu', // Set a unique CSS class for styling
+            )
+        );
+    ?>
+</div>
+
 </li>
 
 
