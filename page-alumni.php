@@ -66,7 +66,7 @@ $category_id = get_category_ID($category_name);
 
             <ul class="pagination">
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                    <a data-ng-href="#" data-ng-click="setPage(1)">aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="setPage(1)" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
                     <a data-ng-href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
