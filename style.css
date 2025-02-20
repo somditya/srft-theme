@@ -1046,6 +1046,10 @@ div .spacer {
   overflow: hidden;
 }
 
+#breadcrumbs {
+  font-size: 1.5rem;
+}
+
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {
   margin-right: 1.6rem !important;
@@ -6827,7 +6831,7 @@ h4 {
 /*   Admin Pages */
 
 .page-header-text {
-  /*margin-top: 40px;*/
+  margin-top: 20px;
 
   margin-bottom: 1.4rem;
   color: #8b5b2b;
