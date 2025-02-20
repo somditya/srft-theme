@@ -9,7 +9,7 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __('Leadership', 'srft-theme'); ?></div>
+            <h2 class="page-banner-title"><?php echo __('Leadership', 'srft-theme'); ?></h2>
         </div>  
     </section>
 
@@ -57,13 +57,13 @@ $current_language = get_locale();
         }
         ?>
         </div>
-            <section class="page-title">
+            <div class="page-title">
                 <div>
-                    <p class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></p>
+                    <h2 class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></h2>
                 </div>
-            </section>
+            </div>
           
-            <section class="profile">
+            <div class="profile">
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
@@ -82,9 +82,9 @@ $current_language = get_locale();
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="profile">
+            <div class="profile">
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
@@ -103,9 +103,9 @@ $current_language = get_locale();
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
           
-            <section class="profile"> 
+            <div class="profile"> 
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
@@ -124,9 +124,9 @@ $current_language = get_locale();
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="profile">
+            <div class="profile">
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
@@ -145,9 +145,9 @@ $current_language = get_locale();
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
+            <div class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
                 <div class="accordian">
                     <ul>
                         <li>
@@ -182,7 +182,7 @@ $current_language = get_locale();
                         </li>
                     </ul>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
 <?php

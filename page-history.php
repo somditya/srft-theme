@@ -9,7 +9,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 <main>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
-        <div class="page-banner-title"><?php echo __('About the Institute', 'srft-theme'); ?></div>
+        <h2 class="page-banner-title"><?php echo __('About the Institute', 'srft-theme'); ?></h2>
     </div>
 </section>
 
@@ -57,8 +57,8 @@ $page_content = apply_filters('the_content', $post->post_content);
         }
         ?>
     </div>
-        <p class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></p>
-        <section class="sub-intro">
+        <h2 class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></h2>
+        <div class="sub-intro">
             <div class="sub-intro-images">
                 <div>
                     <img class="intro-images" src="<?php bloginfo('template_url'); ?>/images/Ray-by-Nemai-Ghosh-1024x677.jpg" style="width: 100%;" alt="Black and white photo of Satyajit Ray holding a film camera">
@@ -69,7 +69,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                     <?php echo $page_content; ?>
                 </div>
             </div>
-        </section>
+        </div>
 
         <div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></p>
@@ -96,12 +96,12 @@ $page_content = apply_filters('the_content', $post->post_content);
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Explore Our Story', 'srft-theme'); ?></p>
         </div>
 
-        <section class="one-flex" style="margin: 10px;">
+        <div class="one-flex" style="margin: 10px;">
             <video class="homepage-masthead__video" id="homepage-masthead__video" poster="#" style="width: 100%;" controls autoplay loop muted aria-label="Introductory video showcasing our Institute.">
                 <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </section>
+        </div>
     </div>
 </section>
 
