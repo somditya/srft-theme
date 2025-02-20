@@ -122,7 +122,7 @@ $current_language = get_locale();
                 <p class="page-header-text"><?php echo __('Administrative Structure', 'srft-theme'); ?></p>
             </div>  
             <?php wp_reset_postdata(); ?> 
-            <section class="sub-intro" style="margin-bottom: 4rem;">
+            <div class="sub-intro" style="margin-bottom: 4rem;">
                 <div class="sub-intro-text" style="max-width: 100%;">
                     <div class="sub-intro-text-description">
                         <?php
@@ -132,7 +132,7 @@ $current_language = get_locale();
                         ?>
                     </div>
                 </div>
-            </section>
+            </div>
            
             <div>
                 <h4><?php echo __('Society', 'srft-theme'); ?></h4>
