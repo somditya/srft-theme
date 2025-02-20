@@ -11,7 +11,7 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __($page_title, 'srft-theme' ); ?></div>
+            <h2 class="page-banner-title"><?php echo __($page_title, 'srft-theme' ); ?></h2>
         </div>
     </section>
 
@@ -130,13 +130,13 @@ $current_language = get_locale();
         ?>
         </div>
             <div>
-                <p class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></p>
+                <h2 class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></h2>
             </div>
-            <section style="margin-bottom: 4rem;">
+            <div style="margin-bottom: 4rem;">
                 <div class="wrapper">
                     <?php echo $page_content; ?>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
 
