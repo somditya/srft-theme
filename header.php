@@ -155,7 +155,7 @@ $current_language = get_locale();
              <!--<li><a>govmail</a></li>-->
              <!--<li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>-->
             <li>
-            <a href="#" aria-haspopup="true" aria-expanded="false">
+            <a href="#" title="Choose your language" aria-haspopup="true" aria-expanded="false">
             <i class="fa-solid fa-language" aria-hidden="true"></i>
               <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><?php echo __('Language', 'srft-theme' ); ?></span>
@@ -189,7 +189,7 @@ $current_language = get_locale();
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
           
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
-             <li><button id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
+             <li><button title="Accessibility options" id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
               <i class="fas fa-universal-access"></i>
             </button></li>
 <li>
@@ -200,22 +200,22 @@ $current_language = get_locale();
 <div id="accessibility-menu" class="hidden">
     <div class="text-resize">
         <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-        <button type="button" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
+        <button type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
             <i class="fas fa-search-plus"></i>
         </button>
-        <button type="button" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
+        <button type="button" title="Decrerase font size" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
             <i class="fas fa-search-minus"></i>
         </button>
-        <button type="button" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
+        <button type="button" title="Normal font size" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
         <i class="fas fa-sync-alt"></i>
         </button>
     </div>
     <div class="color-adjustment">
         <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-        <button type="button" id="high-contrast" aria-label="Set high contrast">
+        <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
             <i class="fas fa-adjust"></i>
         </button>
-        <button type="button" id="dark-mode" aria-label="Set low contrast">
+        <button type="button" title="High contrast view" id="dark-mode" aria-label="Set low contrast">
             <i class="fas fa-moon" ></i>
         </button>
     </div>
@@ -229,7 +229,7 @@ $current_language = get_locale();
        <div class="menu-container">
        <input type="checkbox" id="check" aria-label="Open menu"/>
         <div class="logo-container">
-          <div><a><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="#" title="Logo of SRFTI"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
 				
           <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->

@@ -1050,6 +1050,34 @@ div .spacer {
   font-size: 1.5rem;
 }
 
+.tooltip-box {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-box .tooltip-text {
+  visibility: hidden;
+  width: auto;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 100%; /* Position above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.tooltip-box:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {
   margin-right: 1.6rem !important;
