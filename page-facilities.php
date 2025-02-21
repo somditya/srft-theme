@@ -66,7 +66,7 @@ $current_page_title = get_the_title(); // Get current page title
             </div>
 
             <div>
-                <p class="page-header-text"><?php echo esc_html(get_the_title()); ?></p>
+                <h2 class="page-header-text"><?php echo esc_html(get_the_title()); ?></h2>
             </div>  
 
             <div style="margin-bottom: 4rem;">

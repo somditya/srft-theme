@@ -12,7 +12,7 @@ $current_language = get_locale();
 <main>
     <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php the_title(); ?></div>
+            <h2 class="page-banner-title"><?php the_title(); ?></h2>
         </div>
     </section>
 
@@ -86,11 +86,11 @@ $current_language = get_locale();
         }
         ?>
         </div> 
-           <section class="page-title">
-               <div>
-                 <?php echo '<p class="page-header-text">' . esc_html($post->post_title) . '</p>';?>
-               </div>
-            </section>
+           
+           <div>
+                <h2 class="page-header-text"><?php echo esc_html(get_the_title()); ?></h2>
+            </div>  
+            
 
             <section style="margin-bottom: 4rem;">
                <div>
