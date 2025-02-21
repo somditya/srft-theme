@@ -319,7 +319,7 @@ else
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
           </a>
-          <h5><?php echo __('Hawam Paban Kumar', 'srft-theme'); ?></h5>
+          <h5><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></h5>
         </div>
 
         <div class="alumni-item">
