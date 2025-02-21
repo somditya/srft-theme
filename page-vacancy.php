@@ -69,9 +69,7 @@ $category_id = get_category_ID($category_name);
                   <div class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
                   </div>
-                  <!--<div class="Rtable-cell id-cell">
-                    <div class="Rtable-cell--content title-content">{{ vacancy.ID }}</div>
-                  </div>-->
+                  
                   <div class="Rtable-cell topic-cell">
                     <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
                   </div>
@@ -85,7 +83,6 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.extsubdate | date:'dd-MM-yyyy' }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
-                    <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
                     <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;(<?php echo __('Download', 'srft-theme'); ?> - {{vacancy.file.size}} MB)</a></div>
                   </div>
                 </div>
