@@ -8,7 +8,7 @@ Template Name: Contact
 <main>
     <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __('Connect With Us', 'srft-theme'); ?></div>
+            <h2 class="page-banner-title"><?php echo __('Connect With Us', 'srft-theme'); ?></h2>
         </div>
     </section>
 
@@ -37,16 +37,16 @@ Template Name: Contact
         </div>
             <section class="page-title">
                 <div>
-                    <p class="page-header-text"><?php echo esc_html($post->post_title); ?></p>
+                    <h2 class="page-header-text"><?php echo esc_html($post->post_title); ?></h2>
                 </div>
             </section>
 
-            <section style="margin-bottom: 2rem;">
-                <div><?php echo wp_kses_post($post->post_content); ?></div>
-            </section>
 
             <section class="one-flex" style="margin-top: 5rem; margin-bottom: 10rem;">
-                <div class="accordian">
+            <div style="margin-bottom: 2rem;">
+                <div><?php echo wp_kses_post($post->post_content); ?></div>
+            </div>
+            <div class="accordian">
                     <ul>
                         <li>
                             

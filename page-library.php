@@ -10,7 +10,7 @@ $current_language = get_locale();
 <main>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></div>
+          <h2 class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></h2>
         </div>  
       </section>
     <section id="skip-to-content" class="cine-detail">
@@ -71,9 +71,9 @@ $current_language = get_locale();
      <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
         <div class="childnav-lists">
             <ul class="submenu">
-          <li class="childnav-list-item"><a class="item" href="http://192.168.1.231:8000/" target="_blank" role="link" title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
-          <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank" role="link" title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
-          <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank" role="link" title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="http://192.168.1.231:8000/" target="_blank"  title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank"  title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank"  title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
         </ul>
         </div>       <!--<div class="widget" style="line-height: 1.5">
         <ul style="list-style-type: none ">
@@ -96,7 +96,7 @@ $current_language = get_locale();
     <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div>  
-    <section class="sub-intro" style="margin-bottom: 4rem;">
+    <div class="sub-intro" style="margin-bottom: 4rem;">
         <div class="sub-intro-text" style="max-width: 100%;">
             <div class="sub-intro-text-description">
                 <?php
@@ -106,7 +106,7 @@ $current_language = get_locale();
                 ?>
             </div>
         </div>
-    </section>
+    </div>
 
     <!--<div>
         <p class="page-header-text"><?php echo __('Library of SRFTI', 'srft-theme' ); ?></p>

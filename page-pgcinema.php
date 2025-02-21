@@ -12,7 +12,7 @@ $title = get_the_title($post_id);
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __($title, 'srft-theme'); ?></div>
+            <h2 class="page-banner-title"><?php echo __($title, 'srft-theme'); ?></h2>
         </div>  
     </section>
 
@@ -127,7 +127,7 @@ wp_nav_menu(array(
                     </div>
                 </div>
                 <div class="sub-intro-text">
-                    <div class="sub-intro-text-head"><?php echo __('Take a tour of the Departments', 'srft-theme'); ?></div>
+                    <h2 class="sub-intro-text-head"><?php echo __('Take a tour of the Departments', 'srft-theme'); ?></h2>
                     <div class="sub-intro-text-description">
                         <?php echo esc_html($subintrodesc); ?>
                     </div>
@@ -138,12 +138,13 @@ wp_nav_menu(array(
                 <div><?php echo get_post_meta($post_id, 'AbtPGProgramme', true); ?></div>
             </section>
 
-            <div>
-                <p class="page-header-text" style="margin-top: 2rem;"><?php echo __('Specializations', 'srft-theme'); ?></p>
-            </div> 
+            
 
             <section>
-                <div class="box-container">
+            <div>
+                <h2 class="page-header-text" style="margin-top: 2rem;"><?php echo __('Specializations', 'srft-theme'); ?></h2>
+            </div> 
+            <div class="box-container">
                     <?php
                     $args = array(
                         'post_type' => 'page',
