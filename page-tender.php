@@ -26,7 +26,7 @@ $category_id = get_category_ID($category_name);
   <main>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
-        <div class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></div>
+        <h2 class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></h2>
     </div>
 </section>
 
@@ -45,7 +45,7 @@ $category_id = get_category_ID($category_name);
           <div data-ng-controller="TenderController">
             <p style="padding: 15px;">
             <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label> <input type="date" id="fromDate" data-ng-model="fromDate" data-ng-change="applyFilters()">
-            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?> <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
+            <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?></label> <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
             <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
@@ -70,7 +70,7 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content">{{ tender.ID }}</div>
                   </div>
                   <div class="Rtable-cell name-cell">
-                    <!--<div class="Rtable-cell--content"><a href="{{tender.link}}">{{ tender.title }}</a></div>-->
+                    
                     <div class="Rtable-cell--content">{{ tender.title }}</div>
                   </div>
                   <div class="Rtable-cell tenure-cell">
@@ -80,12 +80,9 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate }}</span></div>
                   </div>
                   <div class="Rtable-cell access-link-cell">
-                    <!--<div class="Rtable-cell--content access-link-content"><a href="{{vacancy.link}}"><i class="ion-link"></i> <?php echo __('View', 'srft-theme' ); ?></a></div>-->
+                    
                     <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp; (<span><?php echo __('Download', 'srft-theme'); ?> - {{tender.file.size}} MB)</span></a></div>
                   </div>
-                  <!--<div class="Rtable-cell access-link-cell">
-                    <div class="Rtable-cell--content "><a href="{{tender.link}}"><i class="ion-link"></i> Visit</a></div>
-                  </div>-->
                   <div class="Rtable-cell location-cell">
                   <div class="Rtable-cell--content access-link-content">
                   <p data-ng-if="tender.isSubmissionOpen"><?php echo __('Open', 'srft-theme' ); ?></p>

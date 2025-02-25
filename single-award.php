@@ -28,7 +28,7 @@ foreach ($categories as $category) {
 <div data-scroll-container>
 <div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
 
-<h1 class="posttitle">
+<h1 class="faculty-title">
         <?php echo get_the_title($post_id); ?>
     </h1>
 
@@ -39,7 +39,7 @@ foreach ($categories as $category) {
           </div>
           </div>
           <div class="sub-intro-text">
-           <div class="sub-intro-text-head"><?php echo get_field('Film-Name');?></div>
+           <div class="sub-intro-text-head"><?php echo __('Synopsis', 'srft-theme');?></div>
           
            <div class="sub-intro-text-description">
            <?php echo get_field('film_synposis');?>

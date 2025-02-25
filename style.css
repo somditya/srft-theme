@@ -217,6 +217,11 @@ body.dark-mode .abtimg-box {
   background-blend-mode: normal !important; /* Disable blending in dark mode */
 }
 
+body.dark-mode .cine-header {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
 body.dark-mode .page-header-text {
   color: #eee !important;
 }
@@ -3110,11 +3115,12 @@ h4 {
   border-bottom: 1px solid #6c4713;
 }
 
-.posttitle {
-  font-size: 5.375rem;
-  font-weight: 600;
-  margin: 0 0 2rem;
-  letter-spacing: -0.0875rem;
+.faculty-title {
+  margin-top: 20px;
+  font-size: 3.5rem;
+  font-weight: 500;
+  /*margin: 0 0 2rem;*/
+  /*letter-spacing: -0.0875rem;*/
   line-height: 1.1rem;
   color: #8b5b2b;
   margin-bottom: 1.25rem; /* Adjusted margin-bottom */
@@ -3123,15 +3129,38 @@ h4 {
   width: 100%;
 }
 
-.faculty {
-  /*background-color: #350e20;*/
-  text-align: center;
+.faculty-circle-image img {
+  border-radius: 50%;
+  width: 33%;
+  height: 33%;
+  float: right;
+  margin-left: 20px;
+}
 
-  /*margin: 1rem;*/
+.faculty-biodata {
+  padding-top: 80px;
+  margin-top: 80px;
+}
+
+.faculty-content-info {
+  /* border-bottom: 1px solid var(--accent-color-bg); */
+  padding-bottom: 80px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-right: 60px;
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+}
+/* .faculty {
+  text-align: center;
 }
 
 .faculty-img {
-  display: flex;
 }
 
 .faculty div {
@@ -3174,7 +3203,6 @@ h4 {
 
 .faculty-img a {
   font-size: 1.5rem;
-  /*color: white;*/
   color: #45260a;
   text-decoration: none;
 }
@@ -3184,9 +3212,8 @@ h4 {
   flex: 0 0 50%;
   flex-direction: column;
   max-width: 50%;
-  /*padding: 48px 76px 16px 60px;*/
-  position: relative;
-  /*background-color: #f3f3f3;*/
+   position: relative;
+ 
 }
 
 .facility-img-box {
@@ -3200,12 +3227,11 @@ h4 {
 
 .visitingprof {
   max-width: 100rem;
-  /* padding: 0 3.2rem; */
-  padding-right: 15px;
+   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
 /*   Admin Pages */
 
@@ -4134,11 +4160,25 @@ body.dark-mode a {
   text-decoration: none !important; /* Remove underline */
 }
 
+body.dark-mode .sub-intro-text-head {
+  color: white !important;
+}
+
 body.dark-mode a:hover,
 body.dark-mode a:focus {
   background-color: #444 !important; /* Darker background on hover/focus */
   color: lightyellow !important; /* Light yellow text color on hover/focus */
   text-decoration: underline !important; /* Underline on hover/focus */
+}
+
+body.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .cine-header {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
 }
 
 body.dark-mode .abtimg-box {
@@ -6777,9 +6817,8 @@ h4 {
 }
 
 .faculty-img {
-  display: flex;
+  /*display: flex;*/
 }
-
 .faculty div {
   padding: 1.5rem;
   /*color: rgb(71, 4, 4);*/
@@ -6797,17 +6836,20 @@ h4 {
 
 .faculty-img ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
   margin: 0;
   display: flex;
   justify-content: left;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .faculty-img ul > li {
+  flex: 1 1 calc(25% - 1rem); /* Adjusts dynamically for 4 per row */
+  max-width: 200px; /* Prevents excessive scaling */
+  min-width: 150px; /* Ensures elements don't shrink too much */
   text-align: center;
-  margin-right: 3.667%;
 }
 
 .faculty-img ul > :nth-last-child(1) {
@@ -6816,9 +6858,15 @@ h4 {
 }
 
 .faculty-img img {
-  max-width: 100%;
+  max-width: 140px;
   height: auto;
   border-radius: 50%;
+}
+
+.faculty-img span {
+  font-size: 1.2rem;
+  display: block;
+  white-space: nowrap;
 }
 
 .faculty-img a {
@@ -6828,6 +6876,13 @@ h4 {
   text-decoration: none;
 }
 
+.faculty-img h3 {
+  font-size: 1.5rem;
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  white-space: nowrap;
+}
+
 .facility-text-box {
   display: flex;
   flex: 0 0 50%;
@@ -6835,6 +6890,7 @@ h4 {
   max-width: 50%;
   /*padding: 48px 76px 16px 60px;*/
   position: relative;
+  padding-left: 10px;
   /*background-color: #f3f3f3;*/
 }
 
@@ -8257,6 +8313,38 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100%;
     overflow: hidden;
     position: relative;
+  }
+
+  .static-container {
+    padding-left: 20px; /* Reduce left padding for smaller screens */
+    padding-right: 20px;
+  }
+
+  .faculty-profile-info {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align content */
+    text-align: center;
+  }
+
+  .faculty-circle-image img {
+    width: 70%; /* Increase size for better visibility on mobile */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    float: none; /* Remove float to prevent layout issues */
+  }
+
+  .faculty-title {
+    font-size: 24px; /* Reduce font size for readability */
+  }
+
+  .faculty-post-summary {
+    padding: 10px; /* Add spacing for better structure */
+  }
+
+  .faculty-biodata {
+    padding: 15px;
+    font-size: 16px;
   }
 
   .footer_container {

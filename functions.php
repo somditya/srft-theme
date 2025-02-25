@@ -536,6 +536,81 @@ add_action ('login_head', 'disable_wp_admin_autocomplete');
 remove_action('do_robots', 'do_robots');
 
 
+function add_search_button_title_script() {
+	?>
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+			function addSearchButtonTitle() {
+					document.querySelectorAll(".is-search-submit").forEach(function (button) {
+							if (!button.hasAttribute("title")) {
+									button.setAttribute("title", "Search");
+							}
+					});
+			}
+
+			// Run once on page load
+			addSearchButtonTitle();
+
+			// Observe DOM changes for dynamically added buttons
+			new MutationObserver(function () {
+					addSearchButtonTitle();
+			}).observe(document.body, { childList: true, subtree: true });
+	});
+	</script>
+	<?php
+}
+add_action('wp_footer', 'add_search_button_title_script', 100);
+
+function ivory_search_modification() {
+	?>
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+			// Function to remove type="text/css" from style tags
+			function removeStyleType() {
+					document.querySelectorAll('style').forEach(function (style) {
+							if (style.getAttribute("type") === "text/css") {
+									style.removeAttribute("type");
+							}
+					});
+			}
+
+			// Function to add title attribute to search button
+			function addSearchButtonTitle() {
+					document.querySelectorAll(".is-search-submit").forEach(function (button) {
+							if (!button.hasAttribute("title")) {
+									button.setAttribute("title", "Search");
+							}
+					});
+			}
+
+			// Run both functions on page load
+			removeStyleType();
+			addSearchButtonTitle();
+
+			// More aggressive MutationObserver to detect all new elements
+			const observer = new MutationObserver(function (mutations) {
+					mutations.forEach(function (mutation) {
+							mutation.addedNodes.forEach(function (node) {
+									if (node.nodeType === 1) { // Ensure it's an element node
+											if (node.tagName === "STYLE" && node.getAttribute("type") === "text/css") {
+													node.removeAttribute("type");
+											}
+											if (node.classList.contains("is-search-submit")) {
+													node.setAttribute("title", "Search");
+											}
+									}
+							});
+					});
+			});
+
+			observer.observe(document.body, { childList: true, subtree: true });
+	});
+	</script>
+	<?php
+}
+add_action('wp_footer', 'ivory_search_modification', 100);
+
+
 
 function custom_wp_login_form( $args ) {
     $args['value_remember'] = false; // Disable "Remember Me"

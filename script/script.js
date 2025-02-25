@@ -30,19 +30,23 @@ $(document).ready(function () {
     $(".tab-content" + tabIndex).show();
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const cookies = document.cookie.split(";");
-    cookies.forEach(function (cookie) {
-      const cookieName = cookie.split("=")[0].trim();
+  $(document).ready(function () {
+    $(".is-search-submit").attr("title", "Search");
+  });
 
-      // Only target the cookie set from /wp-content/plugins (adjust the cookie path as needed)
-      if (cookieName === "wordpress_sec_64791470c9047c046d3c80ab7a1e18c5") {
-        // Expire the cookie from wp-content/plugins path
-        document.cookie =
-          cookieName +
-          "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/wp-content/plugins";
-      }
-    });
+  $(document).ready(function () {
+    console.log("I am Hello");
+    function removeTypeAttributes() {
+      $('style[type="text/css"]').removeAttr("type");
+    }
+
+    // Run once on page load
+    removeTypeAttributes();
+
+    // Observe the DOM for dynamically added style elements
+    new MutationObserver(function () {
+      removeTypeAttributes();
+    }).observe(document.body, { childList: true, subtree: true });
   });
 
   document.addEventListener("DOMContentLoaded", function () {

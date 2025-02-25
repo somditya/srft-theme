@@ -12,16 +12,15 @@ $current_language = get_locale();
     <main>
       <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Admission to postgraduate courses', 'srft-theme'); ?></div>  
+          <h2 class="page-banner-title"><?php echo __('Admission to postgraduate courses', 'srft-theme'); ?></h2>  
         </div>
       </section>
 
-      
-
-      <section  id="skip-to-content" class="cine-detail">
+    <section  id="skip-to-content" class="cine-detail">
       
       <div class="leftnav">
       <div class="childnavs">
+        <div class="childnavs">
               <?php
                 $current_language = get_locale(); // Get the current language/locale.
 
@@ -67,6 +66,7 @@ $current_language = get_locale();
           ?>
     
           </div>
+        </div>  
           <div class="widget" style="line-height: 1.5; margin-top: 3rem;">
                 <?php 
                 $catslg = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
@@ -135,22 +135,25 @@ $current_language = get_locale();
     endif;
     ?>
         <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>  
-        </div>
-        </div>
+      </div>
+  </div>
 
-        <div class="main-content" >
-        <div>      <?php
+    <div class="main-content" >
+        <div>     
+           <?php
             if ( function_exists('yoast_breadcrumb') ) {
           yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
         }
       ?></div>
-        <section  class="page-title"><div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div></section>
-        <section class="sub-intro">
+        <div  class="page-title">
+          <div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div>
+        </div>
+        <div class="sub-intro">
           <div class="sub-intro-images">
-          <div>
+           <div>
             <img class="intro-images" src="<?php bloginfo('template_url'); ?>/images/srfti-front.jpg"
                  alt="SRFTI Entrance">
-          </div>
+           </div>
           </div>
           <div class="sub-intro-text">
            <div class="sub-intro-text-head"><?php echo get_post_meta(get_the_ID(), 'SubIntro', true); ?></div>
@@ -159,114 +162,116 @@ $current_language = get_locale();
            <?php echo get_post_meta(get_the_ID(), 'SubIntroDescription', true); ?>
           </div>
           </div>
-        </section>
-
+        </div>
         <section class="section-home">
-          <div class="tabs">
-            <div class="tab-2">
-              <label for="tab2-1"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?></label>
-              <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-              <div>
-              <p><?php echo __('The programme is a 3-year full time programme divided into 6 semester', 'srft-theme'); ?></p>   
-                  <br/><br/>
-                  <div class="accordian">
-                    <ul>
-                      <li>
-                        <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
-                        <i></i>
-                        <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-                        <p><?php echo __('3 years-full time', 'srfti-theme') ?></p>
-                      </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        <input type="checkbox" aria-label="<?php echo __('Show or hide Number of students for Cinema Programme', 'srft-theme'); ?>" checked>
-                        <i></i>
-                        <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
-                        <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>     
-                      </li>
-                    </ul>
-                  
-                    <ul>
-                      <li>
-                        <input type="checkbox" aria-label="<?php echo __('Show or hide Specialization for Cinema Programme', 'srft-theme'); ?>" checked>
-                        <i></i>
-                        <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
-                        <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>
-                       
-                  </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>" checked>
-                        <i></i>
-                        <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
-                        <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
-                      </li>
-                    </ul>
-                      <ul>
-                        <li>
-                          <input type="checkbox" aria-label="<?php echo __('Show or hide Essential Qualification for Cinema Programme', 'srft-theme'); ?>" checked>
-                          <i></i>
-                          <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
-                          <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>
-                        </li>
-                      </ul>
-                    </div>
-              </div>
-            </div>
-            <div class="tab-2">
-              <label for="tab2-2"><?php echo __('Post Graduate Programme in EDM', 'srft-theme'); ?></label>
-              <input id="tab2-2" name="tabs-two" type="radio">
-              <div>
-              <?php echo __('The programme is a 2-year full time programme divided into 4 semester', 'srft-theme'); ?>
-                <br/><br/>
-                <div class="accordian">
-                  <ul>
-                    <li>
-                      <input type="checkbox" aria-label="<?php echo __('Show or hide Duration for EDM Programme', 'srft-theme'); ?>" checked>
-                      <i></i>
-                      <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-                      <p><?php echo __('2 years-full time)', 'srfti-theme') ?></p>
-                    </li>
-                  </ul>
-                  <ul>
-                    <li>
-                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide No. of Student for EDM Programme', 'srft-theme'); ?>">
-                      <i></i>
-                      <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
-                      <?php echo get_post_meta(get_the_ID(), 'StudentEDM', true); ?>    
-                    </li>
-                  </ul>
-                
-                  <ul>
-                    <li>
-                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration specialization for EDM Programme', 'srft-theme'); ?>">
-                      <i></i>
-                      <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
-                      <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>    
-                    </li>
-                  </ul>
-                  <ul>
-                    <li>
-                      <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration course structure for EDM Programme', 'srft-theme'); ?>">
-                      <i></i>
-                      <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
-                      <?php echo get_post_meta(get_the_ID(), 'CourseEDM', true); ?>   
-                    </li>
-                  </ul>
-                    <ul>
-                      <li>
-                        <input type="checkbox" checked aria-label="<?php echo __('Show or hide Essentail qualification for EDM Programme', 'srft-theme'); ?>">
-                        <i></i>
-                        <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
-                        <?php echo get_post_meta(get_the_ID(), 'QualificationEDM', true); ?> 
-                      </li>
-                    </ul>
-                  </div>
-            </div>
-            </div>
-        </section>
-  </div>
-    </main>
+  <div class="tabs">
+    <div class="tab-2">
+      <label for="tab2-1"><?php echo __('Post Graduate Programme in Cinema', 'srft-theme'); ?></label>
+      <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+      <div>
+        <p><?php echo __('The programme is a 3-year full-time programme divided into 6 semesters', 'srft-theme'); ?></p>   
+        <br/><br/>
+        <div class="accordian">
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
+              <p><?php echo __('3 years-full time', 'srft-theme'); ?></p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" aria-label="<?php echo __('Show or hide Number of students for Cinema Programme', 'srft-theme'); ?>" checked>
+              <i></i>
+              <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>     
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" aria-label="<?php echo __('Show or hide Specialization for Cinema Programme', 'srft-theme'); ?>" checked>
+              <i></i>
+              <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>" checked>
+              <i></i>
+              <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" aria-label="<?php echo __('Show or hide Essential Qualification for Cinema Programme', 'srft-theme'); ?>" checked>
+              <i></i>
+              <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> <!-- Closing .tab-2 -->
+
+    <div class="tab-2">
+      <label for="tab2-2"><?php echo __('Post Graduate Programme in EDM', 'srft-theme'); ?></label>
+      <input id="tab2-2" name="tabs-two" type="radio">
+      <div>
+        <p><?php echo __('The programme is a 2-year full-time programme divided into 4 semesters', 'srft-theme'); ?></p>
+        <br/><br/>
+        <div class="accordian">
+          <ul>
+            <li>
+              <input type="checkbox" aria-label="<?php echo __('Show or hide Duration for EDM Programme', 'srft-theme'); ?>" checked>
+              <i></i>
+              <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
+              <p><?php echo __('2 years-full time', 'srft-theme'); ?></p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide No. of Student for EDM Programme', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'StudentEDM', true); ?>    
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Specialization for EDM Programme', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>    
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Course structure for EDM Programme', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'CourseEDM', true); ?>   
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Essential Qualification for EDM Programme', 'srft-theme'); ?>">
+              <i></i>
+              <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
+              <?php echo get_post_meta(get_the_ID(), 'QualificationEDM', true); ?> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> <!-- Closing .tab-2 -->
+  </div> <!-- Closing .tabs -->
+</section>
+
+      
+      </div>
+      
+        
+      </section>
     <?php get_footer();  ?>

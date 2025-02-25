@@ -153,7 +153,8 @@ $category_id = get_category_ID($category_name);
                 designation: post.acf['Faculty-Designation'],
                 //department: post.Department
                 //department: post.acf['Department']
-                department: post.acf['Faculty-Department']
+                department: post.acf['Faculty-Department'],
+                category: post.acf['Faculty-Category'] ? parseInt(post.acf['Faculty-Category']) : 9999
             };
         });
 
@@ -273,14 +274,20 @@ $scope.lastPage = function () {
     function updateFilteredFaculty() {
     $scope.filteredFaculty = $scope.facultyList.filter($scope.filterFaculty);
 
-    // Sort the filtered faculty alphabetically by name
-    $scope.filteredFaculty.sort(function (a, b) {
-        return a.name.localeCompare(b.name);
-    });
+    if ($scope.filterField) {
+        // Sort by Faculty-Category when a department is selected
+        console.log('Sorting by Category');
+        $scope.filteredFaculty.sort((a, b) => (a.category || 9999) - (b.category || 9999));
+    } else {
+        // Default sorting: Alphabetical
+        console.log('Sorting Alphabetically');
+        $scope.filteredFaculty.sort((a, b) => a.name.localeCompare(b.name));
+    }
 
-    // Update the currentPage to 1 when filtering changes
+    // Reset pagination to first page when filtering changes
     $scope.currentPage = 1;
 }
+
 });
 
 </script>

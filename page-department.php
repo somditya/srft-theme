@@ -40,10 +40,10 @@ if ($current_language === 'en_US') {
 // Check if the custom field has a value
 
 ?>
-<div data-scroll-container>
+<main>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
-      <div class="page-banner-title"><?php the_title(); ?></div>
+      <h2 class="page-banner-title"><?php the_title(); ?></h2>
    </div>
 </section>
 
@@ -212,7 +212,7 @@ if ($current_language === 'en_US') {
        <div class="facility-text-box">
          <div
            class="page-header-text"
-           style="padding-left: 0;"
+           style="padding-left: 0; margin-top: 0px;"
          >
          <?php echo __('Facilities', 'srft-theme' ); ?>
          </div>
@@ -222,7 +222,7 @@ if ($current_language === 'en_US') {
        </div>
 
        <div class="facility-img-box">
-       <img src="<?php echo $facilities_img ?>" class="container-image" / alt="Image displaying department's activities">
+       <img src="<?php echo $facilities_img ?>" class="container-image"  alt="Image displaying department's activities" />
        </div>
        
      </div>
@@ -366,10 +366,11 @@ if ($current_language === 'en_US') {
 </div>
 
 </div>-->
+</div>
 
 </section>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
           $('.visiting').owlCarousel({
     items:8,
     loop:true,
@@ -398,7 +399,7 @@ if ($current_language === 'en_US') {
     /*navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],*/
     dots:true,
     });
-        </script>
+        </script>-->
 <?php
 
 get_footer();

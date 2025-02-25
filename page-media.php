@@ -12,7 +12,7 @@ $current_language = get_locale();
     <!-- Add an image section with the featured image -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php echo __('Media', 'srft-theme'); ?></div>
+            <h2 class="page-banner-title"><?php echo __('Media', 'srft-theme'); ?></h2>
         </div>  
     </section>
 <section class="cine-detail">
@@ -25,11 +25,11 @@ $current_language = get_locale();
             }
             ?>
         </div>
-        <section class="page-title">
+        <div class="page-title">
             <div>
-                <p class="page-header-text"><?php echo esc_html($post->post_title); ?></p>
+                <h2 class="page-header-text"><?php echo esc_html($post->post_title); ?></h2>
             </div>
-        </section>
+        </div>
 
         <section class="section-home">
            <!-- Tab Navigation -->
@@ -51,11 +51,11 @@ $current_language = get_locale();
                 <!-- Tab: Events & Festivals -->
                 <div class="phototab">
                     <label for="tab4"><?php echo __('Campus Moments', 'srft-theme'); ?></label>
-                    <input id="tab4" id="tab4" name="tabs" type="radio" >
+                    <input id="tab4"  name="tabs" type="radio" >
                 </div>
                 <div class="phototab">
                     <label for="tab5"><?php echo __(' SRFTI in News', 'srft-theme'); ?></label>
-                    <input id="tab5" id="tab5" name="tabs" type="radio">
+                    <input id="tab5" name="tabs" type="radio">
                 </div>
              </div>
 <div class="tab-content tab-content1">
@@ -346,6 +346,5 @@ if (!empty($events_grouped)) {
         </section>
 </div>
 </section>
-</main>
 
 <?php get_footer(); ?>

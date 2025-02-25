@@ -19,7 +19,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <div class="page-banner-title"><?php the_title(); ?></div>
+            <h2 class="page-banner-title"><?php the_title(); ?></h2>
         </div>
     </section>
 
@@ -97,7 +97,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                 <p class="page-header-text"><?php the_title(); ?></p>
             </div> 
 
-            <section class="sub-intro" style="margin-bottom: 4rem;">
+            <div class="sub-intro" style="margin-bottom: 4rem;">
                 <div class="sub-intro-text" style="max-width: 100%;">
                     <div class="sub-intro-text-description">
                         <?php
@@ -107,7 +107,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                         ?>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <div>
                 <p class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></p>

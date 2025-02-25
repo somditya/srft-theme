@@ -5,7 +5,9 @@ Template Name: General
 get_header(); 
 
 $post_id = get_the_ID();
-$page_content = apply_filters('the_content', get_post_field('post_content', $post_id));
+//$page_content = apply_filters('the_content', get_post_field('post_content', $post_id));
+$page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensure shortcodes are processed
+
 
 // Retrieve the featured image URL
 //$featured_image_url = get_the_post_thumbnail_url($post_id, 'large');
@@ -23,18 +25,18 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
             }
             ?>
         </div>
-        <section class="page-title" >
-            <div>
-                <p class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></p>
-                <div>
-    <?php echo apply_filters('the_content', get_the_content()); ?>
-</div>
- 
-            </div>
-        </section>
+        
+        <div class="page-title">
+        <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+    </div> 
+        <div>        
+        <?php echo $page_content ?>
 
-        <section>
-        </section>
+       </div>
 </div>
+
+
+ 
+           
 
 <?php get_footer();  ?>

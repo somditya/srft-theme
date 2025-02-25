@@ -13,36 +13,56 @@ $post = get_post($post_id);
 // Get categories of the post
 $categories = get_the_category($post_id);
 
-// Optionally get background image from the query string if set
-//$bg_image_url = isset($_GET['bg_image']) ? esc_url($_GET['bg_image']) : '';
-
 // Retrieve and filter the post content
 $post_content = apply_filters('the_content', $post->post_content);
 ?>
 
-<div data-scroll-container>
-<div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
-<h1 class="posttitle">
-    <?php echo get_the_title(); ?>
-</h1>
+<main id="skip-to-content">    
+    <div class="static-container" style="padding-left: 80px;">
+        <div>      
+            <?php
+            if (function_exists('yoast_breadcrumb')) {
+                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+            }
+            ?>
+        </div>          
 
-        <section id="skip-to-content" class="sub-intro">
-            <div class="sub-intro-images">
-                <div>
-                    <img src="<?php echo esc_url(get_field('Faculty-Image')); ?>" 
-                         style="width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; margin-bottom: 2rem;" 
-                         alt="<?php echo get_the_title(); ?>" />
-                </div>
-                
-            </div>
-            <div class="sub-intro-text">
-                <div class="sub-intro-text-description">
-                    <?php echo wp_kses_post(get_field('Faculty-Bio')); ?>
-                </div>
-            </div>
-        </section>
+        <div class="faculty-content-info">
+            <div class="faculty-profile-info">
+            <h1 class="faculty-title">
+            <?php echo get_the_title(); ?>
+        </h1> 
+                <div class="faculty-post-summary">
+                    <div class="faculty-circle-image">
+                        <?php if (get_field('Faculty-Image')) : ?>
+                            <img src="<?php echo esc_url(get_field('Faculty-Image')); ?>" width="600" height="600" alt="<?php echo get_the_title(); ?>" typeof="foaf:Image">
+                        <?php endif; ?>
+                    </div>
 
-    </div>
-</div>
+                    <?php if (get_field('Faculty-Designation')) : ?>
+                        <div><?php echo esc_html(get_field('Faculty-Designation')); ?></div>
+                    <?php endif; ?>
+
+                    <?php if (get_field('Faculty-Department')) : ?>
+                        <div><cite>—<?php echo esc_html(get_field('Faculty-Department')); ?></cite></div>
+                    <?php endif; ?>
+
+                    <?php if (get_field('Faculty-Email')) : ?>
+                        <div>
+                            <a href="mailto:<?php echo esc_attr(get_field('Faculty-Email')); ?>">
+                                <?php echo esc_html(get_field('Faculty-Email')); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="teaching-at"></div>
+                </div>
+                <div class="faculty-biodata">  
+                <?php echo wp_kses_post(get_field('Faculty-Bio')); ?>
+            </div>
+            </div>
+
+        </div>
+    </div>            
 
 <?php get_footer(); ?>
