@@ -7728,6 +7728,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   line-height: 1.22em;
   margin: 12px 0;
   color: #8b5b2b;
+  white-space: nowrap;
 }
 
 .faculty-grid a {
