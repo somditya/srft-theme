@@ -977,13 +977,26 @@ function custom_menu_based_breadcrumbs($links) {
 			}
 	}
 
-	// Fallback: Add the current page to breadcrumbs if no match is found
-	if (empty($custom_breadcrumbs)) {
-			$custom_breadcrumbs[] = array(
-					'url' => get_permalink($current_id),
-					'text' => get_the_title($current_id),
-			);
-	}
+	// Check if it's a Faculty post and add the "Faculty" archive link
+	if (get_post_type() === 'faculty') {
+    // Get the "Faculty" page link instead of an archive link
+    $faculty_page = get_page_by_path('faculty'); 
+    if ($faculty_page) {
+        $faculty_archive_link = get_permalink($faculty_page);
+    } else {
+        $faculty_archive_link = site_url('/faculty/'); // Fallback
+    }
+
+    array_unshift($custom_breadcrumbs, array(
+        'url' => $faculty_archive_link,
+        'text' => 'Faculty',
+    ));
+
+    $custom_breadcrumbs[] = array(
+        'url' => get_permalink($current_id),
+        'text' => get_the_title($current_id),
+    );
+}
 
 	// Prepend the default breadcrumbs (Home link)
 	array_unshift($custom_breadcrumbs, $links[0]);
