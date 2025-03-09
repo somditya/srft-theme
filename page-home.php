@@ -12,13 +12,12 @@ Template Name: Home
 
 
 <main>
-
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
             <div id="skip-to-content" class="acme-news-ticker">
-                <div class="acme-news-ticker-label">
-                    Announcements &nbsp;
+            <div class="acme-news-ticker-label">
+            <?php echo __('Announcements', 'srft-theme' ); ?> &nbsp;
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
                         <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M1 12h22"></path>
@@ -26,24 +25,62 @@ Template Name: Home
                         </g>
                     </svg>
                 </div>
+            <div class="acme-news-ticker-box">
+    <div>
+        <ul class="news-ticker">
+            <?php
 
-                <div class="acme-news-ticker-box">
-                    <div>
-                        <ul class="news-ticker">
-                            <li>
-                                <a href="#">Breaking News 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Breaking News 2</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            if ($current_language === 'en_US') {
+                $catslug = 'highlight-en';
+            } else {
+                $catslug = 'highlight-hi';
+            }
 
-                <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
-                    <span class="acme-news-ticker-pause"></span>
-                </div>
-            </div>
+            $today = date('Y-m-d');  // Correct date format for ACF compatibility
+
+            $args = array(
+                'post_type' => 'highlight',  // Ensure this is your custom post type
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'category',
+                        'field' => 'slug',
+                        'terms' => $catslug
+                    )
+                ),
+                'meta_query' => array(
+                    array(
+                        'key' => 'highlight_expiry_date',
+                        'compare' => '>=',
+                        'value' => $today,
+                        'type' => 'DATE'
+                    )
+                )
+            );
+
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post(); ?>
+                    <li>
+                    <a href="<?php echo esc_url(get_field('highlight_post_link')); ?>" target="_blank">
+    <?php the_field('highlight_title'); ?>
+</a>
+
+                    </li>
+                <?php endwhile;
+            else : ?>
+                <li></li>
+            <?php endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+    </div>
+</div>
+
+<div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
+    <span class="acme-news-ticker-pause"></span>
+</div>
         </section>
     </div>
 </div>

@@ -160,6 +160,7 @@ wp_nav_menu(array(
                             <a href="<?php the_permalink(); ?>" target="_blank">
                                 <?php
                                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
+                                $thumb_url=str_replace('{site_url}', get_site_url(), $thumb_url);
                                 if (!empty($thumb_url)) {
                                     echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="feature image of the department">';
                                 }
