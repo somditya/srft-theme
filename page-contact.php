@@ -61,14 +61,13 @@ Template Name: Contact
                             
                             
                             <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
-                            <p><?php echo get_post_meta(get_the_ID(), 'Directories', true); ?></p>
+                            <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?></p>
                         </li>
                     </ul>
                     <ul>
-                        <li>
-                           
+                        <li>   
                             <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
-                            <p><?php echo get_post_meta(get_the_ID(), 'Quicklinks', true); ?></p>
+                            <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?></p>
                         </li>
                     </ul>
             </div>

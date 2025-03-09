@@ -26,6 +26,7 @@ $eligibilty=get_post_meta($page_id, 'Eligibility', true);
 $seats=get_post_meta($page_id, 'Seats', true);
 $facilities=get_post_meta($page_id, 'Facilities', true);
 $facilities_img=get_post_meta($page_id, 'Facility_url', true);
+$facilities_img=str_replace('{site_url}', get_site_url(), $facilities_img);
 $current_language = get_locale();
 
 if ($current_language === 'en_US') {
@@ -40,10 +41,10 @@ if ($current_language === 'en_US') {
 // Check if the custom field has a value
 
 ?>
-<main>
+<div data-scroll-container>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
-      <h2 class="page-banner-title"><?php the_title(); ?></h2>
+      <div class="page-banner-title"><?php the_title(); ?></div>
    </div>
 </section>
 
@@ -212,7 +213,7 @@ if ($current_language === 'en_US') {
        <div class="facility-text-box">
          <div
            class="page-header-text"
-           style="padding-left: 0; margin-top: 0px;"
+           style="padding-left: 0;"
          >
          <?php echo __('Facilities', 'srft-theme' ); ?>
          </div>
@@ -222,7 +223,7 @@ if ($current_language === 'en_US') {
        </div>
 
        <div class="facility-img-box">
-       <img src="<?php echo $facilities_img ?>" class="container-image"  alt="Image displaying department's activities" />
+       <img src="<?php echo $facilities_img ?>" class="container-image" / alt="Image displaying department's activities">
        </div>
        
      </div>
@@ -366,11 +367,10 @@ if ($current_language === 'en_US') {
 </div>
 
 </div>-->
-</div>
 
 </section>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
           $('.visiting').owlCarousel({
     items:8,
     loop:true,
@@ -399,7 +399,7 @@ if ($current_language === 'en_US') {
     /*navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],*/
     dots:true,
     });
-        </script>-->
+        </script>
 <?php
 
 get_footer();

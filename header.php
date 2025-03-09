@@ -125,7 +125,7 @@ $current_language = get_locale();
           <div class="slider-bg">
              <picture>
             
-             <img  src="<?php bloginfo('template_url'); ?>/images/practicecam.png" alt="pictures of students with camera">
+             <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister-2.jpg" alt="pictures of students with camera">
            </picture>
          </div>
          <div class="swipper-title">
@@ -151,9 +151,10 @@ $current_language = get_locale();
            </ul>         
           </div>
           <ul style="display:flex; align-items: center; ">
-            <li class="hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+          <li class="hide-on-mobile"><a href="https://mib.eoffice.gov.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('e-office', 'srft-theme' ); ?></a></li>
+          <li class="hide-on-mobile"><a href="http://campus.srfti.ac.in" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?></a></li>
+          <li class="hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
-             <!--<li class="hide-on-mobile"><a><?php echo __('ehrms', 'srft-theme' ); ?></a></li>-->
             <li>
             <a href="#" title="Choose your language" aria-haspopup="true" aria-expanded="false">
             <i class="fa-solid fa-language" aria-hidden="true"></i>
@@ -185,7 +186,6 @@ $current_language = get_locale();
 </div>
 
 </li>
-
 
              <li><a href="#skip-to-content"><span class="skp-to-main"><?php echo __('Skip to main content', 'srft-theme' ); ?></span>
              <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
