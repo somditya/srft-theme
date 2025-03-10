@@ -6,7 +6,7 @@ $current_language = get_locale();
   <div class="footer_inner_container">
     <div class="footer_sub">
       <ul>
-        <li><img src="https://srfti.ac.in/wp-content/themes/SRFTI-responsivetheme/images/Srfti_logo.png" title="Logo of SRFTI" alt="Logo of SRFTI" style="padding: 10px"></li>
+        <li><img src="<?php bloginfo('template_url'); ?>/images/Srfti_logo.png" title="Logo of SRFTI" alt="Logo of SRFTI" style="padding: 10px"></li>
       </ul>
     </div>
     <div class="footer_sub">
