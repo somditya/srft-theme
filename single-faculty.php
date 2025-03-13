@@ -31,7 +31,7 @@ $post_content = apply_filters('the_content', $post->post_content);
             <div class="faculty-profile-info">
             <h1 class="faculty-title">
             <?php echo get_the_title(); ?>
-        </h1> 
+            </h1> 
                 <div class="faculty-post-summary">
                     <div class="faculty-circle-image">
                         <?php if (get_field('Faculty-Image')) : ?>

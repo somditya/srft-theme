@@ -20,8 +20,10 @@ $category_id = get_category_ID($category_name);
 ?>
 
 <body ng-controller="DocumentController">
-
   <main>
+  <!--<div class="page-title">
+        <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+  </div> -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
         <div class="page-banner-title"><?php echo __('Download', 'srft-theme'); ?></div>
@@ -220,3 +222,5 @@ $category_id = get_category_ID($category_name);
 </script>
 
 </body>
+
+<?php get_footer();  ?>

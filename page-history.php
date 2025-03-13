@@ -97,7 +97,8 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div class="one-flex" style="margin: 10px;">
-            <video class="homepage-masthead__video" id="homepage-masthead__video" poster="#" style="width: 100%;" controls autoplay loop muted aria-label="Introductory video showcasing our Institute.">
+            <video class="homepage-masthead__video" id="homepage-masthead__video" poster="<?php bloginfo('template_url'); ?>/images/intro-still.jpg" 
+       style="width: 100%;" style="width: 100%;" controls loop muted aria-label="Introductory video showcasing our Institute.">
                 <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

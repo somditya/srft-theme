@@ -31,7 +31,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('What programs and courses does SRFTI offer?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Sections', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Sections', true); ?>
         </li>
       </ul>
       <ul>
@@ -39,7 +39,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('What are the admission requirements?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Admission Eligibility', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Admission Eligibility', true); ?>
         </li>
       </ul>
       <ul>
@@ -47,7 +47,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('What is the duration of the course?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Duration', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Duration', true); ?>
         </li>
       </ul>
       <ul>
@@ -55,7 +55,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('What are the tuition fees and other costs associated?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Tution Fee', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Tution Fee', true); ?>
         </li>
       </ul>
       <ul>
@@ -63,7 +63,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('Are there any scholarships or financial aid options available?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Scholarship', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Scholarship', true); ?>
         </li>
       </ul>
       <ul>
@@ -71,7 +71,7 @@ $post_id = get_the_ID();
           <input type="checkbox" checked>
           <i></i>
           <h2><?php echo __('Does the school provide access to film festivals or competitions?', 'srft-theme'); ?></h2>
-          <p><?php echo get_post_meta($post_id, 'Competitions', true); ?></p>
+          <?php echo get_post_meta($post_id, 'Competitions', true); ?>
         </li>
       </ul>
     </div>

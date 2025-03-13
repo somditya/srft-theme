@@ -33,10 +33,6 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
         <?php echo $page_content ?>
 
        </div>
-</div>
-
-
- 
-           
+</div>    
 
 <?php get_footer();  ?>

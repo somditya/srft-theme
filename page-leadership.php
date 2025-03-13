@@ -67,7 +67,7 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'ChairmanPhoto', true)); ?>" alt="Photo of the chairman">
+            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'ChairmanPhoto', true))); ?>" alt="Photo of the chairman">
                             <div class="profile-text">
                                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></div>
                                 <div class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></div>
@@ -88,7 +88,7 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DirectorPhoto', true)); ?>" alt="Photo of the director">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DirectorPhoto', true))); ?>" alt="Photo of the director">
                             <div class="profile-text">
                                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></div>
                                 <div class="profile-desg"><?php echo __('Director', 'srft-theme' ); ?></div>
@@ -109,7 +109,7 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'DeanPhoto', true)); ?>" alt="Photo of the dean">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DeanPhoto', true))); ?>" alt="Photo of the dean">
                             <div class="profile-text">
                                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Dean', true); ?></div>
                                 <div class="profile-desg"><?php echo __('Dean', 'srft-theme' ); ?></div>
@@ -130,7 +130,7 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(get_post_meta(get_the_ID(), 'RegistrarPhoto', true)); ?>" alt="Photo of the registrar">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'RegistrarPhoto', true))); ?>" alt="Photo of the registrar">
                             <div class="profile-text">
                                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Registrar', true); ?></div>
                                 <div class="profile-desg"><?php echo __('Registrar', 'srft-theme' ); ?></div>

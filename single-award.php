@@ -27,13 +27,20 @@ foreach ($categories as $category) {
 
 <div data-scroll-container>
 <div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
-
+<div>      
+            <?php
+            if (function_exists('yoast_breadcrumb')) {
+                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+            }
+            ?>
+        </div> 
 <h1 class="faculty-title">
         <?php echo get_the_title($post_id); ?>
     </h1>
 
 <section id="skip-to-content" class="sub-intro">
-          <div class="sub-intro-images">
+ 
+<div class="sub-intro-images">
           <div>
           <img src="<?php echo get_field('film_still');?>" style="width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 8px; margin-bottom: 2rem;" alt="<?php echo get_field('film_still_alt_text');?>" />
           </div>
