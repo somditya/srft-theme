@@ -74,6 +74,9 @@ $category_id = get_category_ID($category_name);
       
             <!-- Faculty grid using Flexbox -->
             <div class="faculty-grid">
+            <div class="loading-overlay" ng-show="isLoading">
+            <div class="spinner"></div>
+            </div>
             <div class="faculty-card" ng-repeat="faculty in filteredFaculty.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                 <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" style="filter: grayscale(100%);" class="faculty-image">
                 <h2><a href="{{ faculty.link }}">{{faculty.name }}</a></h2>
@@ -132,6 +135,7 @@ $category_id = get_category_ID($category_name);
              
     angular.module('myApp', [])
 .controller('FacultyController', function($scope, $http) {
+  $scope.isLoading = true; 
     // Initialize the faculty data (replace this with your actual data)
     //$http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
     $http.get(siteURL+'wp-json/wp/v2/faculty?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
@@ -179,6 +183,7 @@ $category_id = get_category_ID($category_name);
     console.log('Filter changed:', $scope.filterField, $scope.currentLetter);
     $scope.currentPage = 1; // Reset to the first page when the filter changes
     updateFilteredFaculty();
+    $scope.isLoading = false;
 });
         
     })

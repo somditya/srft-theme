@@ -483,7 +483,10 @@ else
     <div class="container" style="display: flex; padding: 24px; max-width: 1450px;">
         
         <div class="img_card">
-        <a href="<?php echo site_url('/photo-gallery/?tab=1'); ?>">
+        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=1')); }
+else 
+{ echo esc_url(site_url('/फोटो-गैलरी/?tab=1'));}
+?>">
                 <img alt="Events & Festivals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme'); ?></p>
@@ -492,7 +495,10 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php echo site_url('/photo-gallery/?tab=2'); ?>">
+        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=2')); }
+else 
+{ echo esc_url(site_url('/फोटो-गैलरी/?tab=2'));}
+?>">
                 <img alt="Master Classes & Workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Master Classes & Workshops', 'srft-theme'); ?></p>
@@ -501,7 +507,10 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php echo site_url('/photo-gallery/?tab=3'); ?>">
+        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=3')); }
+else 
+{ echo esc_url(site_url('/फोटो-गैलरी/?tab=3'));}
+?>">
                 <img alt="Still from Students' Films" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Still from Students\' Films', 'srft-theme'); ?></p>
@@ -510,7 +519,10 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php echo site_url('/photo-gallery/?tab=4'); ?>">
+        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=4')); }
+else 
+{ echo esc_url(site_url('/फोटो-गैलरी/?tab=4'));}
+?>">
                 <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme'); ?></p>
@@ -519,7 +531,10 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php echo site_url('/photo-gallery/?tab=5'); ?>">
+        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=5')); }
+else 
+{ echo esc_url(site_url('/फोटो-गैलरी/?tab=5'));}
+?>">
                 <img alt="SRFTI in News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme'); ?></p>

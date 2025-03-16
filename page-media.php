@@ -12,7 +12,7 @@ $current_language = get_locale();
     <!-- Add an image section with the featured image -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Media', 'srft-theme'); ?></h2>
+            <h2 class="page-banner-title"><?php echo __('Media Gallery', 'srft-theme'); ?></h2>
         </div>  
     </section>
 <section class="cine-detail">
