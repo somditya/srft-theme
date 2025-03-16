@@ -95,6 +95,16 @@ $current_language = get_locale();
         <li><a href="https://vimeo.com/channels/srftifilms" target="_blank"  aria-label="<?php echo __('Visit vimeo channel of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-vimeo footer_icon"></i></a></li>
       </ul>
     </div>
+    <div class="show-on-mobile">
+      <ul>
+        <li><a href="https://www.india.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/indiaportal-1.png" alt="India Government Portal"></a>
+      </li>
+      <li>
+      <a href="https://mib.gov.in/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><img src="<?php bloginfo('template_url'); ?>/images/miblogo.png" alt="Ministry of Information and Broadcasting"></a>
+    </li>
+      </ul>
+    </div>
+
     <div class="footer_sub">
       <a href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
     </div>

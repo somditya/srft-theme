@@ -478,6 +478,25 @@ body {
   display: none;
 }
 
+.show-on-mobile ul {
+  display: flex; /* Align items horizontally */
+  justify-content: center; /* Center the logos */
+  gap: 15px; /* Add spacing between logos */
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.show-on-mobile li {
+  background-color: #ffffff;
+  padding: 5px;
+}
+
+.show-on-mobile img {
+  height: 40px; /* Adjust size as needed */
+  width: auto; /* Maintain aspect ratio */
+}
+
 .myTable {
   background-color: #fff;
   border-collapse: collapse;
@@ -8131,6 +8150,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .show-on-mobile {
     display: block;
   }
+
   .top_header li {
     font-size: 1rem; /* Smaller font size for mobile */
   }
@@ -8465,6 +8485,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .facility-text-box ul {
     list-style: circle inside none;
     font-size: 1rem;
+  }
+
+  .branspacer {
+    display: none;
   }
   /*.narticle {
       display: grid;
