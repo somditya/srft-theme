@@ -152,7 +152,7 @@ $current_language = get_locale();
           </div>
           <ul style="display:flex; align-items: center; ">
           <li class="hide-on-mobile"><a href="https://mib.eoffice.gov.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('e-office', 'srft-theme' ); ?>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></li>
-          <li class="hide-on-mobile"><a href="http://campus.srfti.ac.in" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></li>
+          <li class="hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></li>
           <li class="hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
             <li>
