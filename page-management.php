@@ -280,10 +280,12 @@ if ($current_language === 'en_US') {
     $designation_order = array(
         'President' => 1,
         'Director' => 2,
-        'Dean (Film), FTII' => 3,
-        'Dean (TV), FTII' => 4,
-        'Registrar, SRFTI' => 5,
-        'External Expert' => 6,
+        'Dean (Film), SRFTI' => 3,
+        'Dean (EDM), SRFTI' => 4,
+        'Dean (Film), FTII' => 5,
+        'Dean (TV), FTII' => 6,
+        'Registrar, SRFTI' => 7,
+        'External Expert' => 8,
         'Alumni' => 7
         
     );
@@ -295,9 +297,11 @@ if ($current_language === 'en_US') {
     $designation_order = array(
         'अध्यक्ष' => 1, // President
         'निदेशक' => 2, // Director
-        'डीन (फिल्म्स), एफटीआईआई' => 3, // Dean (Film)
-        'डीन (टीवी), एफटीआईआई' => 4, // Dean (TV)
-        'रजिस्ट्रार, एसआरएफटीआई' => 5, // Registrar
+        'डीन (फिल्म्स), एसआरएफटीआई' => 3, // Dean (Film)
+        'डीन (ईडीएम), एसआरएफटीआई' => 4, // Dean (TV)
+        'डीन (फिल्म्स), एफटीआईआई' => 5, // Dean (Film)
+        'डीन (टीवी), एफटीआईआई' => 6, // Dean (TV)
+        'रजिस्ट्रार, एसआरएफटीआई' => 7, // Registrar
         'पूर्व छात्र' => 7, // Alumni
         'बाहरी विशेषज्ञ' => 6 // External Expert
     );
