@@ -61,27 +61,37 @@ $current_language = get_locale();
 <div class="tab-content tab-content1">
                     <?php
 // Query all workshop albums
-$events_albums = get_posts([
-    'post_type' => 'picture', // Assuming 'picture' is your custom post type
-    'posts_per_page' => -1,   // Fetch all posts
+$events_albums = new WP_Query([
+    'post_type' => 'picture',
+    'posts_per_page' => -1,
+    'meta_key' => 'Picture_Order',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
     'meta_query' => [
         [
+
             'key' => 'Picture_Category', // ACF field name
             'value' => array('Convocation', 'Event', 'Festival'),
             'compare' => 'IN', // Match posts with 'workshop' in Picture_Category
         ],
+        [
+            'key' => 'Picture_Order',
+            'compare' => 'EXISTS'
+        ],
+
     ],
 ]);
 
 // Group the posts by Album_Name
 // Group the posts by Album_Name
 $events_grouped = [];
-foreach ($events_albums as $album) {
+foreach ($events_albums->posts as $album) {
     $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
     if (!empty($album_name)) {
         $events_grouped[$album_name][] = $album;
     }
 }
+
 
 // Check if there are any albums to display
 if (!empty($events_grouped)) {
@@ -132,14 +142,21 @@ if (!empty($events_grouped)) {
 <div class="tab-content tab-content2">
                     <?php
 // Query all workshop albums
-$events_albums = get_posts([
-    'post_type' => 'picture', // Assuming 'picture' is your custom post type
-    'posts_per_page' => -1,   // Fetch all posts
+$events_albums = new WP_Query([
+    'post_type' => 'picture',
+    'posts_per_page' => -1,
+    'meta_key' => 'Picture_Order',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
     'meta_query' => [
         [
-            'key' => 'Picture_Category', // ACF field name
-            'value' => array('Workshops', 'Masterclass','Seminars'),
-            'compare' => 'IN', // Match posts with 'workshop & others' in Picture_Category
+            'key' => 'Picture_Category',
+            'value' => ['Workshops', 'Masterclass', 'Seminars'],
+            'compare' => 'IN',
+        ],
+        [
+            'key' => 'Picture_Order',
+            'compare' => 'EXISTS'
         ],
     ],
 ]);
@@ -147,13 +164,12 @@ $events_albums = get_posts([
 // Group the posts by Album_Name
 // Group the posts by Album_Name
 $events_grouped = [];
-foreach ($events_albums as $album) {
+foreach ($events_albums->posts as $album) {
     $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
     if (!empty($album_name)) {
         $events_grouped[$album_name][] = $album;
     }
 }
-
 // Check if there are any albums to display
 if (!empty($events_grouped)) {
     foreach ($events_grouped as $album_name => $images) {
@@ -203,14 +219,22 @@ if (!empty($events_grouped)) {
 <div class="tab-content tab-content3">
                     <?php
 // Query all workshop albums
-$events_albums = get_posts([
-    'post_type' => 'picture', // Assuming 'picture' is your custom post type
-    'posts_per_page' => -1,   // Fetch all posts
+$events_albums = new WP_Query([
+    'post_type' => 'picture',
+    'posts_per_page' => -1,
+    'meta_key' => 'Picture_Order',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
     'meta_query' => [
         [
+
             'key' => 'Picture_Category', // ACF field name
             'value'   => 'Student Stills', // Category value to match
-            'compare' => '=' // Match posts with 'students still' in Picture_Category
+            'compare' => 'IN',
+        ],
+        [
+            'key' => 'Picture_Order',
+            'compare' => 'EXISTS'
         ],
     ],
 ]);
@@ -218,12 +242,14 @@ $events_albums = get_posts([
 // Group the posts by Album_Name
 // Group the posts by Album_Name
 $events_grouped = [];
-foreach ($events_albums as $album) {
+foreach ($events_albums->posts as $album) {
     $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
     if (!empty($album_name)) {
         $events_grouped[$album_name][] = $album;
     }
 }
+
+
 
 // Check if there are any albums to display
 if (!empty($events_grouped)) {
@@ -274,14 +300,22 @@ if (!empty($events_grouped)) {
  <div class="tab-content tab-content4">
                     <?php
 // Query all workshop albums
-$events_albums = get_posts([
-    'post_type' => 'picture', // Assuming 'picture' is your custom post type
-    'posts_per_page' => -1,   // Fetch all posts
+$events_albums = new WP_Query([
+    'post_type' => 'picture',
+    'posts_per_page' => -1,
+    'meta_key' => 'Picture_Order',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
     'meta_query' => [
         [
+
             'key' => 'Picture_Category', // ACF field name
             'value'   => 'Campus Life', // Category value to match
-            'compare' => '=' // Match posts with 'students still' in Picture_Category
+            'compare' => 'IN',
+        ],
+        [
+            'key' => 'Picture_Order',
+            'compare' => 'EXISTS'
         ],
     ],
 ]);
@@ -289,7 +323,7 @@ $events_albums = get_posts([
 // Group the posts by Album_Name
 // Group the posts by Album_Name
 $events_grouped = [];
-foreach ($events_albums as $album) {
+foreach ($events_albums->posts as $album) {
     $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
     if (!empty($album_name)) {
         $events_grouped[$album_name][] = $album;
