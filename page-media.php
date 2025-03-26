@@ -162,7 +162,6 @@ $events_albums = new WP_Query([
 ]);
 
 // Group the posts by Album_Name
-// Group the posts by Album_Name
 $events_grouped = [];
 foreach ($events_albums->posts as $album) {
     $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
@@ -230,7 +229,7 @@ $events_albums = new WP_Query([
 
             'key' => 'Picture_Category', // ACF field name
             'value'   => 'Student Stills', // Category value to match
-            'compare' => 'IN',
+            'compare' => '=',
         ],
         [
             'key' => 'Picture_Order',
@@ -292,7 +291,7 @@ if (!empty($events_grouped)) {
     }
 } else {
     // If no albums are found
-    echo "<p>No albums available for workshops.</p>";
+    echo "<p>No albums available for student stills.</p>";
 }
 ?>
  </div>
@@ -308,10 +307,9 @@ $events_albums = new WP_Query([
     'order' => 'ASC',
     'meta_query' => [
         [
-
-            'key' => 'Picture_Category', // ACF field name
+            'key' => 'Picture_Category',
             'value'   => 'Campus Life', // Category value to match
-            'compare' => 'IN',
+            'compare' => '=',
         ],
         [
             'key' => 'Picture_Order',
@@ -320,7 +318,6 @@ $events_albums = new WP_Query([
     ],
 ]);
 
-// Group the posts by Album_Name
 // Group the posts by Album_Name
 $events_grouped = [];
 foreach ($events_albums->posts as $album) {
@@ -371,7 +368,7 @@ if (!empty($events_grouped)) {
     }
 } else {
     // If no albums are found
-    echo "<p>No albums available for workshops.</p>";
+    echo "<p>No albums available for Campus Moments</p>";
 }
 ?>
  </div>
