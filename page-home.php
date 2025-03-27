@@ -513,7 +513,7 @@ else
 ?>">
                 <img alt="Still from Students' Films" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
                 <div class="img_caption">
-                    <p class="img-caption-text"><?php echo __('Still from Students\' Films', 'srft-theme'); ?></p>
+                    <p class="img-caption-text"><?php echo __('Beyond the Frame', 'srft-theme'); ?></p>
                 </div>
             </a>
         </div>

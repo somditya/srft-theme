@@ -44,7 +44,7 @@ $current_language = get_locale();
                     <input class="tab2" id="tab2" name="tabs" type="radio" >
                </div>
                 <div class="phototab">
-                    <label for="tab3"><?php echo __('Still from students film', 'srft-theme'); ?></label>
+                    <label for="tab3"><?php echo __('Beyond the Frame', 'srft-theme'); ?></label>
                     <input class="tab3" id="tab3" name="tabs" type="radio" >
                 </div>
             
