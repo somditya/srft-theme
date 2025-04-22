@@ -134,7 +134,7 @@ if ($current_language === 'en_US') {
 
 <div style="margin-top: 3.2rem;">
     <section class="faculty">
-    <h2 class="page-header-text" style="padding-left: 0;">
+    <h2 class="page-header-text" style="padding-left: 0; letter-spacing: 0.5rem;">
     <?php echo __('Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
         <div class="faculty-img">
             <ul>

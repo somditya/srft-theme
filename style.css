@@ -81,8 +81,19 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --top-header-color: #5d3e00;
+  --page-header-color: #5d3e00;
+  --hyper-link-color: #916100;
+  --primary-menu-hover-color: #916100;
+  --secondary-menu-hover-color: #916100;
+  --secondary-menu-active-color: #EBEAEA
+  --widget-background-color: #EBEAEA
+  --sub-intro-background-color: #EBEAEA
+}
+
 a {
-  color: #8b5b2b;
+  color: var(--hyper-link-color);
   text-decoration: none;
 }
 
@@ -5533,7 +5544,8 @@ div .spacer {
 .top_header {
   display: flex;
   align-items: center;
-  background-color: #8b5b2b;
+  /*background-color: #8b5b2b;*/
+  background-color: var(--top-header-color);
   min-height: 2.2px;
   width: 100%;
   padding: 5px;
@@ -5767,7 +5779,8 @@ header {
 }
 
 .dropdown-link:hover > a {
-  background-color: #8b5b2b;
+  /*background-color: #8b5b2b;*/
+  background-color: #916100;
   color: #fff;
 }
 
@@ -6535,7 +6548,8 @@ header {
 }
 
 .sub-intro-text {
-  background-color: rgb(243, 243, 243);
+  /*background-color: rgb(243, 243, 243);*/
+  background-color: var(--sub-intro-background-color);
   flex: 1 1 50%;
   max-width: 50%;
   padding: 16px 24px;
@@ -6774,7 +6788,8 @@ header {
 
 .widget {
   margin-top: 32px;
-  background-color: #eaeaea;
+  /*background-color: #eaeaea;*/
+  background-color: var(--widget-background-color);
   padding: 1.5rem 1.5rem;
 }
 
@@ -6937,8 +6952,9 @@ h4 {
   margin-top: 20px;
 
   margin-bottom: 1.4rem;
-  color: #8b5b2b;
-  color: #6c4713;
+  /*color: #8b5b2b;
+  color: #6c4713;*/
+  color: #5d3e00;
   font-size: 30px;
   font-size: 26px;
   font-weight: 400;
