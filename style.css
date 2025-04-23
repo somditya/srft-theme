@@ -87,9 +87,9 @@ html {
   --hyper-link-color: #916100;
   --primary-menu-hover-color: #916100;
   --secondary-menu-hover-color: #916100;
-  --secondary-menu-active-color: #EBEAEA
-  --widget-background-color: #EBEAEA
-  --sub-intro-background-color: #EBEAEA
+  --secondary-menu-active-color: #ebeaea;
+  --widget-background-color: #ebeaea;
+  --sub-intro-background-color: #ebeaea;
 }
 
 a {
