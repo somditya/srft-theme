@@ -4441,62 +4441,6 @@ header {
   pointer-events: auto;
 }
 
-.dropdown-link:hover > a {
-  /*background-color: #8b5b2b;*/
-  background-color: #916100;
-  color: #fff;
-}
-
-.dropdown-link:not(:nth-last-child(2)) {
-  border-bottom: 1px solid #efefef;
-}
-
-.dropdown-link i {
-  transform: rotate(-90deg);
-}
-
-.arrow {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  top: -5.5px;
-  left: 32px;
-  background-color: #8b5b2b;
-  transform: rotate(45deg);
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: -1;
-}
-
-.dropdown-link:first-child:hover ~ .arrow {
-  background-color: #8b5b2b;
-}
-
-.dropdown-link {
-  position: relative;
-  font-size: 26px;
-}
-
-.dropdown.second {
-  top: 0;
-  left: 100%;
-  padding-left: 0.8rem;
-  cursor: pointer;
-  transform: translateX(10px);
-}
-
-.dropdown.second .arrow {
-  top: 10px;
-  left: -5.5px;
-}
-
-.nav-link:hover > .dropdown,
-.dropdown-link:hover > .dropdown {
-  transform: translate(0, 0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .hamburger-menu-container {
   flex: 1;
   display: none;
