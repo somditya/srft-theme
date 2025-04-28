@@ -129,6 +129,11 @@ $(".static").owlCarousel({
       nav: true,
       loop: false,
     },
+    1000: {
+      items: 6,
+      nav: true,
+      loop: false,
+    },
   },
   autoplay: false,
   autoplayTimeout: 1500,
