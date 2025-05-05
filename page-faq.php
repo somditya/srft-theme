@@ -23,7 +23,6 @@ $post_id = get_the_ID();
     </div>
   </section>
 
-
   <section class="one-flex" style="margin-top: 5rem; margin-bottom: 10rem;">
     <div class="accordian">
       <ul>
