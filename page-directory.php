@@ -64,7 +64,7 @@ $current_language = get_locale();
                 ?>
             </div>
 
-            <section style="margin-bottom: 4rem;">
+            <div style="margin-bottom: 4rem;">
                 <?php
                 $departments = array(
                     'Office of the Director',
@@ -168,9 +168,7 @@ $current_language = get_locale();
                     }
                 }
                 ?>
-            </section>
-        </div> <!-- closes .main-content -->
-    </section> <!-- closes .cine-detail -->
-<!-- closes main -->
+           </div>
+              </section>
 
 <?php get_footer(); ?>
