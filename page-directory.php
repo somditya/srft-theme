@@ -51,7 +51,14 @@ $current_language = get_locale();
             </div>
 
             <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
-                <!-- Optional widget content -->
+            <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
+                        <ul>
+                          <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
+                          <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
+                          <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
+                          <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></li>
+                          <li><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></li>
+                        </ul>
             </div>
         </div>
 
@@ -76,7 +83,7 @@ $current_language = get_locale();
                     'Sound Recording & Design',
                     'Producing for Film & Television',
                     'Animation Cinema',
-                    'EDM Media Management',
+                    'EDM Management',
                     'Cinematography for EDM',
                     'Direction & Producing for EDM',
                     'Editing for EDM',
@@ -129,16 +136,15 @@ $current_language = get_locale();
                                 $roomno = get_field('Room-No');
                                 $epbxno = get_field('Epbx-No');                
                                 $email = get_field('Email-Id');
-                                $phone = get_field('Office-No');
+                                $phone = get_field('Office-Number');
                                 ?>
                                 <div class="Rtable-row">
-                                    <div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></div>
-                                    <div class="Rtable-cell name-cell"><div class="Rtable-cell--content"><?php the_title(); ?></div></div>
-                                    <div class="Rtable-cell designation-cell"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></div>
-                                    <div class="Rtable-cell email-cell"><div class="Rtable-cell--content"><?php echo esc_html($roomno); ?></div></div>
-                                    <div class="Rtable-cell phone-cell"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></div>
-                                    <div class="Rtable-cell phone-cell"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></div>
-                                    <div class="Rtable-cell phone-cell"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></div>
+                                    <!--div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></!--div>-->
+                                    <div class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php the_title(); ?></div></div>
+                                    <div class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></div>
+                                    <div class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></div>
+                                    <div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></div>
+                                    <div class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></div>
                                 </div>
                                 <?php
                             }
@@ -150,15 +156,15 @@ $current_language = get_locale();
 
                     if ($has_posts) {
                         echo '<h2>' . esc_html($department) . '</h2>';
-                        echo '<div class="Rtable Rtable--header">';
-                        echo '<div class="Rtable-row">';
-                        echo '<div class="Rtable-cell slno-cell"><strong>Sl. No.</strong></div>';
-                        echo '<div class="Rtable-cell name-cell"><strong>Name</strong></div>';
-                        echo '<div class="Rtable-cell designation-cell"><strong>Designation</strong></div>';
-                        echo '<div class="Rtable-cell email-cell"><strong>Room No.</strong></div>';
-                        echo '<div class="Rtable-cell phone-cell"><strong>Phone</strong></div>';
-                        echo '<div class="Rtable-cell phone-cell"><strong>EPBX</strong></div>';
-                        echo '<div class="Rtable-cell phone-cell"><strong>Email</strong></div>';
+                        echo '<div class="wrapper">';
+                        echo '<div class="Rtable Rtable--6cols Ratble--collapse">';
+                        echo '<div class="Rtable-row Rtable-row--head">';
+                        //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
+                        echo '<div class="Rtable-cell id-cell column-heading">Name</strong></div>';
+                        echo '<div class="Rtable-cell id-cell column-heading">Designation</div>';
+                        echo '<div class="Rtable-cell composition-cell column-heading">Phone</div>';
+                        echo '<div class="Rtable-cell slno-cell column-heading">EPBX</div>';
+                        echo '<div class="Rtable-cell composition-cell column-heading">Email</div>';
                         echo '</div>';
                         echo '</div>';
 
