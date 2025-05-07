@@ -110,7 +110,8 @@ lightbox.option({
 });
 
 $(".static").owlCarousel({
-  items: 4,
+  startPosition: 6,
+  items: 6,
   loop: true,
   margin: 10,
   responsiveClass: true,
@@ -125,6 +126,11 @@ $(".static").owlCarousel({
     },
     1000: {
       items: 4,
+      nav: true,
+      loop: false,
+    },
+    1000: {
+      items: 6,
       nav: true,
       loop: false,
     },
