@@ -299,6 +299,11 @@ $current_language = get_locale();
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
                     ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
+                    <li class="dropdown-link">
+                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/directory/'));}
+                    else { echo esc_url(site_url('/निर्देशिका/'));}
+                    ?>"><?php echo __('Directory', 'srft-theme' ); ?></a>
+                    </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
                 </div>
