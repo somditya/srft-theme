@@ -50,7 +50,7 @@ $current_language = get_locale();
                 ?>
             </div>
 
-            <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
+            <div class="widget" style="line-height: 1.5; margin-top: 3rem;">
             <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
                         <ul>
                           <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
@@ -71,39 +71,39 @@ $current_language = get_locale();
                 ?>
             </div>
 
-            <div style="margin-bottom: 4rem;">
+            <div style="margin-bottom: 6rem;">
                 <?php
                 $departments = array(
-                    'Office of the Director',
-                    'Office of the Dean',
-                    'Office of the Registrar',
-                    'Direction & Screenplay Writing',
-                    'Cinematography',
-                    'Editing',
-                    'Sound Recording & Design',
-                    'Producing for Film & Television',
-                    'Animation Cinema',
-                    'EDM Management',
-                    'Cinematography for EDM',
-                    'Direction & Producing for EDM',
-                    'Editing for EDM',
-                    'Sound for EDM',
-                    'Writing for EDM',
-                    'Library',
-                    'Tutorial',
-                    'Film Library & Auditorium',
-                    'Information Technology',
-                    'Administration',
-                    'Accounts',
-                    'Purchase & Store',
-                    'Maintennace',
-                    'Hostel',
-                    'Guest House',
-                    'Security',
-                    'Reception & Information',
-                    'Medical',
-                    'Other Facilities',
-                );
+                    'Office of the Director' => __('Office of the Director', 'srft-theme'),
+                    'Office of the Dean' => __('Office of the Dean', 'srft-theme'),
+                    'Office of the Registrar' => __('Office of the Registrar', 'srft-theme'),
+                    'Direction & Screenplay Writing' => __('Direction & Screenplay Writing', 'srft-theme'),
+                    'Cinematography' => __('Cinematography', 'srft-theme'),
+                    'Editing' => __('Editing', 'srft-theme'),
+                    'Sound Recording & Design' => __('Sound Recording & Design', 'srft-theme'),
+                    'Producing for Film & Television' => __('Producing for Film & Television', 'srft-theme'),
+                    'Animation Cinema' => __('Animation Cinema', 'srft-theme'),
+                    'EDM Management' => __('EDM Management', 'srft-theme'),
+                    'Cinematography for EDM' => __('Cinematography for EDM', 'srft-theme'),
+                    'Direction & Producing for EDM' => __('Direction & Producing for EDM', 'srft-theme'),
+                    'Editing for EDM' => __('Editing for EDM', 'srft-theme'),
+                    'Sound for EDM' => __('Sound for EDM', 'srft-theme'),
+                    'Writing for EDM' => __('Writing for EDM', 'srft-theme'),
+                    'Library' => __('Library', 'srft-theme'),
+                    'Tutorial' => __('Tutorial', 'srft-theme'),
+                    'Film Library & Auditorium' => __('Film Library & Auditorium', 'srft-theme'),
+                    'Information Technology' => __('Information Technology', 'srft-theme'),
+                    'Administration' => __('Administration', 'srft-theme'),
+                    'Accounts' => __('Accounts', 'srft-theme'),
+                    'Purchase & Store' => __('Purchase & Store', 'srft-theme'),
+                    'Maintenance' => __('Maintenance', 'srft-theme'),
+                    'Hostel' => __('Hostel', 'srft-theme'),
+                    'Guest House' => __('Guest House', 'srft-theme'),
+                    'Security' => __('Security', 'srft-theme'),
+                    'Reception & Information' => __('Reception & Information', 'srft-theme'),
+                    'Medical' => __('Medical', 'srft-theme'),
+                    'Other Facilities' => __('Other Facilities', 'srft-theme'),
+                );                
 
                 $post_types = array('faculty', 'nonfaculty');
 
@@ -160,11 +160,11 @@ $current_language = get_locale();
                         echo '<div class="Rtable Rtable--6cols Ratble--collapse">';
                         echo '<div class="Rtable-row Rtable-row--head">';
                         //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
-                        echo '<div class="Rtable-cell id-cell column-heading">Name</strong></div>';
-                        echo '<div class="Rtable-cell id-cell column-heading">Designation</div>';
-                        echo '<div class="Rtable-cell composition-cell column-heading">Phone</div>';
-                        echo '<div class="Rtable-cell slno-cell column-heading">EPBX</div>';
-                        echo '<div class="Rtable-cell composition-cell column-heading">Email</div>';
+                        echo '<div class="Rtable-cell id-cell column-heading">' . __('No. of students', 'srft-theme') . '</div>';
+                        echo '<div class="Rtable-cell id-cell column-heading">'. __('Designation', 'srft-theme') . '</div>';
+                        echo '<div class="Rtable-cell composition-cell column-heading">'. __('Phone', 'srft-theme') . '</div>';
+                        echo '<div class="Rtable-cell slno-cell column-heading">'. __('EPBX', 'srft-theme') . '</div>';
+                        echo '<div class="Rtable-cell composition-cell column-heading">'. __('Email', 'srft-theme') . '</div>';
                         echo '</div>';
                         echo '</div>';
 
