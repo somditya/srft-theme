@@ -71,6 +71,10 @@ $current_language = get_locale();
                 ?>
             </div>
 
+            <div>
+                <h2 class="page-header-text" style="margin-top: 2rem;"><?php echo __('Directory', 'srft-theme'); ?></h2>
+            </div>
+
             <div style="margin-bottom: 6rem;">
                 <?php
                 $departments = array(
@@ -160,7 +164,7 @@ $current_language = get_locale();
                         echo '<div class="Rtable Rtable--6cols Ratble--collapse">';
                         echo '<div class="Rtable-row Rtable-row--head">';
                         //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
-                        echo '<div class="Rtable-cell id-cell column-heading">' . __('No. of students', 'srft-theme') . '</div>';
+                        echo '<div class="Rtable-cell id-cell column-heading">' . __('Name', 'srft-theme') . '</div>';
                         echo '<div class="Rtable-cell id-cell column-heading">'. __('Designation', 'srft-theme') . '</div>';
                         echo '<div class="Rtable-cell composition-cell column-heading">'. __('Phone', 'srft-theme') . '</div>';
                         echo '<div class="Rtable-cell slno-cell column-heading">'. __('EPBX', 'srft-theme') . '</div>';
