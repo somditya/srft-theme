@@ -32,7 +32,7 @@ $category_id = get_category_ID($category_name);
 
     
     <section id="skip-to-content" class="section-home">
-      <div class="container" style="width: 1170px;">
+      <div class="container">
       <div>      
         <?php
             if ( function_exists('yoast_breadcrumb') ) {
