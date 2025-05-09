@@ -197,10 +197,16 @@ $current_language = get_locale();
 
 </li>
 
-             <li style="padding: 0 5px; display: flex; align-items: center; line-height: 1; margin: 0;"><a href="#skip-to-content" title="Skip to Main Content"><span class="skp-to-main"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 64 64" fill="none" style="display: flex; justify-content: center;">
-						<path d="M57 10H14.5C13.1739 10 11.9021 10.5268 10.9645 11.4645C10.0268 12.4021 9.5 13.6739 9.5 15V25H14.5V15H57V50H14.5V40H9.5V50C9.5 51.3261 10.0268 52.5979 10.9645 53.5355C11.9021 54.4732 13.1739 55 14.5 55H57C58.3261 55 59.5979 54.4732 60.5355 53.5355C61.4732 52.5979 62 51.3261 62 50V15C62 13.6739 61.4732 12.4021 60.5355 11.4645C59.5979 10.5268 58.3261 10 57 10ZM19.5 40V35H2V30H19.5V25L29.5 32.5L19.5 40ZM52 35H34.5V30H52V35ZM52 25H34.5V20H52V25ZM44.5 45H34.5V40H44.5V45Z" fill="#ffffff"></path>
-						</svg></span>
-             <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content icon"></a>
+             <li style="padding: 0 5px; display: flex; align-items: center; line-height: 1; margin: 0;">
+             <a href="#skip-to-content" title="Skip to Main Content" aria-label="Skip to main content">
+  <span class="skp-to-main" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 64 64" fill="none" style="display: flex; justify-content: center;">
+      <path d="M57 10H14.5C13.1739 10 11.9021 10.5268 10.9645 11.4645C10.0268 12.4021 9.5 13.6739 9.5 15V25H14.5V15H57V50H14.5V40H9.5V50C9.5 51.3261 10.0268 52.5979 10.9645 53.5355C11.9021 54.4732 13.1739 55 14.5 55H57C58.3261 55 59.5979 54.4732 60.5355 53.5355C61.4732 52.5979 62 51.3261 62 50V15C62 13.6739 61.4732 12.4021 60.5355 11.4645C59.5979 10.5268 58.3261 10 57 10ZM19.5 40V35H2V30H19.5V25L29.5 32.5L19.5 40ZM52 35H34.5V30H52V35ZM52 25H34.5V20H52V25ZM44.5 45H34.5V40H44.5V45Z" fill="#ffffff"></path>
+    </svg>
+  </span>
+  <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content">
+</a>
+
           
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
              <li><button title="Accessibility options" id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
