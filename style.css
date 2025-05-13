@@ -203,12 +203,10 @@ body.dark-mode nav div {
 }
 
 /* Main content area */
-body.dark-mode main,
-body.dark-mode main div {
-  background-color: #000 !important; /* Dark background for main content area and its children */
-  color: #eee !important; /* Light text color in main content area */
+body.dark-mode main div:not(.cine-header):not(.page-banner) {
+  background-color: #000 !important;
+  color: #eee !important;
 }
-
 /* Hyperlink styles in dark mode */
 body.dark-mode a {
   color: yellow !important; /* Yellow text color for hyperlinks */
@@ -256,6 +254,39 @@ body.dark-mode #accessibility-menu h4 {
   color: #eee !important;
 }
 
+body.dark-mode h4 {
+  color: #eee !important;
+  border-bottom: 1px solid #ffffff;
+}
+
+body.dark-mode h3:not(.footer_sub h3) {
+  color: #eee !important;
+  border-bottom: 2px solid #ffffff;
+}
+
+body.dark-mode .Rtable-row {
+  color: #eee !important;
+  border-top: 2px solid #fff;
+}
+
+body.dark-mode .accordian,
+body.dark-mode .accordian ul,
+body.dark-mode .accordian li {
+  background-color: #000 !important; /* Black background */
+  color: #fff !important; /* White text */
+}
+
+body.dark-mode .accordian p,
+body.dark-mode .accordian h2 {
+  background-color: transparent !important; /* Make sure inner blocks don't override */
+  color: #fff !important; /* White text */
+}
+
+body.dark-mode .accordian ul li i:before,
+body.dark-mode .accordian ul li i:after {
+  background-color: #fff !important; /* White bars for dark mode */
+}
+
 body.dark-mode #accessibility-menu button {
   background: none;
   border: none;
@@ -275,6 +306,10 @@ body.dark-mode .news-item-title h3 {
 
 body.dark-mode .news-item p {
   color: #eee;
+}
+
+body.dark-mode .childnav-list-item.active {
+  background-color: #333;
 }
 
 /* Ensure text color changes are applied globally */
@@ -5439,16 +5474,15 @@ header {
   border-bottom: 2px solid #6d2f6a;
 }
 
-h4 {
+/* h4 {
   font-weight: 400;
   font-size: 1.2em;
-  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
   color: #6c4713;
   font-style: normal;
   border-bottom: 1px solid #6c4713;
-}
+} */
 
 .faculty {
   /*background-color: #350e20;*/
