@@ -71,7 +71,7 @@ $current_language = get_locale();
      <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
         <div class="childnav-lists">
             <ul class="submenu">
-          <li class="childnav-list-item"><a class="item" href="http://192.168.1.101/" target="_blank"  title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
+          <li class="childnav-list-item"><a class="item" href="https://opac.srfti.ac.in/" target="_blank"  title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank"  title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank"  title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
         </ul>
