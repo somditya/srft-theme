@@ -135,7 +135,7 @@ $category_id = get_category_ID($category_name);
     $scope.documentList = response.data.filter(function (post) {
     // Filter for specific categories
     return post.acf['document-category'] && 
-           (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students');
+           (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students' || post.acf['document-category'] === 'कर्मचारी' || post.acf['document-category'] === 'छात्र' );
   }).map(function (post) {
       return {
         title: post.title.rendered || '',
