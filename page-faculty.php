@@ -34,7 +34,8 @@ $category_id = get_category_ID($category_name);
       </section>
 
       <section class="section-home">
-        <div class="container">
+        <div class="container" style="padding: 0 3.2rem
+32px;">
         <div>      
         <?php
             if ( function_exists('yoast_breadcrumb') ) {
