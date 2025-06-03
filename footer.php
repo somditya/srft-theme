@@ -311,7 +311,7 @@ $current_language = get_locale();
   });
 </script>
 
-<!--<?php wp_footer(); ?>-->
+<?php wp_footer(); ?>
 
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
 </main>
