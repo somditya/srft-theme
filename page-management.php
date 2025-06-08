@@ -117,7 +117,7 @@ $current_language = get_locale();
           yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
         }
         ?>
-        </div>
+    </div>
             <div>
                 <p class="page-header-text"><?php echo __('Administrative Structure', 'srft-theme'); ?></p>
             </div>  
