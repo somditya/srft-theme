@@ -2,455 +2,143 @@
 /*
 Template Name: Media
 */
-get_header(); 
+get_header();
+
 $post_id = get_the_ID();
-$page_content = apply_filters('the_content', $post->post_content);
-$current_language = get_locale();
 ?>
 
 <main>
-    <!-- Add an image section with the featured image -->
-    <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+    <!-- Banner -->
+    <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Media Gallery', 'srft-theme'); ?></h2>
-        </div>  
+            <h2 class="page-banner-title"><?php _e('Media Gallery', 'srft-theme'); ?></h2>
+        </div>
     </section>
-<section class="cine-detail">
-    <div class="main-content" style="width: 100%;">
-    <!-- Content area -->
-        <div>      
-            <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-            }
-            ?>
-        </div>
-        <div class="page-title">
-            <div>
-                <h2 class="page-header-text"><?php echo esc_html($post->post_title); ?></h2>
+
+    <section class="cine-detail">
+        <div class="main-content" style="width: 100%;">
+
+            <!-- Breadcrumb -->
+            <div><?php if (function_exists('yoast_breadcrumb')) yoast_breadcrumb('<p id="breadcrumbs">', '</p>'); ?></div>
+
+            <!-- Title -->
+            <div class="page-title">
+                <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
             </div>
+
+            <!-- Tabs -->
+            <section class="section-home">
+                <div class="phototabs">
+                    <?php
+                    $tabs = [
+                        'tab1' => __('Events & Festivals', 'srft-theme'),
+                        'tab2' => __('Workshops & Masterclasses', 'srft-theme'),
+                        'tab3' => __('Beyond the Frame', 'srft-theme'),
+                        'tab4' => __('Campus Moments', 'srft-theme'),
+                        'tab5' => __('SRFTI in News', 'srft-theme'),
+                    ];
+                    $i = 0;
+                    foreach ($tabs as $id => $label) {
+                        echo '<div class="phototab">';
+                        echo '<label for="' . esc_attr($id) . '">' . esc_html($label) . '</label>';
+                        echo '<input id="' . esc_attr($id) . '" name="tabs" type="radio"' . ($i === 0 ? ' checked' : '') . '>';
+                        echo '</div>';
+                        $i++;
+                    }
+                    ?>
+                </div>
+
+                <?php
+                $categories_map = [
+                    'tab-content1' => ['Convocation', 'Event', 'Festival'],
+                    'tab-content2' => ['Workshops', 'Masterclass', 'Seminars'],
+                    'tab-content3' => ['Student Stills'],
+                    'tab-content4' => ['Campus Life'],
+                    'tab-content5' => ['News'],
+                ];
+
+                function render_album_content($categories, $empty_msg) {
+                    // Step 1: Get all relevant pictures
+                    $query = new WP_Query([
+                        'post_type' => 'picture',
+                        'posts_per_page' => -1,
+                        'meta_query' => [
+                            [
+                                'key' => 'Picture_Category',
+                                'value' => $categories,
+                                'compare' => is_array($categories) ? 'IN' : '='
+                            ]
+                        ],
+                    ]);
+
+                    // Step 2: Group by Album_Name
+                    $grouped = [];
+                    foreach ($query->posts as $post) {
+                        $album_name = get_post_meta($post->ID, 'Album_Name', true);
+                        $picture_order = intval(get_post_meta($post->ID, 'Picture_Order', true));
+                        if ($album_name) {
+                            $grouped[$album_name][] = [
+                                'post' => $post,
+                                'order' => $picture_order
+                            ];
+                        }
+                    }
+
+                    if (!empty($grouped)) {
+                        // Step 3: Sort images within each album by Picture_Order ASC
+                        foreach ($grouped as $album => &$items) {
+                            usort($items, fn($a, $b) => $a['order'] <=> $b['order']);
+                        }
+                        unset($items);
+
+                        // Step 4: Sort albums by latest post date DESC
+                        uasort($grouped, function ($a, $b) {
+                            return strtotime($b[0]['post']->post_date) - strtotime($a[0]['post']->post_date);
+                        });
+
+                        // Step 5: Output albums
+                        foreach ($grouped as $album_name => $images) {
+                            $cover = $images[0]['post'];
+                            $cover_url = get_field('Picture_File', $cover->ID);
+
+                            echo "<div class='album-container'>";
+                            echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
+                            echo '<a href="' . esc_url($cover_url) . '" data-lightbox="' . esc_attr(sanitize_title($album_name)) . '" data-title="' . esc_attr($cover->post_title) . '">';
+                            echo '<img src="' . esc_url($cover_url) . '" alt="' . esc_attr($album_name) . '" class="gallery-image">';
+                            echo '</a>';
+
+                            foreach ($images as $item) {
+                                $img = $item['post'];
+                                if ($img->ID !== $cover->ID) {
+                                    $img_url = get_field('Picture_File', $img->ID);
+                                    echo '<a href="' . esc_url($img_url) . '" data-lightbox="' . esc_attr(sanitize_title($album_name)) . '" data-title="' . esc_attr($img->post_title) . '"></a>';
+                                }
+                            }
+
+                            echo "</div>";
+                        }
+                    } else {
+                        echo '<p>' . esc_html($empty_msg) . '</p>';
+                    }
+                }
+
+                foreach ($categories_map as $tab_class => $categories) {
+                    echo '<div class="tab-content ' . esc_attr($tab_class) . '">';
+                    $empty_message = match ($tab_class) {
+                        'tab-content1' => 'No albums available for Events & Festivals.',
+                        'tab-content2' => 'No albums available for Workshops & Masterclasses.',
+                        'tab-content3' => 'No albums available for Beyond the Frame.',
+                        'tab-content4' => 'No albums available for Campus Moments.',
+                        'tab-content5' => 'No albums available for News.',
+                        default => 'No albums available.',
+                    };
+                    render_album_content($categories, $empty_message);
+                    echo '</div>';
+                }
+                ?>
+            </section>
         </div>
-
-        <section class="section-home">
-           <!-- Tab Navigation -->
-  <div class="phototabs">
-    <div class="phototab">
-                    <label for="tab1"><?php echo __('Events & Festivals', 'srft-theme'); ?></label>
-                    <input class="tab1" id="tab1" name="tabs" type="radio" checked>
-    </div>
-                <!-- Tab: Events & Festivals -->
-                <div class="phototab">
-                    <label for="tab2"><?php echo __('Workshops & Masterclasses', 'srft-theme'); ?></label>
-                    <input class="tab2" id="tab2" name="tabs" type="radio" >
-               </div>
-                <div class="phototab">
-                    <label for="tab3"><?php echo __('Beyond the Frame', 'srft-theme'); ?></label>
-                    <input class="tab3" id="tab3" name="tabs" type="radio" >
-                </div>
-            
-                <!-- Tab: Events & Festivals -->
-                <div class="phototab">
-                    <label for="tab4"><?php echo __('Campus Moments', 'srft-theme'); ?></label>
-                    <input id="tab4"  name="tabs" type="radio" >
-                </div>
-                <div class="phototab">
-                    <label for="tab5"><?php echo __(' SRFTI in News', 'srft-theme'); ?></label>
-                    <input id="tab5" name="tabs" type="radio">
-                </div>
-             </div>
-<div class="tab-content tab-content1">
-                    <?php
-// Query all workshop albums
-$events_albums = new WP_Query([
-    'post_type' => 'picture',
-    'posts_per_page' => -1,
-    'meta_key' => 'Picture_Order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-    'meta_query' => [
-        [
-
-            'key' => 'Picture_Category', // ACF field name
-            'value' => array('Convocation', 'Event', 'Festival'),
-            'compare' => 'IN', // Match posts with 'workshop' in Picture_Category
-        ],
-        [
-            'key' => 'Picture_Order',
-            'compare' => 'EXISTS'
-        ],
-
-    ],
-]);
-
-// Group the posts by Album_Name
-// Group the posts by Album_Name
-$events_grouped = [];
-foreach ($events_albums->posts as $album) {
-    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
-    if (!empty($album_name)) {
-        $events_grouped[$album_name][] = $album;
-    }
-}
-
-
-// Check if there are any albums to display
-if (!empty($events_grouped)) {
-    foreach ($events_grouped as $album_name => $images) {
-        // Use the first image of the album as the representative image
-        $representative_image = $images[0];
-        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
-
-        
-        echo "<div class='album-container'>";
-        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-        // Display the representative image
-        ?>
-        <a href="<?php echo esc_url($representative_image_url); ?>" 
-           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
-            <img src="<?php echo esc_url($representative_image_url); ?>" 
-                 alt="<?php echo esc_attr($album_name); ?>" 
-                class="gallery-image">
-        </a>
-        <?php
-
-        // Add all images in the album to the Lightbox group (hidden links)
-        foreach ($images as $image) {
-          if ($image->ID !== $representative_image->ID) {
-              // Get the file URL from ACF's 'picture_file' field for each image
-              $image_url = get_field('Picture_File', $image->ID);
-              // Get the thumbnail URL for other images
-              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
-              ?>
-              <a href="<?php echo esc_url($image_url); ?>" 
-                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-                 data-title="<?php echo esc_attr($image->post_title); ?>" 
-                 ></a>
-              <?php
-          }
-      }
-
-        echo "</div>";
-    }
-} else {
-    // If no albums are found
-    echo "<p>No albums available for workshops.</p>";
-}
-?>
-                    </div>
-
-<div class="tab-content tab-content2">
-                    <?php
-// Query all workshop albums
-$events_albums = new WP_Query([
-    'post_type' => 'picture',
-    'posts_per_page' => -1,
-    'meta_key' => 'Picture_Order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-    'meta_query' => [
-        [
-            'key' => 'Picture_Category',
-            'value' => ['Workshops', 'Masterclass', 'Seminars'],
-            'compare' => 'IN',
-        ],
-        [
-            'key' => 'Picture_Order',
-            'compare' => 'EXISTS'
-        ],
-    ],
-]);
-
-// Group the posts by Album_Name
-$events_grouped = [];
-foreach ($events_albums->posts as $album) {
-    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
-    if (!empty($album_name)) {
-        $events_grouped[$album_name][] = $album;
-    }
-}
-// Check if there are any albums to display
-if (!empty($events_grouped)) {
-    foreach ($events_grouped as $album_name => $images) {
-        // Use the first image of the album as the representative image
-        $representative_image = $images[0];
-        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
-
-        
-        echo "<div class='album-container'>";
-        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-        // Display the representative image
-        ?>
-        <a href="<?php echo esc_url($representative_image_url); ?>" 
-           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
-            <img src="<?php echo esc_url($representative_image_url); ?>" 
-                 alt="<?php echo esc_attr($album_name); ?>" 
-                class="gallery-image">
-        </a>
-        <?php
-
-        // Add all images in the album to the Lightbox group (hidden links)
-        foreach ($images as $image) {
-          if ($image->ID !== $representative_image->ID) {
-              // Get the file URL from ACF's 'picture_file' field for each image
-              $image_url = get_field('Picture_File', $image->ID);
-              // Get the thumbnail URL for other images
-              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
-              ?>
-              <a href="<?php echo esc_url($image_url); ?>" 
-                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-                 data-title="<?php echo esc_attr($image->post_title); ?>" 
-                 ></a>
-              <?php
-          }
-      }
-
-        echo "</div>";
-    }
-} else {
-    // If no albums are found
-    echo "<p>No albums available for workshops.</p>";
-}
-?>
- </div>
-
-<div class="tab-content tab-content3">
-                    <?php
-// Query all workshop albums
-$events_albums = new WP_Query([
-    'post_type' => 'picture',
-    'posts_per_page' => -1,
-    'meta_key' => 'Picture_Order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-    'meta_query' => [
-        [
-
-            'key' => 'Picture_Category', // ACF field name
-            'value'   => 'Student Stills', // Category value to match
-            'compare' => '=',
-        ],
-        [
-            'key' => 'Picture_Order',
-            'compare' => 'EXISTS'
-        ],
-    ],
-]);
-
-// Group the posts by Album_Name
-// Group the posts by Album_Name
-$events_grouped = [];
-foreach ($events_albums->posts as $album) {
-    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
-    if (!empty($album_name)) {
-        $events_grouped[$album_name][] = $album;
-    }
-}
-
-
-
-// Check if there are any albums to display
-if (!empty($events_grouped)) {
-    foreach ($events_grouped as $album_name => $images) {
-        // Use the first image of the album as the representative image
-        $representative_image = $images[0];
-        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
-
-        
-        echo "<div class='album-container'>";
-        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-        // Display the representative image
-        ?>
-        <a href="<?php echo esc_url($representative_image_url); ?>" 
-           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
-            <img src="<?php echo esc_url($representative_image_url); ?>" 
-                 alt="<?php echo esc_attr($album_name); ?>" 
-                class="gallery-image">
-        </a>
-        <?php
-
-        // Add all images in the album to the Lightbox group (hidden links)
-        foreach ($images as $image) {
-          if ($image->ID !== $representative_image->ID) {
-              // Get the file URL from ACF's 'picture_file' field for each image
-              $image_url = get_field('Picture_File', $image->ID);
-              // Get the thumbnail URL for other images
-              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
-              ?>
-              <a href="<?php echo esc_url($image_url); ?>" 
-                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-                 data-title="<?php echo esc_attr($image->post_title); ?>" 
-                 ></a>
-              <?php
-          }
-      }
-
-        echo "</div>";
-    }
-} else {
-    // If no albums are found
-    echo "<p>No albums available for student stills.</p>";
-}
-?>
- </div>
-
- <div class="tab-content tab-content4">
-                    <?php
-// Query all workshop albums
-$events_albums = new WP_Query([
-    'post_type' => 'picture',
-    'posts_per_page' => -1,
-    'meta_key' => 'Picture_Order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-    'meta_query' => [
-        [
-            'key' => 'Picture_Category',
-            'value'   => 'Campus Life', // Category value to match
-            'compare' => '=',
-        ],
-        [
-            'key' => 'Picture_Order',
-            'compare' => 'EXISTS'
-        ],
-    ],
-]);
-
-// Group the posts by Album_Name
-$events_grouped = [];
-foreach ($events_albums->posts as $album) {
-    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
-    if (!empty($album_name)) {
-        $events_grouped[$album_name][] = $album;
-    }
-}
-
-// Check if there are any albums to display
-if (!empty($events_grouped)) {
-    foreach ($events_grouped as $album_name => $images) {
-        // Use the first image of the album as the representative image
-        $representative_image = $images[0];
-        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
-
-        
-        echo "<div class='album-container'>";
-        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-        // Display the representative image
-        ?>
-        <a href="<?php echo esc_url($representative_image_url); ?>" 
-           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
-            <img src="<?php echo esc_url($representative_image_url); ?>" 
-                 alt="<?php echo esc_attr($album_name); ?>" 
-                class="gallery-image">
-        </a>
-        <?php
-
-        // Add all images in the album to the Lightbox group (hidden links)
-        foreach ($images as $image) {
-          if ($image->ID !== $representative_image->ID) {
-              // Get the file URL from ACF's 'picture_file' field for each image
-              $image_url = get_field('Picture_File', $image->ID);
-              // Get the thumbnail URL for other images
-              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
-              ?>
-              <a href="<?php echo esc_url($image_url); ?>" 
-                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-                 data-title="<?php echo esc_attr($image->post_title); ?>" 
-                 ></a>
-              <?php
-          }
-      }
-
-        echo "</div>";
-    }
-} else {
-    // If no albums are found
-    echo "<p>No albums available for Campus Moments</p>";
-}
-?>
- </div>
- <div class="tab-content tab-content5">
-                    <?php
-// Query all workshop albums
-$events_albums = new WP_Query([
-    'post_type' => 'picture',
-    'posts_per_page' => -1,
-    'meta_key' => 'Picture_Order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-    'meta_query' => [
-        [
-            'key' => 'Picture_Category',
-            'value'   => 'News', // Category value to match
-            'compare' => '=',
-        ],
-        [
-            'key' => 'Picture_Order',
-            'compare' => 'EXISTS'
-        ],
-    ],
-]);
-
-// Group the posts by Album_Name
-$events_grouped = [];
-foreach ($events_albums->posts as $album) {
-    $album_name = get_post_meta($album->ID, 'Album_Name', true); // Fetch Album_Name
-    if (!empty($album_name)) {
-        $events_grouped[$album_name][] = $album;
-    }
-}
-
-// Check if there are any albums to display
-if (!empty($events_grouped)) {
-    foreach ($events_grouped as $album_name => $images) {
-        // Use the first image of the album as the representative image
-        $representative_image = $images[0];
-        $representative_image_url = get_field('Picture_File', $representative_image->ID); // Assuming picture_file returns the URL
-
-        
-        echo "<div class='album-container'>";
-        echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-        // Display the representative image
-        ?>
-        <a href="<?php echo esc_url($representative_image_url); ?>" 
-           data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-           data-title="<?php echo esc_attr($representative_image->post_title); ?>">
-            <img src="<?php echo esc_url($representative_image_url); ?>" 
-                 alt="<?php echo esc_attr($album_name); ?>" 
-                class="gallery-image">
-        </a>
-        <?php
-
-        // Add all images in the album to the Lightbox group (hidden links)
-        foreach ($images as $image) {
-          if ($image->ID !== $representative_image->ID) {
-              // Get the file URL from ACF's 'picture_file' field for each image
-              $image_url = get_field('Picture_File', $image->ID);
-              // Get the thumbnail URL for other images
-              //$image_thumbnail_url = wp_get_attachment_image_url(get_field('picture_file', $image->ID), 'thumbnail');
-              ?>
-              <a href="<?php echo esc_url($image_url); ?>" 
-                 data-lightbox="<?php echo esc_attr(sanitize_title($album_name)); ?>" 
-                 data-title="<?php echo esc_attr($image->post_title); ?>" 
-                 ></a>
-              <?php
-          }
-      }
-
-        echo "</div>";
-    }
-} else {
-    // If no albums are found
-    echo "<p>No albums available for News</p>";
-}
-?>
- </div>
-
-        </section>
-</div>
-</section>
+    </section>
+</main>
 
 <?php get_footer(); ?>
