@@ -996,6 +996,9 @@ div .spacer {
 }
 */
 
+.home-slider {
+  margin-top: 60px; /* Matches sticky header height */
+}
 .home-slider .swiper-slide {
   min-height: 95vh;
   position: relative;
@@ -4395,7 +4398,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   align-items: center;
   /*background-color: #8b5b2b;*/
   background-color: var(--top-header-color);
-  min-height: 2.2px;
+  min-height: 50px;
   width: 100%;
   padding: 5px;
   justify-content: flex-end;
