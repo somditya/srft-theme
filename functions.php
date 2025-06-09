@@ -942,67 +942,77 @@ add_action('init', 'custom_post_type_news');*/
 
 add_filter('wpseo_breadcrumb_links', 'custom_menu_based_breadcrumbs');
 
-
 function custom_menu_based_breadcrumbs($links) {
-	$menu_locations = ['primary', 'footer']; // Menu locations to check
-	$menu_locations_array = get_nav_menu_locations();
-	$current_id = get_the_ID();
-	$custom_breadcrumbs = array();
+    $menu_locations = ['primary', 'footer'];
+    $menu_locations_array = get_nav_menu_locations();
+    $current_id = get_the_ID();
+    $custom_breadcrumbs = [];
 
-	// Loop through menu locations to find the current page
-	foreach ($menu_locations as $menu_location) {
-			if (!isset($menu_locations_array[$menu_location])) {
-					continue; // Skip if menu location is not set
-			}
+    // Update the home label based on locale
+    $home_text = (get_locale() === 'hi_IN') ? 'घर' : $links[0]['text'];
+    $links[0]['text'] = $home_text;
 
-			$menu_id = $menu_locations_array[$menu_location];
-			$menu_items = wp_get_nav_menu_items($menu_id);
+    foreach ($menu_locations as $menu_location) {
+        if (!isset($menu_locations_array[$menu_location])) {
+            continue;
+        }
 
-			if (!$menu_items) {
-					continue; // Skip if menu has no items
-			}
+        $menu_id = $menu_locations_array[$menu_location];
+        $menu_items = wp_get_nav_menu_items($menu_id);
 
-			foreach ($menu_items as $menu_item) {
-					if ($menu_item->object_id == $current_id || in_array($current_id, get_post_ancestors($menu_item->object_id))) {
-							// Add ancestors and current menu item to breadcrumbs
-							$ancestor_items = get_menu_ancestors_excluding_links($menu_item, $menu_items);
-							$custom_breadcrumbs = array_merge($custom_breadcrumbs, $ancestor_items);
+        if (!$menu_items) continue;
 
-							$custom_breadcrumbs[] = array(
-									'url' => is_custom_link($menu_item) ? '' : $menu_item->url, // No hyperlink for custom links
-									'text' => $menu_item->title,
-							);
-							break 2; // Stop searching in other menus once a match is found
-					}
-			}
-	}
+        // Build lookup for menu items
+        $menu_items_by_id = [];
+        foreach ($menu_items as $item) {
+            $menu_items_by_id[$item->ID] = $item;
+        }
 
-	// Check if it's a Faculty post and add the "Faculty" archive link
-	if (get_post_type() === 'faculty') {
-    // Get the "Faculty" page link instead of an archive link
-    $faculty_page = get_page_by_path('faculty'); 
-    if ($faculty_page) {
-        $faculty_archive_link = get_permalink($faculty_page);
-    } else {
-        $faculty_archive_link = site_url('/faculty/'); // Fallback
+        // Find matching menu item
+        foreach ($menu_items as $menu_item) {
+            if ((int)$menu_item->object_id === $current_id) {
+                // Recurse up menu parents
+                $breadcrumb_stack = [];
+
+                $current_menu_item = $menu_item;
+                while ($current_menu_item && $current_menu_item->menu_item_parent != 0) {
+                    $parent = $menu_items_by_id[$current_menu_item->menu_item_parent];
+                    array_unshift($breadcrumb_stack, [
+                        'url' => $parent->url,
+                        'text' => $parent->title,
+                    ]);
+                    $current_menu_item = $parent;
+                }
+
+                // Add current item
+                $breadcrumb_stack[] = [
+                    'url' => '',
+                    'text' => $menu_item->title,
+                ];
+
+                $custom_breadcrumbs = array_merge($custom_breadcrumbs, $breadcrumb_stack);
+                break 2;
+            }
+        }
     }
 
-    array_unshift($custom_breadcrumbs, array(
-        'url' => $faculty_archive_link,
-        'text' => 'Faculty',
-    ));
+    // Handle custom post type "faculty"
+    if (get_post_type() === 'faculty') {
+        $faculty_page = get_page_by_path('faculty'); 
+        $faculty_archive_link = $faculty_page ? get_permalink($faculty_page) : site_url('/faculty/');
+        array_unshift($custom_breadcrumbs, [
+            'url' => $faculty_archive_link,
+            'text' => (get_locale() === 'hi_IN') ? 'प्रशिक्षक' : 'Faculty',
+        ]);
+    }
 
-    $custom_breadcrumbs[] = array(
-        'url' => get_permalink($current_id),
-        'text' => get_the_title($current_id),
-    );
+    // Prepend home
+    array_unshift($custom_breadcrumbs, $links[0]);
+
+    return $custom_breadcrumbs;
 }
 
-	// Prepend the default breadcrumbs (Home link)
-	array_unshift($custom_breadcrumbs, $links[0]);
 
-	return $custom_breadcrumbs;
-}
 
 function get_menu_ancestors_excluding_links($menu_item, $menu_items) {
 	$ancestors = array();

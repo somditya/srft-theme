@@ -5,7 +5,6 @@ Template Name: Management
 get_header(); 
 $post_id = get_the_ID();
 $page_content = apply_filters('the_content', $post->post_content);
-$current_language = get_locale();
 ?>
 
 <main>
