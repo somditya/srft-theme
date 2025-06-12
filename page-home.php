@@ -280,7 +280,7 @@ else
     </div>
     <div class="course-text">
       <div class="course-highlight">
-        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/post-graduate-programme-in-cinema/')); }
+        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/mfa-in-cinema/')); }
 else 
 { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
 ?>" >
@@ -295,12 +295,12 @@ else
               </g>
             </svg>
           </div>
-          <?php echo __('Postgraduate Programmes in Cinema', 'srft-theme'); ?> &nbsp;
+          <?php echo __('Master of Fine Arts in Cinema', 'srft-theme'); ?> &nbsp;
         </a>
       </div>
 
       <div class="course-highlight">
-        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/post-graduate-programme-in-edm/')); }
+        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/mfa-in-edm/')); }
 else 
 { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));}
 ?>" >
@@ -315,7 +315,7 @@ else
               </g>
             </svg>
           </div>
-          <?php echo __('Postgraduate Programmes in EDM', 'srft-theme'); ?> &nbsp;
+          <?php echo __('Master of Fine Arts in EDM', 'srft-theme'); ?> &nbsp;
         </a>
       </div>
     </div>

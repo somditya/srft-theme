@@ -246,8 +246,12 @@ $(document).ready(function () {
   });
 });
 
-var swiper = new Swiper(".home-slider", {
-  autoplay: 500,
+var swiper = new swiper(".home-slider", {
+  autoplay: {
+    delay: 500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
   speed: 600,
   loop: true,
   pagination: {

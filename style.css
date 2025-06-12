@@ -996,12 +996,10 @@ div .spacer {
 }
 */
 
-.home-slider {
-  margin-top: 60px; /* Matches sticky header height */
-}
 .home-slider .swiper-slide {
-  min-height: 95vh;
+  min-height: calc(100vh - 80px);
   position: relative;
+  padding-top: 60px;
   width: 100vw;
   display: flex;
   -webkit-box-align: center;
@@ -1030,12 +1028,12 @@ div .spacer {
 
 .slider-bg img {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
 }
 
 .swipper-title {
@@ -1928,6 +1926,15 @@ div .spacer {
   align-items: center;
 }
 
+.logo-tagline {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff; /* or #000 depending on your background */
+  margin-top: 5px;
+  text-align: center; /* or left, depending on logo alignment */
+  letter-spacing: 0.5px;
+}
+
 /*.logo {
   display: flex;
   align-items: center; 
@@ -1940,7 +1947,7 @@ div .spacer {
   align-items: center;
   /*padding: 1.4rem;*/
   padding-right: 2rem;
-  height: 5rem;
+  height: 6rem;
 }
 
 .mobile-icon {
@@ -3755,7 +3762,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .news-item p {
-  /*font-family: GthA;*/
+  font-family: GthA;
   font-size: 1.4rem;
   color: #555;
   /*color: white;*/
@@ -4398,7 +4405,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   align-items: center;
   /*background-color: #8b5b2b;*/
   background-color: var(--top-header-color);
-  min-height: 50px;
+  min-height: 2.2px;
   width: 100%;
   padding: 5px;
   justify-content: flex-end;
@@ -6835,6 +6842,40 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 704px (Smaller tablets) */
 /**************************/
 @media only screen and (max-width: 768px) {
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    height: auto !important;
+    min-height: unset !important;
+    box-sizing: border-box;
+  }
+
+  .swiper-slide {
+    display: block;
+    padding-left: 0 !important;
+  }
+
+  .slider-bg,
+  .slider-bg img {
+    height: auto !important;
+    position: relative !important;
+    top: auto !important;
+    padding-top: 15px;
+  }
+
+  .slider-bg img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  .swipper-title,
+  .swipper-subtitle {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+  }
+
   .hide-on-mobile {
     display: none;
   }
@@ -7182,67 +7223,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .branspacer {
     display: none;
   }
-
-  .tabs [class*=" tab"] label {
-    /*color: #efedef;*/
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1em;
-    padding: 1rem 0;
-    text-align: left;
-  }
-  .tabs {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .tabs .tab-2 {
-    width: 100%;
-    padding: 0;
-    flex: 1 1 100%;
-    border: 1px solid #ddd;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
-  }
-
-  .tabs .tab-2 label {
-    background: #f0f0f0;
-    color: #000;
-    padding: 1rem;
-    font-size: 1.2em;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    cursor: default;
-  }
-
-  /* Always show content */
-  .tabs .tab-2 [type="radio"],
-  .tabs .tab-2 [type="radio"] + div {
-    all: unset;
-    display: block !important;
-    opacity: 1 !important;
-    margin-left: 0 !important;
-    padding: 1rem;
-    background: #fff;
-  }
-
-  /* Remove hover and border effects */
-  .tabs [class^="tab"] [type="radio"]:hover,
-  .tabs [class^="tab"] [type="radio"]:focus,
-  .tabs [class*=" tab"] [type="radio"]:hover,
-  .tabs [class*=" tab"] [type="radio"]:focus,
-  .tabs [class^="tab"] [type="radio"]:checked,
-  .tabs [class*=" tab"] [type="radio"]:checked {
-    all: unset;
-  }
-
-  .accordian p {
-    font-size: 10px;
-  }
-  .accordian h2 {
-    font-size: 14px;
-  }
-
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
@@ -7258,15 +7238,15 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 22px;
   }
   .item {
-    font-size: 15px;
+    font-size: 1.2rem;
   }
 
   .widget {
-    font-size: 15px;
+    font-size: 1.2rem;
   }
 
   .breadcrumbs {
-    font-size: 15px;
+    font-size: 1.2rem;
   }
 
   .language-switcher {
@@ -7546,66 +7526,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .facility-text-box ul {
     list-style: circle inside none;
     font-size: 1.5rem;
-  }
-
-  .tabs [class*=" tab"] label {
-    /*color: #efedef;*/
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1em;
-    padding: 1rem 0;
-    text-align: left;
-  }
-  .tabs {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .tabs .tab-2 {
-    width: 100%;
-    padding: 0;
-    flex: 1 1 100%;
-    border: 1px solid #ddd;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
-  }
-
-  .tabs .tab-2 label {
-    background: #f0f0f0;
-    color: #000;
-    padding: 1rem;
-    font-size: 1.2em;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    cursor: default;
-  }
-
-  /* Always show content */
-  .tabs .tab-2 [type="radio"],
-  .tabs .tab-2 [type="radio"] + div {
-    all: unset;
-    display: block !important;
-    opacity: 1 !important;
-    margin-left: 0 !important;
-    padding: 1rem;
-    background: #fff;
-  }
-
-  /* Remove hover and border effects */
-  .tabs [class^="tab"] [type="radio"]:hover,
-  .tabs [class^="tab"] [type="radio"]:focus,
-  .tabs [class*=" tab"] [type="radio"]:hover,
-  .tabs [class*=" tab"] [type="radio"]:focus,
-  .tabs [class^="tab"] [type="radio"]:checked,
-  .tabs [class*=" tab"] [type="radio"]:checked {
-    all: unset;
-  }
-
-  .accordian p {
-    font-size: 14px;
-  }
-  .accordian h2 {
-    font-size: 16px;
   }
 }
 

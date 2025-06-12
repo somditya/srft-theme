@@ -82,13 +82,6 @@ $current_language = get_locale();
              <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
            </picture>
          </div>
-          <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-            <h1 >Satyajit Ray Film & Television Institute </h1>
-            <div class="swipper-subtitle">
-              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
-            </div>
-          </div>
          </div>
       
         <div class="swiper-slide" >
@@ -98,14 +91,6 @@ $current_language = get_locale();
              <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="picture of student's production in set" >
            </picture>
          </div>
-           <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-            <h1>Satyajit Ray Film & Television Institute </h1>
-            <div class="swipper-subtitle">
-              <h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2>
-            </div>
-          </div>
-          
          </div>
         <div class="swiper-slide" >
           <div class="slider-bg">
@@ -113,13 +98,6 @@ $current_language = get_locale();
             <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  style="object-fit: cover; " alt="picture of animation masterclass">
           </picture>
         </div>
-          <div class="swipper-title">
-            <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-            <h1>Satyajit Ray Film & Television Institute</h1>
-            <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
-          </div>
-          
-         
         </div>
         
         <div class="swiper-slide" >
@@ -128,11 +106,6 @@ $current_language = get_locale();
              <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="picture of student's live music exercise">
            </picture>
          </div>
-         <div class="swipper-title">
-          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-          <h1>Satyajit Ray Film & Television Institute</h1>
-          <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
-        </div>
           
          </div>
          <div class="swiper-slide" >
@@ -142,11 +115,6 @@ $current_language = get_locale();
              <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister-2.jpg" alt="pictures of students with camera">
            </picture>
          </div>
-         <div class="swipper-title">
-          <h3>सत्यजित रे फिल्म एवं टेलीविज़न संस्थान, कोलकाता</h3>
-          <h1>Satyajit Ray Film & Television Institute</h1>
-          <div class="swipper-subtitle"><h2><?php echo __('An Academic Institute under Ministry of Information & Broadcasting, Govt of India', 'srft-theme' ); ?></h2></div>
-        </div>
           
          </div>
       </div>
@@ -260,10 +228,8 @@ $current_language = get_locale();
        <div class="menu-container">
        <input type="checkbox" id="check" aria-label="Open menu"/>
         <div class="logo-container">
-          <div><a href="#" title="Logo of SRFTI"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo.png" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="#" title="Logo of SRFTI"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo_DTBU.jpg" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
-				
-          <!--<h3 class="logo_frame"><?php echo __('SRFTI', 'srft-theme' ); ?></span></h3>-->
         </div>
 
         <div class="menu-btn">
@@ -326,13 +292,13 @@ $current_language = get_locale();
                 <div class="dropdown">
                   <ul>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programme-in-cinema/'));}
+                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-cinema/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}                   
-                      ?>"><?php echo __('Postgraduate Programmes in Cinema', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Master of Fine Arts in Cinema', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programme-in-edm/'));}
-                      else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Postgraduate Programmes in EDM', 'srft-theme' ); ?></a>
+                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-edm/'));}
+                      else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Master of Fine Arts in EDM', 'srft-theme' ); ?></a>
                     </li>
                     <!--<li class="dropdown-link">
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
@@ -363,7 +329,7 @@ $current_language = get_locale();
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
-                      ?>"><?php echo __('Postgraduate programmes', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Master of Fine Arts', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTI AR', 'srft-theme' ); ?></a>
