@@ -579,7 +579,7 @@ else
                 $file_size_mb = 'N/A';
 
                 if ($doc && isset($doc['url'])) {
-                    $file_path = str_replace(home_url('/'), ABSPATH, $doc['url']);
+                     $file_path = urldecode(str_replace(site_url('/'), ABSPATH, $doc['url']));
                     if (file_exists($file_path)) {
                         $file_size = filesize($file_path);
                         $file_size_mb = round($file_size / (1024 * 1024), 2);
@@ -602,9 +602,28 @@ else
             <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
         <?php endif; ?>
         <div class="link-span">
-            <a href="<?php echo esc_url(site_url($current_language === 'en_US' ? '/' . $post_type . '/' : '/'.__('slug-'.$post_type, 'srft-theme').'/')); ?>"  aria-label="Read more about latest <?php echo strtolower($title); ?>">
-                <?php echo __('More', 'srft-theme'); ?>
-            </a>
+           <?php
+// Language-aware slug mapping
+$slug_map = [
+    'en_US' => [
+        'announcement' => 'announcement',
+        'tender'       => 'tender',
+        'vacancy'      => 'vacancy',
+    ],
+    'hi_IN' => [
+        'announcement' => 'घोषणा-सूची',
+        'tender'       => 'निविदा',
+        'vacancy'      => 'रिक्ति',
+    ]
+];
+
+$slug = $slug_map[$current_language][$post_type] ?? $post_type;
+$final_url = site_url("/$slug/");
+?>
+<a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+    <?php echo __('More', 'srft-theme'); ?>
+</a>
+
         </div>
     </div>
     <?php endforeach; ?>

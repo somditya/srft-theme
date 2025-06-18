@@ -2,7 +2,6 @@
 /*
 Template Name: Announcement List
 */
-
 get_header(); 
 
 function get_category_ID( $cat_name ) { 
