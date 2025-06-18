@@ -32,7 +32,7 @@ $post_id = get_the_ID();
                     <?php
                     $tabs = [
                         'tab1' => __('Events & Festivals', 'srft-theme'),
-                        'tab2' => __('Workshops & Masterclasses', 'srft-theme'),
+                        'tab2' => __('Master Classes & Workshops', 'srft-theme'),
                         'tab3' => __('Beyond the Frame', 'srft-theme'),
                         'tab4' => __('Campus Moments', 'srft-theme'),
                         'tab5' => __('SRFTI in News', 'srft-theme'),
