@@ -2816,6 +2816,7 @@ div .spacer {
 
 .cine-header {
   /*background-image: url("images/workshop001.JPG");*/
+  background-image: var(--bg-img);
   background-position: 50%;
   background-size: cover;
   height: 560px;
@@ -6906,6 +6907,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     border-radius: 0; /* Optional: remove border-radius for square corners */
   }
 
+  .cine-header {
+    height: 300px;
+  }
+
   .box-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -7223,6 +7228,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .branspacer {
     display: none;
   }
+
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
@@ -7238,11 +7244,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 22px;
   }
   .item {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .widget {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .breadcrumbs {
@@ -7300,6 +7306,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 0.875rem; /* Smaller font size for mobile */
   }
 
+  .page-banner-title {
+    font-size: 2.2rem;
+    padding: 8px;
+  }
   .box-container {
     display: grid;
     grid-template-columns: 1fr;

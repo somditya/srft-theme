@@ -10,7 +10,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
     <main>
-      <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+      <section  class="cine-header" style="--bg-img: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <h2 class="page-banner-title"><?php echo __('Admission to Master of Fine Arts', 'srft-theme'); ?></h2>  
         </div>
