@@ -21,6 +21,7 @@ $page_id = get_the_ID();
 $about = get_post_meta($page_id, 'About', true);
 $objective = get_post_meta($page_id, 'Objective', true);
 $programme = get_post_meta($page_id, 'Programme', true);
+$programmename = get_post_meta($page_id, 'ProgrammeName', true);
 $department_name=get_post_meta($page_id, 'Department', true);
 $duration=get_post_meta($page_id, 'Duration', true);
 $eligibilty=get_post_meta($page_id, 'Eligibility', true);
@@ -45,7 +46,9 @@ if ($current_language === 'en_US') {
 <div data-scroll-container>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
-      <div class="page-banner-title"><?php the_title(); ?></div>
+      <div class="page-banner-title"><?php the_title(); ?><br>
+         <span style="font-size: 0.7em;"><?php echo $programmename; ?></span>
+    </div> 
    </div>
 </section>
 
@@ -134,7 +137,7 @@ if ($current_language === 'en_US') {
 
    <div style="margin-top: 3.2rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
-     <?php echo __('Programme Specific Objectives', 'srft-theme' ); ?>
+     <?php if (!empty($objective)) echo __('Programme Specific Objectives', 'srft-theme' ); ?>
      </h2>
 
      <?php if (!empty($objective)) {
