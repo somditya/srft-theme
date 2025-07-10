@@ -20,6 +20,7 @@ $page_id = get_the_ID();
 // Replace 'custom_field_name' with the actual name (key) of your custom field
 $about = get_post_meta($page_id, 'About', true);
 $objective = get_post_meta($page_id, 'Objective', true);
+$programme = get_post_meta($page_id, 'Programme', true);
 $department_name=get_post_meta($page_id, 'Department', true);
 $duration=get_post_meta($page_id, 'Duration', true);
 $eligibilty=get_post_meta($page_id, 'Eligibility', true);
@@ -69,7 +70,7 @@ if ($current_language === 'en_US') {
 
    <div class="widget">
      <div class="widget-content">
-       <h2><?php echo __('Course Duration', 'srft-theme' ); ?></h2>
+       <h2><?php echo __('Programme Duration', 'srft-theme' ); ?></h2>
        <hr />
        <div>
          <p> <?php if (!empty($duration)) {
@@ -122,7 +123,18 @@ if ($current_language === 'en_US') {
 
    <div style="margin-top: 3.2rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
-     <?php echo __('Course objective', 'srft-theme' ); ?>
+     <?php echo __('Summary of the Programme', 'srft-theme' ); ?>
+     </h2>
+
+     <?php if (!empty($programme)) {
+    echo wp_kses_post($programme);
+    }?>
+    
+   </div>
+
+   <div style="margin-top: 3.2rem">
+     <h2 class="page-header-text" style="padding-left: 0; ">
+     <?php echo __('Programme Specific Objectives', 'srft-theme' ); ?>
      </h2>
 
      <?php if (!empty($objective)) {
