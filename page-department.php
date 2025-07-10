@@ -123,7 +123,7 @@ if ($current_language === 'en_US') {
 
    <div style="margin-top: 3.2rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
-     <?php echo __('Summary of the Programme', 'srft-theme' ); ?>
+     <?php if (!empty($programme)) echo __('Overview of the Programme', 'srft-theme' ); ?>
      </h2>
 
      <?php if (!empty($programme)) {
