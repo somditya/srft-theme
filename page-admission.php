@@ -146,7 +146,7 @@ $current_language = get_locale();
         }
       ?></div>
         <div  class="page-title">
-          <div><p class="page-header-text"><?php echo __('Course Overview', 'srft-theme'); ?></p></div>
+          <div><p class="page-header-text"><?php echo __('Programme Overview', 'srft-theme'); ?></p></div>
         </div>
         <div class="sub-intro">
           <div class="sub-intro-images">
@@ -196,14 +196,14 @@ $current_language = get_locale();
               <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>
             </li>
           </ul>
-          <ul>
+          <!--<ul>
             <li>
               <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>" checked>
               <i></i>
               <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
               <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
             </li>
-          </ul>
+          </ul>-->
           <ul>
             <li>
               <input type="checkbox" aria-label="<?php echo __('Show or hide Essential Qualification for Cinema Programme', 'srft-theme'); ?>" checked>

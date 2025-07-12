@@ -117,7 +117,7 @@ wp_nav_menu(array(
             $subintrodesc = get_post_meta($post_id, 'SubIntroDescription', true);
             ?>
 
-            <div class="intro"><p><?php echo ($intro); ?></p></div>
+            <div class="intro"><p><?php echo wp_kses_post($intro); ?></p></div>
             
             <?php $youtube_url = get_post_meta($post_id, 'Video', true); ?>
             <!--<section class="sub-intro">
@@ -139,10 +139,9 @@ wp_nav_menu(array(
             </section>-->
 
             
-
             <section>
             <div>
-                <h2 class="page-header-text" style="margin-top: 2rem;"><?php echo __('Specializations', 'srft-theme'); ?></h2>
+                <h2 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h2>
             </div> 
             <div class="box-container">
                     <?php
