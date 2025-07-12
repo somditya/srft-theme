@@ -12,7 +12,7 @@ $current_language = get_locale();
     <main>
       <section  class="cine-header" style="--bg-img: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <h2 class="page-banner-title"><?php echo __('Admission to Master of Fine Arts', 'srft-theme'); ?></h2>  
+          <h2 class="page-banner-title"><?php echo __('Admission', 'srft-theme'); ?></h2>  
         </div>
       </section>
 
@@ -169,7 +169,7 @@ $current_language = get_locale();
       <label for="tab2-1"><?php echo __('Master of Fine Arts in Cinema', 'srft-theme'); ?></label>
       <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
       <div>
-        <p><?php echo __('The programme is a 3-year full-time programme divided into 6 semesters', 'srft-theme'); ?></p>   
+        <p><?php echo __('The programme is a 1-Year Bridge Programme + 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>   
         <br/><br/>
         <div class="accordian">
           <ul>
@@ -177,7 +177,7 @@ $current_language = get_locale();
               <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
               <i></i>
               <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-              <p><?php echo __('3 years-full time', 'srft-theme'); ?></p>
+              <p><?php echo __(' 1-Year Bridge Programme + 2-Year MFA', 'srft-theme'); ?></p>
             </li>
           </ul>
           <ul>
@@ -220,7 +220,7 @@ $current_language = get_locale();
       <label for="tab2-2"><?php echo __('Master of Fine Arts in EDM', 'srft-theme'); ?></label>
       <input id="tab2-2" name="tabs-two" type="radio">
       <div>
-        <p><?php echo __('The programme is a 2-year full-time programme divided into 4 semesters', 'srft-theme'); ?></p>
+        <p><?php echo __('The programme is a 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>
         <br/><br/>
         <div class="accordian">
           <ul>
@@ -228,7 +228,7 @@ $current_language = get_locale();
               <input type="checkbox" aria-label="<?php echo __('Show or hide Duration for EDM Programme', 'srft-theme'); ?>" checked>
               <i></i>
               <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-              <p><?php echo __('2 years-full time', 'srft-theme'); ?></p>
+              <p><?php echo __('2-Year MFA', 'srft-theme'); ?></p>
             </li>
           </ul>
           <ul>
