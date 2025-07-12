@@ -120,7 +120,7 @@ wp_nav_menu(array(
             <div class="intro"><p><?php echo ($intro); ?></p></div>
             
             <?php $youtube_url = get_post_meta($post_id, 'Video', true); ?>
-            <section class="sub-intro">
+            <!--<section class="sub-intro">
                 <div class="sub-intro-images">
                     <div class="iframe-wrapper">
                         <iframe class="wrapped-iframe" src="<?php echo esc_url($youtube_url); ?>" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -136,7 +136,7 @@ wp_nav_menu(array(
                     <p class="page-header-text" style="margin-top: 2rem;"><?php echo esc_html(get_post_meta($post_id, 'Tagline', true)); ?></p>
                 </div>
                 <div><?php echo get_post_meta($post_id, 'AbtPGProgramme', true); ?></div>
-            </section>
+            </section>-->
 
             
 
