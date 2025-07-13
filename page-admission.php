@@ -116,25 +116,41 @@ $current_language = get_locale();
             </div>
           <div class="widget" style="line-height: 1.5">
           <h3><?php echo __('Admission Notification', 'srft-theme');?></h3>
-          <?php
-          $category_posts = new WP_Query(array(
-          'category_name' => 'admissionshort-en', // Replace with your category slug
-        'posts_per_page' => 5,
-    ));
+          <?php 
+$current_language = get_locale();
+$catslug = ($current_language === 'hi_IN') ? 'admission-hi' : 'admission-en';
 
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-        $post_link = get_permalink();
-    ?>
-    <h3><a href=<?php echo $post_link ?>><?php the_title(); ?></a></h3>
-    <?php
-        endwhile;
-        wp_reset_postdata(); // Reset the post data
-    else :
-        echo '<p>No posts found in this category.</p>';
-    endif;
-    ?>
-        <div class="link-span"><a  href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>  
+$admission_post = new WP_Query(array(
+    'post_type' => 'admission',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',  // WordPress default category taxonomy
+            'field'    => 'slug',
+            'terms'    => $catslug,
+        ),
+    ),
+    'posts_per_page' => -1,
+));
+
+if ($admission_post->have_posts()) {
+    echo '<ul style="list-style-type: none">';
+    while ($admission_post->have_posts()) {
+        $admission_post->the_post(); 
+        ?>
+        <li>
+            <a href="<?php the_permalink(); ?>" target="_blank">
+                <?php the_title(); ?>
+            </a>
+        </li>
+        <?php
+    }
+    echo '</ul>';
+} else {
+    echo '<p>No admission posts found for this language.</p>';
+}
+
+wp_reset_postdata();
+?>
       </div>
   </div>
 
