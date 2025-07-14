@@ -72,6 +72,22 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div>
+            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Our Journey', 'srft-theme'); ?></p>
+        </div>
+       <?php wp_reset_postdata(); ?> 
+            <div class="sub-intro" style="margin-bottom: 4rem;">
+                <div class="sub-intro-text" style="max-width: 100%; padding: 0; background-color: #fff;">
+                    <div class="sub-intro-text-description">
+                        <?php
+                        // Retrieve and display the introduction of the page content
+                        $intro = get_post_meta(get_the_ID(), 'journey', true);
+                        echo $intro;
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+        <div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></p>
         </div>
 
@@ -92,17 +108,17 @@ $page_content = apply_filters('the_content', $post->post_content);
             </div>
         </div>
 
-        <div>
+        <!--<div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Explore Our Story', 'srft-theme'); ?></p>
-        </div>
+        </div>-->
 
-        <div class="one-flex" style="margin: 10px;">
+        <!--<div class="one-flex" style="margin: 10px;">
             <video class="homepage-masthead__video" id="homepage-masthead__video" poster="<?php bloginfo('template_url'); ?>/images/intro-still.jpg" 
        style="width: 100%;" style="width: 100%;" controls loop muted aria-label="Introductory video showcasing our Institute.">
                 <source src="<?php bloginfo('template_url'); ?>/videos/intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </div>
+        </div>-->
     </div>
 </section>
 
