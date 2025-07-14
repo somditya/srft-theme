@@ -76,7 +76,7 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
        <?php wp_reset_postdata(); ?> 
             <div class="sub-intro" style="margin-bottom: 4rem;">
-                <div class="sub-intro-text" style="max-width: 100%;">
+                <div class="sub-intro-text" style="max-width: 100%; padding: 0; background-color: #fff;">
                     <div class="sub-intro-text-description">
                         <?php
                         // Retrieve and display the introduction of the page content
