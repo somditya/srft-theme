@@ -72,6 +72,10 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div>
+            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('The Journey', 'srft-theme'); ?></p>
+        </div>
+
+        <div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></p>
         </div>
 
