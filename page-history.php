@@ -72,8 +72,20 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div>
-            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('The Journey', 'srft-theme'); ?></p>
+            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Our Journey', 'srft-theme'); ?></p>
         </div>
+       <?php wp_reset_postdata(); ?> 
+            <div class="sub-intro" style="margin-bottom: 4rem;">
+                <div class="sub-intro-text" style="max-width: 100%;">
+                    <div class="sub-intro-text-description">
+                        <?php
+                        // Retrieve and display the introduction of the page content
+                        $intro = get_post_meta(get_the_ID(), 'journey', true);
+                        echo $intro;
+                        ?>
+                    </div>
+                </div>
+            </div>
 
         <div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></p>
