@@ -26,7 +26,7 @@ $post_content = apply_filters('the_content', get_the_content());
         </div> 
         <div style="grid-column: 2/5;">
             <div style="text-align: center;">
-                <img src="<?php echo get_field('Course-Image'); ?>" class="img-responsive"  alt="<?php echo esc_attr(get_field('News-Image-Alt')); ?>" />
+                <img src="<?php echo get_field('Course-Image'); ?>" class="img-responsive"  alt="<?php echo esc_attr(get_field('Course-Image-Alt')); ?>" />
                          
             </div>
         </div>

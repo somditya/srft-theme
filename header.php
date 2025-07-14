@@ -65,7 +65,7 @@ $current_language = get_locale();
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIDU1.jpg" alt="SRFTI delared deemed to be university" >
+             <img  src="<?php bloginfo('template_url'); ?>/images/Admission-2025.jpg" alt="SRFTI delared deemed to be university" >
            </picture>
          </div>
       </div>
@@ -95,7 +95,7 @@ $current_language = get_locale();
         <div class="swiper-slide" >
           <div class="slider-bg">
             <picture>
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  style="object-fit: cover; " alt="picture of animation masterclass">
+            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="picture of animation masterclass">
           </picture>
         </div>
         </div>
@@ -112,7 +112,7 @@ $current_language = get_locale();
           <div class="slider-bg">
              <picture>
             
-             <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister-2.jpg" alt="pictures of students with camera">
+             <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="pictures of students with camera">
            </picture>
          </div>
           
