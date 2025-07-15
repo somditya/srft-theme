@@ -65,14 +65,14 @@ $current_language = get_locale();
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/Admission-2025.jpg" alt="SRFTI delared deemed to be university" >
+             <img  src="<?php bloginfo('template_url'); ?>/images/Admission-2025.png" alt="SRFTI delared deemed to be university" >
            </picture>
          </div>
       </div>
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIDU2.jpg" alt="SRFTI deemed to be university courses" >
+             <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIDU3.jpg" alt="SRFTI deemed to be university courses" >
            </picture>
          </div>
       </div>
