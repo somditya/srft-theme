@@ -213,7 +213,7 @@ if ($current_language === 'en_US') {
 if ($current_language === 'en_US') {
     $facurl = esc_url(site_url('/faculty'));  
 } else {
-    $facurl = 'faculty-hi';
+    $facurl = esc_url(site_url('/hi/संकाय/'));
 }
 ?>
 <a href="<?php echo esc_url($facurl); ?>"><?php echo esc_html__('Learn More About Them', 'srft-theme'); ?></a>
