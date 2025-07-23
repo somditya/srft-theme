@@ -54,6 +54,12 @@ if ($current_language === 'en_US') {
 
 <section id="skip-to-content" class="cine-detail">
  <div class="leftnav">
+
+ <a href="https://applyadmission.net/srfti2025/" target="_blank">
+  <button style="padding: 10px 20px; background-color: #000000; color: white; border: none; border-radius: 5px; font-size: 20px; cursor: pointer;">
+    <?php echo __('Apply Now', 'srft-theme' ); ?>
+  </button>
+</a>
    <!--<div class="childnavs">
      <ul class="childnav-lists">
        <li class="childnav-list-item">
