@@ -78,7 +78,7 @@ $current_language = get_locale();
             <div style="margin-bottom: 6rem;">
                 <?php
                 $departments = array(
-                    'Office of the Director' => __('Office of the Director', 'srft-theme'),
+                    'Office of the Vice-Chancellor' => __('Office of the Vice-Chancellor', 'srft-theme'),
                     'Office of the Dean' => __('Office of the Dean', 'srft-theme'),
                     'Office of the Registrar' => __('Office of the Registrar', 'srft-theme'),
                     'Direction & Screenplay Writing' => __('Direction & Screenplay Writing', 'srft-theme'),
