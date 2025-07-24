@@ -91,7 +91,7 @@ $current_language = get_locale();
                             <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DirectorPhoto', true))); ?>" alt="Photo of the director">
                             <div class="profile-text">
                                 <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></div>
-                                <div class="profile-desg"><?php echo __('Vice Chancellor', 'srft-theme' ); ?></div>
+                                <div class="profile-desg"><?php echo __('Vice-Chancellor', 'srft-theme' ); ?></div>
                             </div>   
                         </div>
                     </div>
