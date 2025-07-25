@@ -129,7 +129,8 @@ $current_language = get_locale();
        <div class="top_header">
          <div>
            <ul style="display:flex;">
-           <li></li>
+           <li> <marquee style="color: white;"><?php echo __('Important Notice: The admission deadline for the Master\'s Course has been extended to 31st July, 2025.', 'srft-theme'); ?>
+</marquee></li>
            </ul>         
           </div>
           <ul style="display:flex; align-items: center; margin:0; padding:0;">
