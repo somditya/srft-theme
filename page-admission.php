@@ -322,14 +322,14 @@ wp_reset_postdata();
               <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>    
             </li>
           </ul>
-          <ul>
+          <!--<ul>
             <li>
               <input type="checkbox" checked aria-label="<?php echo __('Show or hide Course structure for EDM Programme', 'srft-theme'); ?>">
               <i></i>
               <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
               <?php echo get_post_meta(get_the_ID(), 'CourseEDM', true); ?>   
             </li>
-          </ul>
+          </ul>-->
           <ul>
             <li>
               <input type="checkbox" checked aria-label="<?php echo __('Show or hide Essential Qualification for EDM Programme', 'srft-theme'); ?>">
