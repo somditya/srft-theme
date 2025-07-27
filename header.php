@@ -61,7 +61,15 @@ $current_language = get_locale();
 <?php if (is_front_page()) : ?>
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
-        
+      
+    <!--<div class="swiper-slide">
+      <div class="slider-bg">
+      <video autoplay muted loop playsinline>
+      <source src="<?php bloginfo('template_url'); ?>/videos/Promo_2_16-9_Final4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      </div>
+    </div>-->
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
