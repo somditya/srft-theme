@@ -58,7 +58,7 @@ $current_language = get_locale();
 
 <body <?php body_class(); ?>>
 
-<?php if (is_front_page()) : ?>
+<?php if (is_page('home')) : ?> 
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
       
