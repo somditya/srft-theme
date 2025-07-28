@@ -31,6 +31,34 @@
     cursor: pointer;
   }
 
+  #video-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
   #skip-button:hover {
     background: rgba(255, 255, 255, 0.2);
   }
@@ -45,11 +73,17 @@
 
 <button id="skip-button">Skip to Home</button>
 
+<div id="video-loader">
+  <div class="spinner"></div>
+</div>
+
 <script>
   const video = document.getElementById('intro-video');
   const videoSource = document.getElementById('video-source');
   const skipBtn = document.getElementById('skip-button');
+  const loader = document.getElementById('video-loader');
   let redirected = false;
+  let fallbackTimerStarted = false;
 
   function goToHome() {
     if (!redirected) {
@@ -59,26 +93,32 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Array of video filenames
     const videos = [
       "<?php echo get_template_directory_uri(); ?>/videos/Promo_1_16-9_Final4.mp4",
       "<?php echo get_template_directory_uri(); ?>/videos/Promo_2_16-9_Final4.mp4"
     ];
 
-    // Pick one at random
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     videoSource.src = randomVideo;
     video.load();
 
-    // Attempt autoplay
     video.play().catch(() => {
       video.setAttribute('controls', true);
     });
   });
 
+  video.addEventListener('playing', () => {
+    // Hide loader
+    if (loader) loader.style.display = 'none';
+
+    if (!fallbackTimerStarted) {
+      fallbackTimerStarted = true;
+      setTimeout(goToHome, 30000);
+    }
+  });
+
   video.addEventListener('ended', goToHome);
   skipBtn.addEventListener('click', goToHome);
-
-  // Fallback timeout
-  setTimeout(goToHome, 30000); // 30 seconds
 </script>
+
+
