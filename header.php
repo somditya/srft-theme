@@ -58,7 +58,7 @@ $current_language = get_locale();
 
 <body <?php body_class(); ?>>
 
-<?php //if (is_front_page()) : ?>
+<?php if (is_front_page()) : ?>
 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
       <div class="swiper-wrapper">
       
@@ -130,7 +130,7 @@ $current_language = get_locale();
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
-		<?php //endif; ?>
+		<?php endif; ?>
     <header class="sticky" >
    
       <!--<nav id="nav-wrapper">-->
