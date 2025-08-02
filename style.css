@@ -3196,6 +3196,17 @@ div .spacer {
   border-bottom: 2px solid #6c4713;
 }
 
+h2 {
+  font-weight: 400;
+  font-size: 1.2em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+  color: #6c4713;
+  font-style: normal;
+  border-bottom: 1px solid #6c4713;
+}
+
 h4 {
   font-weight: 400;
   font-size: 1.2em;
@@ -3536,14 +3547,14 @@ h4 {
   width: 100%;
 }
 
-.page-title h1 {
+/*.page-title h1 {
   color: #666;
   margin-top: 30px;
   font-family: GthA;
   font-size: 4rem;
   font-weight: 200;
   font-style: normal;
-}
+}*/
 
 .ftest {
   font-size: 23px;
@@ -5830,7 +5841,7 @@ header {
   width: 100%;
 }
 
-.page-title h1 {
+/*.page-title h1 {
   color: #666;
   margin-top: 30px;
   font-family: GthA;
@@ -5838,7 +5849,7 @@ header {
   font-weight: 200;
   font-style: normal;
 }
-
+*/
 .ftest {
   font-size: 23px;
 }

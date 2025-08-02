@@ -59,7 +59,7 @@ if ($current_language === 'en_US') {
   <button style="padding: 10px 20px; background-color: #000000; color: white; border: none; border-radius: 5px; font-size: 20px; cursor: pointer;">
     <?php echo __('Apply Now', 'srft-theme' ); ?>
   </button>
-</a>-->
+</a>--> 
    <!--<div class="childnavs">
      <ul class="childnav-lists">
        <li class="childnav-list-item">
