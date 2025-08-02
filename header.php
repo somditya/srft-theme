@@ -135,12 +135,12 @@ $current_language = get_locale();
    
       <!--<nav id="nav-wrapper">-->
        <div class="top_header">
-         <div>
+         <!--<div>
            <ul style="display:flex;">
            <li> <marquee style="color: white;"><?php echo __('Important Notice: The admission deadline for the Master\'s Course has been extended to 31st July, 2025.', 'srft-theme'); ?>
 </marquee></li>
            </ul>         
-          </div>
+          </div>-->
           <ul style="display:flex; align-items: center; margin:0; padding:0;">
           <li class="hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('e-office', 'srft-theme' ); ?>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></li>
           <li class="hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></li>
