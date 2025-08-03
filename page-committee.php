@@ -62,7 +62,7 @@ $current_language = get_locale();
         ?>
          </div>
             <div>
-                <h2 class="page-header-text"><?php echo __('Committees', 'srft-theme'); ?></h2>
+                <h1 class="page-header-text"><?php echo __('Committees', 'srft-theme'); ?></h1>
             </div>  
             <div style="margin-bottom: 4rem;">    
                 <div><?php the_content(); ?></div>   

@@ -21,7 +21,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
         <div>      
             <?php
             if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
             ?>
         </div>

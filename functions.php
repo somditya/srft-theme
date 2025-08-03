@@ -1014,6 +1014,7 @@ function custom_menu_based_breadcrumbs($links) {
 
 
 
+
 function get_menu_ancestors_excluding_links($menu_item, $menu_items) {
 	$ancestors = array();
 	while ($menu_item->menu_item_parent != 0) {
@@ -1036,6 +1037,15 @@ function is_custom_link($menu_item) {
 	return $menu_item->type === 'custom';
 }
 
+// Convert the Yoast Breadcrumbs output wrapper into an ordered list.
+//add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
+	//return 'ol';
+//} );
+
+// Convert the Yoast Breadcrumbs single items into list items.
+//add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
+	//return 'li';
+//} );
 
 
 function display_global_latest_date() {
