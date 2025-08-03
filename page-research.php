@@ -19,12 +19,12 @@ $page_content = apply_filters('the_content', $post->post_content);
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php the_title(); ?></h2>
+            <h1 class="page-banner-title"><?php the_title(); ?></h1>
         </div>
     </section>
 
     <section id="skip-to-content" class="cine-detail">
-        <div class="leftnav">
+        <aside class="leftnav" role="complementary" aria-label="Take One Documents">
             <div class="widget" style="line-height: 1.5">
                 <h4><?php echo __('Take One', 'srft-theme'); ?></h4>
                 <?php 
@@ -83,9 +83,9 @@ $page_content = apply_filters('the_content', $post->post_content);
                 wp_reset_postdata(); // Reset query
                 ?>   
             </div>
-        </div>
+        </aside>
 
-        <div class="main-content">
+        <div class="main-content" role="main">
             <div>      
                 <?php
                     if (function_exists('yoast_breadcrumb')) {
@@ -94,7 +94,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                 ?>
             </div>
             <div>
-                <p class="page-header-text"><?php the_title(); ?></p>
+                <h2 class="page-header-text"><?php the_title(); ?></h2>
             </div> 
 
             <div class="sub-intro" style="margin-bottom: 4rem;">
@@ -110,7 +110,7 @@ $page_content = apply_filters('the_content', $post->post_content);
             </div>
 
             <div>
-                <p class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></p>
+                <h2 class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></h2>
             </div>
 
             <section style="margin-bottom: 4rem;">
