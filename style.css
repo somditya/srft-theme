@@ -3250,6 +3250,15 @@ h2 {
   border-bottom: 1px solid #6c4713;
 }
 
+h3 {
+  font-weight: 400;
+  font-size: 1em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+  font-style: normal;
+}
+
 h4 {
   font-weight: 400;
   font-size: 1.2em;
