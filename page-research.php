@@ -24,9 +24,9 @@ $page_content = apply_filters('the_content', $post->post_content);
     </section>
 
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-label="Take One Documents">
+        <aside class="leftnav" role="complementary" aria-label="Downloadable Take One Volumes">
             <div class="widget" style="line-height: 1.5">
-                <h4><?php echo __('Take One', 'srft-theme'); ?></h4>
+                <h3><?php echo __('Take One', 'srft-theme'); ?></h3>
                 <?php 
                 // Set document category slug based on language
                 $catslug = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
@@ -87,14 +87,17 @@ $page_content = apply_filters('the_content', $post->post_content);
 
         <div class="main-content" role="main">
             <div>      
-                <?php
-                    if (function_exists('yoast_breadcrumb')) {
-                        yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-                    }
-                ?>
+                <div>      
+    <?php
+    if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb( '<nav aria-label="Breadcrumb" id="breadcrumbs">', '</nav>' );
+    }
+    ?>
+</div>
+
             </div>
             <div>
-                <h2 class="page-header-text"><?php the_title(); ?></h2>
+                <h2 class="page-header-text"><?php echo __('Research at SRFTI', 'srft-theme'); ?></h2>
             </div> 
 
             <div class="sub-intro" style="margin-bottom: 4rem;">
@@ -113,12 +116,10 @@ $page_content = apply_filters('the_content', $post->post_content);
                 <h2 class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></h2>
             </div>
 
-            <?php if (!empty(trim(strip_tags($page_content)))) : ?>
-    <section style="margin-bottom: 4rem;">
-        <?php echo wp_kses_post($page_content); ?>
-    </section>
-<?php endif; ?>
-
+            <section style="margin-bottom: 4rem;">
+                <div><?php echo wp_kses_post($page_content); ?>
+</div>   
+            </section>
         </div> <!-- Close main-content -->
     </section> <!-- Close cine-detail -->
 

@@ -3270,6 +3270,14 @@ h4 {
   border-bottom: 1px solid #6c4713;
 }
 
+h6 {
+  font-weight: 400;
+  font-size: 1em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+}
+
 .faculty-title {
   margin-top: 20px;
   font-size: 3.5rem;
