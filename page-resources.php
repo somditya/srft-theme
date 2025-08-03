@@ -12,7 +12,7 @@ $current_language = get_locale();
 <main>
     <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php the_title(); ?></h2>
+            <h1 class="page-banner-title"><?php the_title(); ?></h1>
         </div>
     </section>
 
@@ -80,10 +80,11 @@ $current_language = get_locale();
 
         <div  class="main-content">
         <div>      
+        
         <?php
             if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
         ?>
         </div> 
            
