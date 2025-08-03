@@ -113,9 +113,12 @@ $page_content = apply_filters('the_content', $post->post_content);
                 <h2 class="page-header-text"><?php echo __('Independent Research Fellowship Programme', 'srft-theme'); ?></h2>
             </div>
 
-            <section style="margin-bottom: 4rem;">
-                <div><?php echo str_replace(array('<p>', '</p>'), '', $page_content); ?></div>   
-            </section>
+            <?php if (!empty(trim(strip_tags($page_content)))) : ?>
+    <section style="margin-bottom: 4rem;">
+        <?php echo wp_kses_post($page_content); ?>
+    </section>
+<?php endif; ?>
+
         </div> <!-- Close main-content -->
     </section> <!-- Close cine-detail -->
 
