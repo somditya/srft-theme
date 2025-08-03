@@ -65,9 +65,9 @@ $page_content = apply_filters('the_content', $post->post_content);
                                 ?>
 
                                 <li>
-                                    <a href="<?php echo esc_url($file_url); ?>">
+                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener">
                                         <?php echo esc_html(get_the_title()); ?> 
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="Download" style="vertical-align: middle;" />
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="PDF, opens in a new tab" style="vertical-align: middle;" />
                                         <?php echo __('Download', 'srft-theme');?> &nbsp; (<?php echo esc_html($file_size_mb); ?>)
                                     </a>
                                 </li>
