@@ -24,13 +24,13 @@ function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventi
 $category_name = 'faculty'; // Ensure this matches the exact category name.
 $category_id = get_category_ID($category_name);
 ?>
-<div data-scroll-container>
+<div>
 <body ng-controller="FacultyController">
     <main>
       <body>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <div class="page-banner-title"><?php echo __('Faculty', 'srft-theme' ); ?></div>
+          <h1 class="page-banner-title"><?php echo __('Faculty', 'srft-theme' ); ?></h1>
       </section>
 
       <section class="section-home">
@@ -39,15 +39,15 @@ $category_id = get_category_ID($category_name);
         <div>      
         <?php
             if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+            ?>
     </div>
           <h2 id="skip-to-content" class="page-header-text" style="padding-left: 0; text-align: center; margin-top: 20px;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController" style="margin-top: 4.5rem;">
             <!-- Filter options -->
             <label for="filter"><?php echo __('Programmes:', 'srft-theme' ); ?></label>
-            <select class="filter" ng-model="filterField">
+            <select id="filter" class="filter" ng-model="filterField">
                 <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
                 <option value="<?php echo __('Animation Cinema', 'srft-theme' ); ?>"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
                 <option value="<?php echo __('Cinematography', 'srft-theme' ); ?>"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
@@ -74,46 +74,70 @@ $category_id = get_category_ID($category_name);
           </ul>-->
       
             <!-- Faculty grid using Flexbox -->
-            <div class="faculty-grid">
-            <div class="loading-overlay" ng-show="isLoading">
-            <div class="spinner"></div>
-            </div>
-            <div class="faculty-card" ng-repeat="faculty in filteredFaculty.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-                <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" style="filter: grayscale(100%);" class="faculty-image">
-                <h2><a href="{{ faculty.link }}">{{faculty.name }}</a></h2>
-                <p>{{faculty.designation }}</p>
-                <p>{{faculty.department}}</p>
-            </div>
-            
-          </div>
-          
-            <!-- Pagination -->
-            <!-- Pagination -->
-<ul class="pagination">
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>">
-      <i class="fas fa-step-backward" style="color: #8b5b2b;"></i>
-    </a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === 1 }">
-    <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>">
-      <i class="fas fa-chevron-left" style="color: #8b5b2b;"></i>
-    </a>
-  </li>
-  <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
-    <a href="#" ng-click="setPage(page)">{{ page }}</a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>">
-      <i class="fas fa-chevron-right" style="color: #8b5b2b;"></i>
-    </a>
-  </li>
-  <li ng-class="{ 'disabled': currentPage === totalPages }">
-    <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>">
-      <i class="fas fa-step-forward" style="color: #8b5b2b;"></i>
-    </a>
+            <ul class="faculty-grid" role="list" aria-label="Faculty profiles">
+  <div class="loading-overlay" ng-show="isLoading">
+    <div class="spinner" aria-hidden="true"></div>
+  </div>
+
+  <li class="faculty-card" role="listitem" ng-repeat="faculty in filteredFaculty.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+    <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" class="faculty-image" style="filter: grayscale(100%);">
+
+    <h3>
+      <a href="{{ faculty.link }}">{{ faculty.name }}</a>
+    </h3>
+
+    <p>{{ faculty.designation }}</p>
+    <p>{{ faculty.department }}</p>
   </li>
 </ul>
+
+          
+            <!-- Pagination -->
+<nav aria-label="Pagination">
+  <ul class="pagination">
+    <!-- First Page -->
+    <li ng-class="{ 'disabled': currentPage === 1 }">
+      <a href="#" ng-click="firstPage()" aria-label="<?php echo __('Go to first page', 'srft-theme'); ?>">
+        <span class="sr-only"><?php echo __('First Page', 'srft-theme'); ?></span>
+        <i class="fas fa-step-backward" aria-hidden="true" style="color: #8b5b2b;"></i>
+      </a>
+    </li>
+
+    <!-- Previous Page -->
+    <li ng-class="{ 'disabled': currentPage === 1 }">
+      <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Go to previous page', 'srft-theme'); ?>">
+        <span class="sr-only"><?php echo __('Previous Page', 'srft-theme'); ?></span>
+        <i class="fas fa-chevron-left" aria-hidden="true" style="color: #8b5b2b;"></i>
+      </a>
+    </li>
+
+    <!-- Page Numbers -->
+    <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
+      <a href="#" ng-click="setPage(page)" 
+         aria-label="<?php echo __('Go to page', 'srft-theme'); ?> {{ page }}" 
+         aria-current="{{ currentPage === page ? 'page' : false }}">
+        {{ page }}
+      </a>
+    </li>
+
+    <!-- Next Page -->
+    <li ng-class="{ 'disabled': currentPage === totalPages }">
+      <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Go to next page', 'srft-theme'); ?>">
+        <span class="sr-only"><?php echo __('Next Page', 'srft-theme'); ?></span>
+        <i class="fas fa-chevron-right" aria-hidden="true" style="color: #8b5b2b;"></i>
+      </a>
+    </li>
+
+    <!-- Last Page -->
+    <li ng-class="{ 'disabled': currentPage === totalPages }">
+      <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Go to last page', 'srft-theme'); ?>">
+        <span class="sr-only"><?php echo __('Last Page', 'srft-theme'); ?></span>
+        <i class="fas fa-step-forward" aria-hidden="true" style="color: #8b5b2b;"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 
         </div>
         </div>

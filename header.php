@@ -70,13 +70,13 @@ $current_language = get_locale();
       </video>
       </div>
     </div>-->
-      <div class="swiper-slide" >
+      <!--<div class="swiper-slide" >
           <div class="slider-bg">
              <picture>
              <img  src="<?php bloginfo('template_url'); ?>/images/Admission-ExtendedDeadline.png" alt="SRFTI delared deemed to be university" >
            </picture>
          </div>
-      </div>
+      </div>-->
       <div class="swiper-slide" >
           <div class="slider-bg">
              <picture>

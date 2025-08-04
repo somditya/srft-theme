@@ -84,7 +84,7 @@ html {
 :root {
   --top-header-color: #5d3e00;
   --page-header-color: #5d3e00;
-  --hyper-link-color: #916100;
+  --hyper-link-color: #8b5b2b;
   --primary-menu-hover-color: #916100;
   --secondary-menu-hover-color: #916100;
   --secondary-menu-active-color: #eaeaea;
@@ -352,9 +352,9 @@ body {
 .container {
   /* 1140px */
   max-width: 160rem;
-
-  /*padding: 0 3.2rem;*/
+  /*max-width: 100%;*/
   margin: 0 auto;
+  /*padding: 1rem;*/
 }
 
 .headline-description {
@@ -1170,6 +1170,13 @@ div .spacer {
 
 #breadcrumbs {
   font-size: 1.5rem;
+}
+
+#breadcrumbs a:focus,
+#breadcrumbs a:hover {
+  color: #000000; /* Clear change on hover/focus */
+  background-color: #f3f3f3; /* Optional: slight background for feedback */
+  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
 .tooltip-box {
@@ -3202,6 +3209,7 @@ div .spacer {
   margin-top: 32px;
   background-color: #eaeaea;
   padding: 1.5rem 1.5rem;
+  margin-bottom: 32px;
 }
 
 .widget-content {
@@ -3247,7 +3255,7 @@ h2 {
   padding-bottom: 5px;
   color: #6c4713;
   font-style: normal;
-  border-bottom: 1px solid #6c4713;
+  /*border-bottom: 1px solid #6c4713;*/
 }
 
 h3 {
@@ -4002,6 +4010,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  list-style: none; /* 👈 removes bullet points */
 }
 
 .faculty-card {
@@ -4009,6 +4018,20 @@ ul li input[type="checkbox"]:checked ~ i:after {
   padding: 10px;
   border-radius: 5px;
   text-align: center;
+}
+
+.faculty-card {
+  flex: 0 0 calc(20% - 20px); /* Adjust this value to control the number of cards per row */
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.faculty-card h3 a:focus,
+.faculty-card h3 a:hover {
+  color: #000000; /* Clear change on hover/focus */
+  background-color: #f3f3f3; /* Optional: slight background for feedback */
+  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
 .faculty-image {
@@ -4075,6 +4098,14 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .faculty-grid h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1.22em;
+  margin: 12px 0;
+  color: #8b5b2b;
+}
+
+.faculty-grid h3 {
   font-size: 1.2em;
   font-weight: 600;
   line-height: 1.22em;
@@ -5555,6 +5586,13 @@ header {
   color: #8b5b2b;
   font-style: normal;
   border-bottom: 2px solid #6d2f6a;
+}
+
+.widget a:focus,
+.widget a:hover {
+  color: #000000; /* Clear change on hover/focus */
+  background-color: #f3f3f3; /* Optional: slight background for feedback */
+  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
 /* h4 {
