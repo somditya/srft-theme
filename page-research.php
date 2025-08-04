@@ -23,9 +23,20 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
     </section>
 
+<div class="container-aligned">
+  <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+</div>
+</div>
+
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-label="Downloadable Take One Volumes">
-            <div class="widget" style="line-height: 1.5">
+        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
+        <h2 id="sidebar-heading" class="sr-only">Downloadable Take-One Volumes</h2>    
+        <div class="widget" style="line-height: 1.5">
                 <h3><?php echo __('Take One', 'srft-theme'); ?></h3>
                 <?php 
                 // Set document category slug based on language
@@ -86,16 +97,7 @@ $page_content = apply_filters('the_content', $post->post_content);
         </aside>
 
         <div class="main-content" role="main">
-            <div>      
-                <div>      
-    <?php
-    if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<nav aria-label="Breadcrumb" id="breadcrumbs">', '</nav>' );
-    }
-    ?>
-</div>
 
-            </div>
             <div>
                 <h2 class="page-header-text"><?php echo __('Research at SRFTI', 'srft-theme'); ?></h2>
             </div> 

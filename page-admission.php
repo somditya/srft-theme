@@ -15,11 +15,19 @@ $current_language = get_locale();
           <h1 class="page-banner-title"><?php echo __('Admission', 'srft-theme'); ?></h1>  
         </div>
       </section>
-
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
     <section  id="skip-to-content" class="cine-detail">
       
-      <aside class="leftnav" role="complementary" aria-label="Notification & Downloadable Materials">
-
+    <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
+    <h2 id="sidebar-heading" class="sr-only">Admission Related Information </h2>
     <!-- Navigation Section -->
     <nav class="childnavs" aria-label="<?php echo __('Admission Menu', 'srft-theme'); ?>">
         <?php
@@ -183,13 +191,7 @@ $current_language = get_locale();
     </section>
 </aside>
 
-    <div class="main-content" >
-        <div>     
-           <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-      ?></div>
+    <div class="main-content" role="main">
         <div  class="page-title">
           <div><p class="page-header-text"><?php echo __('Programme Overview', 'srft-theme'); ?></p></div>
         </div>

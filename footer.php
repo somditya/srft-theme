@@ -2,7 +2,7 @@
 
 $current_language = get_locale();
 ?>
-<div class="footer_container">
+<div class="footer_container" role="contentinfo">
   <div class="footer_inner_container">
     <div class="footer_sub">
       <ul>
