@@ -46,78 +46,62 @@ if ($current_language === 'en_US') {
 <div data-scroll-container>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
-      <div class="page-banner-title"><?php the_title(); ?><br>
-         <span style="font-size: 0.7em;"><?php echo $programmename; ?></span>
-    </div> 
+      <h1 class="page-banner-title"><?php the_title(); ?>
+     </h1> 
    </div>
-</section>
+  </section>
+
+ <div class="container-aligned">
+  <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+  </div>
+</div>
 
 <section id="skip-to-content" class="cine-detail">
- <div class="leftnav">
+ <aside role="complementary" aria-labelledby="sidebar-heading" class="leftnav">
 
- <!--<a href="https://applyadmission.net/srfti2025/" target="_blank">
-  <button style="padding: 10px 20px; background-color: #000000; color: white; border: none; border-radius: 5px; font-size: 20px; cursor: pointer;">
-    <?php echo __('Apply Now', 'srft-theme' ); ?>
-  </button>
-</a>--> 
-   <!--<div class="childnavs">
-     <ul class="childnav-lists">
-       <li class="childnav-list-item">
-         <a class="item"><?php echo __('Prospectus', 'srft-theme' ); ?></a>
-       </li>
-       <li class="childnav-list-item">
-         <a class="item"><span class=""><?php echo __('Scholarship', 'srft-theme' ); ?></span></a>
-       </li>
-       <li class="childnav-list-item">
-         <a class="item"><?php echo __('Academic Calendar', 'srft-theme' ); ?></a>
-       </li>
-       <li class="childnav-list-item">
-         <a class="item"><?php echo __('Academic By-law', 'srft-theme' ); ?></a>
-       </li>
-     </ul>
-   </div>-->
+  <h2 id="sidebar-heading" class="sr-only">Related Programme Information</h2>
 
-   <div class="widget">
-     <div class="widget-content">
-       <h2><?php echo __('Programme Duration', 'srft-theme' ); ?></h2>
-       <hr />
-       <div>
-         <p> <?php if (!empty($duration)) {
-    echo $duration;
-    }?></p>
-       </div>
-     </div>
-   </div>
-   <div class="widget">
-     <div class="widget-content">
-       <h2><?php echo __('Total No. of Seats', 'srft-theme' ); ?></h2>
-       <hr />
-       <div>
-         <p> <?php if (!empty($seats)) {
-    echo $seats;
-    }?></p>
-       </div>
-     </div>
-   </div>
-   <div class="widget">
-     <div class="widget-content">
-       <h2><?php echo __('Eligibility Criteria', 'srft-theme' ); ?></h2>
-       <hr />
-       <div>
-         <?php echo $eligibilty; ?>
-       </div>
-     </div>
-   </div>
- </div>
+  <div class="widget" style="background: #b38840; color: white;">
+    <div class="widget-content">
+      <h3 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h3>
+      <hr role="presentation" />
+      <p style="font-weight: 400; font-size: 24px; color: white; line-height: 2.8rem;"><?php echo $programmename; ?></p>
+    </div>
+  </div>
 
- <div class="main-content">
- <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-       </div>
+  <div class="widget">
+    <div class="widget-content">
+      <h3 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h3>
+      <hr role="presentation" />
+      <p><?php if (!empty($duration)) echo $duration; ?></p>
+    </div>
+  </div>
+
+  <div class="widget">
+    <div class="widget-content">
+      <h3 id="seats-heading"><?php echo __('Total No. of Seats', 'srft-theme'); ?></h3>
+      <hr role="presentation" />
+      <p><?php if (!empty($seats)) echo $seats; ?></p>
+    </div>
+  </div>
+
+  <div class="widget">
+    <div class="widget-content">
+      <h3 id="eligibility-heading"><?php echo __('Eligibility Criteria', 'srft-theme'); ?></h3>
+      <hr role="presentation" />
+      <div><?php echo $eligibilty; ?></div>
+    </div>
+  </div>
+
+</aside>
+
+
+ <div class="main-content container-aligned" role="main">
    <div style="margin-top: 0rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
      <?php echo __('About the department', 'srft-theme' ); ?>
@@ -222,7 +206,7 @@ if ($current_language === 'en_US') {
     $facurl = esc_url(site_url('/hi/संकाय/'));
 }
 ?>
-<a href="<?php echo esc_url($facurl); ?>"><?php echo esc_html__('Learn More About Them', 'srft-theme'); ?></a>
+<a href="<?php echo esc_url($facurl); ?>"><?php echo esc_html__('Learn More About The Faculty & Academic Support staff', 'srft-theme'); ?></a>
 
         </div>
     </section>
@@ -244,7 +228,7 @@ if ($current_language === 'en_US') {
        </div>
 
        <div class="facility-img-box">
-       <img src="<?php echo $facilities_img ?>" class="container-image" / alt="Image displaying department's activities">
+       <img src="<?php echo $facilities_img ?>" class="container-image" / alt="">
        </div>
        
      </div>

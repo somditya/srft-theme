@@ -1168,6 +1168,16 @@ div .spacer {
   overflow: hidden;
 }
 
+.container-aligned {
+  max-width: 160rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.breadcrumbs-wrapper {
+  margin-top: 1.5rem;
+}
+
 #breadcrumbs {
   font-size: 1.5rem;
 }
@@ -2846,6 +2856,13 @@ div .spacer {
   border-bottom: none;
 }
 
+.link-span a:focus,
+.link-span a:hover {
+  color: #000000; /* Clear change on hover/focus */
+  background-color: #f3f3f3; /* Optional: slight background for feedback */
+  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+}
+
 .link-span a::after {
   /*content: "\f061";*/
   display: inline-block;
@@ -3218,13 +3235,6 @@ div .spacer {
   line-height: 1.8;
 }
 
-.widget-content h2 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 2.8rem;
-  max-width: 100%;
-}
-
 .widget-content hr {
   display: block;
   width: 10rem;
@@ -3245,6 +3255,14 @@ div .spacer {
   color: #6c4713;
   font-style: normal;
   border-bottom: 2px solid #6c4713;
+}
+
+.widget .widget-content > h3 {
+  all: unset;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+  max-width: 100%;
 }
 
 h2 {
@@ -5566,6 +5584,14 @@ header {
   max-width: 100%;
 }
 
+.widget .widget-content > h3 {
+  all: unset;
+  font-size: 1.8rem !important;
+  font-weight: 500 !important;
+  line-height: 2.8rem !important;
+  max-width: 100% !important;
+}
+
 .widget-content hr {
   display: block;
   width: 10rem;
@@ -5574,18 +5600,6 @@ header {
   background-color: currentColor;
   color: currentColor;
   margin: 1em 0;
-}
-
-.widget h3 {
-  font-weight: 400;
-  font-size: 1.1em;
-  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
-  margin: 5px 0 10px 0;
-  padding-bottom: 5px;
-  color: #6d2f6a;
-  color: #8b5b2b;
-  font-style: normal;
-  border-bottom: 2px solid #6d2f6a;
 }
 
 .widget a:focus,

@@ -17,7 +17,7 @@ $current_language = get_locale();
     </section>
 
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-label="Notification & Downloadable Materials">
+    <aside class="leftnav" role="complementary" aria-label="Notification & Downloadable Materials">
 
     <!-- Navigation Section -->
     <nav class="childnavs" aria-label="<?php echo __('Admission Menu', 'srft-theme'); ?>">
