@@ -20,7 +20,7 @@ $current_language = get_locale();
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
     ?>
    </div>

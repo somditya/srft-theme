@@ -15,9 +15,20 @@ $current_language = get_locale();
         </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
     <section id="skip-to-content" class="cine-detail">
-        <div class="leftnav">
-            <div class="childnavs">
+        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
+        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
+        <nav class="childnavs" aria-label="<?php echo __('About Us Menu', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -48,31 +59,25 @@ $current_language = get_locale();
                     'walker' => new Custom_Walker_Nav_Menu(),
                 ));
                 ?>
-            </div>
+            </nav>
 
-            <div class="widget" style="line-height: 1.5; margin-top: 3rem;">
-            <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
-                        <ul>
-                          <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
-                          <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
-                          <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-                          <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></li>
-                          <li><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></li>
-                        </ul>
+            <div class="widget" style="line-height: 1.5; margin-top: 3rem;" aria-labelledby="institute's address">
+            <h3 id="institute's address"><?php echo __('Communication Address', 'srft-theme'); ?></h3>
+                        
+                          <p><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
+                          <p><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></p>
+                          <p><?php echo __('Kolkata-700094', 'srft-theme'); ?></p>
+                          <p><?php echo __('West Bengal', 'srft-theme'); ?></p>
+                          <p><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></p>
+                          <p><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></p>
+                        
             </div>
-        </div>
+        </aside>
 
-        <div class="main-content">
-            <div>      
-                <?php
-                if ( function_exists('yoast_breadcrumb') ) {
-                    yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-                }
-                ?>
-            </div>
+        <div class="main-content" role="main">
 
             <div>
-                <h2 class="page-header-text" style="margin-top: 2rem;"><?php echo __('Directory', 'srft-theme'); ?></h2>
+                <h2 class="page-header-text" style="margin-top: 2rem;"><?php echo __('Department-wise Staff Contact Information', 'srft-theme'); ?></h2>
             </div>
 
             <div style="margin-bottom: 6rem;">
@@ -131,53 +136,58 @@ $current_language = get_locale();
                             'order' => 'ASC'
                         ));
 
-                        if ($query->have_posts()) {
-                            $has_posts = true;
-                            $count = 1;
-                            while ($query->have_posts()) {
-                                $query->the_post();
-                                $designation = get_field('Faculty-Designation');
-                                $roomno = get_field('Room-No');
-                                $epbxno = get_field('Epbx-No');                
-                                $email = get_field('Email-Id');
-                                $phone = get_field('Office-Number');
-                                ?>
-                                <div class="Rtable-row">
-                                    <!--div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></!--div>-->
-                                    <div class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php the_title(); ?></div></div>
-                                    <div class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></div>
-                                    <div class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></div>
-                                    <div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></div>
-                                    <div class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></div>
-                                </div>
-                                <?php
+                            if ($query->have_posts()) {
+                                $has_posts = true;
+                                $count = 1;
+                                while ($query->have_posts()) {
+                                    $query->the_post();
+                                    $designation = get_field('Faculty-Designation');
+                                    $roomno = get_field('Room-No');
+                                    $epbxno = get_field('Epbx-No');                
+                                    $email = get_field('Email-Id');
+                                    $phone = get_field('Office-Number');
+                                    ?>
+                                    <tr class="Rtable-row">
+                                        <!--div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></!--div>-->
+                                        <td class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php the_title(); ?></div></td>
+                                        <td class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></td>
+                                        <td class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></td>
+                                        <td class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></td>
+                                        <td class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></td>
+                                    </tr>
+                                    <?php
+                                }
+                                wp_reset_postdata();
                             }
-                            wp_reset_postdata();
+                        }
+
+                        $output = ob_get_clean();
+
+                        if ($has_posts) {
+                            echo '<h2>' . esc_html($department) . '</h2>';
+                            echo '<div class="wrapper">';
+                            echo '<div class="Rtable Rtable--6cols Rtable--collapse">';
+                            echo '<table style="width: 100%;">';
+                            echo '<caption class="sr-only">table showing directory information of the'. esc_html($department) .  '</caption>';
+                            echo '<thead>';
+                            echo '<tr class="Rtable-row Rtable-row--head">';
+                            //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
+                            echo '<th class="Rtable-cell id-cell column-heading" scope="col">' . __('Name', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell id-cell column-heading" scope="col">'. __('Designation', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell composition-cell column-heading" scope="col">'. __('Phone', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell slno-cell column-heading" scope="column">'. __('EPBX', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell composition-cell column-heading" scope="col">'. __('Email', 'srft-theme') . '</th>';
+                            echo '</tr>';
+                            echo  '</thead>';
+                            echo '<tbody>';
+                            echo $output;
+                            echo '</tbody>';
+                            echo '</table>';
+                            echo '</div>';
+                            echo '</div>';
                         }
                     }
-
-                    $output = ob_get_clean();
-
-                    if ($has_posts) {
-                        echo '<h2>' . esc_html($department) . '</h2>';
-                        echo '<div class="wrapper">';
-                        echo '<div class="Rtable Rtable--6cols Ratble--collapse">';
-                        echo '<div class="Rtable-row Rtable-row--head">';
-                        //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
-                        echo '<div class="Rtable-cell id-cell column-heading">' . __('Name', 'srft-theme') . '</div>';
-                        echo '<div class="Rtable-cell id-cell column-heading">'. __('Designation', 'srft-theme') . '</div>';
-                        echo '<div class="Rtable-cell composition-cell column-heading">'. __('Phone', 'srft-theme') . '</div>';
-                        echo '<div class="Rtable-cell slno-cell column-heading">'. __('EPBX', 'srft-theme') . '</div>';
-                        echo '<div class="Rtable-cell composition-cell column-heading">'. __('Email', 'srft-theme') . '</div>';
-                        echo '</div>';
-                        echo '</div>';
-
-                        echo '<div class="Rtable">';
-                        echo $output;
-                        echo '</div>';
-                    }
-                }
-                ?>
+                    ?>
            </div>
               </section>
 

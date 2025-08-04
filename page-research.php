@@ -27,7 +27,7 @@ $page_content = apply_filters('the_content', $post->post_content);
   <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
     ?>
 </div>
