@@ -29,7 +29,7 @@ $current_language = get_locale();
     <section id="skip-to-content" class="cine-detail">
         <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
         <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
-        <nav class="childnavs" aria-label="<?php echo __('About Us Menu', 'srft-theme'); ?>">
+        <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
