@@ -27,10 +27,10 @@ $current_language = get_locale();
    </div>
 
     <section id="skip-to-content" class="cine-detail">
-    <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
-    <h2 id="sidebar-heading" class="sr-only">Admission Related Information </h2>
-    <!-- Navigation Section -->
-    <nav class="childnavs" aria-label="<?php echo __('Admission Menu', 'srft-theme'); ?>">
+    <div class="leftnav" aria-labelledby="sidebar-region">
+    <!--<h2 id="sidebar-heading" class="sr-only">Admission Related Information </h2>
+     Navigation Section -->
+    <nav class="childnavs" aria-label="<?php echo __('Admission', 'srft-theme'); ?>">
         <?php
         $current_language = get_locale();
         $menu_name = ($current_language === 'hi_IN') ? 'hindi_admission_menu' : 'english_admission_menu';
@@ -65,10 +65,11 @@ $current_language = get_locale();
         ));
         ?>
     </nav>
-
+    
+    <aside role="complementary">
     <!-- Prospectus Downloads -->
-    <section class="widget" aria-labelledby="prospectus-heading">
-        <h3 id="prospectus-heading"><?php echo __('Download Prospectus', 'srft-theme'); ?></h3>
+    <div class="widget">
+        <h3><?php echo __('Download Prospectus', 'srft-theme'); ?></h3>
         <?php 
         $catslg = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
         $download_post = new WP_Query([
@@ -96,7 +97,7 @@ $current_language = get_locale();
                     $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
                     ?>
                     <li>
-                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener">
+                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="PDF, opens in a new tab">
                             <?php echo esc_html(get_the_title()); ?>
                             (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
@@ -110,11 +111,11 @@ $current_language = get_locale();
         }
         wp_reset_postdata();
         ?>
-    </section>
+    </div>
 
     <!-- Admission Notification -->
-    <section class="widget" aria-labelledby="admission-notice-heading">
-        <h3 id="admission-notice-heading"><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
+    <div class="widget">
+        <h3><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
         <?php
         $catslug = ($current_language === 'hi_IN') ? 'admission-hi' : 'admission-en';
         $admission_post = new WP_Query([
@@ -144,11 +145,11 @@ $current_language = get_locale();
         }
         wp_reset_postdata();
         ?>
-    </section>
+    </div>
 
     <!-- Sample Question Papers -->
-    <section class="widget" aria-labelledby="question-papers-heading">
-        <h3 id="question-papers-heading"><?php echo __('Sample Question Papers', 'srft-theme'); ?></h3>
+    <div class="widget">
+        <h3><?php echo __('Sample Question Papers', 'srft-theme'); ?></h3>
         <?php 
         $download_post = new WP_Query([
             'post_type' => 'document',
@@ -175,9 +176,9 @@ $current_language = get_locale();
                     $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
                     ?>
                     <li style="margin-bottom: 10px;">
-                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener">
+                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="pdf opens in a new window">
                             <?php echo esc_html(get_the_title()); ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="PDF, opens in a new tab"" style="vertical-align: middle;" />
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
                             <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
                         </a>
                     </li>
@@ -189,8 +190,9 @@ $current_language = get_locale();
         }
         wp_reset_postdata();
         ?>
-    </section>
-</aside>
+    </div>
+    </aside>
+    </div>
 
 
         <div class="main-content" role="main">

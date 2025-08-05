@@ -15,9 +15,6 @@ $current_language = get_locale();
             <h1 class="page-banner-title"><?php echo __('Committees', 'srft-theme' ); ?></h1>
         </div>
     </section>
-
-    <section id="skip-to-content" class="cine-detail">
-
     <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
@@ -26,52 +23,45 @@ $current_language = get_locale();
             }
     ?>
    </div>
-    </div>
-        <aside class="leftnav">
+   </div>
+    <section id="skip-to-content" class="cine-detail">
         <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
         <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
         <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
-            <?php
-            $current_language = get_locale();
-            $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
-            $current_page_title = get_the_title();
+                <?php
+                $current_language = get_locale();
+                $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
+                $current_page_title = get_the_title();
 
-            class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-                public function start_lvl(&$output, $depth = 0, $args = null) {
-                    $output .= '<ul class="submenu">';
+                class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+                    public function start_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '<ul class="submenu">';
+                    }
+                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                        global $current_page_title;
+                        $is_current = ($item->title === $current_page_title) ? 'active' : '';
+                        $output .= '<li class="childnav-list-item ' . $is_current . '">';
+                        $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+                    }
+                    public function end_el(&$output, $item, $depth = 0, $args = null) {
+                        $output .= '</li>';
+                    }
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '</ul>';
+                    }
                 }
-                public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                    global $current_page_title;
-                    $is_current = ($item->title === $current_page_title) ? 'active' : '';
-                    $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                    $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-                }
-                public function end_el(&$output, $item, $depth = 0, $args = null) {
-                    $output .= '</li>';
-                }
-                public function end_lvl(&$output, $depth = 0, $args = null) {
-                    $output .= '</ul>';
-                }
-            }
 
-            wp_nav_menu(array(
-                'menu' => $menu_name,
-                'container' => false,
-                'menu_class' => 'childnav-lists',
-                'walker' => new Custom_Walker_Nav_Menu(),
-            ));
-            ?>
-        </nav>
+                wp_nav_menu(array(
+                    'menu' => $menu_name,
+                    'container' => false,
+                    'menu_class' => 'childnav-lists',
+                    'walker' => new Custom_Walker_Nav_Menu(),
+                ));
+                ?>
+            </nav>
         </aside>
 
         <div class="main-content" role="main">
-        <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-         </div>
             <div>
                 <h2 class="page-header-text"><?php echo __('Important Committees', 'srft-theme'); ?></h2>
             </div>  
