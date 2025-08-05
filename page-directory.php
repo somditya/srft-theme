@@ -149,11 +149,11 @@ $current_language = get_locale();
                                     ?>
                                     <tr class="Rtable-row">
                                         <!--div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></!--div>-->
-                                        <td class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php the_title(); ?></div></td>
-                                        <td class="Rtable-cell id-cell"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></td>
-                                        <td class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></td>
-                                        <td class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></td>
-                                        <td class="Rtable-cell composition-cell"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></td>
+                                        <td class="Rtable-cell cell-width-25-percent"><div class="Rtable-cell--content"><?php the_title(); ?></div></td>
+                                        <td class="Rtable-cell cell-width-25-percent"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></td>
+                                        <td class="Rtable-cell cell-width-15-percent"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></td>
+                                        <td class="Rtable-cell cell-width-10-percent"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></td>
+                                        <td class="Rtable-cell cell-width-25-percent"><div class="Rtable-cell--content"><?php echo esc_html($email); ?></div></td>
                                     </tr>
                                     <?php
                                 }
@@ -172,11 +172,11 @@ $current_language = get_locale();
                             echo '<thead>';
                             echo '<tr class="Rtable-row Rtable-row--head">';
                             //echo '<div class="Rtable-cell slno-cell column-heading">Sl. No.</strong></div>';
-                            echo '<th class="Rtable-cell id-cell column-heading" scope="col">' . __('Name', 'srft-theme') . '</th>';
-                            echo '<th class="Rtable-cell id-cell column-heading" scope="col">'. __('Designation', 'srft-theme') . '</th>';
-                            echo '<th class="Rtable-cell composition-cell column-heading" scope="col">'. __('Phone', 'srft-theme') . '</th>';
-                            echo '<th class="Rtable-cell slno-cell column-heading" scope="column">'. __('EPBX', 'srft-theme') . '</th>';
-                            echo '<th class="Rtable-cell composition-cell column-heading" scope="col">'. __('Email', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell cell-width-25-percent column-heading" scope="col">' . __('Name', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell cell-width-25-percent column-heading" scope="col">'. __('Designation', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell cell-width-15-percent column-heading" scope="col">'. __('Phone', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell cell-width-10-percent column-heading" scope="col">'. __('EPBX', 'srft-theme') . '</th>';
+                            echo '<th class="Rtable-cell cell-width-25-percent column-heading" scope="col">'. __('Email', 'srft-theme') . '</th>';
                             echo '</tr>';
                             echo  '</thead>';
                             echo '<tbody>';

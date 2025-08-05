@@ -867,8 +867,8 @@ div .spacer {
 }
 
 /* Table column sizing ================================== */
-.cell-width-9-percent {
-  width: 9%;
+.cell-width-5-percent {
+  width: 5%;
 }
 
 .cell-width-10-percent {
@@ -903,7 +903,7 @@ div .spacer {
   width: 40%;
 }
 
-.cell-width-40-percent {
+.cell-width-50-percent {
   width: 50%;
 }
 .cell-width-60-percent {
@@ -992,7 +992,10 @@ div .spacer {
   box-sizing: border-box;
   flex-grow: 1;
   padding: 0.8em 1.2em;
-  overflow: hidden; /* Or flex might break */
+  /*overflow: hidden;*/ /* Or flex might break */
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: anywhere;
   list-style: none;
   text-align: left; /* Added to left-align content */
   font-size: 14px;
