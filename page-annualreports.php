@@ -142,8 +142,8 @@ $current_language = get_locale();
 
                         wp_reset_postdata();
                         ?>
-                    </div>
-                </div>
+                    </tbody>
+                    </table>
             </div>
         </div>
     </section>
