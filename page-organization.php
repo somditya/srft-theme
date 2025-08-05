@@ -25,9 +25,8 @@ $current_language = get_locale();
    </div>
 
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
-        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
-        <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
+        <div class="leftnav">
+        <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -60,7 +59,7 @@ $current_language = get_locale();
                 ?>
             </nav>
 
-        <div class="widget" aria-labelledby="Download pdfs" style="line-height: 1.5; margin-top: 5.5rem;">
+        <aside class="widget" role="complementary" style="line-height: 1.5; margin-top: 5.5rem;">
                 
                 <h3 id="Download pdfs"><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h3>
                 <?php 
@@ -119,8 +118,8 @@ $current_language = get_locale();
 
                 wp_reset_postdata(); // Reset after custom query
                 ?>
-        </div>    
-        </aside>
+        </aside>    
+        </div>
 
         <div class="main-content" role="main">
             <div>

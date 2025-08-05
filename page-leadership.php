@@ -9,22 +9,22 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Leadership', 'srft-theme'); ?></h2>
+            <h1 class="page-banner-title"><?php echo __('Leadership', 'srft-theme'); ?></h1>
         </div>  
     </section>
 
-     <div class="container-aligned">
+    <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
                 yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
-    ?>
+    ?>  
    </div>
    </div>
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
-            <div class="childnavs">
+            <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -55,10 +55,10 @@ $current_language = get_locale();
                     'walker' => new Custom_Walker_Nav_Menu(),
                 ));
                 ?>
-            </div>
+            </nav>
         </div>
 
-        <div class="main-content">
+        <div class="main-content" role="main">
             <div class="page-title">
                 <div>
                     <h2 class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></h2>
@@ -69,10 +69,12 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'ChairmanPhoto', true))); ?>" alt="Photo of the chairman">
+            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'ChairmanPhoto', true))); ?>" alt="<?php echo get_post_meta(get_the_ID(), 'Chairman', true) . ' profile'; ?>">
                             <div class="profile-text">
-                                <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></div>
-                                <div class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></div>
+                                <h3 class="custom-profile-heading">
+                                <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></span>
+                                <span class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></sp>
+                                <h3>
                             </div>   
                         </div>        
                     </div>
@@ -90,10 +92,12 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DirectorPhoto', true))); ?>" alt="Photo of the director">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DirectorPhoto', true))); ?>" alt="<?php echo get_post_meta(get_the_ID(), 'Director', true) . ' profile'; ?>">
                             <div class="profile-text">
-                                <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></div>
-                                <div class="profile-desg"><?php echo __('Vice-Chancellor', 'srft-theme' ); ?></div>
+                                <h3 class="custom-profile-heading">
+                                <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></span>
+                                <span class="profile-desg"><?php echo __('Vice-Chancellor', 'srft-theme' ); ?></span>
+                                <h3>                           
                             </div>   
                         </div>
                     </div>
@@ -111,10 +115,12 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DeanPhoto', true))); ?>" alt="Photo of the dean">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'DeanPhoto', true))); ?>" alt="<?php echo get_post_meta(get_the_ID(), 'Dean', true) . ' profile'; ?>">
                             <div class="profile-text">
-                                <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Dean', true); ?></div>
-                                <div class="profile-desg"><?php echo __('Dean', 'srft-theme' ); ?></div>
+                                <h3 class="custom-profile-heading">
+                                <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Dean', true); ?></span><br/>
+                                <span class="profile-desg"><?php echo __('Dean', 'srft-theme' ); ?></span>
+                                </h3>
                             </div>   
                         </div>
                     </div>
@@ -132,10 +138,13 @@ $current_language = get_locale();
                 <div class="two-flex">
                     <div class="col-left">
                         <div class="profile-container">
-                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'RegistrarPhoto', true))); ?>" alt="Photo of the registrar">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'RegistrarPhoto', true))); ?>" alt="<?php echo get_post_meta(get_the_ID(), 'Registrar', true) . ' profile'; ?>">
                             <div class="profile-text">
-                                <div class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Registrar', true); ?></div>
-                                <div class="profile-desg"><?php echo __('Registrar', 'srft-theme' ); ?></div>
+                                <h3 class="custom-profile-heading">
+                                <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Registrar', true); ?></span>
+                                <br/>
+                                <span class="profile-desg"><?php echo __('Registrar', 'srft-theme' ); ?></span>
+                                </h3>
                             </div>   
                         </div>
                     </div>
@@ -150,12 +159,12 @@ $current_language = get_locale();
             </div>
 
             <div class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
-                <div class="accordian">
+                <!--<div class="accordian">
                     <ul>
                         <li>
-                            <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous chairman', 'srft-theme'); ?>">
+                            <input type="checkbox" >
                             <i></i>
-                            <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
+                            <h2 role="button"><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>
                             </p>
@@ -166,7 +175,7 @@ $current_language = get_locale();
                         <li>
                             <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous directors', 'srft-theme'); ?>">
                             <i></i>
-                            <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
+                            <h2 role="button"><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousDirectors', true); ?>
                             </p>    
@@ -177,13 +186,58 @@ $current_language = get_locale();
                         <li>
                             <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous registrars', 'srft-theme'); ?>">
                             <i></i>
-                            <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
+                            <h2 role="button"><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
                             </p>             
                         </li>
                     </ul>
-                </div>
+                </div>-->
+
+<div id="accordionGroup" class="accordion">
+  <h3>
+    <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
+      <span class="accordion-title">
+       <?php echo __('Previous Chairmans', 'srft-theme' ); ?>
+        <span class="accordion-icon"></span>
+      </span>
+    </button>
+  </h3>
+  <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
+    <div>
+    <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>  
+      
+    </div>
+  </div>
+  <h3>
+    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
+      <span class="accordion-title">
+        <?php echo __('Previous Directors', 'srft-theme' ); ?>
+        <span class="accordion-icon"></span>
+      </span>
+    </button>
+  </h3>
+  <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
+    <div>
+      <?php echo get_post_meta(get_the_ID(), 'PreviousDirectors', true); ?>
+    </div>
+  </div>
+  <h3>
+    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
+      <span class="accordion-title">
+        <?php echo __('Previous Registrar', 'srft-theme' ); ?>
+        <span class="accordion-icon"></span>
+      </span>
+    </button>
+  </h3>
+  <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
+    <div>
+    <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>  
+    </div>
+  </div>
+</div>
+
+
             </div>
         </div>
     </section>
