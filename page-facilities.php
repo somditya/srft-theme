@@ -19,6 +19,16 @@ $current_page_title = get_the_title(); // Get current page title
         </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
@@ -59,12 +69,6 @@ $current_page_title = get_the_title(); // Get current page title
         </div>
 
         <div class="main-content">
-            <div>
-                <?php if (function_exists('yoast_breadcrumb')) {
-                    yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-                } ?>
-            </div>
-
             <div>
                 <h2 class="page-header-text"><?php echo esc_html(get_the_title()); ?></h2>
             </div>  

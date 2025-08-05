@@ -23,18 +23,23 @@ $category_id = get_category_ID($category_name);
             </div>
         </section>
 
+   <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
         <section class="cine-detail">
             <div class="leftnav">
                 <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
                     <h4><?php echo __('Student Association', 'srft-theme'); ?></h4>
                 </div>
             </div>
-            <div class="main-content">
-                <div>
-                    <?php if (function_exists('yoast_breadcrumb')) {
-                        yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-                    } ?>
-                </div>
+            <div class="main-content" role="main">
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students', 'srft-theme'); ?></h2>
                 
                 <section style="width: 100%; padding: 2.8rem 0;">

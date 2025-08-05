@@ -1184,6 +1184,19 @@ div .spacer {
 
 #breadcrumbs {
   font-size: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#breadcrumbs li {
+  display: inline;
+}
+
+#breadcrumbs li:not(:first-child)::before {
+  content: "»";
+  display: inline-block;
+  margin: 0 5px;
 }
 
 #breadcrumbs a:focus,

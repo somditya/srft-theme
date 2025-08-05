@@ -1038,15 +1038,25 @@ function is_custom_link($menu_item) {
 }
 
 // Convert the Yoast Breadcrumbs output wrapper into an ordered list.
-//add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
-	//return 'ol';
-//} );
+// Convert the Yoast Breadcrumbs output wrapper into an ordered list.
+add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
+	return 'ol';
+} );
 
 // Convert the Yoast Breadcrumbs single items into list items.
-//add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
-	//return 'li';
-//} );
+add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
+	return 'li';
+} );
 
+// Convert the Yoast Breadcrumbs output wrapper into an ordered list.
+add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
+	return 'ol';
+} );
+
+// Convert the Yoast Breadcrumbs single items into list items.
+add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
+	return 'li';
+} );
 
 function display_global_latest_date() {
 	// Query to get the latest modified post from all post types

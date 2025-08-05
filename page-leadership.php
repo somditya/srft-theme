@@ -13,6 +13,15 @@ $current_language = get_locale();
         </div>  
     </section>
 
+     <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
@@ -50,13 +59,6 @@ $current_language = get_locale();
         </div>
 
         <div class="main-content">
-        <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-        </div>
             <div class="page-title">
                 <div>
                     <h2 class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></h2>

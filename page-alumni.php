@@ -33,15 +33,18 @@ $category_id = get_category_ID($category_name);
     </div> <!-- Missing closing div added here -->
 </section>
 
+ <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
 <section class="section-home" id="skip-to-content">
     <div class="container" style="width: 1170px;">
-    <div>
-          <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-              yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-            }
-          ?>
-        </div>
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->

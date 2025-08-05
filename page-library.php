@@ -13,6 +13,16 @@ $current_language = get_locale();
           <h2 class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></h2>
         </div>  
       </section>
+
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
           <!--<div>
@@ -86,13 +96,6 @@ $current_language = get_locale();
         </div>
 
   <div class="main-content">
-    <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-    </div>
     <div>
         <p class="page-header-text"><?php the_title(); ?></p>
     </div>  

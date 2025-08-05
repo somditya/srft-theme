@@ -36,13 +36,15 @@ $category_id = get_category_ID($category_name);
       <section class="section-home">
         <div class="container" style="padding: 0 3.2rem
 32px;">
-        <div>      
-        <?php
+        <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
             if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
-            ?>
-    </div>
+    ?>
+   </div>
+   </div>
           <h2 id="skip-to-content" class="page-header-text" style="padding-left: 0; text-align: center; margin-top: 20px;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
           <div ng-app="myApp" ng-controller="FacultyController" style="margin-top: 4.5rem;">
             <!-- Filter options -->

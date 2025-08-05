@@ -29,16 +29,19 @@ $category_id = get_category_ID($category_name);
       </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
     <section id="skip-to-content" class="section-home">
       <div class="container" style="padding: 0 3.2rem
 32px;">
-      <div style="padding: 0 3.2rem;">      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-       </div>
+      
        <!--<section class="page-title">
                 <div>
                     <p class="page-header-text">Help</p>

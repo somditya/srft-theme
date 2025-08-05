@@ -52,14 +52,14 @@ if ($current_language === 'en_US') {
   </section>
 
  <div class="container-aligned">
-  <div class="breadcrumbs-wrapper">
+    <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
     ?>
-  </div>
-</div>
+   </div>
+   </div>
 
 <section id="skip-to-content" class="cine-detail">
  <aside role="complementary" aria-labelledby="sidebar-heading" class="leftnav">

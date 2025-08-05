@@ -16,6 +16,16 @@ $current_language = get_locale();
         </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
     <section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
@@ -78,16 +88,7 @@ $current_language = get_locale();
             </div>
         </div>
 
-        <div  class="main-content">
-        <div>      
-        
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav area-label="breadcrumbs" id="breadcrumbs">','</nav>' );
-            }
-        ?>
-        </div> 
-           
+        <div  class="main-content">        
            <div>
                 <h2 class="page-header-text"><?php echo esc_html(get_the_title()); ?></h2>
             </div>  

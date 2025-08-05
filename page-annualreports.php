@@ -16,7 +16,7 @@ $current_language = get_locale();
         </div>
     </section>
 
-    <div class="container-aligned">
+   <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
@@ -24,7 +24,7 @@ $current_language = get_locale();
             }
     ?>
    </div>
-    </div>
+   </div>
 
     <section id="skip-to-content" class="cine-detail">
         <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">

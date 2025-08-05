@@ -13,6 +13,15 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 </section>
 
+<div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
 <section id="skip-to-content" class="cine-detail">
     <div class="leftnav">
         <div class="childnavs">
@@ -50,13 +59,6 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 
     <div class="main-content">
-    <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-    </div>
         <h2 class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></h2>
         <div class="sub-intro">
             <div class="sub-intro-images">

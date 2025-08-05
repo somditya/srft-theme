@@ -29,18 +29,17 @@ $category_id = get_category_ID($category_name);
         <h2 class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></h2>
     </div>
 </section>
-
-    
-    <section id="skip-to-content" class="section-home">
-      <div class="container" style="padding: 0 3.2rem
-32px;">
-      <div style="padding: 0 3.2rem;">      
-        <?php
+ <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
             if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-    </div>      
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+  </div>
+    
+    <section id="skip-to-content" class="section-home">      
         <h2 class="page-header-text" style="padding-bottom: 20px; text-align: center;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp">
           <div data-ng-controller="TenderController">

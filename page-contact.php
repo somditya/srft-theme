@@ -12,6 +12,16 @@ Template Name: Contact
         </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+   </div>
+
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="widget" style=" margin-top: 10px;    line-height: 1.5">
@@ -27,14 +37,7 @@ Template Name: Contact
             </div>
         </div>
 
-        <div class="main-content">
-          <div>      
-            <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-           }
-            ?>
-          </div>
+        <div class="main-content" role="main">
             <section class="page-title">
                 <div>
                     <h2 class="page-header-text"><?php echo esc_html($post->post_title); ?></h2>

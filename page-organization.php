@@ -22,7 +22,7 @@ $current_language = get_locale();
             }
     ?>
    </div>
-    </div>
+   </div>
 
     <section id="skip-to-content" class="cine-detail">
         <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
