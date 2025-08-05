@@ -122,7 +122,7 @@ $current_language = get_locale();
         </div>    
         </aside>
 
-        <div class="main-content">
+        <div class="main-content" role="main">
             <div>
                 <h2 class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></h2>
             </div>

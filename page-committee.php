@@ -12,13 +12,25 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Committees', 'srft-theme' ); ?></h2>
+            <h1 class="page-banner-title"><?php echo __('Committees', 'srft-theme' ); ?></h1>
         </div>
     </section>
 
     <section id="skip-to-content" class="cine-detail">
-        <div class="leftnav">
-        <div class="childnavs">
+
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+    </div>
+        <aside class="leftnav">
+        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
+        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
+        <nav class="childnavs" aria-label="<?php echo __('About Us Menu', 'srft-theme'); ?>">
             <?php
             $current_language = get_locale();
             $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -49,11 +61,10 @@ $current_language = get_locale();
                 'walker' => new Custom_Walker_Nav_Menu(),
             ));
             ?>
-        </div>
+        </nav>
+        </aside>
 
-        </div>
-
-        <div class="main-content">
+        <div class="main-content" role="main">
         <div>      
         <?php
             if ( function_exists('yoast_breadcrumb') ) {
@@ -62,7 +73,7 @@ $current_language = get_locale();
         ?>
          </div>
             <div>
-                <h1 class="page-header-text"><?php echo __('Committees', 'srft-theme'); ?></h1>
+                <h2 class="page-header-text"><?php echo __('Important Committees', 'srft-theme'); ?></h2>
             </div>  
             <div style="margin-bottom: 4rem;">    
                 <div><?php the_content(); ?></div>   
