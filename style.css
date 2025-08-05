@@ -1174,7 +1174,8 @@ div .spacer {
 .container-aligned {
   max-width: 160rem;
   padding: 0 3.2rem;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+  margin-left: 44px;
 }
 
 .breadcrumbs-wrapper {

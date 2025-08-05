@@ -11,57 +11,58 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __($page_title, 'srft-theme' ); ?></h2>
+            <h1 class="page-banner-title"><?php echo __($page_title, 'srft-theme' ); ?></h1>
         </div>
     </section>
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+    </div>
 
     <section id="skip-to-content" class="cine-detail">
-        <div class="leftnav">
-        <div class="childnavs">
-    <?php
-    $current_language = get_locale(); // Get the current language/locale.
-    $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu'; // Define menu name based on language.
-    $current_page_title = get_the_title(); // Get the current page title
+        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
+        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
+        <nav class="childnavs" aria-label="<?php echo __('About Us Menu', 'srft-theme'); ?>">
+                <?php
+                $current_language = get_locale();
+                $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
+                $current_page_title = get_the_title();
 
-    // Define a custom menu walker to modify the menu output.
-    class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-        public function start_lvl(&$output, $depth = 0, $args = null) {
-            // Customize the submenu opening tag as needed.
-            $output .= '<ul class="submenu">';
-        }
+                class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+                    public function start_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '<ul class="submenu">';
+                    }
+                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                        global $current_page_title;
+                        $is_current = ($item->title === $current_page_title) ? 'active' : '';
+                        $output .= '<li class="childnav-list-item ' . $is_current . '">';
+                        $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+                    }
+                    public function end_el(&$output, $item, $depth = 0, $args = null) {
+                        $output .= '</li>';
+                    }
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '</ul>';
+                    }
+                }
 
-        public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-            // Check if the current page title matches the menu item title.
-            $is_current = ($item->title === $GLOBALS['current_page_title']) ? 'active' : '';
+                wp_nav_menu(array(
+                    'menu' => $menu_name,
+                    'container' => false,
+                    'menu_class' => 'childnav-lists',
+                    'walker' => new Custom_Walker_Nav_Menu(),
+                ));
+                ?>
+            </nav>
 
-            // Customize the menu item HTML structure as needed.
-            $output .= '<li class="childnav-list-item ' . $is_current . '">';
-            $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-        }
-
-        public function end_el(&$output, $item, $depth = 0, $args = null) {
-            // Close the menu item tag.
-            $output .= '</li>';
-        }
-
-        public function end_lvl(&$output, $depth = 0, $args = null) {
-            // Customize the submenu closing tag as needed.
-            $output .= '</ul>';
-        }
-    }
-
-    // Display the menu based on the language and custom walker.
-    wp_nav_menu(array(
-        'menu' => $menu_name,
-        'container' => false, // No container element.
-        'menu_class' => 'childnav-lists', // You can customize this class as needed.
-        'walker' => new Custom_Walker_Nav_Menu(),
-    ));
-    ?>
-</div>
-
-
-            <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
+        <div class="widget" aria-labelledby="Download pdfs" style="line-height: 1.5; margin-top: 5.5rem;">
+                
+                <h3 id="Download pdfs"><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h3>
                 <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
@@ -105,7 +106,7 @@ $current_language = get_locale();
                                 <a href="<?php echo esc_url($file_url); ?>">
                                     <?php echo esc_html(get_the_title()); ?> 
                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="Download" style="vertical-align: middle;" />
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt=" " style="vertical-align: middle;" />
                                 </a>
                             </li>
 
@@ -118,17 +119,10 @@ $current_language = get_locale();
 
                 wp_reset_postdata(); // Reset after custom query
                 ?>
-            </div>
-        </div>
+        </div>    
+        </aside>
 
         <div class="main-content">
-        <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
-        </div>
             <div>
                 <h2 class="page-header-text"><?php echo __('Organization Structure', 'srft-theme'); ?></h2>
             </div>

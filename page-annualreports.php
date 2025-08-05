@@ -63,7 +63,7 @@ $current_language = get_locale();
             </nav>
         </aside>
 
-        <div class="main-content">
+        <div class="main-content" role="main">
             <div>
                 <h2 class="page-header-text"><?php echo __('Annual Reports', 'srft-theme'); ?></h2>
             </div>
