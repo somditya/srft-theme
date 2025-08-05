@@ -159,7 +159,7 @@ $current_language = get_locale();
             </div>
 
             <div class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
-                <!--<div class="accordian">
+                <div class="accordian">
                     <ul>
                         <li>
                             <input type="checkbox" >
@@ -192,9 +192,9 @@ $current_language = get_locale();
                             </p>             
                         </li>
                     </ul>
-                </div>-->
+                </div>
 
-<div id="accordionGroup" class="accordion">
+<!--<div id="accordionGroup" class="accordion">
   <h3>
     <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
       <span class="accordion-title">
@@ -235,7 +235,7 @@ $current_language = get_locale();
     <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>  
     </div>
   </div>
-</div>
+</div>-->
 
 
             </div>
