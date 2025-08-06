@@ -2838,6 +2838,18 @@ div .spacer {
   font-size: 14px;
   /*text-transform: uppercase;*/
 }
+
+.cell h3.update-title {
+  border-bottom: 2px solid #666;
+  display: block;
+  font-size: 2.5rem;
+  line-height: 28px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  font-weight: 500;
+  color: #161a1d;
+}
+
 .cell a {
   border-bottom: 1px dotted;
   font-size: 1.4rem;
@@ -4028,9 +4040,24 @@ ul li input[type="checkbox"]:checked ~ i:after {
   /*color: white;*/
 }
 
-.news-item-title h3 {
-  font-family: GthA;
+.news-item-title p {
   font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.2ch;
+  /*font-weight: 500;*/
+  line-height: 1.3em;
+  text-transform: capitalize;
+  /*color: #8b5b2b;*/
+  color: white;
+  color: #8b5b2b;
+  color: #555;
+  /* margin-top: 5px;*/
+  margin-bottom: 15px;
+  /*height: 52px;*/
+  overflow: hidden;
+}
+
+.news-item-title h3 {
   font-size: 1.6rem;
   letter-spacing: 0.2ch;
   /*font-weight: 500;*/
@@ -5299,13 +5326,6 @@ header {
   color: #161a1d;
 }
 
-.cell h3 {
-  margin-bottom: 16px;
-  letter-spacing: 0.77px;
-  line-height: 18px;
-  font-size: 14px;
-  /*text-transform: uppercase;*/
-}
 .cell a {
   border-bottom: 1px dotted;
   font-size: 1.4rem;
@@ -6326,13 +6346,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   /*background-color: #8b5b2b;*/
 }
 
-.news-item-title {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-  font-size: 18px;
-}
-
 .news-item a {
   text-decoration: none;
   /*color: #555;*/
@@ -6345,22 +6358,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   font-size: 1.4rem;
   color: #555;
   /*color: white;*/
-}
-
-.news-item-title h3 {
-  font-size: 1.6rem;
-  letter-spacing: 0.2ch;
-  /*font-weight: 500;*/
-  line-height: 1.3em;
-  text-transform: capitalize;
-  /*color: #8b5b2b;*/
-  color: white;
-  color: #8b5b2b;
-  color: #555;
-  /* margin-top: 5px;*/
-  margin-bottom: 15px;
-  /*height: 52px;*/
-  overflow: hidden;
 }
 
 .img-responsive {

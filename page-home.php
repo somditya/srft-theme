@@ -11,7 +11,7 @@ Template Name: Home
 ?>
 
 
-<main>
+<main role="main">
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
@@ -105,7 +105,7 @@ Template Name: Home
     <!--</div>--> <!-- Closing the .container div -->
 
 
- 
+<h1 class="sr-only">Satyajit Ray Film & Television Institute </h1> 
 <section class="section-news" style="background-color: #0b6b39;" id="section-1">
     <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
@@ -141,7 +141,7 @@ Template Name: Home
                         <a href="<?php the_permalink(); ?>" target="_blank">
                             <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
                             <div class="news-item-title">
-                                <h3><?php the_title(); ?></h3>
+                                <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
                             </div>
                         </a>
@@ -570,7 +570,7 @@ else
       ]);
     ?>
     <div class="cell">
-        <span class="update-title"><?php echo $title; ?></span>
+        <h3 class="update-title"><?php echo $title; ?></h3>
         <?php if ($category_posts->have_posts()) :
             while ($category_posts->have_posts()) : $category_posts->the_post();
                 $doc_field = ucfirst($post_type) . '-Doc';
