@@ -9,7 +9,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 <main>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
-        <h2 class="page-banner-title"><?php echo __('About the Institute', 'srft-theme'); ?></h2>
+        <h1 class="page-banner-title"><?php echo __('About the Institute', 'srft-theme'); ?></h1>
     </div>
 </section>
 
@@ -24,41 +24,42 @@ $page_content = apply_filters('the_content', $post->post_content);
    </div>
 <section id="skip-to-content" class="cine-detail">
     <div class="leftnav">
-        <div class="childnavs">
-            <?php
-            $current_language = get_locale();
-            $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
-            $current_page_title = get_the_title();
+        <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
+                <?php
+                $current_language = get_locale();
+                $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
+                $current_page_title = get_the_title();
 
-            class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-                public function start_lvl(&$output, $depth = 0, $args = null) {
-                    $output .= '<ul class="submenu">';
+                class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+                    public function start_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '<ul class="submenu">';
+                    }
+                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                        global $current_page_title;
+                        $is_current = ($item->title === $current_page_title) ? 'active' : '';
+                        $output .= '<li class="childnav-list-item ' . $is_current . '">';
+                        $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+                    }
+                    public function end_el(&$output, $item, $depth = 0, $args = null) {
+                        $output .= '</li>';
+                    }
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
+                        $output .= '</ul>';
+                    }
                 }
-                public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                    global $current_page_title;
-                    $is_current = ($item->title === $current_page_title) ? 'active' : '';
-                    $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                    $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-                }
-                public function end_el(&$output, $item, $depth = 0, $args = null) {
-                    $output .= '</li>';
-                }
-                public function end_lvl(&$output, $depth = 0, $args = null) {
-                    $output .= '</ul>';
-                }
-            }
 
-            wp_nav_menu(array(
-                'menu' => $menu_name,
-                'container' => false,
-                'menu_class' => 'childnav-lists',
-                'walker' => new Custom_Walker_Nav_Menu(),
-            ));
-            ?>
-        </div>
+                wp_nav_menu(array(
+                    'menu' => $menu_name,
+                    'container' => false,
+                    'menu_class' => 'childnav-lists',
+                    'walker' => new Custom_Walker_Nav_Menu(),
+                ));
+                ?>
+            </nav>
+
     </div>
 
-    <div class="main-content">
+    <div class="main-content" role="main">
         <h2 class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></h2>
         <div class="sub-intro">
             <div class="sub-intro-images">
@@ -74,7 +75,7 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
 
         <div>
-            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Our Journey', 'srft-theme'); ?></p>
+            <h3 class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Our Journey', 'srft-theme'); ?></h3>
         </div>
        <?php wp_reset_postdata(); ?> 
             <div class="sub-intro" style="margin-bottom: 4rem;">
@@ -90,7 +91,7 @@ $page_content = apply_filters('the_content', $post->post_content);
             </div>
 
         <div>
-            <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></p>
+            <h3 class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></h3>
         </div>
 
         <div class="container">
