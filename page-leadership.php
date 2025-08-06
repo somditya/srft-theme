@@ -159,12 +159,12 @@ $current_language = get_locale();
             </div>
 
             <div class="one-flex" style="margin-top: 10rem; margin-bottom: 10rem;">
-                <div class="accordian">
+                <!--<div class="accordian">
                     <ul>
                         <li>
                             <input type="checkbox" >
                             <i></i>
-                            <h2 role="button"><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
+                            <h2><?php echo __('Previous Chairmans', 'srft-theme' ); ?></h2>
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousChairmans', true); ?>
                             </p>
@@ -175,7 +175,7 @@ $current_language = get_locale();
                         <li>
                             <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous directors', 'srft-theme'); ?>">
                             <i></i>
-                            <h2 role="button"><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
+                            <h2><?php echo __('Previous Directors', 'srft-theme' ); ?></h2>
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousDirectors', true); ?>
                             </p>    
@@ -186,15 +186,15 @@ $current_language = get_locale();
                         <li>
                             <input type="checkbox" checked aria-label="<?php echo __('Show or hide previous registrars', 'srft-theme'); ?>">
                             <i></i>
-                            <h2 role="button"><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
+                            <h2><?php echo __('Previous Registrars', 'srft-theme' ); ?></h2>     
                             <p>
                                 <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>
                             </p>             
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
-<!--<div id="accordionGroup" class="accordion">
+<div id="accordionGroup" class="accordion">
   <h3>
     <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
       <span class="accordion-title">
@@ -235,7 +235,7 @@ $current_language = get_locale();
     <?php echo get_post_meta(get_the_ID(), 'PreviousRegistrars', true); ?>  
     </div>
   </div>
-</div>-->
+</div>
 
 
             </div>

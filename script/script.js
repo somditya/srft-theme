@@ -11,7 +11,7 @@ $(window).on("load", function () {
 });
 
 $(document).ready(function () {
-  console.log("I am Hello");
+  console.log("I am smiling");
 
   ("use strict");
 
