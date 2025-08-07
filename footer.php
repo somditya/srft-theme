@@ -209,7 +209,7 @@ $current_language = get_locale();
     autoplayTimeout: 1500,
     autoplayHoverPause: true,
     nav: true,
-    navText: ["<div class='nav-btn prev-slide' aria-label='Previous slide'></div>", "<div class='nav-btn next-slide'  aria-label='Next slide'></div>"],
+    navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide' ></div>"],
     dots: false,
   });
 

@@ -157,7 +157,7 @@ Template Name: Home
         <div class="link-div" style="align-items: center; margin-top: 10px;">
             <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
 { echo esc_url(site_url('/समाचार-सूची/'));}
-?>"  aria-label="Read more here">
+?>"  aria-label="Read more featured news">
                 <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
                 <span class="primary__header-arrow"> 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
@@ -448,7 +448,7 @@ else
     
       <div class="news-item">
       <a href="<?php the_permalink(); ?>" target="_blank" >
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt="<?php echo get_field('film_still_alt_text'); ?>"  style="display: block;">
+        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=" "  style="display: block;">
       <div class="news-item-title">
         <h3><?php echo get_field('Film-Name');?></h3>
         <p><?php echo get_field('award_received');?></p>
@@ -487,7 +487,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=1'));}
 ?>">
-                <img alt="Events & Festivals" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
+                <img alt="" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/convocation.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Events & Festivals', 'srft-theme'); ?></p>
                 </div>
@@ -499,7 +499,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=2'));}
 ?>">
-                <img alt="Master Classes & Workshops" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
+                <img alt="" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/workshop001.png">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Master Classes & Workshops', 'srft-theme'); ?></p>
                 </div>
@@ -523,7 +523,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=4'));}
 ?>">
-                <img alt="Campus Moments" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
+                <img alt=" " width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme'); ?></p>
                 </div>
@@ -535,7 +535,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=5'));}
 ?>">
-                <img alt="SRFTI in News" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
+                <img alt="" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Alumni_News_KanuBehl.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('SRFTI in News', 'srft-theme'); ?></p>
                 </div>
@@ -589,13 +589,13 @@ else
                 $post_date = get_field($date_field);
                 $formatted_date = !empty($post_date) ? DateTime::createFromFormat('d/m/Y', $post_date) : null;
         ?>
-        <h3 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
-        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?></h3>
+        <h4 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
+        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?></h4>
         <p><a href="<?php echo $link; ?>">
             <?php the_title(); ?>&nbsp;
             <?php if ($doc): ?>
                 (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
             <?php endif; ?>
         </a> </p><br/>
         <?php endwhile; wp_reset_postdata(); else : ?>

@@ -336,6 +336,10 @@ body {
   height: 100%;
 }
 
+.no-style {
+  all: unset; /* resets all inherited and default styles */
+}
+
 /*h1, h2, h3, h4, h5, h6 {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
 }
@@ -599,6 +603,10 @@ body {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.modal[hidden] {
+  display: none;
 }
 
 /*
@@ -1576,7 +1584,7 @@ div .spacer {
   align-items: center;
 }
 
-/* GRID GALLERY*/
+/* GRID GALLERY
 
 .grid-gallery {
   --size: 100px;
@@ -1617,7 +1625,7 @@ div .spacer {
   outline: 1px dashed black;
   outline-offset: -5px;
 }
-
+*/
 /* HEADER*/
 
 #main-navbar a {
@@ -2848,6 +2856,17 @@ div .spacer {
   padding-bottom: 16px;
   font-weight: 500;
   color: #161a1d;
+}
+
+.cell h4 {
+  all: unset; /* Resets all inherited and default styles */
+  display: block;
+  margin-bottom: 16px; /* Adds space below */
+  letter-spacing: 0.77px; /* Adjusts spacing between letters */
+  line-height: 18px; /* Sets vertical spacing */
+  font-size: 14px; /* Sets font size */
+  font-weight: 600; /* Makes text semi-bold */
+  /* text-transform: uppercase; */ /* Optional: Makes text uppercase */
 }
 
 .cell a {
@@ -4642,68 +4661,54 @@ ul li input[type="checkbox"]:checked ~ i:after {
   grid-template-columns: repeat(6, var(--size));
   grid-auto-rows: var(--size);
   margin-bottom: var(--size);
-  place-items: start center;
   gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  &:has(:hover) img:not(:hover),
-  &:has(:focus) img:not(:focus) {
-    filter: brightness(0.5) contrast(0.5);
-  }
+/* Make each li a proper grid item (like div) */
+.grid-gallery li {
+  grid-column: auto / span 2;
+  position: relative;
+}
 
-  & img {
-    object-fit: cover;
-    width: calc(var(--size) * 2);
-    .grid-gallery {
-      --size: 50px;
-      grid-template-columns: repeat(3, var(--size));
-      grid-auto-rows: var(--size);
-      margin-bottom: var(--size);
-      gap: 5px;
+/* Reuse the hover and shape logic */
+.grid-gallery img {
+  width: 100%;
+  height: calc(var(--size) * 2);
+  object-fit: cover;
+  border-radius: 5px;
+  transition: clip-path 0.25s, filter 0.75s;
+  clip-path: path(
+    "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
+  );
+  display: block;
+}
 
-      & img {
-        width: calc(var(--size) * 1.5);
-        height: calc(var(--size) * 1.5);
-        grid-column: auto / span 1;
+.grid-gallery li:nth-child(5n - 1) {
+  grid-column: 2 / span 2;
+}
 
-        &:nth-child(3n - 1) {
-          grid-column: 1 / span 1;
-        }
+/* Dim all others on hover/focus */
+.grid-gallery:has(img:hover) img:not(:hover),
+.grid-gallery:has(img:focus) img:not(:focus) {
+  filter: brightness(0.5) contrast(0.5);
+}
 
-        &:hover,
-        &:focus {
-          clip-path: path(
-            "M0,0 C0,0 100,0 100,0 100,0 100,100 100,100 100,100 100,100 100,100 100,100 0,100 0,100 0,0 0,0 0,0 0,0Z"
-          );
-          transition: clip-path 0.25s, filter 0.25s;
-        }
-      }
-    }
-    height: calc(var(--size) * 2);
-    clip-path: path(
-      "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-    );
-    transition: clip-path 0.25s, filter 0.75s;
-    grid-column: auto / span 2;
-    border-radius: 5px;
+/* Highlight hovered image */
+.grid-gallery img:hover,
+.grid-gallery img:focus {
+  clip-path: path(
+    "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
+  );
+  z-index: 1;
+  transition: clip-path 0.25s, filter 0.25s;
+}
 
-    &:nth-child(5n - 1) {
-      grid-column: 2 / span 2;
-    }
-
-    &:hover,
-    &:focus {
-      clip-path: path(
-        "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
-      );
-      z-index: 1;
-      transition: clip-path 0.25s, filter 0.25s;
-    }
-
-    &:focus {
-      outline: 1px dashed black;
-      outline-offset: -5px;
-    }
-  }
+.grid-gallery img:focus {
+  outline: 1px dashed black;
+  outline-offset: -5px;
 }
 
 /* HEADER*/
