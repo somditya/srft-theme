@@ -336,6 +336,10 @@ body {
   height: 100%;
 }
 
+.no-style {
+  all: unset; /* resets all inherited and default styles */
+}
+
 /*h1, h2, h3, h4, h5, h6 {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
 }
@@ -2848,6 +2852,17 @@ div .spacer {
   padding-bottom: 16px;
   font-weight: 500;
   color: #161a1d;
+}
+
+.cell h4 {
+  all: unset; /* Resets all inherited and default styles */
+  display: block;
+  margin-bottom: 16px; /* Adds space below */
+  letter-spacing: 0.77px; /* Adjusts spacing between letters */
+  line-height: 18px; /* Sets vertical spacing */
+  font-size: 14px; /* Sets font size */
+  font-weight: 600; /* Makes text semi-bold */
+  /* text-transform: uppercase; */ /* Optional: Makes text uppercase */
 }
 
 .cell a {
