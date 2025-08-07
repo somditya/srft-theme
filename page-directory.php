@@ -26,8 +26,7 @@ $current_language = get_locale();
    </div>
 
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
-        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
+        <div class="leftnav">
         <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
@@ -61,7 +60,7 @@ $current_language = get_locale();
                 ?>
             </nav>
 
-            <div class="widget" style="line-height: 1.5; margin-top: 3rem;" aria-labelledby="institute's address">
+            <aside class="widget" role="complementary" style="line-height: 1.5; margin-top: 3rem;" >
             <h3 id="institute's address"><?php echo __('Communication Address', 'srft-theme'); ?></h3>
                         
                           <p><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
@@ -71,8 +70,8 @@ $current_language = get_locale();
                           <p><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></p>
                           <p><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></p>
                         
-            </div>
-        </aside>
+            </aside>
+        </div>
 
         <div class="main-content" role="main">
 

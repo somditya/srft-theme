@@ -10,7 +10,7 @@ $current_language = get_locale();
 <main>
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-          <h2 class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></h2>
+          <h1 class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></h1>
         </div>  
       </section>
 
@@ -31,7 +31,7 @@ $current_language = get_locale();
         </div>-->
         <div class="childnavs">
             
-    <div class="childnav-lists">
+    <nav class="childnav-lists">
         <?php
         $current_language = get_locale(); // Get the current language/locale.
 
@@ -75,7 +75,7 @@ $current_language = get_locale();
             'walker' => new Custom_Walker_Nav_Menu(),
         ));
         ?>
-    </div>
+    </nav>
 </div>
         
      <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
