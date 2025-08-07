@@ -198,8 +198,8 @@ $(".static").owlCarousel({
   autoplayHoverPause: true,
   nav: true,
   navText: [
-    "<div class='nav-btn prev-slide' '></div>",
-    "<div class='nav-btn next-slide' '></div>",
+    "<div class='nav-btn prev-slide' ></div>",
+    "<div class='nav-btn next-slide' ></div>",
   ],
   dots: false,
 });
