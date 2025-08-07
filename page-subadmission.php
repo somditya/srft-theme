@@ -68,7 +68,7 @@ $current_language = get_locale();
     <aside role="complementary">
     <!-- Prospectus Downloads -->
     <div class="widget">
-        <h3><?php echo __('Download Prospectus', 'srft-theme'); ?></h3>
+        <h2><?php echo __('Download Prospectus', 'srft-theme'); ?></h2>
         <?php 
         $catslg = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
         $download_post = new WP_Query([
@@ -114,7 +114,7 @@ $current_language = get_locale();
 
     <!-- Admission Notification -->
     <div class="widget">
-        <h3><?php echo __('Admission Notification', 'srft-theme'); ?></h3>
+        <h2><?php echo __('Admission Notification', 'srft-theme'); ?></h2>
         <?php
         $catslug = ($current_language === 'hi_IN') ? 'admission-hi' : 'admission-en';
         $admission_post = new WP_Query([
@@ -148,7 +148,7 @@ $current_language = get_locale();
 
     <!-- Sample Question Papers -->
     <div class="widget">
-        <h3><?php echo __('Sample Question Papers', 'srft-theme'); ?></h3>
+        <h2><?php echo __('Sample Question Papers', 'srft-theme'); ?></h2>
         <?php 
         $download_post = new WP_Query([
             'post_type' => 'document',
