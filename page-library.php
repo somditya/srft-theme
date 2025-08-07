@@ -29,9 +29,9 @@ $current_language = get_locale();
           <p class="office-header-text">Management</p>-->
           <!--<div class="ftest">Satyajit Ray Film & Television Institute</div>-
         </div>-->
-        <div class="childnavs">
+        <div class="childnavs" >
             
-    <nav class="childnav-lists">
+    <nav class="childnav-lists" aria-label="<?php echo __('Facilities', 'srft-theme'); ?>">
         <?php
         $current_language = get_locale(); // Get the current language/locale.
 
@@ -79,8 +79,8 @@ $current_language = get_locale();
 </div>
         
      <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
-        <div class="childnav-lists">
-            <ul class="submenu">
+        <div class="childnav-lists" role="complementary">
+        <ul class="submenu">
           <li class="childnav-list-item"><a class="item" href="https://opac.srfti.ac.in/" target="_blank"  title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://ndl.iitkgp.ac.in/" target="_blank"  title="<?php echo __('National Digital Library', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('National Digital Library', 'srft-theme' ); ?></a></li>
           <li class="childnav-list-item"><a class="item" href="https://vimeo.com/channels/srftifilms" target="_blank"  title="<?php echo __('Vimeo', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Vimeo', 'srft-theme' ); ?></a></li>
@@ -95,9 +95,9 @@ $current_language = get_locale();
         </div>-->
         </div>
 
-  <div class="main-content">
+  <div class="main-content" role="main">
     <div>
-        <p class="page-header-text"><?php the_title(); ?></p>
+        <h2 class="page-header-text"><?php the_title(); ?></h2>
     </div>  
     <div class="sub-intro" style="margin-bottom: 4rem;">
         <div class="sub-intro-text" style="max-width: 100%;">

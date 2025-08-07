@@ -60,7 +60,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 
         <aside class="widget" role="complementary" style="line-height: 1.5; margin-top: 5.5rem;">
                 
-                <h3 id="Download pdfs"><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h3>
+                <h2 id="Download pdfs"><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h2>
                 <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
