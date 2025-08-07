@@ -6,8 +6,6 @@
   ).css("display", "flex");
 });*/
 
-/*
-
 const modal = document.getElementById("myModal");
 const modalBody = modal.querySelector(".modal-body");
 const closeButton = modal.querySelector(".close");
@@ -69,8 +67,6 @@ function trapFocus(e) {
     }
   }
 }
-
-*/
 
 $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
