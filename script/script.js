@@ -4,7 +4,6 @@
       ".is-form-style.is-form-style-3 button.is-search-submit, " +
       ".is-form-style.is-form-style-3 button.is-search-submit .is-search-icon"
   ).css("display", "flex");
-});*/
 
 const modal = document.getElementById("myModal");
 const modalBody = modal.querySelector(".modal-body");
@@ -67,7 +66,7 @@ function trapFocus(e) {
     }
   }
 }
-
+*/
 $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });
