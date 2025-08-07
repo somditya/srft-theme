@@ -61,7 +61,7 @@ $current_language = get_locale();
             </nav>
 
             <aside class="widget" role="complementary" style="line-height: 1.5; margin-top: 3rem;" >
-            <h3 id="institute's address"><?php echo __('Communication Address', 'srft-theme'); ?></h3>
+            <h2 id="institute's address"><?php echo __('Communication Address', 'srft-theme'); ?></h2>
                         
                           <p><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></p>
                           <p><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></p>
@@ -163,7 +163,7 @@ $current_language = get_locale();
                         $output = ob_get_clean();
 
                         if ($has_posts) {
-                            echo '<h2>' . esc_html($department) . '</h2>';
+                            echo '<h3>' . esc_html($department) . '</h3>';
                             echo '<div class="wrapper">';
                             echo '<div class="Rtable Rtable--6cols Rtable--collapse">';
                             echo '<table style="width: 100%;">';

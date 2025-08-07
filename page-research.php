@@ -32,12 +32,11 @@ $page_content = apply_filters('the_content', $post->post_content);
     ?>
 </div>
 </div>
-
     <section id="skip-to-content" class="cine-detail">
         <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
         <h2 id="sidebar-heading" class="sr-only">Downloadable Take-One Volumes</h2>    
         <div class="widget" style="line-height: 1.5">
-                <h3><?php echo __('Take One', 'srft-theme'); ?></h3>
+                <h2><?php echo __('Take One', 'srft-theme'); ?></h2>
                 <?php 
                 // Set document category slug based on language
                 $catslug = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
