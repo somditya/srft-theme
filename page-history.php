@@ -94,8 +94,8 @@ $page_content = apply_filters('the_content', $post->post_content);
             <h3 class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('History Snapshots', 'srft-theme'); ?></h3>
         </div>
 
-        <div class="container">
-            <div class="grid-gallery">
+        <div class="container" style="padding-bottom: 165px;">
+            <!--<div class="grid-gallery">
                 <?php
                 $image_paths = [
                     'foundation-01.jpg', 'foundation-02.jpg', 'foundation-03.jpg', 'foundation-04.jpg', 
@@ -109,7 +109,27 @@ $page_content = apply_filters('the_content', $post->post_content);
                 }
                 ?>
             </div>
-        </div>
+        </div>-->
+
+        <ul class="grid-gallery">
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-01.jpg" alt="Construction Image 1 of the Institute " class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-02.jpg" alt="Construction Image 2 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-03.jpg" alt="Construction Image 3 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-04.jpg" alt="Construction Image 4 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-05.jpg" alt="Construction Image 5 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-06.jpg" alt="Construction Image 6 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-07.jpg" alt="Construction Image 7 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-08.jpg" alt="Construction Image 8 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-09.jpg" alt="Construction Image 9 of the Institute" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-10.jpg" alt="Fisrt Governing Council Meeting Image 1" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-11.jpg" alt="Fisrt Governing Council Meeting Image 2" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-12.jpg" alt="Fisrt Governing Council Meeting Image 3" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-13.JPG" alt="Addor Gopal Krishnan with students and faculties" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-17.jpg" alt="Inauguration of Film Festival Clapstick by Shakti Samanta" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-15.jpg" alt="Mrinal Sen and Sayed Mirza in discussion" class="single-image" role="button" tabindex="0"></li>
+            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-16.jpg" alt="Basu Chatterjee & Shazi Karun" class="single-image" role="button" tabindex="0"></li>
+        </ul>
+ </div>
 
         <!--<div>
             <p class="page-header-text" style="margin-top: 1.2rem;"><?php echo __('Explore Our Story', 'srft-theme'); ?></p>
@@ -125,13 +145,19 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 </section>
 
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="modal-body">
-        </div>
-    </div>
+<div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" tabindex="-1" hidden>
+  <div class="modal-content">
+    <h2 id="modal-title" class="sr-only">Image Modal</h2>
+    <span id="modal-desc" class="sr-only">Full-screen image view of selected picture</span>
+
+    <button type="button" class="close" aria-label="Close modal">×</button>
+
+    <div class="modal-body"></div>
+  </div>
 </div>
+
+
+
 
 <?php
 get_footer();

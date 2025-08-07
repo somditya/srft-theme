@@ -6,6 +6,72 @@
   ).css("display", "flex");
 });*/
 
+/*
+
+const modal = document.getElementById("myModal");
+const modalBody = modal.querySelector(".modal-body");
+const closeButton = modal.querySelector(".close");
+let lastFocusedElement = null;
+
+// Trigger modal on image click
+document.querySelectorAll(".single-image").forEach((img, index) => {
+  img.addEventListener("click", () => {
+    lastFocusedElement = document.activeElement;
+
+    const src = img.getAttribute("src");
+    const alt = img.getAttribute("alt") || `Image ${index + 1}`;
+    modalBody.innerHTML = `<img src="${src}" alt="${alt}" class="modal-img">`;
+
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+
+    closeButton.focus();
+    document.addEventListener("keydown", trapFocus);
+  });
+});
+
+// Close modal on close button click
+closeButton.addEventListener("click", closeModal);
+
+// Close modal on ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+
+function closeModal() {
+  modal.hidden = true;
+  modal.setAttribute("aria-hidden", "true");
+  document.removeEventListener("keydown", trapFocus);
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+// Trap keyboard focus inside modal
+function trapFocus(e) {
+  if (e.key === "Tab") {
+    const focusableElements = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+}
+
+*/
+
 $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });
@@ -361,15 +427,15 @@ $(document).ready(function () {
   });
 
   // Modal functionality
-  $(".single-image").click(function () {
-    var t = $(this).attr("src");
-    $(".modal-body").html("<img src='" + t + "' class='modal-img'>");
-    $("#myModal").show();
-  });
+  //$(".single-image").click(function () {
+  //var t = $(this).attr("src");
+  //$(".modal-body").html("<img src='" + t + "' class='modal-img'>");
+  //$("#myModal").show();
+  //});
 
-  $(".close").click(function () {
-    $("#myModal").hide();
-  });
+  //$(".close").click(function () {
+  //$("#myModal").hide();
+  //});
 });
 // Font Size Adjustment
 
