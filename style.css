@@ -3354,6 +3354,14 @@ h4 {
   border-bottom: 1px solid #6c4713;
 }
 
+h5 {
+  font-weight: 400;
+  font-size: 1em;
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+}
+
 h6 {
   font-weight: 400;
   font-size: 1em;
@@ -3706,9 +3714,37 @@ h6 {
 .accordion {
   margin: 0;
   padding: 0;
-  border: 2px solid hsl(0deg 0% 52%);
-  border-radius: 7px;
+  border: 1px solid hsl(0deg 0% 52%);
+  /*border-radius: 7px;*/
   width: 100%;
+}
+
+.accordian h2 {
+  font-family: "Poppins", sans-serif;
+  color: #8b5b2b;
+  font-size: 1.8rem;
+  line-height: 34px;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  display: block;
+  background-color: #eaeaea;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px 45px 10px 20px;
+}
+
+.accordion h4 {
+  font-family: "Poppins", sans-serif;
+  color: #8b5b2b;
+  font-size: 1.8rem;
+  line-height: 34px;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  display: block;
+  background-color: #eaeaea;
+  margin: 0;
+  cursor: pointer;
+  /*padding: 10px 45px 10px 20px;*/
 }
 
 .accordion h3 {
@@ -6032,6 +6068,20 @@ header {
   font-size: 1.8rem;
   line-height: 34px;
   font-weight: 600;
+  letter-spacing: 0.3rem;
+  display: block;
+  background-color: #eaeaea;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px 45px 10px 20px;
+}
+
+.accordin h4 {
+  font-family: "Poppins", sans-serif;
+  color: #8b5b2b;
+  font-size: 1.8rem;
+  line-height: 34px;
+  font-weight: 400;
   letter-spacing: 0.3rem;
   display: block;
   background-color: #eaeaea;

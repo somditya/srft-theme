@@ -64,11 +64,11 @@ if ($current_language === 'en_US') {
 <section id="skip-to-content" class="cine-detail">
  <aside role="complementary" aria-labelledby="sidebar-heading" class="leftnav">
 
-  <h2 id="sidebar-heading" class="sr-only">Related Programme Information</h2>
+  <h2 id="sidebar-heading" class="sr-only">Programme Information</h2>
 
   <div class="widget" style="background: #b38840; color: white;">
     <div class="widget-content">
-      <h3 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h3>
+      <h2 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h2>
       <hr role="presentation" />
       <p style="font-weight: 400; font-size: 24px; color: white; line-height: 2.8rem;"><?php echo $programmename; ?></p>
     </div>
@@ -76,7 +76,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h3 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h3>
+      <h2 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h2>
       <hr role="presentation" />
       <p><?php if (!empty($duration)) echo $duration; ?></p>
     </div>
@@ -84,7 +84,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h3 id="seats-heading"><?php echo __('Total No. of Seats', 'srft-theme'); ?></h3>
+      <h2 id="seats-heading"><?php echo __('Total No. of Seats', 'srft-theme'); ?></h2>
       <hr role="presentation" />
       <p><?php if (!empty($seats)) echo $seats; ?></p>
     </div>
@@ -92,7 +92,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h3 id="eligibility-heading"><?php echo __('Eligibility Criteria', 'srft-theme'); ?></h3>
+      <h2 id="eligibility-heading"><?php echo __('Eligibility Criteria', 'srft-theme'); ?></h2>
       <hr role="presentation" />
       <div><?php echo $eligibilty; ?></div>
     </div>
@@ -216,12 +216,12 @@ if ($current_language === 'en_US') {
    <div style="margin-top: 3.2rem">
      <div class="box-container" style="width: 100%">
        <div class="facility-text-box">
-         <div
+         <h2
            class="page-header-text"
            style="padding-left: 0;"
          >
          <?php echo __('Facilities', 'srft-theme' ); ?>
-         </div>
+         </h2>
          <div>
            <?php echo $facilities ?>
          </div>

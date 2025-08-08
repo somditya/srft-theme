@@ -102,7 +102,7 @@ $current_language = get_locale();
                             ?>
 
                             <li>
-                                <a href="<?php echo esc_url($file_url); ?>">
+                                <a href="<?php echo esc_url($file_url); ?>" title="Download pdf">
                                     <?php echo esc_html(get_the_title()); ?> 
                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt=" " style="vertical-align: middle;" />
