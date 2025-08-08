@@ -71,5 +71,4 @@ $current_language = get_locale();
         </div>
     </section>
 
-
 <?php get_footer(); ?>
