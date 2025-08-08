@@ -123,7 +123,9 @@ $(document).ready(function () {
   }
 
   // init accordions
-  const accordions = document.querySelectorAll(".accordion h3");
+  const accordions = document.querySelectorAll(
+    ".accordion h3 , .accordion h4 "
+  );
   accordions.forEach((accordionEl) => {
     new Accordion(accordionEl);
   });
