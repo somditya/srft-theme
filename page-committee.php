@@ -26,9 +26,8 @@ $current_language = get_locale();
    </div>
    </div>
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
-        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
-        <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
+        <div class="leftnav" >
+        <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -60,17 +59,16 @@ $current_language = get_locale();
                 ));
                 ?>
             </nav>
-        </aside>
+        </div>
 
         <div class="main-content" role="main">
             <div>
-                <h2 class="page-header-text"><?php echo __('Important Committees', 'srft-theme'); ?></h2>
+                <h2 class="page-header-text"><?php echo __('Constitution of Important Committees at SRFTI', 'srft-theme'); ?></h2>
             </div>  
             <div style="margin-bottom: 4rem;">    
                 <div><?php the_content(); ?></div>   
             </div>     
         </div>
     </section>
-
 
 <?php get_footer(); ?>

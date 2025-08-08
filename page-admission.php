@@ -194,7 +194,7 @@ $current_language = get_locale();
     </div>
 
 
-    <div class="main-content" role="main">
+    <div class="main-content">
         <div  class="page-title">
           <div><p class="page-header-text"><?php echo __('Programme Overview', 'srft-theme'); ?></p></div>
         </div>
@@ -213,174 +213,91 @@ $current_language = get_locale();
           </div>
           </div>
         </div>
-        <section class="section-home">
-  <div class="tabs">
-    <div class="tab-2">
-      <label for="tab2-1"><?php echo __('Master of Fine Arts in Cinema', 'srft-theme'); ?></label>
-      <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-      <div>
-        <p><?php echo __('The programme is a 1-Year Bridge Programme + 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>   
-        <br/><br/>
-        
-<div id="accordionGroup" class="accordion">
-  <h3>
-    <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
-      <span class="accordion-title">
-       <?php echo __('Specialization offered', 'srft-theme'); ?>
-        <span class="accordion-icon"></span>
-      </span>
-    </button>
-  </h3>
-  <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
-    <div>
-    <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>  
       
-    </div>
-  </div>
-  <h3>
-    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
-      <span class="accordion-title">
+      <section class="section-home">
+ 
+        <h3><?php echo __('Master of Fine Arts in Cinema', 'srft-theme'); ?> </h3>
+        <p><?php echo __('The programme is a 1-Year Bridge Programme + 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>   
+        <br role="presentation"/>
+        <div id="accordionGroup" class="accordion">
+        
+         <h4>
+         <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
+         <span class="accordion-title">
+         <?php echo __('Specialization offered', 'srft-theme'); ?>
+         <span class="accordion-icon"></span>
+         </span>
+         </button>
+         </h4>
+        
+        <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
+        <div>
+         <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>  
+        </div>
+        </div>
+        
+        <h4>
+        <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
+        <span class="accordion-title">
         <?php echo __('No. of students', 'srft-theme'); ?>
         <span class="accordion-icon"></span>
-      </span>
-    </button>
-  </h3>
-  <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
-    <div>
-      <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>
-    </div>
-  </div>
-  <h3>
-    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
-      <span class="accordion-title">
-                <?php echo __('Duration', 'srft-theme');  ?>
+        </span>
+        </button>
+        </h4>
+        
+        <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
+        <div>
+        <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>
+        </div>
+        </div>
+        
+        <h4>
+        <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
+        <span class="accordion-title">
+        <?php echo __('Duration', 'srft-theme');  ?>
         <span class="accordion-icon"></span>
-      </span>
-    </button>
-  </h3>
-  <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
-    <div>
-    <?php echo __(' 1-Year Bridge Programme + 2-Year MFA', 'srft-theme'); ?>  
-    </div>
-  </div>
+        </span>
+        </button>
+        </h4>
+        
+        <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
+        <div>
+        <?php echo __(' 1-Year Bridge Programme + 2-Year MFA', 'srft-theme'); ?>  
+        </div>
+        </div>
 
-  <h3>
-    <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect4" id="accordion4id">
-      <span class="accordion-title">
-                <?php echo __('Essential Qualifications', 'srft-theme'); ?>
+        <h4>
+        <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect4" id="accordion4id">
+        <span class="accordion-title">
+        <?php echo __('Essential Qualifications', 'srft-theme'); ?>
         <span class="accordion-icon"></span>
-      </span>
-    </button>
-  </h3>
-  <div id="sect4" role="region" aria-labelledby="accordion4id" class="accordion-panel" hidden="">
-    <div>
-    <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>  
-    </div>
-  </div>
+        </span>
+        </button>
+        </h4>
+        
+        <div id="sect4" role="region" aria-labelledby="accordion4id" class="accordion-panel" hidden="">
+        <div>
+        <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>  
+        </div>
+        </div>
 
-</div>
-<!--<div class="accordian">
-          <ul>
-            <li>
-              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Duration for Cinema Programme', 'srft-theme'); ?>">
-              <i></i>
-              <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-              <p><?php echo __(' 1-Year Bridge Programme + 2-Year MFA', 'srft-theme'); ?></p>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" aria-label="<?php echo __('Show or hide Number of students for Cinema Programme', 'srft-theme'); ?>" checked>
-              <i></i>
-              <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'StudentCinema', true); ?>     
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" aria-label="<?php echo __('Show or hide Specialization for Cinema Programme', 'srft-theme'); ?>" checked>
-              <i></i>
-              <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'SpecializationCinema', true); ?>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" aria-label="<?php echo __('Show or hide Course structure for Cinema Programme', 'srft-theme'); ?>" checked>
-              <i></i>
-              <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'CourseCinema', true); ?>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" aria-label="<?php echo __('Show or hide Essential Qualification for Cinema Programme', 'srft-theme'); ?>" checked>
-              <i></i>
-              <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'QualificationCinema', true); ?>
-            </li>
-          </ul>
-        </div>-->
-      </div>
-    </div> <!-- Closing .tab-2 -->
+       </div>
 
-    <div class="tab-2">
-      <label for="tab2-2"><?php echo __('Master of Fine Arts in EDM', 'srft-theme'); ?></label>
-      <input id="tab2-2" name="tabs-two" type="radio">
+      <br role="presentation"/>
+       <h3><?php echo __('Master of Fine Arts in EDM', 'srft-theme'); ?> </h3>
       <div>
         <p><?php echo __('The programme is a 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>
-        <br/><br/>
-        <!--<div class="accordian">
-          <ul>
-            <li>
-              <input type="checkbox" aria-label="<?php echo __('Show or hide Duration for EDM Programme', 'srft-theme'); ?>" checked>
-              <i></i>
-              <h2><?php echo __('Duration', 'srft-theme'); ?></h2>
-              <p><?php echo __('2-Year MFA', 'srft-theme'); ?></p>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" checked aria-label="<?php echo __('Show or hide No. of Student for EDM Programme', 'srft-theme'); ?>">
-              <i></i>
-              <h2><?php echo __('No. of students', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'StudentEDM', true); ?>    
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Specialization for EDM Programme', 'srft-theme'); ?>">
-              <i></i>
-              <h2><?php echo __('Specialization offered', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>    
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Course structure for EDM Programme', 'srft-theme'); ?>">
-              <i></i>
-              <h2><?php echo __('Course Structure', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'CourseEDM', true); ?>   
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <input type="checkbox" checked aria-label="<?php echo __('Show or hide Essential Qualification for EDM Programme', 'srft-theme'); ?>">
-              <i></i>
-              <h2><?php echo __('Essential Qualifications', 'srft-theme'); ?></h2>
-              <?php echo get_post_meta(get_the_ID(), 'QualificationEDM', true); ?> 
-            </li>
-          </ul>
-        </div>-->
+        <br/>
+        
 <div id="accordionGroup" class="accordion">
-  <h3>
+  <h4>
     <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect5" id="accordion5id">
       <span class="accordion-title">
        <?php echo __('Specialization offered', 'srft-theme'); ?>
         <span class="accordion-icon"></span>
       </span>
     </button>
-  </h3>
+  </h4>
   <div id="sect5" role="region" aria-labelledby="accordion1id" class="accordion-panel">
     <div>
     <?php echo get_post_meta(get_the_ID(), 'SpecializationEDM', true); ?>  
@@ -430,8 +347,6 @@ $current_language = get_locale();
 </div>
 
       </div>
-    </div> <!-- Closing .tab-2 -->
-  </div> <!-- Closing .tabs -->
 </section>
 
       

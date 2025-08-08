@@ -27,9 +27,8 @@ $current_language = get_locale();
    </div>
 
     <section id="skip-to-content" class="cine-detail">
-        <aside class="leftnav" role="complementary" aria-labelledby="sidebar-heading">
-        <h2 id="sidebar-heading" class="sr-only">Side-bar navigation</h2>
-        <nav class="childnavs" aria-label="<?php echo __('About Us Sub-Menu Section', 'srft-theme'); ?>">
+        <div class="leftnav" >
+        <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
                 <?php
                 $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
@@ -61,11 +60,11 @@ $current_language = get_locale();
                 ));
                 ?>
             </nav>
-        </aside>
+        </div>
 
         <div class="main-content" role="main">
             <div>
-                <h2 class="page-header-text"><?php echo __('Annual Reports', 'srft-theme'); ?></h2>
+                <h2 class="page-header-text"><?php echo __('SRFTI Annual Reports & Institutional Performance Records', 'srft-theme'); ?></h2>
             </div>
 
             <div style="margin-top: 4rem;">
@@ -124,7 +123,7 @@ $current_language = get_locale();
                                         </td>
                                         <td class="Rtable-cell composition-cell">
                                             <div class="Rtable-cell--content ">
-                                                <a href="<?php echo esc_url($file_url); ?>">
+                                                <a href="<?php echo esc_url($file_url); ?>" title="Download PDF">
                                                     <?php echo __('Download', 'srft-theme'); ?>
                                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />

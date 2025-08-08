@@ -64,7 +64,7 @@ if ($current_language === 'en_US') {
 <section id="skip-to-content" class="cine-detail">
  <aside role="complementary" aria-labelledby="sidebar-heading" class="leftnav">
 
-  <h2 id="sidebar-heading" class="sr-only">Related Programme Information</h2>
+  <h2 id="sidebar-heading" class="sr-only">Programme Information</h2>
 
   <div class="widget" style="background: #b38840; color: white;">
     <div class="widget-content">
@@ -216,12 +216,12 @@ if ($current_language === 'en_US') {
    <div style="margin-top: 3.2rem">
      <div class="box-container" style="width: 100%">
        <div class="facility-text-box">
-         <div
+         <h2
            class="page-header-text"
            style="padding-left: 0;"
          >
          <?php echo __('Facilities', 'srft-theme' ); ?>
-         </div>
+         </h2>
          <div>
            <?php echo $facilities ?>
          </div>
