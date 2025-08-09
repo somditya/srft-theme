@@ -71,6 +71,78 @@ $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });
 
+/* Menu navigation accessibility */
+$(window).on("load", function () {});
+
+$(document).ready(function () {
+  console.log("Document is ready.");
+
+  // Check for stored dark mode state
+  if (localStorage.getItem("darkMode") === "enabled") {
+    $("body").addClass("dark-mode");
+    console.log("Dark mode is enabled.");
+  }
+
+  // Toggle Accessibility Menu
+  $("#accessibility-icon").click(function () {
+    $("#accessibility-menu").toggleClass("hidden");
+    console.log("Menu toggled.");
+  });
+
+  // Dark Mode Toggle
+  $("#dark-mode").click(function () {
+    $("body").removeClass("high-contrast").addClass("dark-mode");
+    localStorage.setItem("darkMode", "enabled"); // Store dark mode state
+    console.log("Dark mode activated.");
+  });
+
+  // High Contrast Mode Toggle
+  $("#high-contrast").click(function () {
+    $("body").removeClass("dark-mode").addClass("high-contrast");
+    localStorage.setItem("darkMode", "disabled"); // Disable dark mode in storage
+    console.log("High contrast mode activated.");
+  });
+
+  // Reset Font Size
+  $("#reset-text").click(function () {
+    $("html").css("font-size", "16px"); // Reset to default font size
+    console.log("Font size reset to default.");
+  });
+
+  // Modal functionality
+  //$(".single-image").click(function () {
+  //var t = $(this).attr("src");
+  //$(".modal-body").html("<img src='" + t + "' class='modal-img'>");
+  //$("#myModal").show();
+  //});
+
+  //$(".close").click(function () {
+  //$("#myModal").hide();
+  //});
+});
+// Font Size Adjustment
+
+const defaultFontSize = parseFloat($("html").css("font-size")); // Capture the initial root font size
+let currentFontSize = defaultFontSize;
+
+$(".increaseFont, .decreaseFont, .normalFont").click(function () {
+  var type = $(this).val();
+
+  if (type === "Increase" && currentFontSize < 30) {
+    // Maximum limit
+    currentFontSize += 1;
+  } else if (type === "Decrease" && currentFontSize > 10) {
+    // Minimum limit
+    currentFontSize -= 1;
+  } else if (type === "Normal") {
+    currentFontSize = defaultFontSize; // Reset to the original font size
+  }
+
+  $("html").css("font-size", currentFontSize + "px"); // Apply the new font size
+  console.log("Font size adjusted to:", currentFontSize + "px");
+  console.log("Default Font size :", defaultFontSize + "px");
+});
+
 $(document).ready(function () {
   console.log("I am smiling");
 
@@ -386,75 +458,6 @@ var swiper = new swiper(".home-slider", {
   },
 
   keyboard: true,
-});
-
-$(document).ready(function () {
-  console.log("Document is ready.");
-
-  // Check for stored dark mode state
-  if (localStorage.getItem("darkMode") === "enabled") {
-    $("body").addClass("dark-mode");
-    console.log("Dark mode is enabled.");
-  }
-
-  // Toggle Accessibility Menu
-  $("#accessibility-icon").click(function () {
-    $("#accessibility-menu").toggleClass("hidden");
-    console.log("Menu toggled.");
-  });
-
-  // Dark Mode Toggle
-  $("#dark-mode").click(function () {
-    $("body").removeClass("high-contrast").addClass("dark-mode");
-    localStorage.setItem("darkMode", "enabled"); // Store dark mode state
-    console.log("Dark mode activated.");
-  });
-
-  // High Contrast Mode Toggle
-  $("#high-contrast").click(function () {
-    $("body").removeClass("dark-mode").addClass("high-contrast");
-    localStorage.setItem("darkMode", "disabled"); // Disable dark mode in storage
-    console.log("High contrast mode activated.");
-  });
-
-  // Reset Font Size
-  $("#reset-text").click(function () {
-    $("html").css("font-size", "16px"); // Reset to default font size
-    console.log("Font size reset to default.");
-  });
-
-  // Modal functionality
-  //$(".single-image").click(function () {
-  //var t = $(this).attr("src");
-  //$(".modal-body").html("<img src='" + t + "' class='modal-img'>");
-  //$("#myModal").show();
-  //});
-
-  //$(".close").click(function () {
-  //$("#myModal").hide();
-  //});
-});
-// Font Size Adjustment
-
-const defaultFontSize = parseFloat($("html").css("font-size")); // Capture the initial root font size
-let currentFontSize = defaultFontSize;
-
-$(".increaseFont, .decreaseFont, .normalFont").click(function () {
-  var type = $(this).val();
-
-  if (type === "Increase" && currentFontSize < 30) {
-    // Maximum limit
-    currentFontSize += 1;
-  } else if (type === "Decrease" && currentFontSize > 10) {
-    // Minimum limit
-    currentFontSize -= 1;
-  } else if (type === "Normal") {
-    currentFontSize = defaultFontSize; // Reset to the original font size
-  }
-
-  $("html").css("font-size", currentFontSize + "px"); // Apply the new font size
-  console.log("Font size adjusted to:", currentFontSize + "px");
-  console.log("Default Font size :", defaultFontSize + "px");
 });
 
 // Function to show an alert when an external link is clicked

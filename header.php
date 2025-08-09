@@ -147,7 +147,7 @@ $current_language = get_locale();
           <li class="hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></li>
              <!--<li><a>govmail</a></li>-->
             <li>
-            <a href="#" title="Choose your language" aria-haspopup="true" aria-expanded="false">
+            <a href="#" title="Choose your language" aria-haspopup="true"  role="presentation" tabindex=-1>
             <!--<i class="fa-solid fa-language" aria-hidden="true"></i>-->
               <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><svg viewBox="0 0 35 34" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -242,53 +242,54 @@ $current_language = get_locale();
         </div>
 
         <div class="menu-btn">
+
           <div class="nav-links">
-            <ul class="custom-menu" style="display: flex; align-items: center; justify-content: center;">
-              <li class="nav-link" style="--i: 0.6s">
+            <ul class="custom-menu" role="menubar" style="display: flex; align-items: center; justify-content: center;">
+              <li class="nav-link" style="--i: 0.6s" role="none">
                 <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
                     ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
               </li>
-              <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+              <li class="nav-link" style="--i: 1.1s" role="none">
+                <a href="#" id="aboutMenuButton" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
-                  <ul>
+                  <ul role="menu">
                     <li class="dropdown-link">
-                    <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
+                    <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
                     else 
                     { echo esc_url(site_url('/संस्थान के बारे में/'));}
                     ?>"><?php echo __('About the Institute', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }
                     else  { echo esc_url(site_url('/नेतृत्व//'));}
                     ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/management/'));}
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/management/'));}
                     else  { echo esc_url(site_url('/प्रबंध/'));}
                     ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/organization-chart/'));} 
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/organization-chart/'));} 
                      else { echo esc_url(site_url('/संगठन-संरचना/'));}
                       ?>">
                     <?php echo __('Organization Structure', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
+                    <a role="menuitem"href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
                     ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/directory/'));}
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/directory/'));}
                     else { echo esc_url(site_url('/निर्देशिका/'));}
                     ?>"><?php echo __('Directory', 'srft-theme' ); ?></a>
                     </li>
@@ -297,16 +298,16 @@ $current_language = get_locale();
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.1s">
-                <a href="#"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
-                  <ul>
+                  <ul  role="menu">
                     <li class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-cinema/'));}
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-cinema/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}                   
                       ?>"><?php echo __('Master of Fine Arts in Cinema', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-edm/'));}
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-edm/'));}
                       else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Master of Fine Arts in EDM', 'srft-theme' ); ?></a>
                     </li>
                     <!--<li class="dropdown-link">
@@ -314,17 +315,17 @@ $current_language = get_locale();
                     </li>-->
                    
                     <li class="dropdown-link">
-                      <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/faculty/'));} 
+                      <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/faculty/'));} 
                     else 
                     { echo esc_url(site_url('/संकाय/'));}
                     ?>"><?php echo __('Faculty', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
                       else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
@@ -332,16 +333,16 @@ $current_language = get_locale();
                 </div>
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Admission', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#" aria-haspopup="true"  aria-expanded="false"><?php echo __('Admission', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
-                  <ul>
+                  <ul role="menu">
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
                       ?>"><?php echo __('Master of Fine Arts', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in IFTI AR', 'srft-theme' ); ?></a>
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in IFTI AR', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
@@ -362,16 +363,16 @@ $current_language = get_locale();
               
               </li>
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
-                  <ul>
+                  <ul  role="menu">
                     <li class="dropdown-link">
-                    <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
+                    <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
                     else 
                     { echo esc_url(site_url('/पुस्तकालय/'));}
                     ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="menuitem" class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/screening-room/'));}
                     else   { echo esc_url(site_url('/स्क्रीनिंग-सुविधाएँ/'));}?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
@@ -379,7 +380,7 @@ $current_language = get_locale();
                     <!--<li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
                     </li>-->
-                    <li class="dropdown-link">
+                    <li role="menuitem" class="dropdown-link">
                     <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
                     else  { echo esc_url(site_url('/निवास/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
@@ -388,23 +389,23 @@ $current_language = get_locale();
                 </div>
               
               </li>
-              <li class="nav-link" style="--i: 1.35s">
+              <li role="none" class="nav-link" style="--i: 1.35s">
                 <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
                 else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               
               </li>
              
               <li class="nav-link" style="--i: 1.35s">
-                <a href="#"><?php echo __('Resources', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Resources', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                 <div class="dropdown">
-                  <ul>
+                  <ul role="menu">
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
                       else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
                     </li>
                    
                     <li class="dropdown-link">
-                    <a href="<?php 
+                    <a role="menuitem" href="<?php 
 if ($current_language === 'en_US') {
     echo esc_url(site_url('/tender/'));
 } else {
@@ -413,18 +414,18 @@ if ($current_language === 'en_US') {
 ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
                       else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
                     <li class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else
                        { echo esc_url(site_url('/घोषणा-सूची/'));} ?>"><?php echo __('Circular & Notices', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="menuitem" class="dropdown-link">
                       <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/news/'));} else
                        { echo esc_url(site_url('/समाचार-सूची/'));} ?>"><?php echo __('News', 'srft-theme' ); ?></a>
                     </li>
@@ -433,7 +434,7 @@ if ($current_language === 'en_US') {
                   </ul>
                 </div>
               </li>
-              <li class="nav-link" style="--i: 1.35s">
+              <li role="none" class="nav-link" style="--i: 1.35s">
                 <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               </li>
@@ -448,7 +449,6 @@ if ($current_language === 'en_US') {
             <div></div>
           </div>
         </div>
-      </div>
-       
+      </div>  
      </header>
      
