@@ -1404,6 +1404,19 @@ div .spacer {
   font-size: 16px;
   margin-bottom: 10px;
 }
+
+.footer_sub h2 {
+  color: #fcfcfc;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer_sub p {
+  line-height: 1.5;
+  color: white;
+}
+
 .footer_inner_container ul {
   list-style: none;
   padding-left: 0;
@@ -2109,6 +2122,9 @@ div .spacer {
   color: #fff;
 }
 
+.nav-links ul {
+  list-style: none;
+}
 .nav-links > ul {
   display: flex;
   justify-content: center;
@@ -2238,15 +2254,15 @@ div .spacer {
   pointer-events: auto;
 }
 
-/* Accessible Menubar Navigation as per the W3C standard  */
+/* Menubar Navigation as per the W3C standard  */
 
 .menubar-navigation {
   margin: 0;
   padding: 2px;
   font-size: 110%;
   list-style: none;
-  background-color: #eee;
-  border: #eee solid 1px;
+  /*background-color: #eee;
+  border: #eee solid 1px;*/
 }
 
 .menubar-navigation li {
@@ -2257,7 +2273,7 @@ div .spacer {
 }
 
 .menubar-navigation > li {
-  display: inline-block;
+  /*display: inline-block;*/
   position: relative;
 }
 
@@ -2268,11 +2284,12 @@ div .spacer {
 .menubar-navigation > li > [role="menuitem"] {
   display: inline-block;
   margin: 2px;
-  padding: 4px;
-  padding-bottom: 8px;
-  background-color: #eee;
+  /*padding: 4px;
+  padding-bottom: 8px;*/
+  padding: 20px;
+  /*background-color: #eee;
   border: 0 solid #eee;
-  color: black;
+  color: black;*/
 }
 
 .menubar-navigation [role="separator"] {
@@ -2285,14 +2302,15 @@ div .spacer {
 
 .menubar-navigation [role="menu"] [role="menuitem"],
 .menubar-navigation [role="menu"] [role="separator"] {
-  display: block;
-  width: 12em;
-  margin: 2px;
-  padding: 4px;
-  padding-left: 8px;
-  background-color: #eee;
-  border: 0 solid #eee;
-  color: black;
+  display: flex;
+  margin: 12px;
+  font-size: 1.4rem;
+  padding: 1.4rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  color: #555;
+  background-color: #fff;
+  text-decoration: none;
 }
 
 .menubar-navigation [role="menuitem"] svg {
@@ -2321,11 +2339,11 @@ div .spacer {
 .menubar-navigation [role="menu"] {
   display: none;
   position: absolute;
-  margin: 0;
+  /*margin: 0;
   padding: 0;
   padding: 7px 4px;
-  border: 2px solid #034575;
-  background-color: #eee;
+  border: 2px solid #034575;*/
+  background-color: white;
 }
 
 .menubar-navigation [role="group"] {
@@ -2337,49 +2355,49 @@ div .spacer {
 
 .menubar-navigation > li > [role="menuitem"][aria-current],
 .menubar-navigation > li > [role="menuitem"].aria-current-path {
-  padding-bottom: 2px;
-  border-bottom: 4px solid #034575;
+  /*padding-bottom: 2px;
+  border-bottom: 4px solid #034575;*/
 }
 
 .menubar-navigation [role="menu"] [role="menuitem"].aria-current-path,
 .menubar-navigation [role="menu"] [role="menuitem"][aria-current] {
-  padding-left: 4px;
-  border-left: 4px solid #034575;
+  /*padding-left: 4px;
+  border-left: 4px solid #034575;*/
 }
 
 /* focus styling */
 
 .menubar-navigation.focus {
-  padding: 0;
-  border: #034575 solid 3px;
+  /*padding: 0;
+  border: #034575 solid 3px;*/
 }
 
 .menubar-navigation > li > [aria-expanded="true"],
 .menubar-navigation > li > [role="menuitem"]:focus,
 .menubar-navigation > li > [role="menuitem"]:hover {
   outline: none;
-  background-color: #ccc;
+  /*background-color: #ccc;*/
 }
 
 .menubar-navigation > li > [role="menuitem"]:focus,
 .menubar-navigation > li > [role="menuitem"]:hover {
-  padding: 2px;
+  /*padding: 2px;
   padding-bottom: 4px;
-  border: 2px solid #034575;
+  border: 2px solid #034575;*/
 }
 
 .menubar-navigation [role="menu"] [aria-expanded="true"],
 .menubar-navigation [role="menu"] [role="menuitem"]:focus,
 .menubar-navigation [role="menu"] [role="menuitem"]:hover {
-  outline: none;
-  background-color: #ccc;
+  /*outline: none;
+  background-color: #ccc;*/
 }
 
 .menubar-navigation [role="menu"] [role="menuitem"]:focus,
 .menubar-navigation [role="menu"] [role="menuitem"]:hover {
-  padding: 2px;
+  /*padding: 2px;
   padding-left: 6px;
-  border: 2px solid #034575;
+  border: 2px solid #034575;*/
 }
 
 .menubar-navigation > li > [aria-expanded="true"].aria-current-path,
@@ -2387,8 +2405,8 @@ div .spacer {
 .menubar-navigation > li > [role="menuitem"].aria-current-path:hover,
 .menubar-navigation > li > [role="menuitem"][aria-current]:focus,
 .menubar-navigation > li > [role="menuitem"][aria-current]:hover {
-  padding-bottom: 2px;
-  border-bottom: 4px solid #034575;
+  /*padding-bottom: 2px;
+  border-bottom: 4px solid #034575;*/
 }
 
 .menubar-navigation [role="menu"] [aria-expanded="true"].aria-current-path,
@@ -2396,8 +2414,8 @@ div .spacer {
 .menubar-navigation [role="menu"] [role="menuitem"].aria-current-path:hover,
 .menubar-navigation [role="menu"] [role="menuitem"][aria-current]:focus,
 .menubar-navigation [role="menu"] [role="menuitem"][aria-current]:hover {
-  padding-left: 4px;
-  border-left: 4px solid #034575;
+  /*padding-left: 4px;
+  border-left: 4px solid #034575;*/
 }
 
 /* <emubar navigation end */
@@ -2526,6 +2544,378 @@ div .spacer {
 .hamb-line::after {
   top: -5px;
 }
+
+/* Carausal */
+
+/* .carousel-tablist */
+
+img.reload {
+  padding: 0.25em;
+  display: block-inline;
+  position: relative;
+  top: 6px;
+  height: 0.9em;
+}
+
+.carousel-tablist {
+  background-color: #eee;
+  /*max-width: 900px;*/
+}
+
+.carousel-tablist .carousel-inner {
+  position: relative;
+}
+
+.carousel-tablist .carousel-items {
+  padding: 0px;
+}
+
+.carousel-tablist .carousel-items.focus {
+  padding: 2px;
+  border: solid 3px #011b2e;
+}
+
+.carousel-tablist .carousel-item {
+  display: none;
+  /*max-height: 400px;*/
+  /*max-width: 900px;*/
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-tablist .carousel-item.active {
+  display: block;
+}
+
+/* More like bootstrap, less accessible */
+
+.carousel-tablist .carousel-item .carousel-image a img {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-tablist .carousel-item .carousel-caption a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
+  font-weight: 600;
+}
+
+.carousel-tablist .carousel-item .carousel-caption a,
+.carousel-tablist .carousel-item .carousel-caption span.contrast {
+  margin: 0;
+  padding: 6px;
+  display: inline-block;
+  background-color: rgb(0 0 0 / 65%);
+  border-radius: 5px;
+  border: 0 solid transparent;
+}
+
+.carousel-tablist-moreaccessible .carousel-items .carousel-image a {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  text-decoration: none;
+  border: none;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption a {
+  display: inline-block;
+  margin: 0;
+  padding: 6px;
+  color: black;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption span.contrast,
+.carousel-tablist-moreaccessible
+  .carousel-item
+  .carousel-caption
+  span.contrast:hover {
+  background-color: transparent;
+}
+
+.carousel-tablist .carousel-item .carousel-caption a:hover,
+.carousel-tablist .carousel-item .carousel-caption span.contrast:hover {
+  background-color: rgb(0 0 0 / 100%);
+}
+
+.carousel-tablist .carousel-item .carousel-caption a:focus {
+  padding: 4px;
+  border: 2px solid #eee;
+  background-color: rgb(0 0 0 / 100%);
+  outline: none;
+  border-width: 2px solid #fff;
+  color: #fff;
+}
+
+.carousel-tablist .carousel-item .carousel-caption p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.carousel-tablist .carousel-item .carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 0;
+  left: 15%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Shared CSS for Pause and Tab Controls */
+
+.carousel-tablist .controls {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 1em;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+  padding: 0.25em 1.25em 0;
+}
+
+.carousel-tablist .tab-wrapper {
+  flex: 1 1 auto;
+  height: 30px;
+  text-align: center;
+}
+
+/* SVG Controls */
+
+.carousel-tablist .rotation {
+  flex: 0 0 auto;
+  height: 30px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 10;
+}
+
+.carousel-tablist .svg-play .background {
+  stroke: black;
+  fill: black;
+  stroke-width: 1px;
+  opacity: 0.6;
+}
+
+.carousel-tablist .svg-play .border {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2px;
+}
+
+.carousel-tablist .svg-play .pause {
+  stroke-width: 4;
+  fill: transparent;
+  stroke: transparent;
+}
+
+.carousel-tablist .svg-play .play {
+  stroke-width: 1;
+  fill: transparent;
+  stroke: transparent;
+}
+
+.carousel-tablist .pause .svg-play .pause,
+.carousel-tablist .play .svg-play .play {
+  fill: white;
+  stroke: white;
+}
+
+.carousel-tablist .rotation:focus .svg-play .background,
+.carousel-tablist .rotation:hover .svg-play .background,
+.carousel-tablist .rotation:hover .svg-play .border {
+  fill: #005a9c;
+  stroke: #005a9c;
+  opacity: 1;
+}
+
+.carousel-tablist .rotation:focus .svg-play .border {
+  stroke: white;
+}
+
+/* Shared CSS for Tabs */
+
+.carousel-tablist [role="tablist"] {
+  box-sizing: border-box;
+  border: 0 transparent solid;
+  border-radius: 13px;
+  display: inline-block;
+  padding-top: 2px;
+  height: 30px;
+  background-color: rgb(0 0 0 / 65%);
+}
+
+.carousel-tablist [role="tablist"].focus {
+  border-width: 2px;
+  border-color: white;
+  padding-top: 0;
+  background-color: #005a9c;
+}
+
+.carousel-tablist [role="tab"] {
+  position: relative;
+  top: -2px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 34px;
+}
+
+.carousel-tablist [role="tab"] circle.border {
+  display: none;
+  z-index: 12;
+}
+
+.carousel-tablist [role="tab"] circle.tab {
+  z-index: 16;
+}
+
+.carousel-tablist [role="tab"] circle.tab-background {
+  stroke: black;
+  fill: black;
+  stroke-width: 2px;
+  opacity: 0.6;
+  z-index: 14;
+}
+
+.carousel-tablist [role="tab"] circle.tab,
+.carousel-tablist [role="tab"] circle.border {
+  stroke: white;
+  fill: transparent;
+  stroke-width: 2px;
+}
+
+.carousel-tablist-moreaccessible [role="tab"] circle.tab-background {
+  z-index: 16;
+}
+
+.carousel-tablist-moreaccessible [role="tab"] circle.tab {
+  z-index: 18;
+}
+
+.carousel-tablist [role="tab"][aria-selected="true"] circle.tab {
+  fill: white;
+}
+
+.carousel-tablist-moreaccessible [role="tab"] circle.border {
+  z-index: 14;
+}
+
+.carousel-tablist [role="tab"]:focus circle.border {
+  display: block;
+  fill: #005a9c;
+  stroke: #fff;
+}
+
+.carousel-tablist [role="tablist"].focus circle.tab-background {
+  stroke: #005a9c;
+  fill: #005a9c;
+}
+
+.carousel-tablist [role="tab"]:hover circle.tab-background {
+  fill: white;
+  stroke: white;
+  opacity: 1;
+}
+
+.carousel-tablist [role="tab"]:hover circle.border,
+.carousel-tablist [role="tab"]:hover circle.tab {
+  fill: #005a9c;
+  stroke: #005a9c;
+  opacity: 1;
+}
+
+.carousel-tablist [role="tab"][aria-selected="true"]:hover circle.tab {
+  fill: white;
+}
+
+/* More accessible carousel styles, with caption and controls above/below image */
+
+.carousel-tablist-moreaccessible {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  border: #eee solid 4px;
+  border-radius: 5px;
+}
+
+.carousel-tablist-moreaccessible .carousel-items,
+.carousel-tablist-moreaccessible .carousel-items.focus {
+  padding: 0;
+  border: none;
+}
+
+.carousel-tablist-moreaccessible .carousel-items.focus .carousel-image a {
+  padding: 2px;
+  border: 3px solid #005a9c;
+}
+
+/* More accessible caption styling */
+
+.carousel-tablist-moreaccessible .carousel-item {
+  padding: 0;
+  margin: 0;
+  max-height: none;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption {
+  position: static;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  color: black;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption p {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption h3 {
+  font-size: 1.1em;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption a:hover {
+  background-color: rgb(0 0 0 / 20%);
+}
+
+.carousel-tablist-moreaccessible .carousel-item .carousel-caption a:focus {
+  padding: 4px;
+  border: 2px solid #005a9c;
+  background-color: transparent;
+  color: black;
+  outline: none;
+}
+
+/* Shared CSS for Pause and Tab Controls */
+
+.carousel-tablist-moreaccessible .controls {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0.25em 0.25em 0;
+}
+
+/* Shared CSS for Tabs */
+
+.carousel-tablist-moreaccessible [role="tab"] {
+  z-index: 20;
+}
+
+/*end caraousa; */
 
 /* Toggle menu icon */
 
@@ -7399,6 +7789,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .top_header li {
     font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .carousel-tablist {
+    padding-top: 100px; /* Adjust this to your sticky header height on mobile */
   }
 
   .grid-gallery {

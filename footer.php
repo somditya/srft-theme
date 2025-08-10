@@ -10,17 +10,15 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
-      <ul>
-        <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
-        <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
-        <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-        <li><?php echo __('Phone:', 'srft-theme'); ?> 91-33-2432-8355, 2432-8356, 2432-9300</li>
-        <li><?php echo __('email:', 'srft-theme'); ?> contact[at]srfti[dot]ac[dot]in</li>
-      </ul>
+      <h2><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h2>
+        <p><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></p>
+        <p><?php echo __('Kolkata-700094', 'srft-theme'); ?></p>
+        <p><?php echo __('West Bengal', 'srft-theme'); ?></p>
+        <p><?php echo __('Phone:', 'srft-theme'); ?> 91-33-2432-8355, 2432-8356, 2432-9300</p>
+        <p><?php echo __('email:', 'srft-theme'); ?> contact[at]srfti[dot]ac[dot]in</p>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Related Links:', 'srft-theme'); ?></h3>
+      <h2><?php echo __('Related Links:', 'srft-theme'); ?></h2>
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
@@ -57,7 +55,7 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Useful Links', 'srft-theme'); ?></h3>
+      <h2><?php echo __('Useful Links', 'srft-theme'); ?></h2>
       <ul>
         <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/site-map/'));}
                     else  { echo esc_url(site_url('/साइट-मानचित्र/'));}
@@ -85,7 +83,7 @@ $current_language = get_locale();
       </ul>
     </div>
     <div class="footer_sub">
-      <h3><?php echo __('Follow us', 'srft-theme'); ?></h3>
+      <h2><?php echo __('Follow us', 'srft-theme'); ?></h2>
       <ul class="social">
         <!--<li><a href="https://www.facebook.com/chicagoboothbusiness" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Facebook - This Link Opens in New Window"><img src="images/facebook.svg" alt="facebook"></a></li>
         <li><a href="https://www.instagram.com/chicagobooth/" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Instagram - This Link Opens in New Window"><img src="images/instagram.svg" alt="Instagram"></a></li>

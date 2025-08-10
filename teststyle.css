@@ -35,7 +35,6 @@
 .page nav {
   margin: 0;
   padding: 0;
-  border: 2px solid #eee;
 }
 
 .menubar-navigation {
@@ -43,8 +42,6 @@
   padding: 2px;
   font-size: 110%;
   list-style: none;
-  background-color: #eee;
-  border: #eee solid 1px;
 }
 
 .menubar-navigation li {

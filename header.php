@@ -58,83 +58,9 @@ $current_language = get_locale();
 
 <body <?php body_class(); ?>>
 
-<?php if (is_page('home')) : ?> 
-<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper home-slider">
-      <div class="swiper-wrapper">
-      
-    <!--<div class="swiper-slide">
-      <div class="slider-bg">
-      <video autoplay muted loop playsinline>
-      <source src="<?php bloginfo('template_url'); ?>/videos/Promo_2_16-9_Final4.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-      </div>
-    </div>-->
-      <!--<div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/Admission-ExtendedDeadline.png" alt="SRFTI delared deemed to be university" >
-           </picture>
-         </div>
-      </div>-->
-      <div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIDU3.jpg" alt="SRFTI deemed to be university courses" >
-           </picture>
-         </div>
-      </div>
-      <div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
-           </picture>
-         </div>
-         </div>
-      
-        <div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-             
-             <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="picture of student's production in set" >
-           </picture>
-         </div>
-         </div>
-        <div class="swiper-slide" >
-          <div class="slider-bg">
-            <picture>
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="picture of animation masterclass">
-          </picture>
-        </div>
-        </div>
-        
-        <div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="picture of student's live music exercise">
-           </picture>
-         </div>
-          
-         </div>
-         <div class="swiper-slide" >
-          <div class="slider-bg">
-             <picture>
-            
-             <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="pictures of students with camera">
-           </picture>
-         </div>
-          
-         </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-		<?php endif; ?>
-    <header class="sticky" >
-   
-      <!--<nav id="nav-wrapper">-->
-       <div class="top_header">
+  <header class="sticky" >
+         <!--<nav id="nav-wrapper">-->
+       <div class="top_header" role="banner">
          <!--<div>
            <ul style="display:flex;">
            <li> <marquee style="color: white;"><?php echo __('Important Notice: The admission deadline for the Master\'s Course has been extended to 31st July, 2025.', 'srft-theme'); ?>
@@ -242,71 +168,69 @@ $current_language = get_locale();
         </div>
 
         <div class="menu-btn">
-
-          <div class="nav-links">
-            <ul class="custom-menu" role="menubar" style="display: flex; align-items: center; justify-content: center;">
-              <li class="nav-link" style="--i: 0.6s" role="none">
-                <a href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
+        
+          <div class="nav-links" >
+            <nav class="nav-links" role="navigaion" area-label="SRFTI">
+            <ul role="menubar" style="display: flex; align-items: center; justify-content: center;">
+              <li role="none" class="nav-link" style="--i: 0.6s" >
+                <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
                     ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
               </li>
-              <li class="nav-link" style="--i: 1.1s" role="none">
-                <a href="#" id="aboutMenuButton" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul role="menu">
-                    <li class="dropdown-link">
+              <li role="none" class="nav-link" style="--i: 1.1s">
+                <a role="menuitem" href="#" id="aboutMenuButton" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
                     else 
                     { echo esc_url(site_url('/संस्थान के बारे में/'));}
                     ?>"><?php echo __('About the Institute', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }
                     else  { echo esc_url(site_url('/नेतृत्व//'));}
                     ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/management/'));}
                     else  { echo esc_url(site_url('/प्रबंध/'));}
                     ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/organization-chart/'));} 
                      else { echo esc_url(site_url('/संगठन-संरचना/'));}
                       ?>">
                     <?php echo __('Organization Structure', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
                     </li>
                    
-                    <li class="dropdown-link">
-                    <a role="menuitem"href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
                     ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/directory/'));}
                     else { echo esc_url(site_url('/निर्देशिका/'));}
                     ?>"><?php echo __('Directory', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
-                </div>
               </li>
-              <li class="nav-link" style="--i: 1.1s">
-                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul  role="menu">
-                    <li class="dropdown-link">
+              <li role="none" class="nav-link" style="--i: 1.1s">
+                <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul  role="menu" class="dropdown" aria-label="Academics">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-cinema/'));}
                     else  { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}                   
                       ?>"><?php echo __('Master of Fine Arts in Cinema', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-edm/'));}
                       else  { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));} ?>"><?php echo __('Master of Fine Arts in EDM', 'srft-theme' ); ?></a>
                     </li>
@@ -314,97 +238,77 @@ $current_language = get_locale();
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
                     </li>-->
                    
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/faculty/'));} 
                     else 
                     { echo esc_url(site_url('/संकाय/'));}
                     ?>"><?php echo __('Faculty', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
                       else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
-                </div>
               </li>
-              <li class="nav-link" style="--i: 1.35s">
-                <a href="#" aria-haspopup="true"  aria-expanded="false"><?php echo __('Admission', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul role="menu">
-                    <li class="dropdown-link">
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" href="#" aria-haspopup="true"  aria-expanded="false"><?php echo __('Admission', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Admission">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
                       ?>"><?php echo __('Master of Fine Arts', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in IFTI AR', 'srft-theme' ); ?></a>
                     </li>
-                   
-                    <!--<li class="dropdown-link">
-                      <a href="#"><?php echo __('Admission Process', 'srft-theme' ); ?></a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#"><?php echo __('International students', 'srft-theme' ); ?></a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#"><?php echo __('Fee Structure', 'srft-theme' ); ?></a>
-                    </li>
-                    <li class="dropdown-link">
-                      <a href="#"><?php echo __('Previous Year Papers', 'srft-theme' ); ?></a>
-                    </li>-->
-                    <!--<div class="arrow"></div>-->
-                  </ul>
-                </div>
-              
+                  </ul>      
               </li>
-              <li class="nav-link" style="--i: 1.35s">
-                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul  role="menu">
-                    <li class="dropdown-link">
+              
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Facilities">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
                     else 
                     { echo esc_url(site_url('/पुस्तकालय/'));}
                     ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
-                    <li role="menuitem" class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/screening-room/'));}
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/screening-room/'));}
                     else   { echo esc_url(site_url('/स्क्रीनिंग-सुविधाएँ/'));}?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
                    
                     <!--<li class="dropdown-link">
                     <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
                     </li>-->
-                    <li role="menuitem" class="dropdown-link">
-                    <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
                     else  { echo esc_url(site_url('/निवास/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
-                </div>
               
               </li>
-              <li role="none" class="nav-link" style="--i: 1.35s">
-                <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
-                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
+                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               </li>
              
-              <li class="nav-link" style="--i: 1.35s">
-                <a href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Resources', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                <div class="dropdown">
-                  <ul role="menu">
-                    <li class="dropdown-link">
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Resources', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Resources">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
                       else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
                     </li>
                    
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" href="<?php 
 if ($current_language === 'en_US') {
     echo esc_url(site_url('/tender/'));
@@ -413,33 +317,31 @@ if ($current_language === 'en_US') {
 }
 ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
                       else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
                     </li>
-                    <li class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else
                        { echo esc_url(site_url('/घोषणा-सूची/'));} ?>"><?php echo __('Circular & Notices', 'srft-theme' ); ?></a>
                     </li>
-                    <li role="menuitem" class="dropdown-link">
-                      <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/news/'));} else
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/news/'));} else
                        { echo esc_url(site_url('/समाचार-सूची/'));} ?>"><?php echo __('News', 'srft-theme' ); ?></a>
                     </li>
-                    
                     <!--<div class="arrow"></div>-->
                   </ul>
-                </div>
               </li>
               <li role="none" class="nav-link" style="--i: 1.35s">
-                <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
+                <a role="menuitem" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               </li>
-                       
             </ul>
+          </nav>  
           </div>
 
         </div>
@@ -450,5 +352,194 @@ if ($current_language === 'en_US') {
           </div>
         </div>
       </div>  
-     </header>
+  </header>
+  <?php if (is_page('home')) : ?> 
+<section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel" aria-label="Highlighted television shows">
+  <div class="carousel-inner">
+    <div class="controls">
+      <button class="rotation" type="button">
+        <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
+          <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24"></rect>
+          <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20"></rect>
+
+          <polygon class="pause" points="17 8 17 20"></polygon>
+
+          <polygon class="pause" points="24 8 24 20"></polygon>
+
+          <polygon class="play" points="15 8 15 20 27 14"></polygon>
+        </svg>
+      </button>
+
+      <div class="tab-wrapper">
+        <div role="tablist" aria-label="Slides">
+          <button id="carousel-tab-1" type="button" role="tab" aria-label="Slide 1" aria-selected="true" aria-controls="carousel-item-1">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+          <button id="carousel-tab-2" type="button" role="tab" tabindex="-1" aria-label="Slide 2" aria-selected="false" aria-controls="carousel-item-2">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+          <button id="carousel-tab-3" type="button" role="tab" tabindex="-1" aria-label="Slide 3" aria-selected="false" aria-controls="carousel-item-3">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+          <button id="carousel-tab-4" type="button" role="tab" tabindex="-1" aria-label="Slide 4" aria-selected="false" aria-controls="carousel-item-4">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+          <button id="carousel-tab-5" type="button" role="tab" tabindex="-1" aria-label="Slide 5" aria-selected="false" aria-controls="carousel-item-5">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+          <button id="carousel-tab-6" type="button" role="tab" tabindex="-1" aria-label="Slide 6" aria-selected="false" aria-controls="carousel-item-6">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
+      <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 6">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-1">
+            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIDU3.jpg" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+      
+
+      <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 6">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-2">
+            <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Travel to Southwest England and Paris </a>
+          </h3>
+
+          <div>
+            <p><span class="contrast">Sept. 14 to Sept. 24 or 27</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+      
+
+      <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 6">
+        <div class="carousel-image">
+          <a href="#!" id="carousel-image-3">
+            <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="picture of student's production in set" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Great Children's Programming on Public TV </a>
+          </h3>
+
+          <div></div>
+        </div>-->
+        
+      </div>
+      
+
+      <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 6">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-4">
+            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="picture of animation masterclass">
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Foyle’s War Revisited </a>
+          </h3>
+
+          <div>
+            <p><span class="contrast">8 pm Sunday, March 8, on TV: Sneak peek at the final season.</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+      
+
+      <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 6">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-5">
+             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="picture of student's live music exercise">
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Great Britain Vote: 7 pm Sat. </a>
+          </h3>
+
+          <div></div>
+        </div>-->
+        
+      </div>
+      
+
+      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 6">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-6">
+            <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="pictures of students with camera">
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Mid-American Gardener: Thursdays at 7 pm </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">Watch the latest episodes.</span></p>
+          </div>
+        </div>
+        
+      </div>-->
+      
+    </div>
+  </div>
+  
+</section>
+
+
+<div class="col-sm-1"></div>
+	<?php endif; ?>
      
