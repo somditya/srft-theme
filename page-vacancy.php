@@ -60,7 +60,7 @@ $category_id = get_category_ID($category_name);
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="Rtable Rtable--5cols Rtable--collapse">
                <table>
-                <caption class-"sr-only"> Table shows lists of notifications for recruitments </caption>
+                <caption class="sr-only"> Table shows lists of notifications for recruitments </caption>
                 <thead>
                 <tr class="Rtable-row Rtable-row--head">
                   <th class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></th>
