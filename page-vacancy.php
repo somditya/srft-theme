@@ -59,42 +59,49 @@ $category_id = get_category_ID($category_name);
             </p>
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="Rtable Rtable--5cols Rtable--collapse">
-                <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
+               <table>
+                <caption class-"sr-only"> Table shows lists of notifications for recruitments </caption>
+                <thead>
+                <tr class="Rtable-row Rtable-row--head">
+                  <th class="Rtable-cell slno-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></th>
                   <!--<div class="Rtable-cell id-cell column-heading"><?php echo __('Recruitment ID', 'srft-theme' ); ?></div>-->
-                  <div class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Submission Date', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell date-cell column-heading"><?php echo __('Extended Submission Date', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
-                </div>
-
-                <div class="Rtable-row" data-ng-repeat="vacancy in pagedVacancy">
-                  <div class="Rtable-cell slno-cell">
+                  <th class="Rtable-cell topic-cell column-heading"><?php echo __('Recruitment for', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell date-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell date-cell column-heading"><?php echo __('Submission Date', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell date-cell column-heading"><?php echo __('Extended Submission Date', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="Rtable-row" data-ng-repeat="vacancy in pagedVacancy">
+                  <td class="Rtable-cell slno-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{$index+1 }}</span></div>
-                  </div>
+                  </td>
                   
-                  <div class="Rtable-cell topic-cell">
+                  <td class="Rtable-cell topic-cell">
                     <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
-                  </div>
-                  <div class="Rtable-cell date-cell">
+                  </td>
+                  <td class="Rtable-cell date-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.pubdate | date:'dd-MM-yyyy' }}</span></div>
-                  </div>
-                  <div class="Rtable-cell date-cell">
+                  </td>
+                  <td class="Rtable-cell date-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.subdate | date:'dd-MM-yyyy' }}</span></div>
-                  </div>
-                  <div class="Rtable-cell date-cell">
+                  </td>
+                  <td class="Rtable-cell date-cell">
                     <div class="Rtable-cell--content date-content"><span class="webinar-date">{{vacancy.extsubdate | date:'dd-MM-yyyy' }}</span></div>
-                  </div>
-                  <div class="Rtable-cell access-link-cell">
+                  </td>
+                  <td class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{vacancy.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp;(<?php echo __('Download', 'srft-theme'); ?> - {{vacancy.file.size}} MB)</a></div>
-                  </div>
-                </div>
+                  </td>
+                </tr>
+          </tbody>
+          </table>
               </div>
               <!-- Use a CSS grid for layout -->
             </div>
 
             <!-- Pagination -->
+             <nav aria-label="Pagination">
             <ul class="pagination">
   <li data-ng-class="{ 'disabled': currentPage === 1 }">
     <a href="#" aria-label="<?php echo __('First Page', 'srft-theme'); ?>" data-ng-click="firstPage()"><i class="fa fa-step-backward"  style="color: #8b5b2b;"></i></a>
@@ -112,6 +119,7 @@ $category_id = get_category_ID($category_name);
     <a href="#" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>" data-ng-click="lastPage()"><i class="fa fa-step-forward"  style="color: #8b5b2b;"></i></a>
   </li>
 </ul>
+          </nav>
           </div>
         </div>
       </div>
