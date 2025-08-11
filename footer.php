@@ -209,7 +209,15 @@ $current_language = get_locale();
     nav: true,
     navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide' ></div>"],
     dots: false,
+  }
+);
+
+$('.owl-next, .owl-prev').on('keypress', function(e) {
+    if (e.which === 13 || e.which === 32) { // 13 is Enter, 32 is Space
+      $(this).click(); // Simulate click
+    }
   });
+
 
   $('.nonstatic').owlCarousel({
     items: 8,
