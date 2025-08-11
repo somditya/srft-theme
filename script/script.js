@@ -72,7 +72,111 @@ $(window).on("load", function () {
 });
 
 /* Menu navigation accessibility */
-$(window).on("load", function () {});
+$(document).ready(function () {
+  console.log("Inside menu");
+
+  const menu = document.querySelector('[role="menubar"]');
+  const menuItems = menu.querySelectorAll('[role="menuitem"]');
+  let currentIndex = 0;
+
+  function openSubmenu(item) {
+    const submenu = item.nextElementSibling;
+    if (submenu && submenu.getAttribute("role") === "menu") {
+      submenu.hidden = false;
+      item.setAttribute("aria-expanded", "true");
+      const firstSubItem = submenu.querySelector('[role="menuitem"]');
+      firstSubItem.focus();
+    }
+  }
+
+  function closeSubmenu(item, focusParent = false) {
+    const submenu = item.nextElementSibling;
+    if (submenu && submenu.getAttribute("role") === "menu") {
+      submenu.hidden = true;
+      item.setAttribute("aria-expanded", "false");
+      if (focusParent) item.focus();
+    }
+  }
+
+  function focusMenuItem(index) {
+    menuItems.forEach((mi) => mi.setAttribute("tabindex", "-1"));
+    menuItems[index].setAttribute("tabindex", "0");
+    menuItems[index].focus();
+    currentIndex = index;
+  }
+
+  $(menu).on("keydown", function (e) {
+    const currentItem = document.activeElement;
+
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        focusMenuItem((currentIndex + 1) % menuItems.length);
+        break;
+
+      case "ArrowLeft":
+        e.preventDefault();
+        focusMenuItem((currentIndex - 1 + menuItems.length) % menuItems.length);
+        break;
+
+      case "ArrowDown":
+        e.preventDefault();
+        if (
+          currentItem.nextElementSibling &&
+          currentItem.nextElementSibling.getAttribute("role") === "menu"
+        ) {
+          openSubmenu(currentItem);
+        } else {
+          const subItems = currentItem
+            .closest("ul")
+            .querySelectorAll('[role="menuitem"]');
+          let idx = Array.from(subItems).indexOf(currentItem);
+          subItems[(idx + 1) % subItems.length].focus();
+        }
+        break;
+
+      case "ArrowUp":
+        e.preventDefault();
+        const subItemsUp = currentItem
+          .closest("ul")
+          .querySelectorAll('[role="menuitem"]');
+        let idxUp = Array.from(subItemsUp).indexOf(currentItem);
+        subItemsUp[(idxUp - 1 + subItemsUp.length) % subItemsUp.length].focus();
+        break;
+
+      case "Enter":
+      case " ":
+        e.preventDefault();
+        if (
+          currentItem.nextElementSibling &&
+          currentItem.nextElementSibling.getAttribute("role") === "menu"
+        ) {
+          const expanded = currentItem.getAttribute("aria-expanded") === "true";
+          expanded ? closeSubmenu(currentItem) : openSubmenu(currentItem);
+        } else {
+          currentItem.click();
+        }
+        break;
+
+      case "Escape":
+        e.preventDefault();
+
+        // Check if we're inside a submenu
+        const currentMenu = currentItem.closest('ul[role="menu"]');
+        const parentMenuItem = currentMenu
+          ? currentMenu.previousElementSibling
+          : null;
+
+        if (
+          parentMenuItem &&
+          parentMenuItem.getAttribute("role") === "menuitem"
+        ) {
+          closeSubmenu(parentMenuItem, true); // closes submenu and focuses parent
+        }
+        break;
+    }
+  });
+});
 
 $(document).ready(function () {
   console.log("Document is ready.");
