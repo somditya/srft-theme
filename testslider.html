@@ -2,141 +2,101 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Accessible News Carousel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible A11y Slider</title>
 
-    <!-- A11Y Slider CSS -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
+      href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"
     />
 
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
+      .a11y-slider-container {
+        width: 90%;
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative; /* This is crucial for positioning the buttons */
       }
 
-      .news-carousel {
+      .slider {
+        list-style: none;
+        padding: 0;
+        margin: 0;
         display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 10px 0;
-      }
-
-      .news-carousel > .news-item {
-        flex: 0 0 auto;
-        width: 25%; /* 4 items per view on desktop */
-        scroll-snap-align: start;
-        background: #fff;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 10px;
         box-sizing: border-box;
       }
 
-      .news-carousel img {
-        max-width: 100%;
-        height: auto;
-        display: block;
+      .slider li {
+        width: 25%;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        font-family: sans-serif;
+        font-size: 1.5rem;
       }
 
-      @media (max-width: 1000px) {
-        .news-carousel > .news-item {
-          width: 33.333%;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .news-carousel > .news-item {
-          width: 100%;
-        }
-      }
-
-      .news-item a {
+      .button,
+      button,
+      input[type="button"],
+      input[type="reset"],
+      input[type="submit"] {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        -webkit-transition: border-color 0.2s ease;
+        transition: border-color 0.2s ease;
+        background-color: blank;
+        border: 1px solid hsla(0, 0%, 100%, 0.15) !important;
+        border-radius: 3em;
+        color: #fff !important;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0.6em;
+        font-weight: 700;
+        height: calc(4.75em + 2px);
+        letter-spacing: 0.25em;
+        line-height: 4.75em;
+        outline: 0;
+        padding: 0 3.75em;
+        position: relative;
+        text-align: center;
         text-decoration: none;
-        color: inherit;
+        text-transform: uppercase;
+        white-space: nowrap;
       }
 
-      .news-item a:focus {
-        outline: 3px solid #2a7ae2;
-        outline-offset: 3px;
-      }
+      /* Styling to position the navigation buttons on the left and right */
     </style>
   </head>
   <body>
-    <h1>Accessible News Carousel Demo</h1>
-
-    <div class="news-carousel slider">
-      <div class="news-item">
-        <a href="#">
-          <img src="https://via.placeholder.com/300x150" alt="Sample news 1" />
-          <div class="news-item-title">
-            <p><strong>News Title 1</strong></p>
-            <p>Short description of news item 1.</p>
-          </div>
-        </a>
-      </div>
-      <div class="news-item">
-        <a href="#">
-          <img src="https://via.placeholder.com/300x150" alt="Sample news 2" />
-          <div class="news-item-title">
-            <p><strong>News Title 2</strong></p>
-            <p>Short description of news item 2.</p>
-          </div>
-        </a>
-      </div>
-      <div class="news-item">
-        <a href="#">
-          <img src="https://via.placeholder.com/300x150" alt="Sample news 3" />
-          <div class="news-item-title">
-            <p><strong>News Title 3</strong></p>
-            <p>Short description of news item 3.</p>
-          </div>
-        </a>
-      </div>
-      <div class="news-item">
-        <a href="#">
-          <img src="https://via.placeholder.com/300x150" alt="Sample news 4" />
-          <div class="news-item-title">
-            <p><strong>News Title 4</strong></p>
-            <p>Short description of news item 4.</p>
-          </div>
-        </a>
-      </div>
-      <div class="news-item">
-        <a href="#">
-          <img src="https://via.placeholder.com/300x150" alt="Sample news 5" />
-          <div class="news-item-title">
-            <p><strong>News Title 5</strong></p>
-            <p>Short description of news item 5.</p>
-          </div>
-        </a>
-      </div>
+    <div class="a11y-slider-container">
+      <ul class="slider">
+        <li>Slide 1</li>
+        <li>Slide 2</li>
+        <li>Slide 3</li>
+        <li>Slide 4</li>
+        <li>Slide 5</li>
+        <li>Slide 6</li>
+        <li>Slide 7</li>
+        <li>Slide 8</li>
+      </ul>
     </div>
 
-    <!-- A11Y Slider JS -->
-    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
 
     <script>
       const slider = new A11YSlider(document.querySelector(".slider"), {
         slidesToShow: 4,
-        arrows: true, // arrows enabled 767px and down
+        arrows: true,
         dots: false,
         responsive: {
-          768: {
-            slidesToShow: 2,
-            arrows: false,
-          },
-          960: {
-            disable: true, // slider disabled 960px to 1279px
-          },
-          1280: {
-            disable: false,
-            slidesToShow: 4,
-            dots: true, // dots enabled 1280px and up
-          },
+          992: { slidesToShow: 4 },
+          768: { slidesToShow: 2 },
+          480: { slidesToShow: 1 },
         },
       });
     </script>
