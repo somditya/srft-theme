@@ -73,107 +73,87 @@ $(window).on("load", function () {
 
 /* Menu navigation accessibility */
 $(document).ready(function () {
-  console.log("Inside menu");
+  const $menu = $('[role="menubar"]');
+  const $topItems = $menu.find('> li > [role="menuitem"]');
 
-  const menu = document.querySelector('[role="menubar"]');
-  const menuItems = menu.querySelectorAll('[role="menuitem"]');
-  let currentIndex = 0;
-
-  function openSubmenu(item) {
-    const submenu = item.nextElementSibling;
-    if (submenu && submenu.getAttribute("role") === "menu") {
-      submenu.hidden = false;
-      item.setAttribute("aria-expanded", "true");
-      const firstSubItem = submenu.querySelector('[role="menuitem"]');
-      firstSubItem.focus();
+  function openSubmenu($item) {
+    const $submenu = $item.next('[role="menu"]');
+    if ($submenu.length) {
+      $submenu.show().attr("aria-hidden", "false");
     }
   }
 
-  function closeSubmenu(item, focusParent = false) {
-    const submenu = item.nextElementSibling;
-    if (submenu && submenu.getAttribute("role") === "menu") {
-      submenu.hidden = true;
-      item.setAttribute("aria-expanded", "false");
-      if (focusParent) item.focus();
+  function closeSubmenu($item) {
+    const $submenu = $item.next('[role="menu"]');
+    if ($submenu.length) {
+      $submenu.hide().attr("aria-hidden", "true");
     }
   }
 
-  function focusMenuItem(index) {
-    menuItems.forEach((mi) => mi.setAttribute("tabindex", "-1"));
-    menuItems[index].setAttribute("tabindex", "0");
-    menuItems[index].focus();
-    currentIndex = index;
-  }
+  $menu.on("keydown", '[role="menuitem"]', function (e) {
+    const $current = $(this);
+    const isTopLevel =
+      $current.closest('[role="menubar"]').length > 0 &&
+      $current.parent().parent().is($menu);
 
-  $(menu).on("keydown", function (e) {
-    const currentItem = document.activeElement;
+    // TAB: allow default, skip menu handling
+    if (e.key === "Tab") return;
 
-    switch (e.key) {
-      case "ArrowRight":
+    // ESC: close submenu
+    if (e.key === "Escape") {
+      if (!isTopLevel) {
+        const $parentItem = $current
+          .closest('[role="menu"]')
+          .prev('[role="menuitem"]');
+        closeSubmenu($parentItem);
+        $parentItem.focus();
         e.preventDefault();
-        focusMenuItem((currentIndex + 1) % menuItems.length);
-        break;
+      }
+    }
 
-      case "ArrowLeft":
+    // Left/Right for top-level only
+    if (isTopLevel && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+      let index = $topItems.index($current);
+      index =
+        e.key === "ArrowLeft"
+          ? (index - 1 + $topItems.length) % $topItems.length
+          : (index + 1) % $topItems.length;
+      $topItems.eq(index).focus();
+      e.preventDefault();
+    }
+
+    // Up/Down for submenu only
+    if (!isTopLevel && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+      const $submenuItems = $current
+        .closest('[role="menu"]')
+        .find('[role="menuitem"]');
+      let idx = $submenuItems.index($current);
+      idx =
+        e.key === "ArrowUp"
+          ? (idx - 1 + $submenuItems.length) % $submenuItems.length
+          : (idx + 1) % $submenuItems.length;
+      $submenuItems.eq(idx).focus();
+      e.preventDefault();
+    }
+
+    // Down on top-level opens submenu
+    if (isTopLevel && e.key === "ArrowDown") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').first().focus();
         e.preventDefault();
-        focusMenuItem((currentIndex - 1 + menuItems.length) % menuItems.length);
-        break;
+      }
+    }
 
-      case "ArrowDown":
+    // Up on top-level opens submenu from last item
+    if (isTopLevel && e.key === "ArrowUp") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').last().focus();
         e.preventDefault();
-        if (
-          currentItem.nextElementSibling &&
-          currentItem.nextElementSibling.getAttribute("role") === "menu"
-        ) {
-          openSubmenu(currentItem);
-        } else {
-          const subItems = currentItem
-            .closest("ul")
-            .querySelectorAll('[role="menuitem"]');
-          let idx = Array.from(subItems).indexOf(currentItem);
-          subItems[(idx + 1) % subItems.length].focus();
-        }
-        break;
-
-      case "ArrowUp":
-        e.preventDefault();
-        const subItemsUp = currentItem
-          .closest("ul")
-          .querySelectorAll('[role="menuitem"]');
-        let idxUp = Array.from(subItemsUp).indexOf(currentItem);
-        subItemsUp[(idxUp - 1 + subItemsUp.length) % subItemsUp.length].focus();
-        break;
-
-      case "Enter":
-      case " ":
-        e.preventDefault();
-        if (
-          currentItem.nextElementSibling &&
-          currentItem.nextElementSibling.getAttribute("role") === "menu"
-        ) {
-          const expanded = currentItem.getAttribute("aria-expanded") === "true";
-          expanded ? closeSubmenu(currentItem) : openSubmenu(currentItem);
-        } else {
-          currentItem.click();
-        }
-        break;
-
-      case "Escape":
-        e.preventDefault();
-
-        // Check if we're inside a submenu
-        const currentMenu = currentItem.closest('ul[role="menu"]');
-        const parentMenuItem = currentMenu
-          ? currentMenu.previousElementSibling
-          : null;
-
-        if (
-          parentMenuItem &&
-          parentMenuItem.getAttribute("role") === "menuitem"
-        ) {
-          closeSubmenu(parentMenuItem, true); // closes submenu and focuses parent
-        }
-        break;
+      }
     }
   });
 });

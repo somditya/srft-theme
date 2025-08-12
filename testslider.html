@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accessible News Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- A11Y Slider CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
+    />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .news-carousel {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 10px 0;
+      }
+
+      .news-carousel > .news-item {
+        flex: 0 0 auto;
+        width: 25%; /* 4 items per view on desktop */
+        scroll-snap-align: start;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .news-carousel img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      @media (max-width: 1000px) {
+        .news-carousel > .news-item {
+          width: 33.333%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .news-carousel > .news-item {
+          width: 100%;
+        }
+      }
+
+      .news-item a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .news-item a:focus {
+        outline: 3px solid #2a7ae2;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Accessible News Carousel Demo</h1>
+
+    <div class="news-carousel slider">
+      <div class="news-item">
+        <a href="#">
+          <img src="https://via.placeholder.com/300x150" alt="Sample news 1" />
+          <div class="news-item-title">
+            <p><strong>News Title 1</strong></p>
+            <p>Short description of news item 1.</p>
+          </div>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <img src="https://via.placeholder.com/300x150" alt="Sample news 2" />
+          <div class="news-item-title">
+            <p><strong>News Title 2</strong></p>
+            <p>Short description of news item 2.</p>
+          </div>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <img src="https://via.placeholder.com/300x150" alt="Sample news 3" />
+          <div class="news-item-title">
+            <p><strong>News Title 3</strong></p>
+            <p>Short description of news item 3.</p>
+          </div>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <img src="https://via.placeholder.com/300x150" alt="Sample news 4" />
+          <div class="news-item-title">
+            <p><strong>News Title 4</strong></p>
+            <p>Short description of news item 4.</p>
+          </div>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <img src="https://via.placeholder.com/300x150" alt="Sample news 5" />
+          <div class="news-item-title">
+            <p><strong>News Title 5</strong></p>
+            <p>Short description of news item 5.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- A11Y Slider JS -->
+    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+
+    <script>
+      const slider = new A11YSlider(document.querySelector(".slider"), {
+        slidesToShow: 4,
+        arrows: true, // arrows enabled 767px and down
+        dots: false,
+        responsive: {
+          768: {
+            slidesToShow: 2,
+            arrows: false,
+          },
+          960: {
+            disable: true, // slider disabled 960px to 1279px
+          },
+          1280: {
+            disable: false,
+            slidesToShow: 4,
+            dots: true, // dots enabled 1280px and up
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
