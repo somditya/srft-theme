@@ -75,6 +75,7 @@ $(document).ready(function () {
     slidesToShow: 4,
     arrows: true,
     dots: false,
+    adaptiveHeight: true,
     responsive: {
       375: { slidesToShow: 1 },
       480: { slidesToShow: 1 },
