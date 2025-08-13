@@ -67,6 +67,23 @@ function trapFocus(e) {
   }
 }
 */
+
+$(document).ready(function () {
+  console.log("Hi");
+
+  const slider = new A11YSlider(document.querySelector(".slider"), {
+    slidesToShow: 4,
+    arrows: true,
+    dots: false,
+    responsive: {
+      375: { slidesToShow: 1 },
+      480: { slidesToShow: 1 },
+      992: { slidesToShow: 4 },
+      768: { slidesToShow: 2 },
+    },
+  });
+});
+
 $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });

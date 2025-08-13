@@ -1556,10 +1556,88 @@ div .spacer {
   background-position: -24px -53px;
 }
 
+*/
 
+/* ally-slider style */
 
+.a11y-slider-container {
+  padding: 20px;
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative; /* This is crucial for positioning the buttons */
+}
 
+.slider {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px !important; /* apply gap here, not on li *
+  box-sizing: border-box; */
+}
 
+.slider li {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+}
+
+/* 1) Make the slider container a positioning context */
+.a11y-slider-container {
+  position: relative;
+}
+
+/* Make slider container positioning context */
+.a11y-slider-container {
+  position: relative;
+}
+
+/* 1) Ensure slider container is a positioning context */
+.a11y-slider-container {
+  position: relative;
+}
+
+/* 2) Base button styles */
+.a11y-slider-container > button.a11y-slider-prev,
+.a11y-slider-container > button.a11y-slider-next {
+  all: unset; /* remove theme defaults */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+
+  width: 26px; /* matches your sprite icon width */
+  height: 47px; /* matches sprite icon height */
+  background-image: url("https://srfti.ac.in/wp-content/themes/srft-theme/images/nav-icon.webp");
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1); /* invert colors if needed */
+
+  /* Hide visual text, keep for accessibility */
+  font-size: 0;
+}
+
+/* 3) Specific offsets for each arrow position */
+.a11y-slider-container > button.a11y-slider-prev {
+  left: -20px;
+  background-position: 0 0; /* shows left arrow */
+}
+
+.a11y-slider-container > button.a11y-slider-next {
+  right: -20px;
+  background-position: -24px 0; /* shows right arrow */
+}
+
+/* 4) Focus outline for accessibility */
+.a11y-slider-container > button.a11y-slider-prev:focus-visible,
+.a11y-slider-container > button.a11y-slider-next:focus-visible {
+  outline: 3px solid #66afe9;
+  outline-offset: 2px;
+}
 
 /* resposnive table */
 .flex-table {
@@ -4691,6 +4769,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
   margin-bottom: 15px;
   /*height: 52px;*/
   overflow: hidden;
+}
+
+.news-item {
+  padding: 0;
 }
 
 .img-responsive {

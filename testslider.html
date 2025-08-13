@@ -38,35 +38,61 @@
         font-size: 1.5rem;
       }
 
-      .button,
-      button,
-      input[type="button"],
-      input[type="reset"],
-      input[type="submit"] {
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        -ms-appearance: none;
-        appearance: none;
-        -webkit-transition: border-color 0.2s ease;
-        transition: border-color 0.2s ease;
-        background-color: blank;
-        border: 1px solid hsla(0, 0%, 100%, 0.15) !important;
-        border-radius: 3em;
-        color: #fff !important;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 0.6em;
-        font-weight: 700;
-        height: calc(4.75em + 2px);
-        letter-spacing: 0.25em;
-        line-height: 4.75em;
-        outline: 0;
-        padding: 0 3.75em;
+      /* 1) Make the slider container a positioning context */
+      .a11y-slider-container {
         position: relative;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        white-space: nowrap;
+      }
+
+      /* 2) Reset & style the generated prev/next buttons */
+      .a11y-slider-container > button.a11y-slider-prev,
+      .a11y-slider-container > button.a11y-slider-next {
+        all: unset; /* nuke the theme's global button styles */
+        position: absolute;
+        top: 8px;
+        z-index: 10;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 9999px;
+
+        background: #fff !important; /* override theme */
+        border: 1px solid #ccc !important; /* override theme */
+        color: #333 !important; /* override theme */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+
+        /* Visually hide the text ("Previous slide"/"Next slide") but keep it for SR */
+        font-size: 0;
+      }
+
+      /* 3) Pin to corners */
+      .a11y-slider-container > button.a11y-slider-prev {
+        left: 8px;
+      }
+      .a11y-slider-container > button.a11y-slider-next {
+        right: 8px;
+      }
+
+      /* 4) Arrow symbols as visible icons */
+      .a11y-slider-container > button.a11y-slider-prev::before {
+        content: "←";
+        font-size: 22px;
+        line-height: 1;
+      }
+      .a11y-slider-container > button.a11y-slider-next::before {
+        content: "→";
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      /* 5) Focus styles (keyboard accessibility) */
+      .a11y-slider-container > button.a11y-slider-prev:focus-visible,
+      .a11y-slider-container > button.a11y-slider-next:focus-visible {
+        outline: 3px solid #66afe9;
+        outline-offset: 2px;
       }
 
       /* Styling to position the navigation buttons on the left and right */
@@ -89,15 +115,99 @@
     <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
 
     <script>
-      const slider = new A11YSlider(document.querySelector(".slider"), {
-        slidesToShow: 4,
-        arrows: true,
-        dots: false,
-        responsive: {
-          992: { slidesToShow: 4 },
-          768: { slidesToShow: 2 },
-          480: { slidesToShow: 1 },
-        },
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".a11y-slider-container");
+        if (!container) return;
+
+        // Ensure positioning context
+        container.style.setProperty("position", "relative", "important");
+
+        const prev = container.querySelector("button.a11y-slider-prev");
+        const next = container.querySelector("button.a11y-slider-next");
+
+        const styleBtn = (btn, side) => {
+          if (!btn) return;
+
+          // Kill theme styles and apply our own with inline !important
+          const S = (prop, val) =>
+            btn.style.setProperty(prop, val, "important");
+          S("position", "absolute");
+          S("top", "8px");
+          S("zIndex", "10");
+          S("display", "inline-flex");
+          S("alignItems", "center");
+          S("justifyContent", "center");
+          S("width", "44px");
+          S("height", "44px");
+          S("padding", "0");
+          S("margin", "0");
+          S("borderRadius", "9999px");
+          S("background", "#fff");
+          S("border", "1px solid #ccc");
+          S("color", "#333");
+          S("boxShadow", "0 2px 6px rgba(0,0,0,.08)");
+          S("cursor", "pointer");
+          S("lineHeight", "1");
+          S("letterSpacing", "normal");
+          S("textTransform", "none");
+          S(side, "8px"); // 'left' for prev, 'right' for next
+
+          // Accessible name
+          btn.setAttribute(
+            "aria-label",
+            side === "left" ? "Previous slide" : "Next slide"
+          );
+
+          // Replace text with an SVG arrow
+          btn.textContent = ""; // remove "Previous slide"/"Next slide"
+          const svgNS = "http://www.w3.org/2000/svg";
+          const svg = document.createElementNS(svgNS, "svg");
+          svg.setAttribute("viewBox", "0 0 24 24");
+          svg.setAttribute("width", "22");
+          svg.setAttribute("height", "22");
+          const path = document.createElementNS(svgNS, "path");
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "currentColor");
+          path.setAttribute("stroke-width", "2");
+          path.setAttribute("stroke-linecap", "round");
+          path.setAttribute("stroke-linejoin", "round");
+          path.setAttribute(
+            "d",
+            side === "left" ? "M15.5 4.5l-7 7 7 7" : "M8.5 4.5l7 7-7 7"
+          );
+          svg.appendChild(path);
+          btn.appendChild(svg);
+
+          // Focus ring
+          btn.addEventListener("focus", () => {
+            btn.style.setProperty("outline", "3px solid #66afe9", "important");
+            btn.style.setProperty("outlineOffset", "2px", "important");
+          });
+          btn.addEventListener("blur", () => {
+            btn.style.removeProperty("outline");
+            btn.style.removeProperty("outline-offset");
+          });
+        };
+
+        styleBtn(prev, "left");
+        styleBtn(next, "right");
+
+        // Re-hide the "skip slider" control in case the theme broke it
+        const srOnly = container.querySelector(".a11y-slider-sr-only");
+        if (srOnly && srOnly !== prev && srOnly !== next) {
+          const S = (prop, val) =>
+            srOnly.style.setProperty(prop, val, "important");
+          S("position", "absolute");
+          S("width", "1px");
+          S("height", "1px");
+          S("padding", "0");
+          S("margin", "-1px");
+          S("overflow", "hidden");
+          S("clip", "rect(0 0 0 0)");
+          S("clip-path", "inset(50%)");
+          S("whiteSpace", "nowrap");
+          S("border", "0");
+        }
       });
     </script>
   </body>

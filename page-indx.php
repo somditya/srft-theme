@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Home
+Template Name: Index
 
  */
 
@@ -110,7 +110,7 @@ Template Name: Home
     <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
-    <div class="a11y-slider-container">
+    <div class="a11y-slider-container" style="max-width: 100%; margin-right: auto; margin-left: auto;">
         <ul class="slider"  style="height: 370px;">
             <?php
             $post_id = get_the_ID();
@@ -137,7 +137,7 @@ Template Name: Home
             if ($category_posts->have_posts()) :
                 while ($category_posts->have_posts()) : $category_posts->the_post();
             ?>
-                    <li class="news-item" style="padding:0px; flex: 0 0 calc(25% - 10px);">
+                    <li class="news-item" style="margin-right:10px; padding:0px;">
                         <a href="<?php the_permalink(); ?>" target="_blank">
                             <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
                             <div class="news-item-title">
@@ -173,6 +173,7 @@ Template Name: Home
         </div>
     </div>
 </section>
+
  
 <section class="section-home;" style="padding: 0;">
   <div  style="display:flex; flex-wrap: wrap; background-color:#5e5e5e;">
@@ -629,11 +630,16 @@ $final_url = site_url("/$slug/");
 </div>
 </div>
 </section>
+
 <?php
 get_footer(); 
 ?>
+
   <!--</div>
   </div>
   </main>
 
 -->
+
+</body>
+</html>
