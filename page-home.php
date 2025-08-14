@@ -420,19 +420,19 @@ else
     <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
     <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winnng Student Films', 'srft-theme' ); ?></h2>
     <div class="frame">
-    <div class="static owl-carousel">
-    <?php
-    $post_id = get_the_ID();
-    $post_content = apply_filters('the_content', $post->post_content);
+      <ul class="slider"  style="height: 370px;">
+        <?php
+        $post_id = get_the_ID();
+        $post_content = apply_filters('the_content', $post->post_content);
     
-    if ($current_language === 'en_US') {
-      $catslug='award-en'; 
-     }
-      else
-      {
+        if ($current_language === 'en_US') {
+        $catslug='award-en'; 
+        }
+        else
+        {
         $catslug='award-hi';
-      }
-      $category_posts = new WP_Query(array(
+        }
+        $category_posts = new WP_Query(array(
         'post_type' => 'award',
         'tax_query' => array(
             array(
@@ -442,34 +442,34 @@ else
             ),
         ),
         'posts_per_page' => -1,
-    ));
+        ));
   
 
-    if ($category_posts->have_posts()) :
-        while ($category_posts->have_posts()) : $category_posts->the_post();
-    ?>
-    
-      <div class="news-item">
-      <a href="<?php the_permalink(); ?>" target="_blank" >
-        <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=" "  style="display: block;">
-      <div class="news-item-title">
-        <h3><?php echo get_field('Film-Name');?></h3>
-        <p><?php echo get_field('award_received');?></p>
+        if ($category_posts->have_posts()) :
+          while ($category_posts->have_posts()) : $category_posts->the_post();
+        ?> 
+        <li>
+          <div class="news-item">
+          <a href="<?php the_permalink(); ?>" target="_blank" >
+          <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=" "  style="display: block;">
+          <div class="news-item-title">
+          <h3><?php echo get_field('Film-Name');?></h3>
+          <p><?php echo get_field('award_received');?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
-      </div>
-      </a>
-      </div>
+          </div>
+          </a>
+          </div>
+        </li>  
       <?php
         endwhile;
         wp_reset_postdata(); // Reset the post data
     else :
         echo '<p>No posts found in this category.</p>';
     endif;
-    ?>  
-      
-  </div>
+    ?>    
+  </ul>
   <!--<div class="link-div" style="align-items: center; margin-top:0;">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     <a class="link-text-big" href="#" >Read More Here</a>
     </div>-->

@@ -110,8 +110,9 @@ Template Name: Index
     <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
-    <div class="a11y-slider-container" style="max-width: 100%; margin-right: auto; margin-left: auto;">
-        <ul class="slider"  style="height: 370px;">
+       
+       <div class="frame">
+       <ul class="slider"  style="height: 370px;">
             <?php
             $post_id = get_the_ID();
             $post_content = apply_filters('the_content', $post->post_content);
@@ -137,14 +138,16 @@ Template Name: Index
             if ($category_posts->have_posts()) :
                 while ($category_posts->have_posts()) : $category_posts->the_post();
             ?>
-                    <li class="news-item" style="margin-right:10px; padding:0px;">
-                        <a href="<?php the_permalink(); ?>" target="_blank">
+                    <li>
+                      <div class="news-item">
+                       <a href="<?php the_permalink(); ?>" target="_blank">
                             <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
                             </div>
                         </a>
+            </div> 
                     </li>
             <?php
                 endwhile;
@@ -171,6 +174,80 @@ Template Name: Index
                 </span>
             </a>
         </div>
+    </div>
+    </div>
+</section>
+
+
+<section class="section-news" style="background-color: #0b6b39;" id="section-1">
+    <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
+        <?php echo __('Featured News', 'srft-theme' ); ?>
+    </h2>
+       
+       <div class="frame">
+       <ul class="slider"  style="height: 370px;">
+            <?php
+            $post_id = get_the_ID();
+            $post_content = apply_filters('the_content', $post->post_content);
+
+            if ($current_language === 'en_US') {
+                $catslug='news-en'; 
+            } else {
+                $catslug='news-hi';
+            }
+
+            $category_posts = new WP_Query(array(
+                'post_type' => 'news',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'category',
+                        'field'    => 'slug',
+                        'terms'    => $catslug,
+                    ),
+                ),
+                'posts_per_page' => -1,
+            ));
+
+            if ($category_posts->have_posts()) :
+                while ($category_posts->have_posts()) : $category_posts->the_post();
+            ?>
+                    <li>
+                      <div class="news-item">
+                       <a href="<?php the_permalink(); ?>" target="_blank">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
+                            <div class="news-item-title">
+                                <p><?php the_title(); ?></p>
+                                <p><?php echo $post_content; ?></p>
+                            </div>
+                        </a>
+            </div> 
+                    </li>
+            <?php
+                endwhile;
+                wp_reset_postdata(); // Reset the post data
+            else :
+                echo '<p>No posts found in this category.</p>';
+            endif;
+            ?>  
+        </ul>
+        <div class="link-div" style="align-items: center; margin-top: 10px;">
+            <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
+{ echo esc_url(site_url('/समाचार-सूची/'));}
+?>"  aria-label="Read more featured news">
+                <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
+                <span class="primary__header-arrow"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
+                        <defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs>
+                        <g id="Calque_1-3" data-name="Calque 1">
+                            <path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path>
+                            <line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line>
+                            <polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
+                        </g>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
     </div>
 </section>
 
