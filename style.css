@@ -839,6 +839,14 @@ div .spacer {
   letter-spacing: 0.75px;
 }
 
+ul,
+ol {
+  margin: 0; /* remove inconsistent browser margin */
+  padding-left: 1.5rem; /* space reserved for the marker + gap — tweak as needed */
+  list-style-position: outside; /* marker placed in the gutter but inside padding area */
+  box-sizing: border-box; /* ensure padding does not overflow container */
+}
+
 .btn,
 .btn:link,
 .btn:visited {
