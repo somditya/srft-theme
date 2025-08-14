@@ -53,7 +53,7 @@ Template Name: Contact
                         <li>
                             
                             
-                            <h2><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
+                            <h3><?php echo __('Contact a Section', 'srft-theme'); ?></h3>
                             <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
                         </li>
                     </ul>
@@ -61,13 +61,13 @@ Template Name: Contact
                         <li>
                             
                             
-                            <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
+                            <h3><?php echo __('Directories and Listings', 'srft-theme'); ?></h3>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?></p>
                         </li>
                     </ul>
                     <ul>
                         <li>   
-                            <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
+                            <h3><?php echo __('Quick Links', 'srft-theme'); ?></h3>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?></p>
                         </li>
                     </ul>

@@ -4255,6 +4255,20 @@ h6 {
   padding: 10px 45px 10px 20px;
 }
 
+.accordian h3 {
+  font-family: "Poppins", sans-serif;
+  color: #8b5b2b;
+  font-size: 1.8rem;
+  line-height: 34px;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  display: block;
+  background-color: #eaeaea;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px 45px 10px 20px;
+}
+
 /* News List */
 
 .news-grid {
