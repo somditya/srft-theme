@@ -1565,7 +1565,7 @@ div .spacer {
   padding: 0;
   margin: 0;
   display: flex;
-  box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 .slider li {
@@ -4704,6 +4704,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   /*background: white;*/
   /*background-color: #8b5b2b;*/
+}
+
+.slider li img {
+  width: 100%;
+  display: block; /* removes inline gap */
 }
 
 .news-item-title {
