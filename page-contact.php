@@ -8,7 +8,7 @@ Template Name: Contact
 <main>
     <section  class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Connect With Us', 'srft-theme'); ?></h2>
+            <h1 class="page-banner-title"><?php echo __('Connect With Us', 'srft-theme'); ?></h1>
         </div>
     </section>
 
@@ -26,18 +26,16 @@ Template Name: Contact
         <div class="leftnav">
             <div class="widget" style=" margin-top: 10px;    line-height: 1.5">
            
-                    <h3><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h3>
-                        <ul>
-                          <li><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></li>
-                          <li><?php echo __('Kolkata-700094', 'srft-theme'); ?></li>
-                          <li><?php echo __('West Bengal', 'srft-theme'); ?></li>
-                          <li><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></li>
-                          <li><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></li>
-                        </ul>
+                    <h2><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h2>
+                          <p><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></p>
+                          <p><?php echo __('Kolkata-700094', 'srft-theme'); ?></p>
+                          <p><?php echo __('West Bengal', 'srft-theme'); ?></p>
+                          <p><?php echo __('Phone:', 'srft-theme'); ?><span> 91-33-2432-8355, 2432-8356, 2432-9300 </span></p>
+                          <p><?php echo __('email:', 'srft-theme'); ?><span> contact[at]srfti[dot]ac[dot]in</span></p>
             </div>
         </div>
 
-        <div class="main-content" role="main">
+        <div class="main-content">
             <section class="page-title">
                 <div>
                     <h2 class="page-header-text"><?php echo esc_html($post->post_title); ?></h2>
