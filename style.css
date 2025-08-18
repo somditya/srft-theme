@@ -1746,8 +1746,8 @@ ol {
 
 .filter-bar button {
   padding: 6px 12px;
-  border: 1px solid #0073aa;
-  background-color: #0073aa;
+  border: 1px solid;
+  background-color: #724b26;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
@@ -1755,7 +1755,7 @@ ol {
 }
 
 .filter-bar button:hover {
-  background-color: #005f8d;
+  background-color: #724b36;
 }
 
 /* Responsive: stack vertically on smaller screens */

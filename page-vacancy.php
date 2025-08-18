@@ -42,11 +42,6 @@ $category_id = get_category_ID($category_name);
       <div class="container" style="padding: 0 3.2rem
 32px;">
       
-       <!--<section class="page-title">
-                <div>
-                    <p class="page-header-text">Help</p>
-                </div>
-       </section>-->
         <h2 class="page-header-text" style="padding-bottom: 20px; text-align: center;"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp">
           <div data-ng-controller="VacancyController">

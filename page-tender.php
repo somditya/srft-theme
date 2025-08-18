@@ -39,17 +39,19 @@ $category_id = get_category_ID($category_name);
    </div>
   </div>
     
-    <section id="skip-to-content" class="section-home">      
+    <section id="skip-to-content" class="section-home">    
+      <div class="container" style="padding: 0 3.2rem
+32px;">  
         <h2 class="page-header-text" style="padding-bottom: 20px; text-align: center;"><?php echo __('Tender List', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp">
           <div data-ng-controller="TenderController">
-            <p style="padding: 0 3.2rem;">
+            <div class="filter-bar">
             <label for="fromDate"><?php echo __('From date: ', 'srft-theme' ); ?></label> <input type="date" id="fromDate" data-ng-model="fromDate" data-ng-change="applyFilters()">
             <label for="toDate"><?php echo __('To date: ', 'srft-theme' ); ?></label> <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
             <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label><input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
-            </p>
+            </div>
             
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="Rtable Rtable--7cols Rtable--collapse">
@@ -121,6 +123,7 @@ $category_id = get_category_ID($category_name);
           </div>
         </div>
       </div>
+          </div>
     </section>
   
   <script>
