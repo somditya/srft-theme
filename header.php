@@ -423,16 +423,24 @@ if ($current_language === 'en_US') {
               <circle class="tab" cx="16" cy="15" r="6"></circle>
             </svg>
           </button>
+          <button id="carousel-tab-8" type="button" role="tab" tabindex="-1" aria-label="Slide 8" aria-selected="false" aria-controls="carousel-item-8">
+            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle class="border" cx="16" cy="15" r="10"></circle>
+              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+              <circle class="tab" cx="16" cy="15" r="6"></circle>
+            </svg>
+          </button>
+
         </div>
       </div>
     </div>
 
     <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
       
-     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 6">
+     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1">
-            <img  src="<?php bloginfo('template_url'); ?>/images/Banner 2.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/63.png" alt="SRFTI deemed to be university courses" >
           </a>
         </div>
 
@@ -448,10 +456,124 @@ if ($current_language === 'en_US') {
         
       </div>
 
-       <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="1 of 6">
+       <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-2">
-            <img  src="<?php bloginfo('template_url'); ?>/images/Banner 1.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/64.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+
+      <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-3">
+            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+
+      <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-4">
+            <img  src="<?php bloginfo('template_url'); ?>/images/70.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+
+      <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-5">
+            <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+      
+        <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-6">
+            <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+
+        <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-7">
+            <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="SRFTI deemed to be university courses" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+      
+      <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-8">
+            <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="SRFTI deemed to be university courses" >
           </a>
         </div>
 
@@ -468,9 +590,9 @@ if ($current_language === 'en_US') {
       </div>
       
 
-      <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="2 of 6">
+      <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-2">
+          <a href="#" id="carousel-image-9">
             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
           </a>
         </div>
@@ -488,10 +610,10 @@ if ($current_language === 'en_US') {
       </div>
       
 
-      <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="3 of 6">
+      <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="10 of 13">
         <div class="carousel-image">
-          <a href="#!" id="carousel-image-3">
-            <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="picture of student's production in set" >
+          <a href="#!" id="carousel-image-10">
+            <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="student's production in set" >
           </a>
         </div>
 
@@ -506,10 +628,10 @@ if ($current_language === 'en_US') {
       </div>
       
 
-      <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="4 of 6">
+      <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="11 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-4">
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="picture of animation masterclass">
+          <a href="#" id="carousel-image-11">
+            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="animation masterclass">
           </a>
         </div>
 
@@ -526,10 +648,10 @@ if ($current_language === 'en_US') {
       </div>
       
 
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="5 of 6">
+      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="12 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-5">
-             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="picture of student's live music exercise">
+          <a href="#" id="carousel-image-12">
+             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="student's live music exercise">
           </a>
         </div>
 
@@ -546,8 +668,8 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="6 of 6">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-6">
-            <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="pictures of students with camera">
+          <a href="#" id="carousel-image-13">
+            <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="Sean Macllister is hoding a masterclass for Animation Student">
           </a>
         </div>
 
