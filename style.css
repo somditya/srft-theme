@@ -874,7 +874,7 @@ ol {
 
 .wrapper {
   width: 100%;
-  max-width: 1600px;
+  max-width: 100%;
   margin: 1em auto;
   .two-flex {
     flex-direction: column;
@@ -1722,6 +1722,46 @@ ol {
   outline-offset: -5px;
 }
 */
+
+/* Stying Filter Bar */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.filter-bar label {
+  font-weight: 500;
+}
+
+.filter-bar input[type="date"],
+.filter-bar input[type="text"] {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter-bar button {
+  padding: 6px 12px;
+  border: 1px solid #0073aa;
+  background-color: #0073aa;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.filter-bar button:hover {
+  background-color: #005f8d;
+}
+
+/* Responsive: stack vertically on smaller screens */
+
+/*    */
+
 /* HEADER*/
 
 #main-navbar a {
@@ -7885,6 +7925,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .carousel-tablist {
     padding-top: 100px; /* Adjust this to your sticky header height on mobile */
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .grid-gallery {
