@@ -354,4 +354,5 @@ $current_language = get_locale();
       
         
       </section>
+      </main>      
     <?php get_footer();  ?>
