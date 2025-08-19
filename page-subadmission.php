@@ -210,4 +210,5 @@ $current_language = get_locale();
     </section>
      <!-- Closing section for cine-detail -->
 
+    </main>
 <?php get_footer(); ?>
