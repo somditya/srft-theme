@@ -196,7 +196,7 @@ $current_language = get_locale();
 
     <div class="main-content">
         <div  class="page-title">
-          <div><p class="page-header-text"><?php echo __('Programme Overview', 'srft-theme'); ?></p></div>
+          <div><h2 class="page-header-text"><?php echo __('Programme Overview', 'srft-theme'); ?></h2></div>
         </div>
         <div class="sub-intro">
           <div class="sub-intro-images">
