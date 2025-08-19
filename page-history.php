@@ -157,7 +157,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 </div>
 
 
-
+            </main>
 
 <?php
 get_footer();
