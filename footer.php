@@ -338,6 +338,5 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
 
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/script/accessibilityscript.js"></script>
-</main>
 </body>
 </html>
