@@ -374,6 +374,7 @@ if ($current_language === 'en_US') {
 </div>-->
 
 </section>
+</main>
 
 <script type="text/javascript">
           $('.visiting').owlCarousel({
@@ -405,6 +406,7 @@ if ($current_language === 'en_US') {
     dots:true,
     });
         </script>
+
 <?php
 
 get_footer();
