@@ -18,13 +18,15 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 
         <!-- Content area -->
 <div class="static-container">
-        <div>      
-            <?php
+        <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
             if ( function_exists('yoast_breadcrumb') ) {
                 yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
-            ?>
-        </div>
+    ?>
+   </div>
+  </div>
         
         <div class="page-title">
         <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
