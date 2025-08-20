@@ -68,7 +68,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget" style="background: #b38840; color: white;">
     <div class="widget-content">
-      <h2 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h2>
+      <h3 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h3>
       <hr role="presentation" />
       <p style="font-weight: 400; font-size: 24px; color: white; line-height: 2.8rem;"><?php echo $programmename; ?></p>
     </div>
@@ -76,7 +76,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h2 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h2>
+      <h3 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h3>
       <hr role="presentation" />
       <p><?php if (!empty($duration)) echo $duration; ?></p>
     </div>
@@ -84,7 +84,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h2 id="seats-heading"><?php echo __('Total No. of Seats', 'srft-theme'); ?></h2>
+      <h3 id="seats-heading"><?php echo __('Total No. of Seats', 'srft-theme'); ?></h3>
       <hr role="presentation" />
       <p><?php if (!empty($seats)) echo $seats; ?></p>
     </div>
@@ -92,7 +92,7 @@ if ($current_language === 'en_US') {
 
   <div class="widget">
     <div class="widget-content">
-      <h2 id="eligibility-heading"><?php echo __('Eligibility Criteria', 'srft-theme'); ?></h2>
+      <h3 id="eligibility-heading"><?php echo __('Eligibility Criteria', 'srft-theme'); ?></h3>
       <hr role="presentation" />
       <div><?php echo $eligibilty; ?></div>
     </div>
@@ -185,7 +185,7 @@ if ($current_language === 'en_US') {
                   <li>
                       <a href="<?php echo esc_url($post_link); ?>" target="_blank">
                       <img style="max-width: 140px;" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
-                          <h3><?php the_title(); ?></h3>
+                          <h4><?php the_title(); ?></h4>
                           <span style="white-space: nowrap;"><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
                       </a>
                   </li><?php

@@ -6626,6 +6626,16 @@ header {
   white-space: nowrap;
 }
 
+.faculty-img h4 {
+  all: unset;
+  font-size: 1.5rem;
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+
 .facility-text-box {
   display: flex;
   flex: 0 0 50%;
