@@ -117,22 +117,23 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>-->
 
         <ul class="grid-gallery">
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-01.jpg" alt="Construction Image 1 of the Institute " class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-02.jpg" alt="Construction Image 2 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-03.jpg" alt="Construction Image 3 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-04.jpg" alt="Construction Image 4 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-05.jpg" alt="Construction Image 5 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-06.jpg" alt="Construction Image 6 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-07.jpg" alt="Construction Image 7 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-08.jpg" alt="Construction Image 8 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-09.jpg" alt="Construction Image 9 of the Institute" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-10.jpg" alt="Fisrt Governing Council Meeting Image 1" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-11.jpg" alt="Fisrt Governing Council Meeting Image 2" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-12.jpg" alt="Fisrt Governing Council Meeting Image 3" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-13.JPG" alt="Addor Gopal Krishnan with students and faculties" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-17.jpg" alt="Inauguration of Film Festival Clapstick by Shakti Samanta" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-15.jpg" alt="Mrinal Sen and Sayed Mirza in discussion" class="single-image" role="button" tabindex="0"></li>
-            <li><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-16.jpg" alt="Basu Chatterjee & Shazi Karun" class="single-image" role="button" tabindex="0"></li>
+            <li>
+                <button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-01.jpg" alt="Construction of the Institute – foundation structure in progress" class="single-image" role="button" tabindex="0"></button></li> 
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-02.jpg" alt="Construction of the Institute – workers and vehicles at the main block" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-03.jpg" alt="Construction of the Institute – workers and vehicles at the main block" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-04.jpg" alt="Construction of the Institute – workers and vehicles at the main block" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-05.jpg" alt="Construction of the Institute – campus view with buildings and water tanks" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-06.jpg" alt="Construction of the Institute – temporary construction huts and site equipment" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-07.jpg" alt="Construction of the Institute – corridor with two people walking" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-08.jpg" alt="Construction of the Institute – service area with pipeline installations" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-09.jpg" alt="Construction of the Institute – elevated view of main stairway and water tank" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-10.jpg" alt="Fisrt Governing Council Meeting" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-11.jpg" alt="Fisrt Governing Council Meeting" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-12.jpg" alt="Fisrt Governing Council Meeting" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-13.JPG" alt="Addor Gopal Krishnan with students and faculties" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-17.jpg" alt="Inauguration of Film Festival Clapstick by Shakti Samanta" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-15.jpg" alt="Mrinal Sen and Sayed Mirza in discussion" class="single-image" role="button" tabindex="0"></li>
+            <li><button class="img-trigger" aria-haspopup="dialog"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-16.jpg" alt="Basu Chatterjee & Shazi Karun" class="single-image" role="button" tabindex="0"></li>
         </ul>
  </div>
 
