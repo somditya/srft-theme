@@ -34,23 +34,28 @@ $current_language = get_locale();
                 $menu_name = ($current_language === 'hi_IN') ? 'hindi_admin_menu' : 'english_admin_menu';
                 $current_page_title = get_the_title();
 
-                class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-                    public function start_lvl(&$output, $depth = 0, $args = null) {
-                        $output .= '<ul class="submenu">';
-                    }
-                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                        global $current_page_title;
-                        $is_current = ($item->title === $current_page_title) ? 'active' : '';
-                        $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                        $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-                    }
-                    public function end_el(&$output, $item, $depth = 0, $args = null) {
-                        $output .= '</li>';
-                    }
-                    public function end_lvl(&$output, $depth = 0, $args = null) {
-                        $output .= '</ul>';
-                    }
-                }
+                
+        class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+            public function start_lvl(&$output, $depth = 0, $args = null) {
+                $output .= '<ul class="submenu">';
+            }
+            public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+    global $current_page_title;
+    $is_current = ($item->title === $current_page_title);
+    $active_class = $is_current ? 'active' : '';
+    $aria_current = $is_current ? ' aria-current="page"' : '';
+
+    $output .= '<li class="childnav-list-item ' . $active_class . '">';
+    $output .= '<a class="item" href="' . esc_url($item->url) . '"' . $aria_current . '>' . esc_html($item->title) . '</a>';
+}
+            public function end_el(&$output, $item, $depth = 0, $args = null) {
+                $output .= '</li>';
+            }
+            public function end_lvl(&$output, $depth = 0, $args = null) {
+                $output .= '</ul>';
+            }
+        }
+
 
                 wp_nav_menu(array(
                     'menu' => $menu_name,
