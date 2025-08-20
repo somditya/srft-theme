@@ -6733,6 +6733,19 @@ header {
   align-items: center;
   justify-content: center;
 }
+
+.hidden {
+  display: none;
+}
+
+[role="dialog"] {
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #000;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
 /*.modal-content {
 
 }*/
