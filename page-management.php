@@ -14,7 +14,7 @@ $page_content = apply_filters('the_content', $post->post_content);
         </div>
     </section>
 
-     <div class="container-aligned">
+    <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {

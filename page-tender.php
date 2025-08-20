@@ -26,7 +26,7 @@ $category_id = get_category_ID($category_name);
   <main>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
-        <h2 class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></h2>
+        <h1 class="page-banner-title"><?php echo __('Tender', 'srft-theme' ); ?></h1>
     </div>
 </section>
  <div class="container-aligned">
