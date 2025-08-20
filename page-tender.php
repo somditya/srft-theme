@@ -52,51 +52,52 @@ $category_id = get_category_ID($category_name);
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme' ); ?></button>
             </div>
+
+            <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
             
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="Rtable Rtable--7cols Rtable--collapse">
-                <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell id-cell column-heading"><?php echo __('Tender ID', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></div>
-                  <div class="Rtable-cell location-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></div>
-                </div>
-
-                <div class="Rtable-row" data-ng-repeat="tender in pagedTender">
-                  <div class="Rtable-cell location-cell">
+              <table style="width: 100%;">
+              <caption class="sr-only">table showing list of tender documents</caption>    
+               <thead>  
+                <tr class="Rtable-row Rtable-row--head">
+                  <th class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell id-cell column-heading"><?php echo __('Tender ID', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell name-cell column-heading"><?php echo __('Tender Title', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell tenure-cell column-heading"><?php echo __('Due Date', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme' ); ?></th>
+                  <th class="Rtable-cell location-cell column-heading"><?php echo __('Tender Status', 'srft-theme' ); ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="Rtable-row" data-ng-repeat="tender in pagedTender">
+                  <td class="Rtable-cell location-cell">
                     <div class="Rtable-cell--content date-content"><span class="SL">{{$index+1 }}</span></div>
-                  </div>
-                  <div class="Rtable-cell id-cell">
+                  </td>
+                  <td class="Rtable-cell id-cell">
                     <div class="Rtable-cell--content">{{ tender.ID }}</div>
-                  </div>
-                  <div class="Rtable-cell name-cell">
-                    
+                  </td>
+                  <td class="Rtable-cell name-cell"> 
                     <div class="Rtable-cell--content">{{ tender.title }}</div>
-                  </div>
-                  <div class="Rtable-cell tenure-cell">
+                  </td>
+                  <td class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.pubdate }}</span></div>
-                  </div>
-                  <div class="Rtable-cell tenure-cell">
+                  </td>
+                  <td class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{tender.subdate }}</span></div>
-                  </div>
-                  <div class="Rtable-cell access-link-cell">
-                    
+                  </td>
+                  <td class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content"><a data-ng-href="{{tender.file.url}}"><!--<?php echo __('View', 'srft-theme' ); ?>--><img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">&nbsp; (<span><?php echo __('Download', 'srft-theme'); ?> - {{tender.file.size}} MB)</span></a></div>
-                  </div>
-                  <div class="Rtable-cell location-cell">
+                  </td>
+                  <td class="Rtable-cell location-cell">
                   <div class="Rtable-cell--content access-link-content">
                   <p data-ng-if="tender.isSubmissionOpen"><?php echo __('Open', 'srft-theme' ); ?></p>
-  <p data-ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
-                    
-                  <div>
-  
-</div>
-</div>
-                  </div>
-                </div>
+                  <p data-ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
+                 </td>
+                 </tr>
+                </tbody>>
+                </table>
               </div>
               <!-- Use a CSS grid for layout -->
             </div>
@@ -162,31 +163,31 @@ $category_id = get_category_ID($category_name);
           return parseDate(b.acf['Tender-Publish-Date']) - parseDate(a.acf['Tender-Publish-Date']);
         });
 
-    $scope.tenderList =  sortedData.map(function (post) {
-      var publishDate= post.acf['Tender-Publish-Date'];
-      var submissionDate = post.acf['Tender-Submission-Date'];
-      var isSubmissionOpen = parseDate(submissionDate) > $scope.currentDate;
-      var postLink = post.link;
-// Append the background image URL as a query parameter to the post link
-      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
-      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
-      console.log('Publish Date', publishDate, 'Submission Date:', submissionDate, 'Current Date:', $scope.currentDate, 'Is Submission Open:', isSubmissionOpen);
-      return {
-        title: post.title.rendered || '',
-        link: linkWithImage,
-        ID: post.acf['Tender-ID'],
-        subdate: submissionDate, // Use the parsed submission date
-        isSubmissionOpen: isSubmissionOpen,
-        //file: post.acf['Tender-Doc'],
-        file: {
-            url: post.acf['Tender-Doc']['url'],
-            title: post.acf['Tender-Doc']['title'],
-            size: bytesToMB(post.acf['Tender-Doc']['filesize']),
-            type: post.acf['Tender-Doc']['subtype']
-          },
-        pubdate: post.acf['Tender-Publish-Date'],
-      };
-    });
+    $scope.tenderList = sortedData.map(function (post) {
+  var publishDate = post.acf['Tender-Publish-Date'];
+  var submissionDate = post.acf['Tender-Submission-Date'];
+  var isSubmissionOpen = parseDate(submissionDate) > $scope.currentDate;
+  var postLink = post.link;
+
+  // Clean title to remove HTML tags
+  var cleanTitle = post.title.rendered.replace(/<[^>]+>/g, '').trim();
+
+  return {
+    title: cleanTitle, // 
+    link: postLink,
+    ID: post.acf['Tender-ID'],
+    subdate: submissionDate,
+    isSubmissionOpen: isSubmissionOpen,
+    file: {
+      url: post.acf['Tender-Doc']['url'],
+      title: post.acf['Tender-Doc']['title'],
+      size: bytesToMB(post.acf['Tender-Doc']['filesize']),
+      type: post.acf['Tender-Doc']['subtype']
+    },
+    pubdate: publishDate,
+  };
+});
+
  
     // Apply initial filters and pagination
     updateFilteredTender();
@@ -197,8 +198,10 @@ $category_id = get_category_ID($category_name);
 
         // Function to update filtered tender based on filters
         function updateFilteredTender() {
-          $scope.filteredTender = $scope.tenderList.filter(function (tender) {
-            const titleMatch = !$scope.filterField || tender.title.toLowerCase().includes($scope.filterField.toLowerCase());
+            $scope.filteredTender = $scope.tenderList.filter(function (tender) {
+            const keyword = $scope.filterField ? $scope.filterField.trim().toLowerCase() : '';
+            const titleText = tender.title ? tender.title.toLowerCase() : '';  
+            const titleMatch = !keyword || titleText.indexOf(keyword) !== -1;
             const fromDate = $scope.fromDate ? new Date($scope.fromDate) : null;
             const toDate = $scope.toDate ? new Date($scope.toDate) : null;
             const subdate = new Date(tender.subdate); // Convert to JavaScript Date object
@@ -217,6 +220,13 @@ $category_id = get_category_ID($category_name);
 
           // Update pagedTender based on currentPage and itemsPerPage
           $scope.updatePagedTender();
+
+          var statusEl = document.getElementById('searchStatus');
+          if ($scope.filteredTender.length > 0) {
+          statusEl.textContent = $scope.filteredTender.length + " tenders found.";
+          } else {
+          statusEl.textContent = "No tenders found.";
+          }
         }
 
         // Function to apply filters when input changes

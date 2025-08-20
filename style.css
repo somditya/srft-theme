@@ -97,6 +97,19 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--hyper-link-color);
+  text-decoration-thickness: 2px; /* 👈 thicker underline */
+  text-underline-offset: 4px;
+  font-weight: 500;
+  color: #000000;
+  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
+  /*transform: scale(1.05);*/
+  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
+  /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+}
+
 /* Font Section */
 
 @font-face {
@@ -355,8 +368,8 @@ body {
 
 .container {
   /* 1140px */
-  max-width: 160rem;
-  /*max-width: 100%;*/
+  /*max-width: 160rem;*/
+  max-width: 100%;
   margin: 0 auto;
   /*padding: 1rem;*/
 }
@@ -1205,7 +1218,8 @@ ol {
 }
 
 .container-aligned {
-  max-width: 160rem;
+  /*max-width: 160rem;*/
+  max-width: 100%;
   padding: 0 3.2rem;
   /*margin: 0 auto;*/
   margin-left: 44px;
@@ -1235,8 +1249,8 @@ ol {
 #breadcrumbs a:focus,
 #breadcrumbs a:hover {
   color: #000000; /* Clear change on hover/focus */
-  background-color: #f3f3f3; /* Optional: slight background for feedback */
-  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
+  /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
 .tooltip-box {
@@ -6521,12 +6535,12 @@ header {
   margin: 1em 0;
 }
 
-.widget a:focus,
+/*.widget a:focus,
 .widget a:hover {
   color: #000000; /* Clear change on hover/focus */
-  background-color: #f3f3f3; /* Optional: slight background for feedback */
-  outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
-}
+/* background-color: #f3f3f3; /* Optional: slight background for feedback */
+/*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+/*}*/
 
 /* h4 {
   font-weight: 400;
