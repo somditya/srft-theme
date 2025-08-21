@@ -320,7 +320,7 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
     keyboard: true,
   });
 </script>
-<script>
+<!--<script>
   $(document).ready(function () {
     $(".single-image").click(function () {
       var t = $(this).attr("src");
@@ -332,7 +332,43 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
       $("#myModal").hide();
     });
   });
+</script>-->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("picModal");
+  const modalBody = modal.querySelector(".modal-body");
+  const closeBtn = modal.querySelector(".close");
+
+  // Open modal
+  document.querySelectorAll(".gallery-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      console.log('Inside');
+      const img = btn.querySelector("img");
+      modalBody.innerHTML = '
+        <img src="${img.src}" alt="${img.alt}" style="">
+      ';
+      modal.classList.remove("hidden");
+      modal.focus();
+    });
+  });
+
+  // Close modal
+  function closeModal() {
+    modal.classList.add("hidden");
+    modalBody.innerHTML = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  // Close on Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+});
 </script>
+
 
 <?php wp_footer(); ?>
 

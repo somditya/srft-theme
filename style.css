@@ -4258,42 +4258,48 @@ h6 {
 /*   end of svout section */
 
 /* Modal Styles */
-.modal {
-  display: none;
+/* Overlay background */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
+/* White box for content */
 .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
 }
 
+/* Modal image should scale responsively */
+.modal-body img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  margin: auto;
+}
+
+/* Close button */
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2.4rem; /* Increase the font size for a larger button */
-  padding: 10px; /* Add padding to increase the clickable area */
-  color: #333; /* Change the color to your desired color */
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
   cursor: pointer;
-  transition: color 0.3s ease; /* Add a smooth color transition */
-}
-
-/* Change the close button color on hover */
-.close:hover {
-  color: #521d1d; /* Change the color on hover */
 }
 
 /*Accordian accssibility complinat */
@@ -5426,6 +5432,19 @@ ul li input[type="checkbox"]:checked ~ i:after {
 .grid-gallery li {
   grid-column: auto / span 2;
   position: relative;
+  height: calc(var(--size) * 2);
+}
+
+.grid-gallery .gallery-btn {
+  all: unset; /* remove default button look */
+  cursor: pointer;
+  display: block; /* expand to li width */
+  width: 100%;
+  height: calc(var(--size) * 2);
+  line-height: 0; /* remove inline gaps */
+  overflow: visible; /* prevent cutting rhombus */
+  position: relative; /* REQUIRED so z-index works */
+  z-index: 0;
 }
 
 /* Reuse the hover and shape logic */
@@ -5457,13 +5476,18 @@ ul li input[type="checkbox"]:checked ~ i:after {
   clip-path: path(
     "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
   );
-  z-index: 1;
+  z-index: 10;
   transition: clip-path 0.25s, filter 0.25s;
 }
 
 .grid-gallery img:focus {
   outline: 1px dashed black;
   outline-offset: -5px;
+}
+
+.grid-gallery .gallery-btn:hover,
+.grid-gallery .gallery-btn:focus {
+  z-index: 10;
 }
 
 /* HEADER*/
@@ -6713,6 +6737,7 @@ header {
 .gallery img:hover {
   opacity: 1;
 }
+
 .modal-img,
 .model-vid {
   margin: 0;
@@ -6789,6 +6814,30 @@ header {
 /* Change the close button color on hover */
 .close:hover {
   color: #521d1d; /* Change the color on hover */
+}
+
+#picModal .close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  border: none;
+  font-size: 2rem; /* bigger “X” */
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  padding: 8px 14px; /* bigger clickable area */
+  border-radius: 50%; /* round button */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s, color 0.2s;
+  z-index: 1000;
+}
+
+#picModal .close:hover,
+#picModal .close:focus {
+  background: #333;
+  color: #fff;
+  outline: none;
 }
 
 /* Accordion styles */
@@ -8656,7 +8705,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     justify-content: center; /* Center images horizontally */
     align-items: center; /* Align images vertically */
   }
-
   .img_card {
     display: flex; /* Ensure the image card is flex-enabled */
     flex-direction: column; /* Stack card content (if any) inside vertically */
