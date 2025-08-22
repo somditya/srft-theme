@@ -3695,6 +3695,7 @@ img.reload {
 .childnav-list-item.active {
   background-color: #f0f0f0; /* Highlight color for the active menu item */
   /* Add any other styles you want for the active menu item */
+  background-color: var(--widget-background-color);
 }
 
 .item::after {
@@ -5392,6 +5393,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
   /*border-right: 1px solid #5e5e5e;*/
 }
 
+.footer_sub a:hover {
+  color: #ffffff !important; /* white on hover */
+  text-decoration-color: #ffffff;
+}
+
 .branspacer {
   display: flex;
   justify-content: space-around; /* Distributes items evenly with space around them */
@@ -6219,11 +6225,13 @@ header {
 .childnav-lists li:hover a {
   background-color: #666;
   color: white;
+  text-decoration-color: var(--secondary-menu-active-color);
 }
 
 .childnav-list-item.active {
   background-color: #f0f0f0; /* Highlight color for the active menu item */
   /* Add any other styles you want for the active menu item */
+  background-color: var(--widget-background-color);
 }
 
 .item::after {

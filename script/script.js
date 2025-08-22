@@ -69,11 +69,75 @@ function trapFocus(e) {
 */
 
 $(document).ready(function () {
-  console.log("Hello Hi");
+  console.log("Hi");
+  /*
+   *   This content is licensed according to the W3C Software License at
+   *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+   *
+   *   Simple accordion pattern example
+   */
+
+  ("use strict");
+
+  class Accordion {
+    constructor(domNode) {
+      this.rootEl = domNode;
+      this.buttonEl = this.rootEl.querySelector("button[aria-expanded]");
+
+      const controlsId = this.buttonEl.getAttribute("aria-controls");
+      this.contentEl = document.getElementById(controlsId);
+
+      this.open = this.buttonEl.getAttribute("aria-expanded") === "true";
+
+      // add event listeners
+      this.buttonEl.addEventListener("click", this.onButtonClick.bind(this));
+    }
+
+    onButtonClick() {
+      this.toggle(!this.open);
+    }
+
+    toggle(open) {
+      // don't do anything if the open state doesn't change
+      if (open === this.open) {
+        return;
+      }
+
+      // update the internal state
+      this.open = open;
+
+      // handle DOM updates
+      this.buttonEl.setAttribute("aria-expanded", `${open}`);
+      if (open) {
+        this.contentEl.removeAttribute("hidden");
+      } else {
+        this.contentEl.setAttribute("hidden", "");
+      }
+    }
+
+    // Add public open and close methods for convenience
+    open() {
+      this.toggle(true);
+    }
+
+    close() {
+      this.toggle(false);
+    }
+  }
+
+  // init accordions
+  const accordions = document.querySelectorAll(".accordion h3");
+  accordions.forEach((accordionEl) => {
+    new Accordion(accordionEl);
+  });
+});
+
+$(document).ready(function () {
+  console.log("Hi");
 
   document.querySelectorAll(".slider").forEach((sliderEl) => {
     new A11YSlider(sliderEl, {
-      slidesToShow: 1,
+      slidesToShow: 4,
       arrows: true,
       dots: false,
       responsive: {
@@ -85,46 +149,223 @@ $(document).ready(function () {
   });
 });
 
-/* The modal function */
+$(window).on("load", function () {
+  $(".is-form-style.is-form-style-3").css("display", "flex");
+});
 
+/* Menu navigation accessibility */
 $(document).ready(function () {
-  const $modal = $("#picModal");
-  const $modalBody = $modal.find(".modal-body");
-  const $closeBtn = $modal.find(".close");
-  let $lastFocusedBtn = null; // store the button that opened modal
+  const $menu = $('[role="menubar"]');
+  const $topItems = $menu.find('> li > [role="menuitem"]');
 
-  // Open modal
-  $(".gallery-btn").on("click", function () {
-    const $img = $(this).find("img");
-    $lastFocusedBtn = $(this); // remember the opener
-    $modalBody.html(
-      `<img src="${$img.attr("src")}" alt="${$img.attr("alt")}">`
-    );
-    $modal.removeClass("hidden").attr("aria-hidden", "false");
-
-    // move focus to close button
-    $closeBtn.focus();
-  });
-
-  // Close modal function
-  function closeModal() {
-    $modal.addClass("hidden").attr("aria-hidden", "true");
-    $modalBody.empty();
-
-    // restore focus to last opened button
-    if ($lastFocusedBtn) {
-      $lastFocusedBtn.focus();
+  function openSubmenu($item) {
+    const $submenu = $item.next('[role="menu"]');
+    if ($submenu.length) {
+      $submenu.show().attr("aria-hidden", "false");
     }
   }
 
-  // Close on button click
-  $closeBtn.on("click", closeModal);
-
-  // Close on ESC key
-  $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && !$modal.hasClass("hidden")) {
-      closeModal();
+  function closeSubmenu($item) {
+    const $submenu = $item.next('[role="menu"]');
+    if ($submenu.length) {
+      $submenu.hide().attr("aria-hidden", "true");
     }
+  }
+
+  $menu.on("keydown", '[role="menuitem"]', function (e) {
+    const $current = $(this);
+    const isTopLevel =
+      $current.closest('[role="menubar"]').length > 0 &&
+      $current.parent().parent().is($menu);
+
+    // TAB: allow default, skip menu handling
+    if (e.key === "Tab") return;
+
+    // ESC: close submenu
+    if (e.key === "Escape") {
+      if (!isTopLevel) {
+        const $parentItem = $current
+          .closest('[role="menu"]')
+          .prev('[role="menuitem"]');
+        closeSubmenu($parentItem);
+        $parentItem.focus();
+        e.preventDefault();
+      }
+    }
+
+    // Left/Right for top-level only
+    if (isTopLevel && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+      let index = $topItems.index($current);
+      index =
+        e.key === "ArrowLeft"
+          ? (index - 1 + $topItems.length) % $topItems.length
+          : (index + 1) % $topItems.length;
+      $topItems.eq(index).focus();
+      e.preventDefault();
+    }
+
+    // Up/Down for submenu only
+    if (!isTopLevel && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+      const $submenuItems = $current
+        .closest('[role="menu"]')
+        .find('[role="menuitem"]');
+      let idx = $submenuItems.index($current);
+      idx =
+        e.key === "ArrowUp"
+          ? (idx - 1 + $submenuItems.length) % $submenuItems.length
+          : (idx + 1) % $submenuItems.length;
+      $submenuItems.eq(idx).focus();
+      e.preventDefault();
+    }
+
+    // Down on top-level opens submenu
+    if (isTopLevel && e.key === "ArrowDown") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').first().focus();
+        e.preventDefault();
+      }
+    }
+
+    // Up on top-level opens submenu from last item
+    if (isTopLevel && e.key === "ArrowUp") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').last().focus();
+        e.preventDefault();
+      }
+    }
+  });
+});
+
+$(document).ready(function () {
+  console.log("Document is ready.");
+
+  // Check for stored dark mode state
+  if (localStorage.getItem("darkMode") === "enabled") {
+    $("body").addClass("dark-mode");
+    console.log("Dark mode is enabled.");
+  }
+
+  // Toggle Accessibility Menu
+  $("#accessibility-icon").click(function () {
+    $("#accessibility-menu").toggleClass("hidden");
+    console.log("Menu toggled.");
+  });
+
+  // Dark Mode Toggle
+  $("#dark-mode").click(function () {
+    $("body").removeClass("high-contrast").addClass("dark-mode");
+    localStorage.setItem("darkMode", "enabled"); // Store dark mode state
+    console.log("Dark mode activated.");
+  });
+
+  // High Contrast Mode Toggle
+  $("#high-contrast").click(function () {
+    $("body").removeClass("dark-mode").addClass("high-contrast");
+    localStorage.setItem("darkMode", "disabled"); // Disable dark mode in storage
+    console.log("High contrast mode activated.");
+  });
+
+  // Reset Font Size
+  $("#reset-text").click(function () {
+    $("html").css("font-size", "16px"); // Reset to default font size
+    console.log("Font size reset to default.");
+  });
+
+  // Modal functionality
+  //$(".single-image").click(function () {
+  //var t = $(this).attr("src");
+  //$(".modal-body").html("<img src='" + t + "' class='modal-img'>");
+  //$("#myModal").show();
+  //});
+
+  //$(".close").click(function () {
+  //$("#myModal").hide();
+  //});
+});
+// Font Size Adjustment
+
+const defaultFontSize = parseFloat($("html").css("font-size")); // Capture the initial root font size
+let currentFontSize = defaultFontSize;
+
+$(".increaseFont, .decreaseFont, .normalFont").click(function () {
+  var type = $(this).val();
+
+  if (type === "Increase" && currentFontSize < 30) {
+    // Maximum limit
+    currentFontSize += 1;
+  } else if (type === "Decrease" && currentFontSize > 10) {
+    // Minimum limit
+    currentFontSize -= 1;
+  } else if (type === "Normal") {
+    currentFontSize = defaultFontSize; // Reset to the original font size
+  }
+
+  $("html").css("font-size", currentFontSize + "px"); // Apply the new font size
+  console.log("Font size adjusted to:", currentFontSize + "px");
+  console.log("Default Font size :", defaultFontSize + "px");
+});
+
+$(document).ready(function () {
+  console.log("I am smiling");
+
+  ("use strict");
+
+  class Accordion {
+    constructor(domNode) {
+      this.rootEl = domNode;
+      this.buttonEl = this.rootEl.querySelector("button[aria-expanded]");
+
+      const controlsId = this.buttonEl.getAttribute("aria-controls");
+      this.contentEl = document.getElementById(controlsId);
+
+      this.open = this.buttonEl.getAttribute("aria-expanded") === "true";
+
+      // add event listeners
+      this.buttonEl.addEventListener("click", this.onButtonClick.bind(this));
+    }
+
+    onButtonClick() {
+      this.toggle(!this.open);
+    }
+
+    toggle(open) {
+      // don't do anything if the open state doesn't change
+      if (open === this.open) {
+        return;
+      }
+
+      // update the internal state
+      this.open = open;
+
+      // handle DOM updates
+      this.buttonEl.setAttribute("aria-expanded", `${open}`);
+      if (open) {
+        this.contentEl.removeAttribute("hidden");
+      } else {
+        this.contentEl.setAttribute("hidden", "");
+      }
+    }
+
+    // Add public open and close methods for convenience
+    open() {
+      this.toggle(true);
+    }
+
+    close() {
+      this.toggle(false);
+    }
+  }
+
+  // init accordions
+  const accordions = document.querySelectorAll(
+    ".accordion h3 , .accordion h4 "
+  );
+  accordions.forEach((accordionEl) => {
+    new Accordion(accordionEl);
   });
 });
 
