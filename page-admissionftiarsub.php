@@ -12,14 +12,23 @@ $current_language = get_locale();
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Admission in IFTI Arunachal Pradesh', 'srft-theme'); ?></h2>  
+            <h1 class="page-banner-title"><?php echo __('Admission in IFTI Arunachal Pradesh', 'srft-theme'); ?></h1>  
         </div>
     </section>
 
+    <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+            }
+    ?>
+   </div>
+        </div>
+
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
-            <div class="childnavs">
-                <div class="childnavs">
+            <nav class="childnavs" aria-label="<?php echo __('Admission in FTII', 'srft-theme'); ?>">
                     <?php
                     $current_language = get_locale(); // Get the current language/locale.
 
@@ -30,22 +39,25 @@ $current_language = get_locale();
 
                     // Define a custom menu walker to modify the menu output.
                     class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-                        public function start_lvl(&$output, $depth = 0, $args = null) {
-                            $output .= '<ul class="submenu">';
-                        }
-                        public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                            global $current_page_title;
-                            $is_current = ($item->title === $current_page_title) ? 'active' : '';
-                            $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                            $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-                        }
-                        public function end_el(&$output, $item, $depth = 0, $args = null) {
-                            $output .= '</li>';
-                        }
-                        public function end_lvl(&$output, $depth = 0, $args = null) {
-                            $output .= '</ul>';
-                        }
+                    public function start_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '<ul class="submenu">';
                     }
+                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                    global $current_page_title;
+                    $is_current = ($item->title === $current_page_title);
+                    $active_class = $is_current ? 'active' : '';
+                    $aria_current = $is_current ? ' aria-current="page"' : '';
+
+                    $output .= '<li class="childnav-list-item ' . $active_class . '">';
+                    $output .= '<a class="item" href="' . esc_url($item->url) . '"' . $aria_current . '>' . esc_html($item->title) . '</a>';
+                    }
+                    public function end_el(&$output, $item, $depth = 0, $args = null) {
+                    $output .= '</li>';
+                    }
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '</ul>';
+                    }
+                   }
 
                     // Display the menu based on the language and custom walker.
                     wp_nav_menu(array(
@@ -55,8 +67,7 @@ $current_language = get_locale();
                         'walker' => new Custom_Walker_Nav_Menu(),
                     ));
                     ?>
-                </div>
-            </div>
+            </nav>
 
             <div class="widget" style="line-height: 1.5">
                 <?php 
@@ -98,10 +109,10 @@ $current_language = get_locale();
                                 $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown'; // Convert file size to MB with 2 decimal points
                                 ?>
                                 <li>
-                                    <a href="<?php echo esc_url($file_url); ?>">
+                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
                                         <?php echo esc_html(get_the_title()); ?> 
                                         (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
                                     </a>
                                 </li>
                             <?php endif; 
@@ -117,7 +128,7 @@ $current_language = get_locale();
             </div>
 
             <div class="widget" style="line-height: 1.5">
-                <h3><?php echo __('Admission Notification', 'srft-theme');?></h3>
+                <h2><?php echo __('Admission Notification', 'srft-theme');?></h2>
                 <?php
                 $category_posts = new WP_Query(array(
                     'category_name' => 'admissionshort-en', // Replace with your category slug
@@ -136,20 +147,12 @@ $current_language = get_locale();
                     echo '<p>No posts found in this category.</p>';
                 endif;
                 ?>
-                <div class="link-span"><a href="<?php echo esc_url(site_url('/vacancy/')); ?>"><?php echo __('More', 'srft-theme' ); ?></a></div>  
             </div>
         </div> <!-- Closing div for leftnav -->
 
         <div class="main-content">
-        <div>
-            <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-            }
-            ?>
-        </div>
         <div class="page-title">
-            <div><p class="page-header-text"><?php the_title(); ?></p></div>
+            <div><h2 class="page-header-text"><?php the_title(); ?></h2></div>
         </div>
 
         <div>
