@@ -462,7 +462,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1">
-            <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="Maharshi Tuhin Kashyap's film selected in Busan" >
           </a>
         </div>
 
@@ -480,10 +480,10 @@ if ($current_language === 'en_US') {
     
     
     
-    <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-2">
-            <img  src="<?php bloginfo('template_url'); ?>/images/58.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/58.png" alt="Tribeni Rai's film Shape of Momo selected in Busan" >
           </a>
         </div>
 
@@ -499,30 +499,30 @@ if ($current_language === 'en_US') {
         
       </div> 
     
-    <div class="carousel-item active" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-3">
-            <img  src="<?php bloginfo('template_url'); ?>/images/60.png" alt="SRFTI deemed to be university courses" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
         <div class="carousel-image">
+          <a href="#" id="carousel-image-3">
+            <img  src="<?php bloginfo('template_url'); ?>/images/60.png" alt="Amar Fauzdar's film Majhe selected in Osaka Film Festival" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
+    
+    
+    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+        <div class="carousel-image">
           <a href="#" id="carousel-image-4">
-            <img  src="<?php bloginfo('template_url'); ?>/images/63.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/63.png" alt="Tribeni Rai's film selected for San Sebastian" >
           </a>
         </div>
 
@@ -538,10 +538,10 @@ if ($current_language === 'en_US') {
         
       </div>
 
-       <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="2 of 13">
+       <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="2 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-5">
-            <img  src="<?php bloginfo('template_url'); ?>/images/64.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/64.png" alt="Arnab Laha selected for Channel X BIFF Busan" >
           </a>
         </div>
 
@@ -557,10 +557,10 @@ if ($current_language === 'en_US') {
         
       </div>
 
-      <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="3 of 13">
+      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="3 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6">
-            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="Shingkhauna Marma selected for Channel X BIFF Busan " >
           </a>
         </div>
 
@@ -576,10 +576,10 @@ if ($current_language === 'en_US') {
         
       </div>
 
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="4 of 13">
+      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="4 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-7">
-            <img  src="<?php bloginfo('template_url'); ?>/images/70.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/70.png" alt="Meenakshi Soman got National Award in Cinematography for Little Wings " >
           </a>
         </div>
 
@@ -595,10 +595,10 @@ if ($current_language === 'en_US') {
         
       </div>
 
-      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
+      <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-8">
-            <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="Christo Tomy got National Award for best Malayalam Film for Ullozhukku" >
           </a>
         </div>
 
@@ -614,10 +614,10 @@ if ($current_language === 'en_US') {
         
       </div>
       
-        <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
+        <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-9">
-            <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="Dominic Sangma got national award for best garo film Rapture" >
           </a>
         </div>
 
@@ -633,10 +633,10 @@ if ($current_language === 'en_US') {
         
       </div>
 
-        <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
+        <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-10">
-            <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="Shuvam Sengupta got national award for best sound design dhundgiri ke phool" >
           </a>
         </div>
 
@@ -652,10 +652,10 @@ if ($current_language === 'en_US') {
         
       </div>
       
-      <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
+      <div class="carousel-item" id="carousel-item-11" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-11">
-            <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="SRFTI deemed to be university courses" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="Saravanamarathu Soundarapandi got national award for best cinematography for little wings " >
           </a>
         </div>
 
@@ -672,7 +672,7 @@ if ($current_language === 'en_US') {
       </div>
       
 
-      <div class="carousel-item" id="carousel-item-11" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
+      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
         <div class="carousel-image">
           <a href="#" id="carousel-image-9">
             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
