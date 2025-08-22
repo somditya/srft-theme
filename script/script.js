@@ -73,7 +73,7 @@ $(document).ready(function () {
 
   document.querySelectorAll(".slider").forEach((sliderEl) => {
     new A11YSlider(sliderEl, {
-      slidesToShow: 4,
+      slidesToShow: 1,
       arrows: true,
       dots: false,
       responsive: {
