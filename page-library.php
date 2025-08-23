@@ -42,30 +42,25 @@ $current_language = get_locale();
 
         // Define a custom menu walker to modify the menu output.
         class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-            public function start_lvl(&$output, $depth = 0, $args = null) {
-                // Customize the submenu opening tag as needed.
-                $output .= '<ul class="submenu">';
-            }
+                    public function start_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '<ul class="submenu">';
+                    }
+                    public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+                    global $current_page_title;
+                    $is_current = ($item->title === $current_page_title);
+                    $active_class = $is_current ? 'active' : '';
+                    $aria_current = $is_current ? ' aria-current="page"' : '';
 
-            public function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
-                // Check if the current page title matches the menu item title.
-                $is_current = ($item->title === $GLOBALS['current_page_title']) ? 'active' : '';
-
-                // Customize the menu item HTML structure as needed.
-                $output .= '<li class="childnav-list-item ' . $is_current . '">';
-                $output .= '<a class="item" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-            }
-
-            public function end_el(&$output, $item, $depth = 0, $args = null) {
-                // Close the menu item tag.
-                $output .= '</li>';
-            }
-
-            public function end_lvl(&$output, $depth = 0, $args = null) {
-                // Customize the submenu closing tag as needed.
-                $output .= '</ul>';
-            }
-        }
+                    $output .= '<li class="childnav-list-item ' . $active_class . '">';
+                    $output .= '<a class="item" href="' . esc_url($item->url) . '"' . $aria_current . '>' . esc_html($item->title) . '</a>';
+                    }
+                    public function end_el(&$output, $item, $depth = 0, $args = null) {
+                    $output .= '</li>';
+                    }
+                    public function end_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '</ul>';
+                    }
+                    }
 
         // Display the menu based on the language and custom walker.
         wp_nav_menu(array(
@@ -78,7 +73,7 @@ $current_language = get_locale();
     </nav>
 </div>
         
-     <h4 style="margin-top: 2.5rem;"> <?php echo __('Related Links', 'srft-theme'); ?> </h4>
+     <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713; "> <?php echo __('Related Links', 'srft-theme'); ?> </h2>
         <div class="childnav-lists" role="complementary">
         <ul class="submenu">
           <li class="childnav-list-item"><a class="item" href="https://opac.srfti.ac.in/" target="_blank"  title="<?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?>" onclick="return check_url();"><?php echo __('Online Public Access Catalogue', 'srft-theme' ); ?></a></li>
@@ -95,7 +90,7 @@ $current_language = get_locale();
         </div>-->
         </div>
 
-  <div class="main-content" role="main">
+  <div class="main-content">
     <div>
         <h2 class="page-header-text"><?php the_title(); ?></h2>
     </div>  

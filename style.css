@@ -94,14 +94,17 @@ html {
 
 a {
   color: var(--hyper-link-color);
-  text-decoration: none;
+  /*text-decoration: none;*/
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+  text-decoration-style: dashed;
 }
 
 a:hover {
   text-decoration: underline;
   text-decoration-color: var(--hyper-link-color);
   text-decoration-thickness: 2px; /* 👈 thicker underline */
-  text-underline-offset: 4px;
+  text-underline-offset: 8px;
   font-weight: 500;
   color: #000000;
   /*background-color: #f3f3f3; /* Optional: slight background for feedback */
@@ -855,7 +858,7 @@ div .spacer {
 ul,
 ol {
   margin: 0; /* remove inconsistent browser margin */
-  padding-left: 1.5rem; /* space reserved for the marker + gap — tweak as needed */
+  /*padding-left: 1.5rem;*/ /* space reserved for the marker + gap — tweak as needed */
   list-style-position: outside; /* marker placed in the gutter but inside padding area */
   box-sizing: border-box; /* ensure padding does not overflow container */
 }
@@ -3668,6 +3671,7 @@ img.reload {
 .childnav-lists {
   display: block;
   list-style: none;
+  padding-left: 0rem !important;
 }
 .childnav-list-item {
   list-style-type: none;
@@ -3998,6 +4002,10 @@ img.reload {
   background-color: currentColor;
   color: currentColor;
   margin: 1em 0;
+}
+
+.widget a {
+  line-height: 28px;
 }
 
 .widget h3 {
@@ -5391,6 +5399,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 .footer_sub a {
   color: white;
   /*border-right: 1px solid #5e5e5e;*/
+  line-height: 28px;
 }
 
 .footer_sub a:hover {
@@ -6203,6 +6212,7 @@ header {
 .childnav-lists {
   display: block;
   list-style: none;
+  padding-left: 0 !important;
 }
 .childnav-list-item {
   list-style-type: none;
