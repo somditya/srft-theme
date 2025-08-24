@@ -895,6 +895,7 @@ ol li {
   width: 100%;
   max-width: 100%;
   margin: 1em auto;
+  padding: 0 3.2rem;
 }
   .two-flex {
     flex-direction: column;
@@ -1229,7 +1230,7 @@ ol li {
   max-width: 100%;
   padding: 0 3.2rem;
   /*margin: 0 auto;*/
-  margin-left: 44px;
+  /*margin-left: 44px;*/
 }
 
 .breadcrumbs-wrapper {
@@ -7684,6 +7685,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     max-width: 100%;
   }
 
+  .wrapper {
+  padding: 0px;
+  }
+
   .caption {
     font-size: 16px;
   }
@@ -8689,7 +8694,27 @@ ul li input[type="checkbox"]:checked ~ i:after {
     list-style: circle inside none;
     font-size: 1.5rem;
   }
+
+  .Rtable-cell {
+
+   font-size: 10px;
+  }
+
+  .Rtable-cell {
+    & .Rtable-cell--content {
+        a {
+            font-size: 10px;
+            color: #333;
+        }
+    }}
+
+  .Rtable-cell.column-heading {
+        background-color: #724b26;
+        color: white;
+        font-size: 10px;
+    }  
 }
+
 
 @media (min-width: 1024px) {
   .nav {

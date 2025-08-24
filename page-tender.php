@@ -54,7 +54,7 @@ $category_id = get_category_ID($category_name);
 
             <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
             
-            <div class="wrapper" style="padding: 0 3.2rem;">
+            <div class="wrapper">
               <div class="table-container">
               <table>
               <caption class="sr-only">table showing list of tender documents</caption>    
