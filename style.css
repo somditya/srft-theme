@@ -857,12 +857,15 @@ div .spacer {
 
 ul,
 ol {
-  margin: 0; /* remove inconsistent browser margin */
-  /*padding-left: 1.5rem;*/ /* space reserved for the marker + gap — tweak as needed */
-  list-style-position: outside; /* marker placed in the gutter but inside padding area */
-  box-sizing: border-box; /* ensure padding does not overflow container */
+  margin: 0;
+  padding-left: 1.5em;   /* reserve space for bullet/number */
+  list-style-position: outside; /* marker stays outside */
 }
 
+ul li,
+ol li {
+  text-indent: 0;        /* ensures wrapped lines align with text, not marker */
+}
 .btn,
 .btn:link,
 .btn:visited {
@@ -892,6 +895,7 @@ ol {
   width: 100%;
   max-width: 100%;
   margin: 1em auto;
+}
   .two-flex {
     flex-direction: column;
   }
@@ -2182,12 +2186,6 @@ ol {
   margin-top: 5px;
   text-align: center; /* or left, depending on logo alignment */
   letter-spacing: 0.5px;
-}
-
-.table-container {
-  width: 100%;
-  overflow-x: auto; /* allows horizontal scroll on small screens */
-  -webkit-overflow-scrolling: touch;
 }
 
 /*.logo {
@@ -3682,7 +3680,7 @@ img.reload {
 .childnav-list-item {
   list-style-type: none;
   border-bottom: 1px solid #b3b3b3;
-  margin-left: 24px;
+  /*margin-left: 24px;*/
   font-weight: 400;
   line-height: 28px;
   padding: 10px;
@@ -6223,7 +6221,7 @@ header {
 .childnav-list-item {
   list-style-type: none;
   border-bottom: 1px solid #b3b3b3;
-  margin-left: 24px;
+  /*margin-left: 24px;*/
   font-weight: 400;
   line-height: 28px;
   padding: 10px;
@@ -7724,6 +7722,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .Rtable-cell.column-heading {
     background-color: #724b26;
     color: white; /* Change the text color to black */
+    font-size: 12px;
   }
 
   .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--content {
@@ -8689,10 +8688,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .facility-text-box ul {
     list-style: circle inside none;
     font-size: 1.5rem;
-  }
-
-  table {
-    font-size: 0.9rem;
   }
 }
 
