@@ -334,40 +334,56 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
   });
 </script>-->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("picModal");
-  const modalBody = modal.querySelector(".modal-body");
-  const closeBtn = modal.querySelector(".close");
+  console.log("Gi Joe");
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("picModal");
+    const modalBody = modal.querySelector(".modal-body");
+    const closeBtn = modal.querySelector(".close");
 
-  // Open modal
-  document.querySelectorAll(".gallery-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      console.log('Inside');
-      const img = btn.querySelector("img");
-      modalBody.innerHTML = '
-        <img src="${img.src}" alt="${img.alt}" style="">
-      ';
-      modal.classList.remove("hidden");
-      modal.focus();
+    let lastFocusedElement = null; // store the element that opened the modal
+
+    // Open modal
+    document.querySelectorAll(".gallery-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        console.log('Inside');
+        const img = btn.querySelector("img");
+
+        // Save the button that triggered modal
+        lastFocusedElement = btn;
+
+        modalBody.innerHTML = `
+          <img src="${img.src}" alt="${img.alt}" style="max-width:100%; height:auto;">
+        `;
+        modal.classList.remove("hidden");
+
+        // Move focus to close button
+        closeBtn.focus();
+      });
+    });
+
+    // Close modal
+    function closeModal() {
+      modal.classList.add("hidden");
+      modalBody.innerHTML = "";
+
+      // Return focus to the last focused element (the button that opened modal)
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    closeBtn.addEventListener("click", closeModal);
+
+    // Close on Esc
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
     });
   });
-
-  // Close modal
-  function closeModal() {
-    modal.classList.add("hidden");
-    modalBody.innerHTML = "";
-  }
-
-  closeBtn.addEventListener("click", closeModal);
-
-  // Close on Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeModal();
-    }
-  });
-});
 </script>
+
+
 
 
 <?php wp_footer(); ?>
