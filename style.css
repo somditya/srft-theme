@@ -2184,6 +2184,12 @@ ol {
   letter-spacing: 0.5px;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* allows horizontal scroll on small screens */
+  -webkit-overflow-scrolling: touch;
+}
+
 /*.logo {
   display: flex;
   align-items: center; 
@@ -8683,6 +8689,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .facility-text-box ul {
     list-style: circle inside none;
     font-size: 1.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
   }
 }
 
