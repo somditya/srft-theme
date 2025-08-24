@@ -96,7 +96,7 @@ $category_id = get_category_ID($category_name);
                   <p data-ng-if="!tender.isSubmissionOpen"><?php echo __('Closed', 'srft-theme' ); ?></p>
                  </td>
                  </tr>
-                </tbody>>
+                </tbody>
                 </table>
               </div>
               <!-- Use a CSS grid for layout -->
