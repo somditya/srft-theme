@@ -6019,6 +6019,16 @@ header {
   padding-left: 2rem;
 }
 
+
+
+.course-highlight a:hover {
+  text-decoration: none; /* removes underline */
+  font-weight: normal;   /* reset font weight */
+  color: inherit;        /* fallback to normal text color */
+  background: none;      /* remove background if applied */
+  transform: none;       /* reset transform if applied */
+}
+
 /*Accolades*/
 
 .accolades-img {
