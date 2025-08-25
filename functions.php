@@ -1142,6 +1142,16 @@ function remove_plugin_specific_cookie() {
 add_action('init', 'remove_plugin_specific_cookie');
 
 
+// Add table description as <caption class="sr-only">
+add_filter( 'tablepress_table_output', function( $output, $table, $render_options ) {
+    if ( ! empty( $table['description'] ) ) {
+        $caption = '<caption class="sr-only">' . esc_html( $table['description'] ) . '</caption>';
+        $output = preg_replace( '/(<table[^>]*>)/i', '$1' . $caption, $output, 1 );
+    }
+    return $output;
+}, 10, 3 );
+
+
 
 function set_custom_template($single_template) {
 	global $post;

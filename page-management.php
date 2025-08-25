@@ -155,7 +155,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>
                 <div><h4><?php echo __('Present Member of the Society', 'srft-theme'); ?></h4></div>
-                <div class="wrapper">
                     <div class="Rtable Rtable--5cols .table-container">
                         <table style="width: 100%;">
                         <caption class="sr-only"> Table listing the current members of the society </caption>    
@@ -205,7 +204,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     </table>
                     </div>
                     <!-- Use a CSS grid for layout -->
-                </div>
             </section>     
 
             <div>
@@ -221,7 +219,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>-->
                 <div><h4><?php echo __('Present Member of the Interim Executive Council', 'srft-theme'); ?></h4></div>
-                <div class="wrapper">
                     <div class="Rtable Rtable--5cols .table-container">
                         <table style="width: 100%;">
                             <caption class="sr-only">Table listing the present members of the interim executive council </caption>
@@ -273,7 +270,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     </table>
                     </div>
                     <!-- Use a CSS grid for layout -->
-                </div>
             </section>
 
             <div>
@@ -289,7 +285,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>
                 <div><h4><?php echo __('Present Member of the Academic Council', 'srft-theme'); ?></h4></div>
-                <div class="wrapper"> 
                     <div class="Rtable Rtable--5cols .table-container">
                         <table style="width: 100%">
                                                   <caption class="sr-only">Table listing the present members of the academic council </caption>    
@@ -396,7 +391,6 @@ endif;
 
                     </div>
                     <!-- Use a CSS grid for layout -->
-                </div>
             </section>
         </div>
     </section>

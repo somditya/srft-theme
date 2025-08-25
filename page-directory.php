@@ -169,7 +169,6 @@ $current_language = get_locale();
 
                         if ($has_posts) {
                             echo '<h3>' . esc_html($department) . '</h3>';
-                            echo '<div class="wrapper">';
                             echo '<div class="Rtable Rtable--6cols .table-container">';
                             echo '<table style="width: 100%;">';
                             echo '<caption class="sr-only">table showing directory information of the'. esc_html($department) .  '</caption>';
@@ -187,7 +186,6 @@ $current_language = get_locale();
                             echo $output;
                             echo '</tbody>';
                             echo '</table>';
-                            echo '</div>';
                             echo '</div>';
                         }
                     }

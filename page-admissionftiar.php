@@ -149,7 +149,7 @@ $current_language = get_locale();
         </div> <!-- Closing div for leftnav -->
 
         <div class="main-content" >
-        <section  class="page-title"><div><p class="page-header-text"><?php the_title(); ?></p></div></section>
+        <section  class="page-title"><div><h2 class="page-header-text"><?php the_title(); ?></h2></div></section>
         <section class="sub-intro">
           <div class="sub-intro-images">
           <div>

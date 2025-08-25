@@ -73,7 +73,6 @@ $current_language = get_locale();
             </div>
 
             <div style="margin-top: 4rem;">
-                <div class="wrapper" style="text-align: left;">
                     <div class="Rtable Rtable--5cols table-container">
                         <table style="width: 100%;">
                         <caption class="sr-only">table showing yearwise downloadable annual reports</caption>    
@@ -148,7 +147,6 @@ $current_language = get_locale();
                         ?>
                     </tbody>
                     </table>
-            </div>
         </div>
     </section>
 </main>
