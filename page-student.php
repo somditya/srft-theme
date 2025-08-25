@@ -73,7 +73,7 @@ $category_id = get_category_ID($category_name);
           <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image');?>" alt=" "  style="display: block;">
           <div class="news-item-title">
           <h3><<?php the_title(); ?></h3>
-          <!--<p><?php echo get_field('award_received');?></p>-->
+          <p><?php the_content(); ?></p>
         <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
         <!--<div class="primary__header-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
