@@ -1641,6 +1641,7 @@ ol li {
   font-size: 0;
 }
 
+
 /* 3) Specific offsets for each arrow position */
 .a11y-slider-container > button.a11y-slider-prev {
   left: -20px;
@@ -1658,6 +1659,14 @@ ol li {
   outline: 3px solid #66afe9;
   outline-offset: 2px;
 }
+
+#student-slider .a11y-slider-container > button.a11y-slider-prev,
+#student-slider .a11y-slider-container > button.a11y-slider-next {
+   filter: none; 
+}
+
+
+
 
 /* resposnive table */
 .flex-table {
@@ -6984,6 +6993,7 @@ header {
   gap: 20px; /* Space between items */
   justify-content: center; /* Center-align the grid items */
   align-items: center; /* Vertically align items */
+  list-style: none;
 }
 
 .leaf {
