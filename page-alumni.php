@@ -29,7 +29,7 @@ $category_id = get_category_ID($category_name);
     <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
     <div class="page-banner">
-        <h2 class="page-banner-title"><?php echo __('News', 'srft-theme' ); ?></h2>
+        <h1 class="page-banner-title"><?php echo __('News', 'srft-theme' ); ?></h1>
     </div> <!-- Missing closing div added here -->
 </section>
 
@@ -44,7 +44,7 @@ $category_id = get_category_ID($category_name);
    </div>
 
 <section class="section-home" id="skip-to-content">
-    <div class="container" style="width: 1170px;">
+    <div class="container">
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->
@@ -66,24 +66,25 @@ $category_id = get_category_ID($category_name);
                     </div>
                 </a>
             </div>
-
-            <ul class="pagination">
+<nav aria-label="Pagination" data-ng-if="totalPages > 1">
+              <ul class="pagination">
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                    <a data-ng-href="#" data-ng-click="setPage(1)" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
+                  <a href="#" aria-label="<?php echo esc_attr__('First Page', 'srft-theme'); ?>" data-ng-click="firstPage()"><i class="fa fa-step-backward" style="color:#8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                    <a data-ng-href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
+                  <a href="#" aria-label="<?php echo esc_attr__('Previous Page', 'srft-theme'); ?>" data-ng-click="prevPage()"><i class="fa fa-chevron-left" style="color:#8b5b2b;"></i></a>
                 </li>
-                <li data-ng-repeat="page in getPages()" data-ng-class="{ 'active': currentPage === page }">
-                    <a data-ng-href="#" data-ng-click="setPage(page)">{{ page }}</a>
+                <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
+                  <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                    <a data-ng-href="#" data-ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
+                  <a href="#" aria-label="<?php echo esc_attr__('Next Page', 'srft-theme'); ?>" data-ng-click="nextPage()"><i class="fa fa-chevron-right" style="color:#8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                    <a data-ng-href="#" data-ng-click="setPage(totalPages)" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
+                  <a href="#" aria-label="<?php echo esc_attr__('Last Page', 'srft-theme'); ?>" data-ng-click="lastPage()"><i class="fa fa-step-forward" style="color:#8b5b2b;"></i></a>
                 </li>
-            </ul>
+              </ul>
+            </nav>
         </div>
     </div>
 </section>
@@ -107,8 +108,12 @@ $category_id = get_category_ID($category_name);
                         const month = String(postDate.getMonth() + 1).padStart(2, '0');
                         const year = postDate.getFullYear();
                         const formattedDate = `${day}-${month}-${year}`;
+                        
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = post.title.rendered || '';
+                        const decodedTitle = tempDiv.textContent || tempDiv.innerText || '';
                         return {
-                            name: post.title.rendered || '',
+                            name: decodedTitle,
                             link: post.link,
                             image: post.acf['News-Image'],
                             //featured_media: post.featured_media,
