@@ -124,7 +124,7 @@ $category_id = get_category_ID( $category_name );
                   <a href="#" aria-label="<?php echo esc_attr__('Previous Page', 'srft-theme'); ?>" data-ng-click="prevPage()"><i class="fa fa-chevron-left" style="color:#8b5b2b;"></i></a>
                 </li>
                 <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
-                  <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
+                  <a href="#" data-ng-click="setPage(page)" ng-attr-aria-current="{{ currentPage === page ? 'page' : undefined }}">{{ page }}</a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
                   <a href="#" aria-label="<?php echo esc_attr__('Next Page', 'srft-theme'); ?>" data-ng-click="nextPage()"><i class="fa fa-chevron-right" style="color:#8b5b2b;"></i></a>

@@ -49,10 +49,10 @@ $category_id = get_category_ID($category_name);
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->
             <div class="news-grid">
-                <a class="news-card" data-ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)" data-ng-href="{{news.link}}">
+                <div class="news-card" data-ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                     <div class="news-link-left">
                         <span class="news-link-left-date"> {{ news.formattedDate }}</span>
-                        <h3 class="news-link-left-title">{{ news.name }}</h3>
+                        <a  data-ng-href="{{news.link}}"><h3 class="news-link-left-title">{{ news.name }}</h3> </a>
                         <div class="news-link-left-text">
                             <span>{{ news.designation }}</span>
                         </div>
@@ -64,27 +64,26 @@ $category_id = get_category_ID($category_name);
      class="faculty-image">
 
                     </div>
-                </a>
+                </div>
             </div>
-<nav aria-label="Pagination" data-ng-if="totalPages > 1">
-              <ul class="pagination">
+<nav aria-label="Pagination" data-ng-if="totalPages > 1" >
+    <ul class="pagination">
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                  <a href="#" aria-label="<?php echo esc_attr__('First Page', 'srft-theme'); ?>" data-ng-click="firstPage()"><i class="fa fa-step-backward" style="color:#8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="setPage(1)" aria-label="<?php echo __('First Page', 'srft-theme'); ?>"><i class="fas fa-step-backward" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                  <a href="#" aria-label="<?php echo esc_attr__('Previous Page', 'srft-theme'); ?>" data-ng-click="prevPage()"><i class="fa fa-chevron-left" style="color:#8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>"><i class="fas fa-chevron-left" style="color: #8b5b2b;"></i></a>
                 </li>
-                <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
-                  <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
+                <li data-ng-repeat="page in getPages()" data-ng-class="{ 'active': currentPage === page }">
+                   <a href="#" data-ng-click="setPage(page)" ng-attr-aria-current="{{ currentPage === page ? 'page' : undefined }}">{{ page }}</a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                  <a href="#" aria-label="<?php echo esc_attr__('Next Page', 'srft-theme'); ?>" data-ng-click="nextPage()"><i class="fa fa-chevron-right" style="color:#8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>"><i class="fas fa-chevron-right" style="color: #8b5b2b;"></i></a>
                 </li>
                 <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                  <a href="#" aria-label="<?php echo esc_attr__('Last Page', 'srft-theme'); ?>" data-ng-click="lastPage()"><i class="fa fa-step-forward" style="color:#8b5b2b;"></i></a>
+                    <a data-ng-href="#" data-ng-click="setPage(totalPages)" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>"><i class="fas fa-step-forward" style="color: #8b5b2b;"></i></a>
                 </li>
-              </ul>
-            </nav>
+            </ul> </nav>
         </div>
     </div>
 </section>
