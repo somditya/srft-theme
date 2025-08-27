@@ -151,14 +151,12 @@ $category_id = get_category_ID($category_name);
         </section>
  
 
-    <div id="postModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
+<div id="picModal" class="hidden modal-overlay" aria-hidden="true" tabindex="-1">
+  <div class="modal-content">
+    <button class="close" aria-label="Close modal">✕</button>
+    <div class="modal-body"></div>
+  </div>
+</div>
     <script>
         var categoryID = <?php echo json_encode($category_id); ?>;
         var siteURL = '<?php echo esc_url(site_url('/')); ?>';
