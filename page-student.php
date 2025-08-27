@@ -134,7 +134,7 @@ $category_id = get_category_ID($category_name);
     <li data-ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
       <a href="#" 
          data-ng-click="openModal(production.name, production.content)" 
-         style="display: flex; align-items: center; padding: 0; margin-bottom: 10px;">
+         style="display: flex; align-items: center; padding: 0; margin-bottom: 10px;" role="button">
         <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="100" alt="leaf">
         <h3 style="font-size: 16px; width: 100%; white-space: nowrap; color: #161a1d; margin: 0;">
           {{ production.name }}
