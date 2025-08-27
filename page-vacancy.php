@@ -52,7 +52,7 @@ $category_id   = get_category_ID($category_name);
 
           <div class="wrapper" data-ng-if="!isLoading && !loadError">
             <div class="table-container">
-              <div class="Rtable Rtable--5cols Rtable--collapse">
+              <div class="table-container">
                 <table>
                   <caption class="sr-only"><?php echo esc_html__('Table shows lists of notifications for recruitments', 'srft-theme'); ?></caption>
                   <thead>
