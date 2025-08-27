@@ -12,11 +12,11 @@ $post_content = apply_filters('the_content', get_the_content());
 ?>
 
 <section id="skip-to-content" class="article-container">
-    <article class="narticle">
+    <article class="narticle" role="main">
         <div role="article" style="grid-column: 3; margin:0">
-            <a href="#" alt="News" class="c-headline__topic t-heading--topic">
+            <span class="c-headline__topic t-heading--topic">
                 <label><?php echo __('News', 'srft-theme'); ?></label>
-            </a>
+            </span>
             <h1 class="nheadline">
                 <?php echo get_the_title($post_id); ?>
             </h1>

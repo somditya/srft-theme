@@ -63,7 +63,7 @@ $current_language = get_locale();
             </nav>
         </div>
 
-        <div class="main-content" role="main">
+        <div class="main-content">
             <div class="page-title">
                 <div>
                     <h2 class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></h2>
