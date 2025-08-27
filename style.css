@@ -858,13 +858,13 @@ div .spacer {
 ul,
 ol {
   margin: 0;
-  padding-left: 1.5em;   /* reserve space for bullet/number */
+  padding-left: 1.5em; /* reserve space for bullet/number */
   list-style-position: outside; /* marker stays outside */
 }
 
 ul li,
 ol li {
-  text-indent: 0;        /* ensures wrapped lines align with text, not marker */
+  text-indent: 0; /* ensures wrapped lines align with text, not marker */
 }
 .btn,
 .btn:link,
@@ -898,7 +898,6 @@ ol li {
   padding: 0 3.2rem;
 }
 
-
 .table-container {
   width: 100%;
   height: 100%;
@@ -910,23 +909,22 @@ ol li {
   border-collapse: collapse; /* optional: makes borders cleaner */
 }
 
-  .two-flex {
-    flex-direction: column;
-  }
+/*.two-flex {
+  flex-direction: column;
+}
 
-  .col-left {
-    width: 100%;
-    padding-right: 0;
-  }
+.col-left {
+  width: 100%;
+  padding-right: 0;
+}
 
-  .col-right {
-    margin-top: 20px; /* Add some spacing between col-left and col-right */
-  }
+.col-right {
+  margin-top: 20px; /* Add some spacing between col-left and col-right */
+/*}*/
 
-  .profile-desc {
-    width: 100%; /* Make profile-desc occupy the entire width */
-    box-sizing: border-box; /* Ensure padding and border don't add to the width */
-  }
+.profile-desc {
+  width: 100%; /* Make profile-desc occupy the entire width */
+  box-sizing: border-box; /* Ensure padding and border don't add to the width */
 }
 
 .is-striped {
@@ -1654,7 +1652,6 @@ ol li {
   font-size: 0;
 }
 
-
 /* 3) Specific offsets for each arrow position */
 .a11y-slider-container > button.a11y-slider-prev {
   left: -20px;
@@ -1675,11 +1672,8 @@ ol li {
 
 #student-slider .a11y-slider-container > button.a11y-slider-prev,
 #student-slider .a11y-slider-container > button.a11y-slider-next {
-   filter: none; 
+  filter: none;
 }
-
-
-
 
 /* resposnive table */
 .flex-table {
@@ -6032,14 +6026,12 @@ header {
   padding-left: 2rem;
 }
 
-
-
 .course-highlight a:hover {
   text-decoration: none; /* removes underline */
-  font-weight: normal;   /* reset font weight */
-  color: inherit;        /* fallback to normal text color */
-  background: none;      /* remove background if applied */
-  transform: none;       /* reset transform if applied */
+  font-weight: normal; /* reset font weight */
+  color: inherit; /* fallback to normal text color */
+  background: none; /* remove background if applied */
+  transform: none; /* reset transform if applied */
 }
 
 /*Accolades*/
@@ -7719,7 +7711,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 
   .wrapper {
-  padding: 0px;
+    padding: 0px;
   }
 
   .caption {
@@ -8729,25 +8721,24 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 
   .Rtable-cell {
-
-   font-size: 10px;
+    font-size: 10px;
   }
 
   .Rtable-cell {
     & .Rtable-cell--content {
-        a {
-            font-size: 10px;
-            color: #333;
-        }
-    }}
+      a {
+        font-size: 10px;
+        color: #333;
+      }
+    }
+  }
 
   .Rtable-cell.column-heading {
-        background-color: #724b26;
-        color: white;
-        font-size: 10px;
-    }  
+    background-color: #724b26;
+    color: white;
+    font-size: 10px;
+  }
 }
-
 
 @media (min-width: 1024px) {
   .nav {
