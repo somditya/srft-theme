@@ -76,9 +76,9 @@ $category_id = get_category_ID( $category_name );
                       <div class="Rtable-cell--content">{{ tender.ID }}</div>
                     </td>
 
-                    <td class="Rtable-cell name-cell">
+                    <th class="Rtable-cell name-cell" scope="row">
                       <div class="Rtable-cell--content">{{ tender.title }}</div>
-                    </td>
+                    </th>
 
                     <td class="Rtable-cell tenure-cell">
                       <div class="Rtable-cell--content"><span class="webinar-date"><time datetime="{{ tender.pubdate | date:'yyyy-MM-dd' }}">
