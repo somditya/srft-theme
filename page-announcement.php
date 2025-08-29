@@ -39,7 +39,6 @@ $category_id = get_category_ID($category_name);
     <section id="skip-to-content" class="section-home">
       <div class="container">
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Circular & Notices', 'srft-theme'); ?></h2>
-
         <div data-ng-app="myApp">
           <div data-ng-controller="AnnouncementController">
             <p style="padding: 15px;">
