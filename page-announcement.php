@@ -42,7 +42,7 @@ $category_id = get_category_ID($category_name);
 
         <div data-ng-app="myApp">
           <div data-ng-controller="AnnouncementController">
-            <p style="padding: 15px;">
+            <div class="filter-bar">
               <label for="fromDate"><?php echo __('From date: ', 'srft-theme'); ?></label>
               <input type="date" id="fromDate" data-ng-model="fromDate" data-ng-change="applyFilters()">
               
@@ -54,28 +54,31 @@ $category_id = get_category_ID($category_name);
               
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme'); ?></button>
-            </p>
+          </div>
 
             <div class="wrapper">
-              <div class="Rtable Rtable--7cols Rtable--collapse">
-                <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme'); ?></div>
-                </div>
-
-                <div class="Rtable-row" data-ng-repeat="announcement in pagedAnnouncement">
-                  <div class="Rtable-cell location-cell">
+              <div class="table-container">
+              <table>   
+                  <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>
+                <thead>
+                <tr class="Rtable-row Rtable-row--head">
+                  <th class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme'); ?></th>
+                </tr>
+                <tbody>
+                <tr class="Rtable-row" data-ng-repeat="announcement in pagedAnnouncement">
+                  <td class="Rtable-cell location-cell">
                     <div class="Rtable-cell--content date-content"><span class="SL">{{$index + 1}}</span></div>
-                  </div>
-                  <div class="Rtable-cell name-cell">
+                  </td>
+                  <td class="Rtable-cell name-cell">
                     <div class="Rtable-cell--content">{{ announcement.title }}</div>
-                  </div>
-                  <div class="Rtable-cell tenure-cell">
+                  </td>
+                  <td class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{ announcement.pubdate }}</span></div>
-                  </div>
-                  <div class="Rtable-cell access-link-cell">
+                  </td>
+                  <td class="Rtable-cell access-link-cell">
                     <div class="Rtable-cell--content access-link-content" data-ng-if="announcement.file.url">
                       <!-- Show the PDF image and link when the file exists -->
                       <a data-ng-href="{{announcement.file.url}}">
@@ -87,11 +90,12 @@ $category_id = get_category_ID($category_name);
                       <!-- Show only the link to the post when no PDF file exists -->
                       <a data-ng-href="{{announcement.link}}"><?php echo __('View', 'srft-theme'); ?></a>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </td>
+                </tr>
+          </tbody>  
+          </table>
             </div>
-
+          </div>
             <!-- Pagination -->
             <ul class="pagination">
               <li data-ng-class="{ 'disabled': currentPage === 1 }">
