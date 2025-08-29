@@ -4289,30 +4289,29 @@ h6 {
 
 /* Modal Styles */
 /* Overlay background */
+/* Overlay (dark background over page) */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0; /* shorthand for top/left/right/bottom = 0 */
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6); /* 🔥 this makes it dark */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 9999;
 }
 
 /* White box for content */
 .modal-content {
-  position: relative;
   background: #fff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
 /* Modal image should scale responsively */
 .modal-body img {
   display: block;
@@ -4329,6 +4328,16 @@ h6 {
   background: none;
   border: none;
   font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
@@ -7020,6 +7029,34 @@ header {
 
 .award-tree img {
   width: 100%;
+}
+
+.production-btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 10px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect */
+.production-btn:hover {
+  background-color: #f7f7f7;
+  transform: scale(1.02);
+  /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);*/
+}
+
+/* Production title */
+.production-title {
+  font-size: 16px;
+  width: 100%;
+  white-space: nowrap;
+  color: #161a1d;
+  margin: 0;
+  text-align: center;
 }
 
 /*.page-title h1 {
