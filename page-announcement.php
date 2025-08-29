@@ -23,11 +23,11 @@ $category_id = get_category_ID($category_name);
   <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
-        <h1 class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></h1>
+        <h2 class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></h2>
       </div>
     </section>
 
-    <div class="container-aligned">
+     <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
@@ -39,6 +39,7 @@ $category_id = get_category_ID($category_name);
     <section id="skip-to-content" class="section-home">
       <div class="container">
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Circular & Notices', 'srft-theme'); ?></h2>
+
         <div data-ng-app="myApp">
           <div data-ng-controller="AnnouncementController">
             <p style="padding: 15px;">

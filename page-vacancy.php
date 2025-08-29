@@ -52,17 +52,16 @@ $category_id   = get_category_ID($category_name);
 
           <div class="wrapper" data-ng-if="!isLoading && !loadError">
             <div class="table-container">
-              <div class="table-container">
                 <table>
                   <caption class="sr-only"><?php echo esc_html__('Table shows lists of notifications for recruitments', 'srft-theme'); ?></caption>
                   <thead>
                     <tr class="Rtable-row Rtable-row--head">
-                      <th class="Rtable-cell slno-cell column-heading"><?php echo esc_html__('SL.No.', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell topic-cell column-heading"><?php echo esc_html__('Recruitment for', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading"><?php echo esc_html__('Publish Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading"><?php echo esc_html__('Submission Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading"><?php echo esc_html__('Extended Submission Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell access-link-cell column-heading"><?php echo esc_html__('Access Link', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell slno-cell column-heading" scope="column"><?php echo esc_html__('SL.No.', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell topic-cell column-heading" scope="column"><?php echo esc_html__('Recruitment for', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Publish Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Submission Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Extended Submission Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell access-link-cell column-heading" scope="column"><?php echo esc_html__('Access Link', 'srft-theme'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
