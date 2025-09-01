@@ -18,7 +18,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 
         <!-- Content area -->
 <div class="static-container">
-        <div class="container-aligned">
+    <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
             if ( function_exists('yoast_breadcrumb') ) {
