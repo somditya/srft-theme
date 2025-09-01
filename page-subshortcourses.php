@@ -14,20 +14,18 @@ $current_language = get_locale();
 
   <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></h2>
+            <h1 class="page-banner-title"><?php echo __('Admission to short courses', 'srft-theme'); ?></h1>
         </div>
   </section>
 
+ <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+      <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); } ?>
+    </div>
+  </div> 
  
 
-  <section class="cine-detail" style="flex-direction: column; margin-top: 32px; margin-left: 32px; margin-right: 32px;">
-  <div>      
-            <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-            }
-            ?>
-        </div>       
+  <section class="cine-detail" style="flex-direction: column; margin-top: 32px; margin-left: 32px; margin-right: 32px;">   
   
   <div class="page-title" id="skip-to-content">
             <div>

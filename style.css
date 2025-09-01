@@ -650,9 +650,9 @@ body {
 
 /* For single page */
 .static-container {
-  max-width: 1200px; /* Adjust width as needed */
+  max-width: 100%; /* Adjust width as needed */
   margin: 15rem auto 0 auto; /* Adds top margin and centers the content */
-  padding: 20px; /* Adds some padding around the content */
+  padding: 40px; /* Adds some padding around the content */
   box-sizing: border-box; /* Ensure padding does not affect width */
   font-size: 1.6rem;
   line-height: 1.8;

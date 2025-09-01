@@ -20,7 +20,7 @@ $post_id = get_the_ID();
    </div>
   <section class="page-title">
     <div>
-      <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+      <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
     </div>
   </section>
 
