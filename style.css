@@ -4992,6 +4992,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
   overflow: hidden;
 }
 
+.phototab {
+  font-size: 16px;
+}
+
 .phototabs .tab-2 label {
   cursor: pointer;
   display: block;
