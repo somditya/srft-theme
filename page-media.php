@@ -11,15 +11,19 @@ $post_id = get_the_ID();
     <!-- Banner -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php _e('Media Gallery', 'srft-theme'); ?></h2>
+            <h1 class="page-banner-title"><?php _e('Media Gallery', 'srft-theme'); ?></h1>
         </div>
     </section>
 
+      <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+      <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); } ?>
+    </div>
+  </div>
     <section class="cine-detail">
         <div class="main-content" style="width: 100%;">
 
             <!-- Breadcrumb -->
-            <div><?php if (function_exists('yoast_breadcrumb')) yoast_breadcrumb('<p id="breadcrumbs">', '</p>'); ?></div>
 
             <!-- Title -->
             <div class="page-title">
