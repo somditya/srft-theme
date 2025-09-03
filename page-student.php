@@ -93,13 +93,14 @@ $category_id = get_category_ID($category_name);
                                 <ul class="award-tree">
                                     <li data-ng-repeat="production in productionList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                                         <button type="button" class="production-btn"
-                                            data-ng-click="openModal(production.name, production.content, $event)"
+                                            data-ng-click="openModal(production.name, production.content, $event)" aria-label="View details of {{ production.name }} student film projects"
+    aria-haspopup="dialog"
                                             style="display: flex; align-items: center; padding: 0; margin-bottom: 10px; background: white;">
-                                            <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="100" alt="leaf">
+                                            <img src="<?php bloginfo('template_url'); ?>/images/leftleaf.png" height="100" alt="">
                                             <h3 style="font-size: 16px; width: 100%; white-space: nowrap; color: #161a1d; margin: 0;">
                                                 {{ production.name }}
                                             </h3>
-                                            <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="100" alt="leaf">
+                                            <img src="<?php bloginfo('template_url'); ?>/images/rightleaf.png" height="100" alt="">
                                         </button>
                                     </li>
                                 </ul>
@@ -111,7 +112,7 @@ $category_id = get_category_ID($category_name);
         </section>
 
         <!-- Modal -->
-        <div id="postModal" class="hidden modal-overlay" aria-hidden="true" aria-modal="true" aria-labelledby="modalTitle">
+        <div id="postModal" role="dialog" class="hidden modal-overlay" aria-hidden="true" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
     <button class="close" aria-label="Close modal">✕</button>
     <div id="modalTitle"></div>

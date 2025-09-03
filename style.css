@@ -90,6 +90,8 @@ html {
   --secondary-menu-active-color: #eaeaea;
   --widget-background-color: #eaeaea;
   --sub-intro-background-color: #eaeaea;
+  --sub-menu-selected-color: #916100;
+  --sub-menu-hover-color: #916100;
 }
 
 a {
@@ -104,7 +106,20 @@ a:hover {
   text-decoration: underline;
   text-decoration-color: var(--hyper-link-color);
   text-decoration-thickness: 2px; /* 👈 thicker underline */
-  text-underline-offset: 8px;
+  text-underline-offset: 10px;
+  font-weight: 500;
+  color: #000000;
+  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
+  /*transform: scale(1.05);*/
+  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
+  /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+}
+
+a:selected {
+  text-decoration: underline;
+  text-decoration-color: var(--hyper-link-color);
+  text-decoration-thickness: 4px; /* 👈 thicker underline */
+  text-underline-offset: 10px;
   font-weight: 500;
   color: #000000;
   /*background-color: #f3f3f3; /* Optional: slight background for feedback */
@@ -1259,11 +1274,11 @@ ol li {
   display: inline;
 }
 
-#breadcrumbs li:not(:first-child)::before {
+/*#breadcrumbs li:not(:first-child)::before {
   content: "»";
   display: inline-block;
   margin: 0 5px;
-}
+}*/
 
 #breadcrumbs a:focus,
 #breadcrumbs a:hover {
@@ -3713,24 +3728,25 @@ img.reload {
 
 .childnav-lists li:hover,
 .childnav-lists li:hover a {
-  background-color: #666;
-  color: white;
+  /*background-color: #666;
+  color: white;*/
 }
 
 .childnav-list-item.active {
-  background-color: #f0f0f0; /* Highlight color for the active menu item */
+  /*background-color: #f0f0f0; /* Highlight color for the active menu item */
   /* Add any other styles you want for the active menu item */
-  background-color: var(--widget-background-color);
+  /*background-color: var(--widget-background-color);
+  background-color: #666;*/
 }
 
-.item::after {
+/*.item::after {
   content: "\f054";
   font-family: "FontAwesome";
   font-size: 12px;
   margin-left: 8px;
   font-weight: 200;
 }
-
+*/
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -4292,26 +4308,28 @@ h6 {
 /* Overlay (dark background over page) */
 .modal-overlay {
   position: fixed;
-  inset: 0; /* shorthand for top/left/right/bottom = 0 */
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* 🔥 this makes it dark */
+  inset: 0; /* full viewport */
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 99999;
+  overflow: auto;     /* 👈 ensures page scroll at zoom */
+  padding: 1rem;
 }
 
-/* White box for content */
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   max-width: 600px;
-  width: 90%;
-  position: relative;
+  width: 100%;
+  max-height: 90vh;   /* 👈 restrict height */
+  overflow-y: auto;   /* 👈 force internal scroll */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
+
 /* Modal image should scale responsively */
 .modal-body img {
   display: block;
@@ -6266,34 +6284,50 @@ header {
   padding: 10px;
 }
 
+.childnav-list-item a:active,
+.childnav-list-item a.active,
+.childnav-list-item a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--hyper-link-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+  font-weight: 500;
+  color: #000000;
+}
+
 .item {
   padding: 10px;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 28px;
-  /*color:  #8b5b2b;*/
 }
 
 .childnav-lists li:hover,
 .childnav-lists li:hover a {
-  background-color: #666;
+  /*background-color: #666;
   color: white;
-  text-decoration-color: var(--secondary-menu-active-color);
+  text-decoration-color: var(--secondary-menu-active-color);*/
 }
 
 .childnav-list-item.active {
-  background-color: #f0f0f0; /* Highlight color for the active menu item */
+  /*background-color: #f0f0f0; /* Highlight color for the active menu item */
   /* Add any other styles you want for the active menu item */
-  background-color: var(--widget-background-color);
+  /*background-color: var(--widget-background-color);*/
+  /*background-color: #666;*/
 }
 
-.item::after {
+.childnav-list-item.active a {
+  border-bottom-color: #000;
+  border-bottom-width: 5px;
+}
+
+/*.item::after {
   content: "\f054";
   font-family: "FontAwesome";
   font-size: 12px;
   margin-left: 8px;
   font-weight: 200;
-}
+}*/
 
 .main-content {
   display: flex;
@@ -6824,13 +6858,13 @@ header {
   display: none;
 }
 
-[role="dialog"] {
+/*[role="dialog"] {
   box-sizing: border-box;
   padding: 15px;
   border: 1px solid #000;
   background-color: #fff;
   min-height: 100vh;
-}
+}*/
 
 /*.modal-content {
 
@@ -6859,6 +6893,7 @@ header {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  overflow: auto;
 }
 
 .close {
