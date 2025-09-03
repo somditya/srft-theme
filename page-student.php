@@ -164,7 +164,7 @@ $category_id = get_category_ID($category_name);
                         const closeBtn = modal.querySelector('.close');
 
                         // Fill modal
-                        titleBox.innerHTML = `<h2>${title}</h2>`;
+                        titleBox.innerHTML = `<h2><?php echo __('Students Film Batch', 'srft-theme'); ?> ${title}</h2>`;
                         contentBox.innerHTML = content;
 
                         // Track the triggering button
