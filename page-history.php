@@ -151,7 +151,7 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 </section>
 
-<div id="picModal" class="hidden modal-overlay" aria-hidden="true" tabindex="-1">
+<div id="picModal" role="dialog" class="hidden modal-overlay" aria-hidden="true" tabindex="-1">
   <div class="modal-content">
     <button class="close" aria-label="Close modal">✕</button>
     <div class="modal-body"></div>
