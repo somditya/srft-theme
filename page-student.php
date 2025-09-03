@@ -68,7 +68,7 @@ $category_id = get_category_ID($category_name);
                                     <li>
                                         <div class="news-item" style="background-color: #0b6b39;">
                                             <a href="<?php the_permalink(); ?>" target="_blank">
-                                                <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image'); ?>" alt=" " style="display: block;">
+                                                <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image'); ?>" alt="" style="display: block;">
                                                 <div class="news-item-title">
                                                     <h3 style="color: white;"><?php the_title(); ?></h3>
                                                     <p style="color: white; flex: 1;"><?php echo $post_content; ?></p>
