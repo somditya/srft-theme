@@ -140,6 +140,7 @@ $(document).ready(function () {
       slidesToShow: 1,
       arrows: true,
       dots: false,
+      skipBtn: false,
       responsive: {
         992: { slidesToShow: 4 },
         768: { slidesToShow: 2 },
