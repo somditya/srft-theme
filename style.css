@@ -81,6 +81,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  width: 100%;
+}
 :root {
   --top-header-color: #5d3e00;
   --page-header-color: #5d3e00;
@@ -809,6 +813,7 @@ div .spacer {
   height: 100%;
   margin: 0 auto;
   max-width: 1248px;
+  max-width: 100%;
   padding: 0 24px;
 }
 
@@ -4314,7 +4319,7 @@ h6 {
   justify-content: center;
   align-items: center;
   z-index: 99999;
-  overflow: auto;     /* 👈 ensures page scroll at zoom */
+  overflow: auto; /* 👈 ensures page scroll at zoom */
   padding: 1rem;
 }
 
@@ -4324,8 +4329,8 @@ h6 {
   border-radius: 8px;
   max-width: 600px;
   width: 100%;
-  max-height: 90vh;   /* 👈 restrict height */
-  overflow-y: auto;   /* 👈 force internal scroll */
+  max-height: 90vh; /* 👈 restrict height */
+  overflow-y: auto; /* 👈 force internal scroll */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 }
