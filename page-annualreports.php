@@ -122,9 +122,9 @@ $current_language = get_locale();
                                             <div class="Rtable-cell--content "><?php echo $count; ?></div>
                                         </td>
 
-                                        <td class="Rtable-cell committee-cell">
+                                        <th class="Rtable-cell committee-cell" scope="row">
                                             <div class="Rtable-cell--content "><?php echo esc_html(get_the_title()); ?></div>
-                                        </td>
+                                        </th>
                                         <td class="Rtable-cell composition-cell">
                                             <div class="Rtable-cell--content ">
                                                 <a href="<?php echo esc_url($file_url); ?>" title="Download PDF">
