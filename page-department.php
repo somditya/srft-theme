@@ -43,6 +43,7 @@ if ($current_language === 'en_US') {
 // Check if the custom field has a value
 
 ?>
+<main> 
 <div data-scroll-container>
 <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
    <div class="page-banner">
@@ -101,7 +102,7 @@ if ($current_language === 'en_US') {
 </aside>
 
 
- <div class="main-content container-aligned" role="main">
+ <div class="main-content container-aligned">
    <div style="margin-top: 0rem">
      <h2 class="page-header-text" style="padding-left: 0; ">
      <?php echo __('About the department', 'srft-theme' ); ?>
