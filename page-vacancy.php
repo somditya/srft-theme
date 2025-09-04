@@ -56,39 +56,39 @@ $category_id   = get_category_ID($category_name);
                   <caption class="sr-only"><?php echo esc_html__('Table shows lists of notifications for recruitments', 'srft-theme'); ?></caption>
                   <thead>
                     <tr class="Rtable-row Rtable-row--head">
-                      <th class="Rtable-cell slno-cell column-heading" scope="column"><?php echo esc_html__('SL.No.', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell topic-cell column-heading" scope="column"><?php echo esc_html__('Recruitment for', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Publish Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Submission Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell date-cell column-heading" scope="column"><?php echo esc_html__('Extended Submission Date', 'srft-theme'); ?></th>
-                      <th class="Rtable-cell access-link-cell column-heading" scope="column"><?php echo esc_html__('Access Link', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-10-percent column-heading" scope="column"><?php echo esc_html__('SL.No.', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-40-percent column-heading" scope="column"><?php echo esc_html__('Recruitment for', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-10-percent column-heading" scope="column"><?php echo esc_html__('Publish Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-10-percent column-heading" scope="column"><?php echo esc_html__('Submission Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-10-percent column-heading" scope="column"><?php echo esc_html__('Extended Submission Date', 'srft-theme'); ?></th>
+                      <th class="Rtable-cell cell-width-20-percent column-heading" scope="column"><?php echo esc_html__('Access Link', 'srft-theme'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="Rtable-row" data-ng-repeat="vacancy in pagedVacancy track by $index">
-                      <td class="Rtable-cell slno-cell">
-                        <div class="Rtable-cell--content date-content">
+                      <td class="Rtable-cell cell-width-10-percent">
+                        <div class="Rtable-cell--content">
                           <span class="webinar-date">{{ (($parent.currentPage-1)*itemsPerPage) + $index + 1 }}</span>
                         </div>
                       </td>
-                      <th class="Rtable-cell topic-cell" scope="row">
-                        <div class="Rtable-cell--content title-content">{{ vacancy.title }}</div>
+                      <th class="Rtable-cell cell-width-40-percent" scope="row">
+                        <div class="Rtable-cell--content">{{ vacancy.title }}</div>
                       </th>
-                      <td class="Rtable-cell date-cell">
-                        <div class="Rtable-cell--content date-content"><span class="webinar-date"><time datetime="{{ vacancy.pubdate | date:'yyyy-MM-dd' }}" data-ng-if="vacancy.pubdate">
+                      <td class="Rtable-cell cell-width-10-percent">
+                        <div class="Rtable-cell--content"><span class="webinar-date"><time datetime="{{ vacancy.pubdate | date:'yyyy-MM-dd' }}" data-ng-if="vacancy.pubdate">
     {{ vacancy.pubdate | date:'dd/MM/yyyy' }}
   </time></span></div>
                       </td>
-                      <td class="Rtable-cell date-cell">
-                        <div class="Rtable-cell--content date-content"><span class="webinar-date"><time datetime="{{ vacancy.subdate | date:'yyyy-MM-dd' }}" data-ng-if="vacancy.subdate">
+                      <td class="Rtable-cell cell-width-10-percent">
+                        <div class="Rtable-cell--content"><span class="webinar-date"><time datetime="{{ vacancy.subdate | date:'yyyy-MM-dd' }}" data-ng-if="vacancy.subdate">
     {{ vacancy.subdate | date:'dd/MM/yyyy' }}
   </time></span></div>
                       </td>
-                      <td class="Rtable-cell date-cell">
-                        <div class="Rtable-cell--content date-content"><span class="webinar-date" data-ng-if="vacancy.extsubdate">{{ vacancy.extsubdate | date:'dd-MM-yyyy' }}</span><span data-ng-if="!vacancy.extsubdate">—</span></div>
+                      <td class="Rtable-cell cell-width-10-percent">
+                        <div class="Rtable-cell--content"><span class="webinar-date" data-ng-if="vacancy.extsubdate">{{ vacancy.extsubdate | date:'dd-MM-yyyy' }}</span><span data-ng-if="!vacancy.extsubdate">—</span></div>
                       </td>
-                      <td class="Rtable-cell access-link-cell">
-                        <div class="Rtable-cell--content access-link-content" data-ng-if="vacancy.file && vacancy.file.url">
+                      <td class="Rtable-cell cell-width-20-percent">
+                        <div class="Rtable-cell--content" data-ng-if="vacancy.file && vacancy.file.url">
                           <a data-ng-href="{{ vacancy.file.url }}">
                             <img alt="pdf" style="vertical-align:middle;" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">
                             &nbsp;(<?php echo esc_html__('Download', 'srft-theme'); ?> - {{ vacancy.file.size }} MB)
