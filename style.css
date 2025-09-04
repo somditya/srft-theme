@@ -916,30 +916,41 @@ ol li {
   max-width: 100%;
   margin: 1em auto;
   padding: 0 3.2rem;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .table-container {
   width: 100%;
-  height: 100%;
+  overflow-x: auto; /* enable horizontal scroll */
+  overflow-y: visible; /* Allow vertical content to be visible */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* Force the scrollbar to appear when needed */
+  -webkit-overflow-scrolling: touch;
 }
 
 .table-container table {
   width: 100%;
-  height: 100%;
-  border-collapse: collapse; /* optional: makes borders cleaner */
+  border-collapse: separate; /* Changed back to separate for proper spacing */
+  border-spacing: 0 17px; /* Add vertical spacing between rows */
+  min-width: 900px; /* Minimum width to trigger scroll */
+  background: white;
+  margin: 0; /* Remove any default margin */
 }
-
 /*.two-flex {
-  flex-direction: column;
-}
+    flex-direction: column;
+  }
 
-.col-left {
-  width: 100%;
-  padding-right: 0;
-}
+  .col-left {
+    width: 100%;
+    padding-right: 0;
+  }
 
-.col-right {
-  margin-top: 20px; /* Add some spacing between col-left and col-right */
+  .col-right {
+    margin-top: 20px; /* Add some spacing between col-left and col-right */
 /*}*/
 
 .profile-desc {
@@ -958,6 +969,7 @@ ol li {
 
 .cell-width-10-percent {
   width: 10%;
+  min-width: 80px; /* Prevents columns from getting too small */
 }
 
 .cell-width-13-percent {
@@ -966,10 +978,12 @@ ol li {
 
 .cell-width-15-percent {
   width: 15%;
+  min-width: 120px; /* Prevents columns from getting too small */
 }
 
 .cell-width-20-percent {
   width: 20%;
+  min-width: 160px; /* Prevents columns from getting too small */
 }
 
 .cell-width-22-percent {
@@ -978,6 +992,7 @@ ol li {
 
 .cell-width-25-percent {
   width: 25%;
+  min-width: 200px; /* Prevents columns from getting too small */
 }
 
 .cell-width-30-percent {
@@ -1059,12 +1074,7 @@ ol li {
 /* Apply styles ================================== */
 .Rtable-row {
   width: 100%;
-  display: flex;
-  border-top: 2px solid #6d2f6a;
-  border-top: 2px solid #0075a3;
   border-top: 2px solid #8b5b2b;
-
-  margin-bottom: 17px;
   box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.1);
   border-bottom: solid 1px rgba(0, 0, 0, 0.1);
   border-left: solid 1px rgba(0, 0, 0, 0.1);
@@ -1073,44 +1083,63 @@ ol li {
 }
 
 .Rtable-cell {
-  align-items: flex-start;
-  box-sizing: border-box;
-  flex-grow: 1;
+  border-top: 2px solid #8b5b2b;
   padding: 0.8em 1.2em;
-  /*overflow: hidden;*/ /* Or flex might break */
-  word-break: break-word;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  list-style: none;
-  text-align: left; /* Added to left-align content */
+  text-align: left;
   font-size: 14px;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: top;
+  box-sizing: border-box;
+}
 
-  &.column-heading {
-    background-color: white;
-    color: white;
-    padding: 1em;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-    /*margin-bottom: 30px;*/
-    color: #8b5b2b;
-    font-size: 14px;
-  }
+.Rtable-cell:last-child {
+  border-right: none;
+}
 
-  .Rtable-cell--heading {
-    display: none;
-  }
+.column-heading {
+  background-color: #8b5b2b !important;
+  color: white !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
 
-  .Rtable-cell--content {
-    a {
-      font-size: 14px;
-      color: #333;
-    }
+.Rtable-cell--heading {
+  display: none;
+}
 
-    .webinar-date {
-      font-weight: 400;
-    }
-  }
+.Rtable-cell--content {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Enhanced scrollbar styling */
+.table-container::-webkit-scrollbar {
+  height: 16px;
+  background-color: #f9f9f9;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #8b5b2b;
+  border-radius: 8px;
+  border: 2px solid #f1f1f1;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #6d4522;
+}
+
+/* Firefox scrollbar */
+.table-container {
+  scrollbar-width: auto;
+  scrollbar-color: #8b5b2b #f1f1f1;
 }
 
 .swiper {
@@ -7800,47 +7829,18 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .caption {
     font-size: 16px;
   }
-  .Rtable--collapse {
-    display: block;
-    width: 100%;
-    padding: 1em;
-    box-shadow: none;
+  .container .wrapper,
+  .container .table-container {
+    display: block !important; /* Override flex display */
+    flex: none !important; /* Remove flex properties */
+    width: 100% !important; /* Ensure full width */
+    min-width: 0 !important; /* Allow shrinking */
   }
 
-  .Rtable--collapse .Rtable-row {
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 2em;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  }
-
-  .Rtable--collapse .Rtable-row .Rtable-cell {
-    width: 100% !important;
-    display: flex;
-    align-items: center;
-    border: 1px solid #dad9da;
-    box-sizing: border-box;
-  }
-
-  .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--heading {
-    display: inline-block;
-    flex: 1;
-    max-width: 120px;
-    min-width: 120px;
-    border-right: 1px solid #ccc;
-    margin-right: 1em;
-  }
-  .Rtable-cell.column-heading {
-    background-color: #724b26;
-    color: white; /* Change the text color to black */
-    font-size: 12px;
-  }
-
-  .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--content {
-    flex: 2;
-    padding-left: 1em;
+  /* Alternative: If the container is wrapping your table, exclude it from flex */
+  .container:has(.table-container) {
+    display: block !important;
+    flex-wrap: initial !important;
   }
 }
 
@@ -8811,7 +8811,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     & .Rtable-cell--content {
       a {
         font-size: 10px;
-        color: #333;
       }
     }
   }

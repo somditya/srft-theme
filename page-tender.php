@@ -57,42 +57,42 @@ $category_id = get_category_ID( $category_name );
                 <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>
                 <thead>
                   <tr class="Rtable-row Rtable-row--head">
-                    <th class="Rtable-cell location-cell column-heading"><?php echo esc_html__( 'SL.No.', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell id-cell column-heading"><?php echo esc_html__( 'Tender ID', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell name-cell column-heading"><?php echo esc_html__( 'Tender Title', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell tenure-cell column-heading"><?php echo esc_html__( 'Publish Date', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell tenure-cell column-heading"><?php echo esc_html__( 'Due Date', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell access-link-cell column-heading"><?php echo esc_html__( 'Access Link', 'srft-theme' ); ?></th>
-                    <th class="Rtable-cell location-cell column-heading"><?php echo esc_html__( 'Tender Status', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-10-percent column-heading" scope="row"><?php echo esc_html__( 'SL.No.', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-15-percent column-heading" scope="row"><?php echo esc_html__( 'Tender ID', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-25-percent column-heading" scope="row"><?php echo esc_html__( 'Tender Title', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-10-percent column-heading" scope="row"><?php echo esc_html__( 'Publish Date', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-10-percent column-heading" scope="row"><?php echo esc_html__( 'Due Date', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-20-percent column-heading" scope="row"><?php echo esc_html__( 'Access Link', 'srft-theme' ); ?></th>
+                    <th class="Rtable-cell cell-width-10-percent column-heading" scope="row"><?php echo esc_html__( 'Tender Status', 'srft-theme' ); ?></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="Rtable-row" data-ng-repeat="tender in pagedTender track by $index">
-                    <td class="Rtable-cell location-cell">
+                    <td class="Rtable-cell cell-width-10-percent">
                       <div class="Rtable-cell--content date-content"><span class="SL">{{ (($parent.currentPage-1)*itemsPerPage) + $index + 1 }}</span></div>
                     </td>
 
-                    <td class="Rtable-cell id-cell">
+                    <td class="Rtable-cell cell-width-15-percent">
                       <div class="Rtable-cell--content">{{ tender.ID }}</div>
                     </td>
 
-                    <th class="Rtable-cell name-cell" scope="row">
+                    <th class="Rtable-cell cell-width-25-percent" scope="row">
                       <div class="Rtable-cell--content">{{ tender.title }}</div>
                     </th>
 
-                    <td class="Rtable-cell tenure-cell">
+                    <td class="Rtable-cell cell-width-10-percent">
                       <div class="Rtable-cell--content"><span class="webinar-date"><time datetime="{{ tender.pubdate | date:'yyyy-MM-dd' }}">
     {{ tender.pubdate | date:'dd/MM/yyyy' }}
   </time></span></div>
                     </td>
 
-                    <td class="Rtable-cell tenure-cell">
+                    <td class="Rtable-cell cell-width-10-percent">
                       <div class="Rtable-cell--content"><span class="webinar-date" data-ng-if="tender.subdate"><time datetime="{{ tender.subdate | date:'yyyy-MM-dd' }}" data-ng-if="tender.subdate">
     {{ tender.subdate | date:'dd/MM/yyyy' }}
   </time></span><span data-ng-if="!tender.subdate">—</span></div>
                     </td>
 
-                    <td class="Rtable-cell access-link-cell">
+                    <td class="Rtable-cell cell-width-20-percent">
                       <div class="Rtable-cell--content access-link-content" data-ng-if="tender.file && tender.file.url">
                         <a data-ng-href="{{ tender.file.url }}" target="_blank" rel="noopener">
                           <img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/pdf_icon_resized.png">
@@ -102,7 +102,7 @@ $category_id = get_category_ID( $category_name );
                       <div class="Rtable-cell--content" data-ng-if="!tender.file || !tender.file.url">—</div>
                     </td>
 
-                    <td class="Rtable-cell location-cell">
+                    <td class="Rtable-cell cell-width-10-percent">
                       <div class="Rtable-cell--content access-link-content">
                         <p data-ng-if="tender.isSubmissionOpen"><?php echo esc_html__( 'Open', 'srft-theme' ); ?></p>
                         <p data-ng-if="!tender.isSubmissionOpen"><?php echo esc_html__( 'Closed', 'srft-theme' ); ?></p>
