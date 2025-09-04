@@ -73,8 +73,8 @@ $current_language = get_locale();
             </div>
 
             <div style="margin-top: 4rem;">
-                    <div class="Rtable Rtable--5cols table-container">
-                        <table style="width: 100%;">
+                    <div class="table-container">
+                        <table>
                         <caption class="sr-only">table showing yearwise downloadable annual reports</caption>    
                         <thead>
                         <tr class="Rtable-row Rtable-row--head">
