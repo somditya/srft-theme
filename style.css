@@ -7847,6 +7847,18 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: block !important;
     flex-wrap: initial !important;
   }
+
+  .main-content .table-container {
+    display: block !important; /* Override flex display */
+    flex: none !important; /* Remove flex properties */
+    width: 100% !important; /* Ensure full width */
+    min-width: 0 !important; /* Allow shrinking */
+  }
+
+  .main-content:has(.table-container) {
+    display: block !important;
+    flex-wrap: initial !important;
+  }
 }
 
 /**************************/
