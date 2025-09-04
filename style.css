@@ -1321,6 +1321,11 @@ ol li {
   /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
+#breadcrumbs .breadcrumb_last {
+  color: #000000;
+  font-weight: 500;
+}
+
 .tooltip-box {
   position: relative;
   display: inline-block;
