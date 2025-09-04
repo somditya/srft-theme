@@ -155,7 +155,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>
                 <div><h4><?php echo __('Present Member of the Society', 'srft-theme'); ?></h4></div>
-                    <div class="Rtable Rtable--5cols .table-container">
+                    <div class="table-container">
                         <table style="width: 100%;">
                         <caption class="sr-only"> Table listing the current members of the society </caption>    
                         <thead>    
@@ -219,7 +219,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>-->
                 <div><h4><?php echo __('Present Member of the Interim Executive Council', 'srft-theme'); ?></h4></div>
-                    <div class="Rtable Rtable--5cols .table-container">
+                    <div class="table-container">
                         <table style="width: 100%;">
                             <caption class="sr-only">Table listing the present members of the interim executive council </caption>
                         <thead>
@@ -285,7 +285,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                     ?>
                 </div>
                 <div><h4><?php echo __('Present Member of the Academic Council', 'srft-theme'); ?></h4></div>
-                    <div class="Rtable Rtable--5cols .table-container">
+                    <div class="table-container">
                         <table style="width: 100%">
                                                   <caption class="sr-only">Table listing the present members of the academic council </caption>    
                         <tr class="Rtable-row Rtable-row--head">
