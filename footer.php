@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Announce for screen readers
     if (liveRegion) {
-      liveRegion.textContent = `Image dialog opened. Showing ${img.alt}. Press Tab to navigate inside.`;
+      liveRegion.textContent = `Image dialog opened. Showing ${img.alt}. Press Esc to close the dialog.`;
     }
 
     // Move focus to close button
