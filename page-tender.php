@@ -40,11 +40,13 @@ $category_id = get_category_ID( $category_name );
             <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
 
             <label for="filterField"><?php echo esc_html__( 'Search:', 'srft-theme' ); ?></label>
-            <input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo esc_attr__( 'Search by keyword', 'srft-theme' ); ?>" data-ng-change="applyFilters()">
+            <input type="text" id="filterField" aria-describedby="searchInstruction" data-ng-model="filterField" placeholder="<?php echo esc_attr__( 'Search by keyword', 'srft-theme' ); ?>" data-ng-change="applyFilters()">
 
             <button type="button" data-ng-click="resetFilters()"><?php echo esc_html__( 'Reset', 'srft-theme' ); ?></button>
           </div>
-
+          <p id="searchInstruction" class="sr-only">
+  <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
+</p>
           <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
 
           <!-- Loading & error -->

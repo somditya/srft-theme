@@ -39,13 +39,15 @@ $category_id   = get_category_ID($category_name);
             <label for="toDate"><?php echo esc_html__('To date: ', 'srft-theme'); ?></label>
             <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
             <label for="filterField"><?php echo esc_html__('Search:', 'srft-theme'); ?></label>
-            <input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo esc_attr__('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
+            <input type="text" id="filterField" aria-describedby="searchInstruction" data-ng-model="filterField" placeholder="<?php echo esc_attr__('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
             <button type="button" data-ng-click="resetFilters()"><?php echo esc_html__('Reset', 'srft-theme'); ?></button>
           </div>
 
           <!-- Live status messages -->
           <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
-
+           <p id="searchInstruction" class="sr-only">
+            <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
+          </p>
           <!-- Loading / Error -->
           <p data-ng-if="isLoading"><?php echo esc_html__('Loading vacancies…', 'srft-theme'); ?></p>
           <p data-ng-if="loadError" style="color:#b00020;"><?php echo esc_html__('Failed to load vacancies. Please try again later.', 'srft-theme'); ?></p>
