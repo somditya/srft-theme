@@ -318,28 +318,29 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
   });
 </script>-->
 <script>
-   document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   function openPicModal(event) {
     const modal = document.getElementById("picModal");
     const modalBody = modal.querySelector(".modal-body");
     const closeBtn = modal.querySelector(".close");
     const liveRegion = document.getElementById("ariaLiveRegion");
 
-    // The button that triggered the modal
     const triggerBtn = event.currentTarget;
     const img = triggerBtn.querySelector("img");
 
-    // Fill modal content
+    // Insert image into modal
     modalBody.innerHTML = `
       <img src="${img.src}" alt="${img.alt}" style="max-width:100%; height:auto;">
     `;
 
-    // Announce opening
-    liveRegion.textContent = `Image dialog opened. Showing ${img.alt}. Press Tab to navigate inside.`;
-
     // Show modal
     modal.classList.remove("hidden");
     modal.setAttribute("aria-hidden", "false");
+
+    // Announce for screen readers
+    if (liveRegion) {
+      liveRegion.textContent = `Image dialog opened. Showing ${img.alt}. Press Tab to navigate inside.`;
+    }
 
     // Move focus to close button
     closeBtn.focus();
@@ -351,7 +352,7 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
     const firstEl = focusableEls[0];
     const lastEl = focusableEls[focusableEls.length - 1];
 
-    // Focus trap (Tab / Shift+Tab only)
+    // Trap focus inside modal
     function trapFocus(e) {
       if (e.key !== "Tab") return;
 
@@ -374,10 +375,11 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
       modal.setAttribute("aria-hidden", "true");
       modalBody.innerHTML = "";
 
-      // Announce closing
-      liveRegion.textContent = "Dialog closed. Returning to main content.";
+      if (liveRegion) {
+        liveRegion.textContent = "Dialog closed. Returning to main content.";
+      }
 
-      // Restore focus to trigger button
+      // Restore focus to the trigger
       triggerBtn.focus();
 
       // Cleanup listeners
@@ -387,14 +389,14 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
       modal.removeEventListener("click", outsideHandler);
     }
 
-    // Escape key closes
+    // Escape closes
     function escHandler(e) {
       if (e.key === "Escape") {
         closeModal();
       }
     }
 
-    // Clicking outside modal closes
+    // Click outside closes
     function outsideHandler(e) {
       if (e.target === modal) {
         closeModal();

@@ -158,6 +158,7 @@ $page_content = apply_filters('the_content', $post->post_content);
   </div>
 </div>
 
+<div id="ariaLiveRegion" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 
     </main>
 
