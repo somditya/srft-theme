@@ -321,56 +321,102 @@ $('.owl-next, .owl-prev').on('keypress', function(e) {
   });
 </script>-->
 <script>
-  console.log("Gi Joe");
-  document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", () => {
+  function openPicModal(event) {
     const modal = document.getElementById("picModal");
     const modalBody = modal.querySelector(".modal-body");
     const closeBtn = modal.querySelector(".close");
+    const liveRegion = document.getElementById("ariaLiveRegion");
 
-    let lastFocusedElement = null; // store the element that opened the modal
+    // The button that triggered the modal
+    const triggerBtn = event.currentTarget;
+    const img = triggerBtn.querySelector("img");
 
-    // Open modal
-    document.querySelectorAll(".gallery-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        console.log('Inside');
-        const img = btn.querySelector("img");
+    // Fill modal content
+    modalBody.innerHTML = `
+      <img src="${img.src}" alt="${img.alt}" style="max-width:100%; height:auto;">
+    `;
 
-        // Save the button that triggered modal
-        lastFocusedElement = btn;
+    // Announce opening
+    liveRegion.textContent = `Image dialog opened. Showing ${img.alt}. Press Tab to navigate inside.`;
 
-        modalBody.innerHTML = `
-          <img src="${img.src}" alt="${img.alt}" style="max-width:100%; height:auto;">
-        `;
-        modal.classList.remove("hidden");
+    // Show modal
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
 
-        // Move focus to close button
-        closeBtn.focus();
-      });
-    });
+    // Move focus to close button
+    closeBtn.focus();
+
+    // Collect all focusable elements inside modal
+    const focusableSelectors =
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusableEls = modal.querySelectorAll(focusableSelectors);
+    const firstEl = focusableEls[0];
+    const lastEl = focusableEls[focusableEls.length - 1];
+
+    // Focus trap (Tab / Shift+Tab only)
+    function trapFocus(e) {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
 
     // Close modal
     function closeModal() {
       modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
       modalBody.innerHTML = "";
 
-      // Return focus to the last focused element (the button that opened modal)
-      if (lastFocusedElement) {
-        lastFocusedElement.focus();
+      // Announce closing
+      liveRegion.textContent = "Dialog closed. Returning to main content.";
+
+      // Restore focus to trigger button
+      triggerBtn.focus();
+
+      // Cleanup listeners
+      closeBtn.removeEventListener("click", closeModal);
+      document.removeEventListener("keydown", escHandler);
+      document.removeEventListener("keydown", trapFocus);
+      modal.removeEventListener("click", outsideHandler);
+    }
+
+    // Escape key closes
+    function escHandler(e) {
+      if (e.key === "Escape") {
+        closeModal();
       }
     }
 
-    closeBtn.addEventListener("click", closeModal);
-
-    // Close on Esc
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    // Clicking outside modal closes
+    function outsideHandler(e) {
+      if (e.target === modal) {
         closeModal();
       }
-    });
+    }
+
+    // Attach listeners
+    closeBtn.addEventListener("click", closeModal);
+    document.addEventListener("keydown", escHandler);
+    document.addEventListener("keydown", trapFocus);
+    modal.addEventListener("click", outsideHandler);
+  }
+
+  // Attach to all gallery buttons
+  document.querySelectorAll(".gallery-btn").forEach(btn => {
+    btn.addEventListener("click", openPicModal);
   });
+});
 </script>
-
-
 
 
 <?php wp_footer(); ?>
