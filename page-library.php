@@ -109,7 +109,7 @@ $current_language = get_locale();
     <!--<div>
         <p class="page-header-text"><?php echo __('Library of SRFTI', 'srft-theme' ); ?></p>
     </div>-->
-    <section style="margin-bottom: 4rem;">
+    <section style="margin-bottom: 4rem;" class="content">
     <?php echo str_replace(array('<p>', '</p>'), '', $page_content);
  ?>   
     </section>

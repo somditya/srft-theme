@@ -408,6 +408,12 @@ body {
   flex-direction: column;
 }
 
+.link-div a:hover {
+  background-color: #161a1d !important; /* if you really need to force it */
+  color: #f5f5f5 !important;
+  text-decoration: none !important;
+}
+
 @keyframes slideright {
   from {
     margin-left: 0%;
