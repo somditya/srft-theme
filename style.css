@@ -7859,6 +7859,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: block !important;
     flex-wrap: initial !important;
   }
+
+  .main-content:has(.content) {
+    display: block !important;
+    flex-wrap: initial !important;
+  }
 }
 
 /**************************/

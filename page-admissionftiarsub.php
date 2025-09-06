@@ -155,7 +155,7 @@ $current_language = get_locale();
             <div><h2 class="page-header-text"><?php the_title(); ?></h2></div>
         </div>
 
-        <div>
+        <div class="content">
             <div style="margin-bottom: 2.5rem;">
                 <?php echo $page_content; ?>
             </div>
