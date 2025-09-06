@@ -42,7 +42,10 @@ $category_id = get_category_ID($category_name);
             <div class="main-content">
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students’ Highlights', 'srft-theme'); ?></h2>
 
-                <section style="width: 100%; padding: 2.8rem 0;" id="student-slider">
+                <section style="width: 100%; padding: 2.8rem 0;" id="student-slider" role="region" aria-label="Student news carousel" aria-describedby="carousel-instructions">
+                    <p id="carousel-instructions" class="sr-only">
+    This is a carousel. Use the next and previous controls to navigate between student news items.
+  </p>
                     <div class="frame">
                         <ul class="slider" style="height: 370px;">
                             <?php
@@ -112,13 +115,17 @@ $category_id = get_category_ID($category_name);
         </section>
 
         <!-- Modal -->
-        <div id="postModal" role="dialog" class="hidden modal-overlay" aria-hidden="true" aria-modal="true" aria-labelledby="modalTitle">
+<div id="postModal" role="dialog" class="hidden modal-overlay" aria-hidden="true" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
     <button class="close" aria-label="Close modal">✕</button>
     <div id="modalTitle"></div>
     <div id="modalContent" class="modal-body"></div>
   </div>
 </div>
+
+<div id="ariaLiveRegion" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+
+
 
         <script>
             var categoryID = <?php echo json_encode($category_id); ?>;
@@ -158,60 +165,96 @@ $category_id = get_category_ID($category_name);
                         });
 
                     $scope.openModal = function (title, content, $event) {
-                        const modal = document.getElementById('postModal');
-                        const titleBox = document.getElementById('modalTitle');
-                        const contentBox = document.getElementById('modalContent');
-                        const closeBtn = modal.querySelector('.close');
+    const modal = document.getElementById('postModal');
+    const titleBox = document.getElementById('modalTitle');
+    const contentBox = document.getElementById('modalContent');
+    const closeBtn = modal.querySelector('.close');
+    const liveRegion = document.getElementById('ariaLiveRegion');
 
-                        // Fill modal
-                        titleBox.innerHTML = `<h2><?php echo __('Students Film Batch', 'srft-theme'); ?> ${title}</h2>`;
-                        contentBox.innerHTML = content;
+    // Fill modal content
+    titleBox.innerHTML = `<h2><?php echo __('Students Film Batch', 'srft-theme'); ?> ${title}</h2>`;
+    contentBox.innerHTML = content;
 
-                        // Track the triggering button
-                        const triggerBtn = $event.currentTarget;
+    // Announce opening
+    liveRegion.textContent = `Dialog opened. Students Film Batch ${title}. Press Tab to navigate inside.`;
 
-                        // Show modal
-                        modal.classList.remove('hidden');
-                        modal.setAttribute('aria-hidden', 'false');
+    // Track the triggering button
+    const triggerBtn = $event.currentTarget;
 
-                        // Move focus to close button
-                        closeBtn.focus();
+    // Show modal
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
 
-                        // Define close handler
-                        function closeModal() {
-                            modal.classList.add('hidden');
-                            modal.setAttribute('aria-hidden', 'true');
-                            titleBox.innerHTML = '';
-                            contentBox.innerHTML = '';
+    // Move focus to close button
+    closeBtn.focus();
 
-                            // Restore focus to the trigger button
-                            triggerBtn.focus();
+    // Collect all focusable elements in modal
+    const focusableSelectors =
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusableEls = modal.querySelectorAll(focusableSelectors);
+    const firstEl = focusableEls[0];
+    const lastEl = focusableEls[focusableEls.length - 1];
 
-                            // Cleanup listeners
-                            closeBtn.removeEventListener('click', closeModal);
-                            document.removeEventListener('keydown', escHandler);
-                            modal.removeEventListener('click', outsideHandler);
-                        }
+    // Focus trap (only for Tab / Shift+Tab)
+    function trapFocus(e) {
+        if (e.key !== 'Tab') return; // allow arrows and everything else
 
-                        // Esc key handler
-                        function escHandler(e) {
-                            if (e.key === 'Escape') {
-                                closeModal();
-                            }
-                        }
+        if (e.shiftKey) {
+            // Shift + Tab
+            if (document.activeElement === firstEl) {
+                e.preventDefault();
+                lastEl.focus();
+            }
+        } else {
+            // Tab
+            if (document.activeElement === lastEl) {
+                e.preventDefault();
+                firstEl.focus();
+            }
+        }
+    }
 
-                        // Outside click handler
-                        function outsideHandler(e) {
-                            if (e.target === modal) {
-                                closeModal();
-                            }
-                        }
+    // Close modal
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        titleBox.innerHTML = '';
+        contentBox.innerHTML = '';
 
-                        // Attach listeners
-                        closeBtn.addEventListener('click', closeModal);
-                        document.addEventListener('keydown', escHandler);
-                        modal.addEventListener('click', outsideHandler);
-                    };
+        // Announce closing
+        liveRegion.textContent = 'Dialog closed. Returning to main content.';
+
+        // Restore focus to the trigger button
+        triggerBtn.focus();
+
+        // Cleanup listeners
+        closeBtn.removeEventListener('click', closeModal);
+        document.removeEventListener('keydown', escHandler);
+        document.removeEventListener('keydown', trapFocus);
+        modal.removeEventListener('click', outsideHandler);
+    }
+
+    // Escape closes
+    function escHandler(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    }
+
+    // Clicking outside closes
+    function outsideHandler(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Attach listeners
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', escHandler);
+    document.addEventListener('keydown', trapFocus);
+    modal.addEventListener('click', outsideHandler);
+};
+
                 });
         </script>
 
