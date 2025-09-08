@@ -136,8 +136,8 @@ $current_language = get_locale();
   <div id="accessibility-menu" class="hidden" role="dialog"
       aria-modal="true" aria-hidden="true"
       tabindex="-1">
-      <div class="text-resize">
-          <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
+      <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
+      <div role="list" class="text-resize">
           <button class="increaseFont" type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
               <i class="fas fa-search-plus"></i>
           </button>
@@ -148,8 +148,8 @@ $current_language = get_locale();
           <i class="fas fa-sync-alt"></i>
           </button>
       </div>
-      <div class="color-adjustment">
-          <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
+       <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
+      <div role="list" class="color-adjustment">
           <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
               <i class="fas fa-adjust"></i>
           </button>
