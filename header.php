@@ -62,7 +62,7 @@ $current_language = get_locale();
 
   <header class="sticky" >
          <!--<nav id="nav-wrapper">-->
-       <div class="top_header" role="banner">
+       <div class="top_header">
          <!--<div>
            <ul style="display:flex;">
            <li> <marquee style="color: white;"><?php echo __('Important Notice: The admission deadline for the Master\'s Course has been extended to 31st July, 2025.', 'srft-theme'); ?>
@@ -133,33 +133,35 @@ $current_language = get_locale();
       </ul>
 </div>
 <!-- Accessibility Menu -->
-<div id="accessibility-menu" class="hidden">
-    <div class="text-resize">
-        <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-        <button type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
-            <i class="fas fa-search-plus"></i>
-        </button>
-        <button type="button" title="Decrerase font size" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
-            <i class="fas fa-search-minus"></i>
-        </button>
-        <button type="button" title="Normal font size" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
-        <i class="fas fa-sync-alt"></i>
-        </button>
-    </div>
-    <div class="color-adjustment">
-        <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-        <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
-            <i class="fas fa-adjust"></i>
-        </button>
-        <button type="button" title="High contrast view" id="dark-mode" aria-label="Set low contrast">
-            <i class="fas fa-moon" ></i>
-        </button>
-    </div>
-    <!--<div class="color-adjustment">
-        <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
-        <?php echo __('Screen Reader', 'srft-theme' ); ?>
-    </div>-->
-</div>
+  <div id="accessibility-menu" class="hidden" role="dialog"
+      aria-modal="true" aria-hidden="true"
+      tabindex="-1">
+      <div class="text-resize">
+          <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
+          <button class="increaseFont" type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
+              <i class="fas fa-search-plus"></i>
+          </button>
+          <button class="decreaseFont" type="button" title="Decrerase font size" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
+              <i class="fas fa-search-minus"></i>
+          </button>
+          <button class="normalFont" type="button" title="Normal font size" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
+          <i class="fas fa-sync-alt"></i>
+          </button>
+      </div>
+      <div class="color-adjustment">
+          <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
+          <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
+              <i class="fas fa-adjust"></i>
+          </button>
+          <button type="button" title="High contrast view" id="dark-mode" aria-label="Set low contrast">
+              <i class="fas fa-moon" ></i>
+          </button>
+      </div>
+      <!--<div class="color-adjustment">
+          <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
+          <?php echo __('Screen Reader', 'srft-theme' ); ?>
+      </div>-->
+  </div>
 
        <!--</div>-->
        <div class="menu-container">
@@ -356,7 +358,8 @@ if ($current_language === 'en_US') {
       </div>  
   </header>
   <?php if (is_page('home')) : ?> 
-<section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel" aria-label="Highlighted television shows">
+<main role="main">    
+<section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
   <div class="carousel-inner">
     <div class="controls">
       <button class="rotation" type="button">

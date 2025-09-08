@@ -11,12 +11,11 @@ Template Name: Home
 ?>
 
 
-<main role="main">
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
             <div id="skip-to-content" class="acme-news-ticker">
-            <div class="acme-news-ticker-label">
+            <h2 class="acme-news-ticker-label">
             <?php echo __('Announcements', 'srft-theme' ); ?> &nbsp;
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
                         <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -24,7 +23,7 @@ Template Name: Home
                             <path d="M12 3l9 9-9 9"></path>
                         </g>
                     </svg>
-                </div>
+                </h2>
             <div class="acme-news-ticker-box">
     <div>
         <ul class="news-ticker">
@@ -110,8 +109,12 @@ Template Name: Home
     <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
+
+    <p id="carousel-instructions" class="sr-only">
+    This is a carousel. Use the next and previous controls to navigate between award items.
+  </p>
        
-       <div class="frame">
+       <div class="frame" aria-label="Feature News carousal" aria-describedby="carousel-instructions">
        <ul class="slider"  style="height: 370px;">
             <?php
             $post_id = get_the_ID();
@@ -210,8 +213,8 @@ else
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
     <div class="section-into-text" style="padding:25px;">
-      <h3 style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
-      <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></h3>
+      <p style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br role="presentaion">
+      <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></p>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank" >
             <img src="<?php bloginfo('template_url'); ?>/images/cilect.png"  alt="CILECT" >
@@ -338,77 +341,77 @@ else
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
           </a>
-          <h5><?php echo __('Amal Neerad', 'srft-theme'); ?></h5>
+          <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="Picture of Kanu Behl" />
           </a>
-          <h5><?php echo __('Kanu Behl', 'srft-theme'); ?></h5>
+          <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="Picture of Namrata Rao" />
           </a>
-          <h5><?php echo __('Namrata Rao', 'srft-theme'); ?></h5>
+          <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
           </a>
-          <h5><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></h5>
+          <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="Picture of Pritha Chakraborty" />
           </a>
-          <h5><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></h5>
+          <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="Picture of Madhura Palit" />
           </a>
-          <h5><?php echo __('Madhura Palit', 'srft-theme'); ?></h5>
+          <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="Picture of Avijit Sen" />
           </a>
-          <h5><?php echo __('Abhijit Sen', 'srft-theme'); ?></h5>
+          <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="Picture of Sagar Ballary" />
           </a>
-          <h5><?php echo __('Sagar Ballary', 'srft-theme'); ?></h5>
+          <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="Picture of Pritam Das" />
           </a>
-          <h5><?php echo __('Pritam Das', 'srft-theme'); ?></h5>
+          <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="Picture of Sourav Rai" />
           </a>
-          <h5><?php echo __('Sourav Rai', 'srft-theme'); ?></h5>
+          <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
         </div>
 
         <div class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="Picture of Dominic Sangma" />
           </a>
-          <h5><?php echo __('Dominic Sangma', 'srft-theme'); ?></h5>
+          <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
         </div>
       </div>
     </div>
@@ -419,7 +422,10 @@ else
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">
     <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
     <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winnng Student Films', 'srft-theme' ); ?></h2>
-    <div class="frame">
+    <p id="carousel-instructions" class="sr-only">
+    This is a carousel. Use the next and previous controls to navigate between award items.
+  </p>
+    <div class="frame" aria-label="Award Winnng Student Films carousel" aria-describedby="carousel-instructions">
       <ul class="slider"  style="height: 370px;">
         <?php
         $post_id = get_the_ID();
@@ -451,7 +457,7 @@ else
         <li>
           <div class="news-item">
           <a href="<?php the_permalink(); ?>" target="_blank" >
-          <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=" "  style="display: block;">
+          <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=""  style="display: block;">
           <div class="news-item-title">
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>
@@ -600,7 +606,7 @@ else
                 (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
             <?php endif; ?>
-        </a> </p><br/>
+        </a> </p><br role="presenttaion">
         <?php endwhile; wp_reset_postdata(); else : ?>
             <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
         <?php endif; ?>
@@ -633,6 +639,7 @@ $final_url = site_url("/$slug/");
 </div>
 </div>
 </section>
+</main>
 <?php
 get_footer(); 
 ?>

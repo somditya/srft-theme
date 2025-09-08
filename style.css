@@ -681,6 +681,7 @@ body {
   box-sizing: border-box; /* Ensure padding does not affect width */
   font-size: 1.6rem;
   line-height: 1.8;
+  padding: 0 3.2rem;
 }
 
 .header-image {
@@ -5304,7 +5305,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
     margin-top: 0;
   }
 }
-.acme-news-ticker-label {
+
+h2.acme-news-ticker-label {
+  all: unset;
   padding: 10px;
   width: auto;
   float: left;
@@ -5313,6 +5316,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   height: 100%;
   color: #fff;
 }
+
 @media (max-width: 575px) {
   .acme-news-ticker-label {
     position: absolute;
@@ -6179,6 +6183,13 @@ header {
   padding-top: 1.5rem;
   font-size: 1.5rem;
   margin: 0;
+}
+
+.alumni p {
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 500;
 }
 
 .linkTitle {

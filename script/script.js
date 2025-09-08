@@ -241,6 +241,242 @@ $(document).ready(function () {
   });
 });
 
+/*       */
+
+$(document).ready(function () {
+  console.log("Inside the accessibility div section.");
+
+  // Check for stored dark mode state
+  if (localStorage.getItem("darkMode") === "enabled") {
+    $("body").addClass("dark-mode");
+    console.log("Dark mode is enabled from storage.");
+  }
+
+  // Font Size Adjustment - Initialize variables
+  const defaultFontSize = parseFloat($("html").css("font-size"));
+  let currentFontSize = defaultFontSize;
+
+  // Handle font size increase
+  $(".increaseFont").on("click", function () {
+    if (currentFontSize < 30) {
+      currentFontSize += 2;
+      $("html").css("font-size", currentFontSize + "px");
+      console.log("Font size increased to:", currentFontSize + "px");
+    }
+  });
+
+  // Handle font size decrease
+  $(".decreaseFont").on("click", function () {
+    if (currentFontSize > 10) {
+      currentFontSize -= 2;
+      $("html").css("font-size", currentFontSize + "px");
+      console.log("Font size decreased to:", currentFontSize + "px");
+    }
+  });
+
+  // Dark Mode Toggle
+  $("#dark-mode").on("click", function () {
+    $("body").removeClass("high-contrast").addClass("dark-mode");
+    localStorage.setItem("darkMode", "enabled");
+    console.log("Dark mode activated.");
+  });
+
+  // High Contrast Mode Toggle
+  $("#high-contrast").on("click", function () {
+    $("body").removeClass("dark-mode").addClass("high-contrast");
+    localStorage.setItem("darkMode", "disabled");
+    console.log("High contrast mode activated.");
+  });
+
+  // Reset Font Size
+  $(".normalFont, #reset-text").on("click", function () {
+    currentFontSize = defaultFontSize;
+    $("html").css("font-size", currentFontSize + "px");
+    console.log("Font size reset to default:", currentFontSize + "px");
+  });
+
+  // ---- Accessibility menu focus-trap ----
+  const $menu = $("#accessibility-menu");
+  const $opener = $("#accessibility-icon");
+
+  // Check if elements exist
+  if ($opener.length === 0) {
+    console.error("Accessibility icon not found!");
+    return;
+  }
+  if ($menu.length === 0) {
+    console.error("Accessibility menu not found!");
+    return;
+  }
+
+  console.log("Accessibility elements found successfully");
+
+  // ARIA wiring
+  $opener.attr({
+    "aria-controls": "accessibility-menu",
+    "aria-haspopup": "dialog",
+    "aria-expanded": "false",
+  });
+  $menu.attr({
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-hidden": $menu.hasClass("hidden") ? "true" : "false",
+    tabindex: "-1",
+  });
+
+  let lastFocused = null;
+
+  // Toggle handler
+  $opener.on("click", function (e) {
+    console.log("Accessibility button clicked!");
+    e.preventDefault();
+    e.stopPropagation();
+
+    if ($menu.hasClass("hidden")) {
+      console.log("Menu is hidden, opening...");
+      openMenu();
+    } else {
+      console.log("Menu is visible, closing...");
+      closeMenu();
+    }
+  });
+
+  function openMenu() {
+    console.log("openMenu() called");
+    lastFocused = document.activeElement;
+
+    $menu.removeClass("hidden").attr("aria-hidden", "false");
+    $opener.attr("aria-expanded", "true");
+
+    console.log("Menu should now be visible");
+    console.log("Menu has 'hidden' class:", $menu.hasClass("hidden"));
+
+    // Focus first focusable element inside
+    const focusableElements = focusables();
+    console.log("Found " + focusableElements.length + " focusable elements");
+    if (focusableElements.length > 0) {
+      focusableElements.first().trigger("focus");
+    }
+
+    // Add event listeners
+    $(document).on("keydown.accessMenu", onKeyDown);
+    $(document).on("focusin.accessMenu", keepFocusInside);
+  }
+
+  function closeMenu() {
+    console.log("closeMenu() called");
+    $menu.addClass("hidden").attr("aria-hidden", "true");
+    $opener.attr("aria-expanded", "false");
+
+    // Remove event listeners
+    $(document).off(".accessMenu");
+
+    // Return focus
+    if (lastFocused && $(lastFocused).length) {
+      $(lastFocused).trigger("focus");
+    } else {
+      $opener.trigger("focus");
+    }
+  }
+
+  function focusables() {
+    return $menu
+      .find(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )
+      .filter(":visible:not([disabled])");
+  }
+
+  function onKeyDown(e) {
+    // Close on ESC
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeMenu();
+      return;
+    }
+
+    // Trap Tab
+    if (e.key === "Tab") {
+      const $items = focusables();
+      if ($items.length === 0) return;
+
+      const $first = $items.first();
+      const $last = $items.last();
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if ($(document.activeElement).is($first)) {
+          e.preventDefault();
+          $last.trigger("focus");
+        }
+      } else {
+        // Tab
+        if ($(document.activeElement).is($last)) {
+          e.preventDefault();
+          $first.trigger("focus");
+        }
+      }
+    }
+
+    // Arrow navigation across buttons
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      moveBy(1);
+    }
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      moveBy(-1);
+    }
+  }
+
+  function keepFocusInside(e) {
+    if (
+      !$menu.hasClass("hidden") &&
+      !$menu[0].contains(e.target) &&
+      e.target !== $opener[0]
+    ) {
+      e.preventDefault();
+      const focusableElements = focusables();
+      if (focusableElements.length > 0) {
+        focusableElements.first().trigger("focus");
+      }
+    }
+  }
+
+  function moveBy(delta) {
+    const $buttons = $menu.find("button:visible:not([disabled])");
+    if ($buttons.length === 0) return;
+
+    const currentIndex = $buttons.index($(document.activeElement));
+    let nextIndex;
+
+    if (currentIndex === -1) {
+      // If no button is focused, focus the first one
+      nextIndex = 0;
+    } else {
+      nextIndex = (currentIndex + delta + $buttons.length) % $buttons.length;
+    }
+
+    $buttons.eq(nextIndex).trigger("focus");
+  }
+
+  // Close menu when clicking outside
+  $(document).on("click", function (e) {
+    if (
+      !$menu.hasClass("hidden") &&
+      !$menu[0].contains(e.target) &&
+      !$opener[0].contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  console.log("Accessibility menu setup complete!");
+});
+
+/*    */
+
+/*
 $(document).ready(function () {
   console.log("Document is ready.");
 
@@ -276,17 +512,7 @@ $(document).ready(function () {
     console.log("Font size reset to default.");
   });
 
-  // Modal functionality
-  //$(".single-image").click(function () {
-  //var t = $(this).attr("src");
-  //$(".modal-body").html("<img src='" + t + "' class='modal-img'>");
-  //$("#myModal").show();
-  //});
-
-  //$(".close").click(function () {
-  //$("#myModal").hide();
-  //});
-});
+});*/
 // Font Size Adjustment
 
 const defaultFontSize = parseFloat($("html").css("font-size")); // Capture the initial root font size
