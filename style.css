@@ -697,6 +697,21 @@ body {
   max-width: 300px;
 }
 
+.search-box input[type="search"],
+.search-box input[type="text"] {
+  outline: none; /* remove default browser outline */
+  border: 2px solid #ccc; /* normal border */
+  border-radius: 0; /* keep rectangular */
+  padding: 6px 10px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.search-box input[type="search"]:focus,
+.search-box input[type="text"]:focus {
+  border-color: #0073e6; /* highlight border */
+  box-shadow: 0 0 0 3px rgba(0, 115, 230, 0.3); /* rectangular glow */
+}
+
 .search-box .is-search-submit:focus {
   border: 2px solid #0073aa; /* Customize color */
   outline: none; /* Removes default outline */
@@ -704,7 +719,23 @@ body {
   padding: 2px; /* Optional: give room for border */
   box-shadow: 0 0 3px rgba(0, 115, 170, 0.5); /* Optional glow */
 }
-/* end of singel page */
+
+/* ---------- Rectangular focus for Ivory Search / any input inside .search-box ---------- */
+
+.search-box {
+  width: auto;
+  max-width: 300px;
+  border: 1px solid transparent; /* default no border */
+  padding: 6px; /* space inside border */
+  border-radius: 0; /* rectangular */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* When any child (input) is focused */
+.search-box:focus-within {
+  border: 2px solid #ffffff; /* white border */
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.25); /* halo around */
+}
 
 .status-symbol {
   display: inline-block;
@@ -1727,7 +1758,7 @@ ol li {
 /* 4) Focus outline for accessibility */
 .a11y-slider-container > button.a11y-slider-prev:focus-visible,
 .a11y-slider-container > button.a11y-slider-next:focus-visible {
-  outline: 3px solid #66afe9;
+  outline: 3px solid #000000;
   outline-offset: 2px;
 }
 
