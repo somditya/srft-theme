@@ -53,7 +53,7 @@ $category_id = get_category_ID( $category_name );
           <p data-ng-if="isLoading"><?php echo esc_html__( 'Loading tenders…', 'srft-theme' ); ?></p>
           <p data-ng-if="loadError" style="color:#b00020;"><?php echo esc_html__( 'Failed to load tenders. Please try again later.', 'srft-theme' ); ?></p>
 
-          <div class="wrapper" data-ng-if="!isLoading && !loadError">
+          <div class="wrapper" style="padding: 0 3.2rem;" data-ng-if="!isLoading && !loadError">
             <div class="table-container">
               <table>
                 <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>

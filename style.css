@@ -953,7 +953,7 @@ ol li {
   width: 100%;
   max-width: 100%;
   margin: 1em auto;
-  padding: 0 3.2rem;
+  /*padding: 0 3.2rem;*/
   overflow-x: hidden;
   box-sizing: border-box;
 }
