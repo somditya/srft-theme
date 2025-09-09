@@ -2198,6 +2198,12 @@ ol li {
   justify-content: flex-end;
 }
 
+.top_header .top-item {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
 .top_header a {
   padding: 0 0.75em;
   /*border-left: 1px solid #fff;*/
@@ -5496,7 +5502,7 @@ h2.acme-news-ticker-label {
 
 .language-switcher {
   display: inline-block; /* Ensures the dropdown is inline */
-  margin-left: 5px; /* Adjust space between the text and dropdown */
+  margin: 0 5px; /* Adjust space between the text and dropdown */
 }
 
 .visually-hidden {
@@ -5679,7 +5685,7 @@ h2.acme-news-ticker-label {
   cursor: pointer;
   font-size: 2.5rem;
   color: #ffffff;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 /* Accessibility Menu */
