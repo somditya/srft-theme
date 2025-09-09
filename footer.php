@@ -5,9 +5,7 @@ $current_language = get_locale();
 <div class="footer_container" role="contentinfo">
   <div class="footer_inner_container">
     <div class="footer_sub">
-      <ul>
-        <li><img src="<?php bloginfo('template_url'); ?>/images/Srfti_logo.png" title="Logo of SRFTI" alt="Logo of SRFTI" style="padding: 10px"></li>
-      </ul>
+        <img src="<?php bloginfo('template_url'); ?>/images/Srfti_logo.png" title="Logo of SRFTI" alt="Logo of SRFTI" style="padding: 10px"></li>
     </div>
     <div class="footer_sub">
       <h2><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h2>
