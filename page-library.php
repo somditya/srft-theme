@@ -7,7 +7,7 @@ $post_id = get_the_ID();
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
-<main>
+<main role="main"> 
       <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
         <div class="page-banner">
           <h1 class="page-banner-title"><?php echo __('Facilities', 'srft-theme' ); ?></h1>
@@ -116,6 +116,7 @@ $current_language = get_locale();
 </div>
     </section>        
 
+</main>   
  
     <?php
 get_footer(); 
