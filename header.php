@@ -58,9 +58,7 @@ $current_language = get_locale();
   </head>
 
 
-<body <?php body_class(); ?>>
-<div id="top-anchor" tabindex="-1"></div>
-<div id="live-region" aria-live="polite" class="sr-only"></div>
+<body <?php body_class(); ? > id="top-anchor">
   <header class="sticky" >
          <!--<nav id="nav-wrapper">-->
        <div class="top_header">
