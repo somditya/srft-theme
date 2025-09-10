@@ -814,6 +814,7 @@ $(".student").owlCarousel({
 //
 $(document).ready(function () {
   var btn = $("#backToTop");
+
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 300) {
       btn.addClass("show");
@@ -821,14 +822,20 @@ $(document).ready(function () {
       btn.removeClass("show");
     }
   });
+
   btn.on("click", function (e) {
     e.preventDefault();
-    $("html, body").animate(
-      {
-        scrollTop: 0,
-      },
-      "300"
-    );
+
+    $("html, body").animate({ scrollTop: 0 }, 300, function () {
+      // Move focus to top anchor
+      var topElement = $("#top-anchor");
+      if (topElement.length) {
+        topElement.focus();
+      }
+
+      // Announce to screen readers
+      $("#live-region").text("You are back at the top of the page");
+    });
   });
 });
 
