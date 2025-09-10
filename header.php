@@ -59,6 +59,7 @@ $current_language = get_locale();
 
 
 <body <?php body_class(); ?> id="top-anchor" tabindex="-1">
+  <div id="live-region" aria-live="polite" class="sr-only"></div>
   <header class="sticky" >
          <!--<nav id="nav-wrapper">-->
        <div class="top_header">
@@ -83,7 +84,7 @@ $current_language = get_locale();
           <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
-            <a href="#" title="Choose your language" aria-haspopup="true"  role="presentation" tabindex=-1>
+            <a href="#" title="Choose your language" aria-haspopup="true"  aria-hidden="true" role="presentation" tabindex=-1>
             <!--<i class="fa-solid fa-language" aria-hidden="true"></i>-->
               <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><svg viewBox="0 0 35 34" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
