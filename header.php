@@ -58,7 +58,7 @@ $current_language = get_locale();
   </head>
 
 
-<body <?php body_class(); ? > id="top-anchor">
+<body <?php body_class(); ?> id="top-anchor" tabindex="-1">
   <header class="sticky" >
          <!--<nav id="nav-wrapper">-->
        <div class="top_header">
