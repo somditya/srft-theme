@@ -19,13 +19,13 @@ $post_content = apply_filters('the_content', $post->post_content);
 
 <main id="skip-to-content">    
     <div class="static-container" style="padding-left: 80px;">
-        <div>      
-            <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+    <div class="breadcrumbs-wrapper">
+    <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
-            ?>
-        </div>          
+    ?>
+   </div>    
 
         <div class="faculty-content-info">
             <div class="faculty-profile-info">
