@@ -120,8 +120,8 @@ $page_content = apply_filters('the_content', $post->post_content);
             <li>
             <button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-01.jpg" alt="Construction of the Institute - foundation structure in progress" class="single-image"  ></button></li> 
             <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-02.jpg" alt="Construction of the Institute - workers and vehicles at the main block" class="single-image" ></button></li>
-            <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-03.jpg" alt="Construction of the Institute - workers and vehicles at the main block" class="single-image"  ></button></li>
-            <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-04.jpg" alt="Construction of the Institute - workers and vehicles at the main block" class="single-image"  ></button></li>
+            <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-03.jpg" alt="Construction of the Institute - unfinished modern-style buildings in the background, an open rocky ground with small plants" class="single-image"  ></button></li>
+            <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-04.jpg" alt="Construction of the Institute - courtyard under construction" class="single-image"  ></button></li>
             <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-05.jpg" alt="Construction of the Institute - campus view with buildings and water tanks" class="single-image"  ></button></li>
             <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-06.jpg" alt="Construction of the Institute - temporary construction huts and site equipment" class="single-image"  ></button></li>
             <li><button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-07.jpg" alt="Construction of the Institute - corridor with two people walking" class="single-image"  ></button></li>
@@ -151,7 +151,7 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 </section>
 
-<div id="picModal" role="dialog" class="hidden modal-overlay" aria-hidden="true" tabindex="-1">
+<div id="picModal" role="dialogue" class="hidden modal-overlay" aria-hidden="true"  aria-modal="true">
   <div class="modal-content">
     <button class="close" aria-label="Close modal">✕</button>
     <div class="modal-body"></div>
