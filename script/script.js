@@ -163,6 +163,8 @@ $(document).ready(function () {
     const $submenu = $item.next('[role="menu"]');
     if ($submenu.length) {
       $submenu.show().attr("aria-hidden", "false");
+      $submenu.find('[role="menuitem"]').attr("tabindex", "0");
+      $item.attr("aria-expanded", "true");
     }
   }
 
@@ -170,19 +172,29 @@ $(document).ready(function () {
     const $submenu = $item.next('[role="menu"]');
     if ($submenu.length) {
       $submenu.hide().attr("aria-hidden", "true");
+      $submenu.find('[role="menuitem"]').attr("tabindex", "-1");
+      $item.attr("aria-expanded", "false");
     }
   }
 
+  function closeAllSubmenus() {
+    $menu.find('[role="menu"]').hide().attr("aria-hidden", "true");
+    $menu
+      .find('[role="menuitem"][aria-haspopup="true"]')
+      .attr("aria-expanded", "false");
+    $menu.find('[role="menu"] [role="menuitem"]').attr("tabindex", "-1");
+  }
+
+  // Key handling
   $menu.on("keydown", '[role="menuitem"]', function (e) {
     const $current = $(this);
     const isTopLevel =
       $current.closest('[role="menubar"]').length > 0 &&
       $current.parent().parent().is($menu);
 
-    // TAB: allow default, skip menu handling
-    if (e.key === "Tab") return;
+    if (e.key === "Tab") return; // let Tab behave normally
 
-    // ESC: close submenu
+    // Escape: close submenu and return to parent
     if (e.key === "Escape") {
       if (!isTopLevel) {
         const $parentItem = $current
@@ -191,10 +203,12 @@ $(document).ready(function () {
         closeSubmenu($parentItem);
         $parentItem.focus();
         e.preventDefault();
+      } else {
+        closeAllSubmenus();
       }
     }
 
-    // Left/Right for top-level only
+    // Left/Right on top-level: move between main items
     if (isTopLevel && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
       let index = $topItems.index($current);
       index =
@@ -205,7 +219,27 @@ $(document).ready(function () {
       e.preventDefault();
     }
 
-    // Up/Down for submenu only
+    // Down on top-level: open submenu
+    if (isTopLevel && e.key === "ArrowDown") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').first().focus();
+        e.preventDefault();
+      }
+    }
+
+    // Up on top-level: open submenu, focus last item
+    if (isTopLevel && e.key === "ArrowUp") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').last().focus();
+        e.preventDefault();
+      }
+    }
+
+    // Up/Down inside submenu
     if (!isTopLevel && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
       const $submenuItems = $current
         .closest('[role="menu"]')
@@ -219,26 +253,37 @@ $(document).ready(function () {
       e.preventDefault();
     }
 
-    // Down on top-level opens submenu
-    if (isTopLevel && e.key === "ArrowDown") {
+    // Enter/Space on top-level: toggle submenu
+    if (isTopLevel && (e.key === "Enter" || e.key === " ")) {
       const $submenu = $current.next('[role="menu"]');
       if ($submenu.length) {
-        openSubmenu($current);
-        $submenu.find('[role="menuitem"]').first().focus();
-        e.preventDefault();
-      }
-    }
-
-    // Up on top-level opens submenu from last item
-    if (isTopLevel && e.key === "ArrowUp") {
-      const $submenu = $current.next('[role="menu"]');
-      if ($submenu.length) {
-        openSubmenu($current);
-        $submenu.find('[role="menuitem"]').last().focus();
+        const expanded = $current.attr("aria-expanded") === "true";
+        expanded ? closeSubmenu($current) : openSubmenu($current);
         e.preventDefault();
       }
     }
   });
+
+  // Mouse click on top-level with submenu
+  $topItems.on("click", function (e) {
+    const $this = $(this);
+    const $submenu = $this.next('[role="menu"]');
+    if ($submenu.length) {
+      e.preventDefault();
+      const expanded = $this.attr("aria-expanded") === "true";
+      expanded ? closeSubmenu($this) : openSubmenu($this);
+    }
+  });
+
+  // Close submenus when clicking outside
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest(".nav-links").length) {
+      closeAllSubmenus();
+    }
+  });
+
+  // Init: hide all submenus
+  closeAllSubmenus();
 });
 
 /*       */
