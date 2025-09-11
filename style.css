@@ -2454,7 +2454,8 @@ ol li {
   text-decoration: none;
 }
 
-.dropdown-link:hover > a {
+.dropdown-link:hover > a,
+.dropdown-link:focus > a {
   background-color: #8b5b2b;
   color: #fff;
 }
