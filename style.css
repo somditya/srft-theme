@@ -8629,6 +8629,15 @@ ul li input[type="checkbox"]:checked ~ i:after {
     min-width: auto;
     width: 100%;
   }
+
+  .pagination li {
+    margin: 5px 2px; /* tighter spacing */
+  }
+
+  .pagination a {
+    padding: 8px; /* reduce padding so links fit */
+    font-size: 14px; /* smaller text */
+  }
   .course-head h2 {
     color: white; /* Text color */
     font-size: 3rem; /* Adjusted font size for mobile */
