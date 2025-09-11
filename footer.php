@@ -104,9 +104,9 @@ $current_language = get_locale();
       </ul>
     </div>
 
-    <div class="footer_sub">
+    <!--<div class="footer_sub">
       <a href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
-    </div>
+    </div>-->
   </div>
 </div>
 
