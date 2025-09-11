@@ -869,6 +869,9 @@ div .spacer {
   padding: 17px 16px;
   position: relative;
   min-width: 30rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
   text-align: center;
 }
 
@@ -5203,6 +5206,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -8592,6 +8596,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .page-header-text {
     font-size: 22px;
   }
+
   .item {
     font-size: 1.4rem;
   }
@@ -8621,6 +8626,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     margin-bottom: 1.5rem; /* Adjusted margin for mobile */
   }
 
+  .page-banner-title {
+    min-width: auto;
+    width: 100%;
+  }
   .course-head h2 {
     color: white; /* Text color */
     font-size: 3rem; /* Adjusted font size for mobile */
