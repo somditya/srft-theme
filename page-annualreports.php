@@ -127,7 +127,7 @@ $current_language = get_locale();
                                         </th>
                                         <td class="Rtable-cell composition-cell">
                                             <div class="Rtable-cell--content ">
-                                                <a href="<?php echo esc_url($file_url); ?>" title="Download PDF">
+                                                <a href="<?php echo esc_url($file_url); ?>">
                                                     <?php echo __('Download', 'srft-theme'); ?>
                                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />

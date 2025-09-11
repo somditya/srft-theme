@@ -153,7 +153,7 @@ $current_language = get_locale();
                                     ?>
                                     <tr class="Rtable-row">
                                         <!--div class="Rtable-cell slno-cell"><div class="Rtable-cell--content"><?php echo $count++; ?></div></!--div>-->
-                                        <td class="Rtable-cell cell-width-25-percent"><div class="Rtable-cell--content"><?php the_title(); ?></div></td>
+                                        <th class="Rtable-cell cell-width-25-percent" scope="row"><div class="Rtable-cell--content"><?php the_title(); ?></div></th>
                                         <td class="Rtable-cell cell-width-25-percent"><div class="Rtable-cell--content"><?php echo esc_html($designation); ?></div></td>
                                         <td class="Rtable-cell cell-width-15-percent"><div class="Rtable-cell--content"><?php echo esc_html($phone); ?></div></td>
                                         <td class="Rtable-cell cell-width-10-percent"><div class="Rtable-cell--content"><?php echo esc_html($epbxno); ?></div></td>
