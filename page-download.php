@@ -41,7 +41,7 @@ $category_id = get_category_ID($category_name);
   </div>
 
     <section id="skip-to-content" class="section-home">
-      <div class="container" style="width: 1170px;">
+      <div class="container">
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Document List', 'srft-theme'); ?></h2>
 
         <div ng-app="myApp">
@@ -52,26 +52,30 @@ $category_id = get_category_ID($category_name);
               </label>
             </p>
 
-            <div class="wrapper">
-              <div class="Rtable Rtable--7cols Rtable--collapse">
-                <div class="Rtable-row Rtable-row--head">
-                  <div class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell tenure-cell column-heading"><?php echo __('Category', 'srft-theme'); ?></div>
-                  <div class="Rtable-cell access-link-cell column-heading"><?php echo __('Document', 'srft-theme'); ?></div>
-                </div>
-
-                <div class="Rtable-row" ng-repeat="document in pagedDocument">
-                  <div class="Rtable-cell location-cell">
+            <div class="wrapper" style="padding: 0 3.2rem;">
+              <div class="table-container">
+                <table>
+                <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>
+                <thead>
+                <tr class="Rtable-row Rtable-row--head">
+                  <th class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell name-cell column-heading"><?php esc_html__('Title', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell tenure-cell column-heading"><?php echo __('Category', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell access-link-cell column-heading"><?php echo __('Document', 'srft-theme'); ?></th>
+                </tr>
+               </thead>
+               <tbody>
+                <tr class="Rtable-row" ng-repeat="document in pagedDocument">
+                  <td class="Rtable-cell location-cell">
                     <div class="Rtable-cell--content"><span class="SL">{{$index + 1}}</span></div>
-                  </div>
-                  <div class="Rtable-cell name-cell">
+                  </td>
+                  <td class="Rtable-cell name-cell">
                     <div class="Rtable-cell--content">{{ document.title }}</div>
-                  </div>
-                  <div class="Rtable-cell tenure-cell">
+                  </td>
+                  <td class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content"><span>{{ getLocalizedCategory(document.category) }}</span></div>
-                  </div>
-                  <div class="Rtable-cell access-link-cell">
+                  </td>
+                  <td class="Rtable-cell access-link-cell">
   <div class="Rtable-cell--content" ng-if="document.file && document.file.url">
     <a href="{{document.file.url}}">
       <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">
@@ -81,9 +85,11 @@ $category_id = get_category_ID($category_name);
   <div ng-if="!document.file || !document.file.url">
     <a href="{{document.link}}"><?php echo __('View', 'srft-theme'); ?></a>
   </div>
-</div>
+</td>
 
-                </div>
+                </tr>
+          </tbody>
+          </table>      
               </div>
             </div>
 
@@ -140,7 +146,9 @@ $category_id = get_category_ID($category_name);
            (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students' || post.acf['document-category'] === 'कर्मचारी' || post.acf['document-category'] === 'छात्र' );
   }).map(function (post) {
       return {
-        title: post.title.rendered || '',
+        title: (post.title && post.title.rendered) 
+             ? post.title.rendered.replace(/<[^>]+>/g, '').trim() 
+             : '',
         file: 
         {
         url: post.acf['document']['url'],  
