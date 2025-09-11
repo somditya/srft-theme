@@ -5634,6 +5634,14 @@ h2.acme-news-ticker-label {
   transition: clip-path 0.25s, filter 0.25s;
 }
 
+.grid-gallery button:focus img {
+  clip-path: path(
+    "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
+  );
+  z-index: 10;
+  transition: clip-path 0.25s, filter 0.25s;
+}
+
 .grid-gallery img:focus {
   outline: 1px dashed black;
   outline-offset: -5px;
