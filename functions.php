@@ -583,9 +583,24 @@ function ivory_search_modification() {
 					});
 			}
 
+		function cleanSearchMarkup() {
+    document.querySelectorAll(".is-search-submit").forEach(function (button) {
+        let srSpan = button.querySelector(".is-screen-reader-text");
+        if (srSpan) {
+            srSpan.remove();
+        }
+        let svg = button.querySelector("svg[aria-label]");
+        if (svg) {
+            svg.removeAttribute("aria-label");
+            svg.setAttribute("aria-hidden", "true");
+        }
+    });
+}
+
 			// Run both functions on page load
 			removeStyleType();
 			addSearchButtonTitle();
+			cleanSearchMarkup();
 
 			// More aggressive MutationObserver to detect all new elements
 			const observer = new MutationObserver(function (mutations) {
