@@ -12,7 +12,7 @@ $title = get_the_title($post_id);
 <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
-            <h2 class="page-banner-title"><?php echo __($title, 'srft-theme'); ?></h2>
+            <h1 class="page-banner-title"><?php echo __($title, 'srft-theme'); ?></h1>
         </div>  
     </section>
 
@@ -29,7 +29,7 @@ $title = get_the_title($post_id);
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
-                <h4><?php echo __('Related Links', 'srft-theme'); ?> </h4>
+                <h2><?php echo __('Related Links', 'srft-theme'); ?> </h2>
                 <?php
 $menu_name = ($current_language === 'hi_IN') ? 'hindi_pg_menu' : 'english_pg_menu';
 $current_page_title = get_the_title();
@@ -81,7 +81,6 @@ wp_nav_menu(array(
                 ));
 
                 if ($download_post->have_posts()) {
-                    echo '<ul style="list-style-type: none">';
                     while ($download_post->have_posts()) {
                         $download_post->the_post();
                         $document_file = get_field('document');
@@ -94,16 +93,13 @@ wp_nav_menu(array(
                             $file_type = strtoupper($file_type_info['ext'] ?? 'Unknown');
                             $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
                             ?>
-                            <li>
                                 <a href="<?php echo esc_url($file_url); ?>">
                                     <?php echo esc_html(get_the_title()); ?>
                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="Download" style="vertical-align: middle;" />
                                 </a>
-                            </li>
                         <?php }
                     }
-                    echo '</ul>';
                 } else {
                     echo __('No posts found in the specified category.', 'srft-theme');
                 }
@@ -120,7 +116,7 @@ wp_nav_menu(array(
             $subintrodesc = get_post_meta($post_id, 'SubIntroDescription', true);
             ?>
 
-            <div class="intro"><p><?php echo wp_kses_post($intro); ?></p></div>
+            <section class="home"><p><?php echo wp_kses_post($intro); ?></p></section>
             
             <?php $youtube_url = get_post_meta($post_id, 'Video', true); ?>
             <!--<section class="sub-intro">
@@ -144,7 +140,7 @@ wp_nav_menu(array(
             
             <section>
             <div>
-                <h1 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h1>
+                <h4 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h4>
             </div> 
             <div class="box-container">
                     <?php
@@ -170,7 +166,7 @@ wp_nav_menu(array(
                                 <div class="txt">
                                     <div class="caption"><?php echo esc_html(get_post_meta(get_the_ID(), 'Department', true)); ?></div>
                                     <div style="width: 25px;  margin-left:10px;">
-                                        <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="arrow icon to indicate link" style="filter: invert(1);">
+                                        <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="" style="filter: invert(1);">
                                     </div>
                                 </div>
                             </a>
