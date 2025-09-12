@@ -144,7 +144,7 @@ wp_nav_menu(array(
             
             <section>
             <div>
-                <h2 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h2>
+                <h1 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h1>
             </div> 
             <div class="box-container">
                     <?php
@@ -164,7 +164,7 @@ wp_nav_menu(array(
                                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
                                 $thumb_url=str_replace('{site_url}', get_site_url(), $thumb_url);
                                 if (!empty($thumb_url)) {
-                                    echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="feature image of the department">';
+                                    echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="">';
                                 }
                                 ?>
                                 <div class="txt">
