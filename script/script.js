@@ -166,7 +166,7 @@ $(document).ready(function () {
       const txt = opt.textContent.trim();
 
       if (opt.lang === "hi-IN") {
-        opt.setAttribute("aria-label", "हिन्दी");
+        opt.setAttribute("aria-label", "Hindi");
       } else if (opt.lang === "en-US") {
         opt.setAttribute("aria-label", "English");
       } else {

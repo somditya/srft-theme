@@ -1214,3 +1214,16 @@ add_filter('render_block_data', function($parsed_block) {
 
 	return $parsed_block;
 }, 10, 1);
+
+
+add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) {
+    $current_lang = get_locale(); // 'hi_IN' for Hindi
+
+    if (strpos($current_lang, 'hi') === 0) {
+        $atts['lang'] = 'hi';
+    } else {
+        $atts['lang'] = 'en';
+    }
+
+    return $atts;
+}, 10, 4 );
