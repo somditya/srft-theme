@@ -8651,10 +8651,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 
   /* Other mobile-specific styles */
-  .hide-on-mobile {
+  .linktext {
     display: none;
   }
-
   .show-on-mobile {
     display: block;
   }

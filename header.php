@@ -79,9 +79,9 @@ $current_language = get_locale();
   <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content">
 </a>
       </div>
-          <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('e-office', 'srft-theme' ); ?>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-office', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
             <a href="#" title="Choose your language" aria-haspopup="true"  aria-hidden="true" role="presentation" tabindex=-1>
