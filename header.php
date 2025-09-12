@@ -359,7 +359,7 @@ if ($current_language === 'en_US') {
   <?php if (is_page('home')) : ?> 
 <main role="main">    
 <section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner" id="skip-to-content">
     <div class="controls">
       <button class="rotation" type="button">
         <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">

@@ -14,7 +14,7 @@ Template Name: Home
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
-            <div id="skip-to-content" class="acme-news-ticker">
+            <div class="acme-news-ticker">
             <h2 class="acme-news-ticker-label">
             <?php echo __('Announcements', 'srft-theme' ); ?> &nbsp;
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
