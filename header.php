@@ -99,7 +99,7 @@ $current_language = get_locale();
     <?php
         pll_the_languages(
             array(
-                'show_flags' => 1,
+                'show_flags' => 0,
                 'show_names' => 1,
                 'display_names_as' => 'name',
                 'hide_if_empty' => 0,
