@@ -174,7 +174,7 @@ $current_language = get_locale();
         
           <div class="nav-links" >
             <nav class="nav-links" role="navigation" aria-label="SRFTI">
-            <ul role="menubar" aria-label="Main Menu" style="display: flex; align-items: center; justify-content: center;">
+            <ul role="menubar" aria-label="Main Menu" class="menu-bar" style="display: flex; align-items: center; justify-content: center;">
               <li role="none" class="nav-link" style="--i: 0.6s" >
                 <a role="menuitem" tabindex="0" aria-label="Home" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
