@@ -154,83 +154,70 @@ $(window).on("load", function () {
   $(".is-form-style.is-form-style-3").css("display", "flex");
 });
 
+$(document).ready(function () {
+  const select = document.getElementById("lang_choice_1");
+
+  if (select) {
+    // Remove lang from <select> so options can define their own
+    select.removeAttribute("lang");
+
+    // Add aria-labels to improve screen reader output
+    select.querySelectorAll("option").forEach(function (opt) {
+      const txt = opt.textContent.trim();
+
+      if (opt.lang === "hi-IN") {
+        opt.setAttribute("aria-label", "हिन्दी");
+      } else if (opt.lang === "en-US") {
+        opt.setAttribute("aria-label", "English");
+      } else {
+        // fallback: use text as aria-label
+        opt.setAttribute("aria-label", txt);
+      }
+    });
+  }
+});
+
 /* Menu navigation accessibility */
 $(document).ready(function () {
   const $menu = $('[role="menubar"]');
   const $topItems = $menu.find('> li > [role="menuitem"]');
-  let hoverTimeout;
 
-  // --- Open submenu instantly (keyboard / click) ---
-  function openSubmenuInstant($item) {
+  function openSubmenu($item) {
     const $submenu = $item.next('[role="menu"]');
-    if ($submenu.length && !$submenu.is(":visible")) {
+    if ($submenu.length) {
       $submenu.show().attr("aria-hidden", "false");
-      $submenu.find('[role="menuitem"]').attr("tabindex", "0");
-      $item.attr("aria-expanded", "true");
     }
   }
 
-  // --- Close submenu instantly (keyboard / click) ---
-  function closeSubmenuInstant($item) {
+  function closeSubmenu($item) {
     const $submenu = $item.next('[role="menu"]');
-    if ($submenu.length && $submenu.is(":visible")) {
+    if ($submenu.length) {
       $submenu.hide().attr("aria-hidden", "true");
-      $submenu.find('[role="menuitem"]').attr("tabindex", "-1");
-      $item.attr("aria-expanded", "false");
     }
   }
 
-  // --- Open submenu with animation (mouse hover) ---
-  function openSubmenuHover($item) {
-    const $submenu = $item.next('[role="menu"]');
-    if ($submenu.length && !$submenu.is(":visible")) {
-      $submenu.stop(true, true).slideDown(200).attr("aria-hidden", "false");
-      $submenu.find('[role="menuitem"]').attr("tabindex", "0");
-      $item.attr("aria-expanded", "true");
-    }
-  }
-
-  // --- Close submenu with animation (mouse hover) ---
-  function closeSubmenuHover($item) {
-    const $submenu = $item.next('[role="menu"]');
-    if ($submenu.length && $submenu.is(":visible")) {
-      $submenu.stop(true, true).slideUp(200).attr("aria-hidden", "true");
-      $submenu.find('[role="menuitem"]').attr("tabindex", "-1");
-      $item.attr("aria-expanded", "false");
-    }
-  }
-
-  // --- Close all submenus ---
-  function closeAllSubmenus() {
-    $menu.find('[role="menu"]').hide().attr("aria-hidden", "true");
-    $menu
-      .find('[role="menuitem"][aria-haspopup="true"]')
-      .attr("aria-expanded", "false");
-    $menu.find('[role="menu"] [role="menuitem"]').attr("tabindex", "-1");
-  }
-
-  // --- Keyboard navigation ---
   $menu.on("keydown", '[role="menuitem"]', function (e) {
     const $current = $(this);
-    const isTopLevel = $current.parent().parent().is($menu);
+    const isTopLevel =
+      $current.closest('[role="menubar"]').length > 0 &&
+      $current.parent().parent().is($menu);
 
+    // TAB: allow default, skip menu handling
     if (e.key === "Tab") return;
 
-    // Escape
+    // ESC: close submenu
     if (e.key === "Escape") {
       if (!isTopLevel) {
         const $parentItem = $current
           .closest('[role="menu"]')
           .prev('[role="menuitem"]');
-        closeSubmenuInstant($parentItem);
+        closeSubmenu($parentItem);
         $parentItem.focus();
         e.preventDefault();
-      } else {
-        closeAllSubmenus();
       }
     }
 
-    // Left/Right (top-level)
+    // Left/Right for top-level only
     if (isTopLevel && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
       let index = $topItems.index($current);
       index =
@@ -241,19 +228,8 @@ $(document).ready(function () {
       e.preventDefault();
     }
 
-    // Up/Down (top-level opens submenu)
-    if (isTopLevel && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
-      const $submenu = $current.next('[role="menu"]');
-      if ($submenu.length) {
-        openSubmenuInstant($current);
-        const $items = $submenu.find('[role="menuitem"]');
-        $items.eq(e.key === "ArrowDown" ? 0 : $items.length - 1).focus();
-        e.preventDefault();
-      }
-    }
-
-    // Up/Down inside submenu
-    if (!isTopLevel && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+    // Up/Down for submenu only
+    if (!isTopLevel && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
       const $submenuItems = $current
         .closest('[role="menu"]')
         .find('[role="menuitem"]');
@@ -266,58 +242,26 @@ $(document).ready(function () {
       e.preventDefault();
     }
 
-    // Enter/Space toggles submenu (top-level)
-    if (isTopLevel && (e.key === "Enter" || e.key === " ")) {
+    // Down on top-level opens submenu
+    if (isTopLevel && e.key === "ArrowDown") {
       const $submenu = $current.next('[role="menu"]');
       if ($submenu.length) {
-        const expanded = $current.attr("aria-expanded") === "true";
-        expanded ? closeSubmenuInstant($current) : openSubmenuInstant($current);
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').first().focus();
+        e.preventDefault();
+      }
+    }
+
+    // Up on top-level opens submenu from last item
+    if (isTopLevel && e.key === "ArrowUp") {
+      const $submenu = $current.next('[role="menu"]');
+      if ($submenu.length) {
+        openSubmenu($current);
+        $submenu.find('[role="menuitem"]').last().focus();
         e.preventDefault();
       }
     }
   });
-
-  // --- Click on top-level ---
-  $topItems.on("click", function (e) {
-    const $this = $(this);
-    const $submenu = $this.next('[role="menu"]');
-    if ($submenu.length) {
-      e.preventDefault();
-      const expanded = $this.attr("aria-expanded") === "true";
-      expanded ? closeSubmenuInstant($this) : openSubmenuInstant($this);
-    }
-  });
-
-  // --- Mouse hover on top-level and submenu ---
-  $topItems.each(function () {
-    const $item = $(this);
-    const $submenu = $item.next('[role="menu"]');
-
-    // Open on mouse enter only (no focus)
-    $item.add($submenu).on("mouseenter", function () {
-      clearTimeout(hoverTimeout);
-      openSubmenuHover($item);
-    });
-
-    // Close after delay on mouse leave
-    $item.add($submenu).on("mouseleave", function () {
-      hoverTimeout = setTimeout(() => {
-        if (!$submenu.find(":focus").length) {
-          closeSubmenuHover($item);
-        }
-      }, 200);
-    });
-  });
-
-  // --- Click outside closes all ---
-  $(document).on("click", function (e) {
-    if (!$(e.target).closest(".nav-links").length) {
-      closeAllSubmenus();
-    }
-  });
-
-  // --- Init ---
-  closeAllSubmenus();
 });
 
 /*       */
