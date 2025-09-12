@@ -183,6 +183,11 @@ $(document).ready(function () {
   const $topItems = $menu.find('> li > [role="menuitem"]');
   let hoverTimeout;
 
+  $menu.find('[role="menuitem"]').attr("tabindex", "-1");
+
+  // Allow only first top-level to be tabbable
+  $topItems.first().attr("tabindex", "0");
+
   // --- Open submenu instantly (keyboard / click) ---
   function openSubmenuInstant($item) {
     const $submenu = $item.next('[role="menu"]');
@@ -498,27 +503,6 @@ $(document).ready(function () {
     }
 
     // Trap Tab
-    if (e.key === "Tab") {
-      const $items = focusables();
-      if ($items.length === 0) return;
-
-      const $first = $items.first();
-      const $last = $items.last();
-
-      if (e.shiftKey) {
-        // Shift + Tab
-        if ($(document.activeElement).is($first)) {
-          e.preventDefault();
-          $last.trigger("focus");
-        }
-      } else {
-        // Tab
-        if ($(document.activeElement).is($last)) {
-          e.preventDefault();
-          $first.trigger("focus");
-        }
-      }
-    }
 
     // Arrow navigation across buttons
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
