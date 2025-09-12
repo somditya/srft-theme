@@ -503,6 +503,27 @@ $(document).ready(function () {
     }
 
     // Trap Tab
+    if (e.key === "Tab") {
+      const $items = focusables();
+      if ($items.length === 0) return;
+
+      const $first = $items.first();
+      const $last = $items.last();
+
+      if (e.shiftKey) {
+        // Shift + Tab
+        if ($(document.activeElement).is($first)) {
+          e.preventDefault();
+          $last.trigger("focus");
+        }
+      } else {
+        // Tab
+        if ($(document.activeElement).is($last)) {
+          e.preventDefault();
+          $first.trigger("focus");
+        }
+      }
+    }
 
     // Arrow navigation across buttons
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
