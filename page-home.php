@@ -639,9 +639,7 @@ $final_url = site_url("/$slug/");
 </div>
 </div>
 </section>
-<div>
-      <a role="button" href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
-</div>
+
 </main>
 <?php
 get_footer(); 

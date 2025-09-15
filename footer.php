@@ -128,7 +128,9 @@ $current_language = get_locale();
       </ul>
     </div>
 </div>
-
+<div>
+      <a role="button" href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
+</div>
 <div style="margin: 10px;"> 
 <?php echo __('Designed, Developed & Maintained by @2025 Satyajit Ray Film & Television Institute. All rights reserved', 'srft-theme'); ?> <br>
 <div>
