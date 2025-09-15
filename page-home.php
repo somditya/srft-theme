@@ -340,13 +340,13 @@ else
     This is a autoplay carousel. Use the play/stop button to control the behaviour.
    </p>
    <!-- Controls -->
-<div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
+<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
+   <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
   <button id="carouselToggle" type="button" aria-label="Pause slideshow">
     ⏸
   </button>
-</div>
-<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
-      <ul class="alumni-carousel owl-carousel">
+</div>   
+   <ul class="alumni-carousel owl-carousel">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
