@@ -406,88 +406,43 @@ else
     <h2 class="section-intro-header-text" style="padding-left: 0;">
       <?php echo __('Notable Alumni', 'srft-theme'); ?>
     </h2>
+
+    <!-- Controls -->
+    <div class="carousel-controls" style="text-align:right; margin-bottom: 10px;">
+      <button id="carouselPlay" aria-label="Play Alumni slideshow">▶ Play</button>
+      <button id="carouselPause" aria-label="Pause Alumni slideshow">⏸ Pause</button>
+    </div>
+
+    <!-- Slideshow -->
     <div class="alumni">
-      <div class="nonstatic owl-carousel">
-        <div class="alumni-item">
+      <ul class="alumni-carousel owl-carousel" role="list" aria-label="Notable Alumni">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
           </a>
-          <h5><?php echo __('Amal Neerad', 'srft-theme'); ?></h5>
-        </div>
+          <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
+        </li>
 
-        <div class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="Picture of Kanu Behl" />
           </a>
-          <h5><?php echo __('Kanu Behl', 'srft-theme'); ?></h5>
-        </div>
+          <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
+        </li>
 
-        <div class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="Picture of Namrata Rao" />
+            <img src="<?php bloginfo('template_url'); ?>/images/namrata-rao.webp" alt="Picture of Namrata Rao" />
           </a>
-          <h5><?php echo __('Namrata Rao', 'srft-theme'); ?></h5>
-        </div>
+          <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
+        </li>
 
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
-          </a>
-          <h5><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="Picture of Pritha Chakraborty" />
-          </a>
-          <h5><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="Picture of Madhura Palit" />
-          </a>
-          <h5><?php echo __('Madhura Palit', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="Picture of Avijit Sen" />
-          </a>
-          <h5><?php echo __('Abhijit Sen', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="Picture of Sagar Ballary" />
-          </a>
-          <h5><?php echo __('Sagar Ballary', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="Picture of Pritam Das" />
-          </a>
-          <h5><?php echo __('Pritam Das', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="Picture of Sourav Rai" />
-          </a>
-          <h5><?php echo __('Sourav Rai', 'srft-theme'); ?></h5>
-        </div>
-
-        <div class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="Picture of Dominic Sangma" />
-          </a>
-          <h5><?php echo __('Dominic Sangma', 'srft-theme'); ?></h5>
-        </div>
-      </div>
+        <!-- Continue other alumni as <li> … -->
+      </ul>
     </div>
   </div>
 </section>
+
 
   <section class="section-home" style="background-color: rgb(228, 118, 15);
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">

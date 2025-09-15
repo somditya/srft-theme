@@ -418,6 +418,42 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const $carousel = $(".alumni-carousel");
+
+  // Initialize Owl Carousel
+  $carousel.owlCarousel({
+    items: 4,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    loop: true,
+    nav: true,
+    dots: true
+  });
+
+  // Controls
+  const playBtn = document.getElementById("carouselPlay");
+  const pauseBtn = document.getElementById("carouselPause");
+
+  playBtn.addEventListener("click", () => {
+    $carousel.trigger("play.owl.autoplay", [3000]);
+    playBtn.setAttribute("aria-pressed", "true");
+    pauseBtn.setAttribute("aria-pressed", "false");
+  });
+
+  pauseBtn.addEventListener("click", () => {
+    $carousel.trigger("stop.owl.autoplay");
+    pauseBtn.setAttribute("aria-pressed", "true");
+    playBtn.setAttribute("aria-pressed", "false");
+  });
+});
+</script>
+
+
+
 <?php wp_footer(); ?>
 
 <script src="<?php bloginfo('template_url'); ?>/script/script.js"></script>
