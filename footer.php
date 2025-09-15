@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modalBody.innerHTML = "";
 
       if (liveRegion) {
-        liveRegion.textContent = "Dialog closed. Returning to main content.";
+        liveRegion.textContent = "Dialog closed.";
       }
 
       // Restore focus to the trigger
