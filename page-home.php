@@ -144,7 +144,7 @@ Template Name: Home
                     <li>
                       <div class="news-item">
                        <a href="<?php the_permalink(); ?>" target="_blank">
-                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alternativetext')); ?>" style="display: block;">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
