@@ -95,8 +95,9 @@ wp_nav_menu(array(
                             ?>
                                 <a href="<?php echo esc_url($file_url); ?>">
                                     <?php echo esc_html(get_the_title()); ?>
-                                    (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                                    <!--(<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)-->
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
+                                    <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
                                 </a>
                         <?php }
                     }
