@@ -358,7 +358,7 @@ if ($current_language === 'en_US') {
   </header>
   <?php if (is_page('home')) : ?> 
 <main role="main">    
-<section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
+<section role="region" aria-label="Featured" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
   <div class="carousel-inner" id="skip-to-content">
     <div class="controls">
       <button class="rotation" type="button">
