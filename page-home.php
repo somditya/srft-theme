@@ -520,7 +520,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=3'));}
 ?>">
-                <img alt="Still from Students' Films" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
+                <img alt="" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/studentsfilmstill.jpg">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Beyond the Frame', 'srft-theme'); ?></p>
                 </div>
@@ -532,7 +532,7 @@ else
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=4'));}
 ?>">
-                <img alt=" " width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
+                <img alt="" width="302" height="416" class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/Gothar-Retro.JPG">
                 <div class="img_caption">
                     <p class="img-caption-text"><?php echo __('Campus Moments', 'srft-theme'); ?></p>
                 </div>
