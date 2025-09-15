@@ -336,14 +336,17 @@ else
       <?php echo __('Notable Alumni', 'srft-theme'); ?>
     </h2>
     <!-- Slideshow -->
-<div class="alumni" aria-label="Alumni" aria-roledescription="carousel">
+     <p id="carousel-instructions" class="sr-only">
+    This is a autoplay carousel. Use the play/stop button to control the behaviour.
+   </p>
+<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions">
      <!-- Controls -->
 <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
   <button id="carouselToggle" type="button" aria-label="Pause slideshow">
     ⏸
   </button>
 </div> 
-     <ul class="alumni-carousel owl-carousel">
+      <ul class="alumni-carousel owl-carousel">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
@@ -419,7 +422,6 @@ else
           </a>
           <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
         </li>
-
       </ul>
       <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite"></div>
     </div>
