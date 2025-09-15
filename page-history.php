@@ -64,7 +64,7 @@ $page_content = apply_filters('the_content', $post->post_content);
 
     </div>
 
-    <div class="main-content" role="main">
+    <div class="main-content">
         <h2 class="page-header-text"><?php echo __('A brief history', 'srft-theme'); ?></h2>
         <div class="sub-intro">
             <div class="sub-intro-images">

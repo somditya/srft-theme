@@ -5661,6 +5661,14 @@ h2.acme-news-ticker-label {
   z-index: 10;
 }
 
+/* Focus outline on the button */
+.grid-gallery .gallery-btn:focus {
+  outline: 3px solid #000000; /* or any color */
+  outline-offset: 4px; /* gives breathing space */
+  border-radius: 8px; /* matches your rounded shape */
+  z-index: 20; /* stay above neighbors */
+}
+
 /* HEADER*/
 
 /* Mobile Menu*/
