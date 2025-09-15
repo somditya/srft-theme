@@ -408,11 +408,11 @@ else
     </h2>
 
     <!-- Controls -->
-    <div class="carousel-controls" style="text-align:right; margin-bottom: 10px;">
-      <button id="carouselPlay" aria-label="Play Alumni slideshow">▶ Play</button>
-      <button id="carouselPause" aria-label="Pause Alumni slideshow">⏸ Pause</button>
-    </div>
-
+   <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:right; margin-bottom:10px;">
+  <button id="carouselToggle" type="button" aria-pressed="true" aria-label="Pause slideshow">
+    ⏸ Pause
+  </button>
+</div>
     <!-- Slideshow -->
     <div class="alumni">
       <ul class="alumni-carousel owl-carousel" role="list" aria-label="Notable Alumni">
@@ -439,6 +439,7 @@ else
 
         <!-- Continue other alumni as <li> … -->
       </ul>
+      <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite"></div>
     </div>
   </div>
 </section>
