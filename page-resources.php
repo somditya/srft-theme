@@ -71,7 +71,7 @@ $current_language = get_locale();
                             <li>
                                 <a href="<?php echo esc_url($file_url); ?>">
                                     <?php echo esc_html(get_the_title()); ?> 
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="PDF, opens in a new tab" style="vertical-align: middle;" />
                                     (<?php echo __('Download', 'srft-theme');?> &nbsp; - <?php echo esc_html($file_size_mb); ?>)
                                 </a>
                             </li>
