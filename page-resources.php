@@ -28,6 +28,7 @@ $current_language = get_locale();
 
     <section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
+            <aside role="complementary">
             <div class="widget" style="line-height: 1.5; margin-top: 1rem;" role="complementary">
                 <?php 
                 if ($current_language === 'en_US') {
@@ -86,6 +87,7 @@ $current_language = get_locale();
                 wp_reset_postdata(); // Reset after custom query
                 ?>
             </div>
+        </aside>
         </div>
 
         <div  class="main-content" role="main">        
