@@ -428,28 +428,43 @@ jQuery(function($) {
 
   function updateButton() {
     if (isPlaying) {
-      toggleBtn.textContent = '⏸ Pause';
+      toggleBtn.textContent = '⏸';
       toggleBtn.setAttribute('aria-label', 'Pause slideshow');
-      toggleBtn.setAttribute('aria-pressed', 'true');
       if (liveRegion) liveRegion.textContent = 'Slideshow playing';
     } else {
-      toggleBtn.textContent = '▶ Play';
+      toggleBtn.textContent = '▶';
       toggleBtn.setAttribute('aria-label', 'Play slideshow');
-      toggleBtn.setAttribute('aria-pressed', 'false');
       if (liveRegion) liveRegion.textContent = 'Slideshow paused';
     }
   }
 
   if ($.fn && $.fn.owlCarousel) {
     $carousel.owlCarousel({
-      items: 4,
+      items: 8,
       margin: 10,
+      responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+      nav: false,
+    },
+    600: {
+      items: 4,
+      nav: false,
+    },
+    1000: {
+      items: 8,
+      nav: false,
+      /*loop: false,*/
+    },
+  },
       autoplay: true,
       autoplayTimeout: AUTOPLAY_MS,
       autoplayHoverPause: true,
-      loop: true,
-      nav: true,
-      dots: true
+      loop: false,
+      rewind: true,
+      nav: false,
+      dots: false
     });
 
     toggleBtn.addEventListener('click', function() {
