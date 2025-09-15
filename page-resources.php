@@ -28,7 +28,7 @@ $current_language = get_locale();
 
     <section  id="skip-to-content" class="cine-detail">
         <div class="leftnav">
-            <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
+            <div class="widget" style="line-height: 1.5; margin-top: 1rem;" role="complementary">
                 <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
