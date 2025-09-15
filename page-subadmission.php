@@ -175,9 +175,9 @@ $current_language = get_locale();
                     $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
                     ?>
                     <li style="margin-bottom: 10px;">
-                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="pdf opens in a new window">
+                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new window">
                             <?php echo esc_html(get_the_title()); ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
                             <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
                         </a>
                     </li>
