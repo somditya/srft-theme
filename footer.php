@@ -419,35 +419,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
-/* Wrap in DOM ready function that also works with WP noConflict */
 jQuery(function($) {
   const $carousel = $('.alumni-carousel');
-  const playBtn = document.getElementById('carouselPlay');
-  const pauseBtn = document.getElementById('carouselPause');
-  const liveRegion = document.getElementById('ariaLiveRegion'); // optional
-
-  if (!playBtn || !pauseBtn || $carousel.length === 0) {
-    console.warn('Carousel or control buttons not found (check IDs/selectors).');
-    return;
-  }
-
+  const toggleBtn = document.getElementById('carouselToggle');
+  const liveRegion = document.getElementById('ariaLiveRegion');
   const AUTOPLAY_MS = 3000;
-  let isPlaying = true; // matches initial init below
+  let isPlaying = true;
 
-  function updateControlsState() {
-    // Use aria-disabled to indicate which action is currently N/A
+  function updateButton() {
     if (isPlaying) {
-      playBtn.setAttribute('aria-disabled', 'true');
-      pauseBtn.removeAttribute('aria-disabled');
+      toggleBtn.textContent = '⏸ Pause';
+      toggleBtn.setAttribute('aria-label', 'Pause slideshow');
+      toggleBtn.setAttribute('aria-pressed', 'true');
       if (liveRegion) liveRegion.textContent = 'Slideshow playing';
     } else {
-      pauseBtn.setAttribute('aria-disabled', 'true');
-      playBtn.removeAttribute('aria-disabled');
+      toggleBtn.textContent = '▶ Play';
+      toggleBtn.setAttribute('aria-label', 'Play slideshow');
+      toggleBtn.setAttribute('aria-pressed', 'false');
       if (liveRegion) liveRegion.textContent = 'Slideshow paused';
     }
   }
 
-  // If Owl Carousel is available, initialize and use its API
   if ($.fn && $.fn.owlCarousel) {
     $carousel.owlCarousel({
       items: 4,
@@ -457,74 +449,28 @@ jQuery(function($) {
       autoplayHoverPause: true,
       loop: true,
       nav: true,
-      dots: true,
-      // accessibility options if needed
+      dots: true
     });
 
-    // Initial control state
-    isPlaying = true;
-    updateControlsState();
-
-    playBtn.addEventListener('click', function() {
-      $carousel.trigger('play.owl.autoplay', [AUTOPLAY_MS]);
-      isPlaying = true;
-      updateControlsState();
-    });
-
-    pauseBtn.addEventListener('click', function() {
-      $carousel.trigger('stop.owl.autoplay');
-      isPlaying = false;
-      updateControlsState();
-    });
-
-  } else {
-    // Fallback if Owl isn't present: simple interval-based rotation
-    console.warn('Owl Carousel not found — using fallback autoplay.');
-    const $items = $carousel.children();
-    let idx = 0;
-    let interval = null;
-
-    function showIndex(i) {
-      $items.removeClass('visible').attr('aria-hidden', 'true');
-      const $current = $items.eq(i);
-      $current.addClass('visible').attr('aria-hidden', 'false');
-      // If your CSS expects classes (you may need to adapt).
-    }
-
-    function startAutoplay() {
-      stopAutoplay(); // avoid double intervals
-      interval = setInterval(function() {
-        idx = (idx + 1) % $items.length;
-        showIndex(idx);
-      }, AUTOPLAY_MS);
-      isPlaying = true;
-      updateControlsState();
-    }
-
-    function stopAutoplay() {
-      if (interval) {
-        clearInterval(interval);
-        interval = null;
+    toggleBtn.addEventListener('click', function() {
+      if (isPlaying) {
+        $carousel.trigger('stop.owl.autoplay');
+        isPlaying = false;
+      } else {
+        $carousel.trigger('play.owl.autoplay', [AUTOPLAY_MS]);
+        isPlaying = true;
       }
-      isPlaying = false;
-      updateControlsState();
-    }
-
-    // initial state
-    showIndex(0);
-    startAutoplay();
-
-    playBtn.addEventListener('click', startAutoplay);
-    pauseBtn.addEventListener('click', stopAutoplay);
+      updateButton();
+    });
+  } else {
+    console.warn('Owl Carousel not found — you may need the fallback code');
   }
 
-  // Keyboard usability: allow Enter/Space to activate (should be default for <button>)
-  // Optional: add a toggle on spacebar if you prefer a single toggle key
-
-  // Helpful debug info in console
-  console.info('Carousel controls initialized. Owl present:', !!($.fn && $.fn.owlCarousel));
+  // initial state
+  updateButton();
 });
 </script>
+
 
 
 
