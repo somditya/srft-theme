@@ -339,13 +339,7 @@ else
      <p id="carousel-instructions" class="sr-only">
     This is a autoplay carousel. Use the play/stop button to control the behaviour.
    </p>
-<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions">
-     <!-- Controls -->
-<div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
-  <button id="carouselToggle" type="button" aria-label="Pause slideshow">
-    ⏸
-  </button>
-</div> 
+<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
       <ul class="alumni-carousel owl-carousel">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
@@ -423,6 +417,12 @@ else
           <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
         </li>
       </ul>
+      <!-- Controls -->
+<div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
+  <button id="carouselToggle" type="button" aria-label="Pause slideshow">
+    ⏸
+  </button>
+</div>
       <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite"></div>
     </div>
   </div>
