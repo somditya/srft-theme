@@ -23,7 +23,7 @@ $category_id = get_category_ID($category_name);
   <main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
-        <h2 class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></h2>
+        <h1 class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></h1>
       </div>
     </section>
 
@@ -62,19 +62,19 @@ $category_id = get_category_ID($category_name);
                   <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>
                 <thead>
                 <tr class="Rtable-row Rtable-row--head">
-                  <th class="Rtable-cell location-cell column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></th>
-                  <th class="Rtable-cell name-cell column-heading"><?php echo __('Title', 'srft-theme'); ?></th>
-                  <th class="Rtable-cell tenure-cell column-heading"><?php echo __('Publish Date', 'srft-theme'); ?></th>
-                  <th class="Rtable-cell access-link-cell column-heading"><?php echo __('Access Link', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell location-cell column-heading" scope="col"><?php echo __('SL.No.', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell name-cell column-heading" scope="col"><?php echo __('Title', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell tenure-cell column-heading" scope="col"><?php echo __('Publish Date', 'srft-theme'); ?></th>
+                  <th class="Rtable-cell access-link-cell column-heading" scope="col"><?php echo __('Access Link', 'srft-theme'); ?></th>
                 </tr>
                 <tbody>
                 <tr class="Rtable-row" data-ng-repeat="announcement in pagedAnnouncement">
                   <td class="Rtable-cell location-cell">
                     <div class="Rtable-cell--content date-content"><span class="SL">{{$index + 1}}</span></div>
                   </td>
-                  <td class="Rtable-cell name-cell">
+                  <th class="Rtable-cell name-cell" scope="row">
                     <div class="Rtable-cell--content">{{ announcement.title }}</div>
-                  </td>
+                  </th>
                   <td class="Rtable-cell tenure-cell">
                     <div class="Rtable-cell--content "><span class="webinar-date">{{ announcement.pubdate }}</span></div>
                   </td>
