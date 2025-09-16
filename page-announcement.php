@@ -97,6 +97,7 @@ $category_id = get_category_ID($category_name);
             </div>
           </div>
             <!-- Pagination -->
+            <nav aria-label="Pagination">
             <ul class="pagination">
               <li data-ng-class="{ 'disabled': currentPage === 1 }">
                 <a href="#" data-ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>">
@@ -122,6 +123,7 @@ $category_id = get_category_ID($category_name);
                 </a>
               </li>
             </ul>
+          </nav> 
 
           </div>
         </div>
