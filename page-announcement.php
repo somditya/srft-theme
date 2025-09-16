@@ -187,6 +187,16 @@ $category_id = get_category_ID($category_name);
             console.error('Error fetching announcement data:', error);
           });
 
+        function setStatusMessage() {
+        var statusEl = document.getElementById('searchStatus');
+        if (!statusEl) return;
+        if ($scope.filteredAnnouncement.length > 0) {
+          statusEl.textContent = $scope.filteredAnnouncement.length + " <?php echo esc_js( __( 'circualr/notices found.', 'srft-theme' ) ); ?>";
+        } else {
+          statusEl.textContent = "<?php echo esc_js( __( 'No circualr/notices found.', 'srft-theme' ) ); ?>";
+        }
+      }
+        
         // Function to update filtered announcements
         function updateFilteredAnnouncement() {
           $scope.filteredAnnouncement = $scope.announcementList.filter(function (announcement) {
