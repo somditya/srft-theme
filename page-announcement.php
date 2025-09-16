@@ -56,7 +56,7 @@ $category_id = get_category_ID($category_name);
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme'); ?></button>
           </div>
 
-            <div class="wrapper">
+            <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="table-container">
               <table>   
                   <caption class="sr-only"><?php echo esc_html__( 'table showing list of tender documents', 'srft-theme' ); ?></caption>
