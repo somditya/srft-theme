@@ -57,7 +57,7 @@ $category_id = get_category_ID($category_name);
         <p id="searchInstruction" class="sr-only">
           <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
         </p>
-          <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
+          <div class="sr-only" aria-live="polite" role="status" id="searchStatus"> {{ statusMessage }}</div>
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="table-container">
               <table>   
@@ -142,6 +142,8 @@ $category_id = get_category_ID($category_name);
         $scope.itemsPerPage = 20;
         $scope.currentPage = 1;
         $scope.currentDate = new Date();
+        $scope.statusMessage = "";
+
 
         // Function to convert bytes to megabytes
         function bytesToMB(bytes) {
@@ -188,14 +190,14 @@ $category_id = get_category_ID($category_name);
           });
 
         function setStatusMessage() {
-        var statusEl = document.getElementById('searchStatus');
-        if (!statusEl) return;
-        if ($scope.filteredAnnouncement.length > 0) {
-          statusEl.textContent = $scope.filteredAnnouncement.length + " <?php echo esc_js( __( 'circualr/notices found.', 'srft-theme' ) ); ?>";
-        } else {
-          statusEl.textContent = "<?php echo esc_js( __( 'No circualr/notices found.', 'srft-theme' ) ); ?>";
-        }
-      }
+  if ($scope.filteredAnnouncement.length > 0) {
+    $scope.statusMessage =
+      $scope.filteredAnnouncement.length + " <?php echo esc_js( __( 'circular/notices found.', 'srft-theme' ) ); ?>";
+  } else {
+    $scope.statusMessage = "<?php echo esc_js( __( 'No circular/notices found.', 'srft-theme' ) ); ?>";
+  }
+}
+
         
         // Function to update filtered announcements
         function updateFilteredAnnouncement() {
@@ -216,6 +218,7 @@ $category_id = get_category_ID($category_name);
           $scope.currentPage = 1;
           $scope.pageNumbers = getPageNumbers();
           $scope.updatePagedAnnouncement();
+           setStatusMessage();
         }
 
         // Function to update paged announcement list
@@ -240,6 +243,7 @@ $category_id = get_category_ID($category_name);
           $scope.totalPages = Math.ceil($scope.filteredAnnouncement.length / $scope.itemsPerPage);
           $scope.updatePagedAnnouncement();
           $scope.pageNumbers = $scope.getPageNumbers();
+           setStatusMessage();
         });
 
         // Set the current page to a specific page
