@@ -524,7 +524,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-4">
-            <img  src="<?php bloginfo('template_url'); ?>/images/60.png" alt="Amar Fauzdar's film Majhe selected in Osaka Film Festival" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="Shingkhauna Marma selected for Channel X BIFF Busan " >
           </a>
         </div>
 
@@ -562,7 +562,7 @@ if ($current_language === 'en_US') {
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6">
-            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="Shingkhauna Marma selected for Channel X BIFF Busan " >
+            <img  src="<?php bloginfo('template_url'); ?>/images/60.png" alt="Amar Fauzdar's film Majhe selected in Osaka Film Festival" >
           </a>
         </div>
 
@@ -581,7 +581,7 @@ if ($current_language === 'en_US') {
       <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-7">
-            <img  src="<?php bloginfo('template_url'); ?>/images/70.png" alt="71st national Award Winners Alumni" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/National Film Award.png" alt="71st national Award Winners Alumni" >
           </a>
         </div>
 
