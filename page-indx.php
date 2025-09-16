@@ -407,15 +407,15 @@ else
       <?php echo __('Notable Alumni', 'srft-theme'); ?>
     </h2>
 
-    <!-- Controls -->
-   <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:right; margin-bottom:10px;">
-  <button id="carouselToggle" type="button" aria-pressed="true" aria-label="Pause slideshow">
-    ⏸ Pause
+<!-- Slideshow -->
+<div class="alumni" aria-label="Alumni" aria-roledescription="carousel">
+     <!-- Controls -->
+<div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
+  <button id="carouselToggle" type="button" aria-label="Pause slideshow">
+    ⏸
   </button>
-</div>
-    <!-- Slideshow -->
-    <div class="alumni">
-      <ul class="alumni-carousel owl-carousel" role="list" aria-label="Notable Alumni">
+</div> 
+     <ul class="alumni-carousel owl-carousel">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
@@ -432,12 +432,66 @@ else
 
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/namrata-rao.webp" alt="Picture of Namrata Rao" />
+            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="Picture of Namrata Rao" />
           </a>
           <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
         </li>
 
-        <!-- Continue other alumni as <li> … -->
+       <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
+          </a>
+          <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
+      </li>
+      
+      <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="Picture of Pritha Chakraborty" />
+          </a>
+          <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
+      </li>
+       <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="Picture of Madhura Palit" />
+          </a>
+          <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
+        </li>
+
+        <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="Picture of Avijit Sen" />
+          </a>
+          <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
+        </li>
+
+        <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="Picture of Sagar Ballary" />
+          </a>
+          <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
+        </li>
+
+        <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="Picture of Pritam Das" />
+          </a>
+          <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
+        </li>
+
+        <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="Picture of Sourav Rai" />
+          </a>
+          <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
+        </li>
+
+        <li class="alumni-item">
+          <a class="alumni-img" href="#" target="_blank">
+            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="Picture of Dominic Sangma" />
+          </a>
+          <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
+        </li>
+
       </ul>
       <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite"></div>
     </div>
