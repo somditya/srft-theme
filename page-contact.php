@@ -49,28 +49,23 @@ Template Name: Contact
             </div>
             
             <div class="accordian">
-                    <ul>
-                        <li>
-                            
-                            
-                            <h3><?php echo __('Contact a Section', 'srft-theme'); ?></h3>
+                    <div>        
+                            <h2><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
                             <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            
-                            
-                            <h3><?php echo __('Directories and Listings', 'srft-theme'); ?></h3>
+                    </div>
+                    <br role="presentation">
+
+                    <div>
+                            <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?></p>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>   
-                            <h3><?php echo __('Quick Links', 'srft-theme'); ?></h3>
+                    </div>
+                    <br role="presentation">
+                    <div>   
+                            <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?></p>
-                        </li>
-                    </ul>
+                    </div>
+                    <br role="presentation">
+
             </div>
             </section>
 
@@ -93,4 +88,5 @@ Template Name: Contact
 
                 <small><a style="color: #0000ff; text-align: left;" href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=SRFTI,+Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;aq=0&amp;oq=srfti+kolkata&amp;sll=37.0625,-95.677068&amp;sspn=37.462243,86.572266&amp;ie=UTF8&amp;hq=SRFTI,&amp;hnear=Pancha+Sayar,+Kolkata,+West+Bengal,+India&amp;t=m&amp;ll=22.486017,88.394934&amp;spn=0.008074,0.012007">View Larger Map</a></small>
     </div>
+</main>   
 <?php get_footer(); ?>
