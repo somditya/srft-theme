@@ -19,8 +19,7 @@ $category_id = get_category_ID($category_name);
 ?>
 
 
-
-  <main>
+<main>
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
         <h1 class="page-banner-title"><?php echo __('Circular & Notices', 'srft-theme'); ?></h1>
@@ -55,7 +54,10 @@ $category_id = get_category_ID($category_name);
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme'); ?></button>
           </div>
-
+        <p id="searchInstruction" class="sr-only">
+          <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
+        </p>
+          <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="table-container">
               <table>   
@@ -97,39 +99,32 @@ $category_id = get_category_ID($category_name);
             </div>
           </div>
             <!-- Pagination -->
-            <nav aria-label="Pagination">
-            <ul class="pagination">
-              <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                <a href="#" data-ng-click="firstPage()" aria-label="<?php echo __('First Page', 'srft-theme'); ?>">
-                  <i class="fa fa-step-backward" style="color: #8b5b2b;"></i>
-                </a>
-              </li>
-              <li data-ng-class="{ 'disabled': currentPage === 1 }">
-                <a href="#" data-ng-click="prevPage()" aria-label="<?php echo __('Previous Page', 'srft-theme'); ?>">
-                  <i class="fa fa-chevron-left" style="color: #8b5b2b;"></i>
-                </a>
-              </li>
-              <li data-ng-repeat="page in pageNumbers" data-ng-class="{ 'active': currentPage === page }">
-                <a href="#" data-ng-click="setPage(page)">{{ page }}</a>
-              </li>
-              <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                <a data-ng-href="#" data-ng-click="nextPage()" aria-label="<?php echo __('Next Page', 'srft-theme'); ?>">
-                  <i class="fa fa-chevron-right" style="color: #8b5b2b;"></i>
-                </a>
-              </li>
-              <li data-ng-class="{ 'disabled': currentPage === totalPages }">
-                <a href="#" data-ng-click="lastPage()" aria-label="<?php echo __('Last Page', 'srft-theme'); ?>">
-                  <i class="fa fa-step-forward" style="color: #8b5b2b;"></i>
-                </a>
-              </li>
-            </ul>
-          </nav> 
+            <nav aria-label="pagination">
+              <ul class="pagination">
+                <li data-ng-class="{ 'disabled': currentPage === 1 }">
+                  <a href="#" aria-label="<?php echo esc_attr__('First Page', 'srft-theme'); ?>" data-ng-click="firstPage()"><i class="fa fa-step-backward" style="color:#8b5b2b;"></i></a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === 1 }">
+                  <a href="#" aria-label="<?php echo esc_attr__('Previous Page', 'srft-theme'); ?>" data-ng-click="prevPage()"><i class="fa fa-chevron-left" style="color:#8b5b2b;"></i></a>
+                </li>
+                <li data-ng-repeat="page in getPageNumbers()" data-ng-class="{ 'active': currentPage === page }">
+                  <a href="#" data-ng-click="setPage(page)" ng-attr-aria-current="{{ currentPage === page ? 'page' : undefined }}">{{ page }}</a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+                  <a href="#" aria-label="<?php echo esc_attr__('Next Page', 'srft-theme'); ?>" data-ng-click="nextPage()"><i class="fa fa-chevron-right" style="color:#8b5b2b;"></i></a>
+                </li>
+                <li data-ng-class="{ 'disabled': currentPage === totalPages }">
+                  <a href="#" aria-label="<?php echo esc_attr__('Last Page', 'srft-theme'); ?>" data-ng-click="lastPage()"><i class="fa fa-step-forward" style="color:#8b5b2b;"></i></a>
+                </li>
+              </ul>
+            </nav>
+
 
           </div>
         </div>
       </div>
     </section>
-
+          </main>
 
   <script>
     var categoryID = <?php echo json_encode($category_id); ?>;

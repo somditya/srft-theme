@@ -45,8 +45,8 @@ $category_id = get_category_ID( $category_name );
             <button type="button" data-ng-click="resetFilters()"><?php echo esc_html__( 'Reset', 'srft-theme' ); ?></button>
           </div>
           <p id="searchInstruction" class="sr-only">
-  <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
-</p>
+          <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
+          </p>
           <div class="sr-only" aria-live="polite" role="status" id="searchStatus"></div>
 
           <!-- Loading & error -->
