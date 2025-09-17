@@ -43,25 +43,29 @@ Template Name: Contact
             </section>
 
 
-            <section class="one-flex1" style="margin-top: 5rem; margin-bottom: 10rem;">
+            <section class="one-flex1" style="margin-bottom: 2rem;">
             <div style="margin-bottom: 2rem;">
                 <div><?php echo wp_kses_post($post->post_content); ?></div>
             </div>
             
-            <div class="accordian">
-                    <div>        
-                            <h2><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
-                            <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
+            <div>
+                    <div class="accordian">        
+                            <h2 ><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
                     </div>
+                    <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
                     <br role="presentation">
 
                     <div>
+                            <div class="accordian">        
                             <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
+                            </div>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?></p>
                     </div>
                     <br role="presentation">
                     <div>   
+                            <div class="accordian">        
                             <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
+                            <div>
                             <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?></p>
                     </div>
                     <br role="presentation">
