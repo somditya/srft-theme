@@ -21,9 +21,6 @@ $category_id = get_category_ID($category_name);
 
 <body ng-controller="DocumentController">
   <main>
-  <!--<div class="page-title">
-        <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
-  </div> -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
       <div class="page-banner">
         <h1 class="page-banner-title"><?php echo __('Download', 'srft-theme'); ?></h1>
@@ -78,20 +75,19 @@ $category_id = get_category_ID($category_name);
                     <div class="Rtable-cell--content"><span>{{ getLocalizedCategory(document.category) }}</span></div>
                   </td>
                   <td class="Rtable-cell access-link-cell">
-  <div class="Rtable-cell--content" ng-if="document.file && document.file.url">
-    <a href="{{document.file.url}}">
-      <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">
-      <span>(<?php echo __('Download', 'srft-theme'); ?> - {{ document.file.size }} MB)</span>
-    </a>
-  </div>
-  <div ng-if="!document.file || !document.file.url">
-    <a href="{{document.link}}"><?php echo __('View', 'srft-theme'); ?></a>
-  </div>
-</td>
-
+                    <div class="Rtable-cell--content" ng-if="document.file && document.file.url">
+                      <a href="{{document.file.url}}">
+                        <img alt="pdf" class="pdf_icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png">
+                        <span>(<?php echo __('Download', 'srft-theme'); ?> - {{ document.file.size }} MB)</span>
+                      </a>
+                    </div>
+                    <div ng-if="!document.file || !document.file.url">
+                      <a href="{{document.link}}"><?php echo __('View', 'srft-theme'); ?></a>
+                    </div>
+                  </td>
                 </tr>
-          </tbody>
-          </table>      
+              </tbody>
+              </table>      
               </div>
             </div>
 
@@ -134,10 +130,16 @@ $category_id = get_category_ID($category_name);
         $scope.filterField = '';
         $scope.itemsPerPage = 20;
         $scope.currentPage = 1;
-        $scope.statusEl="";
 
         function bytesToMB(bytes) {
           return (bytes / 1048576).toFixed(2);
+        }
+
+        // 🔹 Helper to decode HTML entities
+        function decodeHTMLEntities(text) {
+          var textarea = document.createElement('textarea');
+          textarea.innerHTML = text;
+          return textarea.value;
         }
 
         // Fetch data
@@ -145,87 +147,73 @@ $category_id = get_category_ID($category_name);
         console.log('Fetching data from JSON URL:', apiUrl);
 
         $http.get(apiUrl)
-  .then(function (response) {
-    console.log('API Response:', response.data);
-    $scope.documentList = response.data.filter(function (post) {
-    // Filter for specific categories
-    return post.acf['document-category'] && 
-           (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students' || post.acf['document-category'] === 'कर्मचारी' || post.acf['document-category'] === 'छात्र' );
-  }).map(function (post) {
-      return {
-        title: (post.title && post.title.rendered) 
-             ? post.title.rendered.replace(/<[^>]+>/g, '').trim() 
-             : '',
-        file: 
-        {
-        url: post.acf['document']['url'],  
-        title: post.acf['document']['title'],
-        size: bytesToMB(post.acf['document']['filesize']),
-        type: post.acf['document']['subtype']// Check if 'document' exists and store the file object
-        
-        },
-        
-        category: post.acf['document-category'] ? post.acf['document-category'] : ''
-      };
-    });
-    console.log('Document List:', $scope.documentList);
-    $scope.updateFilteredDocument();
-  });
-
+          .then(function (response) {
+            console.log('API Response:', response.data);
+            $scope.documentList = response.data.filter(function (post) {
+              // Filter for specific categories
+              return post.acf['document-category'] && 
+                     (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students' || post.acf['document-category'] === 'कर्मचारी' || post.acf['document-category'] === 'छात्र' );
+            }).map(function (post) {
+              return {
+                title: (post.title && post.title.rendered) 
+                  ? decodeHTMLEntities(post.title.rendered.replace(/<[^>]+>/g, '').trim()) 
+                  : '',
+                file: {
+                  url: post.acf['document']['url'],  
+                  title: post.acf['document']['title'],
+                  size: bytesToMB(post.acf['document']['filesize']),
+                  type: post.acf['document']['subtype']
+                },
+                category: post.acf['document-category'] ? decodeHTMLEntities(post.acf['document-category']) : ''
+              };
+            });
+            console.log('Document List:', $scope.documentList);
+            $scope.updateFilteredDocument();
+          });
 
         // Update filtered document for pagination
         $scope.updateFilteredDocument = function () {
-          // Apply filters if needed
           $scope.filteredDocument = $scope.documentList.filter(function (document) {
             return !$scope.filterField || document.title.toLowerCase().includes($scope.filterField.toLowerCase());
           });
 
           const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
           $scope.pagedDocument = $scope.filteredDocument.slice(startIndex, startIndex + $scope.itemsPerPage);
-           setStatusMessage();
+          setStatusMessage();
           console.log('Filtered Documents:', $scope.filteredDocument);
           console.log('Paged Documents:', $scope.pagedDocument);
         };
 
         $scope.getLocalizedCategory = function (category) {
-    const localizedCategories = {
-        "Students": "<?php echo __('For Students', 'srft-theme'); ?>",
-        "Employees": "<?php echo __('For Employees', 'srft-theme'); ?>",
-        // Add more categories as needed
-    };
+          const localizedCategories = {
+              "Students": "<?php echo __('For Students', 'srft-theme'); ?>",
+              "Employees": "<?php echo __('For Employees', 'srft-theme'); ?>"
+          };
+          return localizedCategories[category] || category;
+        };
 
-    return localizedCategories[category] || category; // Return the translated category or default to the original
-};
-
-    function setStatusMessage() {
-        var statusEl = document.getElementById('searchStatus');
-        if (!statusEl) return;
-        if ($scope.filteredDocument.length > 0) {
-          statusEl.textContent = $scope.filteredDocument.length + " <?php echo esc_js( __( 'docuemnts found.', 'srft-theme' ) ); ?>";
-        } else {
-          statusEl.textContent = "<?php echo esc_js( __( 'No document found.', 'srft-theme' ) ); ?>";
+        function setStatusMessage() {
+          if ($scope.filteredDocument.length > 0) {
+            $scope.statusMessage = $scope.filteredDocument.length + " <?php echo esc_js( __( 'documents found.', 'srft-theme' ) ); ?>";
+          } else {
+            $scope.statusMessage = "<?php echo esc_js( __( 'No documents found.', 'srft-theme' ) ); ?>";
+          }
         }
-      }
 
-        // Apply filters when search field changes
         $scope.applyFilters = function () {
           $scope.updateFilteredDocument();
         };
 
-        // Update the paged document on page change
         $scope.updatePagedDocument = function () {
           const start = ($scope.currentPage - 1) * $scope.itemsPerPage;
           $scope.pagedDocument = $scope.filteredDocument.slice(start, start + $scope.itemsPerPage);
         };
 
-        // Set the current page
         $scope.setPage = function (page) {
-          console.log('Setting page:', page);
           $scope.currentPage = page;
           $scope.updatePagedDocument();
         };
 
-        // Previous page
         $scope.prevPage = function () {
           if ($scope.currentPage > 1) {
             $scope.currentPage--;
@@ -233,7 +221,6 @@ $category_id = get_category_ID($category_name);
           }
         };
 
-        // Next page
         $scope.nextPage = function () {
           if ($scope.currentPage < Math.ceil($scope.filteredDocument.length / $scope.itemsPerPage)) {
             $scope.currentPage++;
@@ -241,13 +228,12 @@ $category_id = get_category_ID($category_name);
           }
         };
 
-        // Get page numbers for pagination
         $scope.getPageNumbers = function () {
           return Array.from({ length: Math.ceil($scope.filteredDocument.length / $scope.itemsPerPage) }, (_, i) => i + 1);
         };
       });
-</script>
+  </script>
 
 </body>
 
-<?php get_footer();  ?>
+<?php get_footer(); ?>
