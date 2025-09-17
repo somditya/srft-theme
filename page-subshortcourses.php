@@ -25,8 +25,8 @@ $current_language = get_locale();
   </div> 
  
 
-  <section class="cine-detail" style="flex-direction: column; margin-top: 32px; margin-left: 32px; margin-right: 32px;">   
-  
+  <section id="skip-to-content" class="section-home">
+    <div class="container" style="padding: 0 3.2rem;"> 
         <div class="page-title" id="skip-to-content">
             <div>
                 <h2 class="page-header-text" style="margin-left: 32px;"><?php the_title(); ?></h2>
@@ -37,6 +37,7 @@ $current_language = get_locale();
             <div class="main-content-col1">
             <div><?php echo str_replace(array('<p>', '</p>'), '', $page_content);?> </div>   
         </div>
+    </div>     
   </section>
 
 </main>  
