@@ -35,7 +35,7 @@ $current_language = get_locale();
        
         <div style="margin-bottom: 4rem;">
             
-            <div class="main-content"><?php echo str_replace(array('<p>', '</p>'), '', $page_content);?> </div>   
+            <div class="main-content" style="width: 100%;"><?php echo str_replace(array('<p>', '</p>'), '', $page_content);?> </div>   
     </div>     
   </section>
 
