@@ -27,7 +27,7 @@ $current_language = get_locale();
 
   <section id="skip-to-content" class="section-home">
     <div class="container" style="padding: 0 3.2rem;"> 
-        <div class="page-title" id="skip-to-content">
+        <div class="page-title">
             <div>
                 <h2 class="page-header-text"><?php the_title(); ?></h2>
             </div>
