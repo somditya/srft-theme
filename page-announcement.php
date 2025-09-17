@@ -175,7 +175,9 @@ $category_id = get_category_ID($category_name);
               var linkWithImage = post.link + '?bg_image=' + encodeURIComponent('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');
 
               return {
-                title: post.title.rendered || '',
+               title: (post.title && post.title.rendered) 
+                  ? decodeHTMLEntities(post.title.rendered.replace(/<[^>]+>/g, '').trim()) 
+                  : '',
                 link: linkWithImage,
                 file: {
                   url: post.acf['Announcement-Doc']['url'],
