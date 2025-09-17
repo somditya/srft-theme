@@ -13,16 +13,14 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
 <main>
     <!-- Content area -->
     <div class="static-container">
-    <div>      
-        <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-          yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-        }
-        ?>
+     <div class="container-aligned">
+    <div class="breadcrumbs-wrapper">
+      <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>'); } ?>
     </div>
+  </div>
         <section class="page-title">
             <div>
-                <p class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></p>
+                <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
             </div>
         </section>
 
@@ -65,7 +63,7 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
             <!-- Display Primary Menu Items -->
             <?php foreach ($primary_menu_structure as $item): ?>
                 <div class="sitemap-item">
-                    <span class="sitemap-main-item"><?php echo esc_html($item['title']); ?></span>
+                    <h2 class="sitemap-main-item"><?php echo esc_html($item['title']); ?></h2>
                     <?php if (!empty($item['children'])): ?>
                         <div class="sitemap-submenu">
                             <?php foreach ($item['children'] as $child): ?>
