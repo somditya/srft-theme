@@ -183,7 +183,7 @@ $category_id = get_category_ID($category_name);
 
           const startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
           $scope.pagedDocument = $scope.filteredDocument.slice(startIndex, startIndex + $scope.itemsPerPage);
-
+           setStatusMessage();
           console.log('Filtered Documents:', $scope.filteredDocument);
           console.log('Paged Documents:', $scope.pagedDocument);
         };
@@ -201,10 +201,10 @@ $category_id = get_category_ID($category_name);
     function setStatusMessage() {
         var statusEl = document.getElementById('searchStatus');
         if (!statusEl) return;
-        if ($scope.filteredTender.length > 0) {
-          statusEl.textContent = $scope.filteredTender.length + " <?php echo esc_js( __( 'tenders found.', 'srft-theme' ) ); ?>";
+        if ($scope.filteredDocument.length > 0) {
+          statusEl.textContent = $scope.filteredDocument.length + " <?php echo esc_js( __( 'docuemnts found.', 'srft-theme' ) ); ?>";
         } else {
-          statusEl.textContent = "<?php echo esc_js( __( 'No tenders found.', 'srft-theme' ) ); ?>";
+          statusEl.textContent = "<?php echo esc_js( __( 'No document found.', 'srft-theme' ) ); ?>";
         }
       }
 
