@@ -135,7 +135,7 @@ $category_id = get_category_ID($category_name);
           return (bytes / 1048576).toFixed(2);
         }
 
-        // 🔹 Helper to decode HTML entities
+       
         function decodeHTMLEntities(text) {
           var textarea = document.createElement('textarea');
           textarea.innerHTML = text;

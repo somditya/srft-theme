@@ -150,6 +150,12 @@ $category_id = get_category_ID($category_name);
           return (bytes / 1048576).toFixed(2);
         }
 
+         function decodeHTMLEntities(text) {
+          var textarea = document.createElement('textarea');
+          textarea.innerHTML = text;
+          return textarea.value;
+        }
+
         // Function to parse dd/mm/yyyy date format
         function parseDate(dateString) {
           var parts = dateString.split('/');
