@@ -46,11 +46,10 @@ $category_id = get_category_ID($category_name);
 
         <div ng-app="myApp">
           <div ng-controller="DocumentController">
-            <p style="padding: 15px;">
-              <label for="filterField">
+            <div class="filter-bar">
+             <label for="filterField"><?php echo esc_html__( 'Search:', 'srft-theme' ); ?></label>
                 <input type="text" id="filterField" ng-model="filterField" placeholder="Search by keyword" ng-change="applyFilters()">
-              </label>
-            </p>
+          </div>
             <p id="searchInstruction" class="sr-only">
             <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
            </p>
