@@ -65,11 +65,11 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
                 <div class="sitemap-item">
                     <h2 class="sitemap-main-item"><?php echo esc_html($item['title']); ?></h2>
                     <?php if (!empty($item['children'])): ?>
-                        <div class="sitemap-submenu">
+                        <ul class="sitemap-submenu">
                             <?php foreach ($item['children'] as $child): ?>
-                                <a href="<?php echo esc_url($child->url); ?>"><?php echo esc_html($child->title); ?></a>
+                                <li><a href="<?php echo esc_url($child->url); ?>"><?php echo esc_html($child->title); ?></a> </li>
                             <?php endforeach; ?>
-                        </div>
+                        </ul>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>

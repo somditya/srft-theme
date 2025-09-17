@@ -3233,13 +3233,17 @@ img.reload {
   margin-left: 20px;
   padding-left: 10px;
   border-left: 2px solid #ddd;
+  list-style-type: none;
 }
 
 .sitemap-submenu a {
   display: block;
   margin-bottom: 5px;
-  text-decoration: none;
+  /*text-decoration: none;*/
   padding: 5px 0;
+}
+.sitemap-submenu ul {
+  list-style-type: none;
 }
 
 /*Show reel */
@@ -7091,8 +7095,6 @@ img.emoji {
   cursor: pointer;
   padding: 10px 45px 10px 20px;
 }
-
-
 
 .accordin h4 {
   font-family: "Poppins", sans-serif;
