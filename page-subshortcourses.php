@@ -5,7 +5,7 @@ Template Name: Short Courses Subpage
  */
 get_header();
 $post_id = get_the_ID();
-$catslug = get_the_category($post_id);
+/*$catslug = get_the_category($post_id);*/
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
 ?>
@@ -27,19 +27,19 @@ $current_language = get_locale();
 
   <section class="cine-detail" style="flex-direction: column; margin-top: 32px; margin-left: 32px; margin-right: 32px;">   
   
-  <div class="page-title" id="skip-to-content">
+        <div class="page-title" id="skip-to-content">
             <div>
                 <h2 class="page-header-text" style="margin-left: 32px;"><?php the_title(); ?></h2>
             </div>
         </div>
+       
         <div style="margin-bottom: 4rem;">
             <div class="main-content-col1">
-            <div><?php echo str_replace(array('<p>', '</p>'), '', $page_content);
- ?>  </div>   
-            </div>
+            <div><?php echo str_replace(array('<p>', '</p>'), '', $page_content);?> </div>   
         </div>
   </section>
 
+</main>  
 
 <?php 
 get_footer();
