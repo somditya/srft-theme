@@ -29,14 +29,13 @@ $current_language = get_locale();
     <div class="container" style="padding: 0 3.2rem;"> 
         <div class="page-title" id="skip-to-content">
             <div>
-                <h2 class="page-header-text" style="margin-left: 32px;"><?php the_title(); ?></h2>
+                <h2 class="page-header-text"><?php the_title(); ?></h2>
             </div>
         </div>
        
         <div style="margin-bottom: 4rem;">
-            <div class="main-content-col1">
+            
             <div><?php echo str_replace(array('<p>', '</p>'), '', $page_content);?> </div>   
-        </div>
     </div>     
   </section>
 
