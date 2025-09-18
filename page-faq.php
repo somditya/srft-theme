@@ -35,14 +35,14 @@ $post_id = get_the_ID();
         </li>
       </ul>-->
       
-      <h3>
+      <h2>
          <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
            <span class="accordion-title">
            <?php echo __('What programs and courses does SRFTI offer?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-      </h3>
+      </h2>
         
       <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel" >
         <div>
@@ -58,14 +58,14 @@ $post_id = get_the_ID();
           <?php echo get_post_meta($post_id, 'Admission Eligibility', true); ?>
         </li>
       </ul> -->
-    <h3>
+    <h2>
          <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
            <span class="accordion-title">
            <?php echo __('What are the admission requirements?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-    </h3>
+    </h2>
         
       <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
         <div>
@@ -82,14 +82,14 @@ $post_id = get_the_ID();
         </li>
       </ul>-->
 
-    <h3>
+    <h2>
          <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
            <span class="accordion-title">
            <?php echo __('What is the duration of the course?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-    </h3>
+    </h2>
         
       <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel" hidden="">
         <div>
@@ -106,14 +106,14 @@ $post_id = get_the_ID();
         </li>
       </ul>-->
       
-     <h3>
+     <h2>
          <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect4" id="accordion4id">
            <span class="accordion-title">
            <?php echo __('What are the tuition fees and other costs associated?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-    </h3>
+    </h2>
         
       <div id="sect4" role="region" aria-labelledby="accordion4id" class="accordion-panel" hidden="">
         <div>
@@ -131,14 +131,14 @@ $post_id = get_the_ID();
         </li>
       </ul>-->
 
-      <h3>
+      <h2>
          <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect5" id="accordion5id">
            <span class="accordion-title">
            <?php echo __('Are there any scholarships or financial aid options available?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-    </h3>
+    </h2>
         
       <div id="sect5" role="region" aria-labelledby="accordion5id" class="accordion-panel" hidden="">
         <div>
@@ -155,14 +155,14 @@ $post_id = get_the_ID();
         </li>
       </ul>-->
     
-      <h3>
+      <h2>
          <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect6" id="accordion6id">
            <span class="accordion-title">
            <?php echo __('Does the school provide access to film festivals or competitions?', 'srft-theme'); ?>
           <span class="accordion-icon"></span>
           </span>
          </button>
-      </h3>
+      </h2>
         
       <div id="sect6" role="region" aria-labelledby="accordion6id" class="accordion-panel" hidden="">
        <div>
