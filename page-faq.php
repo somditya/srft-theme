@@ -10,7 +10,7 @@ $post_id = get_the_ID();
 
 <main>
 
-<section class="cine-header" style="background-image: url('<?php echo esc_url( get_template_directory_uri() . '/images/FAQ_Banner.jpg' ); ?>');">
+<section class="cine-header" style="background-image: url('<?php echo esc_url( get_template_directory_uri() . '/images/FAQ.png' ); ?>');">
         <div class="page-banner">
             <h1 class="page-banner-title"><?php _e('FAQ', 'srft-theme'); ?></h1>
         </div>
