@@ -12,30 +12,32 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 // Retrieve the featured image URL
 //$featured_image_url = get_the_post_thumbnail_url($post_id, 'large');
 ?>
-<main id="skip-to-content">
-        <!-- Add an image section with the featured image -->
-       
+<main>
 
-        <!-- Content area -->
-<div class="static-container">
-    <div class="container-aligned">
-    <div class="breadcrumbs-wrapper">
-    <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
-            }
-    ?>
-   </div>
+<section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+        <div class="page-banner">
+            <h1 class="page-banner-title"><?php _e('FAQ', 'srft-theme'); ?></h1>
+        </div>
+</section>
+  
+  <div class="container-aligned">
+  <div class="breadcrumbs-wrapper">
+    <?php if ( function_exists( 'yoast_breadcrumb' ) ) { 
+      yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); 
+    } ?>
   </div>
-        
-    <div class="page-title">
-        <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
-    </div> 
-        <div>        
-        <?php echo $page_content ?>
+</div>
 
+    <section class="cine-detail">
+    <div class="main-content" style="width: 100%;">
+
+    <div>
+      <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+    </div>
+    <div>
+        <?php echo $page_content ?>          
        </div>
 </div>    
-
+</section>
         </main>
 <?php get_footer();  ?>
