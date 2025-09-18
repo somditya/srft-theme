@@ -28,7 +28,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
    </div>
   </div>
         
-        <div class="page-title">
+    <div class="page-title">
         <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
     </div> 
         <div>        
@@ -37,4 +37,5 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
        </div>
 </div>    
 
+        </main>
 <?php get_footer();  ?>
