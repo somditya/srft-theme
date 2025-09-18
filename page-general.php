@@ -29,12 +29,15 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 </div>
 
     <section class="cine-detail">
-    <div class="main-content" style="width: 100%;">
+
+    <div class="leftnav">
+    </div>
+    <div class="main-content">
 
     <div>
       <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
     </div>
-    <div>
+    <div style="margin-top: 2rem; margin-bottom: 10rem;">
         <?php echo $page_content ?>          
        </div>
 </div>    
