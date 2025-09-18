@@ -9,22 +9,29 @@ $post_id = get_the_ID();
  ?>
 
 <main>
-  
-<div class="static-container">
-  <div class="breadcrumbs-wrapper">
-    <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
-            }
-    ?>
-   </div>
-  <section class="page-title">
-    <div>
-      <h1 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h1>
-    </div>
-  </section>
 
-  <section class="one-flex" style="margin-top: 5rem; margin-bottom: 10rem;">
+<section class="cine-header" style="background-image: url('<?php echo esc_url( get_template_directory_uri() . '/images/FAQ_Banner.jpg' ); ?>');">
+        <div class="page-banner">
+            <h1 class="page-banner-title"><?php _e('FAQ', 'srft-theme'); ?></h1>
+        </div>
+</section>
+  
+  <div class="container-aligned">
+  <div class="breadcrumbs-wrapper">
+    <?php if ( function_exists( 'yoast_breadcrumb' ) ) { 
+      yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); 
+    } ?>
+  </div>
+</div>
+
+    <section class="cine-detail">
+    <div class="main-content" style="width: 100%;">
+
+    <div>
+      <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+    </div>
+
+    <div class="one-flex" style="margin-top: 2rem; margin-bottom: 10rem;">
     <div id="accordionGroup" class="accordion">
       <!--<ul>
         <li>
@@ -170,9 +177,10 @@ $post_id = get_the_ID();
        </div>  
       </div>   
     </div>
+  </div>
   </section>
-</div>
-          </main>
+</main>
+
 <?php get_footer(); ?>
 
 
