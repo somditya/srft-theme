@@ -31,6 +31,8 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
     <section class="cine-detail">
 
     <div class="leftnav">
+    <h2><?php echo __('Related Links', 'srft-theme'); ?> </h2>
+    <hr/>
     </div>
     <div class="main-content">
 
