@@ -41,7 +41,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
     </div>
     <div style="margin-top: 2rem; margin-bottom: 10rem;">
         <?php echo $page_content ?>          
-       </div>
+    </div>
 </div>    
 </section>
         </main>
