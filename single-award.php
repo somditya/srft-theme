@@ -27,16 +27,17 @@ foreach ($categories as $category) {
 
 <div data-scroll-container>
 <div style="margin: 15rem auto; max-width: 1250px; padding: 0 20px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
-<div>      
-            <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-            }
-            ?>
-        </div> 
+<main>  
+<div class="container-aligned">
+  <div class="breadcrumbs-wrapper">
+    <?php if ( function_exists( 'yoast_breadcrumb' ) ) { 
+      yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); 
+    } ?>
+  </div>
+</div>
 <h1 class="faculty-title">
         <?php echo get_the_title($post_id); ?>
-    </h1>
+</h1>
 
 <section id="skip-to-content" class="sub-intro">
  
@@ -46,7 +47,7 @@ foreach ($categories as $category) {
           </div>
           </div>
           <div class="sub-intro-text">
-           <div class="sub-intro-text-head"><?php echo __('Synopsis', 'srft-theme');?></div>
+           <h2 class="sub-intro-text-head"><?php echo __('Synopsis', 'srft-theme');?></h2>
           
            <div class="sub-intro-text-description">
            <?php echo get_field('film_synposis');?>
@@ -112,5 +113,6 @@ foreach ($categories as $category) {
     </div>
 
 </div>
+</main>
 
 <?php get_footer(); ?>
