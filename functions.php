@@ -967,6 +967,8 @@ function custom_menu_based_breadcrumbs($links) {
     $home_text = (get_locale() === 'hi_IN') ? 'घर' : $links[0]['text'];
     $links[0]['text'] = $home_text;
 
+    $menu_item_found = false;
+
     foreach ($menu_locations as $menu_location) {
         if (!isset($menu_locations_array[$menu_location])) {
             continue;
@@ -986,6 +988,8 @@ function custom_menu_based_breadcrumbs($links) {
         // Find matching menu item
         foreach ($menu_items as $menu_item) {
             if ((int)$menu_item->object_id === $current_id) {
+                $menu_item_found = true;
+                
                 // Recurse up menu parents
                 $breadcrumb_stack = [];
 
@@ -1019,6 +1023,116 @@ function custom_menu_based_breadcrumbs($links) {
             'url' => $faculty_archive_link,
             'text' => (get_locale() === 'hi_IN') ? 'प्रशिक्षक' : 'Faculty',
         ]);
+        $menu_item_found = true; // Faculty items should show breadcrumbs
+    }
+
+    // NEW: Handle pages/posts not found in menu
+    if (!$menu_item_found && (is_page() || is_single())) {
+        // For pages, check if it has parent pages
+        if (is_page()) {
+            global $post;
+            if ($post->post_parent) {
+                // Build hierarchy for pages with parents
+                $ancestors = array_reverse(get_post_ancestors($post->ID));
+                foreach ($ancestors as $ancestor) {
+                    $custom_breadcrumbs[] = [
+                        'url' => get_permalink($ancestor),
+                        'text' => get_the_title($ancestor),
+                    ];
+                }
+            }
+        }
+        
+        // For single posts, add category if available
+        if (is_single() && get_post_type() === 'post') {
+            $category = get_the_category();
+            if (!empty($category)) {
+                $custom_breadcrumbs[] = [
+                    'url' => get_category_link($category[0]->term_id),
+                    'text' => $category[0]->name,
+                ];
+            }
+        }
+
+        // Add current page/post title
+        $custom_breadcrumbs[] = [
+            'url' => '',
+            'text' => get_the_title(),
+        ];
+    }
+
+    // NEW: Handle archive pages
+    if (is_category() || is_tag() || is_archive()) {
+        if (is_category()) {
+            $custom_breadcrumbs[] = [
+                'url' => '',
+                'text' => single_cat_title('', false),
+            ];
+        } elseif (is_tag()) {
+            $custom_breadcrumbs[] = [
+                'url' => '',
+                'text' => single_tag_title('', false),
+            ];
+        } elseif (is_author()) {
+            $custom_breadcrumbs[] = [
+                'url' => '',
+                'text' => get_the_author(),
+            ];
+        } elseif (is_date()) {
+            if (is_year()) {
+                $custom_breadcrumbs[] = [
+                    'url' => '',
+                    'text' => get_the_date('Y'),
+                ];
+            } elseif (is_month()) {
+                $custom_breadcrumbs[] = [
+                    'url' => get_year_link(get_the_date('Y')),
+                    'text' => get_the_date('Y'),
+                ];
+                $custom_breadcrumbs[] = [
+                    'url' => '',
+                    'text' => get_the_date('F'),
+                ];
+            } elseif (is_day()) {
+                $custom_breadcrumbs[] = [
+                    'url' => get_year_link(get_the_date('Y')),
+                    'text' => get_the_date('Y'),
+                ];
+                $custom_breadcrumbs[] = [
+                    'url' => get_month_link(get_the_date('Y'), get_the_date('m')),
+                    'text' => get_the_date('F'),
+                ];
+                $custom_breadcrumbs[] = [
+                    'url' => '',
+                    'text' => get_the_date('d'),
+                ];
+            }
+        } elseif (is_post_type_archive()) {
+            $post_type = get_post_type();
+            $post_type_obj = get_post_type_object($post_type);
+            $custom_breadcrumbs[] = [
+                'url' => '',
+                'text' => $post_type_obj->labels->name,
+            ];
+        }
+    }
+
+    // NEW: Handle search results
+    if (is_search()) {
+        $search_text = (get_locale() === 'hi_IN') ? 'खोज परिणाम' : 'Search Results';
+        $custom_breadcrumbs[] = [
+            'url' => '',
+            'text' => $search_text . ': ' . get_search_query(),
+        ];
+    }
+
+    // NEW: Handle 404 pages
+    if (is_404()) {
+        $not_found_text = (get_locale() === 'hi_IN') ? 'पृष्ठ नहीं मिला' : 'Page Not Found';
+        $custom_breadcrumbs[] = [
+            'url' => '',
+            'text' => $not_found_text,
+        ];
     }
 
     // Prepend home
@@ -1027,50 +1141,36 @@ function custom_menu_based_breadcrumbs($links) {
     return $custom_breadcrumbs;
 }
 
-
-
-
 function get_menu_ancestors_excluding_links($menu_item, $menu_items) {
-	$ancestors = array();
-	while ($menu_item->menu_item_parent != 0) {
-			foreach ($menu_items as $item) {
-					if ($item->ID == $menu_item->menu_item_parent) {
-							$ancestors[] = array(
-									'url' => is_custom_link($item) ? '' : $item->url, // No hyperlink for custom links
-									'text' => $item->title,
-							);
-							$menu_item = $item;
-							break;
-					}
-			}
-	}
-	return array_reverse($ancestors);
+    $ancestors = array();
+    while ($menu_item->menu_item_parent != 0) {
+        foreach ($menu_items as $item) {
+            if ($item->ID == $menu_item->menu_item_parent) {
+                $ancestors[] = array(
+                    'url' => is_custom_link($item) ? '' : $item->url, // No hyperlink for custom links
+                    'text' => $item->title,
+                );
+                $menu_item = $item;
+                break;
+            }
+        }
+    }
+    return array_reverse($ancestors);
 }
 
 // Helper function to check if a menu item is a custom link
 function is_custom_link($menu_item) {
-	return $menu_item->type === 'custom';
+    return $menu_item->type === 'custom';
 }
 
 // Convert the Yoast Breadcrumbs output wrapper into an ordered list.
-// Convert the Yoast Breadcrumbs output wrapper into an ordered list.
 add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
-	return 'ol';
+    return 'ol';
 } );
 
 // Convert the Yoast Breadcrumbs single items into list items.
 add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
-	return 'li';
-} );
-
-// Convert the Yoast Breadcrumbs output wrapper into an ordered list.
-add_filter( 'wpseo_breadcrumb_output_wrapper', function() {
-	return 'ol';
-} );
-
-// Convert the Yoast Breadcrumbs single items into list items.
-add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
-	return 'li';
+    return 'li';
 } );
 
 function display_global_latest_date() {
