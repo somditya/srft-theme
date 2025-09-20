@@ -132,6 +132,12 @@ a:selected {
   /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
+p {
+  overflow-wrap: break-word; /* modern */
+  word-wrap: break-word; /* fallback */
+  word-break: break-word; /* aggressive */
+}
+
 /* Font Section */
 
 @font-face {
