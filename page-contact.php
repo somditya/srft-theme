@@ -43,7 +43,7 @@ Template Name: Contact
             </section>
 
 
-            <section class="one-flex1" style="margin-bottom: 2rem;">
+            <section style="margin-bottom: 2rem;">
             <div style="margin-bottom: 2rem;">
                 <div><?php echo wp_kses_post($post->post_content); ?></div>
             </div>

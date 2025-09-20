@@ -13,7 +13,7 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
 <main>
     <!-- Content area -->
     <div class="static-container">
-     <div class="container-aligned">
+    <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
       <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>'); } ?>
     </div>
