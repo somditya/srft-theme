@@ -1838,7 +1838,7 @@ ol li {
 
 .wpcf7-form input[type="submit"] {
   margin-top: 10px;
-  background: #4b021c;
+  background: var(--top-header-color);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -1846,6 +1846,11 @@ ol li {
   font-size: 18px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.wpcf7 form span.wpcf7-not-valid-tip,
+div.wpcf7 span.wpcf7-not-valid-tip {
+  color: #b11d1d !important;
 }
 
 .wpcf7-form input[type="submit"]:focus {

@@ -604,6 +604,18 @@ window.addEventListener('load', function () {
 });
 </script>
 
+<script>
+document.addEventListener('wpcf7:form-init', function(event) {
+    const form = event.target;
+    const heading = document.getElementById('feedback-form-heading');
+
+    if (heading) {
+        form.setAttribute('aria-labelledby', heading.id);
+    }
+});
+</script>
+
+
 
 
 <?php wp_footer(); ?>

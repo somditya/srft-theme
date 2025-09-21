@@ -1327,3 +1327,32 @@ add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args, $depth ) 
 
     return $atts;
 }, 10, 4 );
+
+// Replace <br> in Contact Form 7 with <br role="presentation">
+
+add_filter('wpcf7_form_elements', function ($content) {
+    // Replace all variations of <br>, <br/> and <br /> with <br role="presentation">
+    $content = preg_replace('/<br\s*\/?>/i', '<br role="presentation">', $content);
+    return $content;
+});
+
+// Remove aria-label="Contact form" from Contact Form 7 forms
+add_filter('wpcf7_form_elements', function($content) {
+    // Remove aria-label from the <form> tag
+    $content = preg_replace('/<form([^>]+)aria-label="Contact form"([^>]*)>/', '<form$1$2>', $content);
+    return $content;
+});
+
+function srft_theme_scripts() {
+    // Enqueue the lightbox JavaScript file
+    wp_enqueue_script(
+        'srft-media-lightbox', // A unique handle for your script
+        get_template_directory_uri() . '/script/media-lightbox.js', // Path to your JS file
+        array('jquery'), // Dependencies (optional, but good practice if you use jQuery)
+        '1.0', // Version number
+        true // Load in the footer
+    );
+}
+add_action('wp_enqueue_scripts', 'srft_theme_scripts');
+
+wp_enqueue_style( 'srft-media-lightbox-style', get_template_directory_uri() . '/css/media-lightbox.css' );

@@ -8,7 +8,6 @@ $post_id = get_the_ID();
 ?>
 
 <main>
-    <!-- Banner -->
     <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post_id, 'large')); ?>');">
         <div class="page-banner">
             <h1 class="page-banner-title"><?php _e('Media Gallery', 'srft-theme'); ?></h1>
@@ -23,12 +22,10 @@ $post_id = get_the_ID();
 
     <section class="cine-detail">
         <div class="main-content" style="width: 100%;">
-            <!-- Title -->
             <div class="page-title">
                 <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
             </div>
 
-            <!-- Accessible Tabs -->
             <section class="section-home">
                 <div class="tabs">
                     <h3 id="tablist-media"><?php _e('Media Categories', 'srft-theme'); ?></h3>
@@ -52,7 +49,7 @@ $post_id = get_the_ID();
                             echo ' aria-selected="' . ($is_first ? 'true' : 'false') . '"';
                             echo ' aria-controls="' . esc_attr($tabpanel_id) . '"';
                             echo ($is_first ? '' : ' tabindex="-1"') . ' class="phototab">';
-                            echo  esc_html($label);
+                            echo esc_html($label);
                             echo '</button>';
                             $i++;
                         }
@@ -69,7 +66,6 @@ $post_id = get_the_ID();
                     ];
 
                     function render_album_content($categories, $empty_msg) {
-                        // Step 1: Get all relevant pictures
                         $query = new WP_Query([
                             'post_type' => 'picture',
                             'posts_per_page' => -1,
@@ -82,7 +78,6 @@ $post_id = get_the_ID();
                             ],
                         ]);
 
-                        // Step 2: Group by Album_Name
                         $grouped = [];
                         foreach ($query->posts as $post) {
                             $album_name = get_post_meta($post->ID, 'Album_Name', true);
@@ -96,35 +91,28 @@ $post_id = get_the_ID();
                         }
 
                         if (!empty($grouped)) {
-                            // Step 3: Sort images within each album by Picture_Order ASC
                             foreach ($grouped as $album => &$items) {
                                 usort($items, fn($a, $b) => $a['order'] <=> $b['order']);
                             }
                             unset($items);
 
-                            // Step 4: Sort albums by latest post date DESC
                             uasort($grouped, function ($a, $b) {
                                 return strtotime($b[0]['post']->post_date) - strtotime($a[0]['post']->post_date);
                             });
 
-                            // Step 5: Output albums
                             foreach ($grouped as $album_name => $images) {
                                 $cover = $images[0]['post'];
                                 $cover_url = get_field('Picture_File', $cover->ID);
 
                                 echo "<div class='album-container'>";
                                 echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
-                                echo '<a href="' . esc_url($cover_url) . '" data-lightbox="' . esc_attr(sanitize_title($album_name)) . '" data-title="' . esc_attr($cover->post_title) . '">';
+                                
+                                // Updated album link to open the lightbox
+                                echo '<a href="#" class="open-lightbox" data-album-name="' . esc_attr($album_name) . '" data-album-images="' . htmlspecialchars(json_encode(array_map(function($img) {
+                                    return ['url' => get_field('Picture_File', $img['post']->ID), 'title' => $img['post']->post_title];
+                                }, $images)), ENT_QUOTES, 'UTF-8') . '">';
                                 echo '<img src="' . esc_url($cover_url) . '" alt="' . esc_attr($album_name) . '" class="gallery-image">';
                                 echo '</a>';
-
-                                foreach ($images as $item) {
-                                    $img = $item['post'];
-                                    if ($img->ID !== $cover->ID) {
-                                        $img_url = get_field('Picture_File', $img->ID);
-                                        echo '<a href="' . esc_url($img_url) . '" data-lightbox="' . esc_attr(sanitize_title($album_name)) . '" data-title="' . esc_attr($img->post_title) . '"></a>';
-                                    }
-                                }
 
                                 echo "</div>";
                             }
@@ -159,7 +147,25 @@ $post_id = get_the_ID();
             </section>
         </div>
     </section>
-</main>
 
+    <div id="image-lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-content">
+        <h2 id="lightbox-title" class="sr-only">Image Gallery</h2>
+        <button id="lightbox-close-button" class="lightbox-close-btn" aria-label="Close">
+    <span aria-hidden="true">✕</span>
+</button>
+
+                
+        <div id="lightbox-announcer" aria-live="polite" class="sr-only"></div>
+                
+        <div class="lightbox-gallery">
+            <ul id="lightbox-image-list" class="lightbox-ul">
+            </ul>
+        </div>
+        <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous image">‹</button>
+        <button class="lightbox-nav-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+</div>
+</main>
 
 <?php get_footer(); ?>
