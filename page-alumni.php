@@ -45,7 +45,7 @@ $category_id = get_category_ID($category_name);
 
 <section class="section-home" id="skip-to-content">
     <div class="container">
-        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('News', 'srft-theme' ); ?></h2>
+        <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Recent Updates', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->
             <div class="news-grid">
