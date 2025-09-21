@@ -8,57 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.querySelector(".lightbox-next");
   const announcer = document.getElementById("lightbox-announcer");
   const lightboxGallery = document.querySelector(".lightbox-gallery");
+  let modalJustOpened = false;
 
   let lastFocusedElement;
   let currentImageIndex = 0;
   let images = [];
 
-  // W3C focus utilities - exactly as in their example
-  function focusFirstDescendant(element) {
-    for (let i = 0; i < element.childNodes.length; i++) {
-      const child = element.childNodes[i];
-      if (attemptFocus(child) || focusFirstDescendant(child)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function attemptFocus(element) {
-    if (!isFocusable(element)) {
-      return false;
-    }
-    try {
-      element.focus();
-    } catch (e) {
-      // continue regardless of error
-    }
-    return document.activeElement === element;
-  }
-
-  function isFocusable(element) {
-    if (element.tabIndex < 0) {
-      return false;
-    }
-    if (element.disabled) {
-      return false;
-    }
-    switch (element.nodeName) {
-      case "A":
-        return !!element.href && element.rel != "ignore";
-      case "INPUT":
-        return element.type != "hidden";
-      case "BUTTON":
-      case "SELECT":
-      case "TEXTAREA":
-        return true;
-      default:
-        return false;
-    }
-  }
-
   /**
-   * Opens the lightbox modal - following W3C pattern exactly
+   * Opens the lightbox modal, populating it with album images and setting focus.
+   * @param {Event} event The click event object.
    */
   function openLightbox(event) {
     event.preventDefault();
@@ -67,18 +25,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const albumName = this.getAttribute("data-album-name");
     images = JSON.parse(this.getAttribute("data-album-images"));
 
-    lightboxTitle.textContent = albumName + " Image Gallery";
+    // Set the title for proper dialog labeling
+    //lightboxTitle.textContent = albumName + " Image Gallery";
 
     lightboxImageList.innerHTML = "";
     images.forEach((image, index) => {
       const li = document.createElement("li");
       li.innerHTML = `<img src="${image.url}" alt="${image.title}" class="lightbox-image">`;
       li.classList.add("lightbox-list-item");
+
+      li.setAttribute("role", "group");
+      li.setAttribute(
+        "aria-label",
+        `Image ${index + 1} of ${images.length}: ${image.title}`
+      );
       li.setAttribute("tabindex", "-1");
+
       lightboxImageList.appendChild(li);
     });
 
-    // Show modal - exactly like W3C
+    // Show the modal and make it accessible
     lightboxModal.style.display = "flex";
     lightboxModal.removeAttribute("aria-hidden");
     lightboxModal.setAttribute("aria-labelledby", "lightbox-title");
@@ -91,14 +57,28 @@ document.addEventListener("DOMContentLoaded", function () {
       nextButton.style.display = "none";
     }
 
-    updateLightboxImage(0, false);
+    // Hide the gallery from screen readers to prevent multiple readings
+    lightboxGallery.setAttribute("aria-hidden", "true");
 
-    // W3C approach: focus first descendant automatically
-    focusFirstDescendant(lightboxModal);
+    // Show the first image without announcer message initially
+    updateLightboxImage(0, true);
+    modalJustOpened = true;
+    // Set focus to the close button
+    requestAnimationFrame(() => {
+      closeButton.focus();
+      setTimeout(() => {
+        modalJustOpened = false;
+      }, 500);
+    });
   }
 
+  /**
+   * Closes the lightbox modal and returns focus to the triggering element.
+   */
   function closeLightbox() {
     lightboxModal.style.display = "none";
+
+    // Properly hide the modal from screen readers
     lightboxModal.setAttribute("aria-hidden", "true");
     lightboxModal.removeAttribute("aria-labelledby");
 
@@ -106,11 +86,17 @@ document.addEventListener("DOMContentLoaded", function () {
       lastFocusedElement.focus();
     }
 
+    // Clear the announcer
     if (announcer) {
       announcer.textContent = "";
     }
   }
 
+  /**
+   * Updates the displayed image in the lightbox.
+   * @param {number} newIndex The index of the image to display.
+   * @param {boolean} announce Whether to announce the change via aria-live
+   */
   function updateLightboxImage(newIndex, announce = true) {
     const imageListItems = lightboxImageList.querySelectorAll(
       ".lightbox-list-item"
@@ -132,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
       imageListItems[newIndex].setAttribute("aria-current", "true");
 
       const newImageAlt = images[newIndex].title;
+      // In updateLightboxImage function, change the announcer logic:
       if (announcer && announce) {
         announcer.textContent = `Image ${newIndex + 1} of ${
           images.length
@@ -142,19 +129,25 @@ document.addEventListener("DOMContentLoaded", function () {
     currentImageIndex = newIndex;
   }
 
+  /**
+   * Displays the next image in the gallery.
+   */
   function showNextImage() {
     if (currentImageIndex < images.length - 1) {
       updateLightboxImage(currentImageIndex + 1);
     }
   }
 
+  /**
+   * Displays the previous image in the gallery.
+   */
   function showPrevImage() {
     if (currentImageIndex > 0) {
       updateLightboxImage(currentImageIndex - 1);
     }
   }
 
-  // Event listeners
+  // --- Event Listeners ---
   albumLinks.forEach((link) => {
     link.addEventListener("click", openLightbox);
   });
@@ -163,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
   prevButton.addEventListener("click", showPrevImage);
   nextButton.addEventListener("click", showNextImage);
 
+  // Keyboard navigation for the entire document
   document.addEventListener("keydown", function (event) {
     if (lightboxModal.style.display === "flex") {
       if (event.key === "Escape") {
@@ -177,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // W3C style focus trap
+  // Simple focus trap within the modal
   lightboxModal.addEventListener("keydown", function (event) {
     if (event.key === "Tab") {
       const focusableElements = lightboxModal.querySelectorAll(
@@ -189,11 +183,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const lastElement = focusableElements[focusableElements.length - 1];
 
       if (event.shiftKey) {
+        // Shift + Tab
         if (document.activeElement === firstElement) {
           lastElement.focus();
           event.preventDefault();
         }
       } else {
+        // Tab
         if (document.activeElement === lastElement) {
           firstElement.focus();
           event.preventDefault();
