@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.querySelector(".lightbox-next");
   const announcer = document.getElementById("lightbox-announcer");
   const lightboxGallery = document.querySelector(".lightbox-gallery");
+  let modalJustOpened = false;
 
   let lastFocusedElement;
   let currentImageIndex = 0;
@@ -60,10 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
     lightboxGallery.setAttribute("aria-hidden", "true");
 
     // Show the first image without announcer message initially
-    updateLightboxImage(0, false);
-
+    updateLightboxImage(0, true);
+    modalJustOpened = true;
     // Set focus to the close button
-    closeButton.focus();
+    requestAnimationFrame(() => {
+      closeButton.focus();
+      setTimeout(() => {
+        modalJustOpened = false;
+      }, 500);
+    });
   }
 
   /**
@@ -112,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
       imageListItems[newIndex].setAttribute("aria-current", "true");
 
       const newImageAlt = images[newIndex].title;
+      // In updateLightboxImage function, change the announcer logic:
       if (announcer && announce) {
         announcer.textContent = `Image ${newIndex + 1} of ${
           images.length
@@ -168,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
   lightboxModal.addEventListener("keydown", function (event) {
     if (event.key === "Tab") {
       const focusableElements = lightboxModal.querySelectorAll(
-        'button, a, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button:not([style*="display: none"]), a, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
       if (focusableElements.length === 0) return;
 
