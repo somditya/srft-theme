@@ -7,6 +7,8 @@ $post_id = get_the_ID();
 $post = get_post($post_id);
 $page_content = apply_filters('the_content', $post->post_content);
 $current_language = get_locale();
+$page_header = get_post_meta(get_the_ID(), 'Intro', true);
+                        
 ?>
 
 <main role="main">
@@ -92,7 +94,7 @@ $current_language = get_locale();
 
         <div  class="main-content" role="main">        
            <div>
-                <h2 class="page-header-text"><?php echo esc_html(get_the_title()); ?></h2>
+                <h2 class="page-header-text"><?php echo esc_html($page_header); ?></h2>
             </div>  
             
 
