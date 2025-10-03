@@ -178,7 +178,7 @@ $category_id = get_category_ID($category_name);
   </div>
 </div>
 
-<div id="ariaLiveRegion" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+<!--<div id="ariaLiveRegion" class="sr-only" aria-live="assertive" aria-atomic="true"></div>-->
 
         <script>
             var categoryID = <?php echo json_encode($category_id); ?>;
@@ -229,7 +229,7 @@ $category_id = get_category_ID($category_name);
     contentBox.innerHTML = content;
 
     // Announce opening
-    liveRegion.textContent = `Dialog opened. Students Film Batch ${title}. Press Tab to navigate inside.`;
+    /*liveRegion.textContent = `Dialog opened. Students Film Batch ${title}. Press Tab to navigate inside.`;*/
 
     // Track the triggering button
     const triggerBtn = $event.currentTarget;
@@ -275,7 +275,7 @@ $category_id = get_category_ID($category_name);
         contentBox.innerHTML = '';
 
         // Announce closing
-        liveRegion.textContent = 'Dialog closed. Returning to main content.';
+        /*liveRegion.textContent = 'Dialog closed. Returning to main content.';*/
 
         // Restore focus to the trigger button
         triggerBtn.focus();
