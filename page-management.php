@@ -185,9 +185,9 @@ $page_content = apply_filters('the_content', $post->post_content);
                                 <td class="Rtable-cell slno-cell">
                                     <div class="Rtable-cell--content"><?php echo $count; ?></div>
                                 </td>
-                                <td class="Rtable-cell name-cell">
+                                <th class="Rtable-cell name-cell" scope="row">
                                     <div class="Rtable-cell--content"><?php the_title(); ?></div>
-                                </td>
+                                </th>
                                 <td class="Rtable-cell designation-cell">
                                     <div class="Rtable-cell--content"><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></div>
                                 </td>
@@ -251,9 +251,9 @@ $page_content = apply_filters('the_content', $post->post_content);
                                 <td class="Rtable-cell slno-cell">
                                     <div class="Rtable-cell--content"><?php echo $count; ?></div>
                                 </td>
-                                <td class="Rtable-cell name-cell">
+                                <th class="Rtable-cell name-cell" scope="row">
                                     <div class="Rtable-cell--content"><?php the_title(); ?></div>
-                                </td>
+                                </th>
                                 <td class="Rtable-cell designation-cell">
                                     <div class="Rtable-cell--content"><?php echo get_post_meta(get_the_ID(), 'Designation', true); ?></div>
                                 </td>
@@ -370,9 +370,9 @@ if ($category_posts->have_posts()) :
             <td class="Rtable-cell slno-cell">
                 <div class="Rtable-cell--content"><?php echo $count; ?></div>
             </td>
-            <td class="Rtable-cell name-cell">
+            <th class="Rtable-cell name-cell" scope="row">
                 <div class="Rtable-cell--content"><?php echo $post['title']; ?></div>
-            </td>
+            </th>
             <td class="Rtable-cell designation-cell">
                 <div class="Rtable-cell--content"><?php echo $post['designation']; ?></div>
             </td>

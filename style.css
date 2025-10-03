@@ -3750,6 +3750,13 @@ img.reload {
   /* text-transform: uppercase; */ /* Optional: Makes text uppercase */
 }
 
+.course-list {
+  all: unset; /* Resets all inherited and default styles */
+  display: block;
+  font-size: 16px; /* Sets font size */
+  font-style: italic;
+}
+
 .cell a {
   border-bottom: 1px dotted;
   font-size: 1.4rem;
@@ -7112,7 +7119,8 @@ img.emoji {
 #picModal .close:focus {
   background: #333;
   color: #fff;
-  outline: none;
+  outline: 2px solid rgb(8, 8, 0);
+  outline-offset: 3px;
 }
 
 /* Accordion styles */
