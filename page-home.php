@@ -432,7 +432,7 @@ else
   <section class="section-home" style="background-color: rgb(228, 118, 15);
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">
     <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
-    <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winnng Student Films', 'srft-theme' ); ?></h2>
+    <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winning Student Films', 'srft-theme' ); ?></h2>
     <p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between award items.
   </p>
