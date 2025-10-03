@@ -143,41 +143,42 @@ wp_nav_menu(array(
             <div>
                 <h4 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h4>
             </div> 
-            <div class="box-container">
-                    <?php
-                    $args = array(
-                        'post_type' => 'page',
-                        'category_name' => $catslug,
-                        'posts_per_page' => -1,
-                    );
+           <ul class="box-container" style="list-style-type: none; padding: 0; margin: 0;">
+    <?php
+    $args = array(
+        'post_type' => 'page',
+        'category_name' => $catslug,
+        'posts_per_page' => -1,
+    );
 
-                    $query = new WP_Query($args);
-                    if ($query->have_posts()) :
-                        while ($query->have_posts()) : $query->the_post();
-                    ?>
-                        <div class="cell">
-                            <a href="<?php the_permalink(); ?>" target="_blank">
-                                <?php
-                                $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
-                                $thumb_url=str_replace('{site_url}', get_site_url(), $thumb_url);
-                                if (!empty($thumb_url)) {
-                                    echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="">';
-                                }
-                                ?>
-                                <div class="txt">
-                                    <div class="caption"><?php echo esc_html(get_post_meta(get_the_ID(), 'Department', true)); ?></div>
-                                    <div style="width: 25px;  margin-left:10px;">
-                                        <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="" style="filter: invert(1);">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php
-                        endwhile;
-                    endif;
-                    wp_reset_postdata();
-                    ?>
+    $query = new WP_Query($args);
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+    ?>
+        <li class="cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;">
+            <a href="<?php the_permalink(); ?>" target="_blank">
+                <?php
+                $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
+                $thumb_url = str_replace('{site_url}', get_site_url(), $thumb_url);
+                if (!empty($thumb_url)) {
+                    echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="">';
+                }
+                ?>
+                <div class="txt" style="display: flex; align-items: center;">
+                    <div class="caption"><?php echo esc_html(get_post_meta(get_the_ID(), 'Department', true)); ?></div>
+                    <div style="width: 25px; margin-left:10px;">
+                        <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="" style="filter: invert(1);">
+                    </div>
                 </div>
+            </a>
+        </li>
+    <?php
+        endwhile;
+    endif;
+    wp_reset_postdata();
+    ?>
+</ul>
+
             </section>
         </div>
     </section>
