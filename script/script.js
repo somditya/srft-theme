@@ -351,7 +351,14 @@ $(document).ready(function () {
 /*       */
 
 $(document).ready(function () {
-  console.log("Inside the accessibility div section.");
+  console.log("=== ACCESSIBILITY SCRIPT LOADED ===");
+  console.log("jQuery loaded:", typeof $ !== "undefined");
+
+  // Check if buttons exist
+  console.log("Increase button count:", $(".increaseFont").length);
+  console.log("Decrease button count:", $(".decreaseFont").length);
+  console.log("Normal button count:", $(".normalFont").length);
+  console.log("Live region count:", $("#font-size-announcement").length);
 
   // Check for stored dark mode state
   if (localStorage.getItem("darkMode") === "enabled") {
@@ -362,23 +369,65 @@ $(document).ready(function () {
   // Font Size Adjustment - Initialize variables
   const defaultFontSize = parseFloat($("html").css("font-size"));
   let currentFontSize = defaultFontSize;
+  console.log("Default font size:", defaultFontSize);
+
+  // Function to announce font size changes to screen readers
+  function announceFontSizeChange(message) {
+    console.log("=== announceFontSizeChange CALLED ===");
+    const announcement = $("#font-size-announcement");
+    console.log("Announcement element found:", announcement.length > 0);
+    console.log("Message to announce:", message);
+
+    // Clear first
+    announcement.text("");
+
+    // Then set new message with small delay
+    setTimeout(function () {
+      announcement.text(message);
+      console.log("Text set to:", announcement.text());
+    }, 100);
+  }
+
+  // Function to calculate percentage relative to default
+  function getFontSizePercentage() {
+    return Math.round((currentFontSize / defaultFontSize) * 100);
+  }
 
   // Handle font size increase
   $(".increaseFont").on("click", function () {
+    console.log("=== INCREASE BUTTON CLICKED ===");
     if (currentFontSize < 30) {
       currentFontSize += 2;
       $("html").css("font-size", currentFontSize + "px");
+      const percentage = getFontSizePercentage();
+      announceFontSizeChange(`Font size increased to ${percentage} percent`);
       console.log("Font size increased to:", currentFontSize + "px");
+    } else {
+      announceFontSizeChange("Font size is already at maximum");
     }
   });
 
   // Handle font size decrease
   $(".decreaseFont").on("click", function () {
+    console.log("=== DECREASE BUTTON CLICKED ===");
     if (currentFontSize > 10) {
       currentFontSize -= 2;
       $("html").css("font-size", currentFontSize + "px");
+      const percentage = getFontSizePercentage();
+      announceFontSizeChange(`Font size decreased to ${percentage} percent`);
       console.log("Font size decreased to:", currentFontSize + "px");
+    } else {
+      announceFontSizeChange("Font size is already at minimum");
     }
+  });
+
+  // Handle font size reset (SINGLE HANDLER - includes both .normalFont and #reset-text)
+  $(".normalFont, #reset-text").on("click", function () {
+    console.log("=== RESET BUTTON CLICKED ===");
+    currentFontSize = defaultFontSize;
+    $("html").css("font-size", currentFontSize + "px");
+    announceFontSizeChange("Font size reset to normal");
+    console.log("Font size reset to:", currentFontSize + "px");
   });
 
   // Dark Mode Toggle
@@ -393,13 +442,6 @@ $(document).ready(function () {
     $("body").removeClass("dark-mode").addClass("high-contrast");
     localStorage.setItem("darkMode", "disabled");
     console.log("High contrast mode activated.");
-  });
-
-  // Reset Font Size
-  $(".normalFont, #reset-text").on("click", function () {
-    currentFontSize = defaultFontSize;
-    $("html").css("font-size", currentFontSize + "px");
-    console.log("Font size reset to default:", currentFontSize + "px");
   });
 
   // ---- Accessibility menu focus-trap ----
@@ -580,7 +622,6 @@ $(document).ready(function () {
 
   console.log("Accessibility menu setup complete!");
 });
-
 /*    */
 
 /*
@@ -752,17 +793,110 @@ $(document).ready(function () {
 
   // News ticker marquee
 
+  // Accessible Auto-Scrolling News Ticker
   $(document).ready(function () {
-    $(".news-ticker").AcmeTicker({
-      type: "marquee" /*horizontal/horizontal/Marquee/type*/,
-      direction: "right" /*up/down/left/right*/,
-      speed: 0.05 /*true/false/number*/ /*For vertical/horizontal 600*/ /*For marquee 0.05*/ /*For typewriter 50*/,
-      controls: {
-        toggle: $(
-          ".acme-news-ticker-pause"
-        ) /*Can be used for horizontal/horizontal/typewriter*/ /*not work for marquee*/,
-      },
+    const $ticker = $(".news-ticker");
+    const $container = $(".acme-news-ticker-box");
+    const $toggleBtn = $("#ticker-toggle");
+    const $announcement = $("#ticker-announcement");
+
+    let isPlaying = true;
+    let animationId = null;
+    let currentPosition = 0;
+    const speed = 1;
+
+    // Get child elements (works for both <li> and <span>)
+    function getItems() {
+      return $ticker.children();
+    }
+
+    // Check number of items
+    const itemCount = getItems().length;
+
+    // Get total width of all news items
+    function getTotalWidth() {
+      let total = 0;
+      getItems().each(function () {
+        total += $(this).outerWidth(true);
+      });
+      return total;
+    }
+
+    // Clone items for seamless loop
+    function setupLoop() {
+      const $items = getItems().clone();
+      $ticker.append($items);
+    }
+
+    // Animation function
+    function animate() {
+      if (!isPlaying) return;
+
+      const totalWidth = getTotalWidth() / 2; // Divided by 2 because we cloned
+      currentPosition -= speed;
+
+      // Reset position for seamless loop
+      if (Math.abs(currentPosition) >= totalWidth) {
+        currentPosition = 0;
+      }
+
+      $ticker.css("transform", `translateX(${currentPosition}px)`);
+      animationId = requestAnimationFrame(animate);
+    }
+
+    // Play function
+    function play() {
+      isPlaying = true;
+      $toggleBtn.attr("aria-label", "Pause");
+      $toggleBtn.html('<i class="fas fa-pause" aria-hidden="true"></i>');
+      $announcement.text("Announcements are scrolling");
+      animate();
+    }
+
+    // Pause function
+    function pause() {
+      isPlaying = false;
+      $toggleBtn.attr("aria-label", "Play");
+      $toggleBtn.html('<i class="fas fa-play" aria-hidden="true"></i>');
+      $announcement.text("Announcements are paused");
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    }
+
+    // Toggle button click handler
+    $toggleBtn.on("click", function () {
+      if (isPlaying) {
+        pause();
+      } else {
+        play();
+      }
     });
+
+    // Pause on hover for accessibility
+    $container.on("mouseenter", function () {
+      if (isPlaying) {
+        pause();
+        $announcement.text("");
+      }
+    });
+
+    $container.on("mouseleave", function () {
+      if (!isPlaying) {
+        play();
+        $announcement.text("");
+      }
+    });
+
+    // Pause on focus for keyboard users - works for links in both <li> and <span>
+    $ticker.find("a").on("focus", function () {
+      pause();
+      $announcement.text("");
+    });
+
+    // Initialize
+    setupLoop();
+    play();
   });
 
   jQuery(document).ready(function ($) {

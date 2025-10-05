@@ -134,21 +134,22 @@ $current_language = get_locale();
 <!-- Accessibility Menu -->
   <div id="accessibility-menu" class="hidden" role="dialog"
       aria-modal="true" aria-hidden="true"
-      tabindex="-1">
-      <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-      <div role="list" class="text-resize">
-          <button class="increaseFont" type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
-              <i class="fas fa-search-plus"></i>
-          </button>
-          <button class="decreaseFont" type="button" title="Decrerase font size" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
+      tabindex="-1" aria-label="Accessibility Option">
+      <h2><?php echo __('Text Resize', 'srft-theme' ); ?></h2>
+      <div id="font-size-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div role="group" class="text-resize">
+          <button class="increaseFont" type="button" aria-label="Increase Text Size">
+    <i class="fas fa-search-plus"></i>
+</button>
+          <button class="decreaseFont" type="button"   aria-label="Decrease Text Size">
               <i class="fas fa-search-minus"></i>
           </button>
-          <button class="normalFont" type="button" title="Normal font size" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
+          <button class="normalFont" type="button"   aria-label="Reset">
           <i class="fas fa-sync-alt"></i>
           </button>
       </div>
-       <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-      <div role="list" class="color-adjustment">
+       <h2><?php echo __('Color Adjustment', 'srft-theme' ); ?></h2>
+      <div role="group" class="color-adjustment">
           <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
               <i class="fas fa-adjust"></i>
           </button>

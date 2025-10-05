@@ -13,74 +13,105 @@ Template Name: Home
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-        <section  class="section-home" style="background-color: #161a1d; padding: 10px;">
-            <div class="acme-news-ticker">
-            <h2 class="acme-news-ticker-label">
-            <?php echo __('Announcements', 'srft-theme' ); ?> &nbsp;
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;" aria-hidden="true">
-                        <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M1 12h22"></path>
-                            <path d="M12 3l9 9-9 9"></path>
-                        </g>
-                    </svg>
-                </h2>
-            <div class="acme-news-ticker-box">
-    <div>
-        <ul class="news-ticker">
-            <?php
+        <section class="section-home" style="background-color: #161a1d; padding: 10px;">
+    <section class="section-home" style="background-color: #161a1d; padding: 10px;">
+    <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
+        
+        <!-- Label -->
+        <h2 class="acme-news-ticker-label" style="flex-shrink: 0; margin: 0;">
+            <?php echo __('Announcements', 'srft-theme'); ?> &nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" 
+                 style="display: inline-block; vertical-align: middle;" aria-hidden="true">
+                <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12h22"></path>
+                    <path d="M12 3l9 9-9 9"></path>
+                </g>
+            </svg>
+        </h2>
+        
+        <!-- Scrolling Container -->
+        <div class="acme-news-ticker-box" style="flex: 1; overflow: hidden; position: relative; height: 40px;">
+    <?php
+    if ($current_language === 'en_US') {
+        $catslug = 'highlight-en';
+    } else {
+        $catslug = 'highlight-hi';
+    }
 
-            if ($current_language === 'en_US') {
-                $catslug = 'highlight-en';
-            } else {
-                $catslug = 'highlight-hi';
-            }
+    $today = date('Y-m-d');
+    $args = array(
+        'post_type' => 'highlight',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => $catslug
+            )
+        ),
+        'meta_query' => array(
+            array(
+                'key' => 'highlight_expiry_date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'DATE'
+            )
+        )
+    );
 
-            $today = date('Y-m-d');  // Correct date format for ACF compatibility
+    $query = new WP_Query($args);
+    $post_count = $query->post_count;
 
-            $args = array(
-                'post_type' => 'highlight',  // Ensure this is your custom post type
-                'posts_per_page' => -1,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $catslug
-                    )
-                ),
-                'meta_query' => array(
-                    array(
-                        'key' => 'highlight_expiry_date',
-                        'compare' => '>=',
-                        'value' => $today,
-                        'type' => 'DATE'
-                    )
-                )
-            );
+    // Only use <ul> if multiple items
+    if ($post_count > 1) {
+        echo '<ul class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0; list-style: none;">';
+    } else {
+        echo '<div class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0;">';
+    }
 
-            $query = new WP_Query($args);
-
-            if ($query->have_posts()) :
-                while ($query->have_posts()) : $query->the_post(); ?>
-                    <li>
-                    <a href="<?php echo esc_url(get_field('highlight_post_link')); ?>" target="_blank">
-    <?php the_field('highlight_title'); ?>
-</a>
-
-                    </li>
-                <?php endwhile;
-            else : ?>
-                <li></li>
-            <?php endif;
-            wp_reset_postdata();
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            $tag = ($post_count > 1) ? 'li' : 'span';
+            echo '<' . $tag . ' style="padding: 0 80px; display: inline-block;">';
             ?>
-        </ul>
-    </div>
-</div>
+                <a href="<?php echo esc_url(get_field('highlight_post_link')); ?>" 
+                   target="_blank"
+                   style="color: white; text-decoration: none; line-height: 40px;">
+                    <?php the_field('highlight_title'); ?>
+                </a>
+            <?php
+            echo '</' . $tag . '>';
+        endwhile;
+    else :
+        echo '<span style="padding: 0 80px; display: inline-block;">';
+        echo '<span style="color: white; line-height: 40px;">' . __('No announcements at this time', 'srft-theme') . '</span>';
+        echo '</span>';
+    endif;
+    wp_reset_postdata();
 
-<div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
-    <span class="acme-news-ticker-pause"></span>
+    // Close with matching tag
+    if ($post_count > 1) {
+        echo '</ul>';
+    } else {
+        echo '</div>';
+    }
+    ?>
 </div>
-        </section>
+        
+        <!-- Play/Pause Button at the end -->
+        <button id="ticker-toggle" 
+                type="button" 
+                aria-label="Pause scrolling announcements"
+                style="background: transparent; border: 1px solid white; color: white; 
+                       padding: 8px 15px; cursor: pointer; border-radius: 4px; flex-shrink: 0;">
+            <i class="fas fa-pause" aria-hidden="true"></i>
+        </button>
+        
+        <!-- ARIA Live Region -->
+        <div id="ticker-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+        
+    </div>
+</section>
     </div>
 </div>
         
