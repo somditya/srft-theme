@@ -53,14 +53,13 @@ $category_id = get_category_ID($category_name);
                             'terms'    => $catslug,
                         ),
                     ),
-                    'posts_per_page' => 1,       
+                    'posts_per_page' => -1,       
                 ));
 
                 if ($download_post->have_posts()) {
                     echo '<ul style="list-style-type: none">';
                     while ($download_post->have_posts()) {
                         $download_post->the_post(); 
-                        
                         // ACF Fields
                         $document_file = get_field('document');
                         $document_category = get_field('document-category'); // Returns an array with URL and other data
