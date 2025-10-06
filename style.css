@@ -1348,6 +1348,10 @@ ol li {
 
 .breadcrumbs-wrapper {
   margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping when zoomed */
+  gap: 0.5rem; /* Space between items */
+  line-height: 1.5;
 }
 
 #breadcrumbs {
