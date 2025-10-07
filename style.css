@@ -8708,6 +8708,12 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: none;
   }
 
+  .article-container {
+    /* Increase the margin to push the content down further, 
+           compensating for the header that has grown due to zoom. */
+    margin-top: 15rem; /* Start here and increase if needed (e.g., 30rem) */
+  }
+
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
