@@ -2324,7 +2324,6 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   display: none;
 }
 
-
 .header {
   position: sticky;
   top: 0px;
@@ -4903,6 +4902,51 @@ ul li input[type="checkbox"]:checked ~ i:after {
     transform-origin: top center;
     transform: rotateX(0deg);
   }
+}
+
+/* --- Single Accordion Icon Styling --- */
+
+/* 1. Base style for the button, creating space for the icon */
+.accordion-controls button {
+  /* Ensures the icon stays to the right */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* 2. Default state: Closed (+) */
+.accordion-controls button::after {
+  content: "+"; /* The plus sign */
+  font-size: 1.2em;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* 3. Expanded state: Open (-) */
+/* Targets the button when aria-expanded is 'true' */
+.accordion-controls button[aria-expanded="true"]::after {
+  content: "−"; /* The minus sign (using the Unicode minus for better vertical alignment) */
+  /* Alternatively, you can use a rotation for a smoother effect: */
+  /* transform: rotate(45deg); */
+}
+
+/* 4. Optional: Styling the button when open */
+.accordion-controls button[aria-expanded="true"] {
+  background-color: #e0e0e0;
+  border-bottom-color: transparent; /* Makes it look connected to the content */
+}
+
+/* Ensure the content starts hidden (as discussed previously) */
+.default-hidden {
+  display: none;
 }
 
 #page1 {
