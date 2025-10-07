@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("picModal");
     const modalBody = modal.querySelector(".modal-body");
     const closeBtn = modal.querySelector(".close");
-    const liveRegion = document.getElementById("ariaLiveRegion");
+    //const liveRegion = document.getElementById("ariaLiveRegion");
 
     const triggerBtn = event.currentTarget;
     const img = triggerBtn.querySelector("img");
@@ -338,9 +338,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("aria-hidden", "false");
 
     // Announce for screen readers
-    if (liveRegion) {
-      liveRegion.textContent = `Image dialog opened. Press Esc to close the dialog.`;
-    }
+   // if (liveRegion) {
+     // liveRegion.textContent = `Image dialog opened. Press Esc to close the dialog.`;
+    //}
 
     // Move focus to close button
     closeBtn.focus();
@@ -375,9 +375,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.setAttribute("aria-hidden", "true");
       modalBody.innerHTML = "";
 
-      if (liveRegion) {
-        liveRegion.textContent = "Dialog closed.";
-      }
+      //if (liveRegion) {
+       // liveRegion.textContent = "Dialog closed.";
+      //}
 
       // Restore focus to the trigger
       triggerBtn.focus();

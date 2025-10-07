@@ -151,12 +151,19 @@ $page_content = apply_filters('the_content', $post->post_content);
     </div>
 </section>
 
-<div id="picModal" role="dialog" aria-label="View full image" class="hidden modal-overlay" aria-hidden="true"  aria-modal="true">
+<div id="picModal"
+     role="dialog"
+     aria-modal="true"
+     aria-label="View Full Image"
+     class="hidden modal-overlay"
+     aria-hidden="true"
+     tabindex="-1">
   <div class="modal-content">
     <button class="close" aria-label="Close">✕</button>
     <div class="modal-body"></div>
   </div>
 </div>
+
 
 <!--<div id="ariaLiveRegion" class="sr-only" aria-live="assertive" aria-atomic="true"></div>-->
 
