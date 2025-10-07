@@ -701,6 +701,7 @@ body {
 .search-box {
   width: auto;
   max-width: 300px;
+  min-width: 200px;
 }
 
 .search-box input[type="search"],
