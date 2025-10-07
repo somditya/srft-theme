@@ -133,6 +133,39 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+  // Ensure jQuery is loaded before this script runs.
+
+  function accordionToggle() {
+    // Use the specific ID for the control button
+    $("#accordion-control-1").on("click", function (e) {
+      var $control = $(this);
+      var accordionContentId = $control.attr("aria-controls");
+      var $contentPanel = $("#" + accordionContentId);
+
+      // 1. Toggle aria-expanded on the button
+      var isAriaExp = $control.attr("aria-expanded") === "true";
+      $control.attr("aria-expanded", !isAriaExp);
+
+      // 2. Toggle aria-hidden and display style on the content panel
+      var isAriaHid = $contentPanel.attr("aria-hidden") === "true";
+
+      if (isAriaHid) {
+        // Show content
+        $contentPanel.attr("aria-hidden", "false");
+        $contentPanel.css("display", "block");
+      } else {
+        // Hide content
+        $contentPanel.attr("aria-hidden", "true");
+        $contentPanel.css("display", "none");
+      }
+    });
+  }
+
+  // Call the function on page load
+  accordionToggle();
+});
+
+$(document).ready(function () {
   console.log("Hi");
 
   document.querySelectorAll(".slider").forEach((sliderEl) => {

@@ -133,6 +133,29 @@ $current_language = get_locale();
             <div style="margin-bottom: 4rem;">
                 <div class="wrapper">
                     <?php echo $page_content; ?>
+
+                    <div class="accordion-example">
+  <div aria-label="Organization Chart Long Description Control" class="accordion-controls">
+    <div>
+      <button 
+        aria-controls="orgChart-desc" 
+        aria-expanded="false" 
+        id="accordion-control-1">
+        Long Description of Organization Chart (Click to Expand)
+      </button>
+      
+      <div 
+        aria-hidden="true" 
+        id="orgChart-desc" 
+        class="org-description hidden">
+        
+        <h3>Organization Chart Description</h3>
+        <?php echo get_post_meta(get_the_ID(), 'footnotes', true); ?>
+        
+      </div>
+    </div>
+  </div>
+</div>
                 </div>
             </div>
         </div>
