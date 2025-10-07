@@ -1259,14 +1259,48 @@ add_action('init', 'remove_plugin_specific_cookie');
 
 // Add table description as <caption class="sr-only">
 add_filter( 'tablepress_table_output', function( $output, $table, $render_options ) {
-    if ( ! empty( $table['description'] ) ) {
-        $caption = '<caption class="sr-only">' . esc_html( $table['description'] ) . '</caption>';
-        $output = preg_replace( '/(<table[^>]*>)/i', '$1' . $caption, $output, 1 );
+    
+    $heading_id = '';
+    
+    // 1. Map the table ID to the fixed heading ID on the page.
+    switch ( $table['id'] ) {
+        case '1':
+            $heading_id = 'boys-hostel-heading';
+            break;
+        case '2':
+            $heading_id = 'girls-hostel-heading';
+            break;
+        case '3':
+            $heading_id = 'guest-house-heading';
+            break;
     }
+
+    if ( empty( $heading_id ) ) {
+        return $output; // Not one of the target tables
+    }
+
+    // --- STEP 2: REMOVE UNWANTED CAPTION (CLEANUP) ---
+    // Remove the visually hidden caption tag that was added by a previous filter.
+    // This targets the first <caption> tag right after the <table> tag.
+    $output = preg_replace(
+        '/^(<table[^>]*>)\s*<caption[^>]*>[^<]*<\/caption>/i', 
+        '$1', // Replace the whole match with just the opening <table> tag.
+        $output, 
+        1
+    );
+
+    // --- STEP 3: ADD ARIA-LABELLED-BY ATTRIBUTE ---
+    // Use str_replace to insert the attribute reliably.
+    // We target the table's unique ID attribute and insert aria-labelledby right after it.
+    $search = 'id="tablepress-' . esc_attr( $table['id'] ) . '-no-2"';
+    $replace = $search . ' aria-labelledby="' . esc_attr( $heading_id ) . '"';
+    
+    // Use str_replace to inject the attribute reliably
+    $output = str_replace( $search, $replace, $output );
+
     return $output;
+    
 }, 10, 3 );
-
-
 
 function set_custom_template($single_template) {
 	global $post;
