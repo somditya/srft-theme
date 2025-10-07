@@ -701,6 +701,7 @@ body {
 .search-box {
   width: auto;
   max-width: 300px;
+  min-width: 125px;
 }
 
 .search-box input[type="search"],
@@ -8673,6 +8674,24 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 576px (Mobile) */
 /**************************/
 @media only screen and (max-width: 576px) {
+  #accessibility-icon {
+    margin: 0px;
+  }
+
+  .search-box input[type="search"] {
+    outline: none;
+    border-radius: 0;
+    padding: 6px 0px;
+  }
+
+  .search-box {
+    padding: 2px;
+  }
+  .top_header a {
+    padding: 0 0.2em;
+    /* border-left: 1px solid #fff; */
+  }
+
   .page-header-text {
     font-size: 22px;
   }
@@ -8691,7 +8710,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .language-switcher {
     display: inline-block; /* Ensure it's inline */
-    margin-left: 10px; /* Adjust space between the icon and the dropdown */
+    margin-left: 0px; /* Adjust space between the icon and the dropdown */
   }
 
   .language-text {
@@ -8739,8 +8758,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .mobile-icon {
     display: inline-block; /* Shows the image icon on mobile */
-    width: 24px; /* Adjust width as needed */
-    margin-right: 10px; /* Adds padding around the icon */
+    width: 18px; /* Adjust width as needed */
+    margin-right: 0px; /* Adds padding around the icon */
     height: auto; /* Maintain aspect ratio */
   }
 
