@@ -707,7 +707,7 @@ function display_selected_documents($atts) {
 	// Generate the output
 	ob_start();
 	?>
-	<a href="<?php echo esc_url($file_url); ?>" title="<?php echo esc_attr($document_description); ?>" target="_blank" style="text-decoration: none; "><?php echo esc_html(get_the_title($post_id)); ?> (<?php echo __('Download', 'srft-theme'); ?> - <?php echo esc_html($file_size_mb); ?>)&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="display: inline-block; vertical-align: middle;"></a><?php
+	<a href="<?php echo esc_url($file_url); ?>" title="<?php echo esc_attr($document_description); ?>" target="_blank" style=""><?php echo esc_html(get_the_title($post_id)); ?> (<?php echo __('Download', 'srft-theme'); ?> - <?php echo esc_html($file_size_mb); ?>)&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="display: inline-block; vertical-align: middle;"></a><?php
 	$output = ob_get_clean();
 	
 	// Reapply wpautop filter to avoid affecting other content
