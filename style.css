@@ -107,12 +107,12 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
   text-decoration-color: var(--hyper-link-color);
   text-decoration-thickness: 2px; /* 👈 thicker underline */
   text-underline-offset: 10px;
   font-weight: 500;
-  color: #000000;
+  color: #000000 !important;
   /*background-color: #f3f3f3; /* Optional: slight background for feedback */
   /*transform: scale(1.05);*/
   /*background-color: #f3f3f3; /* Optional: slight background for feedback */
