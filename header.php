@@ -358,7 +358,8 @@ if ($current_language === 'en_US') {
       </div>  
   </header>
   <?php if (is_page('home')) : ?> 
-<main role="main">    
+<main role="main"> 
+  <h1 class="sr-only"> Satyajit Ray Film & Television Institute </h1>   
 <section role="region" aria-label="Featured" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
   <div class="carousel-inner" id="skip-to-content">
     <div class="controls">

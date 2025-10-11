@@ -135,15 +135,11 @@ Template Name: Home
     <!--</div>--> <!-- Closing the .container div -->
 
 
-<h1 class="sr-only">Satyajit Ray Film & Television Institute </h1> 
 <section class="section-news" style="background-color: #0b6b39;" id="section-1">
     <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
 
-    <p id="carousel-instructions" class="sr-only">
-    This is a carousel. Use the next and previous controls to navigate between award items.
-   </p>
        
        <div class="frame" aria-label="Feature News carousal" aria-describedby="carousel-instructions">
        <ul class="slider"  style="height: 370px;">

@@ -77,13 +77,13 @@ $page_content = apply_filters('the_content', get_post_field('post_content', $pos
             <!-- Display Footer Menu Items -->
             <?php foreach ($footer_menu_structure as $item): ?>
                 <div class="sitemap-item">
-                    <span class="sitemap-main-item"><?php echo esc_html($item['title']); ?></span>
+                    <h3 class="sitemap-main-item"><?php echo esc_html($item['title']); ?></h3>
                     <?php if (!empty($item['children'])): ?>
-                        <div class="sitemap-submenu">
+                        <ul class="sitemap-submenu">
                             <?php foreach ($item['children'] as $child): ?>
-                                <a href="<?php echo esc_url($child->url); ?>"><?php echo esc_html($child->title); ?></a>
+                                <li><a href="<?php echo esc_url($child->url); ?>"><?php echo esc_html($child->title); ?></a></li>
                             <?php endforeach; ?>
-                        </div>
+                        </ul>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>

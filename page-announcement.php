@@ -49,14 +49,14 @@ $category_id = get_category_ID($category_name);
               <input type="date" id="toDate" data-ng-model="toDate" data-ng-change="applyFilters()">
               
               <label for="filterField"><?php echo __('Search:', 'srft-theme'); ?></label>
+              <p id="searchInstruction" class="sr-only">
+             <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
+             </p>
               <input type="text" id="filterField" data-ng-model="filterField" placeholder="<?php echo __('Search by keyword', 'srft-theme'); ?>" data-ng-change="applyFilters()">
               
               <!-- Add a Reset button to clear filters -->
               <button data-ng-click="resetFilters()"><?php echo __('Reset', 'srft-theme'); ?></button>
           </div>
-        <p id="searchInstruction" class="sr-only">
-          <?php echo esc_html__( 'Results update automatically as you type.', 'srft-theme' ); ?>
-        </p>
           <div class="sr-only" aria-live="polite" role="status" id="searchStatus"> {{ statusMessage }}</div>
             <div class="wrapper" style="padding: 0 3.2rem;">
               <div class="table-container">

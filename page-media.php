@@ -99,16 +99,16 @@ $post_id = get_the_ID();
                             uasort($grouped, function ($a, $b) {
                                 return strtotime($b[0]['post']->post_date) - strtotime($a[0]['post']->post_date);
                             });
-
+                            echo '<ul class="gallery-album-list">';
                             foreach ($grouped as $album_name => $images) {
                                 $cover = $images[0]['post'];
                                 $cover_url = get_field('Picture_File', $cover->ID);
-
+                                echo "<li class='album-list-item'>"; 
                                 echo "<div class='album-container'>";
                                 echo "<h3 class='album-title'>" . esc_html($album_name) . "</h3>";
                                 
                                 // Updated album link to open the lightbox
-                                echo '<a href="#" class="open-lightbox" data-album-name="' . esc_attr($album_name) . '" data-album-images="' . htmlspecialchars(json_encode(array_map(function($img) {
+                                echo '<a href="#" role="button" aria-haspopup="dialog" class="open-lightbox" data-album-name="' . esc_attr($album_name) . '" data-album-images="' . htmlspecialchars(json_encode(array_map(function($img) {
                                     return ['url' => get_field('Picture_File', $img['post']->ID), 'title' => $img['post']->post_title];
                                 }, $images)), ENT_QUOTES, 'UTF-8') . '">';
                                 echo '<img src="' . esc_url($cover_url) . '" alt="' . esc_attr($album_name) . '" class="gallery-image">';
@@ -116,6 +116,7 @@ $post_id = get_the_ID();
 
                                 echo "</div>";
                             }
+                            echo '</li>';
                         } else {
                             echo '<p>' . esc_html($empty_msg) . '</p>';
                         }

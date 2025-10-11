@@ -48,24 +48,25 @@ $category_id = get_category_ID($category_name);
         <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Recent Updates', 'srft-theme' ); ?></h2>
         <div data-ng-app="myApp" data-ng-controller="NewsController" style="margin-top: 4.5rem;">
             <!-- News grid without pagination -->
-            <div class="news-grid">
-                <div class="news-card" data-ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-                    <div class="news-link-left">
-                        <span class="news-link-left-date"> {{ news.formattedDate }}</span>
-                        <a  data-ng-href="{{news.link}}"><h3 class="news-link-left-title">{{ news.name }}</h3> </a>
-                        <div class="news-link-left-text">
-                            <span>{{ news.designation }}</span>
-                        </div>
-                    </div> <!-- Fixed span issue -->
-                    <div class="news-image-right">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" 
-     data-ng-src="{{ news.image }}" 
-     alt="{{ news.name }}" 
-     class="faculty-image">
-
-                    </div>
-                </div>
+            <ul class="news-grid">
+    <li class="news-card" data-ng-repeat="news in newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+        <div class="news-link-left">
+            <span class="news-link-left-date">{{ news.formattedDate }}</span>
+            <a data-ng-href="{{news.link}}">
+                <h3 class="news-link-left-title">{{ news.name }}</h3>
+            </a>
+            <div class="news-link-left-text">
+                <span>{{ news.designation }}</span>
             </div>
+        </div>
+        <div class="news-image-right">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" 
+                 data-ng-src="{{ news.image }}" 
+                 alt="{{ news.name }}" 
+                 class="faculty-image">
+        </div>
+    </li>
+</ul>
 <nav aria-label="Pagination" data-ng-if="totalPages > 1" >
     <ul class="pagination">
                 <li data-ng-class="{ 'disabled': currentPage === 1 }">
