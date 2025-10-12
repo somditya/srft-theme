@@ -1347,6 +1347,17 @@ ol li {
   /*margin-left: 44px;*/
 }
 
+.general-aligned {
+  /*max-width: 160rem;*/
+  width: 85%;
+
+  /* 2. Center the block: Use auto margins to horizontally center the container. */
+  margin-left: auto;
+  margin-right: auto;
+  /*margin: 0 auto;*/
+  /*margin-left: 44px;*/
+}
+
 .breadcrumbs-wrapper {
   margin-top: 1.5rem;
   display: flex;
@@ -1867,6 +1878,47 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   transition: 0.3s;
   outline: 2px solid black; /* black border */
   outline-offset: 6px; /* gap between button and border */
+}
+
+/* Remove container query approach */
+.wpcf7 {
+  max-width: 100%;
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.wpcf7-form {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make all form controls responsive */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea,
+.wpcf7-form select {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* reCAPTCHA responsive container */
+.wpcf7-form-control-wrap[data-name="recaptcha"] {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Scale reCAPTCHA for smaller viewports */
+.g-recaptcha {
+  transform-origin: 0 0;
+  max-width: 304px; /* Original width */
+}
+
+/* Media queries for high zoom / small screens */
+
+/* Ensure the scaled reCAPTCHA doesn't create extra space */
+.g-recaptcha > div {
+  max-width: 100%;
 }
 
 /* GRID GALLERY
@@ -3914,6 +3966,18 @@ img.reload {
   line-height: 1.8;
   padding-top: 3.2rem;
   flex-direction: column;
+}
+
+.general-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  padding-top: 3.2rem;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .intro {
@@ -8766,6 +8830,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100%;
   }
 
+  .g-recaptcha {
+    transform: scale(0.85);
+  }
+
   /*.narticle {
       display: grid;
       grid-gap: 1.25rem;
@@ -9122,6 +9190,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     background-color: #724b26;
     color: white;
     font-size: 10px;
+  }
+
+  .g-recaptcha {
+    transform: scale(0.7);
   }
 }
 

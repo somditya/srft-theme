@@ -20,7 +20,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
         </div>
 </section>
   
-  <div class="container-aligned">
+  <div class="general-aligned">
   <div class="breadcrumbs-wrapper">
     <?php if ( function_exists( 'yoast_breadcrumb' ) ) { 
       yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); 
@@ -30,15 +30,15 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 
     <section class="cine-detail">
 
-    <div class="leftnav">
+    <!--<div class="leftnav">
     <div style="border-bottom: 1px solid;">
     <h2><?php echo __('Related Links', 'srft-theme'); ?> </h2>
     </div>
-    </div>
-    <div class="main-content">
+    </div>-->
+    <div class="general-content">
 
     <div>
-      <h2 class="page-header-text"><?php echo esc_html(get_the_title($post_id)); ?></h2>
+      <h2 class="page-header-text" aria-hidden="true"><?php echo esc_html(get_the_title($post_id)); ?></h2>
     </div>
     <div style="margin-top: 2rem; margin-bottom: 10rem;">
         <?php echo $page_content ?>          
