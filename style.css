@@ -9195,6 +9195,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .g-recaptcha {
     transform: scale(0.7);
   }
+  .rc-anchor-light {
+    background: #f9f9f9;
 }
 
 @media (min-width: 1024px) {

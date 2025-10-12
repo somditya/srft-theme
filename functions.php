@@ -1377,6 +1377,134 @@ add_filter('wpcf7_form_elements', function($content) {
     return $content;
 });
 
+add_filter('wpcf7_form_tag', function($tag) {
+    if ($tag['type'] == 'recaptcha') {
+        $tag['options'][] = 'theme:dark';
+    }
+    return $tag;
+}, 10, 1);
+
+
+add_filter('wpcf7_form_elements', function($content) {
+    // Remove aria-label attribute entirely
+    $content = preg_replace('/aria-label="[^"]*"/', '', $content);
+    return $content;
+});
+
+
+add_action('wp_footer', function() {
+    ?>
+    <script>
+    (function() {
+        console.log('Persistent attribute fixer loaded');
+        
+        function fixAriaLabel(form) {
+            if (form) {
+                var changed = false;
+                
+                if (form.hasAttribute('aria-label')) {
+                    console.log('Removing aria-label');
+                    form.removeAttribute('aria-label');
+                    changed = true;
+                }
+                
+                if (form.getAttribute('aria-labelledby') !== 'feedback-form-heading') {
+                    console.log('Setting aria-labelledby');
+                    form.setAttribute('aria-labelledby', 'feedback-form-heading');
+                    changed = true;
+                }
+                
+                if (changed) {
+                    console.log('Attributes fixed');
+                    // Verify
+                    console.log('Current aria-label:', form.getAttribute('aria-label'));
+                    console.log('Current aria-labelledby:', form.getAttribute('aria-labelledby'));
+                }
+            }
+        }
+        
+        // Continuously monitor and fix
+        function keepFixing() {
+            var form = document.querySelector('.wpcf7-form') || 
+                       document.querySelector('#wpcf7-f1316-o1 form') ||
+                       document.querySelector('form[aria-label]');
+            
+            if (form) {
+                fixAriaLabel(form);
+            }
+        }
+        
+        // Create observer for ALL attribute changes
+        var observer = new MutationObserver(function(mutations) {
+            keepFixing();
+        });
+        
+        // Wait for form to exist, then observe it
+        function startWatching() {
+            var form = document.querySelector('.wpcf7-form') || 
+                       document.querySelector('#wpcf7-f1316-o1 form');
+            
+            if (form) {
+                console.log('Form found, starting persistent monitoring');
+                
+                // Fix immediately
+                fixAriaLabel(form);
+                
+                // Observe ALL attributes on the form
+                observer.observe(form, {
+                    attributes: true,
+                    attributeOldValue: true
+                });
+                
+                // Also observe the parent container in case form is replaced
+                var container = document.querySelector('#wpcf7-f1316-o1');
+                if (container) {
+                    observer.observe(container, {
+                        childList: true,
+                        subtree: true,
+                        attributes: true
+                    });
+                }
+                
+                return true;
+            }
+            return false;
+        }
+        
+        // Try multiple times
+        setTimeout(startWatching, 100);
+        setTimeout(startWatching, 500);
+        setTimeout(startWatching, 1000);
+        
+        // On page load
+        window.addEventListener('load', startWatching);
+        
+        // On CF7 events
+        document.addEventListener('wpcf7ready', function() {
+            console.log('CF7 ready event');
+            setTimeout(startWatching, 100);
+        });
+        
+        document.addEventListener('wpcf7mailsent', startWatching);
+        document.addEventListener('wpcf7invalid', startWatching);
+        document.addEventListener('wpcf7spam', startWatching);
+        document.addEventListener('wpcf7mailfailed', startWatching);
+        
+        // Also run periodically as backup (will stop after successful fix)
+        var intervalCount = 0;
+        var checkInterval = setInterval(function() {
+            keepFixing();
+            intervalCount++;
+            if (intervalCount > 20) { // Stop after 10 seconds
+                clearInterval(checkInterval);
+                console.log('Stopped periodic checking');
+            }
+        }, 500);
+    })();
+    </script>
+    <?php
+}, 9999);
+
 function srft_theme_scripts() {
     // Enqueue the lightbox JavaScript file
     wp_enqueue_script(

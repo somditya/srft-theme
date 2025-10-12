@@ -604,7 +604,7 @@ window.addEventListener('load', function () {
 });
 </script>
 
-<script>
+<!--<script>
 document.addEventListener('wpcf7:form-init', function(event) {
     const form = event.target;
     const heading = document.getElementById('feedback-form-heading');
@@ -613,8 +613,16 @@ document.addEventListener('wpcf7:form-init', function(event) {
         form.setAttribute('aria-labelledby', heading.id);
     }
 });
-</script>
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Target the specific feedback form by its ID
+    var form = document.querySelector('#wpcf7-f1316-o1 .wpcf7-form');
+    if (form) {
+        form.removeAttribute('aria-label');
+        form.setAttribute('aria-labelledby', 'feedback-form-heading');
+    }
+});
+</script>-->
 
 
 
