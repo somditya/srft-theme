@@ -140,8 +140,7 @@ Template Name: Home
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
 
-       
-       <div class="frame" aria-label="Feature News carousal" aria-describedby="carousel-instructions">
+       <div class="frame" aria-label="Feature News" aria-roledescription="carousel">
        <ul class="slider"  style="height: 370px;">
             <?php
             $post_id = get_the_ID();
@@ -168,14 +167,14 @@ Template Name: Home
             if ($category_posts->have_posts()) :
                 while ($category_posts->have_posts()) : $category_posts->the_post();
             ?>
-                    <li>
+                    <li role="group" aria-roledescription="slide">
                       <div class="news-item">
                        <a href="<?php the_permalink(); ?>" target="_blank">
                             <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
-                            </div>
+                        </div>
                         </a>
             </div> 
                     </li>
@@ -365,7 +364,7 @@ else
     <!-- Slideshow -->
      <!--<p id="carousel-instructions" class="sr-only">
     This is a autoplay carousel. Use the play/stop button to control the behaviour.
-   </p>-->
+   </p>
    <!-- Controls -->
 <div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
    <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
@@ -460,10 +459,10 @@ else
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">
     <!--<div class="section-intro-header-text" style="color: white;">News</div>-->
     <h2 class="section-intro-header-text" style="padding-left: 0; color: white "><?php echo __('Award Winning Student Films', 'srft-theme' ); ?></h2>
-    <p id="carousel-instructions" class="sr-only">
+    <!--<p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between award items.
-  </p>
-    <div class="frame" aria-label="Award Winnng Student Films carousel" aria-describedby="carousel-instructions">
+  </p>-->
+    <div class="frame" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
       <ul class="slider"  style="height: 370px;">
         <?php
         $post_id = get_the_ID();
@@ -492,7 +491,7 @@ else
         if ($category_posts->have_posts()) :
           while ($category_posts->have_posts()) : $category_posts->the_post();
         ?> 
-        <li>
+        <li  role="group" aria-roledescription="slide">
           <div class="news-item">
           <a href="<?php the_permalink(); ?>" target="_blank" >
           <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=""  style="display: block;">

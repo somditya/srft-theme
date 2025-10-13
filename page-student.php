@@ -97,10 +97,10 @@ $category_id = get_category_ID($category_name);
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students’ Highlights', 'srft-theme'); ?></h2>
 
                 <section style="width: 100%; padding: 2.8rem 0;" id="student-slider" role="region" aria-label="Student news carousel" aria-describedby="carousel-instructions">
-                    <p id="carousel-instructions" class="sr-only">
+                    <!--<p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between student news items.
-  </p>
-                    <div class="frame">
+  </p>-->
+                    <div class="frame" aria-label="Students' Highlights" aria-roledescription="carousel">
                         <ul class="slider" style="height: 370px;">
                             <?php
                             $post_id = get_the_ID();
@@ -122,7 +122,7 @@ $category_id = get_category_ID($category_name);
                             if ($category_posts->have_posts()) :
                                 while ($category_posts->have_posts()) : $category_posts->the_post();
                             ?>
-                                    <li>
+                                    <li role="group" aria-roledescription="slide">
                                         <div class="news-item" style="background-color: #0b6b39;">
                                             <a href="<?php the_permalink(); ?>" target="_blank">
                                                 <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image'); ?>" alt="" style="display: block;">
