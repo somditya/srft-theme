@@ -168,6 +168,9 @@ $(document).ready(function () {
 $(document).ready(function () {
   console.log("Hi");
 
+  /*$(document).ready(function () {
+  console.log("Hi");
+
   document.querySelectorAll(".slider").forEach((sliderEl) => {
     new A11YSlider(sliderEl, {
       slidesToShow: 1,
@@ -180,6 +183,171 @@ $(document).ready(function () {
         480: { slidesToShow: 1 },
       },
     });
+  });
+});*/
+
+  document.querySelectorAll(".slider").forEach((sliderEl) => {
+    // Count original slides BEFORE initialization
+    const TOTAL_SLIDES = sliderEl.querySelectorAll("li").length;
+    let currentPosition = 0;
+    let isAnnouncing = false; // Prevent multiple simultaneous announcements
+
+    // Get current slidesToShow by actually counting visible slides
+    function getCurrentSlidesToShow() {
+      const visibleSlides = sliderEl.querySelectorAll("li.a11y-slider-visible");
+      if (visibleSlides.length > 0) {
+        return visibleSlides.length;
+      }
+
+      // Fallback to width-based detection
+      const width = window.innerWidth;
+      if (width >= 992) return 4;
+      else if (width >= 768) return 2;
+      else if (width >= 480) return 1;
+      else return 1;
+    }
+
+    // Initialize slider
+    new A11YSlider(sliderEl, {
+      slidesToShow: 1,
+      arrows: true,
+      dots: false,
+      skipBtn: false,
+      responsive: {
+        992: { slidesToShow: 4 },
+        768: { slidesToShow: 2 },
+        480: { slidesToShow: 1 },
+      },
+    });
+
+    // Wait for slider to fully initialize
+    setTimeout(() => {
+      const container = sliderEl.parentElement;
+      let statusElement = container.querySelector(".a11y-slider-status");
+      const nextButton = container.querySelector(".a11y-slider-next");
+      const prevButton = container.querySelector(".a11y-slider-prev");
+
+      if (!statusElement) return;
+
+      // Completely disable a11y-slider's status updates
+      const observer = new MutationObserver((mutations) => {
+        if (isAnnouncing) return; // Skip if we're announcing
+
+        // Immediately stop any changes from a11y-slider
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              node.textContent = ""; // Clear any text added by a11y-slider
+            }
+          });
+        });
+      });
+
+      observer.observe(statusElement, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+
+      // Reconfigure the status element
+      statusElement.setAttribute("aria-live", "assertive");
+      statusElement.setAttribute("aria-atomic", "true");
+      statusElement.style.position = "absolute";
+      statusElement.style.left = "-10000px";
+      statusElement.style.width = "1px";
+      statusElement.style.height = "1px";
+      statusElement.style.overflow = "hidden";
+
+      // Function to announce status (only this function updates the status)
+      function announceStatus() {
+        if (isAnnouncing) return; // Prevent overlapping announcements
+
+        isAnnouncing = true;
+        const slidesToShow = getCurrentSlidesToShow();
+        const lastVisibleSlide = Math.min(
+          currentPosition + slidesToShow,
+          TOTAL_SLIDES
+        );
+
+        // Disconnect observer during our update
+        observer.disconnect();
+
+        // Clear completely
+        statusElement.textContent = "";
+        statusElement.setAttribute("aria-live", "off");
+
+        setTimeout(() => {
+          // Set new content with assertive
+          statusElement.setAttribute("aria-live", "assertive");
+          statusElement.textContent = `Displaying slide ${lastVisibleSlide} of ${TOTAL_SLIDES}`;
+
+          setTimeout(() => {
+            // Reconnect observer and reset flag
+            observer.observe(statusElement, {
+              childList: true,
+              characterData: true,
+              subtree: true,
+            });
+            isAnnouncing = false;
+          }, 200);
+        }, 100);
+      }
+
+      // Set initial status
+      setTimeout(() => announceStatus(), 100);
+
+      // Handle next button
+      if (nextButton) {
+        nextButton.addEventListener("click", (e) => {
+          const slidesToShow = getCurrentSlidesToShow();
+
+          // Calculate new position based on how many slides are visible
+          const maxPosition = TOTAL_SLIDES - slidesToShow;
+
+          if (currentPosition >= maxPosition) {
+            currentPosition = 0; // Loop to start
+          } else {
+            currentPosition += 1;
+          }
+
+          setTimeout(announceStatus, 300);
+        });
+      }
+
+      // Handle previous button
+      if (prevButton) {
+        prevButton.addEventListener("click", (e) => {
+          const slidesToShow = getCurrentSlidesToShow();
+          const maxPosition = TOTAL_SLIDES - slidesToShow;
+
+          // Calculate new position
+          if (currentPosition <= 0) {
+            currentPosition = maxPosition; // Loop to end
+          } else {
+            currentPosition -= 1;
+          }
+
+          setTimeout(announceStatus, 300);
+        });
+      }
+
+      // Handle window resize
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          const slidesToShow = getCurrentSlidesToShow();
+          const maxPosition = TOTAL_SLIDES - slidesToShow;
+
+          // Adjust position if it's now out of bounds
+          if (currentPosition > maxPosition) {
+            currentPosition = maxPosition;
+          }
+
+          announceStatus();
+        }, 500);
+      });
+    }, 400);
   });
 });
 
