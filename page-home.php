@@ -363,9 +363,9 @@ else
       <?php echo __('Notable Alumni', 'srft-theme'); ?>
     </h2>
     <!-- Slideshow -->
-     <p id="carousel-instructions" class="sr-only">
+     <!--<p id="carousel-instructions" class="sr-only">
     This is a autoplay carousel. Use the play/stop button to control the behaviour.
-   </p>
+   </p>-->
    <!-- Controls -->
 <div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
    <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
