@@ -168,29 +168,10 @@ $(document).ready(function () {
 $(document).ready(function () {
   console.log("Hi");
 
-  /*$(document).ready(function () {
-  console.log("Hi");
-
-  document.querySelectorAll(".slider").forEach((sliderEl) => {
-    new A11YSlider(sliderEl, {
-      slidesToShow: 1,
-      arrows: true,
-      dots: false,
-      skipBtn: false,
-      responsive: {
-        992: { slidesToShow: 4 },
-        768: { slidesToShow: 2 },
-        480: { slidesToShow: 1 },
-      },
-    });
-  });
-});*/
-
   document.querySelectorAll(".slider").forEach((sliderEl) => {
     // Count original slides BEFORE initialization
     const TOTAL_SLIDES = sliderEl.querySelectorAll("li").length;
     let currentPosition = 0;
-    let isAnnouncing = false; // Prevent multiple simultaneous announcements
 
     // Get current slidesToShow by actually counting visible slides
     function getCurrentSlidesToShow() {
@@ -223,85 +204,74 @@ $(document).ready(function () {
     // Wait for slider to fully initialize
     setTimeout(() => {
       const container = sliderEl.parentElement;
-      let statusElement = container.querySelector(".a11y-slider-status");
       const nextButton = container.querySelector(".a11y-slider-next");
       const prevButton = container.querySelector(".a11y-slider-prev");
 
-      if (!statusElement) return;
-
-      // Completely disable a11y-slider's status updates
-      const observer = new MutationObserver((mutations) => {
-        if (isAnnouncing) return; // Skip if we're announcing
-
-        // Immediately stop any changes from a11y-slider
-        mutations.forEach((mutation) => {
-          mutation.addedNodes.forEach((node) => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.textContent = ""; // Clear any text added by a11y-slider
-            }
-          });
+      // Function to hide all default status elements (a11y-slider may recreate them)
+      function hideDefaultStatusElements() {
+        const defaultStatusElements = container.querySelectorAll(
+          ".a11y-slider-status"
+        );
+        defaultStatusElements.forEach((el) => {
+          if (!el.classList.contains("custom-slider-status")) {
+            el.setAttribute("aria-live", "off");
+            el.setAttribute("aria-hidden", "true");
+            el.removeAttribute("role");
+            el.style.display = "none";
+            el.textContent = ""; // Clear any content
+          }
         });
+      }
+
+      // Hide default status elements initially
+      hideDefaultStatusElements();
+
+      // Monitor for new status elements being added (especially on resize)
+      const containerObserver = new MutationObserver(() => {
+        hideDefaultStatusElements();
       });
 
-      observer.observe(statusElement, {
+      containerObserver.observe(container, {
         childList: true,
-        characterData: true,
         subtree: true,
       });
 
-      // Reconfigure the status element
-      statusElement.setAttribute("aria-live", "assertive");
-      statusElement.setAttribute("aria-atomic", "true");
-      statusElement.style.position = "absolute";
-      statusElement.style.left = "-10000px";
-      statusElement.style.width = "1px";
-      statusElement.style.height = "1px";
-      statusElement.style.overflow = "hidden";
+      // Create our own custom status element
+      const customStatus = document.createElement("div");
+      customStatus.className = "custom-slider-status";
+      customStatus.setAttribute("role", "status");
+      customStatus.setAttribute("aria-live", "polite");
+      customStatus.setAttribute("aria-atomic", "true");
+      customStatus.style.position = "absolute";
+      customStatus.style.left = "-10000px";
+      customStatus.style.width = "1px";
+      customStatus.style.height = "1px";
+      customStatus.style.overflow = "hidden";
+      container.appendChild(customStatus);
 
-      // Function to announce status (only this function updates the status)
+      // Function to announce status using our custom element
       function announceStatus() {
-        if (isAnnouncing) return; // Prevent overlapping announcements
-
-        isAnnouncing = true;
         const slidesToShow = getCurrentSlidesToShow();
         const lastVisibleSlide = Math.min(
           currentPosition + slidesToShow,
           TOTAL_SLIDES
         );
 
-        // Disconnect observer during our update
-        observer.disconnect();
-
-        // Clear completely
-        statusElement.textContent = "";
-        statusElement.setAttribute("aria-live", "off");
+        // Clear and update to force announcement
+        customStatus.textContent = "";
 
         setTimeout(() => {
-          // Set new content with assertive
-          statusElement.setAttribute("aria-live", "assertive");
-          statusElement.textContent = `Displaying slide ${lastVisibleSlide} of ${TOTAL_SLIDES}`;
-
-          setTimeout(() => {
-            // Reconnect observer and reset flag
-            observer.observe(statusElement, {
-              childList: true,
-              characterData: true,
-              subtree: true,
-            });
-            isAnnouncing = false;
-          }, 200);
+          customStatus.textContent = `Displaying slide ${lastVisibleSlide} of ${TOTAL_SLIDES}`;
         }, 100);
       }
 
       // Set initial status
-      setTimeout(() => announceStatus(), 100);
+      setTimeout(() => announceStatus(), 200);
 
       // Handle next button
       if (nextButton) {
         nextButton.addEventListener("click", (e) => {
           const slidesToShow = getCurrentSlidesToShow();
-
-          // Calculate new position based on how many slides are visible
           const maxPosition = TOTAL_SLIDES - slidesToShow;
 
           if (currentPosition >= maxPosition) {
@@ -310,7 +280,7 @@ $(document).ready(function () {
             currentPosition += 1;
           }
 
-          setTimeout(announceStatus, 300);
+          setTimeout(announceStatus, 100);
         });
       }
 
@@ -320,14 +290,13 @@ $(document).ready(function () {
           const slidesToShow = getCurrentSlidesToShow();
           const maxPosition = TOTAL_SLIDES - slidesToShow;
 
-          // Calculate new position
           if (currentPosition <= 0) {
             currentPosition = maxPosition; // Loop to end
           } else {
             currentPosition -= 1;
           }
 
-          setTimeout(announceStatus, 300);
+          setTimeout(announceStatus, 100);
         });
       }
 
@@ -336,6 +305,9 @@ $(document).ready(function () {
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
+          // Make sure default status elements are still hidden after resize
+          hideDefaultStatusElements();
+
           const slidesToShow = getCurrentSlidesToShow();
           const maxPosition = TOTAL_SLIDES - slidesToShow;
 
@@ -345,7 +317,7 @@ $(document).ready(function () {
           }
 
           announceStatus();
-        }, 500);
+        }, 300);
       });
     }, 400);
   });
