@@ -637,7 +637,7 @@ $(document).ready(function () {
   $opener.attr({
     "aria-controls": "accessibility-menu",
     "aria-haspopup": "dialog",
-    "aria-expanded": "false",
+    //"aria-expanded": "false",
   });
   $menu.attr({
     role: "dialog",
@@ -668,7 +668,7 @@ $(document).ready(function () {
     lastFocused = document.activeElement;
 
     $menu.removeClass("hidden").attr("aria-hidden", "false");
-    $opener.attr("aria-expanded", "true");
+    //$opener.attr("aria-expanded", "true");
 
     console.log("Menu should now be visible");
     console.log("Menu has 'hidden' class:", $menu.hasClass("hidden"));
@@ -688,7 +688,7 @@ $(document).ready(function () {
   function closeMenu() {
     console.log("closeMenu() called");
     $menu.addClass("hidden").attr("aria-hidden", "true");
-    $opener.attr("aria-expanded", "false");
+    //$opener.attr("aria-expanded", "false");
 
     // Remove event listeners
     $(document).off(".accessMenu");
