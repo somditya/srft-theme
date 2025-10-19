@@ -466,7 +466,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1">
-            <img  src="<?php bloginfo('template_url'); ?>/images/Digital-Studio -ME-Awards-2025.png" alt="Alumnas of SRFTI in BUSAN" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Digital-Studio -ME-Awards-2025.png" alt="SRFTI receives Digital Studio Awards" >
           </a>
         </div>
 
