@@ -136,7 +136,8 @@ $current_language = get_locale();
   <div id="accessibility-menu" class="hidden" role="dialog"
       aria-modal="true" aria-hidden="true"
       tabindex="-1" aria-label="Accessibility Option">
-      <h2><?php echo __('Text Resize', 'srft-theme' ); ?></h2>
+      <fieldset>
+          <legend><?php echo __('Text Resize', 'srft-theme' ); ?></legend>
       <div id="font-size-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       <div role="group" class="text-resize">
           <button class="increaseFont" type="button" aria-label="Increase Text Size">
@@ -149,7 +150,9 @@ $current_language = get_locale();
           <i class="fas fa-sync-alt"></i>
           </button>
       </div>
-       <h2><?php echo __('Color Adjustment', 'srft-theme' ); ?></h2>
+      </fieldset>  
+       <fieldset>
+          <legend><?php echo __('Color Adjustment', 'srft-theme' ); ?></legend>
       <div role="group" class="color-adjustment">
           <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
               <i class="fas fa-adjust"></i>
@@ -158,6 +161,7 @@ $current_language = get_locale();
               <i class="fas fa-moon" ></i>
           </button>
       </div>
+    </fieldset> 
       <!--<div class="color-adjustment">
           <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
           <?php echo __('Screen Reader', 'srft-theme' ); ?>
