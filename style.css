@@ -612,22 +612,29 @@ body {
 }
 
 .myTable {
-  background-color: #fff;
-  border-collapse: collapse;
+  margin: 0 0 1em;
+  overflow-x: auto;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100%;
 }
 
-.myTable th {
-  padding: 5px;
-  border: 1px solid #cccccc;
-  background-color: #8f8f8f;
-  font-weight: normal;
-  color: white;
+.myTable thead,
+.myTable tbody,
+.myTable tr,
+.myTable th,
+.myTable td {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.myTable td,
-.myTable th {
-  padding: 5px;
+.myTable th,
+.myTable td {
   border: 1px solid #cccccc;
+  padding: 8px !important;
+  text-align: left;
 }
 
 #heading {
