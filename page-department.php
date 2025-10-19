@@ -186,9 +186,10 @@ if ($current_language === 'en_US') {
                   <li>
                       <a href="<?php echo esc_url($post_link); ?>" target="_blank">
                       <img style="max-width: 140px;" src="<?php echo esc_url(get_field('Faculty-Image')); ?>" alt="" />
-                          <h4><?php the_title(); ?></h4>
+                          <h3><?php the_title(); ?>
                           <span style="white-space: nowrap;"><?php echo esc_html(get_field('Faculty-Designation')); ?></span>
-                      </a>
+                          </h3>
+                        </a>
                   </li><?php
       endwhile;
       wp_reset_postdata(); // Restore the global post data
