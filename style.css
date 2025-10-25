@@ -1478,15 +1478,15 @@ ol li {
 
 /* Standard, screen-reader-only CSS class */
 .a11y-sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important; 
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .header {
@@ -3989,8 +3989,8 @@ img.reload {
 }
 
 .general-content {
-  display: flex;
-  flex-wrap: wrap;
+  /*display: flex;
+  flex-wrap: wrap;*/
   width: 85%;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -9217,6 +9217,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
   .rc-anchor-light {
     background: #f9f9f9;
+  }
 }
 
 @media (min-width: 1024px) {
