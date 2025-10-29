@@ -7934,6 +7934,39 @@ ul li input[type="checkbox"]:checked ~ i:after {
   outline: 2px solid #ffffff; /* A white outline ensures the focus state is highly visible */
   outline-offset: 2px;
 }
+
+/* Make gallery responsive at high zoom */
+
+@media only screen and (max-width: 480px) {
+  .gallery-album-list {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .album-container {
+    padding: 8px;
+  }
+
+  .phototabs {
+    flex-direction: column; /* Stack tabs vertically */
+    gap: 0.5rem;
+  }
+
+  .phototab {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .gallery-album-list {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+}
+
+/* Media tab */
+
 /* faculty */
 
 .faculty-grid {
@@ -9217,6 +9250,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
   .rc-anchor-light {
     background: #f9f9f9;
+  }
+
+  .gallery-album-list {
+    grid-template-columns: 1fr !important; /* Single column */
+    gap: 15px;
+  }
+
+  .phototab {
+    font-size: 14px;
+    padding: 0.4rem 0.6rem;
   }
 }
 
