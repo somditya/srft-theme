@@ -361,96 +361,94 @@ else
     <h2 class="section-intro-header-text" style="padding-left: 0;">
       <?php echo __('Notable Alumni', 'srft-theme'); ?>
     </h2>
-    <!-- Slideshow -->
-     <!--<p id="carousel-instructions" class="sr-only">
-    This is a autoplay carousel. Use the play/stop button to control the behaviour.
-   </p>
-   <!-- Controls -->
-<div class="alumni" aria-label="Alumni" aria-roledescription="carousel" aria-describedby="carousel-instructions"> 
-   <div class="carousel-controls" aria-label="Slideshow controls" style="text-align:left; margin-bottom:10px;">
-  <button id="carouselToggle" type="button" aria-label="Pause slideshow">
-    ⏸
-  </button>
-</div>   
-   <ul class="alumni-carousel owl-carousel">
+    
+<div class="alumni" role="region" aria-label="<?php echo esc_attr__('Notable Alumni Carousel', 'srft-theme'); ?>"> 
+   <div class="carousel-controls" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
+      <button id="carouselToggle" type="button" aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>">
+        ⏸
+      </button>
+    </div>   
+   
+   <!-- Add aria-label with total count -->
+   <ul class="alumni-carousel owl-carousel" role="list" aria-labelledby="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="Picture of Amal Neerad" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
         </li>
 
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="Picture of Kanu Behl" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="<?php echo esc_attr__('Picture of Kanu Behl', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
         </li>
 
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="Picture of Namrata Rao" />
+            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="<?php echo esc_attr__('Picture of Namrata Rao', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
         </li>
 
-       <li class="alumni-item">
+       <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="Picture of Hawam Paban Kumar" />
+            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="<?php echo esc_attr__('Picture of Hawam Paban Kumar', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
       </li>
       
-      <li class="alumni-item">
+      <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="Picture of Pritha Chakraborty" />
+            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="<?php echo esc_attr__('Picture of Pritha Chakraborty', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
       </li>
-       <li class="alumni-item">
+       <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="Picture of Madhura Palit" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="<?php echo esc_attr__('Picture of Madhura Palit', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="Picture of Avijit Sen" />
+            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="<?php echo esc_attr__('Picture of Avijit Sen', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="Picture of Sagar Ballary" />
+            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="<?php echo esc_attr__('Picture of Sagar Ballary', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="Picture of Pritam Das" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="<?php echo esc_attr__('Picture of Pritam Das', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="Picture of Sourav Rai" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="<?php echo esc_attr__('Picture of Sourav Rai', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item">
+        <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="Picture of Dominic Sangma" />
+            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="<?php echo esc_attr__('Picture of Dominic Sangma', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
         </li>
       </ul>
       
-      <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite"></div>
+      <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
     </div>
   </div>
 </section>
