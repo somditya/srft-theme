@@ -467,10 +467,29 @@ if ($current_language === 'en_US') {
     </div>
 
     <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
-      
+
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1">
+            <img  src="<?php bloginfo('template_url'); ?>/images/triveni-poster.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div> 
+      
+    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
+        <div class="carousel-image">
+          <a href="#" id="carousel-image-2">
             <img  src="<?php bloginfo('template_url'); ?>/images/Digital-Studio -ME-Awards-2025.png" alt="SRFTI receives Digital Studio Awards" >
           </a>
         </div>
@@ -489,9 +508,9 @@ if ($current_language === 'en_US') {
     
     
     
-    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
+    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-2">
+          <a href="#" id="carousel-image-3">
             <img  src="<?php bloginfo('template_url'); ?>/images/romit-award.jpg" alt="Romit Ganguly(DOP & Line Producer for film Deshlai)'s work showcasing in Seattle -USA" >
           </a>
         </div>
@@ -508,9 +527,9 @@ if ($current_language === 'en_US') {
         
       </div> 
     
-    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
+    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-3">
+          <a href="#" id="carousel-image-4">
             <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
           </a>
         </div>
@@ -528,9 +547,9 @@ if ($current_language === 'en_US') {
       </div>
     
     
-    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
+    <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-4">
+          <a href="#" id="carousel-image-5">
             <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="Maharshi Tuhin Kashyap's film selected in Busan" >
           </a>
         </div>
@@ -547,24 +566,7 @@ if ($current_language === 'en_US') {
         
       </div>
 
-       <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-5">
-            <img  src="<?php bloginfo('template_url'); ?>/images/58.png" alt="Tribeni Rai's film Shape of Momo selected in Busan" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
+      
 
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
