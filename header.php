@@ -471,7 +471,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1">
-            <img  src="<?php bloginfo('template_url'); ?>/images/GRBTAward.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/GRBTAward.png" alt="Tribeni Rai's film Shape of Momo won Golder Royal Bengal Tiger Award" >
           </a>
         </div>
 
