@@ -270,10 +270,10 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
-                      ?>"><?php echo __('Master of Fine Arts', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Master of Fine Arts in SRFTI Kolkata', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in IFTI AR', 'srft-theme' ); ?></a>
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTII Itanagar', 'srft-theme' ); ?></a>
                     </li>
                   </ul>      
               </li>
@@ -571,7 +571,7 @@ if ($current_language === 'en_US') {
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6">
-            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="Shingkhauna Marma selected for Channel X BIFF Busan" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/sjalalcineaward.png" alt="Shehnad Jalal Wins Best Cinematographer Award at SIIMA 2025" >
           </a>
         </div>
 
