@@ -140,7 +140,7 @@ Template Name: Home
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
 
-       <div class="frame" aria-label="Feature News" aria-roledescription="carousel">
+       <div class="frame"  role="region" aria-label="Feature News" aria-roledescription="carousel" >
        <ul class="slider"  style="height: 370px;">
             <?php
             $post_id = get_the_ID();
