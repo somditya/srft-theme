@@ -490,10 +490,9 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-2">
-            <img  src="<?php bloginfo('template_url'); ?>/images/triveni-poster.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIKIFFSpllJury.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
           </a>
         </div>
-
         <!--<div class="carousel-caption">
           <h3>
             <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
@@ -511,7 +510,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-3">
-            <img  src="<?php bloginfo('template_url'); ?>/images/romit-award.jpg" alt="Romit Ganguly(DOP & Line Producer for film Deshlai)'s work showcasing in Seattle -USA" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/triveni-poster.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
           </a>
         </div>
 
