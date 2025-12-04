@@ -41,9 +41,15 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
       <h2 class="page-header-text" aria-hidden="true"><?php echo esc_html(get_the_title($post_id)); ?></h2>
     </div>
     <div style="margin-top: 2rem; margin-bottom: 10rem;">
-        <?php echo $page_content ?>          
+        <?php 
+// Remove any filters that might strip tags
+remove_filter('the_content', 'wpautop');
+
+// Output the content with HTML tags preserved
+echo do_shortcode($page_content); 
+?>
     </div>
 </div>    
 </section>
         </main>
-<?php get_footer();  ?>
+<?php get_footer(); ?>
