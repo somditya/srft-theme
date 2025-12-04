@@ -470,7 +470,7 @@ if ($current_language === 'en_US') {
 
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-1">
+          <a href="#" id="carousel-image-1" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/GRBTAward.png" alt="Tribeni Rai's film Shape of Momo won Golder Royal Bengal Tiger Award" >
           </a>
         </div>
@@ -489,7 +489,7 @@ if ($current_language === 'en_US') {
       
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-2">
+          <a href="#" id="carousel-image-2" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIKIFFSpllJury.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
           </a>
         </div>
@@ -509,7 +509,7 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-3">
+          <a href="#" id="carousel-image-3" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/triveni-poster.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
           </a>
         </div>
@@ -528,7 +528,7 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-4">
+          <a href="#" id="carousel-image-4" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
           </a>
         </div>
@@ -548,7 +548,7 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-5">
+          <a href="#" id="carousel-image-5" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="Maharshi Tuhin Kashyap's film selected in Busan" >
           </a>
         </div>
@@ -569,7 +569,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-6">
+          <a href="#" id="carousel-image-6" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/sjalalcineaward.png" alt="Shehnad Jalal Wins Best Cinematographer Award at SIIMA 2025" >
           </a>
         </div>
@@ -588,7 +588,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-7">
+          <a href="#" id="carousel-image-7" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/National Film Award.png" alt="71st national Award Winners Alumni" >
           </a>
         </div>
@@ -607,7 +607,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-8">
+          <a href="#" id="carousel-image-8" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="Christo Tomy got National Award for best Malayalam Film for Ullozhukku" >
           </a>
         </div>
@@ -626,7 +626,7 @@ if ($current_language === 'en_US') {
       
         <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-9">
+          <a href="#" id="carousel-image-9" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="Dominic Sangma got national award for best garo film Rapture" >
           </a>
         </div>
@@ -645,7 +645,7 @@ if ($current_language === 'en_US') {
 
         <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-10">
+          <a href="#" id="carousel-image-10" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="Shuvam Sengupta got national award for best sound design dhundgiri ke phool" >
           </a>
         </div>
@@ -664,7 +664,7 @@ if ($current_language === 'en_US') {
       
       <div class="carousel-item" id="carousel-item-11" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-11">
+          <a href="#" id="carousel-image-11" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="Saravanamarathu Soundarapandi got national award for best cinematography for little wings " >
           </a>
         </div>
@@ -684,7 +684,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-9">
+          <a href="#" id="carousel-image-9" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
           </a>
         </div>
@@ -704,7 +704,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="10 of 13">
         <div class="carousel-image">
-          <a href="#!" id="carousel-image-10">
+          <a href="#!" id="carousel-image-10" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="student's production in set" >
           </a>
         </div>
@@ -722,7 +722,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-13" role="tabpanel" aria-roledescription="slide" aria-label="11 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-11">
+          <a href="#" id="carousel-image-11" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="animation masterclass">
           </a>
         </div>
@@ -742,7 +742,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-14" role="tabpanel" aria-roledescription="slide" aria-label="12 of 13">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-12">
+          <a href="#" id="carousel-image-12" role="presentation" tabindex="-1" >
              <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="student's live music exercise">
           </a>
         </div>
@@ -760,7 +760,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-15" role="tabpanel" aria-roledescription="slide" aria-label="6 of 6">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-13">
+          <a href="#" id="carousel-image-13" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="Sean Macllister is hoding a masterclass for Animation Student">
           </a>
         </div>
