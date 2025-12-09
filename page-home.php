@@ -601,6 +601,7 @@ else
 <div class="box-container" style="display:flex;">
     <?php 
     $sections = [
+        'events' => __('Events', 'srft-theme'),
         'announcement' => __('Circular & Notices', 'srft-theme'),
         'tender' => __('Tender', 'srft-theme'),
         'vacancy' => __('Vacancy', 'srft-theme')
@@ -650,11 +651,13 @@ else
 // Language-aware slug mapping
 $slug_map = [
     'en_US' => [
+        'event' => 'event',
         'announcement' => 'announcement',
         'tender'       => 'tender',
         'vacancy'      => 'vacancy',
     ],
     'hi_IN' => [
+        'event' => 'कार्यक्रम',
         'announcement' => 'घोषणा-सूची',
         'tender'       => 'निविदा',
         'vacancy'      => 'रिक्ति',
