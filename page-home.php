@@ -601,7 +601,7 @@ else
 <div class="box-container" style="display:flex;">
     <?php 
     $sections = [
-        'events' => __('Events', 'srft-theme'),
+        'event' => __('Event', 'srft-theme'),
         'announcement' => __('Circular & Notices', 'srft-theme'),
         'tender' => __('Tender', 'srft-theme'),
         'vacancy' => __('Vacancy', 'srft-theme')
@@ -617,35 +617,74 @@ else
     <div class="cell">
         <h3 class="update-title"><?php echo $title; ?></h3>
         <?php if ($category_posts->have_posts()) :
-            while ($category_posts->have_posts()) : $category_posts->the_post();
-                $doc_field = ucfirst($post_type) . '-Doc';
-                $doc = get_field($doc_field);
-                $link = $doc && isset($doc['url']) ? esc_url($doc['url']) : get_permalink();
-                $file_size_mb = 'N/A';
+    while ($category_posts->have_posts()) : $category_posts->the_post();
 
-                if ($doc && isset($doc['url'])) {
-                     $file_path = urldecode(str_replace(site_url('/'), ABSPATH, $doc['url']));
-                    if (file_exists($file_path)) {
-                        $file_size = filesize($file_path);
-                        $file_size_mb = round($file_size / (1024 * 1024), 2);
-                    }
-                }
-                $date_field = ucfirst($post_type) . '-Publish-Date';
-                $post_date = get_field($date_field);
-                $formatted_date = !empty($post_date) ? DateTime::createFromFormat('d/m/Y', $post_date) : null;
-        ?>
-        <h4 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
-        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?></h4>
-        <p><a href="<?php echo $link; ?>">
-            <?php the_title(); ?>&nbsp;
-            <?php if ($doc): ?>
-                (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
-            <?php endif; ?>
-        </a> </p><br role="presenttaion">
-        <?php endwhile; wp_reset_postdata(); else : ?>
-            <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
+        // ----- DOC FIELD (old + new support) -----
+        $doc_field_old = ucfirst($post_type) . '-Doc';
+        $doc_field_new = strtolower($post_type) . '-doc';
+        $doc = get_field($doc_field_old) ?: get_field($doc_field_new);
+
+        $link = $doc && isset($doc['url']) ? esc_url($doc['url']) : get_permalink();
+        $file_size_mb = 'N/A';
+
+        if ($doc && isset($doc['url'])) {
+            $file_path = urldecode(str_replace(site_url('/'), ABSPATH, $doc['url']));
+            if (file_exists($file_path)) {
+                $file_size = filesize($file_path);
+                $file_size_mb = round($file_size / (1024 * 1024), 2);
+            }
+        }
+
+        // ----- DATE FIELD (old + new support) -----
+        $date_field_old = ucfirst($post_type) . '-Publish-Date';
+        $date_field_new = strtolower($post_type) . '-publish-date';
+        $post_date = get_field($date_field_old) ?: get_field($date_field_new);
+
+        $formatted_date = !empty($post_date) ? DateTime::createFromFormat('d/m/Y', $post_date) : null;
+?>
+    <h4 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
+        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?>
+    </h4>
+
+    <p><a href="<?php echo $link; ?>">
+        <?php the_title(); ?>&nbsp;
+        <?php if ($doc): ?>
+            (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
         <?php endif; ?>
+    </a></p>
+
+     <?php if ($post_type === 'event') : 
+     $event_date = get_field('event_date');
+     $event_time = get_field('event_time');
+     $event_venue = get_field('event_venue');
+       if (!empty($event_date)){
+         $event_date = DateTime::createFromFormat('d/m/Y', $event_date);
+       }
+      ?>
+        <p class="event-meta" style="margin: 4px 0;">
+            <?php if ($event_date): ?>
+                <?php echo __('Date', 'srft-theme'); ?>: <?php echo esc_html($event_date->format('d M, Y')); ?>
+            <?php endif; ?>
+
+            <?php if (!empty($event_time)): ?>
+                &nbsp;|&nbsp;
+                <span><i class="fa-regular fa-clock"></i> <?php echo esc_html($event_time); ?></span>
+
+            <?php endif; ?>
+        </p>
+        <p style="margin-bottom: 6px;">
+        <i class="fa-solid fa-location-dot"></i>
+       <?php echo esc_html($event_venue); ?>
+        </p>
+    <?php endif; ?>
+
+    <br role="presenttaion">
+
+<?php endwhile; wp_reset_postdata(); else : ?>
+    <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
+<?php endif; ?>
+
         <div class="link-span">
            <?php
 // Language-aware slug mapping
@@ -667,9 +706,11 @@ $slug_map = [
 $slug = $slug_map[$current_language][$post_type] ?? $post_type;
 $final_url = site_url("/$slug/");
 ?>
-<a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
-    <?php echo __('More', 'srft-theme'); ?>
-</a>
+ <?php if ($post_type != 'event') : ?>
+    <a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+        <?php echo __('More', 'srft-theme'); ?>
+    </a>
+<?php endif; ?>
 
         </div>
     </div>
