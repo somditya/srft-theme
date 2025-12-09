@@ -6466,7 +6466,7 @@ img.emoji {
 .updates-container {
   margin: 1.8rem auto;
   max-width: 1286px;
-  padding: 0 24px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6765,7 +6765,7 @@ img.emoji {
 
 .cell {
   position: relative;
-  width: calc(33.33% - 10px); /* Adjust the width as needed */
+  width: calc(25% - 10px); /* Adjust the width as needed */
   margin-bottom: 20px;
   overflow: hidden;
 }
