@@ -210,14 +210,14 @@ $page_content = apply_filters('the_content', $post->post_content);
                 <h3><?php echo __('Executive Council', 'srft-theme'); ?></h3>
             </div>
             <section style="margin-bottom: 4rem;">
-                <!--<div><h4><?php echo __('Composition of the Executive Council', 'srft-theme'); ?></h4></div>
+                <div><h4><?php echo __('Composition of the Executive Council', 'srft-theme'); ?></h4></div>
                 <div style="margin-bottom: 1.5rem;">
                     <?php
                     // Retrieve and display the governing council part of the page content
                     $council = get_post_meta(get_the_ID(), 'GC', true);
                     echo $council;
                     ?>
-                </div>-->
+                </div>
                 <div><h4><?php echo __('Present Member of the Interim Executive Council', 'srft-theme'); ?></h4></div>
                     <div class="table-container">
                         <table style="width: 100%;">
@@ -300,16 +300,23 @@ if ($current_language === 'en_US') {
 
     // Define priority for English designations
     $designation_order = array(
-        'President' => 1,
-        'Director' => 2,
+        'Vice-Chancellor' => 1,
+        'ProVC' => 2,
         'Dean (Film), SRFTI' => 3,
         'Dean (EDM), SRFTI' => 4,
-        'Dean (Film), FTII' => 5,
-        'Dean (TV), FTII' => 6,
-        'Registrar, SRFTI' => 7,
-        'External Expert' => 8,
-        'Alumni' => 7
-        
+        'Dean, FTII-Itanagar' => 5,
+        'Professor, SRFTI-Film Wing' => 6,
+        'Professor, SRFTI-EDM Wing' => 7,
+        'Professor, FTII-Itanagar' => 8,
+        'Associate Professor, SRFTI-Film Wing' => 9,
+        'Associate Professor, SRFTI-EDM Wing' => 10,
+        'Associate Professor, FTII-Itanagar' => 11,
+        'Asssistant Professor, SRFTI-Film Wing' => 12,
+        'Asssistant Professor, SRFTI-EDM Wing' => 13,
+        'Asssistant Professor, FTII-Itanagar' => 14,
+        'External Expert' => 15,
+        'Registrar' => 16,
+        'Student'=>17
     );
 
 } else {
@@ -317,15 +324,16 @@ if ($current_language === 'en_US') {
 
     // Define priority for Hindi designations
     $designation_order = array(
-        'अध्यक्ष' => 1, // President
-        'निदेशक' => 2, // Director
-        'डीन (फिल्म्स), एसआरएफटीआई' => 3, // Dean (Film)
-        'डीन (ईडीएम), एसआरएफटीआई' => 4, // Dean (TV)
-        'डीन (फिल्म्स), एफटीआईआई' => 5, // Dean (Film)
-        'डीन (टीवी), एफटीआईआई' => 6, // Dean (TV)
-        'रजिस्ट्रार, एसआरएफटीआई' => 7, // Registrar
-        'पूर्व छात्र' => 7, // Alumni
-        'बाहरी विशेषज्ञ' => 6 // External Expert
+'कुलपति'=> 1,  
+'प्रो- कुलपति' => 2,   
+'डीन (फिल्म), SRFTI'  => 3,  
+'डीन (ईडीएम), SRFTI'  => 4, 
+'डीन (फिल्म), FTII' => 5,    
+'प्रोफेसर'  => 6, 
+'सहायक प्रोफेसर'  => 7,   
+'बाह्य विशेषज्ञ' => 8,  
+'रजिस्ट्रार' => 9, 
+'छात्र'  => 10 
     );
 }
 

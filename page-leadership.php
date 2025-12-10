@@ -69,6 +69,30 @@ $current_language = get_locale();
                     <h2 class="page-header-text"><?php echo __('Under their leadership', 'srft-theme' ); ?></h2>
                 </div>
             </div>
+
+            <div class="profile">
+                <div class="two-flex">
+                    <div class="col-left">
+                        <div class="profile-container">
+                            <img class="img-responsive" src="<?php echo esc_url(str_replace('{site_url}',get_site_url(),get_post_meta(get_the_ID(), 'ChancellorPhoto', true))); ?>" alt="<?php echo get_post_meta(get_the_ID(), 'Chancellor', true) . ' profile'; ?>">
+                            <div class="profile-text">
+                                <h3 class="custom-profile-heading">
+                                <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chancellor', true); ?></span>
+                                <br role="presentation">
+                                <span class="profile-desg"><?php echo __('Chancellor', 'srft-theme' ); ?></span>
+                                <h3>                           
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div class="col-right">
+                        <div class="profile-desc">
+                            <?php echo get_post_meta(get_the_ID(), 'ChancellorBio', true); ?>
+                            <p style="color:#8b5b2b; margin-top: 1rem;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
           
             <div class="profile">
                 <div class="two-flex">
@@ -244,7 +268,6 @@ $current_language = get_locale();
     </div>
   </div>
 </div>
-
 
             </div>
         </div>
