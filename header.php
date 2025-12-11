@@ -471,7 +471,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-1" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/GRBTAward.png" alt="Tribeni Rai's film Shape of Momo won Golder Royal Bengal Tiger Award" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/AlumniMeet.webp" alt="Alumni of SRFTI & FTII meet at IFFI Goa" >
           </a>
         </div>
 
@@ -490,7 +490,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-2" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIKIFFSpllJury.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/PapaBuka.webp" alt="P Sanu with PapaBuka film poster" >
           </a>
         </div>
         <!--<div class="carousel-caption">
@@ -510,7 +510,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-3" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/triveni-poster.png" alt="Tribeni Rai's film Shape of Momo won multiple awrads at Busan Film Festival" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/GRBTAward.png" alt="Tribeni Rai's film Shape of Momo won awrad at KIFF" >
           </a>
         </div>
 
@@ -529,7 +529,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-4" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIKIFFSpllJury.png" alt="SRFTI won multiple special jury awrads at KIFF" >
           </a>
         </div>
 
@@ -549,7 +549,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-5" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="Maharshi Tuhin Kashyap's film selected in Busan" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/TheSlowManandHisRaft.webp" alt="" >
           </a>
         </div>
 
@@ -570,7 +570,7 @@ if ($current_language === 'en_US') {
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/sjalalcineaward.png" alt="Shehnad Jalal Wins Best Cinematographer Award at SIIMA 2025" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
           </a>
         </div>
 
