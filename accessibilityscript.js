@@ -746,7 +746,7 @@ window.addEventListener("load", function () {
 var CarouselTablist = function (node, options) {
   // merge passed options with defaults
   options = Object.assign(
-    { moreaccessible: false, paused: true, norotate: false },
+    { moreaccessible: false, paused: false, norotate: false },
     options || {}
   );
 
