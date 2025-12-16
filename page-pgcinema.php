@@ -155,7 +155,7 @@ wp_nav_menu(array(
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
     ?>
-        <li class="cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;">
+        <li class="cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;  width: calc(33.33% - 10px);">
             <a href="<?php the_permalink(); ?>" target="_blank">
                 <?php
                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
