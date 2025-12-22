@@ -478,7 +478,7 @@ if ($current_language === 'en_US') {
 
         <div class="carousel-caption">
           <h3>
-            <a href="#">  </a>
+            <a href="http://wavex.wavesbazaar.com/"> Click to know detail </a>
           </h3>
 
           <!--<div class="hidden-xs hidden-sm">
