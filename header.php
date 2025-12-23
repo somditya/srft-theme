@@ -470,19 +470,15 @@ if ($current_language === 'en_US') {
 
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-1" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/AlumniMeet.webp" alt="Alumni of SRFTI & FTII meet at IFFI Goa" >
+          <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-1" role="presentation" tabindex="-1" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Incubation.png" alt="Alumni of SRFTI & FTII meet at IFFI Goa" >
           </a>
         </div>
 
         <!--<div class="carousel-caption">
           <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+            <a href="https://srfti.ac.in/announcement/9212/">Click here for detail</a>
           </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
         </div>-->
         
       </div> 
