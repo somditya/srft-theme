@@ -471,7 +471,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
           <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-1" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/Incubation.png" alt="Alumni of SRFTI & FTII meet at IFFI Goa" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="Poster for SRFTI Wavex Regional Incubation Centre " >
           </a>
         </div>
 
