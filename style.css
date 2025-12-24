@@ -8923,6 +8923,18 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100%;
   }
 
+  .a11y-slider-container > button.a11y-slider-prev {
+    left: 20px;
+    background-position: 0 0;
+    top: -7%;
+  }
+
+  .a11y-slider-container > button.a11y-slider-next {
+    right: 20px;
+    background-position: -24px 0;
+    top: -7%;
+  }
+
   .g-recaptcha {
     transform: scale(0.85);
   }

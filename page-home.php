@@ -136,7 +136,7 @@ Template Name: Home
 
 
 <section class="section-news" style="background-color: #0b6b39;" id="section-1">
-    <h2 class="section-intro-header-text" style="padding-top: 48px; padding-left: 0; color:#f3f3f3;">
+    <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3;">
         <?php echo __('Featured News', 'srft-theme' ); ?>
     </h2>
 
