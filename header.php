@@ -352,12 +352,11 @@ if ($current_language === 'en_US') {
             </ul>
           </nav>  
           </div>
-        <div class="logo-container">
-          <div><a href="#" title="Logo of FTIII"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
+        </div>
+        <div class="logo-container" style="justify-content: flex-end;">
+          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
         </div>
-        </div>
-        
         <div class="hamburger-menu-container"> 
           <div class="hamburger-menu">
             <div></div>
