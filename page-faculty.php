@@ -220,7 +220,7 @@ $category_id = get_category_ID($category_name);
 
     // Pagination settings
     $scope.currentPage = 1;
-    $scope.itemsPerPage = 12;  // Adjust as needed
+    $scope.itemsPerPage = 15;  // Adjust as needed
 
     // Filter options
     $scope.filterField = '';
