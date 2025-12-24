@@ -746,14 +746,14 @@ window.addEventListener("load", function () {
 var CarouselTablist = function (node, options) {
   // merge passed options with defaults
   options = Object.assign(
-    { moreaccessible: false, paused: true, norotate: false },
+    { moreaccessible: false, paused: false, norotate: false },
     options || {}
   );
 
   // a prefers-reduced-motion user setting must always override autoplay
   var hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (hasReducedMotion.matches) {
-    options.paused = true;
+    options.paused = false;
   }
 
   /* DOM properties */
@@ -777,7 +777,7 @@ var CarouselTablist = function (node, options) {
   this.hasUserActivatedPlay = false; // set when the user activates the play/pause button
   this.isAutoRotationDisabled = options.norotate; // This property for disabling auto rotation
   this.isPlayingEnabled = !options.paused; // This property is also set in updatePlaying method
-  this.timeInterval = 5000; // length of slide rotation in ms
+  this.timeInterval = 8000; // length of slide rotation in ms
   this.currentIndex = 0; // index of current slide
   this.slideTimeout = null; // save reference to setTimeout
 

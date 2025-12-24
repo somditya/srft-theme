@@ -161,7 +161,7 @@ Template Name: Home
                         'terms'    => $catslug,
                     ),
                 ),
-                'posts_per_page' => -1,
+                'posts_per_page' => 10,
             ));
 
             if ($category_posts->have_posts()) :
