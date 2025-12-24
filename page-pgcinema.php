@@ -143,7 +143,7 @@ wp_nav_menu(array(
             <div>
                 <h4 class="page-header-text" style="margin-top: 0rem;"><?php echo __('Specializations', 'srft-theme'); ?></h4>
             </div> 
-           <ul class="box-container" style="list-style-type: none; padding: 0; margin: 0;">
+<ul class="box-container" style="list-style-type: none; padding: 0; margin: 0;">
     <?php
     $args = array(
         'post_type' => 'page',
@@ -155,7 +155,7 @@ wp_nav_menu(array(
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
     ?>
-        <li class="cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;  width: calc(33.33% - 10px);">
+        <li class="grid3cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;">
             <a href="<?php the_permalink(); ?>" target="_blank">
                 <?php
                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);

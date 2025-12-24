@@ -6780,6 +6780,13 @@ img.emoji {
   overflow: hidden;
 }
 
+.grid3cell {
+  position: relative;
+  width: calc(33% - 10px); /* Adjust the width as needed */
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
 .cell_1 {
   position: relative;
   width: calc(50% - 10px); /* Adjust the width as needed */
@@ -8230,7 +8237,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /**************************/
 /* BELOW 1024px (Tablets) */
 /**************************/
-@media (max-width: 1024px) {
+/*@media (max-width: 1024px) {
   .menu-btn {
     flex: 0 0 auto;
     min-width: 0;
@@ -8245,7 +8252,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .menu-btn.active {
     display: flex;
   }
-}
+}*/
 
 @media (max-width: 1024px) {
   .main-nav {
@@ -8450,6 +8457,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 
   .cell {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .grid3cell {
     width: 100%;
     margin-bottom: 20px;
   }
