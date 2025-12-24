@@ -774,10 +774,10 @@ var CarouselTablist = function (node, options) {
   this.pauseLabel = "Stop automatic slide show";
 
   /* State properties */
-  this.hasUserActivatedPlay = true; // set when the user activates the play/pause button
+  this.hasUserActivatedPlay = false; // set when the user activates the play/pause button
   this.isAutoRotationDisabled = options.norotate; // This property for disabling auto rotation
   this.isPlayingEnabled = !options.paused; // This property is also set in updatePlaying method
-  this.timeInterval = 6000; // length of slide rotation in ms
+  this.timeInterval = 5000; // length of slide rotation in ms
   this.currentIndex = 0; // index of current slide
   this.slideTimeout = null; // save reference to setTimeout
 
