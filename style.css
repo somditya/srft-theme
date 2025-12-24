@@ -2418,12 +2418,14 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   margin: 0 auto;
   display: flex;
   position: relative;
+  z-index: 1;
 }
 
 .logo-container {
   flex: 1;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo-tagline {
@@ -2456,6 +2458,8 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 .menu-btn {
   flex: 3;
   display: flex;
+  min-width: 0;
+  z-index: 2;
 }
 
 .nav-links {
@@ -2519,6 +2523,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 .nav-link {
   position: relative;
   padding: 20px 10px;
+  z-index: 1;
 }
 
 .nav-link > a {
@@ -2535,6 +2540,10 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   justify-content: space-between;
   transition: 0.5s;
   white-space: nowrap;
+}
+
+.nav-link:hover {
+  z-index: 10; /* ensures dropdown covers sibling menu items */
 }
 
 .nav-link > a > i {
@@ -2554,6 +2563,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
+  z-index: 5;
 }
 
 .dropdown[hidden] {
@@ -2581,16 +2591,13 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   transition: 0.3s;
   color: #555;
   text-decoration: none;
+  border-bottom: 1px solid #efefef;
 }
 
 .dropdown-link:hover > a,
 .dropdown-link:focus > a {
   background-color: #8b5b2b;
   color: #fff;
-}
-
-.dropdown-link:not(:nth-last-child(2)) {
-  border-bottom: 1px solid #efefef;
 }
 
 .dropdown-link i {
@@ -2638,12 +2645,15 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   opacity: 1;
   pointer-events: auto;
 }
+.dropdown-link:last-child a {
+  border-bottom: none; /* remove border only for the last item */
+}
 
 /* Menubar Navigation as per the W3C standard  */
 
-.menu-bar:focus-within {
-  border: 2px solid hsl(0, 0%, 5%);
-  padding: 0px;
+.menu-bar:has(:focus-visible) {
+  outline: 2px solid #000;
+  outline-offset: 4px;
 }
 
 .menubar-navigation {
@@ -8221,6 +8231,23 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 1024px (Tablets) */
 /**************************/
 @media (max-width: 1024px) {
+  .menu-btn {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn.active {
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
   .main-nav {
     display: none;
   }
@@ -9337,5 +9364,18 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .page-break {
     page-break-before: always;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1390px) {
+  .menu-btn {
+    min-width: 0;
+    justify-content: center; /* keeps menu readable */
+    flex-wrap: wrap; /* allows wrapping if needed */
+  }
+
+  .menu-btn ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.5rem;
   }
 }
