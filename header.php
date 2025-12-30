@@ -180,7 +180,7 @@ $current_language = get_locale();
         
           <div class="nav-links" >
             <nav class="nav-links" role="navigation" aria-label="SRFTI">
-            <ul role="menubar" aria-label="Main Menu" class="menu-bar" style="display: flex; align-items: center; justify-content: center;">
+            <ul role="menubar" aria-label="Main Menu" class="menu-bar" >
               <li role="none" class="nav-link" style="--i: 0.6s" >
                 <a role="menuitem" tabindex="0" aria-label="Home" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
@@ -354,7 +354,7 @@ if ($current_language === 'en_US') {
           </div>
         </div>
         <div class="logo-container" style="justify-content: flex-end;">
-          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img class="right-logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
         </div>
         <div class="hamburger-menu-container"> 

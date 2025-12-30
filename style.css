@@ -2416,16 +2416,31 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 .menu-container {
   padding: 0 2rem;
   margin: 0 auto;
+
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  /*max-width: 1440px; /* CRITICAL */
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
 }
 
-.logo-container {
-  flex: 1;
+.menu-bar {
   display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 1.25rem;
+}
+
+.logo-container {
+  /*flex: 1;*/
+  display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
 }
 
 .logo-tagline {
@@ -2448,18 +2463,24 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   display: flex;
   align-items: center;
   /*padding: 1.4rem;*/
-  padding-right: 2rem;
+  /*padding-right: 2rem;*/
   height: 6rem;
+}
+
+.right-logo {
+  margin-left: auto; /* pushes it to the far right */
 }
 
 .mobile-icon {
   display: none; /* Shows the image icon on mobile */
 }
 .menu-btn {
-  flex: 3;
+  /*flex: 3;*/
+  flex: 0 0 auto;
   display: flex;
   min-width: 0;
   z-index: 2;
+  justify-content: center;
 }
 
 .nav-links {
@@ -2518,6 +2539,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   justify-content: center;
   align-items: center;
   list-style: none;
+  padding-left: 0px;
 }
 
 .nav-link {
@@ -8181,6 +8203,13 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* BELOW 1344px (Smaller desktops) */
 /**************************/
 @media (max-width: 1344px) {
+  .menu-btn ul {
+    gap: 0rem;
+  }
+
+  .nav-link {
+    padding: 18px 0px;
+  }
 }
 
 /**************************/
@@ -9315,7 +9344,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .nav {
     max-height: none;
     top: 0;
@@ -9390,11 +9419,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
     page-break-before: always;
   }
 }
-@media (min-width: 1000px) and (max-width: 1390px) {
+/*@media (min-width: 1000px) and (max-width: 1390px) {
   .menu-btn {
     min-width: 0;
-    justify-content: center; /* keeps menu readable */
-    flex-wrap: wrap; /* allows wrapping if needed */
+    justify-content: center; 
+    flex-wrap: wrap; 
   }
 
   .menu-btn ul {
@@ -9402,4 +9431,4 @@ ul li input[type="checkbox"]:checked ~ i:after {
     justify-content: center;
     row-gap: 0.5rem;
   }
-}
+}*/
