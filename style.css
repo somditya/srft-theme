@@ -8202,7 +8202,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /**************************/
 /* BELOW 1344px (Smaller desktops) */
 /**************************/
-@media (max-width: 1344px) {
+@media (max-width: 1360px) {
   .menu-btn ul {
     gap: 0rem;
   }
@@ -9344,7 +9344,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1024px) {
   .nav {
     max-height: none;
     top: 0;
