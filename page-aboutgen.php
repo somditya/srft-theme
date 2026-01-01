@@ -71,7 +71,7 @@ $current_language = get_locale();
 
         <div class="main-content" role="main">
             <div>
-                <h2 class="page-header-text"><?php echo $current_page_title ?></h2>
+                <h2 class="page-header-text"><?php the_title(); ?></h2>
             </div>  
             <div style="margin-bottom: 4rem;">    
                 <div><?php the_content(); ?></div>   
