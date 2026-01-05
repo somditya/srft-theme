@@ -72,9 +72,17 @@ if ($current_language === 'en_US') {
       <h3 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h3>
       <hr role="presentation" />
       <p style="font-weight: 400; font-size: 24px; color: white; line-height: 2.8rem;"><?php echo $programmename; ?></p>
+      <br role="presentation"/>
+       <div class="link-div" style="align-items: left; margin-top: 0;">
+          <a class="link-text-big" href="https://applyadmission.net/srfti2026" aria-label="Apply for the course"><span> <?php echo __('Click here to apply', 'srft-theme'); ?></span><span class="primary__header-arrow"> 
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-4" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
+          </span>
+        </a>      
+    </div>
     </div>
   </div>
 
+ 
   <div class="widget">
     <div class="widget-content">
       <h3 id="duration-heading"><?php echo __('Programme Duration', 'srft-theme'); ?></h3>
