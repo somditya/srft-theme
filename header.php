@@ -488,7 +488,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
           <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-2" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/ACampaignEDM.webp" alt="Admission Campaing Poster for SRFTI EDM wing" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/MFA Film.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI Film wing" >
           </a>
         </div>
         <!--<div class="carousel-caption">
@@ -508,7 +508,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
           <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-3" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/ACampaignFTIII.webp" alt="Admission Campaing Poster for FTII Itanagar" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/MFA EDM.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI EDM wing" >
           </a>
         </div>
 
@@ -527,7 +527,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
           <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-4" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="Poster for SRFTI Wavex Regional Incubation Centre" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/PG Dip FTII Itanagar.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI EDM wing" >
           </a>
         </div>
 
@@ -547,7 +547,7 @@ if ($current_language === 'en_US') {
     <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-5" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTIKIFFSpllJury.png" alt="" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="Poster for SRFTI Wavex Regional Incubation Centre" >
           </a>
         </div>
 
