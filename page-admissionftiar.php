@@ -136,13 +136,13 @@ $current_language = get_locale();
     <!-- Sample Question Papers -->
     <div class="widget">
         <h2><?php echo __('Sample Question Papers', 'srft-theme'); ?></h2>
-        <?php 
+        <?php
         $download_post = new WP_Query([
             'post_type' => 'document',
             'tax_query' => [[
                 'taxonomy' => 'category',
                 'field' => 'slug',
-                'terms' => $catslg,
+                'terms' => $catslug,
             ]],
             'posts_per_page' => -1,
         ]);
@@ -153,7 +153,8 @@ $current_language = get_locale();
                 $download_post->the_post(); 
                 $document_file = get_field('document');
                 $document_category = get_field('document-category');
-                if ($document_category === 'Question Paper' && $document_file) {
+                if (in_array($document_category, ['Question Paper FTIII', 'Question Paper Both'], true)
+                 && !empty($document_file)) {
                     $file_url = $document_file['url'];
                     $file_id = $document_file['ID'];
                     $file_size = @filesize(get_attached_file($file_id));
