@@ -507,7 +507,7 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-3" role="presentation" tabindex="-1" >
+          <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-3" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/MFA EDM.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI EDM wing" >
           </a>
         </div>
