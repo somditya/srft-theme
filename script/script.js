@@ -1073,6 +1073,7 @@ $(document).ready(function () {
   });
 
 $(document).ready(function() {
+   console.log("Button expiration activated");
             // Get expiration date from data attribute (set by WordPress)
             var expirationDateStr = $('#expiring-button').data('expiration-date');
             
