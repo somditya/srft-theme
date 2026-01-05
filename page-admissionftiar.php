@@ -132,6 +132,53 @@ $current_language = get_locale();
         </a>      
     </div>
 
+
+    <!-- Sample Question Papers -->
+    <div class="widget">
+        <h2><?php echo __('Sample Question Papers', 'srft-theme'); ?></h2>
+        <?php 
+        $download_post = new WP_Query([
+            'post_type' => 'document',
+            'tax_query' => [[
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => $catslg,
+            ]],
+            'posts_per_page' => -1,
+        ]);
+
+        if ($download_post->have_posts()) {
+            echo '<ul style="list-style: none; padding-left: 0;">';
+            while ($download_post->have_posts()) {
+                $download_post->the_post(); 
+                $document_file = get_field('document');
+                $document_category = get_field('document-category');
+                if ($document_category === 'FTIII Question Paper' && $document_file) {
+                    $file_url = $document_file['url'];
+                    $file_id = $document_file['ID'];
+                    $file_size = @filesize(get_attached_file($file_id));
+                    $file_type_info = wp_check_filetype($file_url);
+                    $file_type = strtoupper($file_type_info['ext'] ?? 'Unknown');
+                    $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
+                    ?>
+                    <li style="margin-bottom: 10px;">
+                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="pdf opens in a new window">
+                            <?php echo esc_html(get_the_title()); ?>
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
+                            <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
+                        </a>
+                    </li>
+                <?php }
+            }
+            echo '</ul>';
+        } else {
+            echo '<p>' . __('No question papers found.', 'srft-theme') . '</p>';
+        }
+        wp_reset_postdata();
+        ?>
+    </div> 
+
+
             <!--<div class="widget" style="line-height: 1.5">
                 <h2><?php echo __('Admission Notification', 'srft-theme');?></h2>
                 <?php
