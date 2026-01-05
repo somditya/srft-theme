@@ -1072,6 +1072,21 @@ $(document).ready(function () {
     play();
   });
 
+$(document).ready(function() {
+            // Get expiration date from data attribute (set by WordPress)
+            var expirationDateStr = $('#expiring-button').data('expiration-date');
+            
+            if (expirationDateStr) {
+                var expirationDate = new Date(expirationDateStr);
+                var currentDate = new Date();
+                
+                // Hide button with specific ID if current date is past expiration date
+                if (currentDate > expirationDate) {
+                    $('#expiring-button').hide();
+                }
+            }
+        });
+
   jQuery(document).ready(function ($) {
     // Create an accessible label for the hidden textarea
     $(

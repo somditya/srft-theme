@@ -127,7 +127,7 @@ $current_language = get_locale();
                 ?>   
             </div>
 
-            <div class="widget" style="line-height: 1.5">
+            <!--<div class="widget" style="line-height: 1.5">
                 <h2><?php echo __('Admission Notification', 'srft-theme');?></h2>
                 <?php
                 $category_posts = new WP_Query(array(
@@ -147,7 +147,7 @@ $current_language = get_locale();
                     echo '<p>No posts found in this category.</p>';
                 endif;
                 ?>
-            </div>
+            </div>-->
         </div> <!-- Closing div for leftnav -->
 
         <div class="main-content">

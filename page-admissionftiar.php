@@ -125,12 +125,11 @@ $current_language = get_locale();
                 ?>   
             </div>
 
-            <div class="widget" style="line-height: 1.5">
+            <!--<div class="widget" style="line-height: 1.5">
                 <h2><?php echo __('Admission Notification', 'srft-theme');?></h2>
                 <?php
                 $category_posts = new WP_Query(array(
-                    'category_name' => 'admissionshort-en', // Replace with your category slug
-                    'posts_per_page' => 5,
+                    'category_name' => 'admissionshort-en',  'posts_per_page' => 5,
                 ));
 
                 if ($category_posts->have_posts()) :
@@ -140,12 +139,12 @@ $current_language = get_locale();
                     <h3><a href="<?php echo esc_url($post_link); ?>"><?php the_title(); ?></a></h3>
                     <?php
                     endwhile;
-                    wp_reset_postdata(); // Reset the post data
+                    wp_reset_postdata(); 
                 else :
                     echo '<p>No posts found in this category.</p>';
                 endif;
                 ?>
-                            </div>
+                            </div>-->
         </div> <!-- Closing div for leftnav -->
 
         <div class="main-content" >
