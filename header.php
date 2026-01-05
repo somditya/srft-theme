@@ -472,8 +472,8 @@ if ($current_language === 'en_US') {
 
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-1" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/ACampaignFilm.webp" alt="Admission Campaing Poster for SRFTI Film wing" >
+          <a href="#" id="carousel-image-1" role="presentation" tabindex="-1" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Application 2026.webp" alt="Application poster for SRFTI Common Entrance Test" >
           </a>
         </div>
 
