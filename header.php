@@ -472,7 +472,7 @@ if ($current_language === 'en_US') {
 
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-1" role="presentation" tabindex="-1" >
+          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-1" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/Application 2026.webp" alt="Application poster for SRFTI Common Entrance Test" >
           </a>
         </div>
@@ -487,7 +487,7 @@ if ($current_language === 'en_US') {
       
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-2" role="presentation" tabindex="-1" >
+          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-2" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/MFA Film.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI Film wing" >
           </a>
         </div>
@@ -507,7 +507,7 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-3" role="presentation" tabindex="-1" >
+          <a href="https://srfti.ac.in/https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-3" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/MFA EDM.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI EDM wing" >
           </a>
         </div>
@@ -526,8 +526,8 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-4" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/PG Dip FTII Itanagar.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI EDM wing" >
+          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-4" role="presentation" tabindex="-1" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/PG Dip FTII Itanagar.webp" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar" >
           </a>
         </div>
 
