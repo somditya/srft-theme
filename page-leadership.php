@@ -103,7 +103,7 @@ $current_language = get_locale();
                                 <h3 class="custom-profile-heading">
                                 <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></span>
                                 <br role="presentation">
-                                <span class="profile-desg"><?php echo __('Chairman', 'srft-theme' ); ?></span>
+                                <span class="profile-desg"><?php echo __('President', 'srft-theme' ); ?></span>
                                 <h3>
                             </div>   
                         </div>        
