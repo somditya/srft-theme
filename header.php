@@ -543,27 +543,8 @@ if ($current_language === 'en_US') {
         
       </div>
     
+    
     <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/scholarship/" id="carousel-image-5" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/Screen Academy Scholarship.webp" alt="Poster for Screenacademy Scholarship" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
           <a href="https://forms.gle/fiv7gvrurbc6jbTs5" id="carousel-image-5" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/call-for-proposal.webp" alt="Poster for call for proposal for film making" >
@@ -584,7 +565,7 @@ if ($current_language === 'en_US') {
 
       
 
-      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
+      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
@@ -603,7 +584,7 @@ if ($current_language === 'en_US') {
         
       </div>
 
-      <!--<div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
+      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-7" role="presentation" tabindex="-1" >
             <img  src="<?php bloginfo('template_url'); ?>/images/National Film Award.png" alt="71st national Award Winners Alumni" >
@@ -620,7 +601,7 @@ if ($current_language === 'en_US') {
           </div>
         </div>-->
         
-      </div>-->
+      </div>
 
       <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
         <div class="carousel-image">
