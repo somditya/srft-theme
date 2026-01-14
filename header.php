@@ -568,7 +568,7 @@ if ($current_language === 'en_US') {
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
           <a href="#" id="carousel-image-6" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/BUSAN.png" alt="Alumnus of SRFTI shines at BUSAN" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTI DCDFC Faculties Film.webp" alt="Poster for call for DCDFC film making for faculties" >
           </a>
         </div>
 
