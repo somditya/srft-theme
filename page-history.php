@@ -115,7 +115,17 @@ $page_content = apply_filters('the_content', $post->post_content);
                 ?>
             </div>
         </div>-->
-
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <clipPath id="diamondClip" clipPathUnits="objectBoundingBox">
+      <path d="M 0.45,0.05 C 0.5,0 0.5,0 0.55,0.05 L 0.95,0.45 C 1,0.5 1,0.5 0.95,0.55 L 0.55,0.95 C 0.5,1 0.5,1 0.45,0.95 L 0.05,0.55 C 0,0.5 0,0.5 0.05,0.45 Z" />
+    </clipPath>
+    
+    <clipPath id="rectangleClip" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Z" />
+    </clipPath>
+  </defs>
+</svg>
         <ul class="grid-gallery">
             <li>
             <button class="gallery-btn"><img src="https://srfti.ac.in/wp-content/themes/srft-theme/images/foundation-01.jpg" alt="Construction of the Institute - foundation structure in progress" class="single-image"  ></button></li> 

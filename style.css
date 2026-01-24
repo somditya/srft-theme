@@ -5843,12 +5843,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
   transition:
     clip-path 0.25s,
     filter 0.75s;
-  -webkit-clip-path: path(
-    "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-  );
-  clip-path: path(
-    "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-  );
+  -webkit-clip-path: url(#diamondClip);
+  clip-path: url(#diamondClip);
   display: block;
 }
 
@@ -5865,9 +5861,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /* Highlight hovered image */
 .grid-gallery img:hover,
 .grid-gallery img:focus {
-  clip-path: path(
-    "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
-  );
+  -webkit-clip-path: url(#rectangleClip);
+  clip-path: url(#rectangleClip);
   z-index: 10;
   transition:
     clip-path 0.25s,
@@ -5875,9 +5870,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .grid-gallery button:focus img {
-  clip-path: path(
-    "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
-  );
+  -webkit-clip-path: url(#rectangleClip);
+  clip-path: url(#rectangleClip);
   z-index: 10;
   transition:
     clip-path 0.25s,
@@ -6277,7 +6271,7 @@ header {
   padding: 1.2rem;
 }
 
-.newsfeatured ul:li {
+.newsfeatured ul li {
   display: flex;
   list-style: none;
   padding: 1.2rem;
