@@ -5136,7 +5136,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 .owl-image {
@@ -6948,7 +6948,7 @@ img.emoji {
   padding: 1rem;
   font-size: 5.8rem;
   color: #ffffff;
-  letter-spacing: 1.5;
+  letter-spacing: 1.5rem;
 }
 
 .page-intro-text-description {
@@ -7485,7 +7485,7 @@ img.emoji {
 
 .accordian ul {
   list-style: none;
-  perspective: 900;
+  perspective: 900px;
   padding: 0;
   margin: 0;
 }
@@ -7629,7 +7629,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  opacity: 0.5px;
+  /*opacity: 0.5;*/
 }
 
 .owl-image {
@@ -9333,12 +9333,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 10px;
   }
 
-  .Rtable-cell {
+  /*.Rtable-cell {
     & .Rtable-cell--content {
       a {
         font-size: 10px;
       }
     }
+  }*/
+
+  .Rtable-cell .Rtable-cell--content a {
+    font-size: 10px;
   }
 
   .Rtable-cell.column-heading {
