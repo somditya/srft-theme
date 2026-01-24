@@ -120,18 +120,14 @@ a:hover {
   /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
 }
 
-a:selected {
+/*a:selected {
   text-decoration: underline;
   text-decoration-color: var(--hyper-link-color);
-  text-decoration-thickness: 4px; /* 👈 thicker underline */
+  text-decoration-thickness: 4px;
   text-underline-offset: 10px;
   font-weight: 500;
   color: #000000;
-  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
-  /*transform: scale(1.05);*/
-  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
-  /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
-}
+}*/
 
 p {
   overflow-wrap: break-word; /* modern */
@@ -163,7 +159,8 @@ p {
 @font-face {
   font-family: "Plain Medium Regular";
   src: url("https://db.onlinewebfonts.com/t/36e469f4478980088468fc30605f4b4c.eot");
-  src: url("https://db.onlinewebfonts.com/t/36e469f4478980088468fc30605f4b4c.eot?#iefix")
+  src:
+    url("https://db.onlinewebfonts.com/t/36e469f4478980088468fc30605f4b4c.eot?#iefix")
       format("embedded-opentype"),
     url("https://db.onlinewebfonts.com/t/36e469f4478980088468fc30605f4b4c.woff2")
       format("woff2"),
@@ -355,10 +352,14 @@ body.dark-mode .childnav-list-item.active {
 }
 
 /* Ensure text color changes are applied globally */
-body.high-contrast * {
+/*body.high-contrast * {
   .section-intro-header-text {
     color: #161a1d;
   }
+}*/
+
+body.high-contrast .section-intro-header-text {
+  color: #161a1d;
 }
 
 /* Hidden class for toggling visibility */
@@ -641,7 +642,9 @@ body {
 #heading {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 1s, transform 1s;
+  transition:
+    opacity 1s,
+    transform 1s;
 }
 
 .fade-in {
@@ -718,7 +721,9 @@ body {
   border: 2px solid #ccc; /* normal border */
   border-radius: 0; /* keep rectangular */
   padding: 6px 10px;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
 
 .search-box input[type="search"]:focus,
@@ -743,7 +748,9 @@ body {
   border: 1px solid transparent; /* default no border */
   padding: 6px; /* space inside border */
   border-radius: 0; /* rectangular */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* When any child (input) is focused */
@@ -1559,8 +1566,8 @@ ol li {
 }
 
 .footer_copyright_container copyright-text {
-  margin: 10;
-  padding: 10;
+  margin: 10px;
+  padding: 10px;
   font-size: 8px;
 }
 
@@ -3634,7 +3641,9 @@ img.reload {
 [data-scroll] {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 [data-scroll].is-inview {
@@ -5824,7 +5833,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
   height: calc(var(--size) * 2);
   object-fit: cover;
   border-radius: 5px;
-  transition: clip-path 0.25s, filter 0.75s;
+  transition:
+    clip-path 0.25s,
+    filter 0.75s;
   clip-path: path(
     "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
   );
@@ -5848,7 +5859,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
     "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
   );
   z-index: 10;
-  transition: clip-path 0.25s, filter 0.25s;
+  transition:
+    clip-path 0.25s,
+    filter 0.25s;
 }
 
 .grid-gallery button:focus img {
@@ -5856,7 +5869,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
     "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
   );
   z-index: 10;
-  transition: clip-path 0.25s, filter 0.25s;
+  transition:
+    clip-path 0.25s,
+    filter 0.25s;
 }
 
 .grid-gallery img:focus {
@@ -6301,7 +6316,9 @@ header {
 [data-scroll] {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 [data-scroll].is-inview {
@@ -7271,7 +7288,9 @@ img.emoji {
   padding: 8px 14px; /* bigger clickable area */
   border-radius: 50%; /* round button */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   z-index: 1000;
 }
 
@@ -7425,7 +7444,9 @@ img.emoji {
   background: white;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 /* Hover effect */
