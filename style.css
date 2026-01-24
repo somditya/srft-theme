@@ -3592,11 +3592,18 @@ img.reload {
   padding: 1.2rem;
 }
 
-.newsfeatured ul:li {
+/*.newsfeatured ul:li {
+  display: flex;
+  list-style: none;
+  padding: 1.2rem;
+}*/
+
+.newsfeatured ul li {
   display: flex;
   list-style: none;
   padding: 1.2rem;
 }
+
 .newscontainer {
   background-color: #002a3a;
 }
@@ -5836,6 +5843,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
   transition:
     clip-path 0.25s,
     filter 0.75s;
+  -webkit-clip-path: path(
+    "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
+  );
   clip-path: path(
     "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
   );
@@ -6172,7 +6182,7 @@ header {
   font-weight: 700;
   font-size: 6.2rem;
   line-height: 8.8rem;
-  letter-spacing: 0.06zpx;
+  letter-spacing: 0.06px;
   /*text-shadow: 0 1px 11px #555, 0 1px 20px #555, 0 1px 20px #555;*/
 
   /*text-transform: uppercase;*/
