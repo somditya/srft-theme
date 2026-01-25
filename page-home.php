@@ -651,7 +651,31 @@ else
             (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
         <?php endif; ?>
-    </a></p>
+    </a>
+  <?php if ($post_type === 'tender') : ?>
+   <?php $is_tender = ($post_type === 'tender');
+$tender_language = get_field('language'); // ACF field value: Hindi / Both / English
+$tender_id = get_field('Tender-ID');
+$is_gem = (stripos($tender_id, 'GEM') === 0);
+?>
+<?php if ($is_gem): ?>
+      <span class="doc-lang"
+        aria-label="<?php echo esc_attr__('Document available in English and Hindi', 'srft-theme'); ?>">
+        &nbsp; | &nbsp; (
+        <abbr lang="en" title="English">EN</abbr>,
+        <abbr lang="hi" title="Hindi">HI</abbr>)
+      </span>
+    <?php elseif ($tender_language === 'Hindi'): ?>
+      <span class="doc-lang"
+        aria-label="<?php echo esc_attr__('Document available in Hindi', 'srft-theme'); ?>">
+        &nbsp;(
+        <abbr lang="hi" title="Hindi">HI</abbr>
+        )
+      </span>
+    <?php endif; ?>
+  <?php endif; ?>
+     
+  </p>
 
      <?php if ($post_type === 'event') : 
      $event_date = get_field('event_date');
