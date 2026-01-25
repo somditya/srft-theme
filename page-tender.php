@@ -100,6 +100,36 @@ $category_id = get_category_ID( $category_name );
                           <img alt="pdf" style="vertical-align: middle;" class="pdf_icon" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/pdf_icon_resized.png">
                           &nbsp; (<span><?php echo esc_html__( 'Download', 'srft-theme' ); ?> - {{ tender.file.size }} MB)</span>
                         </a>
+                         <!-- Language indicator -->
+<!-- Language indicator -->
+<span
+  class="doc-lang"
+  data-ng-if="tender.ID"
+  aria-hidden="false">
+
+  <!-- GEM tenders: EN, HI -->
+  <span
+    data-ng-if="tender.ID.indexOf('GEM') === 0 || tender.language === 'Both' "
+    role="text"
+    aria-label="Document available in English and Hindi"
+    title="Available in English and Hindi">
+
+    (<span lang="en">EN</span>, <span lang="hi">HI</span>)
+  </span>
+
+  <!-- Non-GEM + Hindi only -->
+  <span
+    data-ng-if="tender.ID.indexOf('GEM') !== 0 && tender.language === 'Hindi'"
+    role="text"
+    aria-label="Document available in Hindi"
+    title="Available in Hindi">
+
+    <span lang="hi">HI</span>
+  </span>
+
+</span>
+
+
                       </div>
                       <div class="Rtable-cell--content" data-ng-if="!tender.file || !tender.file.url">—</div>
                     </td>
@@ -233,6 +263,7 @@ $category_id = get_category_ID( $category_name );
             title: cleanTitle,
             link: post.link || '',
             ID: acf['Tender-ID'] || '',
+            language: acf['language'],
             pubdate: pub,
             subdate: sub,
             isSubmissionOpen: sub ? (sub >= $scope.currentDate) : false,
