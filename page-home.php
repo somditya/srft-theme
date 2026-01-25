@@ -170,7 +170,7 @@ Template Name: Home
                     <li role="group" aria-roledescription="slide">
                       <div class="news-item">
                        <a href="<?php the_permalink(); ?>" target="_blank">
-                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alt'));?>" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
@@ -355,7 +355,6 @@ else
 </section>
 
 
-
 <section class="section-home" style="background-color: #f0e9e9;">
   <div style="margin-top: 3.2rem">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
@@ -370,7 +369,7 @@ else
     </div>   
    
    <!-- Add aria-label with total count -->
-   <ul class="alumni-carousel owl-carousel" role="list" aria-labelledby="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
+   <ul class="alumni-carousel owl-carousel" role="list" aria-label="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
         <li class="alumni-item" role="listitem">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>" />
