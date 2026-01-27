@@ -141,7 +141,7 @@ $current_language = get_locale();
         aria-controls="orgChart-desc" 
         aria-expanded="false" 
         id="accordion-control-1">
-        Long Description of Organization Chart (Click to Expand)
+        <?php echo __('Long Description of Organization Chart (Click to Expand)','srft-theme'); ?>
       </button>
       
       <div 
@@ -149,7 +149,7 @@ $current_language = get_locale();
         id="orgChart-desc" 
         class="org-description hidden">
         
-        <h3>Organization Chart Description</h3>
+        <h3>  <?php echo __('Organization Chart Description','srft-theme'); ?></h3>
         <?php echo get_post_meta(get_the_ID(), 'footnotes', true); ?>
         
       </div>
