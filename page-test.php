@@ -741,138 +741,66 @@ $final_url = site_url("/$slug/");
 </div>
 </section>
 
-<section class="section-news" style="background-color: #4a90a4;" id="section-1">
-    <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3;">
-        <?php echo __('Trending Social Media', 'srft-theme'); ?>
-    </h2>
+<section class="section-home" style="background-color: #f0e9e9;" id="section-1">
 
-       <div class="frame"  role="region" aria-label="Social media" aria-roledescription="carousel" >
-       <ul class="slider">           
-                    <li role="group" aria-roledescription="slide">
-                      <div class="news-item" style="min-width: 180px; width: 500px;">
-                       <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <!-- Facebook Page Plugin -->
-                        <div class="fb-page" 
-                         data-href="https://www.facebook.com/srftikol" 
-                         data-tabs="timeline" 
-                         data-width="500" 
-                         data-height="370" 
-                         data-small-header="false" 
-                         data-adapt-container-width="true" 
-                         data-hide-cover="false" 
-                         data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/srftikol" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/srftikol">SRFTI</a>
-                        </blockquote>
-                       </div>
-                      <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://www.facebook.com/srftikol" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                      </div>
-                   </div>
-                      </div> 
-                    </li>
-                    
-                    <li role="group" aria-roledescription="slide">
-                      <div class="news-item" style="min-width: 180px; width: 500px;">
-                       <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <!-- Facebook Page Plugin -->
-                        <div class="fb-page" 
-                         data-href="https://www.instagram.com/srfti_official/" 
-                         data-tabs="timeline" 
-                         data-width="500" 
-                         data-height="370" 
-                         data-small-header="false" 
-                         data-adapt-container-width="true" 
-                         data-hide-cover="false" 
-                         data-show-facepile="true">
-                        <blockquote cite="https://www.instagram.com/srfti_official/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.instagram.com/srfti_official/">SRFTI</a>
-                        </blockquote>
-                       </div>
-                      <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://www.instagram.com/srfti_official/" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                      </div>
-                   </div>
-                      </div> 
-                    </li>
-                    <li role="group" aria-roledescription="slide">
-                      <div class="news-item" style="min-width: 180px; width: 500px;">
-                       <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <!-- Facebook Page Plugin -->
-                         <a href="https://x.com/srfti_official" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                      <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://x.com/srfti_official" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                      </div>
-                   </div>
-                      </div> 
-                    </li>
-                    <li role="group" aria-roledescription="slide">
-                      <div class="news-item" style="min-width: 180px; width: 500px;">
-                       <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <!-- Facebook Page Plugin -->
-                        <div class="fb-page" 
-                         data-href="https://www.facebook.com/srftikol" 
-                         data-tabs="timeline" 
-                         data-width="500" 
-                         data-height="370" 
-                         data-small-header="false" 
-                         data-adapt-container-width="true" 
-                         data-hide-cover="false" 
-                         data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/srftikol" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/srftikol">SRFTI</a>
-                        </blockquote>
-                       </div>
-                      <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://www.facebook.com/srftikol" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                      </div>
-                   </div>
-                      </div> 
-                    </li>
-        </ul>
-        <div class="link-div" style="align-items: center; margin-top: 10px;">
-            <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
-{ echo esc_url(site_url('/समाचार-सूची/'));}
-?>"  aria-label="Read more featured news">
-                <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
-                <span class="primary__header-arrow"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3;">
-                        <defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs>
-                        <g id="Calque_1-3" data-name="Calque 1">
-                            <path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path>
-                            <line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line>
-                            <polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
-                        </g>
-                    </svg>
-                </span>
-            </a>
+<div class="section-intro-header">
+        <h2 class="section-intro-header-text" style="padding-left: 0; color: #4a90a4;">
+            <?php echo __('Trending Social Media', 'srft-theme'); ?>
+        </h2>
+        <p style="font-size: 16px; color: #666; margin-top: 10px;">
+            <?php echo __('Join Our Social Hub to stay up to date', 'srft-theme'); ?>
+        </p>
+</div>
+
+<div class="social-feed-container" style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
+  <div class="box-container" style="display:flex; gap:1rem;">
+  <?php
+  // Language detection (your existing variable assumed)
+  $category_slug = ($current_language === 'hi_IN') ? 'social-hi' : 'social-en';
+
+  $social_query = new WP_Query([
+    'post_type'      => 'social',
+    'posts_per_page' => 4,
+    'post_status'    => 'publish',
+    'category_name'  => $category_slug,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+  ]);
+ ?>
+
+ <div class="box-container social-feeds">
+
+ <?php if ($social_query->have_posts()) :
+    while ($social_query->have_posts()) : $social_query->the_post();
+
+        $platform   = get_field('social_platform');
+        $embed_code = get_field('embed_code');
+  ?>
+
+    <article class="cell social-card social-<?php echo esc_attr($platform); ?>" aria-label="<?php echo esc_attr(ucfirst($platform)); ?> feed">
+
+        <h3 class="update-title">
+            <?php echo esc_html(ucfirst($platform)); ?>
+        </h3>
+
+        <div class="social-embed">
+            <?php echo $embed_code; ?>
         </div>
-    </div>
+
+    </article>
+
+<?php
+    endwhile;
+    wp_reset_postdata();
+else : ?>
+    <p><?php _e('No social feeds available', 'srft-theme'); ?></p>
+<?php endif; ?>
+
+</div>
+
+
+</div>
+
     </div>
 </section>
 
@@ -907,52 +835,34 @@ $final_url = site_url("/$slug/");
 
         <!-- Social Feed Content -->
         <div class="social-feed-content">
-            
+
             <!-- Facebook Feed -->
             <div class="social-feed-panel active" id="facebook-panel" style="display: block;">
-                <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <!-- Facebook Page Plugin -->
-                    <div class="fb-page" 
-                         data-href="https://www.facebook.com/srftikol" 
-                         data-tabs="timeline" 
-                         data-width="500" 
-                         data-height="600" 
-                         data-small-header="false" 
-                         data-adapt-container-width="true" 
-                         data-hide-cover="false" 
-                         data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/srftikol" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/srftikol">SRFTI</a>
-                        </blockquote>
-                    </div>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://www.facebook.com/srftikol" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                    </div>
-                </div>
+                <iframe
+  src="https://www.facebook.com/plugins/page.php?
+  href=
+  &tabs=timeline
+  &width=500
+  &height=450"
+  width="100%"
+  height="450"
+  style="border:none;overflow:hidden"
+  scrolling="yes"
+  allowfullscreen="true">
+</iframe>
+
             </div>
 
             <!-- Twitter Feed -->
             <div class="social-feed-panel" id="twitter-panel" style="display: none;">
-                <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+                
+            <a class="twitter-timeline" data-width="500" data-height="319" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            
+            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
                     <!-- Twitter Timeline Embed -->
-                    <a class="twitter-timeline" 
-                       data-height="600" 
-                       data-theme="light" 
-                       href="https://twitter.com/YOUR_TWITTER_HANDLE?ref_src=twsrc%5Etfw">
-                        Tweets by YOUR_TWITTER_HANDLE
-                    </a>
+                    <a class="twitter-timeline" data-width="500" data-height="379" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://twitter.com/YOUR_TWITTER_HANDLE" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
+                        <a class="twitter-timeline" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
             </div>
@@ -963,11 +873,11 @@ $final_url = site_url("/$slug/");
                     <!-- Instagram Embed - You'll need to get the embed code from an actual Instagram post -->
                     <blockquote class="instagram-media" 
                                 data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE/?utm_source=ig_embed&amp;utm_campaign=loading" 
+                                data-instgrm-permalink="https://www.instagram.com/srfti_official/?utm_source=ig_embed&amp;utm_campaign=loading" 
                                 data-instgrm-version="14" 
                                 style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
                         <div style="padding:16px;">
-                            <a href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE/?utm_source=ig_embed&amp;utm_campaign=loading" 
+                            <a href="https://www.instagram.com/srfti_official/?utm_source=ig_embed&amp;utm_campaign=loading" 
                                style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" 
                                target="_blank">
                                 <div style="display: flex; flex-direction: row; align-items: center;">
