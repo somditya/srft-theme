@@ -741,18 +741,17 @@ $final_url = site_url("/$slug/");
 </div>
 </section>
 
-<section class="section-home" style="background-color: #f0e9e9;" id="section-1">
-
-<div class="section-intro-header">
+<section class="section-home" style="background-color: #f0e9e9; padding: 60px 0;">
+    <div class="section-intro-header">
         <h2 class="section-intro-header-text" style="padding-left: 0; color: #4a90a4;">
             <?php echo __('Trending Social Media', 'srft-theme'); ?>
         </h2>
         <p style="font-size: 16px; color: #666; margin-top: 10px;">
             <?php echo __('Join Our Social Hub to stay up to date', 'srft-theme'); ?>
         </p>
-</div>
+    </div>
 
-<div class="social-feed-container" style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
+<div class="social-feed-container" style="max-width: 1450px; margin: 40px auto; padding: 0 20px;">
   <div class="box-container" style="display:flex; gap:1rem;">
   <?php
   // Language detection (your existing variable assumed)
