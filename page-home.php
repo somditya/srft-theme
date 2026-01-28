@@ -170,7 +170,7 @@ Template Name: Home
                     <li role="group" aria-roledescription="slide">
                       <div class="news-item">
                        <a href="<?php the_permalink(); ?>" target="_blank">
-                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alt'));?>" style="display: block;">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
@@ -731,7 +731,7 @@ $final_url = site_url("/$slug/");
 ?>
  <?php if ($post_type != 'event') : ?>
     <a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
-        <?php echo __('More', 'srft-theme'); ?>
+        <?php echo __('View More', 'srft-theme'); ?>
     </a>
 <?php endif; ?>
 
@@ -740,6 +740,121 @@ $final_url = site_url("/$slug/");
     <?php endforeach; ?>
 </div>
 </div>
+</section>
+
+<section class="section-home" style="background-color: #f0e9e9; padding: 60px 0;">
+    <div class="section-intro-header">
+        <h2 class="section-intro-header-text" style="padding-left: 0;">
+            <?php echo __('Trending Social Media', 'srft-theme'); ?>
+        </h2>
+        <p style="font-size: 16px; color: #666; margin-top: 10px;">
+            <?php echo __('Join Our Social Hub to stay up to date', 'srft-theme'); ?>
+        </p>
+    </div>
+
+    <div class="social-feed-container" style="max-width: 1450px; margin: 40px auto; padding: 0 20px;">
+        <div class="box-container" style="display:flex; gap:1rem;">
+            <?php
+            // Language detection
+            $category_slug = ($current_language === 'hi_IN') ? 'social-hi' : 'social-en';
+
+            $social_query = new WP_Query([
+                'post_type'      => 'social',
+                'posts_per_page' => 4,
+                'post_status'    => 'publish',
+                'category_name'  => $category_slug,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+            ]);
+            ?>
+
+            <div class="box-container social-feeds">
+
+                <?php if ($social_query->have_posts()) :
+                    while ($social_query->have_posts()) : $social_query->the_post();
+
+                        $platform   = get_field('social_platform');
+                        $embed_code = get_field('embed_code');
+                        $social_handle = get_field('social_handle'); // ACF field for social media URL
+                        
+                        // Normalize platform to lowercase for comparison
+                        $platform_lower = strtolower($platform);
+                        
+                        // Default social media URLs if no custom handle provided
+                        $platform_urls = [
+                            'linkedin' => 'https://www.linkedin.com/school/satyajit-ray-film-and-television-institute-srfti/',
+                            'facebook' => 'https://www.facebook.com/srftikol',
+                            'youtube' => 'https://www.youtube.com/@your-channel',
+                            'twitter' => 'https://x.com/srfti_official',
+                            'instagram' => 'https://www.instagram.com/srfti_official/',
+                            'vimeo' => 'https://vimeo.com/your-account'
+                        ];
+                        
+                        // Use custom handle if provided, otherwise use default
+                        $social_url = !empty($social_handle) ? $social_handle : ($platform_urls[$platform_lower] ?? '#');
+                ?>
+
+                    <article class="cell social-card social-<?php echo esc_attr($platform_lower); ?>" aria-label="<?php echo esc_attr(ucfirst($platform_lower)); ?> feed">
+
+                        <h3 class="update-title" style="display: flex; align-items: center; gap: 10px;">
+                            
+                            <?php if ($platform_lower === 'linkedin'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" width="24" height="24" fill="#007AB9" style="flex-shrink: 0;">
+                                    <path d="M20.9302 12.2503V19.99H16.443V12.7689C16.443 10.9553 15.7939 9.71725 14.171 9.71725C13.6626 9.72116 13.1679 9.88297 12.7555 10.1803C12.343 10.4776 12.0332 10.8958 11.8688 11.3769C11.7533 11.7285 11.7023 12.0981 11.7183 12.4678V19.99H7.23105C7.23105 19.99 7.29128 7.75975 7.23105 6.4949H11.7183V8.40555C11.7183 8.42229 11.6982 8.43567 11.6915 8.4524H11.7183V8.40555C12.1253 7.7005 12.7173 7.12018 13.4304 6.72738C14.1434 6.33457 14.9503 6.14426 15.7638 6.17701C18.7151 6.17701 20.9302 8.10775 20.9302 12.2503ZM2.53974 0C1.00385 0 0 1.00385 0 2.34231C0 3.68078 0.973733 4.68462 2.4795 4.68462H2.50962C4.07228 4.68462 5.04601 3.64731 5.04601 2.34231C5.04601 1.03731 4.07228 0 2.53974 0ZM0.264347 20H4.75155V6.4949H0.264347V20Z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'facebook'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#1877F2" style="flex-shrink: 0;">
+                                    <path d="M10,0C4.5,0,0,4.5,0,10c0,5,3.7,9.1,8.4,9.9v-7H5.9v-2.9h2.5V7.8c0-2.5,1.5-3.9,3.8-3.9c1.1,0,2.2,0.2,2.2,0.2v2.5h-1.3 c-1.2,0-1.6,0.8-1.6,1.6v1.9h2.8L13.9,13h-2.3v7C16.3,19.1,20,15,20,10C20,4.5,15.5,0,10,0z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'youtube'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#FF0000" style="flex-shrink: 0;">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'twitter'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#000000" style="flex-shrink: 0;">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'instagram'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#E4405F" style="flex-shrink: 0;">
+                                    <path d="M10 0C7.284 0 6.944.012 5.877.06 2.246.227.498 1.986.332 5.617.285 6.684.273 7.024.273 9.74c0 2.715.012 3.056.06 4.123.165 3.628 1.924 5.386 5.555 5.554 1.066.047 1.405.059 4.122.059 2.716 0 3.056-.012 4.122-.06 3.626-.167 5.39-1.925 5.555-5.555.047-1.066.06-1.406.06-4.122 0-2.717-.013-3.056-.06-4.123C19.521 1.987 17.762.228 14.133.06 13.067.013 12.727 0 10.01 0h-.01zm-.898 1.802h.898c2.671 0 2.987.01 4.041.058 2.71.123 3.793 1.224 3.916 3.916.048 1.054.058 1.37.058 4.041 0 2.672-.01 2.988-.058 4.042-.123 2.69-1.205 3.793-3.916 3.916-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-2.713-.123-3.794-1.227-3.917-3.916-.047-1.054-.057-1.37-.057-4.041 0-2.67.01-2.987.057-4.041.124-2.692 1.207-3.794 3.917-3.917 1.054-.047 1.37-.057 4.041-.057l.001-.001zm7.757 1.658a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM10 4.865a5.135 5.135 0 1 0 0 10.27 5.135 5.135 0 0 0 0-10.27zm0 1.802a3.333 3.333 0 1 1 0 6.666 3.333 3.333 0 0 1 0-6.666z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'vimeo'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#1AB7EA" style="flex-shrink: 0;">
+                                    <path d="M19.98 5.347c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L1.325 10.33C.603 7.747-.166 6.453-.99 6.453c-.179 0-.806.378-1.881 1.132L-4 6.128a315.065 315.065 0 0 0 3.501-3.128C1.08 1.632 2.266.915 3.055.84c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z"/>
+                                </svg>
+                                
+                            <?php endif; ?>
+                            
+                            <span style="line-height: 1;"><?php echo esc_html(ucfirst($platform_lower)); ?></span>
+                        </h3>
+
+                        <div class="social-embed">
+                            <?php echo $embed_code; ?>
+                        </div>
+
+                     <div class="link-span">
+                        <a href="<?php echo esc_url($social_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+                            <?php echo __(' View More', 'srft-theme'); ?>
+                       </a>
+                    </div>
+
+                    </article>
+
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                else : ?>
+                    <p><?php _e('No social feeds available', 'srft-theme'); ?></p>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
 </section>
 
 </main>

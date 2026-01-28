@@ -754,7 +754,7 @@ $final_url = site_url("/$slug/");
     <div class="social-feed-container" style="max-width: 1450px; margin: 40px auto; padding: 0 20px;">
         <div class="box-container" style="display:flex; gap:1rem;">
             <?php
-            // Language detection (your existing variable assumed)
+            // Language detection
             $category_slug = ($current_language === 'hi_IN') ? 'social-hi' : 'social-en';
 
             $social_query = new WP_Query([
@@ -774,30 +774,78 @@ $final_url = site_url("/$slug/");
 
                         $platform   = get_field('social_platform');
                         $embed_code = get_field('embed_code');
+                        $social_handle = get_field('social_handle'); // ACF field for social media URL
                         
-                        // Platform colors
-                        $platform_colors = [
-                            'twitter' => '#000000',
-                            'instagram' => '#E4405F',
-                            'facebook' => '#1877F2',
-                            'youtube' => '#FF0000',
-                            'vimeo' => '#1AB7EA',
-                            'linkedin' => '#0A66C2'
+                        // Normalize platform to lowercase for comparison
+                        $platform_lower = strtolower($platform);
+                        
+                        // Default social media URLs if no custom handle provided
+                        $platform_urls = [
+                            'linkedin' => 'https://www.linkedin.com/school/satyajit-ray-film-and-television-institute-srfti/',
+                            'facebook' => 'https://www.facebook.com/srftikol',
+                            'youtube' => 'https://www.youtube.com/@your-channel',
+                            'twitter' => 'https://x.com/srfti_official',
+                            'instagram' => 'https://www.instagram.com/srfti_official/',
+                            'vimeo' => 'https://vimeo.com/your-account'
                         ];
                         
-                        $color = $platform_colors[$platform] ?? '#666';
+                        // Use custom handle if provided, otherwise use default
+                        $social_url = !empty($social_handle) ? $social_handle : ($platform_urls[$platform_lower] ?? '#');
                 ?>
 
-                    <article class="cell social-card social-<?php echo esc_attr($platform); ?>" aria-label="<?php echo esc_attr(ucfirst($platform)); ?> feed">
+                    <article class="cell social-card social-<?php echo esc_attr($platform_lower); ?>" aria-label="<?php echo esc_attr(ucfirst($platform_lower)); ?> feed">
 
-                        <h3 class="update-title" style="display: flex; align-items: center;">
-                            <i class="social-platform-icon social-icon-<?php echo esc_attr($platform); ?>" style="margin-right: 10px;"></i>
-                            <?php echo esc_html(ucfirst($platform)); ?>
+                        <h3 class="update-title" style="display: flex; align-items: center; gap: 10px;">
+                            
+                            <?php if ($platform_lower === 'linkedin'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" width="24" height="24" fill="#007AB9" style="flex-shrink: 0;">
+                                    <path d="M20.9302 12.2503V19.99H16.443V12.7689C16.443 10.9553 15.7939 9.71725 14.171 9.71725C13.6626 9.72116 13.1679 9.88297 12.7555 10.1803C12.343 10.4776 12.0332 10.8958 11.8688 11.3769C11.7533 11.7285 11.7023 12.0981 11.7183 12.4678V19.99H7.23105C7.23105 19.99 7.29128 7.75975 7.23105 6.4949H11.7183V8.40555C11.7183 8.42229 11.6982 8.43567 11.6915 8.4524H11.7183V8.40555C12.1253 7.7005 12.7173 7.12018 13.4304 6.72738C14.1434 6.33457 14.9503 6.14426 15.7638 6.17701C18.7151 6.17701 20.9302 8.10775 20.9302 12.2503ZM2.53974 0C1.00385 0 0 1.00385 0 2.34231C0 3.68078 0.973733 4.68462 2.4795 4.68462H2.50962C4.07228 4.68462 5.04601 3.64731 5.04601 2.34231C5.04601 1.03731 4.07228 0 2.53974 0ZM0.264347 20H4.75155V6.4949H0.264347V20Z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'facebook'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#1877F2" style="flex-shrink: 0;">
+                                    <path d="M10,0C4.5,0,0,4.5,0,10c0,5,3.7,9.1,8.4,9.9v-7H5.9v-2.9h2.5V7.8c0-2.5,1.5-3.9,3.8-3.9c1.1,0,2.2,0.2,2.2,0.2v2.5h-1.3 c-1.2,0-1.6,0.8-1.6,1.6v1.9h2.8L13.9,13h-2.3v7C16.3,19.1,20,15,20,10C20,4.5,15.5,0,10,0z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'youtube'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#FF0000" style="flex-shrink: 0;">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'twitter'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#000000" style="flex-shrink: 0;">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'instagram'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#E4405F" style="flex-shrink: 0;">
+                                    <path d="M10 0C7.284 0 6.944.012 5.877.06 2.246.227.498 1.986.332 5.617.285 6.684.273 7.024.273 9.74c0 2.715.012 3.056.06 4.123.165 3.628 1.924 5.386 5.555 5.554 1.066.047 1.405.059 4.122.059 2.716 0 3.056-.012 4.122-.06 3.626-.167 5.39-1.925 5.555-5.555.047-1.066.06-1.406.06-4.122 0-2.717-.013-3.056-.06-4.123C19.521 1.987 17.762.228 14.133.06 13.067.013 12.727 0 10.01 0h-.01zm-.898 1.802h.898c2.671 0 2.987.01 4.041.058 2.71.123 3.793 1.224 3.916 3.916.048 1.054.058 1.37.058 4.041 0 2.672-.01 2.988-.058 4.042-.123 2.69-1.205 3.793-3.916 3.916-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-2.713-.123-3.794-1.227-3.917-3.916-.047-1.054-.057-1.37-.057-4.041 0-2.67.01-2.987.057-4.041.124-2.692 1.207-3.794 3.917-3.917 1.054-.047 1.37-.057 4.041-.057l.001-.001zm7.757 1.658a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM10 4.865a5.135 5.135 0 1 0 0 10.27 5.135 5.135 0 0 0 0-10.27zm0 1.802a3.333 3.333 0 1 1 0 6.666 3.333 3.333 0 0 1 0-6.666z"/>
+                                </svg>
+                                
+                            <?php elseif ($platform_lower === 'vimeo'): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" fill="#1AB7EA" style="flex-shrink: 0;">
+                                    <path d="M19.98 5.347c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L1.325 10.33C.603 7.747-.166 6.453-.99 6.453c-.179 0-.806.378-1.881 1.132L-4 6.128a315.065 315.065 0 0 0 3.501-3.128C1.08 1.632 2.266.915 3.055.84c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z"/>
+                                </svg>
+                                
+                            <?php endif; ?>
+                            
+                            <span style="line-height: 1;"><?php echo esc_html(ucfirst($platform_lower)); ?></span>
                         </h3>
 
                         <div class="social-embed">
                             <?php echo $embed_code; ?>
                         </div>
+
+                        <!-- View More Button -->
+
+            <a class="link-text-big" style="background-color: white;" href="<?php echo esc_url($social_url); ?>" aria-label="Read more about this social media handle">
+    <span class="lbl">Read More Here</span>
+    <span class="primary__header-arrow"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </span>
+</a>
 
                     </article>
 
@@ -818,20 +866,22 @@ $final_url = site_url("/$slug/");
 .social-feeds .cell {
     display: flex;
     flex-direction: column;
-    height: 500px; /* Fixed height for all cards */
+    height: 500px;
 }
 
 .social-feeds .cell .update-title {
-    flex-shrink: 0; /* Don't shrink the title */
-    display: flex;
-    align-items: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .social-feeds .cell .social-embed {
-    flex: 1; /* Take remaining space */
-    overflow-y: auto; /* Add vertical scrollbar */
+    flex: 1;
+    overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
+    margin-bottom: 15px;
 }
 
 /* Style the scrollbar */
@@ -864,267 +914,90 @@ $final_url = site_url("/$slug/");
     margin: 0 !important;
 }
 
-/* Social Media Platform Icons using CSS */
-.social-platform-icon {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+/* View More Button Styling */
+.social-view-more {
+    flex-shrink: 0;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
 }
 
-.social-icon-twitter {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #4a90a4;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.social-icon-instagram {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E4405F'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+.view-more-btn:hover {
+    background-color: #3a7a8a;
+    transform: translateX(3px);
+    color: #ffffff;
 }
 
-.social-icon-facebook {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231877F2'%3E%3Cpath d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
+.view-more-btn svg {
+    transition: transform 0.3s ease;
 }
 
-.social-icon-youtube {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF0000'%3E%3Cpath d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/%3E%3C/svg%3E");
+.view-more-btn:hover svg {
+    transform: translateX(3px);
 }
 
-.social-icon-vimeo {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231AB7EA'%3E%3Cpath d='M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197a315.065 315.065 0 0 0 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z'/%3E%3C/svg%3E");
+/* Platform-specific button colors (optional) */
+.social-linkedin .view-more-btn {
+    background-color: #007AB9;
 }
 
-.social-icon-linkedin {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A66C2'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
-}
-</style>
-
-<section class="section-home" style="background-color: #f0e9e9; padding: 60px 0;">
-    <div class="section-intro-header">
-        <h2 class="section-intro-header-text" style="padding-left: 0; color: #4a90a4;">
-            <?php echo __('Trending Social Media', 'srft-theme'); ?>
-        </h2>
-        <p style="font-size: 16px; color: #666; margin-top: 10px;">
-            <?php echo __('Join Our Social Hub to stay up to date', 'srft-theme'); ?>
-        </p>
-    </div>
-
-    <div class="social-feed-container" style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
-        
-        <!-- Tab Navigation -->
-        <div class="social-tabs" style="display: flex; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid #ddd; flex-wrap: wrap;">
-            <button class="social-tab active" data-tab="facebook" style="background: none; border: none; padding: 15px 25px; font-size: 18px; cursor: pointer; border-bottom: 3px solid #1877F2; color: #1877F2; font-weight: 600; transition: all 0.3s;">
-                <i class="fab fa-facebook" style="margin-right: 8px;"></i><?php echo __('Facebook', 'srft-theme'); ?>
-            </button>
-            <button class="social-tab" data-tab="twitter" style="background: none; border: none; padding: 15px 25px; font-size: 18px; cursor: pointer; color: #666; font-weight: 600; transition: all 0.3s;">
-                <i class="fab fa-x-twitter" style="margin-right: 8px;"></i><?php echo __('Twitter', 'srft-theme'); ?>
-            </button>
-            <button class="social-tab" data-tab="instagram" style="background: none; border: none; padding: 15px 25px; font-size: 18px; cursor: pointer; color: #666; font-weight: 600; transition: all 0.3s;">
-                <i class="fab fa-instagram" style="margin-right: 8px;"></i><?php echo __('Instagram', 'srft-theme'); ?>
-            </button>
-            <button class="social-tab" data-tab="vimeo" style="background: none; border: none; padding: 15px 25px; font-size: 18px; cursor: pointer; color: #666; font-weight: 600; transition: all 0.3s;">
-                <i class="fab fa-vimeo-v" style="margin-right: 8px;"></i><?php echo __('Vimeo', 'srft-theme'); ?>
-            </button>
-        </div>
-
-        <!-- Social Feed Content -->
-        <div class="social-feed-content">
-
-            <!-- Facebook Feed -->
-            <div class="social-feed-panel active" id="facebook-panel" style="display: block;">
-                <iframe
-  src="https://www.facebook.com/plugins/page.php?
-  href=
-  &tabs=timeline
-  &width=500
-  &height=450"
-  width="100%"
-  height="450"
-  style="border:none;overflow:hidden"
-  scrolling="yes"
-  allowfullscreen="true">
-</iframe>
-
-            </div>
-
-            <!-- Twitter Feed -->
-            <div class="social-feed-panel" id="twitter-panel" style="display: none;">
-                
-            <a class="twitter-timeline" data-width="500" data-height="319" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            
-            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
-                    <!-- Twitter Timeline Embed -->
-                    <a class="twitter-timeline" data-width="500" data-height="379" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <a class="twitter-timeline" href="https://twitter.com/srfti_official?ref_src=twsrc%5Etfw">Tweets by srfti_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Instagram Feed -->
-            <div class="social-feed-panel" id="instagram-panel" style="display: none;">
-                <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
-                    <!-- Instagram Embed - You'll need to get the embed code from an actual Instagram post -->
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/srfti_official/?utm_source=ig_embed&amp;utm_campaign=loading" 
-                                data-instgrm-version="14" 
-                                style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:16px;">
-                            <a href="https://www.instagram.com/srfti_official/?utm_source=ig_embed&amp;utm_campaign=loading" 
-                               style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" 
-                               target="_blank">
-                                <div style="display: flex; flex-direction: row; align-items: center;">
-                                    <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
-                                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
-                                        <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div>
-                                        <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
-                                    </div>
-                                </div>
-                                <div style="padding: 19% 0;"></div>
-                                <div style="height:50px; margin:0 auto 12px; width:50px;">
-                                    <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-                                                <g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g>
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div style="padding-top: 8px;">
-                                    <div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
-                                        <?php echo __('View this post on Instagram', 'srft-theme'); ?>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </blockquote>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE/" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vimeo Feed -->
-            <div class="social-feed-panel" id="vimeo-panel" style="display: none;">
-                <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
-                    <!-- Vimeo Embed - Replace with your latest video ID -->
-                    <div style="padding:56.25% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?h=YOUR_HASH&title=0&byline=0&portrait=0" 
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    <script src="https://player.vimeo.com/api/player.js"></script>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <a href="https://vimeo.com/YOUR_VIMEO_CHANNEL" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           style="display: inline-block; background-color: #e47620; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600;">
-                            <?php echo __('View More', 'srft-theme'); ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-<!-- JavaScript for Tab Switching -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const tabs = document.querySelectorAll('.social-tab');
-    const panels = document.querySelectorAll('.social-feed-panel');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
-            
-            // Remove active class from all tabs
-            tabs.forEach(t => {
-                t.style.borderBottom = 'none';
-                t.style.color = '#666';
-                t.classList.remove('active');
-            });
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            this.style.color = getTabColor(targetTab);
-            this.style.borderBottom = `3px solid ${getTabColor(targetTab)}`;
-            
-            // Hide all panels
-            panels.forEach(panel => {
-                panel.style.display = 'none';
-            });
-            
-            // Show target panel
-            document.getElementById(`${targetTab}-panel`).style.display = 'block';
-        });
-    });
-    
-    function getTabColor(tab) {
-        const colors = {
-            'facebook': '#1877F2',
-            'twitter': '#000000',
-            'instagram': '#E4405F',
-            'vimeo': '#1AB7EA'
-        };
-        return colors[tab] || '#666';
-    }
-});
-</script>
-
-<!-- Social Media SDK Scripts -->
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
-
-<!-- Twitter SDK -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<!-- Instagram SDK -->
-<script async src="//www.instagram.com/embed.js"></script>
-
-<style>
-.social-tab:hover {
-    opacity: 0.8;
+.social-linkedin .view-more-btn:hover {
+    background-color: #005f8d;
 }
 
-.social-feed-panel {
-    animation: fadeIn 0.3s ease-in;
+.social-facebook .view-more-btn {
+    background-color: #1877F2;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.social-facebook .view-more-btn:hover {
+    background-color: #145dbf;
 }
 
-@media (max-width: 768px) {
-    .social-tabs {
-        justify-content: center;
-    }
-    
-    .social-tab {
-        padding: 12px 15px !important;
-        font-size: 14px !important;
-    }
-    
-    .social-feed-panel > div {
-        padding: 15px !important;
-    }
+.social-youtube .view-more-btn {
+    background-color: #FF0000;
+}
+
+.social-youtube .view-more-btn:hover {
+    background-color: #cc0000;
+}
+
+.social-twitter .view-more-btn {
+    background-color: #000000;
+}
+
+.social-twitter .view-more-btn:hover {
+    background-color: #333333;
+}
+
+.social-instagram .view-more-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-instagram .view-more-btn:hover {
+    opacity: 0.9;
+}
+
+.social-vimeo .view-more-btn {
+    background-color: #1AB7EA;
+}
+
+.social-vimeo .view-more-btn:hover {
+    background-color: #1596c4;
 }
 </style>
-
 
 </main>
 <?php
