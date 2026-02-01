@@ -13,9 +13,8 @@ Template Name: Home
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-        <section class="section-home" style="background-color: #161a1d; padding: 10px;">
-    <section class="section-home" style="background-color: #161a1d; padding: 10px;">
-    <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
+      <section class="section-home" style="background-color: #161a1d; padding: 10px;">
+       <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
         
         <!-- Label -->
         <h2 class="acme-news-ticker-label" style="flex-shrink: 0; margin: 0;">
@@ -204,7 +203,6 @@ Template Name: Home
             </a>
         </div>
     </div>
-    </div>
 </section>
  
 <section class="section-home;" style="padding: 0;">
@@ -239,7 +237,7 @@ else
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
     <div class="section-into-text" style="padding:25px;">
-      <p style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br role="presentaion">
+      <p style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
       <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></p>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank" >
@@ -362,7 +360,7 @@ else
     </h2>
     
 <div class="alumni" role="region" aria-label="<?php echo esc_attr__('Notable Alumni Carousel', 'srft-theme'); ?>"> 
-   <div class="carousel-controls" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
+   <div class="carousel-controls" role="group" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
       <button id="carouselToggle" type="button" aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>">
         ⏸
       </button>
@@ -370,76 +368,76 @@ else
    
    <!-- Add aria-label with total count -->
    <ul class="alumni-carousel owl-carousel" role="list" aria-label="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="<?php echo esc_attr__('Picture of Kanu Behl', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="<?php echo esc_attr__('Picture of Namrata Rao', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
         </li>
 
-       <li class="alumni-item" role="listitem">
+       <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="<?php echo esc_attr__('Picture of Hawam Paban Kumar', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
       </li>
       
-      <li class="alumni-item" role="listitem">
+      <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="<?php echo esc_attr__('Picture of Pritha Chakraborty', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
       </li>
-       <li class="alumni-item" role="listitem">
+       <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="<?php echo esc_attr__('Picture of Madhura Palit', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="<?php echo esc_attr__('Picture of Avijit Sen', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="<?php echo esc_attr__('Picture of Sagar Ballary', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="<?php echo esc_attr__('Picture of Pritam Das', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="<?php echo esc_attr__('Picture of Sourav Rai', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="<?php echo esc_attr__('Picture of Dominic Sangma', 'srft-theme'); ?>" />
           </a>
@@ -459,7 +457,7 @@ else
     <!--<p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between award items.
   </p>-->
-    <div class="frame" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
+    <div class="frame" role="region" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
       <ul class="slider"  style="height: 370px;">
         <?php
         $post_id = get_the_ID();
@@ -659,18 +657,22 @@ $tender_id = get_field('Tender-ID');
 $is_gem = (stripos($tender_id, 'GEM') === 0);
 ?>
 <?php if ($is_gem): ?>
-      <span class="doc-lang"
-        aria-label="<?php echo esc_attr__('Document available in English and Hindi', 'srft-theme'); ?>">
+      <span class="doc-lang">
         &nbsp; | &nbsp; (
         <abbr lang="en" title="English">EN</abbr>,
         <abbr lang="hi" title="Hindi">HI</abbr>)
+        <span class="sr-only">
+        <?php echo esc_attr__('Document available in English and Hindi', 'srft-theme'); ?>
+       </span>
       </span>
     <?php elseif ($tender_language === 'Hindi'): ?>
-      <span class="doc-lang"
-        aria-label="<?php echo esc_attr__('Document available in Hindi', 'srft-theme'); ?>">
+      <span class="doc-lang">
         &nbsp;(
         <abbr lang="hi" title="Hindi">HI</abbr>
         )
+        <span class="sr-only">
+        <?php echo esc_attr__('Document available in Hindi', 'srft-theme'); ?>
+       </span>
       </span>
     <?php endif; ?>
   <?php endif; ?>
@@ -702,7 +704,7 @@ $is_gem = (stripos($tender_id, 'GEM') === 0);
         </p>
     <?php endif; ?>
 
-    <br role="presenttaion">
+    <br>
 
 <?php endwhile; wp_reset_postdata(); else : ?>
     <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>

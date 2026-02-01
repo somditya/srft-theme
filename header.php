@@ -85,7 +85,7 @@ $current_language = get_locale();
           <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
-            <a href="#" title="Choose your language" aria-haspopup="true"  aria-hidden="true" role="presentation" tabindex=-1>
+            <a href="#" title="Choose your language" aria-haspopup="true" tabindex=-1>
             <!--<i class="fa-solid fa-language" aria-hidden="true"></i>-->
               <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><svg viewBox="0 0 35 34" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@ $current_language = get_locale();
                     </svg></span>
             <?php endif; ?>
           </a>
-          <div id="language-switcher" class="language-switcher" aria-labelledby="language-switcher-label">
+          <div id="language-switcher" role="region" class="language-switcher" aria-labelledby="language-switcher-label">
     <label id="language-switcher-label" for="lang_choice_1" class="visually-hidden">Language Selection</label>
     
     <?php
@@ -115,8 +115,6 @@ $current_language = get_locale();
             )
         );
     ?>
-</div>
-
 </div>
 
           
@@ -183,7 +181,7 @@ $current_language = get_locale();
             <nav class="nav-links" role="navigation" aria-label="SRFTI">
             <ul role="menubar" aria-label="Main Menu" class="menu-bar" >
               <li role="none" class="nav-link" style="--i: 0.6s" >
-                <a role="menuitem" tabindex="0" aria-label="Home" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
+                <a role="menuitem" tabindex="0" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
                     ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
@@ -473,8 +471,8 @@ if ($current_language === 'en_US') {
 
     <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="post-graduate-programmes-at-fti-ar" id="carousel-image-1" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/FTII Itanagar MFA.png" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar" >
+          <a href="post-graduate-programmes-at-fti-ar" id="carousel-image-1" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/FTII%20Itanagar%20MFA.png" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar">
           </a>
         </div>
 
@@ -488,8 +486,8 @@ if ($current_language === 'en_US') {
       
     <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
         <div class="carousel-image">
-          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-2" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/Application 2026.webp" alt="Application poster for SRFTI Common Entrance Test" >
+          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-2" tabindex="-1" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/Application%202026.webp"  alt="Application poster for SRFTI Common Entrance Test" >
           </a>
         </div>
         <!--<div class="carousel-caption">
@@ -508,8 +506,8 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-3" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/MFA Film.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI for SRFTI Film wing" >
+          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-3" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/MFA%20Film.webp" alt="Application poster for SRFTI Common Entrance Test for SRFTI for SRFTI Film wing" >
           </a>
         </div>
 
@@ -527,8 +525,8 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-edm/https:/" id="carousel-image-4" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/MFA EDM.webp" alt="Application poster for SRFTI Common Entrance Test for EDM wing" >
+          <a href="https://srfti.ac.in/mfa-in-edm/https:/" id="carousel-image-4" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/MFA%20EDM.webp"  alt="Application poster for SRFTI Common Entrance Test for EDM wing" >
           </a>
         </div>
 
@@ -547,8 +545,8 @@ if ($current_language === 'en_US') {
     
     <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
-          <a href="https://forms.gle/fiv7gvrurbc6jbTs5" id="carousel-image-5" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/call-for-proposal.webp" alt="Poster for call for proposal for film making" >
+          <a href="https://forms.gle/fiv7gvrurbc6jbTs5" id="carousel-image-5" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/call-for-proposal.webp" alt="Poster for call for proposal for film making" >
           </a>
         </div>
 
@@ -568,8 +566,8 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
-          <a href="https://forms.gle/VpFQBKrgPjNiatG49" id="carousel-image-6" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/SRFTI DCDFC Faculties Film.webp" alt="Poster for call for DCDFC film making for faculties" >
+          <a href="https://forms.gle/VpFQBKrgPjNiatG49" id="carousel-image-6" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI%20DCDFC%20Faculties%20Film.webp" alt="Poster for call for DCDFC film making for faculties" >
           </a>
         </div>
 
@@ -587,8 +585,8 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-7" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/National Film Award.png" alt="71st national Award Winners Alumni" >
+          <a href="#" id="carousel-image-7" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/National%20Film%20Award.png" alt="71st national Award Winners Alumni" >
           </a>
         </div>
 
@@ -603,178 +601,6 @@ if ($current_language === 'en_US') {
         </div>-->
         
       </div>
-
-      <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-8" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="Christo Tomy got National Award for best Malayalam Film for Ullozhukku" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-        <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-9" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="Dominic Sangma got national award for best garo film Rapture" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-        <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-10" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="Shuvam Sengupta got national award for best sound design dhundgiri ke phool" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-      <div class="carousel-item" id="carousel-item-11" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-11" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="Saravanamarathu Soundarapandi got national award for best cinematography for little wings " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-9" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Travel to Southwest England and Paris </a>
-          </h3>
-
-          <div>
-            <p><span class="contrast">Sept. 14 to Sept. 24 or 27</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="10 of 13">
-        <div class="carousel-image">
-          <a href="#!" id="carousel-image-10" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="student's production in set" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Great Children's Programming on Public TV </a>
-          </h3>
-
-          <div></div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-13" role="tabpanel" aria-roledescription="slide" aria-label="11 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-11" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="animation masterclass">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Foyle’s War Revisited </a>
-          </h3>
-
-          <div>
-            <p><span class="contrast">8 pm Sunday, March 8, on TV: Sneak peek at the final season.</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-14" role="tabpanel" aria-roledescription="slide" aria-label="12 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-12" role="presentation" tabindex="-1" >
-             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="student's live music exercise">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Great Britain Vote: 7 pm Sat. </a>
-          </h3>
-
-          <div></div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-15" role="tabpanel" aria-roledescription="slide" aria-label="6 of 6">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-13" role="presentation" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="Sean Macllister is hoding a masterclass for Animation Student">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Mid-American Gardener: Thursdays at 7 pm </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">Watch the latest episodes.</span></p>
-          </div>
-        </div>
-        
-      </div>-->
       
     </div>
   </div>
