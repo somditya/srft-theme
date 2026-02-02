@@ -593,9 +593,9 @@ else
     <h2 class="section-intro-header-text" style="padding-left: 0;">
     <?php echo __('Updates', 'srft-theme' ); ?></h2>
   </div>  
-<div class="updates-container">
+<div class="updates-container" style="max-width: 1450px; margin: 40px auto; padding: 0 20px;">
   
-<div class="box-container" style="display:flex;">
+<div class="box-container social-feeds" style="display:flex;">
     <?php 
     $sections = [
         'event' => __('Event', 'srft-theme'),
@@ -611,8 +611,9 @@ else
           'posts_per_page' => 5,
       ]);
     ?>
-    <div class="cell">
+    <div class="cell social-card">
         <h3 class="update-title"><?php echo $title; ?></h3>
+         <div class="social-embed">
         <?php if ($category_posts->have_posts()) :
     while ($category_posts->have_posts()) : $category_posts->the_post();
 
@@ -709,7 +710,7 @@ $is_gem = (stripos($tender_id, 'GEM') === 0);
 <?php endwhile; wp_reset_postdata(); else : ?>
     <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
 <?php endif; ?>
-
+</div>
         <div class="link-span">
            <?php
 // Language-aware slug mapping
@@ -738,7 +739,8 @@ $final_url = site_url("/$slug/");
 <?php endif; ?>
 
         </div>
-    </div>
+        </div>
+    
     <?php endforeach; ?>
 </div>
 </div>

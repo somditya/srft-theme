@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Test
+Template Name: Home
 
  */
 
@@ -13,9 +13,8 @@ Template Name: Test
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
-        <section class="section-home" style="background-color: #161a1d; padding: 10px;">
-    <section class="section-home" style="background-color: #161a1d; padding: 10px;">
-    <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
+      <section class="section-home" style="background-color: #161a1d; padding: 10px;">
+       <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
         
         <!-- Label -->
         <h2 class="acme-news-ticker-label" style="flex-shrink: 0; margin: 0;">
@@ -170,7 +169,7 @@ Template Name: Test
                     <li role="group" aria-roledescription="slide">
                       <div class="news-item">
                        <a href="<?php the_permalink(); ?>" target="_blank">
-                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="<?php echo esc_attr(get_field('News-Image-Alt'));?>" style="display: block;">
+                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
                             <div class="news-item-title">
                                 <p><?php the_title(); ?></p>
                                 <p><?php echo $post_content; ?></p>
@@ -203,7 +202,6 @@ Template Name: Test
                 </span>
             </a>
         </div>
-    </div>
     </div>
 </section>
  
@@ -239,7 +237,7 @@ else
 <div class="section-home" style="background-color: black; margin:0; padding:0;">
   <div class="section-intro-header">
     <div class="section-into-text" style="padding:25px;">
-      <p style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br role="presentaion">
+      <p style="color:beige"><i><?php echo __('SRFTI is an active member of CILECT', 'srft-theme' ); ?>,<br>
       <?php echo __('an association that gathers the best film school in the world.', 'srft-theme' ); ?></i></p>
       <div class="">
           <a href="http://www.cilect.org/" target="_blank" >
@@ -362,7 +360,7 @@ else
     </h2>
     
 <div class="alumni" role="region" aria-label="<?php echo esc_attr__('Notable Alumni Carousel', 'srft-theme'); ?>"> 
-   <div class="carousel-controls" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
+   <div class="carousel-controls" role="group" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
       <button id="carouselToggle" type="button" aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>">
         ⏸
       </button>
@@ -370,76 +368,76 @@ else
    
    <!-- Add aria-label with total count -->
    <ul class="alumni-carousel owl-carousel" role="list" aria-label="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="<?php echo esc_attr__('Picture of Kanu Behl', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="<?php echo esc_attr__('Picture of Namrata Rao', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
         </li>
 
-       <li class="alumni-item" role="listitem">
+       <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="<?php echo esc_attr__('Picture of Hawam Paban Kumar', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
       </li>
       
-      <li class="alumni-item" role="listitem">
+      <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="<?php echo esc_attr__('Picture of Pritha Chakraborty', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
       </li>
-       <li class="alumni-item" role="listitem">
+       <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="<?php echo esc_attr__('Picture of Madhura Palit', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="<?php echo esc_attr__('Picture of Avijit Sen', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="<?php echo esc_attr__('Picture of Sagar Ballary', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="<?php echo esc_attr__('Picture of Pritam Das', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="<?php echo esc_attr__('Picture of Sourav Rai', 'srft-theme'); ?>" />
           </a>
           <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
         </li>
 
-        <li class="alumni-item" role="listitem">
+        <li class="alumni-item">
           <a class="alumni-img" href="#" target="_blank">
             <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="<?php echo esc_attr__('Picture of Dominic Sangma', 'srft-theme'); ?>" />
           </a>
@@ -459,7 +457,7 @@ else
     <!--<p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between award items.
   </p>-->
-    <div class="frame" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
+    <div class="frame" role="region" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
       <ul class="slider"  style="height: 370px;">
         <?php
         $post_id = get_the_ID();
@@ -589,6 +587,7 @@ else
 </section>
 
 
+
 <section class="section-home" style="background-color: #f5f5f5; ">
 <div class="section-intro-header">
     <h2 class="section-intro-header-text" style="padding-left: 0;">
@@ -596,7 +595,7 @@ else
   </div>  
 <div class="updates-container">
   
-<div class="box-container" style="display:flex;">
+<div class="box-container social-feeds" style="display:flex;">
     <?php 
     $sections = [
         'event' => __('Event', 'srft-theme'),
@@ -612,8 +611,9 @@ else
           'posts_per_page' => 5,
       ]);
     ?>
-    <div class="cell">
+    <div class="cell social-card">
         <h3 class="update-title"><?php echo $title; ?></h3>
+         <div class="social-embed" style="scrollbar-width: thin;; scrollbar-color: #8b5b2b #f1f1f1;">
         <?php if ($category_posts->have_posts()) :
     while ($category_posts->have_posts()) : $category_posts->the_post();
 
@@ -658,18 +658,22 @@ $tender_id = get_field('Tender-ID');
 $is_gem = (stripos($tender_id, 'GEM') === 0);
 ?>
 <?php if ($is_gem): ?>
-      <span class="doc-lang"
-        aria-label="<?php echo esc_attr__('Document available in English and Hindi', 'srft-theme'); ?>">
+      <span class="doc-lang">
         &nbsp; | &nbsp; (
         <abbr lang="en" title="English">EN</abbr>,
         <abbr lang="hi" title="Hindi">HI</abbr>)
+        <span class="sr-only">
+        <?php echo esc_attr__('Document available in English and Hindi', 'srft-theme'); ?>
+       </span>
       </span>
     <?php elseif ($tender_language === 'Hindi'): ?>
-      <span class="doc-lang"
-        aria-label="<?php echo esc_attr__('Document available in Hindi', 'srft-theme'); ?>">
+      <span class="doc-lang">
         &nbsp;(
         <abbr lang="hi" title="Hindi">HI</abbr>
         )
+        <span class="sr-only">
+        <?php echo esc_attr__('Document available in Hindi', 'srft-theme'); ?>
+       </span>
       </span>
     <?php endif; ?>
   <?php endif; ?>
@@ -701,7 +705,7 @@ $is_gem = (stripos($tender_id, 'GEM') === 0);
         </p>
     <?php endif; ?>
 
-    <br role="presenttaion">
+    <br>
 
 <?php endwhile; wp_reset_postdata(); else : ?>
     <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
@@ -730,10 +734,11 @@ $final_url = site_url("/$slug/");
 ?>
  <?php if ($post_type != 'event') : ?>
     <a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
-        <?php echo __('More', 'srft-theme'); ?>
+        <?php echo __('View More', 'srft-theme'); ?>
     </a>
 <?php endif; ?>
 
+        </div>
         </div>
     </div>
     <?php endforeach; ?>
@@ -743,7 +748,7 @@ $final_url = site_url("/$slug/");
 
 <section class="section-home" style="background-color: #f0e9e9; padding: 60px 0;">
     <div class="section-intro-header">
-        <h2 class="section-intro-header-text" style="padding-left: 0; color: #4a90a4;">
+        <h2 class="section-intro-header-text" style="padding-left: 0;">
             <?php echo __('Trending Social Media', 'srft-theme'); ?>
         </h2>
         <p style="font-size: 16px; color: #666; margin-top: 10px;">
@@ -836,16 +841,11 @@ $final_url = site_url("/$slug/");
                             <?php echo $embed_code; ?>
                         </div>
 
-                        <!-- View More Button -->
-
-            <a class="link-text-big" style="background-color: white;" href="<?php echo esc_url($social_url); ?>" aria-label="Read more about this social media handle">
-    <span class="lbl">Read More Here</span>
-    <span class="primary__header-arrow"> 
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </span>
-</a>
+                     <div class="link-span">
+                        <a href="<?php echo esc_url($social_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
+                            <?php echo __(' View More', 'srft-theme'); ?>
+                       </a>
+                    </div>
 
                     </article>
 
@@ -860,144 +860,6 @@ $final_url = site_url("/$slug/");
         </div>
     </div>
 </section>
-
-<style>
-/* Fix equal heights and add scrollbars */
-.social-feeds .cell {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-}
-
-.social-feeds .cell .update-title {
-    flex-shrink: 0;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.social-feeds .cell .social-embed {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
-    margin-bottom: 15px;
-}
-
-/* Style the scrollbar */
-.social-embed::-webkit-scrollbar {
-    width: 8px;
-}
-
-.social-embed::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.social-embed::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-.social-embed::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Ensure embeds fit properly */
-.social-embed iframe,
-.social-embed blockquote {
-    max-width: 100% !important;
-}
-
-.social-embed .twitter-tweet,
-.social-embed .instagram-media {
-    margin: 0 !important;
-}
-
-/* View More Button Styling */
-.social-view-more {
-    flex-shrink: 0;
-    padding-top: 10px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.view-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background-color: #4a90a4;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.view-more-btn:hover {
-    background-color: #3a7a8a;
-    transform: translateX(3px);
-    color: #ffffff;
-}
-
-.view-more-btn svg {
-    transition: transform 0.3s ease;
-}
-
-.view-more-btn:hover svg {
-    transform: translateX(3px);
-}
-
-/* Platform-specific button colors (optional) */
-.social-linkedin .view-more-btn {
-    background-color: #007AB9;
-}
-
-.social-linkedin .view-more-btn:hover {
-    background-color: #005f8d;
-}
-
-.social-facebook .view-more-btn {
-    background-color: #1877F2;
-}
-
-.social-facebook .view-more-btn:hover {
-    background-color: #145dbf;
-}
-
-.social-youtube .view-more-btn {
-    background-color: #FF0000;
-}
-
-.social-youtube .view-more-btn:hover {
-    background-color: #cc0000;
-}
-
-.social-twitter .view-more-btn {
-    background-color: #000000;
-}
-
-.social-twitter .view-more-btn:hover {
-    background-color: #333333;
-}
-
-.social-instagram .view-more-btn {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.social-instagram .view-more-btn:hover {
-    opacity: 0.9;
-}
-
-.social-vimeo .view-more-btn {
-    background-color: #1AB7EA;
-}
-
-.social-vimeo .view-more-btn:hover {
-    background-color: #1596c4;
-}
-</style>
 
 </main>
 <?php
