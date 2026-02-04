@@ -63,8 +63,13 @@ $page_header = get_post_meta(get_the_ID(), 'Intro', true);
                         if ($document_category === 'Statutory') {
                         if ($document_file) :
                             // Get the file URL, file size, and file type (mime type)
-                            $file_url = $document_file['url'];
-                            $file_id = $document_file['ID'];
+                            //$file_url = $document_file['url'];
+                            //$file_id = $document_file['ID'];
+                            $file_id = get_post_meta(get_the_ID(), 'document', true);
+                            if ($file_id) {
+                             $file_url = wp_get_attachment_url((int)$file_id);
+                            }
+
                             $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
                             $file_type_info = wp_check_filetype($file_url);
                             $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';

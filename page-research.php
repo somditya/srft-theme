@@ -66,8 +66,12 @@ $page_content = apply_filters('the_content', $post->post_content);
                         if ($document_category === 'Take One') {
                             if ($document_file) :
                                 // Get the file details
-                                $file_url = $document_file['url'];
-                                $file_id = $document_file['ID'];
+                                //$file_url = $document_file['url'];
+                                //$file_id = $document_file['ID'];
+                                $file_id = get_post_meta(get_the_ID(), 'document', true);
+                                if ($file_id) {
+                                 $file_url = wp_get_attachment_url((int)$file_id);
+                                }
                                 $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
                                 $file_type_info = wp_check_filetype($file_url);
                                 $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
