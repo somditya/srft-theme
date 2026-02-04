@@ -566,7 +566,7 @@ if ($current_language === 'en_US') {
 
       <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-6" tabindex="-1" >
+          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-6" tabindex="-1" >
             <img src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar.png" alt="Poster shosing the images of SRFTI Alumni shining at BUSAN Film Festival" >
           </a>
         </div>
