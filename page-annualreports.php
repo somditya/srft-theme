@@ -110,8 +110,12 @@ $current_language = get_locale();
                                 $document_description = get_field('document_description');
 
                                 if ($document_category === 'Annual Report' && $document_file) {
-                                    $file_url = $document_file['url'];
-                                    $file_id = $document_file['ID'];
+                                    //$file_url = $document_file['url'];
+                                    //$file_id = $document_file['ID'];
+                                    $file_id = get_post_meta(get_the_ID(), 'document', true);
+                            if ($file_id) {
+                             $file_url = wp_get_attachment_url((int)$file_id);
+                            }
                                     $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
                                     $file_type_info = wp_check_filetype($file_url);
                                     $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
@@ -131,7 +135,8 @@ $current_language = get_locale();
                                                     <?php echo __('Download', 'srft-theme'); ?>
                                                     (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
                                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
-                                                </a>
+                                                </a> | (<span lang="en">EN</span>, <span lang="hi">HI</span>)
+</span>
                                             </div>
                                         </td>
                                     </tr>
