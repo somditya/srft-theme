@@ -89,7 +89,6 @@ $page_content = apply_filters('the_content', $post->post_content);
                     echo '<ul style="list-style-type: none">';
                     while ($download_post->have_posts()) {
                         $download_post->the_post(); 
-                        
                         // ACF Fields
                         $document_file = get_field('document');
                         $document_category = get_field('document-category'); // Returns an array with URL and other data
@@ -98,6 +97,7 @@ $page_content = apply_filters('the_content', $post->post_content);
                         if ($document_file) :
                             // Get the file URL, file size, and file type (mime type)
                             $file_url = $document_file['url'];
+                            echo $file_url;
                             $file_id = $document_file['ID'];
                             $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
                             $file_type_info = wp_check_filetype($file_url);
