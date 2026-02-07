@@ -421,40 +421,39 @@ body {
 }
 
 .link-div a:hover {
-  background-color: #161a1d !important; 
+  background-color: #161a1d !important;
   color: #f5f5f5 !important;
   text-decoration: none !important;
 }
 
 /* Modern Thin Artistic Scrollbar */
-        ::-webkit-scrollbar {
-            width: 2px;
-        }
+::-webkit-scrollbar {
+  width: 2px;
+}
 
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            margin: 10px 0;
-        }
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin: 10px 0;
+}
 
-        ::-webkit-scrollbar-thumb {
-            background: #8b5b2b;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
+::-webkit-scrollbar-thumb {
+  background: #8b5b2b;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a67243;
-            width: 4px;
-            box-shadow: 0 0 10px rgba(139, 91, 43, 0.5);
-        }
+::-webkit-scrollbar-thumb:hover {
+  background: #a67243;
+  width: 4px;
+  box-shadow: 0 0 10px rgba(139, 91, 43, 0.5);
+}
 
-        /* Firefox scrollbar */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: hsla(var(--border-300) / 35%) transparent;
-        }
-
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsla(var(--border-300) / 35%) transparent;
+}
 
 @keyframes slideright {
   from {
@@ -2509,6 +2508,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 }
 
 .right-logo {
+  height: 6rem;
   margin-left: auto; /* pushes it to the far right */
 }
 
@@ -5429,51 +5429,51 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 /* Fix equal heights and add scrollbars */
 .social-feeds .cell {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
 }
 
 .social-feeds .cell .update-title {
-    flex-shrink: 0;
-    margin-bottom: 15px;
+  flex-shrink: 0;
+  margin-bottom: 15px;
 }
 
 .social-feeds .cell .social-embed {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 /* Style the scrollbar */
 .social-embed::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .social-embed::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
+  background: #f1f1f1;
+  border-radius: 4px;
 }
 
 .social-embed::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
+  background: #888;
+  border-radius: 4px;
 }
 
 .social-embed::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* Ensure embeds fit properly */
 .social-embed iframe,
 .social-embed blockquote {
-    max-width: 100% !important;
+  max-width: 100% !important;
 }
 
 .social-embed .twitter-tweet,
 .social-embed .instagram-media {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .social-card {
@@ -5482,7 +5482,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   padding: 1rem;
 }
-
 
 /* faculty */
 
