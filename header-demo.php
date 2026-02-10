@@ -2,6 +2,7 @@
 /*
 Template Name: Header-Demo
 */
+
 ?>
 <?php 
 $current_language = get_locale();
@@ -28,16 +29,17 @@ $current_language = get_locale();
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />-->
     <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -50,8 +52,8 @@ $current_language = get_locale();
   </head>
 
 
-<body <?php body_class(); ?>>
-
+<body <?php body_class(); ?> id="top-anchor" tabindex="-1">
+  <div id="live-region" aria-live="polite" class="sr-only"></div>
   <header class="sticky" >
          <!--<nav id="nav-wrapper">-->
        <div class="top_header">
@@ -61,12 +63,22 @@ $current_language = get_locale();
 </marquee></li>
            </ul>         
           </div>-->
-          <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('e-office', 'srft-theme' ); ?>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><?php echo __('e-leave', 'srft-theme' ); ?>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><?php echo __('webmail', 'srft-theme' ); ?> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
+          <div class="top-item" style="padding: 0 5px; display: flex; align-items: center; line-height: 1; margin: 0;">
+             <a href="#skip-to-content" title="Skip to Main Content" aria-label="Skip to main content">
+  <span class="skp-to-main" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 64 64" fill="none" style="display: flex; justify-content: center;">
+      <path d="M57 10H14.5C13.1739 10 11.9021 10.5268 10.9645 11.4645C10.0268 12.4021 9.5 13.6739 9.5 15V25H14.5V15H57V50H14.5V40H9.5V50C9.5 51.3261 10.0268 52.5979 10.9645 53.5355C11.9021 54.4732 13.1739 55 14.5 55H57C58.3261 55 59.5979 54.4732 60.5355 53.5355C61.4732 52.5979 62 51.3261 62 50V15C62 13.6739 61.4732 12.4021 60.5355 11.4645C59.5979 10.5268 58.3261 10 57 10ZM19.5 40V35H2V30H19.5V25L29.5 32.5L19.5 40ZM52 35H34.5V30H52V35ZM52 25H34.5V20H52V25ZM44.5 45H34.5V40H44.5V45Z" fill="#ffffff"></path>
+    </svg>
+  </span>
+  <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content">
+</a>
+      </div>
+          <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-office', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
-            <a href="#" title="Choose your language" aria-haspopup="true"  role="presentation" tabindex=-1>
+            <a href="#" title="Choose your language" aria-haspopup="true" tabindex=-1>
             <!--<i class="fa-solid fa-language" aria-hidden="true"></i>-->
               <?php if (function_exists('pll_the_languages')) : ?>
             <span class="language-text"><svg viewBox="0 0 35 34" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,13 +87,13 @@ $current_language = get_locale();
                     </svg></span>
             <?php endif; ?>
           </a>
-          <div id="language-switcher" class="language-switcher" aria-labelledby="language-switcher-label">
+          <div id="language-switcher" role="region" class="language-switcher" aria-labelledby="language-switcher-label">
     <label id="language-switcher-label" for="lang_choice_1" class="visually-hidden">Language Selection</label>
     
     <?php
         pll_the_languages(
             array(
-                'show_flags' => 1,
+                'show_flags' => 0,
                 'show_names' => 1,
                 'display_names_as' => 'name',
                 'hide_if_empty' => 0,
@@ -98,27 +110,16 @@ $current_language = get_locale();
     ?>
 </div>
 
-</div>
-
-             <div class="top-item" style="padding: 0 5px; display: flex; align-items: center; line-height: 1; margin: 0;">
-             <a href="#skip-to-content" title="Skip to Main Content" aria-label="Skip to main content">
-  <span class="skp-to-main" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 64 64" fill="none" style="display: flex; justify-content: center;">
-      <path d="M57 10H14.5C13.1739 10 11.9021 10.5268 10.9645 11.4645C10.0268 12.4021 9.5 13.6739 9.5 15V25H14.5V15H57V50H14.5V40H9.5V50C9.5 51.3261 10.0268 52.5979 10.9645 53.5355C11.9021 54.4732 13.1739 55 14.5 55H57C58.3261 55 59.5979 54.4732 60.5355 53.5355C61.4732 52.5979 62 51.3261 62 50V15C62 13.6739 61.4732 12.4021 60.5355 11.4645C59.5979 10.5268 58.3261 10 57 10ZM19.5 40V35H2V30H19.5V25L29.5 32.5L19.5 40ZM52 35H34.5V30H52V35ZM52 25H34.5V20H52V25ZM44.5 45H34.5V40H44.5V45Z" fill="#ffffff"></path>
-    </svg>
-  </span>
-  <img class="mobile-icon" src="<?php bloginfo('template_url'); ?>/images/icon-skip-to-main.png" alt="Skip to main content">
-</a>
-      </div>
           
              <!--<li class="hide-on-mobile"><a href="<?php echo esc_url(site_url('/contact-us//')); ?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a></li>-->         
-             <div class="top-item"><button title="Accessibility options" id="accessibility-icon" aria-label="<?php echo __('Accessibilty tool', 'srft-theme' ); ?>">
+  <div class="top-item">
+  <button title="Accessibility options" id="accessibility-icon" aria-label="<?php echo __('Accessibility tool', 'srft-theme' ); ?>">
               <!--<i class="fas fa-universal-access"></i>-->
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
     <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M6 5.5l-4.535-.442A.531.531 0 0 1 1.531 4H14.47a.531.531 0 0 1 .066 1.058L10 5.5V9l.452 6.42a.535.535 0 0 1-1.053.174L8.243 9.97c-.064-.252-.422-.252-.486 0l-1.156 5.624a.535.535 0 0 1-1.053-.174L6 9z"/>
   </svg>
+  </button></div>
 
-            </button></div>
 <div class="top-item">
 <div class="search-box"><?php echo do_shortcode('[ivory-search id="3166" title="Custom Search Form"]'); ?></div> </div>
       </div>
@@ -126,21 +127,25 @@ $current_language = get_locale();
 <!-- Accessibility Menu -->
   <div id="accessibility-menu" class="hidden" role="dialog"
       aria-modal="true" aria-hidden="true"
-      tabindex="-1">
-      <h4><?php echo __('Text Resize', 'srft-theme' ); ?></h4>
-      <div role="list" class="text-resize">
-          <button class="increaseFont" type="button" title="Increase font size" value=<?php echo __('Increase', 'srft-theme' ); ?> aria-label="Increase Text Size" class="increaseFont">
-              <i class="fas fa-search-plus"></i>
-          </button>
-          <button class="decreaseFont" type="button" title="Decrerase font size" value=<?php echo __('Decrease', 'srft-theme' ); ?> aria-label="Decrease Text Size" class="decreaseFont">
+      tabindex="-1" aria-label="Accessibility Option">
+      <fieldset>
+          <legend><?php echo __('Text Resize', 'srft-theme' ); ?></legend>
+      <div id="font-size-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div role="group" class="text-resize">
+          <button class="increaseFont" type="button" aria-label="Increase Text Size">
+    <i class="fas fa-search-plus"></i>
+</button>
+          <button class="decreaseFont" type="button"   aria-label="Decrease Text Size">
               <i class="fas fa-search-minus"></i>
           </button>
-          <button class="normalFont" type="button" title="Normal font size" value=<?php echo __('Normal', 'srft-theme' ); ?> aria-label="Normal Text Size" class="normalFont">
+          <button class="normalFont" type="button"   aria-label="Reset">
           <i class="fas fa-sync-alt"></i>
           </button>
       </div>
-       <h4><?php echo __('Color Adjustment', 'srft-theme' ); ?></h4>
-      <div role="list" class="color-adjustment">
+      </fieldset>  
+       <fieldset>
+          <legend><?php echo __('Color Adjustment', 'srft-theme' ); ?></legend>
+      <div role="group" class="color-adjustment">
           <button type="button" title="Normal View" id="high-contrast" aria-label="Set high contrast">
               <i class="fas fa-adjust"></i>
           </button>
@@ -148,6 +153,7 @@ $current_language = get_locale();
               <i class="fas fa-moon" ></i>
           </button>
       </div>
+    </fieldset> 
       <!--<div class="color-adjustment">
           <h4><?php echo __('Navigation Adjustment', 'srft-theme' ); ?></h4>
           <?php echo __('Screen Reader', 'srft-theme' ); ?>
@@ -158,17 +164,17 @@ $current_language = get_locale();
        <div class="menu-container">
        <input type="checkbox" id="check" aria-label="Open menu"/>
         <div class="logo-container">
-          <div><a href="#" title="Logo of SRFTI"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo_DTBU.jpg" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="https://srfti.ac.in" title="Logo of SRFTI"><img class="logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo_DTBU.jpg" alt="<?php echo __('Logo of SRFTI', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
         </div>
 
         <div class="menu-btn">
         
           <div class="nav-links" >
-            <nav class="nav-links" role="navigation" aria-label="SRFTI" tabindex="0">
-            <ul role="menubar" aria-label="Main Menu" style="display: flex; align-items: center; justify-content: center;">
+            <nav class="nav-links" role="navigation" aria-label="SRFTI">
+            <ul role="menubar" aria-label="Main Menu" class="menu-bar" >
               <li role="none" class="nav-link" style="--i: 0.6s" >
-                <a role="menuitem" tabindex="0" aria-label="Home" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
+                <a role="menuitem" tabindex="0" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
                     ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
@@ -256,10 +262,10 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/course-overview/')); }
                       else { echo esc_url(site_url('/पाठ्यक्रम-का-अवलोकन/'));}
-                      ?>"><?php echo __('Master of Fine Arts', 'srft-theme' ); ?></a>
+                      ?>"><?php echo __('Master of Fine Arts in SRFTI Kolkata', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in IFTI AR', 'srft-theme' ); ?></a>
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTII Itanagar', 'srft-theme' ); ?></a>
                     </li>
                   </ul>      
               </li>
@@ -338,9 +344,11 @@ if ($current_language === 'en_US') {
             </ul>
           </nav>  
           </div>
-
         </div>
-        
+        <div class="logo-container" style="justify-content: flex-end;">
+          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img style="height: 6rem;" class="right-logo" src="<?php bloginfo('template_url'); ?>/images/ftiii-logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
+					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
+        </div>
         <div class="hamburger-menu-container"> 
           <div class="hamburger-menu">
             <div></div>
@@ -348,10 +356,11 @@ if ($current_language === 'en_US') {
         </div>
       </div>  
   </header>
-  <?php if (is_page('home')) : ?> 
-<main role="main">    
-<section role="region" aria-label="Featured carousel" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
-  <div class="carousel-inner">
+  <?php if ( is_page( array(119, 122) ) ) : ?>
+<main role="main"> 
+  <h1 class="sr-only"> Satyajit Ray Film & Television Institute </h1>   
+<section role="region" aria-label="Featured" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
+  <div class="carousel-inner" id="skip-to-content">
     <div class="controls">
       <button class="rotation" type="button">
         <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
@@ -417,7 +426,7 @@ if ($current_language === 'en_US') {
               <circle class="tab" cx="16" cy="15" r="6"></circle>
             </svg>
           </button>
-          <button id="carousel-tab-8" type="button" role="tab" tabindex="-1" aria-label="Slide 8" aria-selected="false" aria-controls="carousel-item-8">
+          <!--<button id="carousel-tab-8" type="button" role="tab" tabindex="-1" aria-label="Slide 8" aria-selected="false" aria-controls="carousel-item-8">
             <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle class="border" cx="16" cy="15" r="10"></circle>
               <circle class="tab-background" cx="16" cy="15" r="8"></circle>
@@ -445,21 +454,35 @@ if ($current_language === 'en_US') {
               <circle class="tab-background" cx="16" cy="15" r="8"></circle>
               <circle class="tab" cx="16" cy="15" r="6"></circle>
             </svg>
-          </button>
+          </button>-->
 
         </div>
       </div>
     </div>
 
     <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
-      
-    <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+
+    <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-1">
-            <img  src="<?php bloginfo('template_url'); ?>/images/59.png" alt="Maharshi Tuhin Kashyap's film selected in Busan" >
+          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-1" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/DEADLINE-EXTENTION-ADMISSION-2026.png" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar">
           </a>
         </div>
 
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="https://srfti.ac.in/announcement/9212/">Click here for detail</a>
+          </h3>
+        </div>-->
+        
+      </div> 
+      
+    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
+        <div class="carousel-image">
+          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar" id="carousel-image-2" tabindex="-1" >
+            <img  src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar_MFA.png"  alt="Application poster for SRFTI Common Entrance Test" >
+          </a>
+        </div>
         <!--<div class="carousel-caption">
           <h3>
             <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
@@ -474,10 +497,10 @@ if ($current_language === 'en_US') {
     
     
     
-    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-2">
-            <img  src="<?php bloginfo('template_url'); ?>/images/58.png" alt="Tribeni Rai's film Shape of Momo selected in Busan" >
+          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-3" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/Admission_2026.png" alt="Application poster for SRFTI Common Entrance Test for SRFTI for SRFTI Film wing" >
           </a>
         </div>
 
@@ -493,10 +516,10 @@ if ($current_language === 'en_US') {
         
       </div> 
     
-    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-3">
-            <img  src="<?php bloginfo('template_url'); ?>/images/60.png" alt="Amar Fauzdar's film Majhe selected in Osaka Film Festival" >
+          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-4" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_Film.png"  alt="Application poster for SRFTI Common Entrance Test for EDM wing" >
           </a>
         </div>
 
@@ -513,10 +536,10 @@ if ($current_language === 'en_US') {
       </div>
     
     
-    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="1 of 13">
+    <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-4">
-            <img  src="<?php bloginfo('template_url'); ?>/images/63.png" alt="Tribeni Rai's film selected for San Sebastian" >
+          <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-5" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_EDM.png" alt="Poster depicting SRFTI as regional incubator for WaveX startup accelarator " >
           </a>
         </div>
 
@@ -532,234 +555,45 @@ if ($current_language === 'en_US') {
         
       </div>
 
-       <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="2 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-5">
-            <img  src="<?php bloginfo('template_url'); ?>/images/64.png" alt="Arnab Laha selected for Channel X BIFF Busan" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="3 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-6">
-            <img  src="<?php bloginfo('template_url'); ?>/images/65.png" alt="Shingkhauna Marma selected for Channel X BIFF Busan " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="4 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-7">
-            <img  src="<?php bloginfo('template_url'); ?>/images/70.png" alt="Meenakshi Soman got National Award in Cinematography for Little Wings " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-      <div class="carousel-item" id="carousel-item-8" role="tabpanel" aria-roledescription="slide" aria-label="5 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-8">
-            <img  src="<?php bloginfo('template_url'); ?>/images/66.png" alt="Christo Tomy got National Award for best Malayalam Film for Ullozhukku" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-        <div class="carousel-item" id="carousel-item-9" role="tabpanel" aria-roledescription="slide" aria-label="6 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-9">
-            <img  src="<?php bloginfo('template_url'); ?>/images/67.png" alt="Dominic Sangma got national award for best garo film Rapture" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-        <div class="carousel-item" id="carousel-item-10" role="tabpanel" aria-roledescription="slide" aria-label="7 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-10">
-            <img  src="<?php bloginfo('template_url'); ?>/images/68.png" alt="Shuvam Sengupta got national award for best sound design dhundgiri ke phool" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-      <div class="carousel-item" id="carousel-item-11" role="tabpanel" aria-roledescription="slide" aria-label="8 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-11">
-            <img  src="<?php bloginfo('template_url'); ?>/images/69.png" alt="Saravanamarathu Soundarapandi got national award for best cinematography for little wings " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
       
 
-      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="9 of 13">
+      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
         <div class="carousel-image">
-          <a href="#" id="carousel-image-9">
-            <img  src="<?php bloginfo('template_url'); ?>/images/5.1.jpg" alt="picture of satyajit ray in SRFTI" >
+          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-6" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar.png" alt="Poster shosing the images of SRFTI Alumni shining at BUSAN Film Festival" >
           </a>
         </div>
 
         <!--<div class="carousel-caption">
           <h3>
-            <a href="#"> Travel to Southwest England and Paris </a>
-          </h3>
-
-          <div>
-            <p><span class="contrast">Sept. 14 to Sept. 24 or 27</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-12" role="tabpanel" aria-roledescription="slide" aria-label="10 of 13">
-        <div class="carousel-image">
-          <a href="#!" id="carousel-image-10">
-            <img  src="<?php bloginfo('template_url'); ?>/images/5.2.jpg" alt="student's production in set" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Great Children's Programming on Public TV </a>
-          </h3>
-
-          <div></div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-13" role="tabpanel" aria-roledescription="slide" aria-label="11 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-11">
-            <img  src="<?php bloginfo('template_url'); ?>/images/GN7A6754.png"  alt="animation masterclass">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Foyle’s War Revisited </a>
-          </h3>
-
-          <div>
-            <p><span class="contrast">8 pm Sunday, March 8, on TV: Sneak peek at the final season.</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-14" role="tabpanel" aria-roledescription="slide" aria-label="12 of 13">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-12">
-             <img src="<?php bloginfo('template_url'); ?>/images/livemusicex.jpg" alt="student's live music exercise">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Great Britain Vote: 7 pm Sat. </a>
-          </h3>
-
-          <div></div>
-        </div>-->
-        
-      </div>
-      
-
-      <div class="carousel-item" id="carousel-item-15" role="tabpanel" aria-roledescription="slide" aria-label="6 of 6">
-        <div class="carousel-image">
-          <a href="#" id="carousel-image-13">
-            <img  src="<?php bloginfo('template_url'); ?>/images/Mclilister.jpg" alt="Sean Macllister is hoding a masterclass for Animation Student">
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Mid-American Gardener: Thursdays at 7 pm </a>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
           </h3>
 
           <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">Watch the latest episodes.</span></p>
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
           </div>
-        </div>
+        </div>-->
         
-      </div>-->
+      </div>
+
+      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
+        <div class="carousel-image">
+          <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-7" tabindex="-1" >
+            <img src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="71st national Award Winners Alumni" >
+          </a>
+        </div>
+
+        <!--<div class="carousel-caption">
+          <h3>
+            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+          </h3>
+
+          <div class="hidden-xs hidden-sm">
+            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+          </div>
+        </div>-->
+        
+      </div>
       
     </div>
   </div>
