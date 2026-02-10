@@ -353,7 +353,7 @@ if ($current_language === 'en_US') {
           </div>
         </div>
         <div class="logo-container" style="justify-content: flex-end;">
-          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img style="height: 6rem;" class="right-logo" src="<?php bloginfo('template_url'); ?>/images/ftiii-logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img class="right-logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
         </div>
         <div class="hamburger-menu-container"> 
