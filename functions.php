@@ -690,8 +690,13 @@ function display_selected_documents($atts) {
 	}
 
 	// Get file URL, ID, and size
-	$file_url = $document_file['url'];
-	$file_id = $document_file['ID'];
+	//$file_url = $document_file['url'];
+	//$file_id = $document_file['ID'];
+	 $file_id = get_post_meta(get_the_ID(), 'document', true);
+
+if ($file_id) {
+    $file_url = wp_get_attachment_url((int)$file_id);
+}
 	$file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
 
 	if (!function_exists('convertFileSizeToMB')) {

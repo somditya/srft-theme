@@ -364,13 +364,41 @@ if ($current_language === 'en_US') {
       </div>  
   </header>
   <?php if ( is_page( array(119, 122) ) ) : ?>
-<main role="main"> 
-  <h1 class="sr-only"> Satyajit Ray Film & Television Institute </h1>   
-<section role="region" aria-label="Featured" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
+<main role="main">    
+<h1 class="sr-only">Satyajit Ray Film & Television Institute</h1>
+
+<?php
+$carousel_args = [
+    'post_type'      => 'picture',
+    'posts_per_page' => 7,
+    'post_status'    => 'publish',
+    'meta_query'     => [
+        [
+            'key'     => 'Picture_Category',
+            'value'   => 'Banner',
+            'compare' => '='
+        ]
+    ],
+];
+
+$carousel_query = new WP_Query($carousel_args);
+
+if ($carousel_query->have_posts()) :
+    $total = $carousel_query->post_count;
+    $i = 0;
+?>
+
+<section role="region"
+         aria-label="Featured"
+         id="myCarousel"
+         class="carousel-tablist"
+         aria-roledescription="carousel">
+
   <div class="carousel-inner" id="skip-to-content">
+    <!-- CONTROLS -->
     <div class="controls">
-      <button class="rotation" type="button">
-        <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
+      <button class="rotation" type="button" aria-label="Pause / Play">
+       <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
           <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24"></rect>
           <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20"></rect>
 
@@ -382,230 +410,64 @@ if ($current_language === 'en_US') {
         </svg>
       </button>
 
+      <!-- TABS -->
       <div class="tab-wrapper">
         <div role="tablist" aria-label="Slides">
-          <button id="carousel-tab-1" type="button" role="tab" aria-label="Slide 1" aria-selected="true" aria-controls="carousel-item-1">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-2" type="button" role="tab" tabindex="-1" aria-label="Slide 2" aria-selected="false" aria-controls="carousel-item-2">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-3" type="button" role="tab" tabindex="-1" aria-label="Slide 3" aria-selected="false" aria-controls="carousel-item-3">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-4" type="button" role="tab" tabindex="-1" aria-label="Slide 4" aria-selected="false" aria-controls="carousel-item-4">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-5" type="button" role="tab" tabindex="-1" aria-label="Slide 5" aria-selected="false" aria-controls="carousel-item-5">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-6" type="button" role="tab" tabindex="-1" aria-label="Slide 6" aria-selected="false" aria-controls="carousel-item-6">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-7" type="button" role="tab" tabindex="-1" aria-label="Slide 7" aria-selected="false" aria-controls="carousel-item-7">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <!--<button id="carousel-tab-8" type="button" role="tab" tabindex="-1" aria-label="Slide 8" aria-selected="false" aria-controls="carousel-item-8">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-9" type="button" role="tab" tabindex="-1" aria-label="Slide 9" aria-selected="false" aria-controls="carousel-item-9">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-10" type="button" role="tab" tabindex="-1" aria-label="Slide 10" aria-selected="false" aria-controls="carousel-item-10">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-
-          <button id="carousel-tab-11" type="button" role="tab" tabindex="-1" aria-label="Slide 11" aria-selected="false" aria-controls="carousel-item-11">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>-->
-
+          <?php while ($carousel_query->have_posts()) : $carousel_query->the_post(); $i++; ?>
+            <button
+              id="carousel-tab-<?php echo $i; ?>"
+              type="button"
+              role="tab"
+              aria-label="Slide <?php echo $i; ?>"
+              aria-selected="<?php echo ($i === 1) ? 'true' : 'false'; ?>"
+              tabindex="<?php echo ($i === 1) ? '0' : '-1'; ?>"
+              aria-controls="carousel-item-<?php echo $i; ?>">
+              <svg width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                <circle class="border" cx="16" cy="15" r="10"></circle>
+                <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+                <circle class="tab" cx="16" cy="15" r="6"></circle>
+              </svg>
+            </button>
+          <?php endwhile; ?>
         </div>
       </div>
     </div>
 
+    <!-- SLIDES -->
     <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
+      <?php
+      $carousel_query->rewind_posts(); // REWIND the query instead of reset
+      $i = 0;
+      while ($carousel_query->have_posts()) : $carousel_query->the_post(); $i++;
+        $image = get_field('Picture_File');
+        $link  = get_field('picture_link');
+        $alt   = get_field('Picture_Description') ?: get_the_title();
+      ?>
 
-    <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
+      <div class="carousel-item <?php echo ($i === 1) ? 'active' : ''; ?>"
+           id="carousel-item-<?php echo $i; ?>"
+           role="tabpanel"
+           aria-roledescription="slide"
+           aria-label="<?php echo $i . ' of ' . $total; ?>">
+
         <div class="carousel-image">
-          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-1" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/DEADLINE-EXTENTION-ADMISSION-2026.png" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar">
-          </a>
+          <?php if ($image) : ?>
+            <a href="<?php echo esc_url($link ?: '#'); ?>" tabindex="-1">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($alt); ?>">
+            </a>
+          <?php endif; ?>
         </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="https://srfti.ac.in/announcement/9212/">Click here for detail</a>
-          </h3>
-        </div>-->
-        
-      </div> 
-      
-    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar" id="carousel-image-2" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar_MFA.png"  alt="Application poster for SRFTI Common Entrance Test" >
-          </a>
-        </div>
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
-    
-    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
-        <div class="carousel-image">
-          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-3" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/Admission_2026.png" alt="Application poster for SRFTI Common Entrance Test for SRFTI for SRFTI Film wing" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div> 
-    
-    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-4" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_Film.png"  alt="Application poster for SRFTI Common Entrance Test for EDM wing" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
-    <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-5" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_EDM.png" alt="Poster depicting SRFTI as regional incubator for WaveX startup accelarator " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
       </div>
 
-      
-
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-6" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar.png" alt="Poster shosing the images of SRFTI Alumni shining at BUSAN Film Festival" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-7" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="71st national Award Winners Alumni" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
+      <?php endwhile; wp_reset_postdata(); ?>
     </div>
+
   </div>
-  
 </section>
+
+<?php else : ?>
+  <p>No carousel items to display.</p>
+<?php endif; ?>
 
 
 <div class="col-sm-1"></div>
