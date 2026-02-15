@@ -147,29 +147,40 @@ $category_id = get_category_ID($category_name);
         console.log('Fetching data from JSON URL:', apiUrl);
 
         $http.get(apiUrl)
-          .then(function (response) {
-            console.log('API Response:', response.data);
-            $scope.documentList = response.data.filter(function (post) {
-              // Filter for specific categories
-              return post.acf['document-category'] && 
-                     (post.acf['document-category'] === 'Employees' || post.acf['document-category'] === 'Students' || post.acf['document-category'] === 'कर्मचारी' || post.acf['document-category'] === 'छात्र' );
-            }).map(function (post) {
-              return {
-                title: (post.title && post.title.rendered) 
-                  ? decodeHTMLEntities(post.title.rendered.replace(/<[^>]+>/g, '').trim()) 
-                  : '',
-                file: {
-                  url: post.acf['document']['url'],  
-                  title: post.acf['document']['title'],
-                  size: bytesToMB(post.acf['document']['filesize']),
-                  type: post.acf['document']['subtype']
-                },
-                category: post.acf['document-category'] ? decodeHTMLEntities(post.acf['document-category']) : ''
-              };
-            });
-            console.log('Document List:', $scope.documentList);
-            $scope.updateFilteredDocument();
-          });
+  .then(function (response) {
+    console.log('API Response:', response.data);
+    $scope.documentList = response.data.filter(function (post) {
+      // FIX: Access the 'value' property of document-category object
+      var docCategory = post.acf['document-category'] && post.acf['document-category'].value 
+        ? post.acf['document-category'].value 
+        : post.acf['document-category'];
+      
+      return docCategory && 
+             (docCategory === 'Employees' || docCategory === 'Students' || 
+              docCategory === 'कर्मचारी' || docCategory === 'छात्र');
+    }).map(function (post) {
+      // FIX: Access the document object properties correctly
+      var documentField = post.acf['document'];
+      var docCategory = post.acf['document-category'] && post.acf['document-category'].value 
+        ? post.acf['document-category'].value 
+        : post.acf['document-category'];
+      
+      return {
+        title: (post.title && post.title.rendered) 
+          ? decodeHTMLEntities(post.title.rendered.replace(/<[^>]+>/g, '').trim()) 
+          : '',
+        file: {
+          url: documentField.url,  
+          title: documentField.title || documentField.filename,
+          size: bytesToMB(documentField.filesize),
+          type: documentField.subtype || documentField.type
+        },
+        category: docCategory ? decodeHTMLEntities(docCategory) : ''
+      };
+    });
+    console.log('Document List:', $scope.documentList);
+    $scope.updateFilteredDocument();
+  });
 
         // Update filtered document for pagination
         $scope.updateFilteredDocument = function () {

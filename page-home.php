@@ -651,7 +651,20 @@ else
             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
         <?php endif; ?>
     </a>
-  <?php if ($post_type === 'tender') : ?>
+    <?php if ($post_type === 'announcement') : ?>
+    <?php
+    $announcement_cat = get_field('announcement_category');
+    if ($announcement_cat) : ?>
+        <span class="announcement-category">
+            <?php echo esc_html($announcement_cat); ?>
+        </span>
+    <?php endif; ?>
+<?php endif; ?>
+  <?php if ($post_type === 'tender') : 
+      $all_fields = get_fields();
+    echo '<!-- All ACF fields: ';
+    print_r(array_keys($all_fields));
+    echo ' -->';?>
    <?php $is_tender = ($post_type === 'tender');
 $tender_language = get_field('language'); // ACF field value: Hindi / Both / English
 $tender_id = get_field('Tender-ID');

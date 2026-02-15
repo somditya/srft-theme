@@ -57,45 +57,48 @@ $category_id = get_category_ID($category_name);
                 ));
 
                 if ($download_post->have_posts()) {
-                    echo '<ul style="list-style-type: none">';
-                    while ($download_post->have_posts()) {
-                        $download_post->the_post(); 
-                        // ACF Fields
-                        $document_file = get_field('document');
-                        $document_category = get_field('document-category'); // Returns an array with URL and other data
-                        $document_description = get_field('document_description');
-                        if ($document_category === 'Students') {
-                            if ($document_file) :
-                                // Get the file URL, file size, and file type (mime type)
-                                //$file_url = $document_file['url'];
-                                //$file_id = $document_file['ID'];
-                                $file_id = get_post_meta(get_the_ID(), 'document', true);
-                                if ($file_id) {
-                                 $file_url = wp_get_attachment_url((int)$file_id);
-                                }
+    echo '<ul style="list-style-type: none; padding-left: 0;">';
+    while ($download_post->have_posts()) {
+        $download_post->the_post(); 
+        
+        // Use get_post_meta instead of get_field
+        $file_id = get_post_meta(get_the_ID(), 'document', true);
+        $document_category = get_post_meta(get_the_ID(), 'document-category', true);
+        $document_description = get_field('document_description');
+        
+        // Handle array format for document-category
+        if (is_array($document_category)) {
+            $document_category = $document_category['value'] ?? '';
+        }
+        
+        // Check if category is Students and file exists
+        if ($document_category === 'Students' && $file_id) {
+            $file_url = wp_get_attachment_url((int)$file_id);
+            
+            if ($file_url) {
+                $file_size = @filesize(get_attached_file($file_id));
+                $file_type_info = wp_check_filetype($file_url);
+                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+                $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown';
+                ?>
+                <li style="margin-bottom: 1rem;">
+                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
+                        <?php echo esc_html(get_the_title()); ?> 
+                        (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="PDF icon" style="vertical-align: middle;" />
+                    </a>
+                </li>
+                <?php
+            }
+        }
+    }
+    echo '</ul>';
+} else {
+    echo '<p>' . __('No posts found in the specified category.', 'srft-theme') . '</p>';
+}
 
-                                $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
-                                $file_type_info = wp_check_filetype($file_url);
-                                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-                                $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown'; // Convert file size to MB with 2 decimal points
-                                ?>
-                                <li>
-                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
-                                        <?php echo esc_html(get_the_title()); ?> 
-                                        (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
-                                    </a>
-                                </li>
-                            <?php endif; 
-                        }
-                    }
-                    echo '</ul>';
-                } else {
-                    echo __('No posts found in the specified category.', 'srft-theme');
-                }
-
-                wp_reset_postdata(); // Reset after custom query
-                ?> 
+wp_reset_postdata();
+?> 
                 </div>
             </div>
             <div class="main-content">

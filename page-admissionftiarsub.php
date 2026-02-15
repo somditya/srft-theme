@@ -90,53 +90,56 @@ $current_language = get_locale();
                 ));
 
                 if ($download_post->have_posts()) {
-                    echo '<ul style="list-style-type: none">';
-                    while ($download_post->have_posts()) {
-                        $download_post->the_post(); 
-                        
-                        // ACF Fields
-                        $document_file = get_field('document');
-                        $document_category = get_field('document-category'); // Returns an array with URL and other data
-                        $document_description = get_field('document_description');
-                        if ($document_category === 'Prospectus AR') {
-                            if ($document_file) :
-                                // Get the file URL, file size, and file type (mime type)
-                                //$file_url = $document_file['url'];
-                                //$file_id = $document_file['ID'];
-                                 $file_id = get_post_meta(get_the_ID(), 'document', true);
-                            if ($file_id) {
-                             $file_url = wp_get_attachment_url((int)$file_id);
-                            }
-                                $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
-                                $file_type_info = wp_check_filetype($file_url);
-                                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-                                $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown'; // Convert file size to MB with 2 decimal points
-                                ?>
-                                <li>
-                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
-                                        <?php echo esc_html(get_the_title()); ?> 
-                                        (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
-                                    </a>
-                                </li>
-                            <?php endif; 
-                        }
-                    }
-                    echo '</ul>';
-                } else {
-                    echo __('No posts found in the specified category.', 'srft-theme');
-                }
+    echo '<ul style="list-style-type: none; padding-left: 0;">';
+    while ($download_post->have_posts()) {
+        $download_post->the_post(); 
+        
+        // Use get_post_meta instead of get_field
+        $file_id = get_post_meta(get_the_ID(), 'document', true);
+        $document_category = get_post_meta(get_the_ID(), 'document-category', true);
+        $document_description = get_field('document_description');
+        
+        // Handle array format for document-category
+        if (is_array($document_category)) {
+            $document_category = $document_category['value'] ?? '';
+        }
+        
+        // Check if category is Prospectus AR and file exists
+        if ($document_category === 'Prospectus AR' && $file_id) {
+            $file_url = wp_get_attachment_url((int)$file_id);
+            
+            if ($file_url) {
+                $file_size = @filesize(get_attached_file($file_id));
+                $file_type_info = wp_check_filetype($file_url);
+                $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+                $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown';
+                ?>
+                <li style="margin-bottom: 1rem;">
+                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
+                        <?php echo esc_html(get_the_title()); ?> 
+                        (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="PDF icon" style="vertical-align: middle;" />
+                    </a>
+                </li>
+                <?php
+            }
+        }
+    }
+    echo '</ul>';
+} else {
+    echo '<p>' . __('No posts found in the specified category.', 'srft-theme') . '</p>';
+}
 
-                wp_reset_postdata(); // Reset after custom query
-                ?>   
+wp_reset_postdata();
+?>   
             </div>
 
-            <div class="link-div" style="align-items: left; margin-top: 0;">
+            <!--<div class="link-div" style="align-items: left; margin-top: 0;">
           <a class="link-text-big" href="https://applyadmission.net/srfti2026" aria-label="Apply for the course"><span> <?php echo __('Click here to apply', 'srft-theme'); ?></span><span class="primary__header-arrow"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow{fill:none;stroke:#161a1d;stroke-miterlimit:10;}</style></defs><g id="Calque_1-4" data-name="Calque 1"><path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path><line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line><polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline></g></svg>
           </span>
         </a>      
-    </div>
+    </div>-->
 
     <!-- Sample Question Papers -->
     <div class="widget">
