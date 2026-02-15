@@ -31,70 +31,81 @@ Template Name: Home
         <!-- Scrolling Container -->
         <div class="acme-news-ticker-box" style="flex: 1; overflow: hidden; position: relative; height: 40px;">
     <?php
-    if ($current_language === 'en_US') {
-        $catslug = 'highlight-en';
-    } else {
-        $catslug = 'highlight-hi';
-    }
+$today = date('d/m/Y'); // Match ACF date format
 
-    $today = date('Y-m-d');
-    $args = array(
-        'post_type' => 'highlight',
-        'posts_per_page' => -1,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => $catslug
-            )
-        ),
-        'meta_query' => array(
-            array(
-                'key' => 'highlight_expiry_date',
-                'compare' => '>=',
-                'value' => $today,
-                'type' => 'DATE'
-            )
+// Determine language category slug
+if ($current_language === 'en_US') {
+    $lang_catslug = 'announcement-en'; // Adjust to your actual category slug
+} else {
+    $lang_catslug = 'announcement-hi'; // Adjust to your actual category slug
+}
+
+$args = array(
+    'post_type' => 'announcement',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => $lang_catslug
         )
-    );
+    ),
+);
 
-    $query = new WP_Query($args);
-    $post_count = $query->post_count;
+$query = new WP_Query($args);
+$filtered_posts = array();
 
-    // Only use <ul> if multiple items
-    if ($post_count > 1) {
-        echo '<ul class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0; list-style: none;">';
-    } else {
-        echo '<div class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0;">';
-    }
+if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post();
+        $highlight = get_field('highlight');
+        $expiry = get_field('highlight_expiry_date');
+        
+        // Check if highlighted and not expired
+        if ($highlight === 'Yes') {
+            if (empty($expiry) || strtotime(str_replace('/', '-', $expiry)) >= strtotime($today)) {
+                $filtered_posts[] = get_post();
+            }
+        }
+    endwhile;
+endif;
+wp_reset_postdata();
 
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post();
-            $tag = ($post_count > 1) ? 'li' : 'span';
-            echo '<' . $tag . ' style="padding: 0 80px; display: inline-block;">';
-            ?>
-                <a href="<?php echo esc_url(get_field('highlight_post_link')); ?>" 
-                   target="_blank"
-                   style="color: white; text-decoration: none; line-height: 40px;">
-                    <?php the_field('highlight_title'); ?>
-                </a>
-            <?php
-            echo '</' . $tag . '>';
-        endwhile;
-    else :
-        echo '<span style="padding: 0 80px; display: inline-block;">';
-        echo '<span style="color: white; line-height: 40px;">' . __('No announcements at this time', 'srft-theme') . '</span>';
-        echo '</span>';
-    endif;
+$post_count = count($filtered_posts);
+
+// Only use <ul> if multiple items
+if ($post_count > 1) {
+    echo '<ul class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0; list-style: none;">';
+} else {
+    echo '<div class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0;">';
+}
+
+if ($post_count > 0) :
+    foreach ($filtered_posts as $post) :
+        setup_postdata($post);
+        $tag = ($post_count > 1) ? 'li' : 'span';
+        echo '<' . $tag . ' style="padding: 0 80px; display: inline-block;">';
+        ?>
+            <a href="<?php echo esc_url(get_permalink($post)); ?>" 
+               style="color: white; text-decoration: none; line-height: 40px;">
+                <?php echo get_the_title($post); ?>
+            </a>
+        <?php
+        echo '</' . $tag . '>';
+    endforeach;
     wp_reset_postdata();
+else :
+    echo '<span style="padding: 0 80px; display: inline-block;">';
+    echo '<span style="color: white; line-height: 40px;">' . __('No announcements at this time', 'srft-theme') . '</span>';
+    echo '</span>';
+endif;
 
-    // Close with matching tag
-    if ($post_count > 1) {
-        echo '</ul>';
-    } else {
-        echo '</div>';
-    }
-    ?>
+// Close with matching tag
+if ($post_count > 1) {
+    echo '</ul>';
+} else {
+    echo '</div>';
+}
+?>
 </div>
         
         <!-- Play/Pause Button at the end -->
