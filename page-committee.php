@@ -15,6 +15,7 @@ $current_language = get_locale();
             <h1 class="page-banner-title"><?php echo __('Committees', 'srft-theme' ); ?></h1>
         </div>
     </section>
+
     <div class="container-aligned">
     <div class="breadcrumbs-wrapper">
     <?php
@@ -22,7 +23,6 @@ $current_language = get_locale();
                 yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
             }
     ?>
-   </div>
    </div>
    </div>
     <section id="skip-to-content" class="cine-detail">
@@ -69,12 +69,103 @@ $current_language = get_locale();
         <div class="main-content" role="main">
             <div>
                 <h2 class="page-header-text"><?php echo __('Constitution of Important Committees at SRFTI', 'srft-theme'); ?></h2>
-            </div>  
-            <div style="margin-bottom: 4rem;">    
-                <div><?php the_content(); ?></div>   
-            </div>     
-        </div>
-    </section>
+            </div>
 
+                <div class="table-container">
+                        <table>
+                        <caption class="sr-only">table showing yearwise downloadable annual reports</caption>    
+                        <thead>
+                        <tr class="Rtable-row Rtable-row--head">
+                            <th class="Rtable-cell cell-width-10-percent column-heading"><?php echo __('SL.No.', 'srft-theme'); ?></th>
+                            <th class="Rtable-cell cell-width-20-percent column-heading"><?php echo __('Committee', 'srft-theme'); ?></th>
+                            <th class="Rtable-cell cell-width-10-percent column-heading"><?php echo __('Composition', 'srft-theme'); ?></th>
+                            <!--<th class="Rtable-cell cell-width-10-percent column-heading"><?php echo __('Tenure', 'srft-theme'); ?></th>-->
+                            <th class="Rtable-cell cell-width-25-percent column-heading"><?php echo __('Whether Meeting of these committees open to public', 'srft-theme'); ?></th>
+                            <th class="Rtable-cell cell-width-25-percent column-heading"><?php echo __('Whether minutes of the meetings accessible for public', 'srft-theme'); ?></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $catslg = ($current_language === 'en_US') ? 'document-en' : 'document-hi';
+
+                        $download_post = new WP_Query(array(
+                            'post_type' => 'document',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'category',
+                                    'field'    => 'slug',
+                                    'terms'    => $catslg,
+                                ),
+                            ),
+                            'posts_per_page' => -1,
+                        ));
+                        $count = 1;
+
+                        if ($download_post->have_posts()) {
+                            while ($download_post->have_posts()) {
+                                $download_post->the_post();
+
+                                // ACF Fields
+                                $document_file = get_field('document');
+                                $document_category = get_field('document-category');
+                                $document_description = get_field('document_description');
+
+                               if (!empty($document_category) && isset($document_category['value']) && $document_category['value'] === 'Committee' && $document_file) {
+                                    //$file_url = $document_file['url'];
+                                    //$file_id = $document_file['ID'];
+                                    $file_id = get_post_meta(get_the_ID(), 'document', true);
+                            if ($file_id) {
+                             $file_url = wp_get_attachment_url((int)$file_id);
+                            }
+                                    $file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
+                                    $file_type_info = wp_check_filetype($file_url);
+                                    $file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
+                                    $file_size_mb = ($file_size !== false) ? size_format($file_size, 2) : 'Unknown';
+                                    ?>
+                                    <tr class="Rtable-row">
+                                        <td class="Rtable-cell location-cell">
+                                            <div class="Rtable-cell--content "><?php echo $count; ?></div>
+                                        </td>
+
+                                        <th class="Rtable-cell id-cell" scope="row">
+                                            <div class="Rtable-cell--content "><?php echo esc_html(get_the_title()); ?></div>
+                                        </th>
+                                        <td class="Rtable-cell name-cell">
+                                            <div class="Rtable-cell--content ">
+                                                <a href="<?php echo esc_url($file_url); ?>">
+                                                    <?php echo __('Download', 'srft-theme'); ?>
+                                                    (<?php echo esc_html($file_type); ?> - <?php echo esc_html($file_size_mb); ?>)
+                                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="" style="vertical-align: middle;" />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <!--<td class="Rtable-cell tenure-cell">
+                                            <div class="Rtable-cell--content "></div>
+                                        </td>-->
+                                        <td class="Rtable-cell access-link-cell">
+                                            <?php echo __('No', 'srft-theme');?>
+                                        </td>
+                                        <td class="Rtable-cell access-link-cell">
+                                            <?php echo __('Subject to provisions of the RTI Act', 'srft-theme');?>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    $count++;
+                                }
+                            }
+                        } else {
+                            echo __('No posts found in the specified category.', 'srft-theme');
+                        }
+
+                        wp_reset_postdata();
+                        ?>
+                    </tbody>
+                    </table>
+            </div>
+</div> 
+    </section>
 </main>
-<?php get_footer(); ?>
+
+<?php 
+get_footer();
+?>

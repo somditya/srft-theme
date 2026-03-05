@@ -35,6 +35,8 @@ $category_id = get_category_ID($category_name);
 
         <section class="cine-detail">
             <div class="leftnav">
+
+            
                 <div class="widget" style="line-height: 1.5; margin-top: 1rem;">
                     <h4><?php echo __('Student Association', 'srft-theme'); ?> </h4>
             <?php 
