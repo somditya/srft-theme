@@ -35,37 +35,62 @@ $today = date('d/m/Y'); // Match ACF date format
 
 // Determine language category slug
 if ($current_language === 'en_US') {
-    $lang_catslug = 'announcement-en'; // Adjust to your actual category slug
-} else {
-    $lang_catslug = 'announcement-hi'; // Adjust to your actual category slug
-}
 
-$args = array(
-    'post_type' => 'announcement',
-    'posts_per_page' => -1,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => $lang_catslug
-        )
-    ),
-);
+    $args = array(
+        'post_type' => array('announcement','vacancy'),
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'announcement-en'
+            ),
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'vacancy'
+            ),
+        ),
+    );
+
+} else {
+
+    $args = array(
+        'post_type' => array('announcement','vacancy'),
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'announcement-hi'
+            ),
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => 'vacancy-hi'
+            ),
+        ),
+    );
+
+}
 
 $query = new WP_Query($args);
 $filtered_posts = array();
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
-        $highlight = get_field('highlight');
-        $expiry = get_field('highlight_expiry_date');
-        
-        // Check if highlighted and not expired
-        if ($highlight === 'Yes') {
-            if (empty($expiry) || strtotime(str_replace('/', '-', $expiry)) >= strtotime($today)) {
-                $filtered_posts[] = get_post();
-            }
-        }
+  $highlight = get_field('highlight');
+$expiry = get_field('highlight_expiry_date');
+
+if ($highlight == 'Yes') {
+
+    if (empty($expiry) || strtotime(str_replace('/', '-', $expiry)) >= strtotime($today)) {
+        $filtered_posts[] = get_post();
+    }
+
+}
     endwhile;
 endif;
 wp_reset_postdata();
