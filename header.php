@@ -272,7 +272,7 @@ $current_language = get_locale();
                       ?>"><?php echo __('Master of Fine Arts in SRFTI Kolkata', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTII Itanagar', 'srft-theme' ); ?></a>
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Master of Fine Arts in FTII Itanagar', 'srft-theme' ); ?></a>
                     </li>
                   </ul>      
               </li>
