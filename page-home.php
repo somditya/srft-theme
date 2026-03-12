@@ -31,51 +31,37 @@ Template Name: Home
         <!-- Scrolling Container -->
         <div class="acme-news-ticker-box" style="flex: 1; overflow: hidden; position: relative; height: 40px;">
     <?php
-$today = date('d/m/Y'); // Match ACF date format
+$locale = get_locale();       
+$current_language = pll_current_language('slug'); // safer); // en or hi
+//echo $current_language;
+$today = date('Ymd'); // for date comparison
 
-// Determine language category slug
-if ($current_language === 'en_US') {
-
-    $args = array(
-        'post_type' => array('announcement','vacancy'),
-        'posts_per_page' => -1,
-        'tax_query' => array(
+$args = array(
+    'post_type' => array('announcement','vacancy'),
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'highlight',
+            'value' => 'Yes',
+            'compare' => '='
+        ),
+        array(
             'relation' => 'OR',
             array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => 'announcement-en'
+                'key' => 'highlight_expiry_date',
+                'compare' => 'NOT EXISTS'
             ),
             array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => 'vacancy'
-            ),
-        ),
-    );
-
-} else {
-
-    $args = array(
-        'post_type' => array('announcement','vacancy'),
-        'posts_per_page' => -1,
-        'tax_query' => array(
-            'relation' => 'OR',
-            array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => 'announcement-hi'
-            ),
-            array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => 'vacancy-hi'
-            ),
-        ),
-    );
-
-}
-
+                'key' => 'highlight_expiry_date',
+                'value' => $today,
+                'compare' => '>=',
+                'type' => 'DATE'
+            )
+        )
+    ),
+    'orderby' => 'date',
+    'order' => 'DESC'
+);
 $query = new WP_Query($args);
 $filtered_posts = array();
 
@@ -86,7 +72,7 @@ $expiry = get_field('highlight_expiry_date');
 
 if ($highlight == 'Yes') {
 
-    if (empty($expiry) || strtotime(str_replace('/', '-', $expiry)) >= strtotime($today)) {
+    if (empty($expiry) || $expiry >= $today) {
         $filtered_posts[] = get_post();
     }
 
@@ -109,11 +95,33 @@ if ($post_count > 0) :
         setup_postdata($post);
         $tag = ($post_count > 1) ? 'li' : 'span';
         echo '<' . $tag . ' style="padding: 0 80px; display: inline-block;">';
-        ?>
-            <a href="<?php echo esc_url(get_permalink($post)); ?>" 
-               style="color: white; text-decoration: none; line-height: 40px;">
-                <?php echo get_the_title($post); ?>
-            </a>
+        
+            $post_type = get_post_type();
+
+if ($post_type === 'vacancy') {
+
+    $doc = get_field('Vacancy-Doc', get_the_ID());
+
+    if (!empty($doc) && isset($doc['url'])) {
+        $link = esc_url($doc['url']);
+    } else {
+        $link = get_permalink();
+    }
+
+} else {
+
+    $link = get_permalink();
+
+}
+?>
+
+<a href="<?php echo $link; ?>"
+   style="color:white; text-decoration:none; line-height:40px;"
+   <?php if ($post_type === 'vacancy') echo 'target="_blank"'; ?>>
+
+<?php the_title(); ?>
+
+</a>
         <?php
         echo '</' . $tag . '>';
     endforeach;
@@ -150,25 +158,6 @@ if ($post_count > 1) {
     </div>
 </div>
         
-        <!--<div class="secondary__header-arrow" style="margin-left: 0px; padding:0px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.7 24.69" style="color:#f3f3f3; translate(0px, 0px); opacity: 1;">
-                <defs>
-                    <style>.cls-1-arrow{fill:none;stroke:white;stroke-miterlimit:10;}</style>
-                </defs>
-                <g id="Calque_1-2" data-name="Calque 1">
-                    <path class="cls-1-arrow" d="M24,12.34H0m12-12,12,12-12,12"></path>
-                    <line class="cls-1-arrow" x1="23.99" y1="12.34" y2="12.34"></line>
-                    <polyline class="cls-1-arrow" style="stroke: white;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
-                </g>
-            </svg>
-        </div>
-        
-        <div style="color: white; font-size: 18px; width: calc(90% - 40px); overflow: hidden; white-space: nowrap;">
-          <span class="scrolling-text">JET 2022 result published, please follow the link to know your rank</span>
-        </div>-->
-        
-    <!--</div>--> <!-- Closing the .container div -->
-
 
 <section class="section-news" style="background-color: #0b6b39;" id="section-1">
     <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3;">
@@ -178,48 +167,58 @@ if ($post_count > 1) {
        <div class="frame"  role="region" aria-label="Feature News" aria-roledescription="carousel" >
        <ul class="slider"  style="height: 370px;">
             <?php
-            $post_id = get_the_ID();
-            $post_content = apply_filters('the_content', $post->post_content);
+if (pll_current_language() === 'en') {
+    $catslug = 'news-en';
+} else {
+    $catslug = 'news-hi';
+}
+wp_reset_postdata();
+$category_posts = new WP_Query(array(
+    'post_type' => 'news',
+    'posts_per_page' => 10,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => $catslug,
+        ),
+    ),
+));
 
-            if ($current_language === 'en_US') {
-                $catslug='news-en'; 
-            } else {
-                $catslug='news-hi';
-            }
+if ($category_posts->have_posts()) :
+    while ($category_posts->have_posts()) : $category_posts->the_post();
+?>
 
-            $category_posts = new WP_Query(array(
-                'post_type' => 'news',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'category',
-                        'field'    => 'slug',
-                        'terms'    => $catslug,
-                    ),
-                ),
-                'posts_per_page' => 10,
-            ));
+<li role="group" aria-roledescription="slide">
+    <div class="news-item">
 
-            if ($category_posts->have_posts()) :
-                while ($category_posts->have_posts()) : $category_posts->the_post();
-            ?>
-                    <li role="group" aria-roledescription="slide">
-                      <div class="news-item">
-                       <a href="<?php the_permalink(); ?>" target="_blank">
-                            <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo esc_url(get_field('News-Image')); ?>" alt="" style="display: block;">
-                            <div class="news-item-title">
-                                <p><?php the_title(); ?></p>
-                                <p><?php echo $post_content; ?></p>
-                        </div>
-                        </a>
-            </div> 
-                    </li>
-            <?php
-                endwhile;
-                wp_reset_postdata(); // Reset the post data
-            else :
-                echo '<p>No posts found in this category.</p>';
-            endif;
-            ?>  
+        <a href="<?php the_permalink(); ?>" target="_blank">
+
+            <img class="img-responsive lazyOwl"
+                 src="<?php echo esc_url(get_field('News-Image')); ?>"
+                 alt="<?php the_title_attribute(); ?>"
+                 style="display:block;">
+
+            <div class="news-item-title">
+
+                <p><?php the_title(); ?></p>
+
+                <p><?php echo wp_trim_words(get_the_content(), 25); ?></p>
+
+            </div>
+
+        </a>
+
+    </div>
+</li>
+
+<?php
+    endwhile;
+    wp_reset_postdata();
+else :
+    echo '<p>No posts found in this category.</p>';
+endif;
+?>  
         </ul>
         <div class="link-div" style="align-items: center; margin-top: 10px;">
             <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
