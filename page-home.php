@@ -221,7 +221,7 @@ endif;
 ?>  
         </ul>
         <div class="link-div" style="align-items: center; margin-top: 10px;">
-            <a class="link-text-big" href="<?php if ($current_language === 'en_US'){ echo esc_url(site_url('/news-list/')); } else 
+            <a class="link-text-big" href="<?php if ($current_language === 'en'){ echo esc_url(site_url('/news-list/')); } else 
 { echo esc_url(site_url('/समाचार-सूची/'));}
 ?>"  aria-label="Read more featured news">
                 <span class="lbl"><?php echo __('Read More Here', 'srft-theme' ); ?></span>
@@ -254,7 +254,7 @@ endif;
       </p>
       <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
-          <a class="link-text-big" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/')); }
+          <a class="link-text-big" href="<?php if ($current_language === 'en') { echo esc_url(site_url('/about-the-institute/')); }
 else 
 { echo esc_url(site_url('/संस्थान-के-बारे-में/'));}
 ?>"  aria-label="Read more about our Institute"><span> <?php echo __('Read More Here', 'srft-theme' ); ?></span><span class="primary__header-arrow"> 
@@ -345,7 +345,7 @@ else
     </div>
     <div class="course-text">
       <div class="course-highlight">
-        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/mfa-in-cinema/')); }
+        <a class="button-link-course" href="<?php if ($current_language === 'en') { echo esc_url(site_url('/mfa-in-cinema/')); }
 else 
 { echo esc_url(site_url('/सनम-म-सनतकततर-करयकरम/'));}
 ?>" >
@@ -365,7 +365,7 @@ else
       </div>
 
       <div class="course-highlight">
-        <a class="button-link-course" href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/mfa-in-edm/')); }
+        <a class="button-link-course" href="<?php if ($current_language === 'en') { echo esc_url(site_url('/mfa-in-edm/')); }
 else 
 { echo esc_url(site_url('/ईडीएम-में-स्नातकोत्तर-का/'));}
 ?>" >
