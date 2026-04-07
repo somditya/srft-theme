@@ -39,6 +39,9 @@ $current_language = get_locale();
                     <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/contact-us/'));}
                     else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}
                     ?>"><?php echo __('Contact Us', 'srft-theme'); ?></a></li>
+                    <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/student-grievance-redressal-committee/'));}
+                    else  { echo esc_url(site_url('/#/'));}
+                    ?>"><?php echo __('Student Grievance Redressal Committee', 'srft-theme'); ?></a></li>
                     <li><a href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/Vacancy/'));}
                     else  { echo esc_url(site_url('/रिक्ति/'));}
                     ?>"><?php echo __('Recruitment Notices', 'srft-theme'); ?></a></li>
