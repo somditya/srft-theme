@@ -102,6 +102,15 @@ $category_id = get_category_ID($category_name);
 wp_reset_postdata();
 ?> 
                 </div>
+                <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713; "> <?php echo __('Related Links:', 'srft-theme'); ?></a></li>
+        </ul></h2>
+                <div class="childnav-lists" role="complementary">
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li><a class="item" href="<?php echo (function_exists('pll_current_language') && pll_current_language() === 'hi') 
+         ? 'https://srfti.ac.in/hi/छात्र-शिकायत-निवारण-समित/' 
+         : 'https://srfti.ac.in/student-grievance-redressal-committee/'; ?>"  target="_blank" title="Students Grievance Redressal Committee"><?php echo __('Student Grievance Redressal Committee', 'srft-theme'); ?></a></li>
+        </ul>
+        </div>
             </div>
             <div class="main-content">
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students’ Highlights', 'srft-theme'); ?></h2>
