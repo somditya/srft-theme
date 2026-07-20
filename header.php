@@ -369,18 +369,13 @@ if ($current_language === 'en_US') {
 
 <?php
 $carousel_args = [
-    'post_type'      => 'picture',
-    'posts_per_page' => 7,
+    'post_type'      => 'banner',
+    'posts_per_page' => -1, // or 7 if you want a limit
     'post_status'    => 'publish',
-    'meta_query'     => [
-        [
-            'key'     => 'Picture_Category',
-            'value'   => 'Banner',
-            'compare' => '='
-        ]
-    ],
+    'meta_key'       => 'banner_order',
+    'orderby'        => 'meta_value_num',
+    'order'          => 'ASC',
 ];
-
 $carousel_query = new WP_Query($carousel_args);
 
 if ($carousel_query->have_posts()) :
@@ -439,9 +434,9 @@ if ($carousel_query->have_posts()) :
       $carousel_query->rewind_posts(); // REWIND the query instead of reset
       $i = 0;
       while ($carousel_query->have_posts()) : $carousel_query->the_post(); $i++;
-        $image = get_field('Picture_File');
-        $link  = get_field('picture_link');
-        $alt   = get_field('Picture_Description') ?: get_the_title();
+        $image = get_field('banner_image');
+        $link = function_exists('pll_current_language') && pll_current_language() === 'hi'? get_field('banner_post_link_hindi') : get_field('banner_post_link');
+        $alt   = get_field('banner_alt') ?: get_the_title();
       ?>
 
       <div class="carousel-item <?php echo ($i === 1) ? 'active' : ''; ?>"
