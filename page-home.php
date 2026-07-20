@@ -808,13 +808,12 @@ $final_url = site_url("/$slug/");
         <div class="box-container" style="display:flex; gap:1rem;">
             <?php
             // Language detection
-            $category_slug = ($current_language === 'hi_IN') ? 'social-hi' : 'social-en';
+            //$category_slug = ($current_language === 'hi_IN') ? 'social-hi' : 'social-en';
 
             $social_query = new WP_Query([
                 'post_type'      => 'social',
                 'posts_per_page' => 4,
                 'post_status'    => 'publish',
-                'category_name'  => $category_slug,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
             ]);
