@@ -79,16 +79,35 @@ $post_id = get_the_ID();
                         ]);
 
                         $grouped = [];
-                        foreach ($query->posts as $post) {
-                            $album_name = get_post_meta($post->ID, 'Album_Name', true);
-                            $picture_order = intval(get_post_meta($post->ID, 'Picture_Order', true));
-                            if ($album_name) {
-                                $grouped[$album_name][] = [
-                                    'post' => $post,
-                                    'order' => $picture_order
-                                ];
-                            }
-                        }
+
+// Get current language
+$current_language = function_exists('pll_current_language')
+    ? pll_current_language('slug')
+    : 'en';
+
+foreach ($query->posts as $post) {
+
+    // Get album name based on language
+    if ($current_language === 'hi') {
+        $album_name = get_field('album_name_in_hindi', $post->ID);
+
+        // Fallback to English if Hindi name is empty
+        if (empty($album_name)) {
+            $album_name = get_field('Album_Name', $post->ID);
+        }
+    } else {
+        $album_name = get_field('Album_Name', $post->ID);
+    }
+
+    $picture_order = (int) get_field('Picture_Order', $post->ID);
+
+    if (!empty($album_name)) {
+        $grouped[$album_name][] = [
+            'post'  => $post,
+            'order' => $picture_order
+        ];
+    }
+}
 
                         if (!empty($grouped)) {
                             foreach ($grouped as $album => &$items) {
