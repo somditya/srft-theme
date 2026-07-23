@@ -4008,8 +4008,8 @@ img.reload {
   /*background-image: url("images/workshop001.JPG");*/
   background-image: var(--bg-img);
   background-position: 50%;
-  background-size: cover;
-  height: 560px;
+  background-size: contain;
+  height: clamp(220px, 35vw, 560px);
   color: #4d4d4d;
 }
 
@@ -6721,9 +6721,10 @@ img.emoji {
 
 .cine-header {
   /*background-image: url("images/workshop001.JPG");*/
+  background-image: var(--bg-img);
   background-position: 50%;
   background-size: cover;
-  height: 560px;
+  height: clamp(220px, 35vw, 560px);
   color: #4d4d4d;
 }
 

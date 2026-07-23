@@ -14,7 +14,7 @@ $page_content = do_shortcode(get_post_field('post_content', $post_id)); // Ensur
 ?>
 <main>
 
-<section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
+<section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>');">
         <div class="page-banner">
               <h1 class="page-banner-title"><?php the_title(); ?></h1>
         </div>
