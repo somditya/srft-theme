@@ -260,6 +260,10 @@ $current_language = get_locale();
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
                       else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
                     </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/outreach/'));}
+                      else { echo esc_url(site_url('/आउटरीच/'));}?>"><?php echo __('Outreach', 'srft-theme' ); ?></a>
+                    </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
               </li>
