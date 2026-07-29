@@ -660,68 +660,83 @@ add_filter('wpcf7_validate_text*', 'custom_cf7_validate_name', 10, 2);
 /* This function outputs the url and the size of ACF filed document */
 
 function display_selected_documents($atts) {
-	// Remove wpautop filter to prevent auto <br> insertion
-	remove_filter('the_content', 'wpautop');
-	
-	$atts = shortcode_atts(
-			array(
-					'id' => '', // Post ID
-			), 
-			$atts
-	);
 
-	$post_id = intval($atts['id']); // Ensure it's an integer
+    $atts = shortcode_atts(
+        array(
+            'id' => '',
+        ),
+        $atts
+    );
 
-	if (!$post_id) {
-			return '<p>Invalid post ID.</p>';
-	}
+    $post_id = absint($atts['id']);
 
-	$post = get_post($post_id);
-	if (!$post) {
-			return '<p>No document found.</p>';
-	}
+    if (!$post_id) {
+        return '<p>Invalid post ID.</p>';
+    }
 
-	// Fetch ACF fields
-	$document_file = get_field('document', $post_id);
-	$document_description = get_field('document_description', $post_id);
+    $post = get_post($post_id);
 
-	if (!$document_file) {
-			return '<p>No document file found.</p>';
-	}
+    if (!$post) {
+        return '<p>No document found.</p>';
+    }
 
-	// Get file URL, ID, and size
-	//$file_url = $document_file['url'];
-	//$file_id = $document_file['ID'];
-	 $file_id = get_post_meta(get_the_ID(), 'document', true);
+    // ACF fields
+    $document_file = get_field('document', $post_id);
+    $document_description = get_field('document_description', $post_id);
 
-if ($file_id) {
-    $file_url = wp_get_attachment_url((int)$file_id);
+    if (empty($document_file) || !is_array($document_file)) {
+        return '<p>No document file found.</p>';
+    }
+
+    // File details from ACF
+    $file_id  = !empty($document_file['ID']) ? $document_file['ID'] : 0;
+    $file_url = !empty($document_file['url']) ? $document_file['url'] : '';
+
+    if (empty($file_url)) {
+        return '<p>Document URL not found.</p>';
+    }
+
+    // File size
+    if (!empty($document_file['filesize'])) {
+
+        // ACF 6.x provides filesize
+        $file_size_mb = number_format($document_file['filesize'] / 1048576, 2) . ' MB';
+
+    } elseif ($file_id) {
+
+        $file_path = get_attached_file($file_id);
+
+        if ($file_path && file_exists($file_path)) {
+            $file_size_mb = number_format(filesize($file_path) / 1048576, 2) . ' MB';
+        } else {
+            $file_size_mb = 'Unknown';
+        }
+
+    } else {
+
+        $file_size_mb = 'Unknown';
+
+    }
+
+    ob_start();
+    ?>
+    <a href="<?php echo esc_url($file_url); ?>"
+       title="<?php echo esc_attr($document_description); ?>"
+       target="_blank"
+       rel="noopener">
+
+        <?php echo esc_html(get_the_title($post_id)); ?>
+        (<?php echo __('Download', 'srft-theme'); ?> - <?php echo esc_html($file_size_mb); ?>)
+
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png"
+             alt="PDF"
+             style="display:inline-block;vertical-align:middle;">
+    </a>
+    <?php
+
+    return ob_get_clean();
 }
-	$file_size = @filesize(get_attached_file($file_id)); // Suppress errors with @
 
-	if (!function_exists('convertFileSizeToMB')) {
-			function convertFileSizeToMB($bytes) {
-					return ($bytes !== false) ? number_format($bytes / 1048576, 2) . ' MB' : 'Unknown';
-			}
-	}
-
-	$file_size_mb = convertFileSizeToMB($file_size);
-	$file_type_info = wp_check_filetype($file_url);
-	$file_type = isset($file_type_info['ext']) ? strtoupper($file_type_info['ext']) : 'Unknown';
-
-	// Generate the output
-	ob_start();
-	?>
-	<a href="<?php echo esc_url($file_url); ?>" title="<?php echo esc_attr($document_description); ?>" target="_blank" style=""><?php echo esc_html(get_the_title($post_id)); ?> (<?php echo __('Download', 'srft-theme'); ?> - <?php echo esc_html($file_size_mb); ?>)&nbsp;<img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="display: inline-block; vertical-align: middle;"></a><?php
-	$output = ob_get_clean();
-	
-	// Reapply wpautop filter to avoid affecting other content
-	//add_filter('the_content', 'wpautop');
-
-	return $output;
-}
-
-// Register the shortcode
 add_shortcode('selected_document', 'display_selected_documents');
 
 
