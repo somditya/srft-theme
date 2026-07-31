@@ -550,6 +550,9 @@ else
   </section>
 
   <section class="section-home" style="background-color: #f0e9e9;">
+    <?php
+echo '<!-- Current Language: ' . $current_language . ' -->';
+?>
     <div class="section-intro-header">
         <h2 class="section-intro-header-text" style="padding-left: 0;">
             <?php echo __('Media Gallery', 'srft-theme'); ?>
@@ -559,7 +562,7 @@ else
     <div class="container" style="display: flex; padding: 24px; max-width: 1450px;">
         
         <div class="img_card">
-        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=1')); }
+        <a href="<?php if ($current_language === 'en') { echo esc_url(site_url('/photo-gallery/?tab=1')); }
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=1'));}
 ?>">
@@ -571,7 +574,7 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=2')); }
+        <a href="<?php if ($current_language === 'en') { echo esc_url(site_url('/photo-gallery/?tab=2')); }
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=2'));}
 ?>">
@@ -583,7 +586,7 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=3')); }
+        <a href="<?php if ($current_language === 'en') { echo esc_url(site_url('/photo-gallery/?tab=3')); }
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=3'));}
 ?>">
@@ -595,7 +598,7 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=4')); }
+        <a href="<?php if ($current_language === 'en') { echo esc_url(site_url('/photo-gallery/?tab=4')); }
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=4'));}
 ?>">
@@ -607,7 +610,7 @@ else
         </div>
 
         <div class="img_card">
-        <a href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/photo-gallery/?tab=5')); }
+        <a href="<?php if ($current_language === 'en') { echo esc_url(site_url('/photo-gallery/?tab=5')); }
 else 
 { echo esc_url(site_url('/फोटो-गैलरी/?tab=5'));}
 ?>">
@@ -838,11 +841,18 @@ $final_url = site_url("/$slug/");
                             'youtube' => 'https://www.youtube.com/@your-channel',
                             'twitter' => 'https://x.com/srfti_official',
                             'instagram' => 'https://www.instagram.com/srfti_official/',
-                            'vimeo' => 'https://vimeo.com/your-account'
+                            'vimeo' => 'https://vimeo.com/your-account',
+                            'लिंक्डइन' => 'https://www.linkedin.com/school/satyajit-ray-film-and-television-institute-srfti/',
+                            'फेसबुक' => 'https://www.facebook.com/srftikol',
+                            'यूट्यूब' => 'https://www.youtube.com/@your-channel',
+                            'ट्विटर' => 'https://x.com/srfti_official',
+                            'इंस्टाग्राम' => 'https://www.instagram.com/srfti_official/',
+                            'विमियो' => 'https://vimeo.com/your-account'
+
                         ];
                         
                         // Use custom handle if provided, otherwise use default
-                        $social_url = !empty($social_handle) ? $social_handle : ($platform_urls[$platform_lower] ?? '#');
+                        $social_url = $platform_urls[$platform_lower];
                 ?>
 
                     <article class="cell social-card social-<?php echo esc_attr($platform_lower); ?>" aria-label="<?php echo esc_attr(ucfirst($platform_lower)); ?> feed">
