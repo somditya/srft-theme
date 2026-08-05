@@ -31,108 +31,152 @@ Template Name: Home
         <!-- Scrolling Container -->
         <div class="acme-news-ticker-box" style="flex: 1; overflow: hidden; position: relative; height: 40px;">
     <?php
-$locale = get_locale();       
-$current_language = pll_current_language('slug'); // safer); // en or hi
-//echo $current_language;
-$today = date('Ymd'); // for date comparison
+$locale = get_locale();
+$current_language = function_exists('pll_current_language') ? pll_current_language('slug') : 'en';
+
+$today = date('Ymd');
 
 $args = array(
-    'post_type' => array('announcement','vacancy'),
+    'post_type'      => array('announcement', 'vacancy'),
     'posts_per_page' => -1,
-    'meta_query' => array(
+    'meta_query'     => array(
         array(
-            'key' => 'highlight',
-            'value' => 'Yes',
+            'key'     => 'highlight',
+            'value'   => 'Yes',
             'compare' => '='
         ),
         array(
             'relation' => 'OR',
             array(
-                'key' => 'highlight_expiry_date',
+                'key'     => 'highlight_expiry_date',
                 'compare' => 'NOT EXISTS'
             ),
             array(
-                'key' => 'highlight_expiry_date',
-                'value' => $today,
+                'key'     => 'highlight_expiry_date',
+                'value'   => $today,
                 'compare' => '>=',
-                'type' => 'DATE'
+                'type'    => 'DATE'
             )
         )
     ),
     'orderby' => 'date',
-    'order' => 'DESC'
+    'order'   => 'DESC'
 );
+
 $query = new WP_Query($args);
 $filtered_posts = array();
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
-  $highlight = get_field('highlight');
-$expiry = get_field('highlight_expiry_date');
 
-if ($highlight == 'Yes') {
+        $highlight = get_field('highlight');
+        $expiry    = get_field('highlight_expiry_date');
 
-    if (empty($expiry) || $expiry >= $today) {
-        $filtered_posts[] = get_post();
-    }
+        if ($highlight == 'Yes') {
+            if (empty($expiry) || $expiry >= $today) {
+                $filtered_posts[] = get_post();
+            }
+        }
 
-}
     endwhile;
 endif;
+
 wp_reset_postdata();
 
 $post_count = count($filtered_posts);
 
-// Only use <ul> if multiple items
+// Wrapper
 if ($post_count > 1) {
-    echo '<ul class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0; list-style: none;">';
+    echo '<ul class="news-ticker" style="display:flex; white-space:nowrap; margin:0; padding:0; list-style:none;">';
 } else {
-    echo '<div class="news-ticker" style="display: flex; white-space: nowrap; margin: 0; padding: 0;">';
+    echo '<div class="news-ticker" style="display:flex; white-space:nowrap; margin:0; padding:0;">';
 }
 
 if ($post_count > 0) :
+
     foreach ($filtered_posts as $post) :
+
         setup_postdata($post);
+
         $tag = ($post_count > 1) ? 'li' : 'span';
-        echo '<' . $tag . ' style="padding: 0 80px; display: inline-block;">';
-        
-            $post_type = get_post_type();
 
-if ($post_type === 'vacancy') {
+        echo '<' . $tag . ' style="padding:0 80px; display:inline-block;">';
 
-    $doc = get_field('Vacancy-Doc', get_the_ID());
+        $post_type = get_post_type();
 
-    if (!empty($doc) && isset($doc['url'])) {
-        $link = esc_url($doc['url']);
-    } else {
-        $link = get_permalink();
-    }
+        $link   = get_permalink();
+        $target = '_self';
 
-} else {
+        /**
+         * Vacancy
+         */
+        if ($post_type === 'vacancy') {
 
-    $link = get_permalink();
+            $doc = get_field('Vacancy-Doc', get_the_ID());
 
-}
-?>
+            if (!empty($doc) && !empty($doc['url'])) {
+                $link   = esc_url($doc['url']);
+                $target = '_blank';
+            }
 
-<a href="<?php echo $link; ?>"
-   style="color:white; text-decoration:none; line-height:40px;"
-   <?php if ($post_type === 'vacancy') echo 'target="_blank"'; ?>>
+        }
 
-<?php the_title(); ?>
+        /**
+         * Announcement
+         */
+        elseif ($post_type === 'announcement') {
 
-</a>
+            $doc   = get_field('Announcement-Doc', get_the_ID());
+            $image = get_field('Announcement-Image', get_the_ID());
+            $text  = get_field('Announcement-Text', get_the_ID());
+
+            // Remove HTML to check whether text is actually empty
+            $plain_text = trim(wp_strip_all_tags($text));
+
+            // Open PDF only if:
+            // 1. Document exists
+            // 2. No image
+            // 3. No text
+            if (
+                !empty($doc) &&
+                !empty($doc['url']) &&
+                empty($image) &&
+                empty($plain_text)
+            ) {
+                $link   = esc_url($doc['url']);
+                $target = '_blank';
+            }
+
+        }
+        ?>
+
+        <a href="<?php echo esc_url($link); ?>"
+           target="<?php echo esc_attr($target); ?>"
+           style="color:white; text-decoration:none; line-height:40px;">
+
+            <?php the_title(); ?>
+
+        </a>
+
         <?php
+
         echo '</' . $tag . '>';
+
     endforeach;
+
     wp_reset_postdata();
+
 else :
-    echo '<span style="padding: 0 80px; display: inline-block;">';
-    echo '<span style="color: white; line-height: 40px;">' . __('No announcements at this time', 'srft-theme') . '</span>';
+
+    echo '<span style="padding:0 80px; display:inline-block;">';
+    echo '<span style="color:white; line-height:40px;">';
+    echo __('No announcements at this time', 'srft-theme');
     echo '</span>';
+    echo '</span>';
+
 endif;
 
-// Close with matching tag
+// Close wrapper
 if ($post_count > 1) {
     echo '</ul>';
 } else {
