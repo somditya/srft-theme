@@ -786,7 +786,7 @@ function acf_rest_api_get_fields( $object, $field_name, $request ) {
 
 add_filter('rest_prepare_post', 'add_custom_fields_to_json', 10, 3);
 	
-add_filter('acf/settings/remove_wp_meta_box', '__return_false'); /* To enable the default custom field while enabling the ACF features */
+add_filter('acf/settings/remove_wp_meta_box', '__return_true'); /* To enable the default custom field while enabling the ACF features */
 
 
 function enqueue_recaptcha_script() {
@@ -1540,3 +1540,93 @@ add_action('wp_enqueue_scripts', 'srft_theme_scripts');
 wp_enqueue_style( 'srft-media-lightbox-style', get_template_directory_uri() . '/css/media-lightbox.css' );
 
 add_filter( 'big_image_size_threshold', '__return_false' );
+
+// SRFTI Security Patch
+add_filter('upload_mimes', function($mimes){
+  return [
+    'jpg|jpeg'=>'image/jpeg',
+    'png'=>'image/png',
+    'gif'=>'image/gif',
+    'webp'=>'image/webp',
+    'pdf'=>'application/pdf',
+    'doc'=>'application/msword',
+    'docx'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'xls'=>'application/vnd.ms-excel',
+    'xlsx'=>'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'ppt'=>'application/vnd.ms-powerpoint',
+    'pptx'=>'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'zip'=>'application/zip'
+  ];
+});
+add_filter('wp_handle_upload_prefilter', function($file){
+  $blocked=['html','htm','svg','js','xml'];
+  $ext=strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+  if(in_array($ext,$blocked)){ $file['error']='Blocked file type.'; }
+  return $file;
+});
+add_filter('acf/update_value', function($value,$post_id,$field){
+  if(is_string($value)){ $value=wp_kses_post($value); }
+  return $value;
+},10,3);
+add_filter('auth_cookie_expiration', fn($l,$u,$r)=>1800,99,3);
+remove_action('wp_head','wp_generator');
+add_filter('the_generator','__return_empty_string');
+add_filter('xmlrpc_enabled','__return_false');
+add_filter('wp_insert_post_data', function($data){
+    if (!empty($data['post_title'])) {
+        $data['post_title'] = sanitize_text_field($data['post_title']);
+    }
+    return $data;
+}, 10, 1);
+add_filter('the_title', 'esc_html');
+
+
+function srfti_block_external_links ( $content) {
+
+$allowed ='/\.(gov|ac|res)\.in$/i';
+return preg_replace_callback('/<a\s+([^>]*href=["\'])(https?:\/\/[^"\']+)(["\'][^>]*)>/i',
+
+function($m) use ($allowed) {
+$host=wp_parse_url($m[2], PHP_URL_HOST);
+
+if($host && preg_match($allowed, $host)){
+return $m[0];
+
+}
+return '<a' .$m[1] . '#' .$m[3] . '>';
+
+},
+$content
+);
+
+}
+add_filter('content_save_pre', 'srfti_block_external_links');
+
+
+
+
+function srfti_restrict_external_links($data, $postarr) {
+
+if (empty($data['post_content']) || !class_exists('WP_HTML_Tag_Processor')) {
+ return $data;
+}
+
+$p= new WP_HTML_Tag_Processor($data['post_content']);
+
+while ($p->next_tag(['tag_name'=>'A'])){
+
+$href=trim($p->get_attribute('href') ?? '');
+
+if (!$href || preg_match('/^(javascript|data|vbscript):/i', $href)){
+$p->remove_attribure('href');
+continue;
+}
+$host=strlower(wp_parse_url($href, PHP_URL_HOST) ?? '');
+if ($host && !preg_match('/\.(gov|ac|res)\.in$ |\.in$/i', $host)){
+$p->remove_attribute('href');
+}
+}
+$data['post_content']= $p->get_updated_html();
+return $data;
+}
+#add_filter('wp_insert_post_data', 'srfti_restrict_external_links', 10 ,2);
