@@ -1846,13 +1846,19 @@ function restrict_post_link_domains( $data, $postarr ) {
 
         // 2. Allowed Specific External Domains (Add any trusted .com, .org, etc. here)
         $allowed_domains = array(
-            'vimeo.com',
-            'player.vimeo.com',
-            'youtube.com',
-            'www.youtube.com',
-            'youtu.be',
-            'wikipedia.org',
-            'en.wikipedia.org'
+           'x.com',
+    'www.x.com',
+    'twitter.com',
+    'www.twitter.com',
+    'vimeo.com',
+    'player.vimeo.com',
+    'youtube.com',
+    'www.youtube.com',
+    'youtu.be',
+    
+    // Reference & Other trusted sites
+    'wikipedia.org',
+    'en.wikipedia.org'
         );
 
         // Auto-detect your own site's domain
