@@ -35,17 +35,17 @@ $current_language = get_locale();
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> -->   
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />-->
     <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">
+    <!--<link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">-->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
     <!--<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
