@@ -1581,9 +1581,332 @@ add_filter('wp_insert_post_data', function($data){
 add_filter('the_title', 'esc_html');
 
 
+
+/* ========================================================================
+ * SRFTI WordPress Security Patch v2.0
+ * STQC / CERT-In VAPT Final Remediation
+ * Fixes Findings 010, 011, 012 and partially 013
+ * ===================================================================== */
+
+/* -----------------------------------------------------------------------
+ * 1. Hide WordPress Version (Finding #012)
+ * -------------------------------------------------------------------- */
+remove_action('wp_head', 'wp_generator');
+add_filter('the_generator', '__return_empty_string');
+
+/* -----------------------------------------------------------------------
+ * 2. Remove version query strings from CSS/JS
+ * Prevents technology disclosure.
+ * -------------------------------------------------------------------- */
+function srfti_remove_version_strings($src){
+    if (strpos($src, 'ver=')) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+add_filter('style_loader_src', 'srfti_remove_version_strings', 999);
+add_filter('script_loader_src', 'srfti_remove_version_strings', 999);
+
+/* -----------------------------------------------------------------------
+ * 3. Disable REST API User Enumeration
+ * -------------------------------------------------------------------- */
+add_filter('rest_endpoints', function($endpoints){
+
+    if(isset($endpoints['/wp/v2/users'])){
+        unset($endpoints['/wp/v2/users']);
+    }
+
+    return $endpoints;
+
+});
+
+/* -----------------------------------------------------------------------
+ * 4. Disable XML-RPC
+ * -------------------------------------------------------------------- */
+add_filter('xmlrpc_enabled', '__return_false');
+
+/* -----------------------------------------------------------------------
+ * 5. Restrict Dangerous Upload Types
+ * (Extra protection)
+ * -------------------------------------------------------------------- */
+add_filter('upload_mimes', function($mimes){
+
+    unset($mimes['svg']);
+    unset($mimes['html']);
+    unset($mimes['htm']);
+    unset($mimes['js']);
+    unset($mimes['xml']);
+
+    return $mimes;
+
+});
+
+/* -----------------------------------------------------------------------
+ * 6. Validate External URLs (Finding #010)
+ * Only allow approved domains.
+ * -------------------------------------------------------------------- */
+function srfti_validate_external_url($value, $post_id, $field){
+
+    if(empty($value)){
+        return $value;
+    }
+
+    $allowed_domains = [
+        'srfti.ac.in',
+        'education.gov.in',
+        'nfdcindia.com',
+        'ftii.ac.in',
+        'youtube.com',
+        'youtu.be',
+        'vimeo.com',
+        'pib.gov.in',
+        'mygov.in'
+    ];
+
+    $host = parse_url($value, PHP_URL_HOST);
+
+    if(!$host){
+        return '';
+    }
+
+    $host = strtolower(preg_replace('/^www\./','',$host));
+
+    if(!in_array($host,$allowed_domains)){
+        wp_die(
+            'External URL is not approved for SRFTI website.',
+            'Invalid External URL'
+        );
+    }
+
+    return esc_url_raw($value);
+}
+
+add_filter('acf/update_value/type=url','srfti_validate_external_url',20,3);
+
+/* -----------------------------------------------------------------------
+ * 7. Automatically Secure External Links
+ * Adds rel and target attributes.
+ * -------------------------------------------------------------------- */
+function srfti_secure_external_links($content){
+
+    return preg_replace_callback(
+        '/<a[^>]+href="([^"]+)"[^>]*>/i',
+        function($matches){
+
+            $url = $matches[1];
+
+            if(strpos($url, home_url()) === false){
+
+                $tag = $matches[0];
+
+                if(stripos($tag,'target=')===false){
+                    $tag = str_replace('<a','<a target="_blank"',$tag);
+                }
+
+                if(stripos($tag,'rel=')===false){
+                    $tag = str_replace(
+                        '<a',
+                        '<a rel="noopener noreferrer external"',
+                        $tag
+                    );
+                }
+
+                return $tag;
+            }
+
+            return $matches[0];
+
+        },
+        $content
+    );
+
+}
+
+add_filter('the_content','srfti_secure_external_links');
+
+/* -----------------------------------------------------------------------
+ * 8. Sanitize ACF Inputs (Finding #011)
+ * -------------------------------------------------------------------- */
+function srfti_acf_sanitize($value,$post_id,$field){
+
+    if(empty($value)){
+        return $value;
+    }
+
+    switch($field['type']){
+
+        case 'text':
+            return sanitize_text_field($value);
+
+        case 'textarea':
+            return sanitize_textarea_field($value);
+
+        case 'email':
+            return sanitize_email($value);
+
+        case 'url':
+            return esc_url_raw($value);
+
+        case 'wysiwyg':
+            return wp_kses_post($value);
+
+        default:
+
+            if(is_string($value)){
+                return wp_kses_post($value);
+            }
+
+            return $value;
+    }
+
+}
+
+add_filter('acf/update_value','srfti_acf_sanitize',15,3);
+
+/* -----------------------------------------------------------------------
+ * 9. Sanitize WordPress Titles
+ * -------------------------------------------------------------------- */
+add_filter('wp_insert_post_data', function($data){
+
+    if(isset($data['post_title'])){
+        $data['post_title'] = sanitize_text_field($data['post_title']);
+    }
+
+    return $data;
+
+},99);
+
+/* -----------------------------------------------------------------------
+ * 10. Secure Session Timeout (30 Minutes)
+ * -------------------------------------------------------------------- */
+add_filter('auth_cookie_expiration', function($length,$user_id,$remember){
+    return 1800;
+},99,3);
+
+/* -----------------------------------------------------------------------
+ * 11. Security Headers from WordPress (Backup)
+ * -------------------------------------------------------------------- */
+add_action('send_headers', function(){
+
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
+
+});
+
+/* -----------------------------------------------------------------------
+ * 12. Block Script Tags in Comments
+ * -------------------------------------------------------------------- */
+add_filter('pre_comment_content', function($content){
+    return wp_filter_nohtml_kses($content);
+});
+
+/* -----------------------------------------------------------------------
+ * 13. Escape Common Theme Outputs
+ * Helper functions for templates.
+ * -------------------------------------------------------------------- */
+function srfti_safe_field($field){
+    return esc_html(get_field($field));
+}
+
+function srfti_safe_url_field($field){
+    return esc_url(get_field($field));
+}
+
 /**
- * SRFTI - Allow only approved external domains in ACF URL fields.
- * STQC Finding #010 - Stored Malicious Link Injection
+ * Automatically strip unapproved href attributes before saving content.
  */
+/**
+ * Validate external link domains before saving a post in WordPress.
+ */
+/**
+ * Validate external link domains before saving a post in WordPress.
+ */
+function restrict_post_link_domains( $data, $postarr ) {
+    // Skip autosaves, revisions, or empty content
+    if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || empty( $data['post_content'] ) ) {
+        return $data;
+    }
 
+    // Fix WordPress escaping/slashes issue before checking HTML
+    $content = wp_unslash( $data['post_content'] );
 
+    // Only process if there are <a> tags present
+    if ( strpos( $content, '<a' ) !== false ) {
+        
+        libxml_use_internal_errors( true );
+        $dom = new DOMDocument();
+        @$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+        libxml_clear_errors();
+
+        $links = $dom->getElementsByTagName( 'a' );
+        
+        // 1. Allowed TLD Suffixes
+        $allowed_suffixes = array( '.in', '.gov.in', '.res.in', '.ac.in', '.nic.in', '.edu.in' );
+
+        // 2. Allowed Specific External Domains (Add any trusted .com, .org, etc. here)
+        $allowed_domains = array(
+            'vimeo.com',
+            'player.vimeo.com',
+            'youtube.com',
+            'www.youtube.com',
+            'youtu.be',
+            'wikipedia.org',
+            'en.wikipedia.org'
+        );
+
+        // Auto-detect your own site's domain
+        $your_domain = wp_parse_url( get_home_url(), PHP_URL_HOST );
+        if ( $your_domain ) {
+            $allowed_domains[] = strtolower( $your_domain );
+        }
+
+        foreach ( $links as $link ) {
+            $href = trim( $link->getAttribute( 'href' ) );
+
+            if ( ! empty( $href ) ) {
+                $parsed_url = wp_parse_url( $href );
+
+                // Skip relative URLs (e.g., "/about") or anchor links (e.g., "#contact")
+                if ( empty( $parsed_url['host'] ) ) {
+                    continue;
+                }
+
+                $host = strtolower( $parsed_url['host'] );
+                $is_allowed = false;
+
+                // Check A: Is host in the specific allowed domains list?
+                if ( in_array( $host, $allowed_domains, true ) ) {
+                    $is_allowed = true;
+                }
+
+                // Check B: Does host match allowed TLD suffixes?
+                if ( ! $is_allowed ) {
+                    foreach ( $allowed_suffixes as $suffix ) {
+                        $clean_suffix = ltrim( $suffix, '.' );
+                        
+                        if ( $host === $clean_suffix || str_ends_with( $host, '.' . $clean_suffix ) ) {
+                            $is_allowed = true;
+                            break;
+                        }
+                    }
+                }
+
+                // Block save if link domain fails both checks
+                if ( ! $is_allowed ) {
+                    wp_die( 
+                        sprintf( 
+                            __( '<strong>Security Block:</strong> Links to <code>%s</code> are not permitted. Only approved TLDs (.in, .ac.in, etc.) or whitelisted platforms (Vimeo, YouTube) are allowed.' ), 
+                            esc_html( $host ) 
+                        ),
+                        'Unauthorized Link Domain',
+                        array( 'back_link' => true )
+                    );
+                }
+            }
+        }
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data', 'restrict_post_link_domains', 10, 2 );
