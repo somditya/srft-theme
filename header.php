@@ -37,7 +37,7 @@ $current_language = get_locale();
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />-->
@@ -48,14 +48,15 @@ $current_language = get_locale();
     <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+    <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
   </head>
 
 
@@ -82,7 +83,7 @@ $current_language = get_locale();
       </div>
           <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-office', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
           <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in/roundcube/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
             <a href="#" title="Choose your language" aria-haspopup="true" tabindex=-1>
