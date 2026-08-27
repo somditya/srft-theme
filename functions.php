@@ -1581,52 +1581,9 @@ add_filter('wp_insert_post_data', function($data){
 add_filter('the_title', 'esc_html');
 
 
-function srfti_block_external_links ( $content) {
-
-$allowed ='/\.(gov|ac|res)\.in$/i';
-return preg_replace_callback('/<a\s+([^>]*href=["\'])(https?:\/\/[^"\']+)(["\'][^>]*)>/i',
-
-function($m) use ($allowed) {
-$host=wp_parse_url($m[2], PHP_URL_HOST);
-
-if($host && preg_match($allowed, $host)){
-return $m[0];
-
-}
-return '<a' .$m[1] . '#' .$m[3] . '>';
-
-},
-$content
-);
-
-}
-add_filter('content_save_pre', 'srfti_block_external_links');
+/**
+ * SRFTI - Allow only approved external domains in ACF URL fields.
+ * STQC Finding #010 - Stored Malicious Link Injection
+ */
 
 
-
-
-function srfti_restrict_external_links($data, $postarr) {
-
-if (empty($data['post_content']) || !class_exists('WP_HTML_Tag_Processor')) {
- return $data;
-}
-
-$p= new WP_HTML_Tag_Processor($data['post_content']);
-
-while ($p->next_tag(['tag_name'=>'A'])){
-
-$href=trim($p->get_attribute('href') ?? '');
-
-if (!$href || preg_match('/^(javascript|data|vbscript):/i', $href)){
-$p->remove_attribure('href');
-continue;
-}
-$host=strlower(wp_parse_url($href, PHP_URL_HOST) ?? '');
-if ($host && !preg_match('/\.(gov|ac|res)\.in$ |\.in$/i', $host)){
-$p->remove_attribute('href');
-}
-}
-$data['post_content']= $p->get_updated_html();
-return $data;
-}
-#add_filter('wp_insert_post_data', 'srfti_restrict_external_links', 10 ,2);
