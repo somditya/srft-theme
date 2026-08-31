@@ -432,102 +432,267 @@ else
 </section>
 
 
-<section class="section-home" style="background-color: #f0e9e9;">
-  <div style="margin-top: 3.2rem">
-    <h2 class="section-intro-header-text" style="padding-left: 0;">
-      <?php echo __('Notable Alumni', 'srft-theme'); ?>
-    </h2>
-    
-<div class="alumni" role="region" aria-label="<?php echo esc_attr__('Notable Alumni Carousel', 'srft-theme'); ?>"> 
-   <div class="carousel-controls" role="group" aria-label="<?php echo esc_attr__('Slideshow controls', 'srft-theme'); ?>" style="text-align:left; margin-bottom:10px;">
-      <button id="carouselToggle" type="button" aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>">
-        ⏸
-      </button>
-    </div>   
-   
-   <!-- Add aria-label with total count -->
-   <ul class="alumni-carousel owl-carousel" role="list" aria-label="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>">
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Amal-Neerad.jpg" alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Amal Neerad', 'srft-theme'); ?></p>
-        </li>
+<section class="section-home notable-alumni-section" style="background-color: #f0e9e9;">
+    <div style="margin-top: 3.2rem">
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Kanu-Behl.jpg" alt="<?php echo esc_attr__('Picture of Kanu Behl', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Kanu Behl', 'srft-theme'); ?></p>
-        </li>
+        <h2 class="section-intro-header-text" style="padding-left: 0;">
+            <?php echo esc_html__('Notable Alumni', 'srft-theme'); ?>
+        </h2>
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/namrata=rao.webp" alt="<?php echo esc_attr__('Picture of Namrata Rao', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Namrata Rao', 'srft-theme'); ?></p>
-        </li>
+        <div
+            class="alumni-carousel-wrapper"
+            role="region"
+            aria-label="<?php echo esc_attr__('Notable Alumni Carousel', 'srft-theme'); ?>"
+        >
 
-       <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/paban-kumar.webp" alt="<?php echo esc_attr__('Picture of Hawam Paban Kumar', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Haobam Paban Kumar', 'srft-theme'); ?></p>
-      </li>
-      
-      <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/pritha-chakraborty.png" alt="<?php echo esc_attr__('Picture of Pritha Chakraborty', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Pritha Chakraborty', 'srft-theme'); ?></p>
-      </li>
-       <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Modhura-Palit.png" alt="<?php echo esc_attr__('Picture of Madhura Palit', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Madhura Palit', 'srft-theme'); ?></p>
-        </li>
+            <!-- Carousel controls -->
+            <div class="alumni-carousel-controls">
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/avijit-sen.png" alt="<?php echo esc_attr__('Picture of Avijit Sen', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Abhijit Sen', 'srft-theme'); ?></p>
-        </li>
+                <button
+                    type="button"
+                    id="alumniPrev"
+                    class="alumni-carousel-button"
+                    aria-label="<?php echo esc_attr__('Previous alumni', 'srft-theme'); ?>"
+                >
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/sagar-ballari.png" alt="<?php echo esc_attr__('Picture of Sagar Ballary', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Sagar Ballary', 'srft-theme'); ?></p>
-        </li>
+                <button
+                    type="button"
+                    id="alumniToggle"
+                    class="alumni-carousel-button alumni-play-button"
+                    aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>"
+                    aria-pressed="false"
+                >
+                    <span aria-hidden="true">&#10074;&#10074;</span>
+                </button>
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Pritam-Das.png" alt="<?php echo esc_attr__('Picture of Pritam Das', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Pritam Das', 'srft-theme'); ?></p>
-        </li>
+                <button
+                    type="button"
+                    id="alumniNext"
+                    class="alumni-carousel-button"
+                    aria-label="<?php echo esc_attr__('Next alumni', 'srft-theme'); ?>"
+                >
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Saurav-Rai.png" alt="<?php echo esc_attr__('Picture of Sourav Rai', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Sourav Rai', 'srft-theme'); ?></p>
-        </li>
+            </div>
 
-        <li class="alumni-item">
-          <a class="alumni-img" href="#" target="_blank">
-            <img src="<?php bloginfo('template_url'); ?>/images/Dominic-Sangma.png" alt="<?php echo esc_attr__('Picture of Dominic Sangma', 'srft-theme'); ?>" />
-          </a>
-          <p><?php echo __('Dominic Sangma', 'srft-theme'); ?></p>
-        </li>
-      </ul>
-      
-      <div id="ariaLiveRegion" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+            <!-- Carousel viewport -->
+            <div class="alumni-carousel-viewport">
+
+                <ul
+                    id="alumniCarousel"
+                    class="alumni-carousel-list"
+                    aria-label="<?php echo esc_attr__('Notable Alumni, 11 items', 'srft-theme'); ?>"
+                >
+
+                    <!-- Amal Neerad -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Amal Neerad', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Amal-Neerad.jpg'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Amal Neerad', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Amal Neerad', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Kanu Behl -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Kanu Behl', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Kanu-Behl.jpg'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Kanu Behl', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Kanu Behl', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Namrata Rao -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Namrata Rao', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/namrata=rao.webp'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Namrata Rao', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Namrata Rao', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Haobam Paban Kumar -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Haobam Paban Kumar', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/paban-kumar.webp'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Haobam Paban Kumar', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Haobam Paban Kumar', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Pritha Chakraborty -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Pritha Chakraborty', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/pritha-chakraborty.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Pritha Chakraborty', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Pritha Chakraborty', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Madhura Palit -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Madhura Palit', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Modhura-Palit.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Madhura Palit', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Madhura Palit', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Abhijit Sen -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Abhijit Sen', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/avijit-sen.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Abhijit Sen', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Abhijit Sen', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Sagar Ballary -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Sagar Ballary', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/sagar-ballari.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Sagar Ballary', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Sagar Ballary', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Pritam Das -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Pritam Das', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Pritam-Das.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Pritam Das', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Pritam Das', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Sourav Rai -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Sourav Rai', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Saurav-Rai.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Sourav Rai', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Sourav Rai', 'srft-theme'); ?></p>
+                    </li>
+
+
+                    <!-- Dominic Sangma -->
+                    <li class="alumni-carousel-item">
+                        <a
+                            class="alumni-img"
+                            href="#"
+                            aria-label="<?php echo esc_attr__('Dominic Sangma', 'srft-theme'); ?>"
+                        >
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri() . '/images/Dominic-Sangma.png'); ?>"
+                                alt="<?php echo esc_attr__('Picture of Dominic Sangma', 'srft-theme'); ?>"
+                                loading="lazy"
+                            >
+                        </a>
+                        <p><?php echo esc_html__('Dominic Sangma', 'srft-theme'); ?></p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Screen reader announcement -->
+            <div
+                id="alumniAriaLive"
+                class="visually-hidden"
+                aria-live="polite"
+                aria-atomic="true"
+            ></div>
+
+        </div>
+
     </div>
-  </div>
 </section>
+
+
 
   <section class="section-home" style="background-color: rgb(228, 118, 15);
   background-image: url(<?php bloginfo('template_url'); ?>/images/Workshop002.png); background-blend-mode: multiply;">

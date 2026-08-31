@@ -1,14 +1,13 @@
 <?php
 /*
-Template Name: Faculty
-
+ * Template Name: Faculty
  */
-
 
 ?>
 
 <?php
-get_header(); 
+get_header();
+
 $current_language = get_locale();
 
 function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
@@ -21,311 +20,1043 @@ function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventi
 	return 0;
 }
 
-$category_name = 'faculty'; // Ensure this matches the exact category name.
-$category_id = get_category_ID($category_name);
+$category_name = 'faculty';
+$category_id   = get_category_ID( $category_name );
+
+/*
+ * Get the page banner image safely.
+ */
+$banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 ?>
+
 <div>
-<body ng-controller="FacultyController">
-    <main>
-      <body>
-      <section class="cine-header" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>');">
-        <div class="page-banner">
-          <h1 class="page-banner-title"><?php echo __('Faculty', 'srft-theme' ); ?></h1>
-        </div>  
-      </section>
 
-      <section class="section-home">
-        <div class="container" style="padding: 0 3.2rem;">
-        <div class="container-aligned">
-    <div class="breadcrumbs-wrapper">
-    <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
-            }
-    ?>
-   </div>
-   </div>
-          <h2 id="skip-to-content" class="page-header-text" style="padding-left: 0; text-align: center; margin-top: 20px;"><?php echo __('Meet our Faculty & Academic Support Staff', 'srft-theme' ); ?></h2>
-          <div ng-app="myApp" ng-controller="FacultyController" style="margin-top: 4.5rem;">
-            <!-- Filter options -->
-            <label for="filter"><?php echo __('Programmes:', 'srft-theme' ); ?></label>
-            <select id="filter" class="filter" ng-model="filterField">
-                <option value=""><?php echo __('All', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Animation Cinema', 'srft-theme' ); ?>"><?php echo __('Animation Cinema', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Cinematography', 'srft-theme' ); ?>"><?php echo __('Cinematography', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?>"><?php echo __('Direction & Screenplay Writing', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Editing', 'srft-theme' ); ?>"><?php echo __('Editing', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Producing for Film & Television', 'srft-theme' ); ?>"><?php echo __('Producing for Film & Television', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Sound Recording & Design', 'srft-theme' ); ?>"><?php echo __('Sound Recording & Design', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('EDM Management', 'srft-theme' ); ?>"><?php echo __('EDM Management', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Cinematography for EDM', 'srft-theme' ); ?>"><?php echo __('Cinematography for EDM', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?>"><?php echo __('Direction & Producing for EDM', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Editing for EDM', 'srft-theme' ); ?>"><?php echo __('Editing for EDM', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Sound for EDM', 'srft-theme' ); ?>"><?php echo __('Sound for EDM', 'srft-theme' ); ?></option>
-                <option value="<?php echo __('Writing for EDM', 'srft-theme' ); ?>"><?php echo __('Writing for EDM', 'srft-theme' ); ?></option>
-            </select>
-        
-            <!--<ul class="alphabet">
-              <li ng-class="{ 'active': !currentLetter }" ng-click="filterByLetter('')">
-                <a href="" ng-class="{ 'all-option': true }">All</a>
-            </li>
-              <li ng-repeat="letter in alphabet" ng-class="{ 'active': letter === currentLetter }" ng-click="filterByLetter(letter)">
-                  <a href="">{{ letter }}</a>
-              </li>
-              
-          </ul>-->
-      
-            <!-- Faculty grid using Flexbox -->
-            <ul class="faculty-grid" role="list" aria-label="Faculty profiles">
-  <div class="loading-overlay" ng-show="isLoading">
-    <div class="spinner" aria-hidden="true"></div>
-  </div>
+```
+<main>
 
-  <li class="faculty-card" role="listitem" ng-repeat="faculty in filteredFaculty.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-    <img ng-src="{{ faculty.image }}" alt="{{ faculty.name }}" class="faculty-image" style="filter: grayscale(100%);">
+	<section
+		class="cine-header"
+		style="background-image: url('<?php echo esc_url( $banner_image ); ?>');"
+	>
+		<div class="page-banner">
+			<h1 class="page-banner-title">
+				<?php echo esc_html__( 'Faculty', 'srft-theme' ); ?>
+			</h1>
+		</div>
+	</section>
 
-    <h3>
-      <a href="{{ faculty.link }}">{{ faculty.name }}</a>
-    </h3>
+	<section class="section-home">
 
-    <p>{{ faculty.designation }}</p>
-    <p>{{ faculty.department }}</p>
-  </li>
-</ul>
+		<div class="container" style="padding: 0 3.2rem;">
 
-          
-            <!-- Pagination -->
-<nav aria-label="Pagination">
-  <ul class="pagination">
-    <!-- First Page -->
-    <li ng-class="{ 'disabled': currentPage === 1 }">
-      <a href="#" ng-click="firstPage()" aria-label="<?php echo __('Go to first page', 'srft-theme'); ?>">
-        <span class="sr-only"><?php echo __('First Page', 'srft-theme'); ?></span>
-        <i class="fas fa-step-backward" aria-hidden="true" style="color: #8b5b2b;"></i>
-      </a>
-    </li>
+			<div class="container-aligned">
 
-    <!-- Previous Page -->
-    <li ng-class="{ 'disabled': currentPage === 1 }">
-      <a href="#" ng-click="prevPage()" aria-label="<?php echo __('Go to previous page', 'srft-theme'); ?>">
-        <span class="sr-only"><?php echo __('Previous Page', 'srft-theme'); ?></span>
-        <i class="fas fa-chevron-left" aria-hidden="true" style="color: #8b5b2b;"></i>
-      </a>
-    </li>
+				<div class="breadcrumbs-wrapper">
 
-    <!-- Page Numbers -->
-    <li ng-repeat="page in getPageNumbers()" ng-class="{ 'active': currentPage === page }">
-      <a href="#" ng-click="setPage(page)" 
-         aria-label="<?php echo __('Go to page', 'srft-theme'); ?> {{ page }}" 
-         aria-current="{{ currentPage === page ? 'page' : false }}">
-        {{ page }}
-      </a>
-    </li>
+					<?php
+					if ( function_exists( 'yoast_breadcrumb' ) ) {
+						yoast_breadcrumb(
+							'<nav aria-label="breadcrumbs" id="breadcrumbs">',
+							'</nav>'
+						);
+					}
+					?>
 
-    <!-- Next Page -->
-    <li ng-class="{ 'disabled': currentPage === totalPages }">
-      <a href="#" ng-click="nextPage()" aria-label="<?php echo __('Go to next page', 'srft-theme'); ?>">
-        <span class="sr-only"><?php echo __('Next Page', 'srft-theme'); ?></span>
-        <i class="fas fa-chevron-right" aria-hidden="true" style="color: #8b5b2b;"></i>
-      </a>
-    </li>
+				</div>
 
-    <!-- Last Page -->
-    <li ng-class="{ 'disabled': currentPage === totalPages }">
-      <a href="#" ng-click="lastPage()" aria-label="<?php echo __('Go to last page', 'srft-theme'); ?>">
-        <span class="sr-only"><?php echo __('Last Page', 'srft-theme'); ?></span>
-        <i class="fas fa-step-forward" aria-hidden="true" style="color: #8b5b2b;"></i>
-      </a>
-    </li>
-  </ul>
-</nav>
+			</div>
+
+			<h2
+				id="skip-to-content"
+				class="page-header-text"
+				style="padding-left: 0; text-align: center; margin-top: 20px;"
+			>
+				<?php
+				echo esc_html__(
+					'Meet our Faculty & Academic Support Staff',
+					'srft-theme'
+				);
+				?>
+			</h2>
+
+			<div
+				id="faculty-app"
+				style="margin-top: 4.5rem;"
+			>
+
+				<!-- Filter options -->
+				<label for="faculty-filter">
+					<?php echo esc_html__( 'Programmes:', 'srft-theme' ); ?>
+				</label>
+
+				<select
+					id="faculty-filter"
+					class="filter"
+				>
+					<option value="">
+						<?php echo esc_html__( 'All', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Animation Cinema', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Animation Cinema', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Cinematography', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Cinematography', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Direction & Screenplay Writing', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Direction & Screenplay Writing', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Editing', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Editing', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Producing for Film & Television', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Producing for Film & Television', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Sound Recording & Design', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Sound Recording & Design', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'EDM Management', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'EDM Management', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Cinematography for EDM', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Cinematography for EDM', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Direction & Producing for EDM', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Direction & Producing for EDM', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Editing for EDM', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Editing for EDM', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Sound for EDM', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Sound for EDM', 'srft-theme' ); ?>
+					</option>
+
+					<option value="<?php echo esc_attr__( 'Writing for EDM', 'srft-theme' ); ?>">
+						<?php echo esc_html__( 'Writing for EDM', 'srft-theme' ); ?>
+					</option>
+				</select>
+
+				<!-- Faculty grid -->
+				<ul
+					id="faculty-grid"
+					class="faculty-grid"
+					role="list"
+					aria-label="<?php echo esc_attr__( 'Faculty profiles', 'srft-theme' ); ?>"
+				>
+
+					<!-- Loading overlay -->
+					<div
+						id="faculty-loading"
+						class="loading-overlay"
+						aria-live="polite"
+						aria-label="<?php echo esc_attr__( 'Loading faculty', 'srft-theme' ); ?>"
+					>
+						<div
+							class="spinner"
+							aria-hidden="true"
+						></div>
+					</div>
+
+				</ul>
+
+				<!-- No results message -->
+				<p
+					id="faculty-no-results"
+					class="faculty-no-results"
+					style="display: none;"
+				>
+					<?php echo esc_html__( 'No faculty members found.', 'srft-theme' ); ?>
+				</p>
+
+				<!-- Pagination -->
+				<nav
+					id="faculty-pagination"
+					aria-label="<?php echo esc_attr__( 'Pagination', 'srft-theme' ); ?>"
+				>
+
+					<ul class="pagination">
+
+						<!-- First Page -->
+						<li id="faculty-first-page">
+							<a
+								href="#"
+								data-page-action="first"
+								aria-label="<?php echo esc_attr__( 'Go to first page', 'srft-theme' ); ?>"
+							>
+								<span class="sr-only">
+									<?php echo esc_html__( 'First Page', 'srft-theme' ); ?>
+								</span>
+
+								<i
+									class="fas fa-step-backward"
+									aria-hidden="true"
+									style="color: #8b5b2b;"
+								></i>
+							</a>
+						</li>
+
+						<!-- Previous Page -->
+						<li id="faculty-prev-page">
+							<a
+								href="#"
+								data-page-action="previous"
+								aria-label="<?php echo esc_attr__( 'Go to previous page', 'srft-theme' ); ?>"
+							>
+								<span class="sr-only">
+									<?php echo esc_html__( 'Previous Page', 'srft-theme' ); ?>
+								</span>
+
+								<i
+									class="fas fa-chevron-left"
+									aria-hidden="true"
+									style="color: #8b5b2b;"
+								></i>
+							</a>
+						</li>
+
+						<!-- Page numbers -->
+						<li id="faculty-page-numbers"></li>
+
+						<!-- Next Page -->
+						<li id="faculty-next-page">
+							<a
+								href="#"
+								data-page-action="next"
+								aria-label="<?php echo esc_attr__( 'Go to next page', 'srft-theme' ); ?>"
+							>
+								<span class="sr-only">
+									<?php echo esc_html__( 'Next Page', 'srft-theme' ); ?>
+								</span>
+
+								<i
+									class="fas fa-chevron-right"
+									aria-hidden="true"
+									style="color: #8b5b2b;"
+								></i>
+							</a>
+						</li>
+
+						<!-- Last Page -->
+						<li id="faculty-last-page">
+							<a
+								href="#"
+								data-page-action="last"
+								aria-label="<?php echo esc_attr__( 'Go to last page', 'srft-theme' ); ?>"
+							>
+								<span class="sr-only">
+									<?php echo esc_html__( 'Last Page', 'srft-theme' ); ?>
+								</span>
+
+								<i
+									class="fas fa-step-forward"
+									aria-hidden="true"
+									style="color: #8b5b2b;"
+								></i>
+							</a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</main>
+```
+
+</div>
+
+<script>
+(function () {
+	'use strict';
+
+	/*
+	 * WordPress REST API configuration.
+	 */
+	const siteURL = <?php echo wp_json_encode( esc_url_raw( site_url( '/' ) ) ); ?>;
+	const categoryID = <?php echo wp_json_encode( absint( $category_id ) ); ?>;
+	const language = <?php echo wp_json_encode( $current_language ); ?>;
+
+	const apiURL =
+		siteURL +
+		'wp-json/wp/v2/faculty?categories=' +
+		encodeURIComponent(categoryID) +
+		'&per_page=100';
+
+	/*
+	 * Configuration.
+	 */
+	const itemsPerPage = 15;
+
+	/*
+	 * DOM elements.
+	 */
+	const facultyGrid = document.getElementById('faculty-grid');
+	const loadingOverlay = document.getElementById('faculty-loading');
+	const filterSelect = document.getElementById('faculty-filter');
+	const pagination = document.getElementById('faculty-pagination');
+	const pageNumbers = document.getElementById('faculty-page-numbers');
+	const noResults = document.getElementById('faculty-no-results');
+
+	const firstPage = document.getElementById('faculty-first-page');
+	const previousPage = document.getElementById('faculty-prev-page');
+	const nextPage = document.getElementById('faculty-next-page');
+	const lastPage = document.getElementById('faculty-last-page');
+
+	/*
+	 * Application state.
+	 */
+	let facultyList = [];
+	let filteredFaculty = [];
+	let currentPage = 1;
+	let currentLetter = '';
+
+	/*
+	 * Alphabet.
+	 *
+	 * Kept here for future use if the alphabetical filter
+	 * is enabled again.
+	 */
+	let alphabet;
+
+	if (language === 'en_US') {
+
+		alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+	} else if (language === 'hi_IN') {
+
+		alphabet = 'अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह'.split('');
+
+	} else {
+
+		alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+	}
 
 
-        </div>
-        </div>
-  
-       
-        <script>
-             var categoryID = <?php echo json_encode($category_id); ?>;
-             var siteURL = '<?php echo esc_url(site_url('/')); ?>';
-             
-              var language = '<?php echo $current_language; ?>';
-              var alphabet;
+	/*
+	 * Escape HTML special characters.
+	 *
+	 * We use DOM text nodes instead of inserting API
+	 * values through innerHTML.
+	 */
+	function createSafeText(text) {
 
-              if (language === 'en_US') {
-                alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-              } else if (language === 'hi_IN') {
-                alphabet = 'अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह'.split('');
-              } else {
-              alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''); // Fallback to English
-              } 
-             
-    angular.module('myApp', [])
-.controller('FacultyController', function($scope, $http) {
-  $scope.isLoading = true; 
-    // Initialize the faculty data (replace this with your actual data)
-    //$http.get(siteURL+'wp-json/wp/v2/posts?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
-    $http.get(siteURL+'wp-json/wp/v2/faculty?categories='+ categoryID + '&per_page=100') // Adjust 'per_page' as needed
-    .then(function (response) {
-        console.log('HTTP request success');
-        // Map the retrieved data to the format you want in $scope.facultyList
-        $scope.facultyList = response.data.map(function (post) {
-            var postLink = post.link;
-// Append the background image URL as a query parameter to the post link
-      var backgroundImageUrl = '<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>';
-      var linkWithImage = postLink + '?bg_image=' + encodeURIComponent(backgroundImageUrl);
-            return {
-                name: post.title.rendered || '',
-                //link: linkWithImage,
-                //featured_media: post.featured_media,
-                link: postLink,
-                image: post.acf['Faculty-Image'],
-                //designation: post.Designation,
-                designation: post.acf['Faculty-Designation'],
-                //department: post.Department
-                //department: post.acf['Department']
-                department: post.acf['Faculty-Department'],
-                category: post.acf['Faculty-Category'] ? parseInt(post.acf['Faculty-Category']) : 9999
-            };
-        });
+		const node = document.createTextNode(
+			text === null || text === undefined
+				? ''
+				: String(text)
+		);
 
-        /*angular.forEach($scope.facultyList, function(faculty) {
-            if (faculty.featured_media) {
-                $http.get(siteURL+'wp-json/wp/v2/media/' + faculty.featured_media)
-                    .then(function(imageResponse) {
-                        faculty.image = imageResponse.data.source_url;
-                        console.log('Image Loaded for:', faculty.name);
-                    })
-                    .catch(function(error) {
-                        console.error('Error fetching featured image:', error);
-                    });
-            }
-        });*/
+		return node;
 
-        console.log('Faculty List:', $scope.facultyList);
-  // Initialize $scope.filteredFaculty as an empty array here
-  $scope.filteredFaculty = [];
-        // Call the updateFilteredFaculty function after loading faculty data
-        $scope.$watchGroup(['filterField', 'currentLetter'], function() {
-    console.log('Filter changed:', $scope.filterField, $scope.currentLetter);
-    $scope.currentPage = 1; // Reset to the first page when the filter changes
-    updateFilteredFaculty();
-    $scope.isLoading = false;
-});
-        
-    })
-    .catch(function (error) {
-        console.error('Error fetching faculty data:', error);
-    });
-
-    // Pagination settings
-    $scope.currentPage = 1;
-    $scope.itemsPerPage = 15;  // Adjust as needed
-
-    // Filter options
-    $scope.filterField = '';
-    $scope.currentLetter = '';
-
-    $scope.setPage = function(pageNumber) {
-        $scope.currentPage = pageNumber;
-    };
-
-    // Function to filter faculty based on department
-    $scope.filterFaculty = function(faculty) {
-    const departmentMatch = !$scope.filterField || faculty.department === $scope.filterField;
-    const letterMatch = !$scope.currentLetter || faculty.name.charAt(0).toUpperCase() === $scope.currentLetter;
-
-    console.log('Field Match:', departmentMatch);
-    console.log('Letter Match:', letterMatch);
-
-    return departmentMatch && letterMatch;
-};
-
-    // Initialize $scope.filteredFaculty as an empty array
-    $scope.filteredFaculty = [];
-
-    // Function to get the total number of pages
-    $scope.getTotalPages = function() {
-    // Ensure $scope.filteredFaculty is defined before accessing its length
-    if ($scope.filteredFaculty) {
-        return Math.ceil($scope.filteredFaculty.length / $scope.itemsPerPage);
-    }
-    return 0; // Default to 0 if filteredFaculty is undefined
-};
-
-    // Function to generate an array of page numbers for pagination
-    $scope.getPageNumbers = function() {
-        const pageCount = $scope.getTotalPages();
-        return new Array(pageCount).fill().map((_, i) => i + 1);
-    };
-
-    // Alphabet links data
-    //$scope.alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
-
-    // Function to filter faculty by starting letter
-    $scope.filterByLetter = function(letter) {
-            $scope.currentLetter = letter;
-        };
+	}
 
 
-    // Function to set the current page
-    $scope.setPage = function (page) {
-          if (page >= 1 && page <= $scope.getTotalPages()) {
-            $scope.currentPage = page;
-            $scope.updateilteredFaculty();
-          }
-        };
+	/*
+	 * Validate URL before using it in href/src.
+	 *
+	 * Only http and https URLs are accepted.
+	 */
+	function getSafeURL(value) {
 
-        // Function to go to the previous page
-        $scope.prevPage = function () {
-          if ($scope.currentPage > 1) {
-            $scope.currentPage--;
-            $scope.updateilteredFaculty();
-          }
-        };
+		if (!value) {
+			return '';
+		}
 
-        // Function to go to the next page
-        $scope.nextPage = function () {
-          if ($scope.currentPage < $scope.getTotalPages()) {
-            $scope.currentPage++;
-            $scope.updateilteredFaculty();
-          }
-        };
+		try {
 
-        $scope.firstPage = function () {
-  $scope.currentPage = 1;
-  $scope.updateilteredFaculty();
-};
+			const url = new URL(value, window.location.origin);
 
-$scope.lastPage = function () {
-  $scope.currentPage = $scope.getTotalPages();
-  $scope.updateilteredFaculty();
-};
-        // Initialize pagedTender    
-    // Helper function to update the filtered faculty data based on pagination and filtering
-    function updateFilteredFaculty() {
-    $scope.filteredFaculty = $scope.facultyList.filter($scope.filterFaculty);
+			if (
+				url.protocol === 'http:' ||
+				url.protocol === 'https:'
+			) {
+				return url.href;
+			}
 
-    if ($scope.filterField) {
-        // Sort by Faculty-Category when a department is selected
-        console.log('Sorting by Category');
-        $scope.filteredFaculty.sort((a, b) => (a.category || 9999) - (b.category || 9999));
-    } else {
-        // Default sorting: Alphabetical
-        console.log('Sorting Alphabetically');
-        $scope.filteredFaculty.sort((a, b) => a.name.localeCompare(b.name));
-    }
+		} catch (error) {
 
-    // Reset pagination to first page when filtering changes
-    $scope.currentPage = 1;
-}
+			console.warn('Invalid URL:', value);
 
-});
+		}
 
+		return '';
+
+	}
+
+
+	/*
+	 * Create a faculty card.
+	 */
+	function createFacultyCard(faculty) {
+
+		const li = document.createElement('li');
+
+		li.className = 'faculty-card';
+		li.setAttribute('role', 'listitem');
+
+
+		/*
+		 * Faculty image.
+		 */
+		const imageURL = getSafeURL(faculty.image);
+
+		if (imageURL) {
+
+			const image = document.createElement('img');
+
+			image.src = imageURL;
+			image.alt = faculty.name || '';
+			image.className = 'faculty-image';
+
+			image.style.filter = 'grayscale(100%)';
+
+			image.loading = 'lazy';
+
+			li.appendChild(image);
+
+		}
+
+
+		/*
+		 * Faculty name and link.
+		 */
+		const heading = document.createElement('h3');
+
+		const linkURL = getSafeURL(faculty.link);
+
+		if (linkURL) {
+
+			const link = document.createElement('a');
+
+			link.href = linkURL;
+			link.appendChild(createSafeText(faculty.name));
+
+			heading.appendChild(link);
+
+		} else {
+
+			heading.appendChild(
+				createSafeText(faculty.name)
+			);
+
+		}
+
+		li.appendChild(heading);
+
+
+		/*
+		 * Designation.
+		 */
+		const designation = document.createElement('p');
+
+		designation.appendChild(
+			createSafeText(faculty.designation)
+		);
+
+		li.appendChild(designation);
+
+
+		/*
+		 * Department.
+		 */
+		const department = document.createElement('p');
+
+		department.appendChild(
+			createSafeText(faculty.department)
+		);
+
+		li.appendChild(department);
+
+
+		return li;
+
+	}
+
+
+	/*
+	 * Render faculty cards for current page.
+	 */
+	function renderFaculty() {
+
+		/*
+		 * Remove existing faculty cards.
+		 *
+		 * Keep the loading overlay intact.
+		 */
+		const existingCards =
+			facultyGrid.querySelectorAll('.faculty-card');
+
+		existingCards.forEach(function (card) {
+			card.remove();
+		});
+
+
+		const startIndex =
+			(currentPage - 1) * itemsPerPage;
+
+		const endIndex =
+			startIndex + itemsPerPage;
+
+		const currentFaculty =
+			filteredFaculty.slice(startIndex, endIndex);
+
+
+		/*
+		 * No results.
+		 */
+		if (currentFaculty.length === 0) {
+
+			noResults.style.display = 'block';
+
+		} else {
+
+			noResults.style.display = 'none';
+
+		}
+
+
+		/*
+		 * Add faculty cards.
+		 */
+		currentFaculty.forEach(function (faculty) {
+
+			const card = createFacultyCard(faculty);
+
+			/*
+			 * Insert before loading overlay.
+			 */
+			facultyGrid.insertBefore(
+				card,
+				loadingOverlay
+			);
+
+		});
+
+
+		updatePagination();
+
+	}
+
+
+	/*
+	 * Filter faculty.
+	 */
+	function updateFilteredFaculty() {
+
+		const selectedDepartment =
+			filterSelect.value;
+
+
+		filteredFaculty =
+			facultyList.filter(function (faculty) {
+
+				const departmentMatch =
+					!selectedDepartment ||
+					faculty.department === selectedDepartment;
+
+
+				const name =
+					faculty.name || '';
+
+
+				const letterMatch =
+					!currentLetter ||
+					name.charAt(0).toUpperCase() ===
+					currentLetter;
+
+
+				return departmentMatch && letterMatch;
+
+			});
+
+
+		/*
+		 * Sort by Faculty Category when a programme
+		 * is selected.
+		 *
+		 * Otherwise sort alphabetically.
+		 */
+		if (selectedDepartment) {
+
+			filteredFaculty.sort(function (a, b) {
+
+				return (
+					(a.category || 9999) -
+					(b.category || 9999)
+				);
+
+			});
+
+		} else {
+
+			filteredFaculty.sort(function (a, b) {
+
+				return (a.name || '').localeCompare(
+					b.name || '',
+					undefined,
+					{
+						sensitivity: 'base'
+					}
+				);
+
+			});
+
+		}
+
+
+		/*
+		 * Always return to page 1 when filtering.
+		 */
+		currentPage = 1;
+
+		renderFaculty();
+
+	}
+
+
+	/*
+	 * Calculate total pages.
+	 */
+	function getTotalPages() {
+
+		return Math.ceil(
+			filteredFaculty.length / itemsPerPage
+		);
+
+	}
+
+
+	/*
+	 * Create pagination.
+	 */
+	function updatePagination() {
+
+		const totalPages = getTotalPages();
+
+
+		/*
+		 * Hide pagination if only one page or no results.
+		 */
+		if (totalPages <= 1) {
+
+			pagination.style.display = 'none';
+
+			return;
+
+		}
+
+
+		pagination.style.display = 'block';
+
+
+		/*
+		 * Clear existing page numbers.
+		 */
+		pageNumbers.innerHTML = '';
+
+
+		/*
+		 * Generate page numbers.
+		 */
+		for (
+			let page = 1;
+			page <= totalPages;
+			page++
+		) {
+
+			const li = document.createElement('li');
+
+			if (currentPage === page) {
+				li.classList.add('active');
+			}
+
+
+			const link = document.createElement('a');
+
+			link.href = '#';
+
+			link.dataset.page = page;
+
+			link.setAttribute(
+				'aria-label',
+				'<?php echo esc_js( __( 'Go to page', 'srft-theme' ) ); ?> ' + page
+			);
+
+
+			if (currentPage === page) {
+
+				link.setAttribute(
+					'aria-current',
+					'page'
+				);
+
+			}
+
+
+			link.appendChild(
+				createSafeText(page)
+			);
+
+
+			li.appendChild(link);
+
+			pageNumbers.appendChild(li);
+
+		}
+
+
+		/*
+		 * Update disabled state.
+		 */
+		setPaginationState(
+			firstPage,
+			currentPage === 1
+		);
+
+		setPaginationState(
+			previousPage,
+			currentPage === 1
+		);
+
+		setPaginationState(
+			nextPage,
+			currentPage === totalPages
+		);
+
+		setPaginationState(
+			lastPage,
+			currentPage === totalPages
+		);
+
+	}
+
+
+	/*
+	 * Enable/disable pagination controls.
+	 */
+	function setPaginationState(element, disabled) {
+
+		if (disabled) {
+
+			element.classList.add('disabled');
+
+			const link = element.querySelector('a');
+
+			if (link) {
+				link.setAttribute(
+					'aria-disabled',
+					'true'
+				);
+			}
+
+		} else {
+
+			element.classList.remove('disabled');
+
+			const link = element.querySelector('a');
+
+			if (link) {
+				link.removeAttribute(
+					'aria-disabled'
+				);
+			}
+
+		}
+
+	}
+
+
+	/*
+	 * Change page.
+	 */
+	function setPage(page) {
+
+		const totalPages = getTotalPages();
+
+		if (
+			page < 1 ||
+			page > totalPages
+		) {
+			return;
+		}
+
+		currentPage = page;
+
+		renderFaculty();
+
+		/*
+		 * Keep the current scroll position close to
+		 * the faculty section.
+		 */
+		const appTop =
+			document.getElementById('faculty-app')
+				.getBoundingClientRect().top +
+			window.scrollY -
+			100;
+
+		window.scrollTo({
+			top: appTop,
+			behavior: 'smooth'
+		});
+
+	}
+
+
+	/*
+	 * Pagination button events.
+	 */
+	firstPage
+		.querySelector('a')
+		.addEventListener('click', function (event) {
+
+			event.preventDefault();
+
+			if (currentPage > 1) {
+				setPage(1);
+			}
+
+		});
+
+
+	previousPage
+		.querySelector('a')
+		.addEventListener('click', function (event) {
+
+			event.preventDefault();
+
+			if (currentPage > 1) {
+				setPage(currentPage - 1);
+			}
+
+		});
+
+
+	nextPage
+		.querySelector('a')
+		.addEventListener('click', function (event) {
+
+			event.preventDefault();
+
+			const totalPages = getTotalPages();
+
+			if (currentPage < totalPages) {
+				setPage(currentPage + 1);
+			}
+
+		});
+
+
+	lastPage
+		.querySelector('a')
+		.addEventListener('click', function (event) {
+
+			event.preventDefault();
+
+			const totalPages = getTotalPages();
+
+			if (currentPage < totalPages) {
+				setPage(totalPages);
+			}
+
+		});
+
+
+	/*
+	 * Page-number event delegation.
+	 */
+	pageNumbers.addEventListener(
+		'click',
+		function (event) {
+
+			const link =
+				event.target.closest('a[data-page]');
+
+			if (!link) {
+				return;
+			}
+
+			event.preventDefault();
+
+			const page =
+				parseInt(link.dataset.page, 10);
+
+			if (!Number.isNaN(page)) {
+				setPage(page);
+			}
+
+		}
+	);
+
+
+	/*
+	 * Programme filter.
+	 */
+	filterSelect.addEventListener(
+		'change',
+		function () {
+
+			updateFilteredFaculty();
+
+		}
+	);
+
+
+	/*
+	 * Load faculty data from WordPress REST API.
+	 */
+	function loadFaculty() {
+
+		loadingOverlay.style.display = 'flex';
+
+		fetch(apiURL, {
+			method: 'GET',
+			credentials: 'same-origin',
+			headers: {
+				'Accept': 'application/json'
+			}
+		})
+		.then(function (response) {
+
+			if (!response.ok) {
+
+				throw new Error(
+					'HTTP error: ' + response.status
+				);
+
+			}
+
+			return response.json();
+
+		})
+		.then(function (data) {
+
+			/*
+			 * Ensure API response is an array.
+			 */
+			if (!Array.isArray(data)) {
+
+				throw new Error(
+					'Unexpected REST API response.'
+				);
+
+			}
+
+
+			/*
+			 * Map REST API data to our internal structure.
+			 */
+			facultyList = data.map(function (post) {
+
+				const acf =
+					post.acf || {};
+
+
+				return {
+
+					name:
+						post.title &&
+						typeof post.title.rendered === 'string'
+							? post.title.rendered
+							: '',
+
+
+					link:
+						typeof post.link === 'string'
+							? post.link
+							: '',
+
+
+					image:
+						typeof acf['Faculty-Image'] === 'string'
+							? acf['Faculty-Image']
+							: '',
+
+
+					designation:
+						typeof acf['Faculty-Designation'] === 'string'
+							? acf['Faculty-Designation']
+							: '',
+
+
+					department:
+						typeof acf['Faculty-Department'] === 'string'
+							? acf['Faculty-Department']
+							: '',
+
+
+					category:
+						acf['Faculty-Category']
+							? parseInt(
+								acf['Faculty-Category'],
+								10
+							)
+							: 9999
+
+				};
+
+			});
+
+
+			/*
+			 * Initial rendering.
+			 */
+			updateFilteredFaculty();
+
+		})
+		.catch(function (error) {
+
+			console.error(
+				'Error fetching faculty data:',
+				error
+			);
+
+
+			facultyList = [];
+			filteredFaculty = [];
+
+
+			noResults.textContent =
+				'<?php echo esc_js( __( 'Unable to load faculty data. Please try again later.', 'srft-theme' ) ); ?>';
+
+			noResults.style.display = 'block';
+
+			pagination.style.display = 'none';
+
+		})
+		.finally(function () {
+
+			loadingOverlay.style.display = 'none';
+
+		});
+
+	}
+
+
+	/*
+	 * Start application.
+	 */
+	loadFaculty();
+
+})();
 </script>
-          
-    </main>
 
-    <?php get_footer();  ?>
+<?php get_footer(); ?>
+
 </body>
 </html>

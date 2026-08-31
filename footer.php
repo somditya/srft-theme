@@ -626,6 +626,347 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>-->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const carousel = document.getElementById('alumniCarousel');
+    const prevButton = document.getElementById('alumniPrev');
+    const nextButton = document.getElementById('alumniNext');
+    const toggleButton = document.getElementById('alumniToggle');
+    const liveRegion = document.getElementById('alumniAriaLive');
+
+    if (!carousel || !prevButton || !nextButton || !toggleButton) {
+        return;
+    }
+
+    const items = Array.from(
+        carousel.querySelectorAll('.alumni-carousel-item')
+    );
+
+    if (!items.length) {
+        return;
+    }
+
+    let currentIndex = 0;
+    let autoplay = true;
+    let autoplayTimer = null;
+
+    /*
+     * Number of visible items according to screen width.
+     */
+    function getVisibleItems() {
+
+        if (window.innerWidth <= 480) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 767) {
+            return 2;
+        }
+
+        if (window.innerWidth <= 991) {
+            return 3;
+        }
+
+        return 5;
+    }
+
+
+    /*
+     * Maximum possible starting position.
+     */
+    function getMaxIndex() {
+
+        const visibleItems = getVisibleItems();
+
+        return Math.max(
+            0,
+            items.length - visibleItems
+        );
+    }
+
+
+    /*
+     * Move carousel.
+     */
+    function updateCarousel(announce = true) {
+
+        const visibleItems = getVisibleItems();
+        const maxIndex = getMaxIndex();
+
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        }
+
+        /*
+         * Each item occupies an equal percentage of the viewport.
+         */
+        const itemWidth = 100 / visibleItems;
+
+        carousel.style.transform =
+            'translateX(-' + (currentIndex * itemWidth) + '%)';
+
+
+        /*
+         * Accessibility announcement.
+         */
+        if (announce && liveRegion) {
+
+            const firstItemNumber = currentIndex + 1;
+            const lastItemNumber = Math.min(
+                currentIndex + visibleItems,
+                items.length
+            );
+
+            liveRegion.textContent =
+                'Showing alumni ' +
+                firstItemNumber +
+                ' to ' +
+                lastItemNumber +
+                ' of ' +
+                items.length;
+        }
+    }
+
+
+    /*
+     * Next.
+     */
+    function nextSlide() {
+
+        const maxIndex = getMaxIndex();
+
+        if (currentIndex >= maxIndex) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+
+        updateCarousel();
+    }
+
+
+    /*
+     * Previous.
+     */
+    function previousSlide() {
+
+        const maxIndex = getMaxIndex();
+
+        if (currentIndex <= 0) {
+            currentIndex = maxIndex;
+        } else {
+            currentIndex--;
+        }
+
+        updateCarousel();
+    }
+
+
+    /*
+     * Start autoplay.
+     */
+    function startAutoplay() {
+
+        stopAutoplay();
+
+        if (!autoplay) {
+            return;
+        }
+
+        autoplayTimer = window.setInterval(
+            nextSlide,
+            4000
+        );
+    }
+
+
+    /*
+     * Stop autoplay.
+     */
+    function stopAutoplay() {
+
+        if (autoplayTimer !== null) {
+
+            window.clearInterval(autoplayTimer);
+
+            autoplayTimer = null;
+        }
+    }
+
+
+    /*
+     * Pause / Play.
+     */
+    function toggleAutoplay() {
+
+        autoplay = !autoplay;
+
+        if (autoplay) {
+
+            toggleButton.innerHTML =
+                '<span aria-hidden="true">&#10074;&#10074;</span>';
+
+            toggleButton.setAttribute(
+                'aria-label',
+                'Pause slideshow'
+            );
+
+            toggleButton.setAttribute(
+                'aria-pressed',
+                'false'
+            );
+
+            startAutoplay();
+
+        } else {
+
+            toggleButton.innerHTML =
+                '<span aria-hidden="true">&#9654;</span>';
+
+            toggleButton.setAttribute(
+                'aria-label',
+                'Play slideshow'
+            );
+
+            toggleButton.setAttribute(
+                'aria-pressed',
+                'true'
+            );
+
+            stopAutoplay();
+        }
+    }
+
+
+    /*
+     * Button events.
+     */
+    nextButton.addEventListener(
+        'click',
+        function () {
+
+            nextSlide();
+
+            /*
+             * User interaction should reset the timer.
+             */
+            startAutoplay();
+        }
+    );
+
+
+    prevButton.addEventListener(
+        'click',
+        function () {
+
+            previousSlide();
+
+            /*
+             * User interaction should reset the timer.
+             */
+            startAutoplay();
+        }
+    );
+
+
+    toggleButton.addEventListener(
+        'click',
+        function () {
+
+            toggleAutoplay();
+        }
+    );
+
+
+    /*
+     * Pause when mouse is over carousel.
+     */
+    carousel.addEventListener(
+        'mouseenter',
+        function () {
+
+            if (autoplay) {
+                stopAutoplay();
+            }
+        }
+    );
+
+
+    /*
+     * Restart when mouse leaves carousel.
+     */
+    carousel.addEventListener(
+        'mouseleave',
+        function () {
+
+            if (autoplay) {
+                startAutoplay();
+            }
+        }
+    );
+
+
+    /*
+     * Keyboard navigation.
+     */
+    carousel.addEventListener(
+        'keydown',
+        function (event) {
+
+            if (event.key === 'ArrowRight') {
+
+                event.preventDefault();
+
+                nextSlide();
+                startAutoplay();
+
+            } else if (event.key === 'ArrowLeft') {
+
+                event.preventDefault();
+
+                previousSlide();
+                startAutoplay();
+            }
+        }
+    );
+
+
+    /*
+     * Recalculate after window resize.
+     */
+    let resizeTimer;
+
+    window.addEventListener(
+        'resize',
+        function () {
+
+            window.clearTimeout(resizeTimer);
+
+            resizeTimer = window.setTimeout(
+                function () {
+
+                    updateCarousel(false);
+
+                },
+                150
+            );
+        }
+    );
+
+
+    /*
+     * Initialisation.
+     */
+    updateCarousel(false);
+    startAutoplay();
+
+});
+</script>
 
 
 
