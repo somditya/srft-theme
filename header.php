@@ -49,7 +49,7 @@ $current_language = get_locale();
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
     <!--<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
     <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-4.0.0.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
