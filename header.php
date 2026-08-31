@@ -50,13 +50,14 @@ $current_language = get_locale();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
     <!--<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
-    <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>-->
+    <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
+    <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-4.0.0.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>-->
   </head>
 
 
