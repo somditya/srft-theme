@@ -184,7 +184,7 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 					aria-label="<?php echo esc_attr__( 'Pagination', 'srft-theme' ); ?>"
 				>
 
-					<ul class="pagination">
+					<ul class="pagination" id="faculty-pagination-list">
 
 						<!-- First Page -->
 						<li id="faculty-first-page">
@@ -225,7 +225,7 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 						</li>
 
 						<!-- Page numbers -->
-						<li id="faculty-page-numbers"></li>
+						<!-- Page numbers are inserted dynamically before the Next button. -->
 
 						<!-- Next Page -->
 						<li id="faculty-next-page">
@@ -280,6 +280,45 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 </div>
 
+<style>
+#faculty-pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#faculty-pagination-list > li {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+#faculty-pagination-list > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 36px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#faculty-pagination-list > li.active > a {
+    background: #8b5b2b;
+    color: #fff;
+}
+
+#faculty-pagination-list > li.disabled > a {
+    pointer-events: none;
+    opacity: 0.5;
+}
+</style>
+
 <script>
 (function () {
 	'use strict';
@@ -309,7 +348,7 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	const loadingOverlay = document.getElementById('faculty-loading');
 	const filterSelect = document.getElementById('faculty-filter');
 	const pagination = document.getElementById('faculty-pagination');
-	const pageNumbers = document.getElementById('faculty-page-numbers');
+	const paginationList = document.getElementById('faculty-pagination-list');
 	const noResults = document.getElementById('faculty-no-results');
 
 	const firstPage = document.getElementById('faculty-first-page');
@@ -649,11 +688,10 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 		const totalPages = getTotalPages();
 
-
 		/*
 		 * Hide pagination if only one page or no results.
 		 */
-		if (totalPages <= 1) {
+		if ( totalPages <= 1 ) {
 
 			pagination.style.display = 'none';
 
@@ -661,18 +699,21 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 		}
 
-
 		pagination.style.display = 'block';
 
-
 		/*
-		 * Clear existing page numbers.
+		 * Remove previously generated page numbers.
 		 */
-		pageNumbers.innerHTML = '';
-
+		paginationList
+			.querySelectorAll('.faculty-page-number')
+			.forEach(function (item) {
+				item.remove();
+			});
 
 		/*
-		 * Generate page numbers.
+		 * Generate page numbers and insert them before
+		 * the Next button. This keeps every page number
+		 * as a direct child of the pagination <ul>.
 		 */
 		for (
 			let page = 1;
@@ -682,15 +723,15 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 			const li = document.createElement('li');
 
-			if (currentPage === page) {
+			li.className = 'faculty-page-number';
+
+			if ( currentPage === page ) {
 				li.classList.add('active');
 			}
-
 
 			const link = document.createElement('a');
 
 			link.href = '#';
-
 			link.dataset.page = page;
 
 			link.setAttribute(
@@ -698,8 +739,7 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 				'<?php echo esc_js( __( 'Go to page', 'srft-theme' ) ); ?> ' + page
 			);
 
-
-			if (currentPage === page) {
+			if ( currentPage === page ) {
 
 				link.setAttribute(
 					'aria-current',
@@ -708,18 +748,19 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 			}
 
-
 			link.appendChild(
 				createSafeText(page)
 			);
 
-
 			li.appendChild(link);
 
-			pageNumbers.appendChild(li);
+			/* Insert page number before Next. */
+			paginationList.insertBefore(
+				li,
+				nextPage
+			);
 
 		}
-
 
 		/*
 		 * Update disabled state.
@@ -880,7 +921,7 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	/*
 	 * Page-number event delegation.
 	 */
-	pageNumbers.addEventListener(
+	paginationList.addEventListener(
 		'click',
 		function (event) {
 

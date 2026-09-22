@@ -1564,10 +1564,338 @@ add_filter('wp_handle_upload_prefilter', function($file){
   if(in_array($ext,$blocked)){ $file['error']='Blocked file type.'; }
   return $file;
 });
-add_filter('acf/update_value', function($value,$post_id,$field){
-  if(is_string($value)){ $value=wp_kses_post($value); }
-  return $value;
-},10,3);
+//add_filter('acf/update_value', function($value,$post_id,$field){
+  //if(is_string($value)){ $value=wp_kses_post($value); }
+  //return $value;
+//},10,3);
+
+
+
+/* ========================================================================
+ * SRFTI ACF SECURITY SANITIZATION
+ *
+ * Security policy:
+ *
+ * 1. <script> is NOT allowed in normal ACF fields.
+ * 2. <script> is allowed ONLY in:
+ *       CPT: social
+ *       Field: embed_code
+ * 3. Even in social/embed_code, only trusted script hosts are permitted.
+ * 4. Normal ACF WYSIWYG fields use wp_kses_post().
+ * 5. URL fields use esc_url_raw().
+ * ===================================================================== */
+
+
+/**
+ * Sanitize ACF values before saving.
+ */
+function srfti_secure_acf_value( $value, $post_id, $field ) {
+
+    /*
+     * ---------------------------------------------------------
+     * Ignore empty values
+     * ---------------------------------------------------------
+     */
+    if ( empty( $value ) ) {
+        return $value;
+    }
+
+
+    /*
+     * ---------------------------------------------------------
+     * SOCIAL CPT -> embed_code
+     *
+     * This is the ONLY place where script tags are allowed.
+     * ---------------------------------------------------------
+     */
+    if (
+        isset( $field['name'] ) &&
+        $field['name'] === 'embed_code' &&
+        get_post_type( $post_id ) === 'social'
+    ) {
+
+        /*
+         * Allowed HTML for social embeds.
+         */
+        $allowed = array(
+
+            'iframe' => array(
+                'src'             => true,
+                'width'           => true,
+                'height'          => true,
+                'style'           => true,
+                'scrolling'       => true,
+                'frameborder'     => true,
+                'allow'            => true,
+                'allowfullscreen' => true,
+            ),
+
+            'blockquote' => array(
+                'class'                  => true,
+                'data-instgrm-captioned' => true,
+                'data-instgrm-permalink' => true,
+                'data-instgrm-version'   => true,
+                'style'                  => true,
+            ),
+
+            'p' => array(
+                'lang'  => true,
+                'dir'   => true,
+                'style' => true,
+            ),
+
+            'a' => array(
+                'href'   => true,
+                'style'  => true,
+                'target' => true,
+                'rel'    => true,
+            ),
+
+            'div' => array(
+                'style' => true,
+            ),
+
+            /*
+             * Script is explicitly allowed here ONLY.
+             */
+            'script' => array(
+                'async'   => true,
+                'src'     => true,
+                'charset' => true,
+            ),
+
+            'svg' => array(
+                'width'       => true,
+                'height'      => true,
+                'viewBox'     => true,
+                'version'     => true,
+                'xmlns'       => true,
+                'xmlns:xlink' => true,
+            ),
+
+            'g' => array(
+                'stroke'       => true,
+                'stroke-width' => true,
+                'fill'         => true,
+                'fill-rule'    => true,
+                'transform'    => true,
+            ),
+
+            'path' => array(
+                'd' => true,
+            ),
+        );
+
+
+        /*
+         * First sanitize the HTML structure.
+         *
+         * wp_kses() will remove attributes/tags not in $allowed.
+         */
+        $value = wp_kses( $value, $allowed );
+
+
+        /*
+         * ---------------------------------------------------------
+         * Validate SCRIPT sources
+         * ---------------------------------------------------------
+         */
+
+        $value = preg_replace_callback(
+            '/<script\b([^>]*?)src=["\']([^"\']+)["\']([^>]*)><\/script>/is',
+            function ( $match ) {
+
+                $src = trim( $match[2] );
+
+                /*
+                 * Convert protocol-relative URL.
+                 */
+                if ( strpos( $src, '//' ) === 0 ) {
+                    $src = 'https:' . $src;
+                }
+
+                $host = strtolower(
+                    wp_parse_url( $src, PHP_URL_HOST ) ?? ''
+                );
+
+                /*
+                 * Only these script hosts are allowed.
+                 */
+                $trusted_hosts = array(
+                    'instagram.com',
+                    'www.instagram.com',
+                    'platform.x.com',
+                );
+
+                if ( ! in_array( $host, $trusted_hosts, true ) ) {
+                    return '';
+                }
+
+                /*
+                 * Return a clean trusted script tag.
+                 */
+                return '<script async src="' .
+                    esc_url( $src ) .
+                    '" charset="utf-8"></script>';
+            },
+            $value
+        );
+
+
+        /*
+         * ---------------------------------------------------------
+         * Validate IFRAME sources
+         * ---------------------------------------------------------
+         */
+
+        $value = preg_replace_callback(
+            '/<iframe\b([^>]*?)src=["\']([^"\']+)["\']([^>]*)>/i',
+            function ( $match ) {
+
+                $src = trim( $match[2] );
+
+                if ( strpos( $src, '//' ) === 0 ) {
+                    $src = 'https:' . $src;
+                }
+
+                $host = strtolower(
+                    wp_parse_url( $src, PHP_URL_HOST ) ?? ''
+                );
+
+                $trusted_hosts = array(
+                    'facebook.com',
+                    'www.facebook.com',
+                );
+
+                if ( ! in_array( $host, $trusted_hosts, true ) ) {
+                    return '';
+                }
+
+                return $match[0];
+            },
+            $value
+        );
+
+
+        /*
+         * ---------------------------------------------------------
+         * Validate HREF URLs
+         * ---------------------------------------------------------
+         */
+
+        $value = preg_replace_callback(
+            '/<a\b([^>]*?)href=["\']([^"\']+)["\']([^>]*)>/i',
+            function ( $match ) {
+
+                $url = trim( $match[2] );
+
+                if ( strpos( $url, '//' ) === 0 ) {
+                    $url = 'https:' . $url;
+                }
+
+                $host = strtolower(
+                    wp_parse_url( $url, PHP_URL_HOST ) ?? ''
+                );
+
+                $trusted_hosts = array(
+                    'facebook.com',
+                    'www.facebook.com',
+                    'instagram.com',
+                    'www.instagram.com',
+                    'x.com',
+                    'www.x.com',
+                    'twitter.com',
+                    'www.twitter.com',
+                    't.co',
+                    'linkedin.com',
+                    'www.linkedin.com',
+                );
+
+                if ( in_array( $host, $trusted_hosts, true ) ) {
+                    return $match[0];
+                }
+
+                /*
+                 * Remove href from untrusted external links.
+                 */
+                return '<a' . $match[1] . $match[3] . '>';
+            },
+            $value
+        );
+
+
+        return $value;
+    }
+
+
+    /*
+     * ---------------------------------------------------------
+     * ALL OTHER ACF FIELDS
+     *
+     * Script tags are NEVER allowed here.
+     * ---------------------------------------------------------
+     */
+
+    switch ( $field['type'] ) {
+
+        case 'text':
+
+            return sanitize_text_field( $value );
+
+
+        case 'textarea':
+
+            /*
+             * Removes HTML including <script>.
+             */
+            return sanitize_textarea_field( $value );
+
+
+        case 'email':
+
+            return sanitize_email( $value );
+
+
+        case 'url':
+
+            return esc_url_raw( $value );
+
+
+        case 'wysiwyg':
+
+            /*
+             * wp_kses_post() removes <script>,
+             * <iframe>, event handlers, etc.
+             */
+            return wp_kses_post( $value );
+
+
+        default:
+
+            /*
+             * For string-based ACF fields, allow only normal
+             * post HTML. This removes <script>.
+             */
+            if ( is_string( $value ) ) {
+                return wp_kses_post( $value );
+            }
+
+            return $value;
+    }
+}
+
+
+/*
+ * Apply security sanitization to ALL ACF values.
+ */
+add_filter(
+    'acf/update_value',
+    'srfti_secure_acf_value',
+    20,
+    3
+);
+
+
 add_filter('auth_cookie_expiration', fn($l,$u,$r)=>1800,99,3);
 remove_action('wp_head','wp_generator');
 add_filter('the_generator','__return_empty_string');
@@ -1681,13 +2009,13 @@ function srfti_validate_external_url($value, $post_id, $field){
     return esc_url_raw($value);
 }
 
-add_filter('acf/update_value/type=url','srfti_validate_external_url',20,3);
+//add_filter('acf/update_value/type=url','srfti_validate_external_url',20,3);
 
 /* -----------------------------------------------------------------------
  * 7. Automatically Secure External Links
  * Adds rel and target attributes.
  * -------------------------------------------------------------------- */
-function srfti_secure_external_links($content){
+/*function srfti_secure_external_links($content){
 
     return preg_replace_callback(
         '/<a[^>]+href="([^"]+)"[^>]*>/i',
@@ -1720,20 +2048,85 @@ function srfti_secure_external_links($content){
         $content
     );
 
-}
+}*/
 
-add_filter('the_content','srfti_secure_external_links');
+//add_filter('the_content','srfti_secure_external_links');
 
 /* -----------------------------------------------------------------------
  * 8. Sanitize ACF Inputs (Finding #011)
  * -------------------------------------------------------------------- */
-function srfti_acf_sanitize($value,$post_id,$field){
+function srfti_acf_sanitize($value, $post_id, $field) {
 
-    if(empty($value)){
+    if (empty($value)) {
         return $value;
     }
 
-    switch($field['type']){
+    /*
+     * ---------------------------------------------------------
+     * SOCIAL POST TYPE - EMBED CODE
+     * ACF field: embed_code
+     * Field type: Text Area
+     *
+     * Allow only Facebook iframe embeds.
+     * ---------------------------------------------------------
+     */
+    if (
+        $field['name'] === 'embed_code' &&
+        get_post_type($post_id) === 'social'
+    ) {
+
+        $allowed = array(
+            'iframe' => array(
+                'src'              => true,
+                'width'             => true,
+                'height'            => true,
+                'style'             => true,
+                'scrolling'         => true,
+                'frameborder'      => true,
+                'allowfullscreen'   => true,
+                'allow'             => true,
+            ),
+        );
+
+        // Remove all HTML except the allowed iframe attributes.
+        $value = wp_kses($value, $allowed);
+
+        /*
+         * Allow iframe only from Facebook.
+         */
+        $value = preg_replace_callback(
+            '/<iframe\b([^>]*?)src=["\']([^"\']+)["\']([^>]*)>/i',
+            function ($match) {
+
+                $host = strtolower(
+                    wp_parse_url($match[2], PHP_URL_HOST) ?? ''
+                );
+
+                $trusted_hosts = array(
+                    'facebook.com',
+                    'www.facebook.com',
+                );
+
+                if (in_array($host, $trusted_hosts, true)) {
+                    return $match[0];
+                }
+
+                // Remove iframe from untrusted domains.
+                return '';
+            },
+            $value
+        );
+
+        return $value;
+    }
+
+
+    /*
+     * ---------------------------------------------------------
+     * OTHER ACF FIELDS
+     * ---------------------------------------------------------
+     */
+    switch ($field['type']) {
 
         case 'text':
             return sanitize_text_field($value);
@@ -1751,36 +2144,271 @@ function srfti_acf_sanitize($value,$post_id,$field){
             return wp_kses_post($value);
 
         default:
-
-            if(is_string($value)){
-                return wp_kses_post($value);
-            }
-
-            return $value;
+            return is_string($value)
+                ? wp_kses_post($value)
+                : $value;
     }
-
 }
 
-add_filter('acf/update_value','srfti_acf_sanitize',15,3);
+//add_filter(
+  //  'acf/update_value',
+    //'srfti_acf_sanitize',
+    //15,
+    //3
+//);
 
-/* -----------------------------------------------------------------------
- * 9. Sanitize WordPress Titles
- * -------------------------------------------------------------------- */
-add_filter('wp_insert_post_data', function($data){
+/**
+ * Secure Social Media Embed Renderer
+ *
+ * Allows:
+ * - Facebook iframe
+ * - Instagram blockquote + embed script
+ * - X/Twitter blockquote + widgets script
+ *
+ * The raw ACF field is NOT modified during saving.
+ * Security filtering happens before output.
+ */
+function srfti_render_social_embed($value) {
 
-    if(isset($data['post_title'])){
-        $data['post_title'] = sanitize_text_field($data['post_title']);
+    if (empty($value) || !is_string($value)) {
+        return '';
     }
 
-    return $data;
+    /*
+     * ---------------------------------------------------------
+     * Extract and validate SCRIPT tags
+     * ---------------------------------------------------------
+     */
 
-},99);
+    $trusted_scripts = array();
+
+    preg_match_all(
+        '/<script\b[^>]*src=["\']([^"\']+)["\'][^>]*><\/script>/is',
+        $value,
+        $scripts
+    );
+
+    if (!empty($scripts[1])) {
+
+        foreach ($scripts[1] as $src) {
+
+            if (strpos($src, '//') === 0) {
+                $src = 'https:' . $src;
+            }
+
+            $host = strtolower(
+                wp_parse_url($src, PHP_URL_HOST) ?? ''
+            );
+
+            /*
+             * Instagram
+             */
+            if (
+                $host === 'www.instagram.com' ||
+                $host === 'instagram.com'
+            ) {
+                $trusted_scripts[] =
+                    '<script async src="' . esc_url($src) . '"></script>';
+            }
+
+            /*
+             * X
+             */
+            elseif ($host === 'platform.x.com') {
+                $trusted_scripts[] =
+                    '<script async src="' . esc_url($src) . '" charset="utf-8"></script>';
+            }
+        }
+    }
+
+    /*
+     * Remove ALL script tags from the content.
+     * We add back only trusted scripts above.
+     */
+    $value = preg_replace(
+        '/<script\b[^>]*>.*?<\/script>/is',
+        '',
+        $value
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * Allowed HTML
+     * ---------------------------------------------------------
+     */
+
+    $allowed = array(
+
+        'iframe' => array(
+            'src'             => true,
+            'width'           => true,
+            'height'          => true,
+            'style'           => true,
+            'scrolling'       => true,
+            'frameborder'     => true,
+            'allowfullscreen' => true,
+            'allow'           => true,
+        ),
+
+        'blockquote' => array(
+            'class'                  => true,
+            'data-instgrm-captioned' => true,
+            'data-instgrm-permalink' => true,
+            'data-instgrm-version'   => true,
+            'style'                  => true,
+        ),
+
+        'p' => array(
+            'lang'  => true,
+            'dir'   => true,
+            'style' => true,
+        ),
+
+        'a' => array(
+            'href'   => true,
+            'style'  => true,
+            'target' => true,
+            'rel'    => true,
+        ),
+
+        'div' => array(
+            'style' => true,
+        ),
+
+        'svg' => array(
+            'width'       => true,
+            'height'      => true,
+            'viewBox'     => true,
+            'version'     => true,
+            'xmlns'       => true,
+            'xmlns:xlink' => true,
+        ),
+
+        'g' => array(
+            'stroke'       => true,
+            'stroke-width' => true,
+            'fill'         => true,
+            'fill-rule'    => true,
+            'transform'    => true,
+        ),
+
+        'path' => array(
+            'd' => true,
+        ),
+    );
+
+    /*
+     * Sanitize HTML structure.
+     */
+    $value = wp_kses($value, $allowed);
+
+
+    /*
+     * ---------------------------------------------------------
+     * Validate IFRAME sources
+     * ---------------------------------------------------------
+     */
+
+    $value = preg_replace_callback(
+        '/<iframe\b([^>]*?)src=["\']([^"\']+)["\']([^>]*)>/i',
+        function ($match) {
+
+            $src = $match[2];
+
+            if (strpos($src, '//') === 0) {
+                $src = 'https:' . $src;
+            }
+
+            $host = strtolower(
+                wp_parse_url($src, PHP_URL_HOST) ?? ''
+            );
+
+            /*
+             * Facebook only
+             */
+            if (
+                $host === 'facebook.com' ||
+                $host === 'www.facebook.com'
+            ) {
+                return $match[0];
+            }
+
+            /*
+             * Remove untrusted iframe.
+             */
+            return '';
+        },
+        $value
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * Validate HREF URLs
+     * ---------------------------------------------------------
+     */
+
+    $value = preg_replace_callback(
+        '/<a\b([^>]*?)href=["\']([^"\']+)["\']([^>]*)>/i',
+        function ($match) {
+
+            $url = $match[2];
+
+            if (strpos($url, '//') === 0) {
+                $url = 'https:' . $url;
+            }
+
+            $host = strtolower(
+                wp_parse_url($url, PHP_URL_HOST) ?? ''
+            );
+
+            $trusted_hosts = array(
+                'facebook.com',
+                'www.facebook.com',
+                'instagram.com',
+                'www.instagram.com',
+                'x.com',
+                'www.x.com',
+                'twitter.com',
+                'www.twitter.com',
+                't.co',
+				'linkedin.com'
+            );
+
+            if (in_array($host, $trusted_hosts, true)) {
+                return $match[0];
+            }
+
+            /*
+             * Remove href from untrusted domains.
+             */
+            return '<a' . $match[1] . $match[3] . '>';
+        },
+        $value
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * Add back only trusted social-media scripts
+     * ---------------------------------------------------------
+     */
+
+    if (!empty($trusted_scripts)) {
+        $value .= "\n" . implode("\n", $trusted_scripts);
+    }
+
+    return $value;
+}
+
+
 
 /* -----------------------------------------------------------------------
- * 10. Secure Session Timeout (30 Minutes)
+ * 10. Secure Session Timeout (60 Minutes)
  * -------------------------------------------------------------------- */
 add_filter('auth_cookie_expiration', function($length,$user_id,$remember){
-    return 1800;
+    return 3600;
 },99,3);
 
 /* -----------------------------------------------------------------------
@@ -1822,97 +2450,659 @@ function srfti_safe_url_field($field){
 /**
  * Validate external link domains before saving a post in WordPress.
  */
-function restrict_post_link_domains( $data, $postarr ) {
-    // Skip autosaves, revisions, or empty content
-    if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || empty( $data['post_content'] ) ) {
-        return $data;
+
+/* =========================================================================
+ * SRFTI - Central External Link Domain Whitelist
+ *
+ * Applies to:
+ *   - WordPress post/page/CPT content
+ *   - ACF HTML/WYSIWYG fields
+ *   - ACF URL fields
+ *
+ * Allowed:
+ *   - Any .in domain
+ *   - Approved social/media/reference domains
+ *   - Additional domains configured through:
+ *       Whitelisted Domains → whitelisted_domain_urls
+ *
+ * All other external domains are blocked.
+ * ========================================================================= */
+
+
+/**
+ * ================================================================
+ * Get Additional Whitelisted Domains
+ * ================================================================
+ *
+ * CPT:
+ *     whitelisted_domain
+ *
+ * ACF field:
+ *     whitelisted_domain_urls
+ *
+ * The ACF field is a TEXTAREA and can contain one domain per line:
+ *
+ *     https://example.com
+ *     https://example.org
+ *     https://abc.gov.uk
+ *
+ * It can also contain comma-separated domains:
+ *
+ *     https://example.com, https://example.org, https://abc.gov.uk
+ *
+ * The function returns hostnames:
+ *
+ *     array(
+ *         'example.com',
+ *         'example.org',
+ *         'abc.gov.uk'
+ *     )
+ */
+function srfti_get_custom_whitelisted_domains() {
+
+    $domains = array();
+
+    /*
+     * Get all published Whitelisted Domain posts.
+     */
+    $posts = get_posts(
+        array(
+            'post_type'      => 'whitelisted_domain',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+        )
+    );
+
+    if ( empty( $posts ) ) {
+        return $domains;
     }
 
-    // Fix WordPress escaping/slashes issue before checking HTML
-    $content = wp_unslash( $data['post_content'] );
+    foreach ( $posts as $post_id ) {
 
-    // Only process if there are <a> tags present
-    if ( strpos( $content, '<a' ) !== false ) {
-        
-        libxml_use_internal_errors( true );
-        $dom = new DOMDocument();
-        @$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-        libxml_clear_errors();
-
-        $links = $dom->getElementsByTagName( 'a' );
-        
-        // 1. Allowed TLD Suffixes
-        $allowed_suffixes = array( '.in', '.gov.in', '.res.in', '.ac.in', '.nic.in', '.edu.in' );
-
-        // 2. Allowed Specific External Domains (Add any trusted .com, .org, etc. here)
-        $allowed_domains = array(
-           'x.com',
-    'www.x.com',
-    'twitter.com',
-    'www.twitter.com',
-    'vimeo.com',
-    'player.vimeo.com',
-    'youtube.com',
-    'www.youtube.com',
-    'youtu.be',
-    
-    // Reference & Other trusted sites
-    'wikipedia.org',
-    'en.wikipedia.org'
+        /*
+         * Get the ACF textarea.
+         */
+        $value = get_field(
+            'whitelisted_domain_urls',
+            $post_id
         );
 
-        // Auto-detect your own site's domain
-        $your_domain = wp_parse_url( get_home_url(), PHP_URL_HOST );
-        if ( $your_domain ) {
-            $allowed_domains[] = strtolower( $your_domain );
+        if (
+            empty( $value ) ||
+            ! is_string( $value )
+        ) {
+            continue;
         }
 
-        foreach ( $links as $link ) {
-            $href = trim( $link->getAttribute( 'href' ) );
+        /*
+         * Split domains by:
+         *
+         * - New line
+         * - Comma
+         */
+        $urls = preg_split(
+            '/[\r\n,]+/',
+            $value
+        );
 
-            if ( ! empty( $href ) ) {
-                $parsed_url = wp_parse_url( $href );
+        foreach ( $urls as $url ) {
 
-                // Skip relative URLs (e.g., "/about") or anchor links (e.g., "#contact")
-                if ( empty( $parsed_url['host'] ) ) {
-                    continue;
-                }
+            $url = trim( $url );
 
-                $host = strtolower( $parsed_url['host'] );
-                $is_allowed = false;
+            if ( empty( $url ) ) {
+                continue;
+            }
 
-                // Check A: Is host in the specific allowed domains list?
-                if ( in_array( $host, $allowed_domains, true ) ) {
-                    $is_allowed = true;
-                }
+            /*
+             * Allow entries such as:
+             *
+             * example.com
+             *
+             * by converting them internally to:
+             *
+             * https://example.com
+             */
+            if (
+                ! preg_match(
+                    '#^https?://#i',
+                    $url
+                )
+            ) {
+                $url = 'https://' . $url;
+            }
 
-                // Check B: Does host match allowed TLD suffixes?
-                if ( ! $is_allowed ) {
-                    foreach ( $allowed_suffixes as $suffix ) {
-                        $clean_suffix = ltrim( $suffix, '.' );
-                        
-                        if ( $host === $clean_suffix || str_ends_with( $host, '.' . $clean_suffix ) ) {
-                            $is_allowed = true;
-                            break;
-                        }
-                    }
-                }
+            /*
+             * Parse URL.
+             */
+            $parsed = wp_parse_url( $url );
 
-                // Block save if link domain fails both checks
-                if ( ! $is_allowed ) {
-                    wp_die( 
-                        sprintf( 
-                            __( '<strong>Security Block:</strong> Links to <code>%s</code> are not permitted. Only approved TLDs (.in, .ac.in, etc.) or whitelisted platforms (Vimeo, YouTube) are allowed.' ), 
-                            esc_html( $host ) 
-                        ),
-                        'Unauthorized Link Domain',
-                        array( 'back_link' => true )
-                    );
-                }
+            if ( empty( $parsed['host'] ) ) {
+                continue;
+            }
+
+            /*
+             * Get hostname.
+             */
+            $host = strtolower(
+                trim( $parsed['host'] )
+            );
+
+            /*
+             * Remove www.
+             */
+            $host = preg_replace(
+                '/^www\./i',
+                '',
+                $host
+            );
+
+            /*
+             * Only accept valid hostname characters.
+             */
+            if (
+                preg_match(
+                    '/^[a-z0-9.-]+$/i',
+                    $host
+                )
+            ) {
+                $domains[] = $host;
             }
         }
     }
 
-    return $data;
+    /*
+     * Remove duplicate domains.
+     */
+    return array_unique( $domains );
 }
-add_filter( 'wp_insert_post_data', 'restrict_post_link_domains', 10, 2 );
+
+
+/**
+ * ================================================================
+ * Check Custom Whitelisted Domain
+ * ================================================================
+ *
+ * Allows:
+ *
+ *     example.com
+ *     www.example.com
+ *     sub.example.com
+ *
+ * when:
+ *
+ *     example.com
+ *
+ * is present in the ACF whitelist.
+ */
+function srfti_is_custom_whitelisted_domain( $host ) {
+
+    if ( empty( $host ) ) {
+        return false;
+    }
+
+    $host = strtolower(
+        trim( $host )
+    );
+
+    /*
+     * Remove www.
+     */
+    $host = preg_replace(
+        '/^www\./i',
+        '',
+        $host
+    );
+
+    $custom_domains =
+        srfti_get_custom_whitelisted_domains();
+
+    if ( empty( $custom_domains ) ) {
+        return false;
+    }
+
+    foreach ( $custom_domains as $allowed_domain ) {
+
+        /*
+         * Exact match.
+         *
+         * example.com
+         */
+        if (
+            $host === $allowed_domain
+        ) {
+            return true;
+        }
+
+        /*
+         * Subdomain match.
+         *
+         * sub.example.com
+         *
+         * This does NOT match:
+         *
+         * evil-example.com
+         */
+        if (
+            substr(
+                $host,
+                -strlen( '.' . $allowed_domain )
+            ) === '.' . $allowed_domain
+        ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+/**
+ * ================================================================
+ * Check whether a hostname is allowed.
+ * ================================================================
+ */
+function srfti_is_allowed_link_host( $host ) {
+
+    if ( empty( $host ) ) {
+        return false;
+    }
+
+    $host = strtolower(
+        trim( $host )
+    );
+
+    /*
+     * Remove www.
+     */
+    $host = preg_replace(
+        '/^www\./i',
+        '',
+        $host
+    );
+
+
+    /**
+     * ------------------------------------------------------------
+     * 1. Allow ALL .in domains.
+     * ------------------------------------------------------------
+     *
+     * This automatically includes:
+     *
+     * .gov.in
+     * .ac.in
+     * .res.in
+     * .nic.in
+     * .edu.in
+     *
+     * Examples:
+     *
+     * india.gov.in
+     * srfti.ac.in
+     * example.in
+     */
+    if (
+        $host === 'in' ||
+        str_ends_with( $host, '.in' )
+    ) {
+        return true;
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * 2. Permanently trusted external domains.
+     * ------------------------------------------------------------
+     */
+    $allowed_domains = array(
+
+        'facebook.com',
+        'instagram.com',
+        'x.com',
+        'twitter.com',
+        'linkedin.com',
+
+        'youtube.com',
+        'youtu.be',
+        'vimeo.com',
+        'player.vimeo.com',
+
+        'wikipedia.org',
+
+        'nfdcindia.com',
+
+        /*
+         * Add permanently trusted domains here if required.
+         */
+    );
+
+
+    /*
+     * Exact match for permanently trusted domains.
+     */
+    if (
+        in_array(
+            $host,
+            $allowed_domains,
+            true
+        )
+    ) {
+        return true;
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * 3. Additional domains configured from ACF.
+     * ------------------------------------------------------------
+     */
+    if (
+        srfti_is_custom_whitelisted_domain( $host )
+    ) {
+        return true;
+    }
+
+
+    /*
+     * Everything else is blocked.
+     */
+    return false;
+}
+
+
+/**
+ * ================================================================
+ * Validate a URL against the SRFTI external-link whitelist.
+ * ================================================================
+ */
+function srfti_validate_whitelisted_url( $url ) {
+
+    $url = trim(
+        html_entity_decode(
+            $url,
+            ENT_QUOTES | ENT_HTML5,
+            'UTF-8'
+        )
+    );
+
+    if ( empty( $url ) ) {
+        return false;
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * Allow relative URLs and page anchors.
+     * ------------------------------------------------------------
+     *
+     * Examples:
+     *
+     * /about-us/
+     * /contact/
+     * #contact
+     */
+    if (
+        strpos( $url, '/' ) === 0 ||
+        strpos( $url, '#' ) === 0
+    ) {
+        return true;
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * Only HTTP/HTTPS links are considered.
+     * ------------------------------------------------------------
+     */
+    $parsed = wp_parse_url( $url );
+
+    if ( empty( $parsed['host'] ) ) {
+        return false;
+    }
+
+
+    /*
+     * Reject non-HTTP/HTTPS schemes.
+     *
+     * This blocks:
+     *
+     * javascript:
+     * data:
+     * vbscript:
+     * file:
+     * etc.
+     */
+    if (
+        ! empty( $parsed['scheme'] ) &&
+        ! in_array(
+            strtolower( $parsed['scheme'] ),
+            array(
+                'http',
+                'https',
+            ),
+            true
+        )
+    ) {
+        return false;
+    }
+
+
+    /*
+     * Check hostname against central whitelist.
+     */
+    return srfti_is_allowed_link_host(
+        $parsed['host']
+    );
+}
+
+
+/**
+ * ================================================================
+ * Validate every <a href=""> in HTML content.
+ * ================================================================
+ *
+ * Used for:
+ *
+ * - WordPress post content
+ * - WordPress page content
+ * - CPT content
+ * - ACF HTML/WYSIWYG fields
+ */
+function srfti_validate_html_links( $content ) {
+
+    if (
+        empty( $content ) ||
+        ! is_string( $content )
+    ) {
+        return $content;
+    }
+
+
+    /*
+     * Find every href attribute.
+     */
+    preg_match_all(
+        '/<a\b[^>]*\bhref\s*=\s*([\'"])(.*?)\1[^>]*>/is',
+        $content,
+        $matches
+    );
+
+
+    if ( empty( $matches[2] ) ) {
+        return $content;
+    }
+
+
+    foreach ( $matches[2] as $href ) {
+
+        if (
+            ! srfti_validate_whitelisted_url( $href )
+        ) {
+
+            $parsed = wp_parse_url(
+                html_entity_decode(
+                    $href,
+                    ENT_QUOTES | ENT_HTML5,
+                    'UTF-8'
+                )
+            );
+
+            $host = ! empty( $parsed['host'] )
+                ? strtolower( $parsed['host'] )
+                : 'invalid URL';
+
+
+            wp_die(
+                sprintf(
+                    '<strong>Security Block:</strong><br><br>
+                    The link domain <code>%s</code> is not permitted on the SRFTI website.<br><br>
+                    Only approved <code>.in</code> domains, trusted external platforms, and administrator-approved additional domains are allowed.',
+                    esc_html( $host )
+                ),
+                'Unauthorized Link Domain',
+                array(
+                    'back_link' => true,
+                )
+            );
+        }
+    }
+
+
+    return $content;
+}
+
+
+/**
+ * ================================================================
+ * Validate links in WordPress post/page/CPT content.
+ * ================================================================
+ */
+add_filter(
+    'wp_insert_post_data',
+    function( $data, $postarr ) {
+
+        if (
+            ! empty( $data['post_content'] )
+        ) {
+
+            $data['post_content'] =
+                srfti_validate_html_links(
+                    wp_unslash(
+                        $data['post_content']
+                    )
+                );
+        }
+
+        return $data;
+    },
+    20,
+    2
+);
+
+
+/**
+ * ================================================================
+ * Validate links in ACF fields.
+ * ================================================================
+ *
+ * Important:
+ *
+ * The Social CPT "embed_code" field is excluded because
+ * its script/embed security is handled separately.
+ */
+function srfti_acf_link_whitelist(
+    $value,
+    $post_id,
+    $field
+) {
+
+    if ( empty( $value ) ) {
+        return $value;
+    }
+
+
+    /*
+     * Do not interfere with the special Social embed_code field.
+     */
+    if (
+        'social' === get_post_type( $post_id ) &&
+        isset( $field['name'] ) &&
+        'embed_code' === $field['name']
+    ) {
+        return $value;
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * ACF URL field.
+     * ------------------------------------------------------------
+     */
+    if (
+        isset( $field['type'] ) &&
+        'url' === $field['type']
+    ) {
+
+        if (
+            ! srfti_validate_whitelisted_url(
+                $value
+            )
+        ) {
+
+            $parsed = wp_parse_url(
+                $value
+            );
+
+            $host = ! empty( $parsed['host'] )
+                ? strtolower( $parsed['host'] )
+                : 'invalid URL';
+
+
+            wp_die(
+                sprintf(
+                    '<strong>Security Block:</strong><br><br>
+                    The URL domain <code>%s</code> is not permitted on the SRFTI website.',
+                    esc_html( $host )
+                ),
+                'Unauthorized External URL',
+                array(
+                    'back_link' => true,
+                )
+            );
+        }
+
+
+        return esc_url_raw(
+            $value
+        );
+    }
+
+
+    /**
+     * ------------------------------------------------------------
+     * ACF HTML/String fields.
+     * ------------------------------------------------------------
+     */
+    if (
+        is_string( $value ) &&
+        stripos( $value, '<a' ) !== false
+    ) {
+
+        srfti_validate_html_links(
+            $value
+        );
+    }
+
+
+    return $value;
+}
+
+
+add_filter(
+    'acf/update_value',
+    'srfti_acf_link_whitelist',
+    25,
+    3
+);
+

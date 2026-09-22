@@ -83,8 +83,8 @@ $current_language = get_locale();
 </a>
       </div>
           <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-office', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in/roundcube/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://192.168.1.19/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://14.139.206.21/roundcube/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
             <a href="#" title="Choose your language" aria-haspopup="true" tabindex=-1>
@@ -286,7 +286,7 @@ $current_language = get_locale();
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Facilities">
-                    <li role="none" tabindex="-1" class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
                     else 
                     { echo esc_url(site_url('/पुस्तकालय/'));}
