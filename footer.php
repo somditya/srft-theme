@@ -1113,6 +1113,38 @@ document.addEventListener("DOMContentLoaded", function() {
 })();
 </script>
 
+<script>
+(function () {
+    'use strict';
+
+    function fixA11ySliderLists() {
+        document.querySelectorAll('ul.a11y-slider > li[role="group"]').forEach(function (slide) {
+            slide.setAttribute('role', 'listitem');
+
+            if (!slide.hasAttribute('aria-roledescription')) {
+                slide.setAttribute('aria-roledescription', 'slide');
+            }
+        });
+    }
+
+    /* Fix sliders already generated */
+    fixA11ySliderLists();
+
+    /* Catch sliders/slides generated later */
+    var observer = new MutationObserver(function () {
+        fixA11ySliderLists();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['role']
+    });
+
+})();
+</script>
+
 
 <?php wp_footer(); ?>
 
