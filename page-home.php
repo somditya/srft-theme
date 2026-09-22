@@ -1103,7 +1103,8 @@ $final_url = site_url("/$slug/");
                             <span style="line-height: 1;"><?php echo esc_html(ucfirst($platform_lower)); ?></span>
                         </h3>
 
-                        <div class="social-embed">
+                        <div class="social-embed" tabindex="0"  role="region"
+     aria-label="social media posts from SRFTI official page">
                             <?php echo $embed_code; ?>
                         </div>
 

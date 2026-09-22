@@ -968,7 +968,41 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+(function () {
+    function fixInstagramImages() {
+        document.querySelectorAll(
+            '.instagram-media img, #instagram-embed-0 .HoverCardPhotos > img'
+        ).forEach(function (img) {
 
+            if (!img.hasAttribute('alt') || img.getAttribute('alt').trim() === '') {
+                img.setAttribute(
+                    'alt',
+                    'SRFTI Instagram post image'
+                );
+            }
+
+        });
+    }
+
+    // Instagram loads its content asynchronously
+    fixInstagramImages();
+
+    setTimeout(fixInstagramImages, 1000);
+    setTimeout(fixInstagramImages, 2500);
+    setTimeout(fixInstagramImages, 5000);
+
+    // Catch images added later by Instagram
+    const observer = new MutationObserver(function () {
+        fixInstagramImages();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+})();
+</script>
 
 <?php wp_footer(); ?>
 
