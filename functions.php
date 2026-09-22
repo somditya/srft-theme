@@ -1193,6 +1193,10 @@ add_filter( 'wpseo_breadcrumb_single_link_wrapper', function() {
     return 'li';
 } );
 
+add_filter( 'wpseo_breadcrumb_separator', function() {
+    return '';
+} );
+
 function display_global_latest_date() {
 	// Query to get the latest modified post from all post types
 	$args = [

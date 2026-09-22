@@ -1174,7 +1174,7 @@ ol li {
 }
 
 .announcement-category {
-  color: hsl(40 78% 52%);
+  color: #72500e;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1425,8 +1425,8 @@ ol li {
 .breadcrumbs-wrapper {
   margin-top: 1.5rem;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping when zoomed */
-  gap: 0.5rem; /* Space between items */
+  flex-wrap: wrap;
+  gap: 0.5rem;
   line-height: 1.5;
 }
 
@@ -1441,22 +1441,26 @@ ol li {
   display: inline;
 }
 
-/*#breadcrumbs li:not(:first-child)::before {
+/* Accessible visual breadcrumb separator */
+#breadcrumbs li + li::before {
   content: "»";
   display: inline-block;
   margin: 0 5px;
-}*/
+}
 
 #breadcrumbs a:focus,
 #breadcrumbs a:hover {
-  color: #000000; /* Clear change on hover/focus */
-  /*background-color: #f3f3f3; /* Optional: slight background for feedback */
-  /*outline: 2px solid #8b5b2b; /* Optional: focus ring for keyboard users */
+  color: #000000;
 }
 
 #breadcrumbs .breadcrumb_last {
   color: #000000;
   font-weight: 500;
+}
+
+ol.breadcrumb li + li::before {
+    content: "»";
+    margin: 0 8px;
 }
 
 .tooltip-box {
@@ -1585,8 +1589,8 @@ ol li {
   width: 100%;
   background: #494949;
   background: #62371f;
-  background: #161a1d;
-  background-image: url(images/footerbg.jpg);
+  background: #333;
+  /*background-image: url(images/footerbg.jpg);*/
   background-repeat: repeat;
   padding: 0 24px;
 }
@@ -1647,7 +1651,7 @@ ol li {
 }
 
 .footer_sub h2 {
-  color: #fcfcfc;
+  color: #e2ddd7;
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 10px;
@@ -1655,7 +1659,7 @@ ol li {
 
 .footer_sub p {
   line-height: 1.5;
-  color: white;
+  color: #e2ddd7;
 }
 
 .footer_inner_container ul {
@@ -3859,238 +3863,221 @@ img.reload {
   border-radius: 50%;
 }
 
-
-
 /* =========================================================
    NOTABLE ALUMNI CAROUSEL
    Vanilla JavaScript - No Owl Carousel
    ========================================================= */
 
 .notable-alumni-section {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .alumni-carousel-wrapper {
-    width: 100%;
-    max-width: 1450px;
-    margin: 0 auto;
-    position: relative;
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  position: relative;
 }
-
 
 /* Controls */
 
 .alumni-carousel-controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 0 0 15px 0;
 }
 
 .alumni-carousel-button {
-    width: 42px;
-    height: 38px;
-    padding: 0;
-    border: 1px solid #161a1d;
-    background: transparent;
-    color: #161a1d;
-    cursor: pointer;
-    border-radius: 3px;
+  width: 42px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid #161a1d;
+  background: transparent;
+  color: #161a1d;
+  cursor: pointer;
+  border-radius: 3px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    font-size: 18px;
-    line-height: 1;
+  font-size: 18px;
+  line-height: 1;
 
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .alumni-carousel-button:hover,
 .alumni-carousel-button:focus {
-    background-color: #161a1d;
-    color: #ffffff;
+  background-color: #161a1d;
+  color: #ffffff;
 }
 
 .alumni-carousel-button:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 2px;
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
 }
-
 
 /* Viewport */
 
 .alumni-carousel-viewport {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
-
 
 /* List */
 
 .alumni-carousel-list {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
 
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 
-    list-style: none;
+  list-style: none;
 
-    transform: translateX(0);
-    transition: transform 0.5s ease;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /* Individual item */
 
 .alumni-carousel-item {
-    flex: 0 0 20%;
-    width: 20%;
+  flex: 0 0 20%;
+  width: 20%;
 
-    min-width: 0;
+  min-width: 0;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-      padding: 0 12px;
+  padding: 0 12px;
 
-    text-align: center;
+  text-align: center;
 
-    list-style: none;
+  list-style: none;
 }
-
-
-
 
 /* Image link */
 
 .alumni-carousel-item .alumni-img {
-    display: block;
-    width: 110px;
-    height: 110px;
-    margin: 0 auto;
-    text-decoration: none;
-    overflow: hidden;
-    border-radius: 50%;
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 /* Images */
 
 .alumni-carousel-item .alumni-img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
 }
 .alumni-carousel-item .alumni-img:hover img {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
-
 
 /* Name */
 
 .alumni-carousel-item p {
-    margin: 12px 0 0 0;
+  margin: 12px 0 0 0;
 
-    font-size: 16px;
-    line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.4;
 
-    text-align: center;
+  text-align: center;
 
-    color: #161a1d;
+  color: #161a1d;
 }
-
 
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media screen and (max-width: 991px) {
-    .alumni-carousel-item {
-        flex: 0 0 33.333333%;
-        width: 33.333333%;
-    }
+  .alumni-carousel-item {
+    flex: 0 0 33.333333%;
+    width: 33.333333%;
+  }
 
-    .alumni-carousel-item .alumni-img {
-        width: 150px;
-        height: 150px;
-    }
+  .alumni-carousel-item .alumni-img {
+    width: 150px;
+    height: 150px;
+  }
 }
-
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
 @media screen and (max-width: 767px) {
-    .alumni-carousel-controls {
-        margin-left: 10px;
-    }
+  .alumni-carousel-controls {
+    margin-left: 10px;
+  }
 
-    .alumni-carousel-item {
-        flex: 0 0 50%;
-        width: 50%;
-        padding: 0 8px;
-    }
+  .alumni-carousel-item {
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 0 8px;
+  }
 
-    .alumni-carousel-item .alumni-img {
-        width: 200px;
-        height: 200px; /* or match width if you want a perfect circle */
-    }
+  .alumni-carousel-item .alumni-img {
+    width: 200px;
+    height: 200px; /* or match width if you want a perfect circle */
+  }
 }
-
 
 /* =========================================================
    SMALL MOBILE
    ========================================================= */
 
 @media screen and (max-width: 480px) {
-    .alumni-carousel-item {
-        flex: 0 0 100%;
-        width: 100%;
-    }
+  .alumni-carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+  }
 
-    .alumni-carousel-item .alumni-img {
-        width: 240px;
-        height: 240px;
-    }
+  .alumni-carousel-item .alumni-img {
+    width: 240px;
+    height: 240px;
+  }
 }
-
 
 /* Screen-reader only */
 
 .visually-hidden,
 .sr-only {
-    position: absolute !important;
+  position: absolute !important;
 
-    width: 1px !important;
-    height: 1px !important;
+  width: 1px !important;
+  height: 1px !important;
 
-    padding: 0 !important;
-    margin: -1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
 
-    overflow: hidden !important;
+  overflow: hidden !important;
 
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
 
-    border: 0 !important;
+  border: 0 !important;
 }
-
-
-
 
 /*Updates */
 
@@ -6111,7 +6098,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .footer_sub a {
-  color: white;
+  color: #e2ddd7;
   /*border-right: 1px solid #5e5e5e;*/
   line-height: 28px;
 }
