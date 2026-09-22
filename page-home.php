@@ -1036,9 +1036,37 @@ $final_url = site_url("/$slug/");
                 <?php if ($social_query->have_posts()) :
                     while ($social_query->have_posts()) : $social_query->the_post();
 
-                        $platform = function_exists('pll_current_language') && pll_current_language() === 'hi'? get_field('social_platform_hindi') : get_field('social_platform');
-                        $embed_code = get_field('embed_code');
-                        $social_handle = get_field('social_handle'); // ACF field for social media URL
+                       $platform = function_exists('pll_current_language') && pll_current_language() === 'hi' ? get_field('social_platform_hindi') : get_field('social_platform');
+$raw_embed_code = get_field('embed_code');
+$social_handle = get_field('social_handle'); 
+
+$embed_code = $raw_embed_code;
+
+// ACCESSIBILITY FIX: Use DOMDocument to safely parse and inject missing alt tags
+if (!empty($embed_code)) {
+    $dom = new DOMDocument();
+    
+    // Suppress warnings because Instagram's raw HTML often has minor validation errors
+    libxml_use_internal_errors(true); 
+    
+    // Load the HTML safely with correct UTF-8 encoding
+    $dom->loadHTML(mb_convert_encoding($embed_code, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    
+    // Find EVERY image tag in the Instagram embed
+    $images = $dom->getElementsByTagName('img');
+    foreach ($images as $img) {
+        // If it doesn't have an alt tag, or if the alt tag is empty, force one in.
+        if (!$img->hasAttribute('alt') || trim($img->getAttribute('alt')) === '') {
+            $img->setAttribute('alt', 'Instagram social feed image');
+        }
+    }
+    
+    // Save the corrected HTML back to our variable
+    $embed_code = $dom->saveHTML();
+    
+    // Clear the memory
+    libxml_clear_errors();
+}
                         
                         // Normalize platform to lowercase for comparison
                         $platform_lower = strtolower($platform);
