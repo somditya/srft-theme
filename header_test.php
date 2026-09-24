@@ -4,11 +4,7 @@
  *
  * This is the template that displays all of the <head> section and everything up until main.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
  **/
 ?>
 <?php 
@@ -35,27 +31,29 @@ $current_language = get_locale();
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> -->   
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />-->
     <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css" />
+    <!--<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css" />-->
     <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">
+    <!--<link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet">-->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/jquery-3.7.0.min.js"></script>
+    <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-4.0.0.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+    <!--<script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>-->
   </head>
 
 
@@ -81,8 +79,8 @@ $current_language = get_locale();
 </a>
       </div>
           <div class="top-item hide-on-mobile"><a href="https://mibmu-eoffice.railtel.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-office', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-briefcase" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://campus.srfti.ac.in/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
-          <div class="top-item hide-on-mobile"><a href="http://webmail.srfti.ac.in" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://192.168.1.19/leave/" target="_blank" title="External Intranet Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('e-leave', 'srft-theme' ); ?></span>&nbsp; <i class="fas fa-calendar-check" aria-hidden="true"></i></a></div>
+          <div class="top-item hide-on-mobile"><a href="http://14.139.206.21/roundcube/" target="_blank" title="External Link that opens in new window" onclick="return check_url();"><span class="linktext"><?php echo __('webmail', 'srft-theme' ); ?></span> &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></a></div>
              <!--<li><a>govmail</a></li>-->
             <div class="top-item">
             <a href="#" title="Choose your language" aria-haspopup="true" tabindex=-1>
@@ -184,11 +182,11 @@ $current_language = get_locale();
                 <a role="menuitem" tabindex="0" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
-                    ?>" aria-label="Home" ><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">Home</span></a>
+                    ?>" aria-label="Home" >Homess</a>
               </li>
               <li role="none" class="nav-link" style="--i: 1.1s">
-                <a id="aboutMenuButton"  href="#" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                  <ul role="menu" class="dropdown" aria-label="About Us">
+                <a id="aboutMenuButton"  href="#" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('Institute', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Institute">
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
                     else 
@@ -260,6 +258,10 @@ $current_language = get_locale();
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
                       else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
                     </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/outreach/'));}
+                      else { echo esc_url(site_url('/आउटरीच/'));}?>"><?php echo __('Outreach', 'srft-theme' ); ?></a>
+                    </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
               </li>
@@ -272,7 +274,7 @@ $current_language = get_locale();
                       ?>"><?php echo __('Master of Fine Arts in SRFTI Kolkata', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Postgraduate programmes in FTII Itanagar', 'srft-theme' ); ?></a>
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/post-graduate-programmes-at-fti-ar/')); } else  { echo esc_url(site_url('/फलम-और-टलवजन-ससथ-ए-आर/'));}?>"><?php echo __('Master of Fine Arts in FTII Itanagar', 'srft-theme' ); ?></a>
                     </li>
                   </ul>      
               </li>
@@ -280,7 +282,7 @@ $current_language = get_locale();
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Facilities">
-                    <li role="none" tabindex="-1" class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
                     else 
                     { echo esc_url(site_url('/पुस्तकालय/'));}
@@ -353,7 +355,7 @@ if ($current_language === 'en_US') {
           </div>
         </div>
         <div class="logo-container" style="justify-content: flex-end;">
-          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img class="right-logo" src="<?php bloginfo('template_url'); ?>/images/FTIII_Logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
+          <div><a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img style="height: 6rem;" class="right-logo" src="<?php bloginfo('template_url'); ?>/images/ftiii-logo.jpg" alt="<?php echo __('Logo of FTIII', 'srft-theme' ); ?>"></a> </div>
 					<!--<video  src="<?php bloginfo('template_url'); ?>/videos/test.mp4"  autoplay="" loop="" muted="muted" controlslist="nodownload" width="200" poster="https://arcurea.in/wp-content/uploads/2022/11/Frame-4.png"></video>-->
         </div>
         <div class="hamburger-menu-container"> 
@@ -364,13 +366,36 @@ if ($current_language === 'en_US') {
       </div>  
   </header>
   <?php if ( is_page( array(119, 122) ) ) : ?>
-<main role="main"> 
-  <h1 class="sr-only"> Satyajit Ray Film & Television Institute </h1>   
-<section role="region" aria-label="Featured" id="myCarousel" class="carousel-tablist" aria-roledescription="carousel">
+<main role="main">    
+<h1 class="sr-only">Satyajit Ray Film & Television Institute</h1>
+
+<?php
+$carousel_args = [
+    'post_type'      => 'banner',
+    'posts_per_page' => -1, // or 7 if you want a limit
+    'post_status'    => 'publish',
+    'meta_key'       => 'banner_order',
+    'orderby'        => 'meta_value_num',
+    'order'          => 'ASC',
+];
+$carousel_query = new WP_Query($carousel_args);
+
+if ($carousel_query->have_posts()) :
+    $total = $carousel_query->post_count;
+    $i = 0;
+?>
+
+<section role="region"
+         aria-label="Featured"
+         id="myCarousel"
+         class="carousel-tablist"
+         aria-roledescription="carousel">
+
   <div class="carousel-inner" id="skip-to-content">
+    <!-- CONTROLS -->
     <div class="controls">
-      <button class="rotation" type="button">
-        <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
+      <button class="rotation" type="button" aria-label="Pause / Play">
+       <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-play">
           <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24"></rect>
           <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20"></rect>
 
@@ -382,230 +407,64 @@ if ($current_language === 'en_US') {
         </svg>
       </button>
 
+      <!-- TABS -->
       <div class="tab-wrapper">
         <div role="tablist" aria-label="Slides">
-          <button id="carousel-tab-1" type="button" role="tab" aria-label="Slide 1" aria-selected="true" aria-controls="carousel-item-1">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-2" type="button" role="tab" tabindex="-1" aria-label="Slide 2" aria-selected="false" aria-controls="carousel-item-2">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-3" type="button" role="tab" tabindex="-1" aria-label="Slide 3" aria-selected="false" aria-controls="carousel-item-3">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-4" type="button" role="tab" tabindex="-1" aria-label="Slide 4" aria-selected="false" aria-controls="carousel-item-4">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-5" type="button" role="tab" tabindex="-1" aria-label="Slide 5" aria-selected="false" aria-controls="carousel-item-5">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-6" type="button" role="tab" tabindex="-1" aria-label="Slide 6" aria-selected="false" aria-controls="carousel-item-6">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-7" type="button" role="tab" tabindex="-1" aria-label="Slide 7" aria-selected="false" aria-controls="carousel-item-7">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <!--<button id="carousel-tab-8" type="button" role="tab" tabindex="-1" aria-label="Slide 8" aria-selected="false" aria-controls="carousel-item-8">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-9" type="button" role="tab" tabindex="-1" aria-label="Slide 9" aria-selected="false" aria-controls="carousel-item-9">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-          <button id="carousel-tab-10" type="button" role="tab" tabindex="-1" aria-label="Slide 10" aria-selected="false" aria-controls="carousel-item-10">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>
-
-          <button id="carousel-tab-11" type="button" role="tab" tabindex="-1" aria-label="Slide 11" aria-selected="false" aria-controls="carousel-item-11">
-            <svg width="34" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle class="border" cx="16" cy="15" r="10"></circle>
-              <circle class="tab-background" cx="16" cy="15" r="8"></circle>
-              <circle class="tab" cx="16" cy="15" r="6"></circle>
-            </svg>
-          </button>-->
-
+          <?php while ($carousel_query->have_posts()) : $carousel_query->the_post(); $i++; ?>
+            <button
+              id="carousel-tab-<?php echo $i; ?>"
+              type="button"
+              role="tab"
+              aria-label="Slide <?php echo $i; ?>"
+              aria-selected="<?php echo ($i === 1) ? 'true' : 'false'; ?>"
+              tabindex="<?php echo ($i === 1) ? '0' : '-1'; ?>"
+              aria-controls="carousel-item-<?php echo $i; ?>">
+              <svg width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                <circle class="border" cx="16" cy="15" r="10"></circle>
+                <circle class="tab-background" cx="16" cy="15" r="8"></circle>
+                <circle class="tab" cx="16" cy="15" r="6"></circle>
+              </svg>
+            </button>
+          <?php endwhile; ?>
         </div>
       </div>
     </div>
 
+    <!-- SLIDES -->
     <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
+      <?php
+      $carousel_query->rewind_posts(); // REWIND the query instead of reset
+      $i = 0;
+      while ($carousel_query->have_posts()) : $carousel_query->the_post(); $i++;
+        $image = get_field('banner_image');
+        $link = function_exists('pll_current_language') && pll_current_language() === 'hi'? get_field('banner_post_link_hindi') : get_field('banner_post_link');
+        $alt   = get_field('banner_alt') ?: get_the_title();
+      ?>
 
-    <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 7">
+      <div class="carousel-item <?php echo ($i === 1) ? 'active' : ''; ?>"
+           id="carousel-item-<?php echo $i; ?>"
+           role="tabpanel"
+           aria-roledescription="slide"
+           aria-label="<?php echo $i . ' of ' . $total; ?>">
+
         <div class="carousel-image">
-          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-1" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/DEADLINE-EXTENTION-ADMISSION-2026.png" alt="Application poster for SRFTI Common Entrance Test for FTII Itanagar">
-          </a>
+          <?php if ($image) : ?>
+            <a href="<?php echo esc_url($link ?: '#'); ?>" tabindex="-1">
+              <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($alt); ?>">
+            </a>
+          <?php endif; ?>
         </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="https://srfti.ac.in/announcement/9212/">Click here for detail</a>
-          </h3>
-        </div>-->
-        
-      </div> 
-      
-    <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar" id="carousel-image-2" tabindex="-1" >
-            <img  src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar_MFA.png"  alt="Application poster for SRFTI Common Entrance Test" >
-          </a>
-        </div>
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
-    
-    <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 7">
-        <div class="carousel-image">
-          <a href="https://applyadmission.net/SRFTI2026" id="carousel-image-3" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/Admission_2026.png" alt="Application poster for SRFTI Common Entrance Test for SRFTI for SRFTI Film wing" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div> 
-    
-    <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-cinema/" id="carousel-image-4" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_Film.png"  alt="Application poster for SRFTI Common Entrance Test for EDM wing" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-    
-    
-    <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="slide" aria-label="5 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/mfa-in-edm/" id="carousel-image-5" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/SRFTI_MFA_EDM.png" alt="Poster depicting SRFTI as regional incubator for WaveX startup accelarator " >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
       </div>
 
-      
-
-      <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="slide" aria-label="6 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" id="carousel-image-6" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/FTII_Itanagar.png" alt="Poster shosing the images of SRFTI Alumni shining at BUSAN Film Festival" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-
-      <div class="carousel-item" id="carousel-item-7" role="tabpanel" aria-roledescription="slide" aria-label="7 of 7">
-        <div class="carousel-image">
-          <a href="https://srfti.ac.in/announcement/9212/" id="carousel-image-7" tabindex="-1" >
-            <img src="<?php bloginfo('template_url'); ?>/images/Incubation.webp" alt="71st national Award Winners Alumni" >
-          </a>
-        </div>
-
-        <!--<div class="carousel-caption">
-          <h3>
-            <a href="#"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
-          </h3>
-
-          <div class="hidden-xs hidden-sm">
-            <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
-          </div>
-        </div>-->
-        
-      </div>
-      
+      <?php endwhile; wp_reset_postdata(); ?>
     </div>
+
   </div>
-  
 </section>
+
+<?php else : ?>
+  <p>No carousel items to display.</p>
+<?php endif; ?>
 
 
 <div class="col-sm-1"></div>
