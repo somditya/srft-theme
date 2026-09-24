@@ -841,7 +841,7 @@ div .spacer {
 
   font-weight: 600;
   /*letter-spacing: -.0775rem;line-height: 1.1;*/
-  font-size: 36px;
+  font-size: 24px;
   line-height: 36px;
   color: #4d4d4d;
   color: #161a1d;
@@ -1577,7 +1577,7 @@ ol.breadcrumb li + li::before {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-color: rgb(255, 255, 0);
+  /*background-color: rgb(255, 255, 0);*/
   background-blend-mode: multiply;
   min-height: 400px;
   flex: 0 0 60%;
@@ -1855,7 +1855,7 @@ ol.breadcrumb li + li::before {
   height: 47px; /* matches sprite icon height */
   background-image: url("https://srfti.ac.in/wp-content/themes/srft-theme/images/nav-icon.webp");
   background-repeat: no-repeat;
-  filter: brightness(0) invert(1); /* invert colors if needed */
+  /*filter: brightness(0) invert(1);  invert colors if needed */
 
   /* Hide visual text, keep for accessibility */
   font-size: 0;
@@ -2491,6 +2491,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  border-top: 1px solid #ebeaea;
 }
 
 .menu-bar {
@@ -4132,7 +4133,7 @@ img.reload {
 .cell h3.update-title {
   border-bottom: 2px solid #666;
   display: block;
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   line-height: 28px;
   margin-bottom: 16px;
   padding-bottom: 16px;
@@ -5907,7 +5908,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 .course-head h2 {
   color: white; /* Text color */
-  font-size: 5.2rem; /* Font size */
+  font-size: 3.6rem; /* Font size */
   margin-top: 5%; /* Margin from the top */
 }
 
@@ -6711,7 +6712,7 @@ header {
 
 .button-link-course {
   display: flex;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 300;
   line-height: 2rem;
   /*text-transform: uppercase;*/
@@ -8007,10 +8008,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
   display: flex;
   flex-direction: column;
   /*max-width: 270px;*/
-  height: 370px;
+  height: 350px;
   /*margin: 10px;*/
   background-color: rgba(255, 255, 255, 0.8);
   background-color: white;
+  box-shadow: 3px 3px 10px hsla(198, 0%, 20%, 0.2);
   /*background-color:#0b6b39;*/
 
   /*background: white;*/
