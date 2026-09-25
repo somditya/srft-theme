@@ -91,9 +91,9 @@ body {
   --hyper-link-color: #8b5b2b;
   --primary-menu-hover-color: #916100;
   --secondary-menu-hover-color: #916100;
-  --secondary-menu-active-color: #eaeaea;
-  --widget-background-color: #eaeaea;
-  --sub-intro-background-color: #eaeaea;
+  --secondary-menu-active-color: #ebeaea;
+  --widget-background-color: #ebeaea;
+  --sub-intro-background-color: #ebeaea;
   --sub-menu-selected-color: #916100;
   --sub-menu-hover-color: #916100;
   --feedback-form-color: #919191;
@@ -1595,6 +1595,7 @@ ol.breadcrumb li + li::before {
   background: #494949;
   background: #62371f;
   background: #333;
+  background: #5d3e00;
   /*background-image: url(images/footerbg.jpg);*/
   background-repeat: repeat;
   padding: 0 24px;
@@ -4809,7 +4810,7 @@ h6 {
   font-size: 30px;
   font-size: 26px;
   font-weight: 400;
-  letter-spacing: 0.5rem;
+  /*letter-spacing: 0.5rem;*/
 }
 
 .profile {
@@ -7499,7 +7500,7 @@ img.emoji {
   font-size: 30px;
   font-size: 26px;
   font-weight: 400;
-  letter-spacing: 0.5rem;
+  /*letter-spacing: 0.5rem;*/
 }
 
 .profile {
@@ -8011,7 +8012,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   height: 350px;
   /*margin: 10px;*/
   background-color: rgba(255, 255, 255, 0.8);
-  background-color: white;
+  background-color: #ebeaea;
   box-shadow: 3px 3px 10px hsla(198, 0%, 20%, 0.2);
   /*background-color:#0b6b39;*/
 
