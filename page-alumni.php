@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: NewsList
+Template Name: AlumniList
 
  */
 
@@ -89,7 +89,7 @@ $category_id = get_category_ID($category_name);
     </div>
 </section>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
         <script>
         var categoryID = <?php echo json_encode($category_id); ?>;
         var siteURL = '<?php echo esc_url(site_url('/')); ?>';

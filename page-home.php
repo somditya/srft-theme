@@ -209,7 +209,7 @@ if ($post_count > 1) {
     </h2>
 
        <div class="frame"  role="region" aria-label="Feature News" aria-roledescription="carousel" >
-       <ul class="slider"  style="height: 370px;">
+       <ul class="slider" >
             <?php
 if (pll_current_language() === 'en') {
     $catslug = 'news-en';
@@ -235,9 +235,6 @@ if ($category_posts->have_posts()) :
 
 <li role="group" aria-roledescription="slide">
     <div class="news-item">
-
-        <a href="<?php the_permalink(); ?>" target="_blank">
-
             <img class="img-responsive lazyOwl"
                  src="<?php echo esc_url(get_field('News-Image')); ?>"
                  alt="<?php the_title_attribute(); ?>"
@@ -247,12 +244,9 @@ if ($category_posts->have_posts()) :
 
                 <p><?php the_title(); ?></p>
 
-                <p><?php echo wp_trim_words(get_the_content(), 25); ?></p>
-
             </div>
-
-        </a>
-
+            <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+           </div>
     </div>
 </li>
 
@@ -264,7 +258,7 @@ else :
 endif;
 ?>  
         </ul>
-        <div class="link-div" style="align-items: center; margin-top: 10px;">
+        <!--<div class="link-div" style="align-items: center; margin-top: 10px;">
             <a class="link-text-big" href="<?php if ($current_language === 'en'){ echo esc_url(site_url('/news-list/')); } else 
 { echo esc_url(site_url('/समाचार-सूची/'));}
 ?>"  aria-label="Read more featured news">
@@ -278,25 +272,23 @@ endif;
                             <polyline class="cls-1-arrow" style="stroke: #f5f5f5;" points="11.99 0.35 23.99 12.34 11.99 24.33"></polyline>
                         </g>
                     </svg>
-                </span>
+                </span> 
             </a>
-        </div>
-    </div>
+        </div>-->
 </section>
  
 <section class="section-home;" style="padding: 0;">
-  <div  style="display:flex; flex-wrap: wrap; background-color:#5e5e5e;">
+  <div style="display:flex; flex-wrap: wrap; background-color:var(--sub-intro-background-color);" class="frame1"  >
     <div class="abtimg-box">
     </div>
     <div class="text-box">
-      <h2 class="section-intro-header-text" style="padding-left: 0; color:#f3f3f3; " >
+      <h2 class="section-intro-header-text" style="padding-left: 0; color:#161a1d; " >
       <?php echo __('The Institute', 'srft-theme' ); ?>
       </h2>
-      <p style="padding-top: 20px; color:white; font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.8rem; line-height: 1.5;" ><?php echo $excerpt ; ?>
+      <p style="padding-top: 20px; padding-right: 20px; line-height: 1.5;" ><?php echo $excerpt ; ?>
 
       </p>
-      <div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+      <!--<div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         <div class="link-div" style="align-items: center; margin-top: 0;">
           <a class="link-text-big" href="<?php if ($current_language === 'en') { echo esc_url(site_url('/about-the-institute/')); }
 else 
@@ -306,7 +298,9 @@ else
           </span>
         </a>
           
-        </div>
+        </div>-->
+                <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+
       </div>
     </div>
    
@@ -703,7 +697,7 @@ else
     This is a carousel. Use the next and previous controls to navigate between award items.
   </p>-->
     <div class="frame" role="region" aria-label="Award Winnng Student Films" aria-roledescription="carousel">
-      <ul class="slider"  style="height: 370px;">
+      <ul class="slider" >
         <?php
         $post_id = get_the_ID();
         $post_content = apply_filters('the_content', $post->post_content);
@@ -732,18 +726,16 @@ else
           while ($category_posts->have_posts()) : $category_posts->the_post();
         ?> 
         <li  role="group" aria-roledescription="slide">
-          <div class="news-item">
-          <a href="<?php the_permalink(); ?>" target="_blank" >
+          
+        <div class="news-item">
           <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=""  style="display: block;">
           <div class="news-item-title">
           <h3><?php echo get_field('Film-Name');?></h3>
-          <p><?php echo get_field('award_received');?></p>
-        <!--<i class="fa-solid fa-play fa-xl" style="color: #161718;"></i>-->
-        <!--<div class="primary__header-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.85 24.85" style="transform: translate(0px, 0px); opacity: 1;"><defs><style>.cls-1-arrow-external{fill:none;stroke:#000;stroke-miterlimit:10;}</style></defs><g id="Calque_1-2" data-name="Calque 1"><line class="cls-1-arrow-external" x1="0.35" y1="24.5" x2="24.35" y2="0.5"></line><polyline class="cls-1-arrow-external" points="24.35 24.4 24.35 0.5 0.46 0.5"></polyline></g></svg></div>-->
-          </div>
-          </a>
-          </div>
+          <p><?php echo get_field('award_received');?></p>  
+        </div>
+        <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+
+    </div>
         </li>  
       <?php
         endwhile;
@@ -972,7 +964,6 @@ $is_gem = (stripos($tender_id, 'GEM') === 0);
     <p><?php echo __('No posts found in this category.', 'srft-theme'); ?></p>
 <?php endif; ?>
 </div>
-        <div class="link-span">
            <?php
 // Language-aware slug mapping
 $slug_map = [
@@ -994,12 +985,16 @@ $slug = $slug_map[$current_language][$post_type] ?? $post_type;
 $final_url = site_url("/$slug/");
 ?>
  <?php if ($post_type != 'event') : ?>
-    <a href="<?php echo esc_url($final_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
-        <?php echo __('View More', 'srft-theme'); ?>
+        <div class="view-more-button float-end">
+    <a href="<?php echo esc_url($final_url); ?>" 
+       class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" style="margin-top: 15px;"
+       aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
+       View All<span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+    </a>
+</div>
     </a>
 <?php endif; ?>
 
-        </div>
         </div>
     
     <?php endforeach; ?>
@@ -1137,11 +1132,13 @@ if (!empty($embed_code)) {
                             <?php echo $embed_code; ?>
                         </div>
 
-                     <div class="link-span">
-                        <a href="<?php echo esc_url($social_url); ?>" aria-label="Read more about latest <?php echo strtolower($title); ?>">
-                            <?php echo __(' View More', 'srft-theme'); ?>
-                       </a>
-                    </div>
+                    <div class="view-more-button float-end" style="margin-top: 15px;">
+    <a href="<?php echo esc_url($social_url); ?>" 
+       class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" 
+       aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
+       View more<span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+    </a>
+</div>
 
                     </article>
 
