@@ -67,7 +67,7 @@ if ($current_language === 'en_US') {
 
   <h2 id="sidebar-heading" class="sr-only">Programme Information</h2>
 
-  <div class="widget" style="background: #b38840; color: white;">
+  <div class="widget" style="background: #916100; color: white;">
     <div class="widget-content">
       <h3 id="programme-heading" style="color: white;"><?php echo __('Programme Offered', 'srft-theme'); ?></h3>
       <hr role="presentation" />
@@ -228,7 +228,8 @@ if ($current_language === 'en_US') {
        <div class="facility-text-box">
          <h2
            class="page-header-text"
-           style="padding-left: 0;"
+           style="padding-right: 20px;
+  padding-bottom: 20px; margin-top:0;"
          >
          <?php echo __('Facilities', 'srft-theme' ); ?>
          </h2>
