@@ -1149,7 +1149,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 })();
 </script>
-
+<?php get_template_part('template-parts/cookie-banner'); ?>
+<?php get_template_part('template-parts/cookie-settings-modal'); ?>
 
 <?php wp_footer(); ?>
 

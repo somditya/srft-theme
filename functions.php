@@ -3110,3 +3110,40 @@ add_filter(
     3
 );
 
+/**
+ * SRFTI Cookie Consent Assets
+ */
+
+function srfti_cookie_assets() {
+
+    wp_enqueue_style(
+        'srfti-cookie-consent',
+        get_template_directory_uri() . '/assets/css/cookie-consent.css',
+        array(),
+        '1.0'
+    );
+
+    wp_enqueue_script(
+        'srfti-cookie-consent',
+        get_template_directory_uri() . '/assets/js/cookie-consent.js',
+        array(),
+        time(), // <-- Change '1.0' to time() temporarily
+        true
+    );
+
+    if ( function_exists('pll_current_language') ) {
+
+        wp_localize_script(
+            'srfti-cookie-consent',
+            'srftiCookie',
+            array(
+                'language' => pll_current_language(),
+                'policyURL' => home_url('/website-policy/#cookie-policy')
+            )
+        );
+
+    }
+
+}
+
+add_action('wp_enqueue_scripts', 'srfti_cookie_assets');
