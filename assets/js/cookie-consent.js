@@ -124,9 +124,35 @@ document.addEventListener('DOMContentLoaded', () => {
         applyConsent(prefs);
     }
 
-    function applyConsent(prefs) {
+   function applyConsent(prefs) {
+        // Fire custom event for any other non-Google scripts
         const event = new CustomEvent('srfti_consent_updated', { detail: prefs });
         document.dispatchEvent(event);
-        if (prefs.optional) console.log('Optional cookies allowed.');
+
+        // Define gtag if it isn't ready yet
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        if (prefs.optional) {
+            console.log('Optional cookies allowed - Activating Site Kit Analytics.');
+            
+            // Send the 'granted' signal to Google Consent Mode
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
+        } else {
+            console.log('Optional cookies denied - Site Kit Analytics remains paused.');
+            
+            // Ensure it stays denied if they change their mind and turn it off
+            gtag('consent', 'update', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied'
+            });
+        }
     }
-});
+}); 

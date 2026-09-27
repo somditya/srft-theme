@@ -3147,3 +3147,37 @@ function srfti_cookie_assets() {
 }
 
 add_action('wp_enqueue_scripts', 'srfti_cookie_assets');
+
+/**
+ * Set default Google Consent Mode state for Site Kit
+ * Must load at priority 1 to appear before Site Kit's scripts
+ */
+function srfti_default_consent_mode() {
+    ?>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Check if the user already saved a preference
+    var savedConsent = localStorage.getItem('srfti_cookie_consent');
+    var isGranted = false;
+    
+    if (savedConsent) {
+        try {
+            var prefs = JSON.parse(savedConsent);
+            isGranted = prefs.optional === true;
+        } catch(e) {}
+    }
+
+    // Tell Site Kit/Google to deny tracking unless previously granted
+    gtag('consent', 'default', {
+        'analytics_storage': isGranted ? 'granted' : 'denied',
+        'ad_storage': isGranted ? 'granted' : 'denied',
+        'ad_user_data': isGranted ? 'granted' : 'denied',
+        'ad_personalization': isGranted ? 'granted' : 'denied',
+        'wait_for_update': 500
+    });
+    </script>
+    <?php
+}
+add_action( 'wp_head', 'srfti_default_consent_mode', 1 );

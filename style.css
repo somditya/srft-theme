@@ -1292,6 +1292,14 @@ ol li {
   max-width: 100%;
 }
 
+.Rtable-cell--content.access-link-content > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    line-height: 1 !important;
+}
+
+
 /* Enhanced scrollbar styling */
 .table-container::-webkit-scrollbar {
   height: 16px;
@@ -8414,6 +8422,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 [role="tabpanel"] {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px; /* Adjust as needed */
 }
 

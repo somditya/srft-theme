@@ -25,12 +25,16 @@ if ( defined( 'ABSPATH' ) === false ) {
         </button>
 
         <!-- Header / Intro -->
+        <!-- Header / Intro -->
         <div class="cookie-modal-header-simple">
             <h2 id="cookie-settings-title" class="sr-only" style="display:none;"><?php _e('Cookie Settings', 'srft-theme'); ?></h2>
             <p class="cookie-intro-text">
-                <?php _e('Welcome to the Cookie Settings page, where you have the power to tailor your browsing experience. Here, you\'ll find detailed information about the cookies we use, categorized as "Essential" and "Optional." Make informed choices that align with your privacy preferences.', 'srft-theme'); ?>
+                <?php _e('Welcome to the Cookie Settings page, where you have the power to tailor your browsing experience. Here, you\'ll find detailed information about the cookies we use, categorized as "Essential" and "Optional." Make informed choices that align with your privacy preferences. For more details, please read our', 'srft-theme'); ?> 
+                <a href="<?php echo esc_url(home_url('/website-policy')); ?>#cookie-policy" class="cookie-policy-link">
+                    <?php _e('Cookie Policy', 'srft-theme'); ?>
+                </a>.
             </p>
-        </div>
+        </div>  
 
         <!-- Body / Toggles -->
         <div class="cookie-modal-body-simple">
@@ -93,7 +97,7 @@ if ( defined( 'ABSPATH' ) === false ) {
 
         <!-- Footer -->
         <div class="cookie-modal-footer-simple">
-            <button id="save-cookie-prefs-btn" class="cookie-btn cookie-btn-dark" type="button"><?php _e('Save Preferences', 'srft-theme'); ?></button>
+            <button id="save-cookie-prefs-btn" class="cookie-btn cookie-btn-dark" type="button"><?php _e('SAVE PREFERENCES', 'srft-theme'); ?></button>
         </div>
 
     </div>
