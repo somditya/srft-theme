@@ -3181,3 +3181,4 @@ function srfti_default_consent_mode() {
     <?php
 }
 add_action( 'wp_head', 'srfti_default_consent_mode', 1 );
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

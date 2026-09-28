@@ -136,7 +136,7 @@ $current_language = get_locale();
                     <div class="col-right">
                         <div class="profile-desc">
                             <?php echo get_post_meta(get_the_ID(), 'DirectorBio', true); ?>
-                            <p style="color:#8b5b2b; margin-top: 1rem;">email: director@srfti.ac.in</p>
+                            <p style="color:#8b5b2b; margin-top: 1rem;">email: vc@srfti.ac.in</p>
                         </div>
                     </div>
                 </div>
