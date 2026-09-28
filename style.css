@@ -1621,6 +1621,7 @@ ol.breadcrumb li + li::before {
     padding: 8px 12px;
     margin-right: 10px;
     margin-bottom: 10px;
+    margin-top: 0px;
     gap: 8px; 
     
     background: #fff;
