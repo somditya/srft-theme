@@ -3213,7 +3213,7 @@ img.reload {
 
 .carousel-tablist {
   background-color: #eee;
-  padding-top: 100px;
+  /*padding-top: 100px;*/
   /*max-width: 900px;*/
 }
 
@@ -4193,6 +4193,35 @@ img.reload {
     width: 150px;
     height: 150px;
   }
+  header.sticky {
+        position: relative !important; 
+    }
+    
+    /* Just in case you want to keep it sticky, force it to allow internal scrolling */
+    header {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    .header-text-group {
+        display: none !important;
+    }
+
+    /* Shrink the gap to save vertical space */
+    header > div[style] {
+        gap: 10px !important;
+        padding: 10px !important;
+    }
+    
+    /* Make the Digital India logo smaller */
+    .skillimg {
+        height: 25px !important;
+    }
+
+    .nav-links {
+        max-height: 100vh;
+        overflow-y: auto; /* Allows scrolling inside the open menu */
+        padding-bottom: 50px; /* Ensures the bottom links aren't cut off */
+    }
 }
 
 /* =========================================================
@@ -9157,9 +9186,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     font-size: 1rem; /* Smaller font size for mobile */
   }
 
-  .carousel-tablist {
-    padding-top: 100px; /* Adjust this to your sticky header height on mobile */
-  }
 
   .filter-bar {
     flex-direction: column;
@@ -9523,17 +9549,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
     width: 100%;
   }
 
-  .a11y-slider-container > button.a11y-slider-prev {
-    left: 20px;
-    background-position: 0 0;
-    top: -7%;
-  }
-
-  .a11y-slider-container > button.a11y-slider-next {
-    right: 20px;
-    background-position: -24px 0;
-    top: -7%;
-  }
 
   .g-recaptcha {
     transform: scale(0.85);
