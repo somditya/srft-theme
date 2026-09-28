@@ -880,9 +880,15 @@ else
 
         $formatted_date = !empty($post_date) ? DateTime::createFromFormat('d/m/Y', $post_date) : null;
 ?>
-    <h4 style="margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i>
-        <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?>
-    </h4>
+    <h4 style="margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+    <!-- Removed flex styles from the SVG, they belong on the parent h4 -->
+    <span style="display: flex;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 61 68" fill="none">
+            <path d="M8.05255 66C6.36119 66 4.9296 65.4141 3.75776 64.2422C2.58592 63.0704 2 61.6388 2 59.9474V15.1346C2 13.4433 2.58592 12.0117 3.75776 10.8399C4.9296 9.66801 6.36119 9.08209 8.05255 9.08209H12.688V2H17.8391V9.08209H43.2077V2H48.2299V9.08209H52.8654C54.5567 9.08209 55.9883 9.66801 57.1601 10.8399C58.332 12.0117 58.9179 13.4433 58.9179 15.1346V59.9474C58.9179 61.6388 58.332 63.0704 57.1601 64.2422C55.9883 65.4141 54.5567 66 52.8654 66H8.05255ZM8.05255 60.9778H52.8654C53.1232 60.9778 53.3592 60.8704 53.5735 60.6556C53.7883 60.4413 53.8957 60.2053 53.8957 59.9474V28.5271H7.02217V59.9474C7.02217 60.2053 7.12959 60.4413 7.34442 60.6556C7.5587 60.8704 7.79474 60.9778 8.05255 60.9778ZM7.02217 23.5049H53.8957V15.1346C53.8957 14.8768 53.7883 14.6408 53.5735 14.4265C53.3592 14.2117 53.1232 14.1043 52.8654 14.1043H8.05255C7.79474 14.1043 7.5587 14.2117 7.34442 14.4265C7.12959 14.6408 7.02217 14.8768 7.02217 15.1346V23.5049Z" fill="#5D3E00"/>
+        </svg>
+    </span>
+    <?php echo $formatted_date ? esc_html($formatted_date->format('d M, Y')) : __('No date available', 'srft-theme'); ?>
+</h4>
 
     <p><a href="<?php echo $link; ?>">
         <?php the_title(); ?>&nbsp;
@@ -941,21 +947,31 @@ $is_gem = (stripos($tender_id, 'GEM') === 0);
          $event_date = DateTime::createFromFormat('d/m/Y', $event_date);
        }
       ?>
-        <p class="event-meta" style="margin: 4px 0;">
-            <?php if ($event_date): ?>
-                <?php echo __('Date', 'srft-theme'); ?>: <?php echo esc_html($event_date->format('d M, Y')); ?>
-            <?php endif; ?>
+        <p class="event-meta" style="margin: 4px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+    
+    <!-- Venue Group -->
+    <span style="display: flex; align-items: center; gap: 4px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 55 68" fill="none">
+            <path d="M27.418 33.5303C29.093 33.5303 30.525 32.9339 31.714 31.7409C32.9036 30.548 33.4984 29.114 33.4984 27.4391C33.4984 25.7641 32.9019 24.3319 31.7089 23.1423C30.516 21.9533 29.0818 21.3587 27.4062 21.3587C25.7313 21.3587 24.2993 21.9552 23.1103 23.1482C21.9207 24.3411 21.3259 25.7753 21.3259 27.4509C21.3259 29.1258 21.9224 30.5578 23.1153 31.7468C24.3083 32.9358 25.7425 33.5303 27.418 33.5303ZM27.4121 59.28C33.9986 53.3837 39.0389 47.7282 42.533 42.3133C46.0271 36.8985 47.7742 32.1559 47.7742 28.0855C47.7742 21.9479 45.8243 16.9023 41.9245 12.9486C38.0247 8.99496 33.1872 7.01812 27.4121 7.01812C21.6371 7.01812 16.7996 8.99496 12.8998 12.9486C9.00001 16.9023 7.05011 21.9479 7.05011 28.0855C7.05011 32.1559 8.79716 36.8985 12.2913 42.3133C15.7854 47.7282 20.8257 53.3837 27.4121 59.28ZM27.4121 66C18.9392 58.6583 12.5856 51.8258 8.35135 45.5025C4.11712 39.1786 2 33.3729 2 28.0855C2 20.3162 4.51299 14.0263 9.53897 9.21576C14.5655 4.40525 20.5232 2 27.4121 2C34.301 2 40.2588 4.40525 45.2853 9.21576C50.3113 14.0263 52.8243 20.3162 52.8243 28.0855C52.8243 33.3729 50.7072 39.1786 46.4729 45.5025C42.2387 51.8258 35.8851 58.6583 27.4121 66Z" fill="#5D3E00"/>
+        </svg>
+        <?php echo esc_html($event_venue); ?>
+    </span>
 
-            <?php if (!empty($event_time)): ?>
-                &nbsp;|&nbsp;
-                <span><i class="fa-regular fa-clock"></i> <?php echo esc_html($event_time); ?></span>
-
-            <?php endif; ?>
-        </p>
-        <p style="margin-bottom: 6px;">
-        <i class="fa-solid fa-location-dot"></i>
-       <?php echo esc_html($event_venue); ?>
-        </p>
+    <?php if (!empty($event_time)): ?>
+        
+        <!-- Divider -->
+        <span>|</span>
+        
+        <!-- Time Group -->
+        <span style="display: flex; align-items: center; gap: 4px;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#2d2d2d">
+                <path d="M513-492v-171q0-13-8.5-21.5T483-693q-13 0-21.5 8.5T453-663v183q0 6 2 11t6 10l144 149q9 10 22.5 9.5T650-310q9-9 9-22t-9-22L513-492ZM480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-82 31.5-155t86-127.5Q252-817 325-848.5T480-880q82 0 155 31.5t127.5 86Q817-708 848.5-635T880-480q0 82-31.5 155t-86 127.5Q708-143 635-111.5T480-80Zm0-400Zm0 340q140 0 240-100t100-240q0-140-100-240T480-820q-140 0-240 100T140-480q0 140 100 240t240 100Z" fill="#5D3E00"/>
+            </svg> 
+            <?php echo esc_html($event_time); ?>
+        </span>
+        
+    <?php endif; ?>
+</p>
     <?php endif; ?>
 
     <br>

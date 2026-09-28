@@ -198,7 +198,7 @@ body {
   background: white;
   line-height: 1;
   font-weight: 400;
-  color: #555;
+  color: #150202;;
   letter-spacing: 1px;
 
   /*font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -2000,40 +2000,28 @@ ol.breadcrumb li + li::before {
 
   width: 26px; 
   height: 47px; 
-  background-image: url("https://srfti.ac.in/wp-content/themes/srft-theme/images/nav-icon.webp");
+  background-color: rgb(0, 0, 0); 
+  
+  /* THIS IS THE FIX: Centers the background image perfectly */
   background-repeat: no-repeat;
+  background-position: center; 
+  
+  /* Add this if your original PNG is larger than 26x47px */
 
-  /* Set background to white, then invert everything */
-  background-color: white; 
-  filter: invert(1); 
 
-  /* Hide visual text, keep for accessibility */
   font-size: 0;
 }
 
-
-
-/* Ensure you still have the background-position set for prev/next 
-   if this image is a sprite containing both arrows */
-.a11y-slider-container > button.a11y-slider-prev {
-  left: 0;
-  background-position: left center; /* Adjust based on your sprite */
-}
-
-.a11y-slider-container > button.a11y-slider-next {
-  right: 0;
-  background-position: right center; /* Adjust based on your sprite */
-}
-
-/* 3) Specific offsets for each arrow position */
 .a11y-slider-container > button.a11y-slider-prev {
   left: 20px;
-  background-position: 0 0; /* shows left arrow */
+  /* Removed the stray comma from the URL */
+  background-image: url("https://srfti.ac.in/wp-content/themes/srft-theme/images/DBIM_Chevron_left.png");
 }
 
 .a11y-slider-container > button.a11y-slider-next {
-  right:  20px;
-  background-position: -24px 0; /* shows right arrow */
+  right: 20px;
+  /* Removed the stray comma from the URL */
+  background-image: url("http://srfti.ac.in/wp-content/themes/srft-theme/images/DBIM_Chevron_right.png");
 }
 
 /* 4) Focus outline for accessibility */
@@ -2795,7 +2783,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 .nav-link > a {
   line-height: 3rem;
   color: #fff;
-  color: #555;
+  color: #150202;
   text-decoration: none;
   padding: 0 0.8rem;
   letter-spacing: 1px;
@@ -2855,7 +2843,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   align-items: center;
   justify-content: space-between;
   transition: 0.3s;
-  color: #555;
+  color: #150202;;
   text-decoration: none;
   border-bottom: 1px solid #efefef;
 }
@@ -4183,7 +4171,7 @@ img.reload {
 .alumni-carousel-item p {
   margin: 12px 0 0 0;
 
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.4;
 
   text-align: center;
@@ -4762,7 +4750,6 @@ img.reload {
   font-weight: 400;
   letter-spacing: 1.37px;
   padding: 32px 0 15px 0;
-  color: #555;
 }
 
 .widget {
@@ -5663,36 +5650,40 @@ ul li input[type="checkbox"]:checked ~ i:after {
 .news-item-title {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
   padding: 8px;
   font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .news-item a {
   text-decoration: none;
   /*color: #555;*/
   /*color: white;*/
-  color: #555;
+  /*color: #555;*/
   /*color: white;*/
 }
 
 .news-item p {
-  font-family: GthA;
-  font-size: 1.4rem;
+  /*font-family: GthA;*/
+  font-size: 1.6rem;
   color: #555;
   /*color: white;*/
 }
 
 .news-item-title p {
-  font-weight: 600;
+  /*font-weight: 600;*/
   font-size: 1.6rem;
   letter-spacing: 0.2ch;
   /*font-weight: 500;*/
   line-height: 1.3em;
   text-transform: capitalize;
-  /*color: #8b5b2b;*/
+  /*color: #8b5b2b;
   color: white;
   color: #8b5b2b;
-  color: #555;
+  color: #555;*/
   /* margin-top: 5px;*/
   margin-bottom: 15px;
   /*height: 52px;*/
@@ -5700,15 +5691,12 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .news-item-title h3 {
-  font-size: 1.6rem;
-  letter-spacing: 0.2ch;
-  /*font-weight: 500;*/
+  font-size: 2.0rem;
+  /*letter-spacing: 0.2ch;*/
+  font-weight: 600;
   line-height: 1.3em;
   text-transform: capitalize;
   /*color: #8b5b2b;*/
-  color: white;
-  color: #8b5b2b;
-  color: #555;
   /* margin-top: 5px;*/
   margin-bottom: 15px;
   /*height: 52px;*/
@@ -7076,7 +7064,7 @@ img.emoji {
 
 .cell a {
   /*border-bottom: 1px dotted;*/
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 28px;
   text-decoration: none;
@@ -8204,10 +8192,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
   display: flex;
   flex-direction: column;
   /*max-width: 270px;*/
-  height: 420px;
+  height: 450px;
   /*margin: 10px;*/
   background-color: white;
-  /*background-color: #ebeaea;*/
+  background-color: #ebeaea;
   
   box-shadow: 3px 3px 10px hsla(198, 0%, 20%, 0.2);
   /*background-color:#0b6b39;*/
@@ -8225,8 +8213,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
 }
 
 .news-item p {
-  font-size: 1.4rem;
-  color: #555;
+  font-size: 1.6rem;
+  color: #150202
   /*color: white;*/
 }
 
