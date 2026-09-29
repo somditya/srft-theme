@@ -1264,7 +1264,7 @@ ol li {
   border-top: 2px solid #8b5b2b;
   padding: 0.8em 1.2em;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   vertical-align: top;
   box-sizing: border-box;
@@ -4337,6 +4337,7 @@ img.reload {
   padding-bottom: 16px;
   font-weight: 500;
   color: #161a1d;
+  text-align: left;
 }
 
 .cell h4 {
@@ -5880,11 +5881,16 @@ ul li input[type="checkbox"]:checked ~ i:after {
   display: flex;
   flex-direction: column;
   height: 500px;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .social-feeds .cell .update-title {
-  flex-shrink: 0;
-  margin-bottom: 15px;
+    flex-shrink: 0;
+    margin-bottom: 15px;
+    align-self: stretch;
+    text-align: left;
 }
 
 .social-feeds .cell .social-embed {
@@ -6139,6 +6145,14 @@ ul li input[type="checkbox"]:checked ~ i:after {
   margin: 0;
   color: white;
   white-space: nowrap;
+  gap: 10px;
+}
+
+.acme-news-ticker-label .announcement-text {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    line-height: 32px;
 }
 
 .acme-news-ticker-box {

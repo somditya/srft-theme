@@ -17,16 +17,19 @@ Template Name: Home
        <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
         
         <!-- Label -->
-        <h2 class="acme-news-ticker-label" style="flex-shrink: 0; margin: 0;">
-            <?php echo __('Announcements', 'srft-theme'); ?> &nbsp;
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" 
-                 style="display: inline-block; vertical-align: middle;" aria-hidden="true">
-                <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12h22"></path>
-                    <path d="M12 3l9 9-9 9"></path>
-                </g>
-            </svg>
-        </h2>
+    <h2 class="acme-news-ticker-label">
+     <span class="announcement-text"> <?php echo __('Announcements', 'srft-theme'); ?>
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="32"
+         height="32"
+         viewBox="0 -960 960 960"
+         aria-hidden="true"
+         focusable="false">
+        <path d="M850-450h-90q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h90q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5ZM677-274q8-10 19.83-12 11.82-2 22.17 6l73 54q10 8 12 19.83 2 11.82-6 22.17-8 10-19.83 12-11.82 2-22.17-6l-73-54q-10-8-12-19.83 2-11.82 6-22.17Zm115-460-70 53q-10.35 8-22.17 6Q688-677 680-687q-8-10-6-22t12-20l70-53q10.35-8 22.17-6Q790-786 798-776q8 10 6 22t-12 20ZM210-360h-70q-24.75 0-42.37-17.63Q80-395.25 80-420v-120q0-24.75 17.63-42.38Q115.25-600 140-600h180l155-93q15-9 30-.06 15 8.93 15 26.06v374q0 17.13-15 26.06-15 8.94-30-.06l-155-93h-50v130q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-130Zm250 14v-268l-124 74H140v120h196l124 74Zm100 0v-268q27 24 43.5 58.5T620-480q0 41-16.5 75.5T560-346ZM300-480Z"
+              fill="#ffffff"/>
+    </svg>
+</h2>
         
         <!-- Scrolling Container -->
         <div class="acme-news-ticker-box" style="flex: 1; overflow: hidden; position: relative; height: 40px;">
@@ -245,7 +248,7 @@ if ($category_posts->have_posts()) :
                 <p><?php the_title(); ?></p>
 
             </div>
-            <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
            </div>
     </div>
 </li>
@@ -299,7 +302,7 @@ else
         </a>
           
         </div>-->
-                <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+                <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
 
       </div>
     </div>
@@ -733,7 +736,7 @@ else
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>  
         </div>
-        <div class="view-more-button float-end"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
 
     </div>
         </li>  
@@ -893,8 +896,67 @@ else
     <p><a href="<?php echo $link; ?>">
         <?php the_title(); ?>&nbsp;
         <?php if ($doc): ?>
-            (<?php echo __('Download', 'srft-theme'); ?> - <?php echo $file_size_mb; ?> MB)
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 68 68" fill="none" title="PDF icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.13 47.8714C12.7254 46.6379 9.88617 46.145 7.0975 46.4771H0V67.9281H5.6525V59.741H8.075C10.5846 59.9579 13.1063 59.4402 15.215 58.2752C17.0049 56.9837 17.9917 55.0731 17.8925 53.0912C18.025 51.0785 16.9966 49.1354 15.13 47.8714ZM10.5825 55.701C9.51486 56.0964 8.34103 56.2445 7.1825 56.1301H5.525V50.0523H7.1825C8.38607 49.9447 9.6003 50.144 10.6675 50.6243C11.6614 51.2066 12.2246 52.1813 12.155 53.1984C12.2838 54.2239 11.6623 55.213 10.5825 55.701ZM30.0475 46.4771H22.9925V67.9281H29.75C33.1938 68.2116 36.6618 67.653 39.7375 66.3193C43.1218 64.1975 44.9299 60.7346 44.4975 57.2026C44.7508 54.1767 43.4692 51.2021 40.97 49.0155C37.8829 46.9686 33.9459 46.0537 30.0475 46.4771ZM35.6575 63.0659C33.8869 63.9031 31.8595 64.2766 29.835 64.1384H28.73V50.2668H29.75C33.32 50.2668 34.7225 50.5528 36.125 51.6254C37.8271 53.1161 38.7062 55.1399 38.5475 57.2026C38.7661 59.4349 37.6898 61.6187 35.6575 63.0659ZM50.7025 67.9281H56.44V58.9544H68V55.1648H56.44V50.2668H68V46.4771H50.7025V67.9281ZM46.75 0H0V39.3268H8.5V32.1765V28.4226V7.15033H43.2225L59.5 20.8432V28.4226V32.1765V39.3268H68V17.8758L46.75 0Z" fill="#5d3e00"></path></svg>
+         <a
+    href="<?php echo esc_url($file_url); ?>"
+    target="_blank"
+    rel="noopener"
+    aria-label="<?php echo esc_attr( 'Download PDF, ' . $file_size_mb . ' MB' ); ?>"
+>
+
+    <!-- PDF Icon -->
+    <span class="tooltip-box">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 68 68"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.13 47.8714C12.7254 46.6379 9.88617 46.145 7.0975 46.4771H0V67.9281H5.6525V59.741H8.075C10.5846 59.9579 13.1063 59.4402 15.215 58.2752C17.0049 56.9837 17.9917 55.0731 17.8925 53.0912C18.025 51.0785 16.9966 49.1354 15.13 47.8714ZM10.5825 55.701C9.51486 56.0964 8.34103 56.2445 7.1825 56.1301H5.525V50.0523H7.1825C8.38607 49.9447 9.6003 50.144 10.6675 50.6243C11.6614 51.2066 12.2246 52.1813 12.155 53.1984C12.2838 54.2239 11.6623 55.213 10.5825 55.701ZM30.0475 46.4771H22.9925V67.9281H29.75C33.1938 68.2116 36.6618 67.653 39.7375 66.3193C43.1218 64.1975 44.9299 60.7346 44.4975 57.2026C44.7508 54.1767 43.4692 51.2021 40.97 49.0155C37.8829 46.9686 33.9459 46.0537 30.0475 46.4771ZM35.6575 63.0659C33.8869 63.9031 31.8595 64.2766 29.835 64.1384H28.73V50.2668H29.75C33.32 50.2668 34.7225 50.5528 36.125 51.6254C37.8271 53.1161 38.7062 55.1399 38.5475 57.2026C38.7661 59.4349 37.6898 61.6187 35.6575 63.0659ZM50.7025 67.9281H56.44V58.9544H68V55.1648H56.44V50.2668H68V46.4771H50.7025V67.9281ZM46.75 0H0V39.3268H8.5V32.1765V28.4226V7.15033H43.2225L59.5 20.8432V28.4226V32.1765V39.3268H68V17.8758L46.75 0Z"
+                fill="#5d3e00"
+            />
+        </svg>
+
+        <span class="tooltip-text">
+            <?php echo esc_html__( 'PDF', 'srft-theme' ); ?>
+        </span>
+    </span>
+
+
+    <!-- File Size -->
+    <span aria-hidden="true">
+        <?php echo esc_html($file_size_mb); ?> MB
+    </span>
+
+
+    <!-- Download Icon -->
+    <span class="tooltip-box">
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path
+                d="M32.0003 41.5333C31.6448 41.5333 31.3114 41.4777 31.0003 41.3666C30.6892 41.2555 30.4003 41.0666 30.1337 40.8L20.5337 31.2C20.0003 30.6666 19.7448 30.0444 19.767 29.3333C19.7892 28.6222 20.0448 28 20.5337 27.4666C21.067 26.9333 21.7003 26.6555 22.4337 26.6333C23.167 26.6111 23.8003 26.8666 24.3337 27.4L29.3337 32.4V13.3333C29.3337 12.5777 29.5892 11.9444 30.1003 11.4333C30.6114 10.9222 31.2448 10.6666 32.0003 10.6666C32.7559 10.6666 33.3892 10.9222 33.9003 11.4333C34.4114 11.9444 34.667 12.5777 34.667 13.3333V32.4L39.667 27.4C40.2003 26.8666 40.8337 26.6111 41.567 26.6333C42.3003 26.6555 42.9337 26.9333 43.467 27.4666C43.9559 28 44.2114 28.6222 44.2337 29.3333C44.2559 30.0444 44.0003 30.6666 43.467 31.2L33.867 40.8C33.6003 41.0666 33.3114 41.2555 33.0003 41.3666C32.6892 41.4777 32.3559 41.5333 32.0003 41.5333ZM16.0003 53.3333C14.5337 53.3333 13.2781 52.8111 12.2337 51.7666C11.1892 50.7222 10.667 49.4666 10.667 48V42.6666C10.667 41.9111 10.9225 41.2777 11.4337 40.7666C11.9448 40.2555 12.5781 40 13.3337 40C14.0892 40 14.7225 40.2555 15.2337 40.7666C15.7448 41.2777 16.0003 41.9111 16.0003 42.6666V48H48.0003V42.6666C48.0003 41.9111 48.2559 41.2777 48.767 40.7666C49.2781 40.2555 49.9114 40 50.667 40C51.4226 40 52.0559 40.2555 52.567 40.7666C53.0781 41.2777 53.3337 41.9111 53.3337 42.6666V48C53.3337 49.4666 52.8114 50.7222 51.767 51.7666C50.7225 52.8111 49.467 53.3333 48.0003 53.3333H16.0003Z"
+                fill="#5d3e00"
+            />
+        </svg>
+
+        <span class="tooltip-text">
+            <?php echo esc_html__( 'Download', 'srft-theme' ); ?>
+        </span>
+    </span>
+
+</a>  
         <?php endif; ?>
     </a>
     <?php if ($post_type === 'announcement') : ?>
@@ -902,7 +964,7 @@ else
     $announcement_cat = get_field('announcement_category');
     if ($announcement_cat) : ?>
         <span class="announcement-category">
-            <?php echo esc_html($announcement_cat); ?>
+            <!--<?php echo esc_html($announcement_cat); ?>-->
         </span>
     <?php endif; ?>
 <?php endif; ?>
@@ -1001,7 +1063,7 @@ $slug = $slug_map[$current_language][$post_type] ?? $post_type;
 $final_url = site_url("/$slug/");
 ?>
  <?php if ($post_type != 'event') : ?>
-        <div class="view-more-button float-end">
+        <div class="view-more-button" style="margin-top: 3rem;">
     <a href="<?php echo esc_url($final_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" style="margin-top: 15px;"
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
@@ -1148,7 +1210,7 @@ if (!empty($embed_code)) {
                             <?php echo $embed_code; ?>
                         </div>
 
-                    <div class="view-more-button float-end" style="margin-top: 15px;">
+                    <div class="view-more-button" style="margin-top: 3rem;">
     <a href="<?php echo esc_url($social_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" 
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
