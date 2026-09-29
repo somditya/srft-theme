@@ -1557,8 +1557,8 @@ ol.breadcrumb li + li::before {
 .tooltip-box .tooltip-text {
   visibility: hidden;
   width: auto;
-  background-color: white;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 5px 10px;
   border-radius: 5px;
@@ -1569,6 +1569,8 @@ ol.breadcrumb li + li::before {
   opacity: 0;
   transition: opacity 0.3s;
   white-space: nowrap;
+  font-size: 10px;
+  margin-top: 5px;
 }
 
 .tooltip-box:hover .tooltip-text {
@@ -1611,7 +1613,7 @@ ol.breadcrumb li + li::before {
     bottom: -50px;
     right: 0;
     margin-top: auto; /* Pushes the button to the bottom */
-    align-self: flex-end; /* Aligns it to the right */
+    /*align-self: flex-end;  Aligns it to the right */
 }
 .view-more-button a {
     display: inline-flex; 
