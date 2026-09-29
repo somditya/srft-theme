@@ -968,10 +968,10 @@ $(document).ready(function () {
 
   // Accessible Auto-Scrolling News Ticker
   $(document).ready(function () {
-    const $ticker = $(".news-ticker");
-    const $container = $(".acme-news-ticker-box");
-    const $toggleBtn = $("#ticker-toggle");
-    const $announcement = $("#ticker-announcement");
+    const $ticker =$(".news-ticker");
+    const $container =$(".acme-news-ticker-box");
+    const $toggleBtn =$("#ticker-toggle");
+    const $announcement =$("#ticker-announcement");
 
     let isPlaying = true;
     let animationId = null;
@@ -982,9 +982,6 @@ $(document).ready(function () {
     function getItems() {
       return $ticker.children();
     }
-
-    // Check number of items
-    const itemCount = getItems().length;
 
     // Get total width of all news items
     function getTotalWidth() {
@@ -1018,10 +1015,20 @@ $(document).ready(function () {
     }
 
     // Play function
+    // Play function
     function play() {
       isPlaying = true;
-      $toggleBtn.attr("aria-label", "Pause");
-      $toggleBtn.html('<i class="fas fa-pause" aria-hidden="true"></i>');
+      $toggleBtn.attr("aria-label", "Pause scrolling announcements");
+      
+      $toggleBtn.html(`
+        <span class="tooltip-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="32" fill="#2b2b2b" style="display: flex; justify-content: center;">
+                <path d="M533.85-220v-520H740v520H533.85ZM220-220v-520h206.54v520H220Zm359.23-45.39h115.38v-429.22H579.23v429.22Zm-313.84 0h115.76v-429.22H265.39v429.22Zm0-429.22v429.22-429.22Zm313.84 0v429.22-429.22Z" fill="#fff"/>
+            </svg>
+            <span class="tooltip-text">Pause</span>
+        </span>
+      `);
+      
       $announcement.text("Announcements are scrolling");
       animate();
     }
@@ -1029,14 +1036,22 @@ $(document).ready(function () {
     // Pause function
     function pause() {
       isPlaying = false;
-      $toggleBtn.attr("aria-label", "Play");
-      $toggleBtn.html('<i class="fas fa-play" aria-hidden="true"></i>');
+      $toggleBtn.attr("aria-label", "Play scrolling announcements");
+      
+      $toggleBtn.html(`
+        <span class="tooltip-box">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="32" fill="#2b2b2b" style="display: flex; justify-content: center;">
+                <path d="M320-200v-560l440 280-440 280Z" fill="#fff"/>
+            </svg>
+            <span class="tooltip-text">Play</span>
+        </span>
+      `);
+      
       $announcement.text("Announcements are paused");
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
     }
-
     // Toggle button click handler
     $toggleBtn.on("click", function () {
       if (isPlaying) {
@@ -1046,22 +1061,7 @@ $(document).ready(function () {
       }
     });
 
-    // Pause on hover for accessibility
-    $container.on("mouseenter", function () {
-      if (isPlaying) {
-        pause();
-        $announcement.text("");
-      }
-    });
-
-    $container.on("mouseleave", function () {
-      if (!isPlaying) {
-        play();
-        $announcement.text("");
-      }
-    });
-
-    // Pause on focus for keyboard users - works for links in both <li> and <span>
+    // Pause on focus for keyboard users (Kept for accessibility)
     $ticker.find("a").on("focus", function () {
       pause();
       $announcement.text("");
@@ -1070,7 +1070,7 @@ $(document).ready(function () {
     // Initialize
     setupLoop();
     play();
-  });
+});
 
 $(document).ready(function() {
    console.log("Button expiration activated");

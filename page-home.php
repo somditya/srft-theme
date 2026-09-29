@@ -17,18 +17,11 @@ Template Name: Home
        <div class="acme-news-ticker" style="display: flex; align-items: center; gap: 15px;">
         
         <!-- Label -->
-    <h2 class="acme-news-ticker-label">
-     <span class="announcement-text"> <?php echo __('Announcements', 'srft-theme'); ?>
-
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="32"
-         height="32"
-         viewBox="0 -960 960 960"
-         aria-hidden="true"
-         focusable="false">
-        <path d="M850-450h-90q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h90q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5ZM677-274q8-10 19.83-12 11.82-2 22.17 6l73 54q10 8 12 19.83 2 11.82-6 22.17-8 10-19.83 12-11.82 2-22.17-6l-73-54q-10-8-12-19.83 2-11.82 6-22.17Zm115-460-70 53q-10.35 8-22.17 6Q688-677 680-687q-8-10-6-22t12-20l70-53q10.35-8 22.17-6Q790-786 798-776q8 10 6 22t-12 20ZM210-360h-70q-24.75 0-42.37-17.63Q80-395.25 80-420v-120q0-24.75 17.63-42.38Q115.25-600 140-600h180l155-93q15-9 30-.06 15 8.93 15 26.06v374q0 17.13-15 26.06-15 8.94-30-.06l-155-93h-50v130q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-130Zm250 14v-268l-124 74H140v120h196l124 74Zm100 0v-268q27 24 43.5 58.5T620-480q0 41-16.5 75.5T560-346ZM300-480Z"
-              fill="#ffffff"/>
-    </svg>
+   <h2 class="acme-news-ticker-label">
+    <span class="announcement-text">
+        <span class="announcement-label-text">Announcements</span>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24 " viewBox="0 -960 960 960" width="24" fill="#2d2d2d" style="display: flex; justify-content: center;"><path d="M850-450h-90q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h90q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5ZM677-274q8-10 19.83-12 11.82-2 22.17 6l73 54q10 8 12 19.83 2 11.82-6 22.17-8 10-19.83 12-11.82 2-22.17-6l-73-54q-10-8-12-19.83-2-11.82 6-22.17Zm115-460-70 53q-10.35 8-22.17 6Q688-677 680-687q-8-10-6-22t12-20l70-53q10.35-8 22.17-6Q790-786 798-776q8 10 6 22t-12 20ZM210-360h-70q-24.75 0-42.37-17.63Q80-395.25 80-420v-120q0-24.75 17.63-42.38Q115.25-600 140-600h180l155-93q15-9 30-.06 15 8.93 15 26.06v374q0 17.13-15 26.06-15 8.94-30-.06l-155-93h-50v130q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-130Zm250 14v-268l-124 74H140v120h196l124 74Zm100 0v-268q27 24 43.5 58.5T620-480q0 41-16.5 75.5T560-346ZM300-480Z" fill="#ffffff"/></svg>
+    </span>
 </h2>
         
         <!-- Scrolling Container -->
@@ -194,9 +187,10 @@ if ($post_count > 1) {
                 aria-label="Pause scrolling announcements"
                 style="background: transparent; border: 1px solid white; color: white; 
                        padding: 8px 15px; cursor: pointer; border-radius: 4px; flex-shrink: 0;">
-            <i class="fas fa-pause" aria-hidden="true"></i>
+            <span class="tooltip-box"><svg xmlns="http://www.w3.org/2000/svg" height="32 " viewBox="0 -960 960 960" width="32" fill="#2b2b2b" style="display: flex; justify-content: center;"><path d="M533.85-220v-520H740v520H533.85ZM220-220v-520h206.54v520H220Zm359.23-45.39h115.38v-429.22H579.23v429.22Zm-313.84 0h115.76v-429.22H265.39v429.22Zm0-429.22v429.22-429.22Zm313.84 0v429.22-429.22Z" fill="#fff"/></svg>
+        <span class="tooltip-text"><?php echo __('Pause', 'srft-theme'); ?></span>
+        </span>
         </button>
-        
         <!-- ARIA Live Region -->
         <div id="ticker-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         

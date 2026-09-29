@@ -5925,7 +5925,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 .news-item-title p {
   /*font-weight: 600;*/
   font-size: 1.6rem;
-  letter-spacing: 0.2ch;
+  /*letter-spacing: 0.2ch;
   /*font-weight: 500;*/
   line-height: 1.3em;
   text-transform: capitalize;
@@ -6343,133 +6343,172 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 /* NEWS Ticket Marquee */
 
-/*-----------------------------
-	News Ticker
-------------------------------*/
-/*-----------------------------
-	News Ticker
-------------------------------*/
-.acme-news-ticker {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-  max-width: 100%;
-}
 
-.acme-news-ticker-label {
-  flex-shrink: 0;
-  margin: 0;
-  color: white;
-  white-space: nowrap;
-  gap: 10px;
-}
-
-.acme-news-ticker-label .announcement-text {
+  /*-----------------------------
+    News Ticker
+  ------------------------------*/
+  .acme-news-ticker {
     display: flex;
     align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .acme-news-ticker-label {
+    display: block;
+    flex-shrink: 0;
+    margin: 0;
+    color: white;
+}
+
+.announcement-text {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 8px;
     height: 32px;
+}
+
+.announcement-label-text {
+    display: block;
+    white-space: nowrap;
     line-height: 32px;
 }
 
-.acme-news-ticker-box {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  position: relative;
-  height: 40px;
-  line-height: 40px;
+.announcement-text svg {
+    display: block;
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
 }
 
-.news-ticker {
-  display: flex;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  will-change: transform;
-}
 
-.news-ticker li {
-  display: inline-block;
-  padding: 0 30px;
-}
+  /* Forces clicks to pass through the tooltip contents directly to the button */
+  #ticker-toggle .tooltip-box,
+  #ticker-toggle .tooltip-box * {
+      pointer-events: none;
+  }
 
-.news-ticker a {
-  color: white;
-  text-decoration: none;
-  line-height: 40px;
-}
+  .acme-news-ticker-box {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+  }
 
-.news-ticker a:hover,
-.news-ticker a:focus {
-  text-decoration: underline;
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
+  .news-ticker {
+    display: flex;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    will-change: transform;
+  }
 
-#ticker-toggle {
-  flex-shrink: 0;
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 4px;
-}
+  .news-ticker li {
+    display: inline-block;
+    padding: 0 30px;
+  }
 
-#ticker-toggle:hover,
-#ticker-toggle:focus {
-  background: rgba(255, 255, 255, 0.1);
-  outline: 2px solid white;
-  outline-offset: 2px;
+  .news-ticker a {
+    color: white;
+    text-decoration: none;
+    line-height: 40px;
+  }
+
+  .news-ticker a:hover,
+  .news-ticker a:focus {
+    text-decoration: underline;
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  #ticker-toggle {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  #ticker-toggle:hover,
+  #ticker-toggle:focus {
+    background: rgba(255, 255, 255, 0.1);
+    outline: 2px solid white;
+    outline-offset: 2px;
 }
 
 /* Responsive */
 
 /* Mobile responsive styles */
+
+
 @media (max-width: 768px) {
-  .acme-news-ticker {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
 
-  .acme-news-ticker-label {
-    flex: 0 0 100%; /* Takes full width on its own row */
-    margin-bottom: 5px;
-    font-size: 16px; /* Slightly smaller font */
-  }
+    .acme-news-ticker {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
-  .acme-news-ticker-box {
-    flex: 1;
-    min-width: 200px; /* Prevents it from getting too small */
-  }
+    .acme-news-ticker-label {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
 
-  #ticker-toggle {
-    flex-shrink: 0;
-  }
+    .acme-news-ticker-label .announcement-text {
+        height: 32px;
+        gap: 8px;
+    }
+
+    .acme-news-ticker-box {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    #ticker-toggle {
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 480px) {
-  .acme-news-ticker-label {
-    font-size: 14px;
-  }
 
-  .acme-news-ticker-box {
-    height: 35px;
-    line-height: 35px;
-  }
+    .acme-news-ticker-label {
+        font-size: 14px;
+    }
 
-  .news-ticker a,
-  .news-ticker span {
-    font-size: 14px;
-    line-height: 35px;
-  }
+    .acme-news-ticker-label .announcement-text {
+        height: 28px;
+        gap: 5px;
+    }
 
-  #ticker-toggle {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
+    .acme-news-ticker-label .announcement-text svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .acme-news-ticker-box {
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .news-ticker a,
+    .news-ticker span {
+        font-size: 14px;
+        line-height: 35px;
+    }
+
+    #ticker-toggle {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
 }
 
 /*# sourceMappingURL=style.css.map */
@@ -9971,7 +10010,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .abtimg-box,
   .text-box {
-    font-size: 8px; /* Adjusted font size */
+    font-size: 16px; /* Adjusted font size */
   }
 
   .img_card {
