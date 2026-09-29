@@ -85,6 +85,11 @@ html,
 body {
   width: 100%;
 }
+
+/* Prevent background scrolling and hide the main scrollbar when the mobile menu is open */
+    body:has(#check:checked) {
+        overflow: hidden !important;
+    }
 :root {
   --top-header-color: #5d3e00;
   --page-header-color: #5d3e00;
@@ -3252,6 +3257,34 @@ img.reload {
   width: 100%;
 }
 
+/* 1. Push the carousel down so the sticky header doesn't cover the top of the image */
+.carousel-tablist {
+    margin-top: 120px !important; /* Adjust this value to match your exact header height */
+}
+
+/* 1. Ensure parent containers have no hidden padding or margins */
+.carousel-tablist,
+.carousel-tablist .carousel-inner,
+.carousel-tablist .carousel-item,
+.carousel-tablist .carousel-image,
+.carousel-tablist .carousel-image a {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 2. Force the image to span edge-to-edge */
+.carousel-tablist .carousel-item .carousel-image a img {
+    width: 100% !important;
+    max-width: 100% !important; /* Removes the 1800px limit so it fills large monitors */
+    height: auto !important;
+    display: block !important;
+    aspect-ratio: 3 / 1 !important;
+    object-fit: cover !important; /* Fills the box entirely, eliminating side gaps */
+}
+
 .carousel-tablist .carousel-item .carousel-caption a {
   cursor: pointer;
   text-decoration: underline;
@@ -4186,16 +4219,22 @@ img.reload {
    ========================================================= */
 
 @media screen and (max-width: 991px) {
-  .alumni-carousel-item {
-    flex: 0 0 33.333333%;
-    width: 33.333333%;
-  }
+    /* Add this rule to remove the desktop top-margin */
+    .carousel-tablist {
+        margin-top: 0 !important;
+    }
 
-  .alumni-carousel-item .alumni-img {
-    width: 150px;
-    height: 150px;
-  }
-  header.sticky {
+    .alumni-carousel-item {
+        flex: 0 0 33.333333%;
+        width: 33.333333%;
+    }
+
+    .alumni-carousel-item .alumni-img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    header.sticky {
         position: relative !important; 
     }
     
@@ -4224,6 +4263,184 @@ img.reload {
         overflow-y: auto; /* Allows scrolling inside the open menu */
         padding-bottom: 50px; /* Ensures the bottom links aren't cut off */
     }
+
+    /* 1. Clear any 'left' positioning and force the drawer off-screen to the right */
+    .menu-container .menu-btn {
+        position: fixed !important;
+        top: 0 !important;
+        left: auto !important; /* CRITICAL: This breaks the theme's default left alignment */
+        right: -120% !important; 
+        width: 300px !important; 
+        max-width: 85vw !important;
+        height: 100vh !important;
+        background-color: #ffffff !important;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15) !important;
+        transition: right 0.35s ease-in-out !important;
+        z-index: 10000 !important;
+        overflow-y: auto !important;
+        padding-top: 70px !important;
+    }
+
+    /* 2. Slide the drawer in when active */
+    .menu-container #check:checked ~ .menu-btn {
+        right: 0 !important;
+    }
+
+    /* 3. Force the navigation links to be visible inside the blank white box */
+    .menu-container .menu-btn .nav-links,
+    .menu-container .menu-btn nav {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 1. Ensure the hamburger container sits completely above the new white drawer */
+    .menu-container .hamburger-menu-container {
+        z-index: 10005 !important; 
+    }
+
+
+    /* 2. When the menu opens, make the middle hamburger line transparent */
+    .menu-container #check:checked ~ .hamburger-menu-container .hamburger-menu div {
+        background-color: transparent !important;
+    }
+
+    .menu-container #check:checked ~ .hamburger-menu-container {
+        position: fixed !important;
+        top: 20px !important;    /* Pins it to the top */
+        bottom: auto !important; /* Overrides the previous bottom alignment */
+        right: 20px !important;  /* Keeps it on the right edge */
+        z-index: 10005 !important;
+    }
+
+    /* 3. Drop the top line down and rotate it 45 degrees */
+    .menu-container #check:checked ~ .hamburger-menu-container .hamburger-menu div::before {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 25px !important; /* Adjust width if your original lines are longer/shorter */
+        height: 3px !important; /* Adjust thickness to match original lines */
+        background-color: #333333 !important; /* Dark color to contrast the white drawer */
+        transform: rotate(45deg) !important;
+        transition: transform 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 4. Pull the bottom line up and rotate it -45 degrees */
+    .menu-container #check:checked ~ .hamburger-menu-container .hamburger-menu div::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 25px !important;
+        height: 3px !important;
+        background-color: #333333 !important;
+        transform: rotate(-45deg) !important;
+        transition: transform 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    /* 1. Force the checkbox to exist so it can receive focus (overrides theme display:none) */
+    .menu-container #check {
+        display: block !important; 
+        position: absolute !important;
+        opacity: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+        z-index: 10006 !important;
+        cursor: pointer !important;
+    }
+    
+    /* 2. Move the invisible checkbox to the X location when open */
+    .menu-container #check:checked {
+        position: fixed !important;
+        top: 15px !important;
+        right: 15px !important;
+    }
+
+    /* 3. When the invisible checkbox is focused by a keyboard, draw an outline on the visible X */
+    .menu-container #check:focus-visible ~ .hamburger-menu-container {
+        outline: 3px solid #005fcc !important;
+        outline-offset: 5px !important;
+        border-radius: 3px !important;
+    }
+    
+    .menu-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-link {
+        display: block !important;
+        width: 100% !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+    }
+
+    /* 4. Ensure the text is dark so it is readable on the white background */
+    .nav-link > a {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 15px 20px !important;
+        color: #333333 !important; 
+        font-weight: 500 !important;
+        text-decoration: none !important;
+    }
+
+    .dropdown-link > a {
+        /* background-color: transparent; */
+        color: hsl(0, 0%, 0%);
+        padding: 1.2rem 2rem;
+        line-height: 1;
+        font-size: 15px;
+    }
+    
+    .dropdown {
+        position: static !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        background-color: #f9f9f9 !important;
+        padding-left: 20px !important;
+    }
+    /* =========================================
+       1. HIDE SCROLLBAR IN DRAWER
+       ========================================= */
+    .menu-container .menu-btn {
+        scrollbar-width: none !important;       /* Firefox */
+        -ms-overflow-style: none !important;    /* IE and Edge */
+    }
+    
+    .menu-container .menu-btn::-webkit-scrollbar {
+        display: none !important;               /* Chrome, Safari, Opera */
+    }
+
+    /* =========================================
+       2. MAKE THE "X" CLICKABLE
+       ========================================= */
+    /* Force the invisible checkbox to follow the "X" to the top right */
+    .menu-container #check:checked {
+        position: fixed !important;
+        top: 15px !important;       /* Matches the X location */
+        right: 15px !important;     /* Matches the X location */
+        width: 40px !important;     /* Creates a large clickable hit-area */
+        height: 40px !important;
+        opacity: 0 !important;      /* Keeps the checkbox invisible */
+        z-index: 10006 !important;  /* Ensures it sits strictly above the X (10005) */
+        cursor: pointer !important;
+    }
+
+    nav-link:hover > a {
+        transform: scale(1);
+        background-color: #ffffff;
+    }
+
+
 }
 
 /* =========================================================
@@ -8892,7 +9109,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
   .menu-btn {
     position: fixed;
     height: calc(100vh - 3rem);
-    top: 4rem;
+    top: 15rem;
     left: 0;
     width: 100%;
     background-color: white;
@@ -8905,6 +9122,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
     transition: 0.65s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
+  
 
   #check:checked ~ .menu-btn {
     transform: translateX(0);
@@ -8936,10 +9154,10 @@ ul li input[type="checkbox"]:checked ~ i:after {
     padding: 1.6rem 2rem;
   }
 
-  .nav-link:hover > a {
+  /*.nav-link:hover > a {
     transform: scale(1);
     background-color: #ceb7a0;
-  }
+  }*/
 
   .dropdown,
   .dropdown.second {
@@ -8967,7 +9185,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
   .dropdown-link > a {
     background-color: transparent;
-    color: #fff;
+    color: #000;
     padding: 1.2rem 2rem;
     line-height: 1;
     font-size: 15px;

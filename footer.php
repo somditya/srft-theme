@@ -1149,6 +1149,97 @@ document.addEventListener("DOMContentLoaded", function() {
 
 })();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuCheckbox = document.getElementById('check');
+    const menuContainer = document.querySelector('.menu-container');
+    const allMenuLinks = menuContainer.querySelectorAll('a[role="menuitem"]');
+    
+    // Select all elements that can receive keyboard focus
+    const focusableElementsString = 'a[href], input:not([disabled]), button:not([disabled]), [tabindex="0"]';
+
+    // Allow the 'Enter' key to toggle the hidden checkbox
+    menuCheckbox.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault(); 
+            this.checked = !this.checked; 
+            this.dispatchEvent(new Event('change'));
+        }
+    });
+
+    menuCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            // CRITICAL FIX: Strip tabindex="-1" from all links so the Tab key can reach them
+            allMenuLinks.forEach(link => link.setAttribute('tabindex', '0'));
+
+            // Wait 100ms for the drawer to slide in before shifting focus to the 'X'
+            setTimeout(() => {
+                menuCheckbox.focus();
+            }, 100);
+            
+            document.addEventListener('keydown', trapTabKey);
+        } else {
+            // Menu closed: Restore tabindex="-1" so hidden links can't be tabbed into from the background
+            allMenuLinks.forEach(link => {
+                if(link.textContent.trim() !== 'Home') {
+                    link.setAttribute('tabindex', '-1');
+                }
+            });
+            
+            document.removeEventListener('keydown', trapTabKey);
+        }
+    });
+
+    function trapTabKey(e) {
+        // Accessibility: Allow the Escape key to close the menu
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            menuCheckbox.checked = false;
+            menuCheckbox.focus(); 
+            document.removeEventListener('keydown', trapTabKey);
+            menuCheckbox.dispatchEvent(new Event('change'));
+            return;
+        }
+
+        if (e.key === 'Tab' || e.keyCode === 9) {
+            
+            // Find all natively focusable elements inside the menu container
+            let focusableNodes = menuContainer.querySelectorAll(focusableElementsString);
+            
+            // Filter down to only elements currently visible on screen, PLUS the checkbox
+            let focusableElements = Array.from(focusableNodes).filter(node => 
+                node.offsetParent !== null || node.id === 'check'
+            );
+            
+            if (focusableElements.length === 0) return;
+
+            let currentIndex = focusableElements.indexOf(document.activeElement);
+
+            // Stop the browser from handling the Tab key natively
+            e.preventDefault();
+
+            if (e.shiftKey) {
+                // Shift + Tab (Go backward)
+                if (currentIndex === 0 || currentIndex === -1) {
+                    // Loop to the bottom
+                    focusableElements[focusableElements.length - 1].focus();
+                } else {
+                    // Step backward manually
+                    focusableElements[currentIndex - 1].focus();
+                }
+            } else {
+                // Tab (Go forward)
+                if (currentIndex === focusableElements.length - 1 || currentIndex === -1) {
+                    // Loop back to the top (the X)
+                    focusableElements[0].focus();
+                } else {
+                    // Step forward manually
+                    focusableElements[currentIndex + 1].focus();
+                }
+            }
+        }
+    }
+});
+</script> 
 <?php get_template_part('template-parts/cookie-banner'); ?>
 <?php get_template_part('template-parts/cookie-settings-modal'); ?>
 
