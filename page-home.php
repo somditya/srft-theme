@@ -242,7 +242,7 @@ if ($category_posts->have_posts()) :
                 <p><?php the_title(); ?></p>
 
             </div>
-            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
            </div>
     </div>
 </li>
@@ -282,7 +282,7 @@ endif;
       <h2 class="section-intro-header-text" style="padding-left: 0; color:#161a1d; " >
       <?php echo __('The Institute', 'srft-theme' ); ?>
       </h2>
-      <p style="padding-top: 20px; padding-right: 20px; line-height: 1.5;" ><?php echo $excerpt ; ?>
+      <p style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; line-height: 1.5;" ><?php echo $excerpt ; ?>
 
       </p>
       <!--<div class="link-div">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -296,7 +296,22 @@ else
         </a>
           
         </div>-->
-                <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+                <div class="view-more-button"><a href="<?php
+    if ($current_language === 'en') {
+        echo esc_url(site_url('/about-the-institute/'));
+    } else {
+        echo esc_url(site_url('/संस्थान-के-बारे-में/'));
+    }
+?>"
+class="view-more-link align-items-center text-decoration-none"
+aria-label="<?php echo esc_attr__('Read more', 'srft-theme'); ?>">
+
+    <?php echo esc_html__('Read more', 'srft-theme'); ?>
+    
+    <span class="material-symbols-outlined" aria-hidden="true">
+        chevron_right
+    </span>
+</a></div>
 
       </div>
     </div>
@@ -440,13 +455,30 @@ else
             <div class="alumni-carousel-controls">
 
                 <button
-                    type="button"
-                    id="alumniPrev"
-                    class="alumni-carousel-button"
-                    aria-label="<?php echo esc_attr__('Previous alumni', 'srft-theme'); ?>"
-                >
-                    <span aria-hidden="true">&#10094;</span>
-                </button>
+    type="button"
+    id="alumniPrev"
+    class="alumni-carousel-button"
+    aria-label="<?php echo esc_attr__('Previous alumni', 'srft-theme'); ?>"
+> <span class="tooltip-box" aria-hidden="true">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 64 64"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+    >
+        <path
+            d="M28.8001 32L39.2001 42.4C39.689 42.8889 39.9335 43.5111 39.9335 44.2666C39.9335 45.0222 39.689 45.6444 39.2001 46.1333C38.7112 46.6222 38.089 46.8666 37.3335 46.8666C36.5779 46.8666 35.9557 46.6222 35.4668 46.1333L23.2001 33.8666C22.9335 33.6 22.7446 33.3111 22.6335 33C22.5224 32.6889 22.4668 32.3555 22.4668 32C22.4668 31.6444 22.5224 31.3111 22.6335 31C22.7446 30.6889 22.9335 30.4 23.2001 30.1333L35.4668 17.8666C35.9557 17.3777 36.5779 17.1333 37.3335 17.1333C38.089 17.1333 38.7112 17.3777 39.2001 17.8666C39.689 18.3555 39.9335 18.9777 39.9335 19.7333C39.9335 20.4889 39.689 21.1111 39.2001 21.6L28.8001 32Z"
+            fill="currentColor"
+        />
+    </svg>
+
+    <span class="tooltip-text" aria-hidden="true">
+        <?php esc_html_e('Previous', 'srft-theme'); ?>
+    </span> </span>
+</button>
 
                 <button
                     type="button"
@@ -455,7 +487,12 @@ else
                     aria-label="<?php echo esc_attr__('Pause slideshow', 'srft-theme'); ?>"
                     aria-pressed="false"
                 >
-                    <span aria-hidden="true">&#10074;&#10074;</span>
+                    <span aria-hidden="true"><span class="tooltip-box" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="#2b2b2b" style="display: flex; justify-content: center;"><path d="M533.85-220v-520H740v520H533.85ZM220-220v-520h206.54v520H220Zm359.23-45.39h115.38v-429.22H579.23v429.22Zm-313.84 0h115.76v-429.22H265.39v429.22Zm0-429.22v429.22-429.22Zm313.84 0v429.22-429.22Z" fill="currentColor"/></svg>
+
+    <span class="tooltip-text" aria-hidden="true">
+        <?php esc_html_e('Pause', 'srft-theme'); ?>
+    </span> </span></span>
                 </button>
 
                 <button
@@ -464,7 +501,14 @@ else
                     class="alumni-carousel-button"
                     aria-label="<?php echo esc_attr__('Next alumni', 'srft-theme'); ?>"
                 >
-                    <span aria-hidden="true">&#10095;</span>
+                    <span aria-hidden="true"><span class="tooltip-box" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64" fill="none" style="display: flex; justify-content: center;">
+<path d="M33.6001 32L23.2001 21.6C22.7112 21.1111 22.4668 20.4889 22.4668 19.7333C22.4668 18.9777 22.7112 18.3555 23.2001 17.8666C23.689 17.3777 24.3112 17.1333 25.0668 17.1333C25.8224 17.1333 26.4446 17.3777 26.9335 17.8666L39.2001 30.1333C39.4668 30.4 39.6557 30.6889 39.7668 31C39.8779 31.3111 39.9335 31.6444 39.9335 32C39.9335 32.3555 39.8779 32.6889 39.7668 33C39.6557 33.3111 39.4668 33.6 39.2001 33.8666L26.9335 46.1333C26.4446 46.6222 25.8224 46.8666 25.0668 46.8666C24.3112 46.8666 23.689 46.6222 23.2001 46.1333C22.7112 45.6444 22.4668 45.0222 22.4668 44.2666C22.4668 43.5111 22.7112 42.8889 23.2001 42.4L33.6001 32Z" fill="currentColor"/>
+</svg>
+
+    <span class="tooltip-text" aria-hidden="true">
+        <?php esc_html_e('Next', 'srft-theme'); ?>
+    </span> </span></span>
                 </button>
 
             </div>
@@ -730,7 +774,7 @@ else
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>  
         </div>
-        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents">View Details<span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
 
     </div>
         </li>  
@@ -1061,7 +1105,7 @@ $final_url = site_url("/$slug/");
     <a href="<?php echo esc_url($final_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" style="margin-top: 15px;"
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
-       View All<span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+       <?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
     </a>
 </div>
     </a>
@@ -1208,7 +1252,7 @@ if (!empty($embed_code)) {
     <a href="<?php echo esc_url($social_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" 
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
-       View more<span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+        <?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
     </a>
 </div>
 
