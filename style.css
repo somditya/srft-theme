@@ -1632,12 +1632,12 @@ ol.breadcrumb li + li::before {
     gap: 8px; 
     
     background: #fff;
-    border: 1px solid #5d3e00;
-    border-radius: 4px;
+    border: 1px solid #000;
+    /*border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+    -o-border-radius: 4px;*/
     
     /*text-transform: uppercase;*/
     color: #5d3e00 !important;
@@ -4956,7 +4956,7 @@ img.reload {
   line-height: 28px;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: #161a1d;
   text-align: left;
 }
@@ -6553,7 +6553,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 .social-card {
   background: #fff;
-  border-radius: 16px;
+  /*border-radius: 16px;*/
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   padding: 1rem;
 }

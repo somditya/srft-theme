@@ -808,45 +808,72 @@ document.addEventListener('DOMContentLoaded', function () {
      * Pause / Play.
      */
     function toggleAutoplay() {
+    autoplay = !autoplay;
 
-        autoplay = !autoplay;
+    if (autoplay) {
 
-        if (autoplay) {
+        toggleButton.innerHTML = `
+            <span class="tooltip-box">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     height="32"
+                     viewBox="0 -960 960 960"
+                     width="32"
+                     fill="#2b2b2b"
+                     aria-hidden="true">
+                    <path d="M533.85-220v-520H740v520H533.85ZM220-220v-520h206.54v520H220Zm359.23-45.39h115.38v-429.22H579.23v429.22Zm-313.84 0h115.76v-429.22H265.39v429.22Zm0-429.22v429.22-429.22Zm313.84 0v429.22-429.22Z"
+                          fill="currentColor"/>
+                </svg>
 
-            toggleButton.innerHTML =
-                '<span aria-hidden="true">&#10074;&#10074;</span>';
+                <span class="tooltip-text">
+                    <?php esc_html_e('Pause', 'srft-theme'); ?>
+                </span>
+            </span>`;
 
-            toggleButton.setAttribute(
-                'aria-label',
-                'Pause slideshow'
-            );
+        toggleButton.setAttribute(
+            'aria-label',
+            'Pause slideshow'
+        );
 
-            toggleButton.setAttribute(
-                'aria-pressed',
-                'false'
-            );
+        toggleButton.setAttribute(
+            'aria-pressed',
+            'false'
+        );
 
-            startAutoplay();
+        startAutoplay();
 
-        } else {
+    } else {
 
-            toggleButton.innerHTML =
-                '<span aria-hidden="true">&#9654;</span>';
+        toggleButton.innerHTML = `
+            <span class="tooltip-box">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     height="32"
+                     viewBox="0 -960 960 960"
+                     width="32"
+                     fill="currentColor"
+                     aria-hidden="true">
+                    <path d="M320-200v-560l440 280-440 280Z"
+                          fill="currentColor"/>
+                </svg>
 
-            toggleButton.setAttribute(
-                'aria-label',
-                'Play slideshow'
-            );
+                <span class="tooltip-text">
+                    <?php esc_html_e('Play', 'srft-theme'); ?>
+                </span>
+            </span>`;
 
-            toggleButton.setAttribute(
-                'aria-pressed',
-                'true'
-            );
+        toggleButton.setAttribute(
+            'aria-label',
+            'Play slideshow'
+        );
 
-            stopAutoplay();
-        }
+        toggleButton.setAttribute(
+            'aria-pressed',
+            'true'
+        );
+
+        stopAutoplay();
     }
-
+}
+        
 
     /*
      * Button events.
