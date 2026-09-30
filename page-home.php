@@ -453,26 +453,7 @@ else
     <div style="margin-top: 3.2rem">
 
         <h2 class="section-intro-header-text" style="padding-left: 0;">
-            <svg 
-  xmlns="http://www.w3.org/2000/svg" 
-  viewBox="0 0 24 24" 
-  fill="none" 
-  stroke="currentColor" 
-  stroke-width="1.5" 
-  stroke-linecap="round" 
-  stroke-linejoin="round" 
-  class="w-8 h-8 text-yellow-600"
->
-  <!-- Mortarboard Top -->
-  <path d="M12 3l-7 4 7 4 7-4-7-4z" />
-  <!-- Tassel -->
-  <path d="M19 7v4" />
-  <circle cx="19" cy="12" r="1" fill="currentColor" stroke="none" />
-  <!-- Face/Cap Base -->
-  <path d="M8 10v2a4 4 0 0 0 8 0v-2" />
-  <!-- Shoulders / Body -->
-  <path d="M5 22v-2a7 7 0 0 1 14 0v2" />
-</svg><?php echo esc_html__('Notable Alumni', 'srft-theme'); ?>
+            <?php echo esc_html__('Notable Alumni', 'srft-theme'); ?>
         </h2>
 
         <div
