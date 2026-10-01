@@ -66,7 +66,7 @@ $current_language = get_locale();
 
         <aside class="widget" role="complementary" style="line-height: 1.5; margin-top: 5.5rem;">
                 
-                <h2 id="Download pdfs"><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h2>
+                <h2><?php echo __('Rules, Policies & Governance', 'srft-theme'); ?></h2>
                 <?php 
                 if ($current_language === 'en_US') {
                     $catslug = 'document-en'; 
@@ -144,7 +144,7 @@ $current_language = get_locale();
                     <?php echo $page_content; ?>
 
                     <div class="accordion-example">
-  <div aria-label="Organization Chart Long Description Control" class="accordion-controls">
+  <div class="accordion-controls">
     <div>
       <button 
         aria-controls="orgChart-desc" 

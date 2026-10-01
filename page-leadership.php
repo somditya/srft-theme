@@ -80,7 +80,7 @@ $current_language = get_locale();
                                 <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chancellor', true); ?></span>
                                 <br role="presentation">
                                 <span class="profile-desg"><?php echo __('Chancellor', 'srft-theme' ); ?></span>
-                                <h3>                           
+                                </h3>                           
                             </div>   
                         </div>
                     </div>
@@ -104,7 +104,7 @@ $current_language = get_locale();
                                 <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Chairman', true); ?></span>
                                 <br role="presentation">
                                 <span class="profile-desg"><?php echo __('President', 'srft-theme' ); ?></span>
-                                <h3>
+                                </h3>
                             </div>   
                         </div>        
                     </div>
@@ -128,7 +128,7 @@ $current_language = get_locale();
                                 <span class="profile-name"><?php echo get_post_meta(get_the_ID(), 'Director', true); ?></span>
                                 <br role="presentation">
                                 <span class="profile-desg"><?php echo __('Vice-Chancellor', 'srft-theme' ); ?></span>
-                                <h3>                           
+                               </h3>                           
                             </div>   
                         </div>
                     </div>
