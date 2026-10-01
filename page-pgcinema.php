@@ -176,7 +176,7 @@ wp_reset_postdata();
         while ($query->have_posts()) : $query->the_post();
     ?>
         <li class="grid3cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;">
-            <!--<a href="<?php the_permalink(); ?>" target="_blank">
+            <a href="<?php the_permalink(); ?>" target="_blank">
                 <?php
                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
                 $thumb_url = str_replace('{site_url}', get_site_url(), $thumb_url);
@@ -190,30 +190,8 @@ wp_reset_postdata();
                         <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="" style="filter: invert(1);">
                     </div>
                 </div>
-            </a>-->
-<div class="news-item">
-    <?php
-    $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
-    $thumb_url = str_replace('{site_url}', get_site_url(), $thumb_url);
-    if (!empty($thumb_url)) {
-        // FIX 1: Added display:block, max-width:100%, and height:auto so the image scales down
-        echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="" style="display: block; max-width: 100%; height: auto;">';
-    }
-    ?>
+            </a>
 
-    <div class="news-item-title">
-        <!-- FIX 2: Added 'overflow-wrap: break-word' so long text breaks on mobile instead of stretching the box -->
-        <p style="margin-top: 20px; font-size: 2.2rem; font-weight: 700; overflow-wrap: break-word; line-height: 1.2;">
-            <?php echo esc_html(get_post_meta(get_the_ID(), 'Department', true)); ?>
-        </p>
-    </div>            
-    
-    <div class="view-more-button float-end">
-        <a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news">
-            View Details<span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
-        </a>
-    </div>
-</div>
         </li>
     <?php
         endwhile;

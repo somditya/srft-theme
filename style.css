@@ -3918,37 +3918,181 @@ img.reload {
   opacity: 1;
   transform: translateY(0);
 }
-/*Course Section */
+/* ===== Study at SRFTI – course section =====
+   Left: heading.  Right: two panels stacked vertically.
+   Works with your existing markup (.course > h2 + .frame > 2 × .course-item).
+   Add once in <head> (or enqueue):
+   https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap
+   Everything is scoped under .course so Featured News cards are untouched. */
 
-#courses {
-  /*background-color: #666;;*/
-  background-color: #777;
+.course {
+  --c-brown: var(--page-header-color, #5d3e00);
+  --c-link: var(--hyper-link-color, #8b5b2b);
+  --c-hover: var(--primary-menu-hover-color, #916100);
+  --c-light: var(--widget-background-color, #ebeaea);
+  --c-border: hsl(30 45% 35%);
+  --serif: "Cormorant Garamond", Georgia, serif;
 
-  /*background-image: var(--bgqImage);*/
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='199' viewBox='0 0 100 199' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-  /*background-size: cover;
-  background-repeat: repeat;
-  background-position: center;*/
-  background-color: #86797f;
-  background-image: url(images/5.2_grey.jpg);
-  background-blend-mode: multiply;
-  background-color: grey;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  /*background-position: 30%;*/
-  color: #ffffff;
-  text-align: center;
-  padding: 3.8rem 0 5.6rem 0;
-  overflow: hidden;
-  /*margin-top: 4.8rem;*/
-  /*margin-bottom: 4.8rem;*/
+  background: var(--c-brown) !important; /* section background – beats theme overrides */
+  /* equal left / right gutters: [gutter] heading | cards [gutter] */
+  display: grid;
+  grid-template-columns: minmax(28px, 1fr) minmax(0, 440px) minmax(0, 740px) minmax(28px, 1fr);
+  column-gap: 0;
+  align-items: start;
+  padding: 96px 0 !important;
 }
 
-.section-course {
-  padding: 4.8rem 0 4.8rem 0;
-  background-color: #ffffff;
-  position: relative;
+/* ---------- Left: heading ---------- */
+html body section.course h2.section-intro-header-text.section-intro-header-text {
+  position: static !important;
+  /* vertical centre against the division bar (auto margins beat theme align rules) */
+  align-self: center !important;
+  margin: auto 0 !important;
+  /* shrink-wrap so icon + text + underline stay together at the left of the column */
+  justify-self: start !important;
+  width: max-content !important;
+  max-width: 100%;
+  grid-column: 2;
+  padding: 0;
+  border: 0;
+  /* override the inline flex/center styles */
+  flex-direction: row !important;      /* icon sits on the same line as the text */
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px 18px !important;
+  text-align: left;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.02;
+  color: var(--c-light);
+}
+html body section.course h2.section-intro-header-text.section-intro-header-text svg path { fill: var(--c-light); }
+html body section.course h2.section-intro-header-text.section-intro-header-text::before { display: none !important; }
+/* short underline after the heading */
+html body section.course h2.section-intro-header-text.section-intro-header-text::after {
+  content: "";
+  display: block !important;
+  position: static !important;
+  flex: 0 0 100%;                      /* drops to its own line under icon + text */
+  height: 2px;
+  margin: 6px 0 0 !important;
+  background: linear-gradient(var(--c-light), var(--c-light)) left / 100px 2px no-repeat;
+}
+html body section.course h2.section-intro-header-text.section-intro-header-text svg { flex: 0 0 auto; width: 56px; height: 56px; }
+
+/* ---------- Right: stacked panels ---------- */
+.course .frame {
+  grid-column: 3;
+  margin-left: 56px;
+  padding-left: 36px;
+  border-left: 2px solid var(--c-light); /* vertical division bar */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.course .strip { display: none; } /* old shared strip not needed */
+
+.course .course-item {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: stretch;
+  margin: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  background: var(--c-light);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.course .course-item img { display: none !important; } /* image removed, also keeps it out of the grid */
+.course .course-item:hover,
+.course .course-item:focus-within {
+  border-color: var(--c-hover);
+  box-shadow: 0 0 0 3px var(--c-hover);
+}
+
+/* Vertical film strip on the left edge of each panel */
+.course .course-item::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1;
+  background:
+    radial-gradient(circle at center, var(--c-light) 0 5px, transparent 5.5px) center 0 / 44px 28px repeat-y,
+    var(--c-link);
+  transition: background-position 0.6s ease;
+}
+.course .course-item:hover::before,
+.course .course-item:focus-within::before {
+  background-position: center 28px, 0 0; /* holes scroll like film */
+}
+
+.course .news-item-title {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 34px 32px;
+}
+.course .news-item-title h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.1;
+  color: var(--c-brown);
+}
+.course .frame .course-item:nth-of-type(2) h3 { font-style: italic; }
+
+/* ---------- Button ---------- */
+.course .view-more-button {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 32px;
+}
+.course .view-more-link {
+  display: inline-flex;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 8px 22px;
+  color: var(--c-brown);
+  background: transparent;
+  border: 1px solid var(--c-border);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.course .view-more-link .material-symbols-outlined { font-size: 18px; }
+.course .view-more-link:hover,
+.course .view-more-link:focus-visible {
+  background: var(--c-hover);
+  border-color: var(--c-hover);
+  color: var(--c-light);
+}
+.course .view-more-link:focus-visible { outline: 2px solid var(--c-hover); outline-offset: 2px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .course { grid-template-columns: 20px minmax(0, 1fr) 20px; row-gap: 32px; padding: 64px 0 !important; }
+  html body section.course h2.section-intro-header-text.section-intro-header-text { position: static; grid-column: 2; }
+  .course .frame { grid-column: 2; margin-left: 0; padding-left: 0; border-left: 0; }
+}
+@media (max-width: 560px) {
+  .course .course-item { grid-template-columns: 28px 1fr; }
+  .course .course-item::before { grid-row: 1 / span 2; background-size: 28px 28px, auto; }
+  .course .news-item-title { grid-row: 1; padding: 26px 20px 12px; }
+  .course .view-more-button { grid-column: 2; grid-row: 2; padding: 0 20px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .course * { transition: none !important; }
 }
 
 .section .heading {
@@ -5435,7 +5579,6 @@ img.reload {
 }
 
 .widget a {
-  display: flex;
   line-height: 28px;
   align-items: center !important;
   gap: 6px !important;
