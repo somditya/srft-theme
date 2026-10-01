@@ -5435,6 +5435,7 @@ img.reload {
 }
 
 .widget a {
+  display: flex;
   line-height: 28px;
   align-items: center !important;
   gap: 6px !important;

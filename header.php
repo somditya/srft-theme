@@ -19,10 +19,8 @@ $current_language = get_locale();
     <?php wp_head(); ?>
     
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css" />
-    <link rel="stylesheet" href="https://googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet"
@@ -74,14 +72,16 @@ $current_language = get_locale();
     <div class="header-separator"></div>
     
     <div class="header-text-group">
+        <span class="ministry-main">
+          <?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme' ); ?>
+        </span>
         <span class="ministry-sub">
-            An autonomous Institute under the
+            <span class="ministry-sub">
+    <?php echo __('An autonomous Institute under Ministry of Information & Broadcasting', 'srft-theme'); ?>
+</span>
         </span>
-        <span class="ministry-main">
-            Ministry of Information & Broadcasting
-        </span>
-        <span class="ministry-main">
-            Govt. of India
+        <span class="ministry-sub">
+            <?php echo __('Govt. of India','srft-theme' ); ?>
         </span>
     </div>
     
@@ -199,7 +199,7 @@ $current_language = get_locale();
                 <a role="menuitem" tabindex="0" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
-                    ?>" aria-label="Home" >Home</a>
+                    ?>" aria-label="Home" ><?php echo __('Home', 'srfti-theme'); ?></a>
               </li>
               <li role="none" class="nav-link" style="--i: 1.1s">
                 <a id="aboutMenuButton"  href="#" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('Institute', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
@@ -213,7 +213,7 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }
                     else  { echo esc_url(site_url('/नेतृत्व//'));}
-                    ?>"><?php echo __('Our Team', 'srft-theme' ); ?></a>
+                    ?>"><?php echo __('Leadership', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/management/'));}
@@ -232,11 +232,11 @@ $current_language = get_locale();
                     ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
                     </li>-->
                    
-                    <!--<li role="none" class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
                     ?>"><?php echo __('Annual Reports', 'srft-theme' ); ?></a>
-                    </li>-->
+                    </li>
                     <li role="none"  class="dropdown-link">
                     <a role="menuitem"  tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/directory/'));}
                     else { echo esc_url(site_url('/निर्देशिका/'));}
@@ -246,7 +246,7 @@ $current_language = get_locale();
                   </ul>
               </li>
               <li role="none" class="nav-link" style="--i: 1.1s">
-                <a role="menuitem" tabindex="0" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Offerings', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                <a role="menuitem" tabindex="0" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Academics', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul  role="menu" class="dropdown" aria-label="Academics">
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/mfa-in-cinema/'));}
@@ -261,12 +261,12 @@ $current_language = get_locale();
                       <a href="#"><?php echo __('Certficate Programmes', 'srft-theme' ); ?></a>
                     </li>-->
                    
-                    <!--<li role="none" class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/faculty/'));} 
                     else 
                     { echo esc_url(site_url('/संकाय/'));}
                     ?>"><?php echo __('Faculty', 'srft-theme' ); ?></a>
-                    </li>-->
+                    </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/research/'));}
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
