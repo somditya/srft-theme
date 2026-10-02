@@ -114,12 +114,12 @@ wp_reset_postdata();
             <div class="main-content">
                 <h2 class="page-header-text" style="padding-left: 0; text-align: center;"><?php echo __('Students’ Highlights', 'srft-theme'); ?></h2>
 
-                <section style="width: 100%; padding: 2.8rem 0;" id="student-slider" role="region" aria-label="Student news carousel" aria-describedby="carousel-instructions">
+                <section style="width: 100%;" id="student-slider" role="region" aria-label="Student news carousel" aria-describedby="carousel-instructions">
                     <!--<p id="carousel-instructions" class="sr-only">
     This is a carousel. Use the next and previous controls to navigate between student news items.
   </p>-->
                     <div class="frame" aria-label="Students' Highlights" aria-roledescription="carousel">
-                        <ul class="slider" style="height: 370px;">
+                        <ul class="slider">
                             <?php
                             $post_id = get_the_ID();
                             $post_content = apply_filters('the_content', $post->post_content);
@@ -141,15 +141,20 @@ wp_reset_postdata();
                                 while ($category_posts->have_posts()) : $category_posts->the_post();
                             ?>
                                     <li role="group" aria-roledescription="slide">
-                                        <div class="news-item">
-                                            <a href="<?php the_permalink(); ?>" target="_blank">
-                                                <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('News-Image'); ?>" alt="" style="display: block;">
-                                                <div class="news-item-title">
-                                                    <h3><?php the_title(); ?></h3>
-                                                    <p style="color: white; flex: 1;"><?php echo $post_content; ?></p>
-                                                </div>
-                                            </a>
-                                        </div>
+                                        <div class="news-item" style="min-height:400px">
+            <img class="img-responsive lazyOwl"
+                 src="<?php echo esc_url(get_field('News-Image')); ?>"
+                 alt="<?php the_title_attribute(); ?>"
+                 style="display:block;">
+
+            <div class="news-item-title">
+
+                <p><?php the_title(); ?></p>
+
+            </div>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+           </div>
+    </div>
                                     </li>
                             <?php
                                 endwhile;

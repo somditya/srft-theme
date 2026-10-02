@@ -175,8 +175,8 @@ wp_reset_postdata();
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
     ?>
-        <li class="grid3cell" style="display: inline-block; vertical-align: top; margin: 0 10px 10px 0;">
-            <a href="<?php the_permalink(); ?>" target="_blank">
+        <li class="grid3cell">
+            <!--<a href="<?php the_permalink(); ?>" target="_blank">
                 <?php
                 $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
                 $thumb_url = str_replace('{site_url}', get_site_url(), $thumb_url);
@@ -190,7 +190,24 @@ wp_reset_postdata();
                         <img class="img-responsive" src="<?php bloginfo('template_url'); ?>/images/arrow-angular.svg" alt="" style="filter: invert(1);">
                     </div>
                 </div>
-            </a>
+            </a>-->
+            <div class="news-item">
+             <?php
+                $thumb_url = get_post_meta(get_the_ID(), 'Thumb_url', true);
+                $thumb_url = str_replace('{site_url}', get_site_url(), $thumb_url);
+                if (!empty($thumb_url)) {
+                    echo '<img class="img-responsive" src="' . esc_url($thumb_url) . '" alt="">';
+                }
+                ?>
+
+            <div class="news-item-title">
+
+                <h3><?php the_title(); ?></h3>
+
+            </div>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+           </div>
+    </div>
 
         </li>
     <?php

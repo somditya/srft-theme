@@ -65,7 +65,7 @@ $current_language = get_locale();
     
     <div class="header-logo-wrapper">
         <a href="https://srfti.ac.in" title="Logo of SRFTI">
-            <img class="header-logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo_DTBU.jpg" alt="<?php echo esc_attr(__('Logo of SRFTI', 'srft-theme')); ?>">
+            <img class="header-logo" src="<?php bloginfo('template_url'); ?>/images/SRFTI_Logo_DTBU.jpg" alt="<?php echo esc_attr(__('Logo of Satyajit Ray Film & Television Institute', 'srft-theme')); ?>">
         </a> 
     </div>
 
@@ -279,15 +279,6 @@ $current_language = get_locale();
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/outreach/'));}
                       else { echo esc_url(site_url('/आउटरीच/'));}?>"><?php echo __('Outreach', 'srft-theme' ); ?></a>
                     </li>
-                    <li role="none" class="dropdown-link">
-                    <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/tender/'));
-                    } else {echo esc_url(site_url('/hi/निविदा/'));
-                    } ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
-                    </li>
-                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
-                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
-                    </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
               </li>
@@ -332,13 +323,66 @@ $current_language = get_locale();
               </li>
               
               <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Campus Harmony', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Information Corner">
+                  <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/student-grievance-redressal-committee/')); }
+                      else  { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('e-Samadhaan', 'srft-theme' ); ?></a>
+                    </li>
+                  <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/student-grievance-redressal-committee/')); }
+                      else  { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('Student Grievance Redressal', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Internal Committee', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Anti Ragging Cell', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Equal Opportunity Cell', 'srft-theme' ); ?></a>
+                    </li>
+                  </ul>
+              </li>
+              
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Student Life', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Student Life">
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
+                else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Hostel', 'srft-theme' ); ?></a>
+                    </li>
+                   
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
+                      else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('Scholarships', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Academic Bank of Credits', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/tender/'));
+                    } else {echo esc_url(site_url('/hi/निविदा/'));
+                    } ?>"><?php echo __('Digi Locker NAD Portal ', 'srft-theme' ); ?></a>
+                    </li>
+                     <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
+                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('National Scholarship Portal', 'srft-theme' ); ?></a>
+                    </li>
+                  </ul>
+              </li>
+              <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
                 else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
               </li>
              
               <li role="none" class="nav-link" style="--i: 1.35s">
-                <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Connect', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                  <ul role="menu" class="dropdown" aria-label="Connect">
+                <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Information Corner', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Information Corner">
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a>
@@ -351,6 +395,15 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Citizen Charter', 'srft-theme' ); ?></a>
+                    </li>
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/tender/'));
+                    } else {echo esc_url(site_url('/hi/निविदा/'));
+                    } ?>"><?php echo __('Tenders', 'srft-theme' ); ?></a>
+                    </li>
+                     <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
+                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/student-grievance-redressal-committee/'));} else
@@ -367,10 +420,10 @@ $current_language = get_locale();
                     <!--<div class="arrow"></div>-->
                   </ul>
               </li>
-              <!--<li role="none" class="nav-link" style="--i: 1.35s">
+              <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a>
-              </li>-->
+              </li>
             </ul>
           </nav>  
           </div>

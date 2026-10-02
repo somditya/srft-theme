@@ -1230,6 +1230,24 @@ ol li {
   width: 9%;
 }
 
+.contact-info-cell {
+    width: 9%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info-cell::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+
+    background-image: url("../images/phone.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
 .fees-cell {
   width: 9%;
 }
@@ -1619,6 +1637,8 @@ ol.breadcrumb li + li::before {
     right: 0;
     margin-top: auto; /* Pushes the button to the bottom */
     /*align-self: flex-end;  Aligns it to the right */
+     justify-content: center !important; /* Centers the button horizontally */
+     display: flex; /* Ensures the button is treated as a flex item */
 }
 .view-more-button a {
     display: inline-flex; 
@@ -8193,7 +8213,7 @@ img.emoji {
   position: relative;
   width: calc(33% - 10px); /* Adjust the width as needed */
   margin-bottom: 25px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .cell_1 {
@@ -9038,20 +9058,17 @@ ul li input[type="checkbox"]:checked ~ i:after {
 */
 
 .news-item {
-  display: flex;
-  flex-direction: column;
-  /*max-width: 270px;*/
-  height: 450px;
-  /*margin: 10px;*/
-  background-color: white;
-  /*background-color: #ebeaea;*/  
-  
-  box-shadow: 3px 3px 10px hsla(198, 0%, 20%, 0.2);
-  
-  /*background-color:#0b6b39;*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 370px;
 
-  /*background: white;*/
-  /*background-color: #8b5b2b;*/
+    /* Allow card to grow with content */
+    min-height: 450px;
+    height: auto;
+
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30);
 }
 
 .news-item a {
@@ -10041,6 +10058,109 @@ ul li input[type="checkbox"]:checked ~ i:after {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
+
+
+    .grid3cell {
+        width: 100% !important;
+        margin: 0 0 25px 0 !important;
+        overflow: visible;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .news-item {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        min-height: 450px;
+        margin: 0;
+    }
+
+     /* =========================
+       FEATURED NEWS CAROUSEL
+       ========================= */
+
+@media screen and (max-width: 768px) {
+
+    /* =========================
+       FEATURED NEWS CAROUSEL
+       ========================= */
+
+    .a11y-slider-container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        position: relative;
+    }
+
+    .a11y-slider > li {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .a11y-slider .news-item {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 450px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .a11y-slider .news-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    
+    /* =========================
+       DEPARTMENT CARDS
+       ========================= */
+
+    .box-container {
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .box-container .grid3cell {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 0 25px 0 !important;
+        padding: 0;
+        overflow: visible;
+        display: block;
+    }
+
+    .box-container .news-item {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 450px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .box-container .news-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .box-container .news-item-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .box-container .view-more-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+    }
 
   .cell {
     width: 100%;
