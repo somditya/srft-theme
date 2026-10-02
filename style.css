@@ -183,6 +183,276 @@ p {
   margin: 20mm; /* Adjust as needed */
 }
 
+.phone-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/phone.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.email-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/email.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.download-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/download.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.chevron-right-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/chevron-right.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.chevron-left-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/chevron-left.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.pdf-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/pdf.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.location-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/location.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.x-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    background-image: url("images/x.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.instagram-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/instagram.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.facebook-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/facebook.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.startdate-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/startdate.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.duedate-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/duedate.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.address-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/address.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.vacancy-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/vacancy.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.reports-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/reports.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.accessibility-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/accessibility.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.accessibility-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/accessibility.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.sitemap-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/sitemap.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.tenders-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/tenders.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.language-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    background-image: url("images/language.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
 body {
   /*font-family: "futura-pt", Arial, sans-serif;*/
   /*font-family: "Gotham", "Gotham B";*/
@@ -2676,6 +2946,7 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   position: relative;
   z-index: 1;
   border-top: 1px solid #ebeaea;
+  /*ckground-color: #ebeaea; */
 }
 
 .menu-bar {

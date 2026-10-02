@@ -97,12 +97,17 @@ $current_language = get_locale();
             
             <!-- Digital India Logo -->
             <div class="top-item">
-                <a target="_blank" title="Digital India" class="d-none d-lg-block" href="https://digitalindia.gov.in/">
-                    <img src="https://www.meity.gov.in/static/uploads/2023/12/3c456855b01bd15e42e99b93982b5c18.svg" alt="Digital India Logo" class="skillimg img-fluid" style="height: 40px; width: auto;">
+                <a target="_blank" title="External Link that opens in new window" onclick="return check_url();" alt="Digital India Logo" href="https://digitalindia.gov.in/">
+                    <img src="https://www.meity.gov.in/static/uploads/2023/12/3c456855b01bd15e42e99b93982b5c18.svg"  style="height: 40px; width: auto;">
                 </a> 
             </div>
+            <!-- class="top-item">
+       <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img style="height: 6rem;" class="right-logo" src="<?php bloginfo('template_url'); ?>/images/ftiii-logo.jpg" alt="<?php echo __('Logo of Film & Television Institute of India', 'srft-theme' ); ?>"></a>
+                
+            </div>-->
+            
 
-            <!-- Utility Container -->
+                        <!-- Utility Container -->
             <div class="utility-container" style="display: flex; align-items: center; gap: 15px;">    
                 
                 <!-- Skip to Main Content -->
@@ -272,12 +277,14 @@ $current_language = get_locale();
                       else { echo esc_url(site_url('/गवेषणा/'));}?>"><?php echo __('Research', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
-                      else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship Schemes', 'srft-theme' ); ?></a>
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/outreach/'));}
+                      else { echo esc_url(site_url('/आउटरीच/'));}?>"><?php echo __('Academic Collaboration', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/outreach/'));}
-                      else { echo esc_url(site_url('/आउटरीच/'));}?>"><?php echo __('Outreach', 'srft-theme' ); ?></a>
+                    <a role="menuitem" tabindex="-1"  href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/library/'));} 
+                    else 
+                    { echo esc_url(site_url('/पुस्तकालय/'));}
+                    ?>"><?php echo __('Library', 'srft-theme' ); ?></a>
                     </li>
                     <!--<div class="arrow"></div>-->
                   </ul>
@@ -321,9 +328,18 @@ $current_language = get_locale();
                 <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Campus Harmony', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Information Corner">
                   <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/student-grievance-redressal-committee/')); }
-                      else  { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('e-Samadhaan', 'srft-theme' ); ?></a>
-                    </li>
+    <a
+        role="menuitem"
+        tabindex="-1"
+        href="https://samadhaan.ugc.ac.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('e-Samadhaan', 'srft-theme'); ?>
+    </a>
+</li>
                   <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/student-grievance-redressal-committee/')); }
                       else  { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('Student Grievance Redressal', 'srft-theme' ); ?></a>
@@ -337,7 +353,7 @@ $current_language = get_locale();
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Anti Ragging Cell', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/equal-opportunity-cell/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Equal Opportunity Cell', 'srft-theme' ); ?></a>
                     </li>
                   </ul>
@@ -346,43 +362,70 @@ $current_language = get_locale();
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Student Life', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Student Life">
-                    <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
-                else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Hostel', 'srft-theme' ); ?></a>
+                  <li role="none" class="dropdown-link">
+                <a role="menuitem" tabindex="0"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
+                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students Corner', 'srft-theme' ); ?>
+                </a>
+              </li> 
+                  <li role="none" class="dropdown-link">
+                    <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
+                    else  { echo esc_url(site_url('/निवास/'));} ?>"><?php echo __('Hostel', 'srft-theme' ); ?></a>
                     </li>
                    
-                    <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
-                      else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('Scholarships', 'srft-theme' ); ?></a>
+                     <li role="none" class="dropdown-link">
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/scholarship/'));}
+                      else { echo esc_url(site_url('/छात्रवृत्ति/'));}?>"><?php echo __('Scholarship', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Academic Bank of Credits', 'srft-theme' ); ?></a>
+                      <a
+        role="menuitem"
+        tabindex="-1"
+        href="https://samadhaan.ugc.ac.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('Academic Bank of Credits', 'srft-theme'); ?>
+    </a>
                     </li>
                     <li role="none" class="dropdown-link">
-                    <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/tender/'));
-                    } else {echo esc_url(site_url('/hi/निविदा/'));
-                    } ?>"><?php echo __('Digi Locker NAD Portal ', 'srft-theme' ); ?></a>
+                    <a
+        role="menuitem"
+        tabindex="-1"
+        href="https://www.abc.gov.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('Digi Locker NAD Portal', 'srft-theme'); ?>
+    </a>
                     </li>
                      <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
-                      else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('National Scholarship Portal', 'srft-theme' ); ?></a>
+                      <a
+        role="menuitem"
+        tabindex="-1"
+        href="https://scholarships.gov.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('National Scholarship Portal', 'srft-theme'); ?>
+    </a>
                     </li>
                   </ul>
               </li>
-              <li role="none" class="nav-link" style="--i: 1.35s">
+              <!--<li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/students/')); }
-                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?><!--<i class="fas fa-chevron-down" style="margin-left:10px;"></i>--></a>
-              </li>
+                else  { echo esc_url(site_url('/छात्र/'));}?>"><?php echo __('Students', 'srft-theme' ); ?>
+                </a>
+              </li>-->
              
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Information Corner', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Information Corner">
-                    <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
-                else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a>
-                    </li>
-                   
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/rti/')); }
                       else  { echo esc_url(site_url('/सूचना-का-अधिकार/'));} ?>"><?php echo __('RTI', 'srft-theme' ); ?></a>
@@ -399,10 +442,6 @@ $current_language = get_locale();
                      <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/Vacancy/'));}
                       else  { echo esc_url(site_url('/रिक्ति/'));} ?>"><?php echo __('Recruitment Notices', 'srft-theme' ); ?></a>
-                    </li>
-                    <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/student-grievance-redressal-committee/'));} else
-                       { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('Grievance Redressal', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/announcement/'));} else

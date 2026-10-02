@@ -1900,7 +1900,7 @@ add_filter(
 );
 
 
-add_filter('auth_cookie_expiration', fn($l,$u,$r)=>1800,99,3);
+
 remove_action('wp_head','wp_generator');
 add_filter('the_generator','__return_empty_string');
 add_filter('xmlrpc_enabled','__return_false');
@@ -2411,9 +2411,12 @@ function srfti_render_social_embed($value) {
 /* -----------------------------------------------------------------------
  * 10. Secure Session Timeout (60 Minutes)
  * -------------------------------------------------------------------- */
-add_filter('auth_cookie_expiration', function($length,$user_id,$remember){
-    return 3600;
-},99,3);
+/* -----------------------------------------------------------------------
+ * WordPress Login Session Timeout - 4 Hours
+ * -------------------------------------------------------------------- */
+add_filter( 'auth_cookie_expiration', function( $length, $user_id, $remember ) {
+    return 4 * HOUR_IN_SECONDS; // 4 hours = 14,400 seconds
+}, 99, 3 );
 
 /* -----------------------------------------------------------------------
  * 11. Security Headers from WordPress (Backup)
