@@ -1232,18 +1232,21 @@ ol li {
 
 .contact-info-cell {
     width: 9%;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .contact-info-cell::before {
     content: "";
+    display: inline-block;
+
     width: 20px;
     height: 20px;
-    flex: 0 0 20px;
 
-    background-image: url("../images/phone.svg");
+    margin-right: 8px;
+
+    /* Align icon with phone number */
+    vertical-align: middle;
+
+    background-image: url("images/phone.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

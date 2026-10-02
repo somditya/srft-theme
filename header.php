@@ -226,11 +226,11 @@ $current_language = get_locale();
                       ?>">
                     <?php echo __('Organization Structure', 'srft-theme' ); ?></a>
                     </li>
-                    <!--<li role="none" class="dropdown-link">
+                    <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/important-committees/'));}
                     else { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
-                    </li>-->
+                    </li>
                    
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
@@ -296,7 +296,7 @@ $current_language = get_locale();
                   </ul>      
               </li>
               
-              <li role="none" class="nav-link" style="--i: 1.35s">
+              <!--<li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Facilities', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
                   <ul role="menu" class="dropdown" aria-label="Facilities">
                     <li role="none" class="dropdown-link">
@@ -309,18 +309,13 @@ $current_language = get_locale();
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/screening-room/'));}
                     else   { echo esc_url(site_url('/स्क्रीनिंग-सुविधाएँ/'));}?>"><?php echo __('Screening facilities', 'srft-theme' ); ?></a>
                     </li>
-                   
-                    <!--<li class="dropdown-link">
-                    <a href="<?php echo esc_url(site_url('/accommodation/')); ?>"><?php echo __('IT Infrastrure', 'srft-theme' ); ?></a>
-                    </li>-->
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/accommodation/'));}
                     else  { echo esc_url(site_url('/निवास/'));} ?>"><?php echo __('Accomodation', 'srft-theme' ); ?></a>
                     </li>
-                    <!--<div class="arrow"></div>-->
                   </ul>
               
-              </li>
+              </li>-->
               
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Campus Harmony', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
@@ -334,11 +329,11 @@ $current_language = get_locale();
                       else  { echo esc_url(site_url('/छात्र-शिकायत-निवारण-समित/'));} ?>"><?php echo __('Student Grievance Redressal', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/internal-committee/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Internal Committee', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
-                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/citizen-charter/'));} else
+                      <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/anti-ragging-cell/'));} else
                        { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Anti Ragging Cell', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
