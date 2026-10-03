@@ -200,21 +200,28 @@ $current_language = get_locale();
           <div class="nav-links" >
             <nav class="nav-links" role="navigation" aria-label="SRFTI">
             <ul role="menubar" aria-label="Main Menu" class="menu-bar" >
-              <li role="none" class="nav-link" style="--i: 0.6s" >
+              <!--<li role="none" class="nav-link" style="--i: 0.6s" >
                 <a role="menuitem" tabindex="0" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/home/'));} 
                     else 
                     { echo esc_url(site_url('/घर/'));}
-                    ?>" aria-label="Home" ><?php echo __('Home', 'srfti-theme'); ?></a>
-              </li>
+                    ?>" aria-label="Home" ><?php echo __('About Us', 'srfti-theme'); ?></a>
+              </li>-->
               <li role="none" class="nav-link" style="--i: 1.1s">
-                <a id="aboutMenuButton"  href="#" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('Institute', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
-                  <ul role="menu" class="dropdown" aria-label="Institute">
+                <a id="aboutMenuButton"  href="#" aria-haspopup="true" role="menuitem" aria-expanded="false"><?php echo __('About Us', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Overview of the Institute  ">
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-the-institute/'));} 
                     else 
                     { echo esc_url(site_url('/संस्थान के बारे में/'));}
-                    ?>"><?php echo __('About the Institute', 'srft-theme' ); ?></a>
+                    ?>"><?php echo __('Overview', 'srft-theme' ); ?></a>
                     </li>
+                    <li role="none" class="dropdown-link">
+                    <a role="menuitem" tabindex="-1" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-ftii-itanagar/'));} 
+                    else 
+                    { echo esc_url(site_url('/संस्थान के बारे में/'));}
+                    ?>"><?php echo __('FTII Itanagar', 'srft-theme' ); ?></a>
+                    </li>
+
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/leadership/')); }
                     else  { echo esc_url(site_url('/नेतृत्व//'));}
@@ -223,7 +230,7 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/management/'));}
                     else  { echo esc_url(site_url('/प्रबंध/'));}
-                    ?>"><?php echo __('Our Management', 'srft-theme' ); ?></a>
+                    ?>"><?php echo __('Management', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/organization-chart/'));} 
@@ -236,7 +243,6 @@ $current_language = get_locale();
                     else { echo esc_url(site_url('/महत्वपूर्ण-समितियाँ/'));}
                     ?>"><?php echo __('Important Committees', 'srft-theme' ); ?></a>
                     </li>
-                   
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') {echo esc_url(site_url('/annual-reports/'));}
                     else { echo esc_url(site_url('/वार्षिक-रिपोर्ट्स/'));}
@@ -380,7 +386,7 @@ $current_language = get_locale();
                       <a
         role="menuitem"
         tabindex="-1"
-        href="https://samadhaan.ugc.ac.in/"
+        href="https://www.abc.gov.in/"
         target="_blank"
         rel="noopener noreferrer"
         title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
@@ -393,7 +399,7 @@ $current_language = get_locale();
                     <a
         role="menuitem"
         tabindex="-1"
-        href="https://www.abc.gov.in/"
+        href="https://nad.digilocker.gov.in/"
         target="_blank"
         rel="noopener noreferrer"
         title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
@@ -457,6 +463,51 @@ $current_language = get_locale();
               <li role="none" class="nav-link" style="--i: 1.35s">
                 <a role="menuitem" tabindex="0"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/contact-us/')); }
                 else  { echo esc_url(site_url('/हमसे-संपर्क-करें/'));}?>"><?php echo __('Contact Us', 'srft-theme' ); ?></a>
+              </li>
+              <li role="none" class="nav-link" style="--i: 1.35s">
+                <a role="menuitem" tabindex="0"  href="#" aria-haspopup="true" aria-expanded="false"><?php echo __('Employee Corner', 'srft-theme' ); ?><i class="fa fa-chevron-down" style="margin-left:10px;"></i></a>
+                  <ul role="menu" class="dropdown" aria-label="Information Corner">
+                  <li role="none" class="dropdown-link">
+    <a
+        role="menuitem"
+        tabindex="-1"
+        href="https://mibmu-eoffice.railtel.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('e-Office', 'srft-theme'); ?>
+    </a>
+</li>
+                   <li role="none" class="dropdown-link">
+    <a
+        role="menuitem"
+        tabindex="-1"
+        href="http://192.168.1.19"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('e-Leave', 'srft-theme'); ?>
+    </a>
+</li>
+                    <li role="none" class="dropdown-link">
+    <a
+        role="menuitem"
+        tabindex="-1"
+        href="http://14.139.206.21/roundcube/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="<?php echo esc_attr__('External link – opens in a new window', 'srft-theme'); ?>"
+        onclick="return check_url();"
+    >
+        <?php echo esc_html__('Web Mail', 'srft-theme'); ?>
+    </a>
+</li>
+                    
+                  </ul>
               </li>
             </ul>
           </nav>  
