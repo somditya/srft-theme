@@ -140,7 +140,7 @@ $current_language = get_locale();
       <a role="button" href="javascript:void(0);" id="backToTop" aria-label="Back to Top"  class="back-to-top"></a>
 </div>
 <div style="margin: 10px;"> 
-<?php echo __('Designed, Developed & Maintained by @2025 Satyajit Ray Film & Television Institute. All rights reserved', 'srft-theme'); ?> <br>
+<?php echo __('This website belongs to Satyajit Ray Film & Television Institute', 'srft-theme'); ?> <br>
 <div>
     <?php echo do_shortcode('[global_latest_date]'); ?>
 </div>

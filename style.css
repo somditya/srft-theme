@@ -1994,7 +1994,7 @@ ol.breadcrumb li + li::before {
 }
 
 .abtimg-box {
-  background-image: url("images/Pg\ 01.jpg");
+  background-image: url("images/Institute.jpeg");
   background-color: --var(--sub-intro-background-color);
   background-size: cover;
   background-repeat: no-repeat;
