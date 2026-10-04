@@ -29,7 +29,7 @@ $title = get_the_title($post_id);
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
-                <h2><?php echo __('Related Links', 'srft-theme'); ?> </h2>
+                <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713; ?>"><?php echo __('Related Links', 'srft-theme'); ?> </h2>
                 <?php
 $menu_name = ($current_language === 'hi_IN') ? 'hindi_pg_menu' : 'english_pg_menu';
 $current_page_title = get_the_title();

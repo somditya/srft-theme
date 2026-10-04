@@ -31,16 +31,13 @@ $current_language = get_locale();
         </div>-->
         <div class="childnavs" >
             
-    <nav class="childnav-lists" aria-label="<?php echo __('Facilities', 'srft-theme'); ?>">
+    <!--<nav class="childnav-lists" aria-label="<?php echo __('Facilities', 'srft-theme'); ?>">
         <?php
-        $current_language = get_locale(); // Get the current language/locale.
+        $current_language = get_locale(); 
 
         $menu_name = ($current_language === 'hi_IN') ? 'hindi_facility_menu' : 'english_facility_menu'; // Define menu name based on language.
 
-        // Get the current page title
         $current_page_title = get_the_title();
-
-        // Define a custom menu walker to modify the menu output.
         class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
                     public function start_lvl(&$output, $depth = 0, $args = null) {
                     $output .= '<ul class="submenu">';
@@ -62,7 +59,6 @@ $current_language = get_locale();
                     }
                     }
 
-        // Display the menu based on the language and custom walker.
         wp_nav_menu(array(
             'menu' => $menu_name,
             'container' => false, // No container element.
@@ -70,7 +66,7 @@ $current_language = get_locale();
             'walker' => new Custom_Walker_Nav_Menu(),
         ));
         ?>
-    </nav>
+    </nav>-->
 </div>
         
      <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713; "> <?php echo __('Related Links', 'srft-theme'); ?> </h2>

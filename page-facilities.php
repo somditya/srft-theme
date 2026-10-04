@@ -32,13 +32,10 @@ $current_page_title = get_the_title(); // Get current page title
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
-               <nav class="childnav-lists" aria-label="<?php echo __('Facilities', 'srft-theme'); ?>">
+               <!--<nav class="childnav-lists" aria-label="<?php echo __('Hostel', 'srft-theme'); ?>">
                     <?php
-                    // Define menu name based on language.
                     $menu_name = ($current_language === 'hi_IN') ? 'hindi_facility_menu' : 'english_facility_menu';
 
-                    // Define a custom menu walker to modify the menu output.
-                    // Define a custom menu walker to modify the menu output.
                     class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
                     public function start_lvl(&$output, $depth = 0, $args = null) {
                     $output .= '<ul class="submenu">';
@@ -60,7 +57,6 @@ $current_page_title = get_the_title(); // Get current page title
                     }
                     }
 
-                    // Display the menu based on the language and custom walker.
                     wp_nav_menu(array(
                         'menu' => $menu_name,
                         'container' => false,
@@ -68,7 +64,7 @@ $current_page_title = get_the_title(); // Get current page title
                         'walker' => new Custom_Walker_Nav_Menu(),
                     ));
                     ?>
-                </nav>
+                </nav>-->
             </div>
         </div>
 
