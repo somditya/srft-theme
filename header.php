@@ -417,15 +417,15 @@ $current_language = get_locale();
                     </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/internal-committee/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Internal Committee', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/आंतरिक-समिति/'));} ?>"><?php echo __('Internal Committee', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/anti-ragging-cell/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Anti Ragging Cell', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/एंटी-रैगिंग-प्रकोष्ठ/'));} ?>"><?php echo __('Anti Ragging Cell', 'srft-theme' ); ?></a>
                     </li>
                     <li role="none" class="dropdown-link">
                       <a role="menuitem" tabindex="-1"  href="<?php if ($current_language === 'en_US') { echo esc_url(site_url('/equal-opportunity-cell/'));} else
-                       { echo esc_url(site_url('/नगरक-अधकर-पतर/'));} ?>"><?php echo __('Equal Opportunity Cell', 'srft-theme' ); ?></a>
+                       { echo esc_url(site_url('/समान-अवसर-प्रकोष्ठ/'));} ?>"><?php echo __('Equal Opportunity Cell', 'srft-theme' ); ?></a>
                     </li>
                   </ul>
               </li>

@@ -49,11 +49,11 @@ if ( defined( 'ABSPATH' ) === false ) {
                     ); ?>
                 </p>
 
-                <div class="cookie-banner-links">
+                <!--<div class="cookie-banner-links">
                     <a href="<?php echo esc_url(home_url('/website-policy')); ?>#cookie-policy">
                         <?php _e('Read Cookie Policy', 'srft-theme'); ?>
                     </a>
-                </div>
+                </div>-->
 
             </div>
         </div>

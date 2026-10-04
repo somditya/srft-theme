@@ -29,10 +29,7 @@ if ( defined( 'ABSPATH' ) === false ) {
         <div class="cookie-modal-header-simple">
             <h2 id="cookie-settings-title" class="sr-only" style="display:none;"><?php _e('Cookie Settings', 'srft-theme'); ?></h2>
             <p class="cookie-intro-text">
-                <?php _e('Welcome to the Cookie Settings page, where you have the power to tailor your browsing experience. Here, you\'ll find detailed information about the cookies we use, categorized as "Essential" and "Optional." Make informed choices that align with your privacy preferences. For more details, please read our', 'srft-theme'); ?> 
-                <a href="<?php echo esc_url(home_url('/website-policy')); ?>#cookie-policy" class="cookie-policy-link">
-                    <?php _e('Cookie Policy', 'srft-theme'); ?>
-                </a>.
+                <?php _e('Welcome to the Cookie Settings page, where you have the power to tailor your browsing experience. Here, you\'ll find detailed information about the cookies we use, categorized as "Essential" and "Optional." Make informed choices that align with your privacy preferences.', 'srft-theme'); ?>
             </p>
         </div>  
 
