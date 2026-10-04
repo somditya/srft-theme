@@ -5072,9 +5072,9 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
     }
 
 
-    .header-text-group {
+    /*.header-text-group {
         display: none !important;
-    }
+    }*/
 
 
     header > div[style] {
