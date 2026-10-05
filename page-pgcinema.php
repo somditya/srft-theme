@@ -120,7 +120,7 @@ wp_nav_menu(array(
     <span class="download-icon" aria-hidden="true"></span>
 
     <span class="sr-only">
-        <?php echo esc_html__('Download PDF', 'srft-theme'); ?>
+        <?php echo esc_html__('Download PDF, opens in a new tab', 'srft-theme'); ?>
     </span>
 </a>
                 <?php

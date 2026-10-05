@@ -720,18 +720,23 @@ function display_selected_documents($atts) {
 
     ob_start();
     ?>
-    <a href="<?php echo esc_url($file_url); ?>"
-       title="<?php echo esc_attr($document_description); ?>"
-       target="_blank"
-       rel="noopener">
+   <a href="<?php echo esc_url($file_url); ?>"
+   target="_blank"
+   rel="noopener noreferrer">
 
-        <?php echo esc_html(get_the_title($post_id)); ?>
-        (<?php echo __('Download', 'srft-theme'); ?> - <?php echo esc_html($file_size_mb); ?>)
+    <?php echo esc_html(get_the_title($post_id)); ?>
 
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png"
-             alt="PDF"
-             style="display:inline-block;vertical-align:middle;">
-    </a>
+    <span class="pdf-icon" aria-hidden="true"></span>
+
+    (<?php echo esc_html($file_size_mb); ?>)
+
+    <span class="download-icon" aria-hidden="true"></span>
+
+    <span class="sr-only">
+        <?php echo esc_html__('PDF, opens in a new tab', 'srft-theme'); ?>
+    </span>
+
+</a>
     <?php
 
     return ob_get_clean();

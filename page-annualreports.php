@@ -162,7 +162,7 @@ $current_language = get_locale();
 
     <!-- Accessible description -->
     <span class="sr-only">
-        <?php echo esc_html__('Download PDF', 'srft-theme'); ?>
+        <?php echo esc_html__('Download PDF, opens in a new tab', 'srft-theme'); ?>
     </span>
 </a> | (<span lang="en">EN</span>, <span lang="hi">HI</span>)
 </span>
