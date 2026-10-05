@@ -26,12 +26,65 @@ Template Name: Contact
         <div class="leftnav">
             <div class="widget" style=" margin-top: 10px;    line-height: 1.5">
            
-                    <h2><?php echo __('Satyajit Ray Film & Television Institute', 'srft-theme'); ?></h2>
-                         <p><span class="address-icon" aria-hidden="true"></span><?php echo __('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?></p>
-        <p><?php echo __('Kolkata-700094', 'srft-theme'); ?></p>
-        <p><?php echo __('West Bengal', 'srft-theme'); ?></p>
-        <p><span class="phone-icon" aria-hidden="true"></span>91-33-2432-8355, 2432-8356, 2432-9300</p>
-        <p><span class="email-icon" aria-hidden="true"></span>contact[at]srfti[dot]ac[dot]in</p>
+                   <h2 id="institute-address">
+        <?php echo esc_html__( 'Communication Address', 'srft-theme' ); ?>
+    </h2>
+
+    <p>
+        <strong>
+            <?php echo esc_html__( 'Satyajit Ray Film & Television Institute', 'srft-theme' ); ?>
+        </strong>
+    </p>
+
+   <div class="contact-details">
+
+    <!-- Address -->
+    <div class="contact-row">
+        <span class="location-icon" aria-hidden="true"></span>
+
+        <span class="sr-only">
+            <?php echo esc_html__('Address:', 'srft-theme'); ?>
+        </span>
+
+        <span class="contact-value">
+            <?php echo esc_html__('E.M. Bypass Road, Panchasayar', 'srft-theme'); ?><br>
+            <?php echo esc_html__('Kolkata-700094', 'srft-theme'); ?><br>
+            <?php echo esc_html__('West Bengal', 'srft-theme'); ?>
+        </span>
+    </div>
+
+
+    <!-- Phone -->
+    <div class="contact-row">
+        <span class="phone-icon" aria-hidden="true"></span>
+
+        <span class="sr-only">
+            <?php echo esc_html__('Phone:', 'srft-theme'); ?>
+        </span>
+
+        <span class="contact-value">
+            +91-33-2432-8355,
+            2432-8356,
+            2432-9300
+        </span>
+    </div>
+
+
+    <!-- Email -->
+    <div class="contact-row">
+        <span class="email-icon" aria-hidden="true"></span>
+
+        <span class="sr-only">
+            <?php echo esc_html__('Email:', 'srft-theme'); ?>
+        </span>
+
+        <span class="contact-value">
+                contact[at]srfti[dot]ac[dot]in
+        </span>
+    </div>
+
+</div>
+
 
             </div>
         </div>

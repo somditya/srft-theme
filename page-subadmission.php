@@ -103,13 +103,29 @@ if ($download_post->have_posts()) {
             $file_type = strtoupper($file_type_info['ext'] ?? 'Unknown');
             $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
             ?>
-            <li>
-                <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new tab">
-                    <?php echo esc_html(get_the_title()); ?>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
-                    <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
-                </a>
-            </li>
+            <li style="margin-bottom: 1rem;">
+    <a
+        class="pdf-download-link"
+        href="<?php echo esc_url($file_url); ?>"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <?php echo esc_html(get_the_title()); ?>
+
+        <span class="pdf-icon" aria-hidden="true"></span>
+
+        <span class="file-size">
+            (
+            <?php echo esc_html($file_size_mb); ?>)
+        </span>
+
+        <span class="download-icon" aria-hidden="true"></span>
+
+        <span class="sr-only">
+            <?php echo esc_html__('Download pdf, opens in a new tab', 'srft-theme'); ?>
+        </span>
+    </a>
+</li>
             <?php
         }
     }
@@ -190,13 +206,29 @@ if ($file_id) {
                     $file_type = strtoupper($file_type_info['ext'] ?? 'Unknown');
                     $file_size_mb = $file_size ? size_format($file_size, 2) : 'Unknown';
                     ?>
-                    <li style="margin-bottom: 10px;">
-                        <a href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener" title="opens in a new window">
-                            <?php echo esc_html(get_the_title()); ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/pdf_icon_resized.png" alt="pdf" style="vertical-align: middle;" />
-                            <?php echo __('Download', 'srft-theme'); ?> (<?php echo esc_html($file_size_mb); ?>)
-                        </a>
-                    </li>
+                  <li style="margin-bottom: 1rem;">
+    <a
+        class="pdf-download-link"
+        href="<?php echo esc_url($file_url); ?>"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <?php echo esc_html(get_the_title()); ?>
+
+        <span class="pdf-icon" aria-hidden="true"></span>
+
+        <span class="file-size">
+            (
+            <?php echo esc_html($file_size_mb); ?>)
+        </span>
+
+        <span class="download-icon" aria-hidden="true"></span>
+
+        <span class="sr-only">
+            <?php echo esc_html__('Download pdf, opens in a new tab', 'srft-theme'); ?>
+        </span>
+    </a>
+</li>
                 <?php }
             }
             echo '</ul>';
