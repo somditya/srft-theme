@@ -249,7 +249,8 @@ if ($category_posts->have_posts()) :
                 <p><?php the_title(); ?></p>
 
             </div>
-            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true">
+    </span></a>
            </div>
     </div>
 </li>
@@ -319,8 +320,7 @@ aria-label="<?php echo esc_attr__('Read more', 'srft-theme'); ?>">
 
     <?php echo esc_html__('Read more', 'srft-theme'); ?>
     
-    <span class="material-symbols-outlined" aria-hidden="true">
-        chevron_right
+    <span class="chevron-right-icon" aria-hidden="true">
     </span>
 </a></div>
 
@@ -800,7 +800,8 @@ else
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>  
         </div>
-        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a></div>
+        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents"><?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true">
+    </span></a></div>
 
     </div>
         </li>  
@@ -1152,7 +1153,7 @@ $final_url = site_url("/$slug/");
     <a href="<?php echo esc_url($final_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" style="margin-top: 15px;"
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
-       <?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+       <?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true"></span>
     </a>
 </div>
     </a>
@@ -1307,7 +1308,7 @@ if (!empty($embed_code)) {
     <a href="<?php echo esc_url($social_url); ?>" 
        class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" 
        aria-label="Read more about latest <?php echo esc_attr(strtolower($title)); ?>">
-        <?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined">chevron_right</span>
+        <?php _e('Read more', 'srft-theme'); ?><span class="chevron-right-icon"></span>
     </a>
 </div>
 

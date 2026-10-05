@@ -218,7 +218,8 @@ wp_reset_postdata();
                 <h3><?php the_title(); ?></h3>
 
             </div>
-            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?><span aria-hidden="true" class="material-symbols-outlined ">chevron_right</span></a>
+            <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news"><?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true">
+    </span></a>
            </div>
     </div>
 
