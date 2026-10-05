@@ -185,8 +185,8 @@ p {
 
 .phone-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -199,8 +199,9 @@ p {
 
 .email-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px
+    ;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -212,8 +213,8 @@ p {
 }
 .download-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -247,8 +248,8 @@ p {
 
 .chevron-left-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -261,8 +262,8 @@ p {
 
 .pdf-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
     margin-left: 8px; 
@@ -275,8 +276,8 @@ p {
 
 .location-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -288,8 +289,8 @@ p {
 }
 .x-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
     background-image: url("images/x.svg");
@@ -300,8 +301,8 @@ p {
 
 .instagram-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -314,8 +315,8 @@ p {
 
 .facebook-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -327,8 +328,8 @@ p {
 }
 .startdate-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -340,8 +341,8 @@ p {
 }
 .duedate-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -354,8 +355,8 @@ p {
 
 .address-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -368,8 +369,8 @@ p {
 
 .vacancy-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -382,8 +383,8 @@ p {
 
 .reports-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -396,8 +397,8 @@ p {
 
 .accessibility-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -409,8 +410,8 @@ p {
 }
 .accessibility-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -422,8 +423,8 @@ p {
 }
 .sitemap-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
@@ -435,8 +436,8 @@ p {
 }
 .tenders-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
     background-image: url("images/tenders.svg");
@@ -447,8 +448,8 @@ p {
 }
 .language-icon {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     margin-right: 8px;
 
