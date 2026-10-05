@@ -10000,6 +10000,7 @@ ul li input[type="checkbox"]:checked ~ i:after {
     transform: translateX(100%);
     transition: 0.65s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
   }
   
 
