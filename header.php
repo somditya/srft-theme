@@ -28,13 +28,11 @@ $current_language = get_locale();
     <script src="https://kit.fontawesome.com/37e9fe1e7c.js" crossorigin="anonymous"></script>
     <link href="https://use.typekit.net/eyn5jyy.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.typekit.net/jbg0wxv.css">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> -->   
     <script src="<?php bloginfo('template_url'); ?>/script/jquery.counterup.js"></script>
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />-->
-    <link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />
+    <!--<link href="<?php bloginfo('template_url'); ?>/css/lightbox.css" rel="stylesheet" />-->
     <!--<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.theme.default.min.css" />-->
     <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
@@ -47,7 +45,7 @@ $current_language = get_locale();
     <!--<script src="<?php bloginfo('template_url'); ?>/script/jquery-4.0.0.min.js"></script>-->
     <script src="<?php bloginfo('template_url'); ?>/script/acmeticker.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/script/owlcarousel/owl.carousel.min.js"></script>
-    <script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>
+    <!--<script src="<?php bloginfo('template_url'); ?>/script/lightbox.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/a11y-slider@latest/dist/a11y-slider.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
     <!--<script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>-->  
@@ -97,14 +95,10 @@ $current_language = get_locale();
             
             <!-- Digital India Logo -->
             <div class="top-item">
-                <a target="_blank" title="<?php echo __('Digital India portal','srft-theme' ); ?>" onclick="return check_url();" alt="Digital India Logo" href="https://digitalindia.gov.in/">
-                    <img src="https://www.meity.gov.in/static/uploads/2023/12/3c456855b01bd15e42e99b93982b5c18.svg"  style="height: 40px; width: auto;">
+                <a target="_blank" title="<?php echo __('Digital India portal','srft-theme' ); ?>" onclick="return check_url();" href="https://digitalindia.gov.in/">
+                    <img src="https://www.meity.gov.in/static/uploads/2023/12/3c456855b01bd15e42e99b93982b5c18.svg"  alt="Digital India Logo" style="height: 40px; width: auto;">
                 </a> 
             </div>
-            <!-- class="top-item">
-       <a href="https://srfti.ac.in/post-graduate-programmes-at-fti-ar/" title="Logo of FTIII"><img style="height: 6rem;" class="right-logo" src="<?php bloginfo('template_url'); ?>/images/ftiii-logo.jpg" alt="<?php echo __('Logo of Film & Television Institute of India', 'srft-theme' ); ?>"></a>
-                
-            </div>-->
             
 
                         <!-- Utility Container -->
@@ -242,16 +236,6 @@ $current_language = get_locale();
             </div>
         </fieldset> 
     </div>
-<style>
-    /* This tests the 20px font size only on the main menu items */
-    .menu-bar > .nav-link > a {
-        font-size: 16px !important; /* !important ensures it overrides any existing theme rules during testing */
-    }
-
-   .dropdown-link > a {
-        font-size: 16px !important; 
-    }
-</style>
        <!--</div>-->
        <div class="menu-container">
        <input type="checkbox" id="check" aria-label="Open menu"/>

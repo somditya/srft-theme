@@ -1,8 +1,6 @@
 <?php
 /*
-Template Name: Home
-
- */
+Template Name: Home */
 
  get_header();
  $excerpt = get_the_excerpt();  
@@ -104,8 +102,7 @@ if ($post_count > 0) :
         $target = '_self';
 
         /**
-         * Vacancy
-         */
+         * Vacancy*/
         if ($post_type === 'vacancy') {
 
             $doc = get_field('Vacancy-Doc', get_the_ID());
@@ -237,7 +234,7 @@ if ($category_posts->have_posts()) :
     while ($category_posts->have_posts()) : $category_posts->the_post();
 ?>
 
-<li role="group" aria-roledescription="slide">
+<li aria-roledescription="slide">
     <div class="news-item">
             <img class="img-responsive lazyOwl"
                  src="<?php echo esc_url(get_field('News-Image')); ?>"
@@ -280,6 +277,7 @@ endif;
                 </span> 
             </a>
         </div>-->
+ </div>       
 </section>
  
 <section class="section-home;" style="padding: 0;">
@@ -323,8 +321,6 @@ aria-label="<?php echo esc_attr__('Read more', 'srft-theme'); ?>">
     <span class="chevron-right-icon" aria-hidden="true">
     </span>
 </a></div>
-
-      </div>
     </div>
    
   </div>
@@ -792,7 +788,7 @@ else
         if ($category_posts->have_posts()) :
           while ($category_posts->have_posts()) : $category_posts->the_post();
         ?> 
-        <li  role="group" aria-roledescription="slide">
+        <li aria-roledescription="slide">
           
         <div class="news-item">
           <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=""  style="display: block;">
@@ -800,7 +796,7 @@ else
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>  
         </div>
-        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" href="/documents"><?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true">
+        <div class="view-more-button"><a href="<?php the_permalink(); ?>" target="_blank" class="d-flex view-more-link align-items-center text-decoration-none fw-semibold" aria-label="View more recent news" ><?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true">
     </span></a></div>
 
     </div>
@@ -980,7 +976,7 @@ else
 </h4>
 
     <p><a href="<?php echo $link; ?>">
-        <?php the_title(); ?>&nbsp;
+        <?php the_title(); ?> </a> &nbsp;
         <?php if ($doc): ?>
          <a
     href="<?php echo esc_url($file_url); ?>"
@@ -988,7 +984,6 @@ else
     rel="noopener"
     aria-label="<?php echo esc_attr( 'Download PDF, ' . $file_size_mb . ' MB' ); ?>"
 >
-
     <!-- PDF Icon -->
     <span class="tooltip-box">
         <svg
@@ -1044,7 +1039,6 @@ else
 
 </a>  
         <?php endif; ?>
-    </a>
     <?php if ($post_type === 'announcement') : ?>
     <?php
     $announcement_cat = get_field('announcement_category');
@@ -1156,7 +1150,6 @@ $final_url = site_url("/$slug/");
        <?php _e('Read more', 'srft-theme'); ?> <span class="chevron-right-icon" aria-hidden="true"></span>
     </a>
 </div>
-    </a>
 <?php endif; ?>
 
         </div>

@@ -291,41 +291,88 @@ p {
     display: inline-block;
     width: 24px;
     height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
-    background-image: url("images/x.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    flex-shrink: 0;
+
+    background-color: currentColor;
+
+    -webkit-mask-image: url("images/x.svg");
+    mask-image: url("images/x.svg");
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
 }
 
 .instagram-icon {
-    display: inline-block;
+    
+   display: inline-block;
     width: 24px;
     height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
+    flex-shrink: 0;
 
-    background-image: url("images/instagram.svg");
+    background-color: currentColor;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    -webkit-mask-image: url("images/instagram.svg");
+    mask-image: url("images/instagram.svg");
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    
 }
 
 .facebook-icon {
     display: inline-block;
     width: 24px;
     height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
+    flex-shrink: 0;
 
-    background-image: url("images/facebook.svg");
+    background-color: currentColor;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    -webkit-mask-image: url("images/facebook.svg");
+    mask-image: url("images/facebook.svg");
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
 }
+.linkedin-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+
+    background-color: currentColor;
+
+    -webkit-mask-image: url("images/linkedin.svg");
+    mask-image: url("images/linkedin.svg");
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+
 .startdate-icon {
     display: inline-block;
     width: 24px;
@@ -3233,6 +3280,15 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   top: 10px;
   left: -5.5px;
 }
+
+
+.menu-bar > .nav-link > a {
+        font-size: 16px !important; /* !important ensures it overrides any existing theme rules during testing */
+    }
+
+   .dropdown-link > a {
+        font-size: 16px !important; 
+    }
 
 .nav-link:hover > .dropdown,
 .dropdown-link:hover > .dropdown {

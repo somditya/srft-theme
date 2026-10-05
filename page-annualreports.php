@@ -165,7 +165,6 @@ $current_language = get_locale();
         <?php echo esc_html__('Download PDF, opens in a new tab', 'srft-theme'); ?>
     </span>
 </a> | (<span lang="en">EN</span>, <span lang="hi">HI</span>)
-</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -182,6 +181,8 @@ $current_language = get_locale();
                     </tbody>
                     </table>
         </div>
+</div>
+</div>
     </section>
 </main>
 

@@ -96,10 +96,10 @@ $current_language = get_locale();
         <li><a href="https://twitter.com/ChicagoBooth" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on Twitter - This Link Opens in New Window"><img src="images/twitter.svg" alt="Twitter"></a></li>
         <li><a href="https://www.youtube.com/user/ChicagoBoothMBA" class="icon external" rel="noopener noreferrer" target="_blank" title="Follow Us on YouTube - This Link Opens in New Window"><img src="images/youTube.svg" alt="Youtube"></a></li>
         -->
-        <li><a href="https://facebook.com/srftikol" target="_blank"  title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-facebook-f footer_icon"></i></a></li>
-        <li><a href="https://instagram.com/srfti_official/" target="_blank"  aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-instagram footer_icon"></i></a></li>
-        <li><a href="https://www.twitter.com/srfti_official" target="_blank"  aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();" style="color: white;"><i class="fab fa-x-twitter footer_icon"></i></a></li>
-        <li><a href="https://www.linkedin.com/school/satyajit-ray-film-and-television-institute-srfti/" target="_blank"  aria-label="<?php echo __('Visit linkedin of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><i class="fab fa-linkedin-in footer_icon"></i></a></li>
+        <li><a href="https://facebook.com/srftikol" target="_blank"  title="<?php echo __('Follow Us on Facebook - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><span aria-hidden="true" class="facebook-icon"></span></a></li>
+        <li><a href="https://instagram.com/srfti_official/" target="_blank"  aria-label="<?php echo __('Follow Us on Instagram - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();"><span aria-hidden="true" class="instagram-icon"></span></a></li>
+        <li><a href="https://www.twitter.com/srfti_official" target="_blank"  aria-label="<?php echo __('Follow Us on tweeter - This Link is an external link', 'srft-theme'); ?>" onclick="return check_url();" style="color: white;"><span aria-hidden="true" class="x-icon"></span></a></li>
+        <li><a href="https://www.linkedin.com/school/satyajit-ray-film-and-television-institute-srfti/" target="_blank"  aria-label="<?php echo __('Visit linkedin of SRFTI', 'srft-theme'); ?>" onclick="return check_url();"><span aria-hidden="true" class="linkedin-icon"></span></a></li>
       </ul>
     </div>
     <div class="show-on-mobile">
