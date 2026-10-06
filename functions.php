@@ -3190,3 +3190,8 @@ function srfti_default_consent_mode() {
 }
 add_action( 'wp_head', 'srfti_default_consent_mode', 1 );
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+add_action('wp_enqueue_scripts', function () {
+    wp_dequeue_style('wp-block-image');
+    wp_deregister_style('wp-block-image');
+}, 100);

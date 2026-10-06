@@ -29,7 +29,7 @@ $title = get_the_title($post_id);
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav">
             <div class="childnavs">
-                <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713; ?>"><?php echo __('Related Links', 'srft-theme'); ?> </h2>
+                <h2 style="margin-top: 2.5rem; border-bottom: 1px solid #6c4713;"><?php echo __('Related Links', 'srft-theme'); ?> </h2>
                 <?php
 $menu_name = ($current_language === 'hi_IN') ? 'hindi_pg_menu' : 'english_pg_menu';
 $current_page_title = get_the_title();
@@ -150,7 +150,7 @@ wp_reset_postdata();
             $subintrodesc = get_post_meta($post_id, 'SubIntroDescription', true);
             ?>
 
-            <section class="home"><p><?php echo wp_kses_post($intro); ?></p></section>
+            <section class="home"><?php echo wp_kses_post($intro); ?></section>
             
             <?php $youtube_url = get_post_meta($post_id, 'Video', true); ?>
             <!--<section class="sub-intro">
@@ -234,5 +234,5 @@ wp_reset_postdata();
             </section>
         </div>
     </section>
-
+</main>
 <?php get_footer(); ?>

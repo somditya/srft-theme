@@ -27,7 +27,6 @@ $current_language = get_locale();
     ?>
    </div>
    </div>
-   </div>
     <section id="skip-to-content" class="cine-detail">
         <div class="leftnav" >
         <nav class="childnavs" aria-label="<?php echo __('About Us', 'srft-theme'); ?>">
