@@ -283,11 +283,9 @@ $category_id = get_category_ID( $category_name );
 
                         <span class="webinar-date">
 
-                          <time datetime="{{ tender.pubdate | date:'yyyy-MM-dd' }}">
-
-                            {{ tender.pubdate | date:'dd/MM/yyyy' }}
-
-                          </time>
+                        <span class="tender-date">
+    {{ tender.pubdate | date:'dd-MM-yyyy' }}
+</span>
 
                         </span>
 
@@ -305,12 +303,9 @@ $category_id = get_category_ID( $category_name );
                           class="webinar-date"
                           data-ng-if="tender.subdate">
 
-                          <time
-                            datetime="{{ tender.subdate | date:'yyyy-MM-dd' }}">
-
-                            {{ tender.subdate | date:'dd/MM/yyyy' }}
-
-                          </time>
+                       <span class="tender-date">
+    {{ tender.pubdate | date:'dd-MM-yyyy' }}
+</span>
 
                         </span>
 
@@ -329,7 +324,7 @@ $category_id = get_category_ID( $category_name );
                         data-ng-if="tender.file && tender.file.url">
 
 
-                        <a
+                        <a href="#"
     data-ng-href="{{ tender.file.url }}"
     target="_blank"
     rel="noopener noreferrer"
@@ -366,26 +361,32 @@ $category_id = get_category_ID( $category_name );
 
 
                           <span
-                            data-ng-if="tender.ID.indexOf('GEM') === 0 || tender.language === 'Both'"
-                            role="text"
-                            aria-label="Document available in English and Hindi"
-                            title="Available in English and Hindi">
+    data-ng-if="tender.ID.indexOf('GEM') === 0 || tender.language === 'Both'"
+    title="Available in English and Hindi"
+>
+    <span class="sr-only">
+        Document available in English and Hindi
+    </span>
 
-                            (<span lang="en">EN</span>,
-                             <span lang="hi">HI</span>)
-
-                          </span>
+    <span aria-hidden="true">
+        (<span lang="en">EN</span>,
+        <span lang="hi">HI</span>)
+    </span>
+</span>
 
 
                           <span
-                            data-ng-if="tender.ID.indexOf('GEM') !== 0 && tender.language === 'Hindi'"
-                            role="text"
-                            aria-label="Document available in Hindi"
-                            title="Available in Hindi">
+    data-ng-if="tender.ID.indexOf('GEM') !== 0 && tender.language === 'Hindi'"
+    title="Available in Hindi"
+>
+    <span class="sr-only">
+        Document available in Hindi
+    </span>
 
-                            <span lang="hi">HI</span>
-
-                          </span>
+    <span aria-hidden="true" lang="hi">
+        HI
+    </span>
+</span>
 
 
                         </span>
@@ -479,13 +480,12 @@ $category_id = get_category_ID( $category_name );
                 data-ng-class="{ 'active': currentPage === page }">
 
                 <a
-                  href="#"
-                  data-ng-click="setPage(page)"
-                  ng-attr-aria-current="{{ currentPage === page ? 'page' : undefined }}">
-
-                  {{ page }}
-
-                </a>
+    href="#"
+    data-ng-click="setPage(page)"
+    data-ng-attr-aria-current="{{ currentPage === page ? 'page' : undefined }}"
+>
+    {{ page }}
+</a>
 
               </li>
 
@@ -838,79 +838,121 @@ function updatePagedTender(){
 
 
 
-function updateFilteredTender(){
+function updateFilteredTender() {
 
     var keyword =
         ($scope.filterField || '')
-        .trim()
-        .toLowerCase();
+            .trim()
+            .toLowerCase();
 
     var fromDate =
-        $scope.fromDate ?
-        new Date($scope.fromDate)
-        :
-        null;
+        $scope.fromDate
+            ? new Date($scope.fromDate)
+            : null;
 
     var toDate =
-        $scope.toDate ?
-        new Date($scope.toDate)
-        :
-        null;
+        $scope.toDate
+            ? new Date($scope.toDate)
+            : null;
+
+
+    /*
+     * Include the full To Date.
+     */
+    if (toDate) {
+        toDate.setHours(23, 59, 59, 999);
+    }
 
 
     $scope.filteredTender =
-    $scope.tenderList.filter(function(t){
+        $scope.tenderList.filter(function (tender) {
+
+            /*
+             * Keyword filter.
+             */
+            var titleMatch =
+                !keyword ||
+                (
+                    tender.title &&
+                    tender.title
+                        .toLowerCase()
+                        .indexOf(keyword) !== -1
+                );
+
+            var idMatch =
+                !keyword ||
+                (
+                    tender.ID &&
+                    String(tender.ID)
+                        .toLowerCase()
+                        .indexOf(keyword) !== -1
+                );
+
+            var textMatch =
+                titleMatch || idMatch;
 
 
-        var titleMatch =
-            !keyword ||
-            (
-                t.title &&
-                t.title.toLowerCase()
-                .indexOf(keyword)!==-1
-            );
+            if (!textMatch) {
+                return false;
+            }
 
 
-        var idMatch =
-            !keyword ||
-            (
-                t.ID &&
-                (t.ID+'')
-                .toLowerCase()
-                .indexOf(keyword)!==-1
-            );
+            /*
+             * Use Publish Date for date filtering.
+             */
+            var publishDate =
+                tender.pubdate
+                    ? new Date(tender.pubdate)
+                    : null;
 
 
-        var matchText =
-            titleMatch || idMatch;
+            /*
+             * If date filtering is active,
+             * exclude tenders without a publish date.
+             */
+            if (
+                (fromDate || toDate) &&
+                !publishDate
+            ) {
+                return false;
+            }
 
 
-        if(fromDate && toDate && t.subdate){
-
-            var sub =
-                new Date(t.subdate);
-
-            return
-                matchText &&
-                sub >= fromDate &&
-                sub <= toDate;
-
-        }
+            /*
+             * From date filter.
+             */
+            if (
+                fromDate &&
+                publishDate < fromDate
+            ) {
+                return false;
+            }
 
 
-        return matchText;
+            /*
+             * To date filter.
+             */
+            if (
+                toDate &&
+                publishDate > toDate
+            ) {
+                return false;
+            }
 
-    });
+
+            return true;
+
+        });
 
 
+    /*
+     * Reset to first page after filtering.
+     */
     $scope.currentPage = 1;
 
     recalcTotalPages();
-
     updatePagedTender();
-
     setStatusMessage();
-
 }
 
 

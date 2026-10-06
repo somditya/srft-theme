@@ -106,22 +106,23 @@ Template Name: Contact
                     <div class="accordian">        
                             <h2 ><?php echo __('Contact a Section', 'srft-theme'); ?></h2>
                     </div>
-                    <p><?php echo get_post_meta(get_the_ID(), 'Sections', true); ?></p>
+                    <?php echo get_post_meta(get_the_ID(), 'Sections', true); ?>
+                    </div>
                     <br role="presentation">
 
                     <div>
                             <div class="accordian">        
                             <h2><?php echo __('Directories and Listings', 'srft-theme'); ?></h2>
                             </div>
-                            <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?></p>
+                            <?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Directories', true)); ?>
                     </div>
                     <br role="presentation">
                     <div>   
                             <div class="accordian">        
                             <h2><?php echo __('Quick Links', 'srft-theme'); ?></h2>
                             <div>
-                            <p><?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?></p>
-                    </div>
+                            <?php echo str_replace('{site_url}', get_site_url(), get_post_meta(get_the_ID(), 'Quicklinks', true)); ?>
+                    </div></div>
                     <br role="presentation">
 
             </div>
@@ -134,6 +135,7 @@ Template Name: Contact
 
         
     </section>
+    
     <div class="contaactus_map">
     <a href="#after-map" class="skip-link">Skip interactive map</a>
     <iframe                  

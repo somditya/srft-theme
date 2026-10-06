@@ -3,51 +3,78 @@
  * Template Name: Faculty
  */
 
-?>
-
-<?php
 get_header();
 
 $current_language = get_locale();
 
+/**
+ * Get category ID from category name.
+ *
+ * @param string $cat_name Category name.
+ *
+ * @return int
+ */
 function get_category_ID( $cat_name ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
-	$cat = get_term_by( 'name', $cat_name, 'category' );
+
+	$cat = get_term_by(
+		'name',
+		$cat_name,
+		'category'
+	);
 
 	if ( $cat ) {
-		return $cat->term_id;
+		return (int) $cat->term_id;
 	}
 
 	return 0;
 }
 
+
+/*
+ * Keep the existing working Faculty category.
+ */
 $category_name = 'faculty';
 $category_id   = get_category_ID( $category_name );
 
+
 /*
- * Get the page banner image safely.
+ * Page banner image.
  */
-$banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+$banner_image = get_the_post_thumbnail_url(
+	get_the_ID(),
+	'large'
+);
 ?>
 
-<div>
-
-```
 <main>
 
 	<section
 		class="cine-header"
 		style="background-image: url('<?php echo esc_url( $banner_image ); ?>');"
 	>
+
 		<div class="page-banner">
+
 			<h1 class="page-banner-title">
-				<?php echo esc_html__( 'Faculty', 'srft-theme' ); ?>
+				<?php
+				echo esc_html__(
+					'Faculty',
+					'srft-theme'
+				);
+				?>
 			</h1>
+
 		</div>
+
 	</section>
+
 
 	<section class="section-home">
 
-		<div class="container" style="padding: 0 3.2rem;">
+		<div
+			class="container"
+			style="padding: 0 3.2rem;"
+		>
 
 			<div class="container-aligned">
 
@@ -55,10 +82,12 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 					<?php
 					if ( function_exists( 'yoast_breadcrumb' ) ) {
+
 						yoast_breadcrumb(
 							'<nav aria-label="breadcrumbs" id="breadcrumbs">',
 							'</nav>'
 						);
+
 					}
 					?>
 
@@ -66,10 +95,15 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 			</div>
 
+
 			<h2
 				id="skip-to-content"
 				class="page-header-text"
-				style="padding-left: 0; text-align: center; margin-top: 20px;"
+				style="
+					padding-left: 0;
+					text-align: center;
+					margin-top: 20px;
+				"
 			>
 				<?php
 				echo esc_html__(
@@ -79,104 +113,237 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 				?>
 			</h2>
 
+
 			<div
 				id="faculty-app"
 				style="margin-top: 4.5rem;"
 			>
 
-				<!-- Filter options -->
+
+				<!-- Programme filter -->
 				<label for="faculty-filter">
-					<?php echo esc_html__( 'Programmes:', 'srft-theme' ); ?>
+					<?php
+					echo esc_html__(
+						'Programmes:',
+						'srft-theme'
+					);
+					?>
 				</label>
+
 
 				<select
 					id="faculty-filter"
 					class="filter"
 				>
+
 					<option value="">
-						<?php echo esc_html__( 'All', 'srft-theme' ); ?>
+						<?php
+						echo esc_html__(
+							'All',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Animation Cinema', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Animation Cinema', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Animation Cinema', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Animation Cinema',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Cinematography', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Cinematography', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Cinematography', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Cinematography',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Direction & Screenplay Writing', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Direction & Screenplay Writing', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Direction & Screenplay Writing', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Direction & Screenplay Writing',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Editing', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Editing', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Editing', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Editing',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Producing for Film & Television', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Producing for Film & Television', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Producing for Film & Television', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Producing for Film & Television',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Sound Recording & Design', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Sound Recording & Design', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Sound Recording & Design', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Sound Recording & Design',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'EDM Management', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'EDM Management', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'EDM Management', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'EDM Management',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Cinematography for EDM', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Cinematography for EDM', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Cinematography for EDM', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Cinematography for EDM',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Direction & Producing for EDM', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Direction & Producing for EDM', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Direction & Producing for EDM', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Direction & Producing for EDM',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Editing for EDM', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Editing for EDM', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Editing for EDM', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Editing for EDM',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Sound for EDM', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Sound for EDM', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Sound for EDM', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Sound for EDM',
+							'srft-theme'
+						);
+						?>
 					</option>
 
-					<option value="<?php echo esc_attr__( 'Writing for EDM', 'srft-theme' ); ?>">
-						<?php echo esc_html__( 'Writing for EDM', 'srft-theme' ); ?>
+
+					<option
+						value="<?php echo esc_attr__( 'Writing for EDM', 'srft-theme' ); ?>"
+					>
+						<?php
+						echo esc_html__(
+							'Writing for EDM',
+							'srft-theme'
+						);
+						?>
 					</option>
+
 				</select>
+
+
 
 				<!-- Faculty grid -->
 				<ul
 					id="faculty-grid"
 					class="faculty-grid"
-					role="list"
 					aria-label="<?php echo esc_attr__( 'Faculty profiles', 'srft-theme' ); ?>"
 				>
-
-					<!-- Loading overlay -->
-					<div
-						id="faculty-loading"
-						class="loading-overlay"
-						aria-live="polite"
-						aria-label="<?php echo esc_attr__( 'Loading faculty', 'srft-theme' ); ?>"
-					>
-						<div
-							class="spinner"
-							aria-hidden="true"
-						></div>
-					</div>
-
 				</ul>
 
-				<!-- No results message -->
+
+
+				<!-- Loading status -->
+				<div
+					id="faculty-loading"
+					class="loading-overlay"
+					role="status"
+					aria-live="polite"
+				>
+
+					<span class="sr-only">
+						<?php
+						echo esc_html__(
+							'Loading faculty',
+							'srft-theme'
+						);
+						?>
+					</span>
+
+					<div
+						class="spinner"
+						aria-hidden="true"
+					></div>
+
+				</div>
+
+
+
+				<!-- No results -->
 				<p
 					id="faculty-no-results"
 					class="faculty-no-results"
 					style="display: none;"
 				>
-					<?php echo esc_html__( 'No faculty members found.', 'srft-theme' ); ?>
+					<?php
+					echo esc_html__(
+						'No faculty members found.',
+						'srft-theme'
+					);
+					?>
 				</p>
+
+
 
 				<!-- Pagination -->
 				<nav
@@ -184,17 +351,28 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 					aria-label="<?php echo esc_attr__( 'Pagination', 'srft-theme' ); ?>"
 				>
 
-					<ul class="pagination" id="faculty-pagination-list">
+					<ul
+						class="pagination"
+						id="faculty-pagination-list"
+					>
 
-						<!-- First Page -->
+
+						<!-- First page -->
 						<li id="faculty-first-page">
+
 							<a
 								href="#"
 								data-page-action="first"
 								aria-label="<?php echo esc_attr__( 'Go to first page', 'srft-theme' ); ?>"
 							>
+
 								<span class="sr-only">
-									<?php echo esc_html__( 'First Page', 'srft-theme' ); ?>
+									<?php
+									echo esc_html__(
+										'First Page',
+										'srft-theme'
+									);
+									?>
 								</span>
 
 								<i
@@ -202,18 +380,29 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 									aria-hidden="true"
 									style="color: #8b5b2b;"
 								></i>
+
 							</a>
+
 						</li>
 
-						<!-- Previous Page -->
+
+
+						<!-- Previous page -->
 						<li id="faculty-prev-page">
+
 							<a
 								href="#"
 								data-page-action="previous"
 								aria-label="<?php echo esc_attr__( 'Go to previous page', 'srft-theme' ); ?>"
 							>
+
 								<span class="sr-only">
-									<?php echo esc_html__( 'Previous Page', 'srft-theme' ); ?>
+									<?php
+									echo esc_html__(
+										'Previous Page',
+										'srft-theme'
+									);
+									?>
 								</span>
 
 								<i
@@ -221,21 +410,32 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 									aria-hidden="true"
 									style="color: #8b5b2b;"
 								></i>
+
 							</a>
+
 						</li>
 
-						<!-- Page numbers -->
-						<!-- Page numbers are inserted dynamically before the Next button. -->
 
-						<!-- Next Page -->
+
+						<!-- Page numbers inserted by JavaScript -->
+
+
+						<!-- Next page -->
 						<li id="faculty-next-page">
+
 							<a
 								href="#"
 								data-page-action="next"
 								aria-label="<?php echo esc_attr__( 'Go to next page', 'srft-theme' ); ?>"
 							>
+
 								<span class="sr-only">
-									<?php echo esc_html__( 'Next Page', 'srft-theme' ); ?>
+									<?php
+									echo esc_html__(
+										'Next Page',
+										'srft-theme'
+									);
+									?>
 								</span>
 
 								<i
@@ -243,18 +443,29 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 									aria-hidden="true"
 									style="color: #8b5b2b;"
 								></i>
+
 							</a>
+
 						</li>
 
-						<!-- Last Page -->
+
+
+						<!-- Last page -->
 						<li id="faculty-last-page">
+
 							<a
 								href="#"
 								data-page-action="last"
 								aria-label="<?php echo esc_attr__( 'Go to last page', 'srft-theme' ); ?>"
 							>
+
 								<span class="sr-only">
-									<?php echo esc_html__( 'Last Page', 'srft-theme' ); ?>
+									<?php
+									echo esc_html__(
+										'Last Page',
+										'srft-theme'
+									);
+									?>
 								</span>
 
 								<i
@@ -262,12 +473,15 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 									aria-hidden="true"
 									style="color: #8b5b2b;"
 								></i>
+
 							</a>
+
 						</li>
 
 					</ul>
 
 				</nav>
+
 
 			</div>
 
@@ -276,59 +490,43 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	</section>
 
 </main>
-```
 
-</div>
 
-<style>
-#faculty-pagination-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#faculty-pagination-list > li {
-    display: inline-flex;
-    margin: 0;
-    padding: 0;
-}
-
-#faculty-pagination-list > li > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 40px;
-    height: 36px;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-#faculty-pagination-list > li.active > a {
-    background: #8b5b2b;
-    color: #fff;
-}
-
-#faculty-pagination-list > li.disabled > a {
-    pointer-events: none;
-    opacity: 0.5;
-}
-</style>
 
 <script>
 (function () {
+
 	'use strict';
+
 
 	/*
 	 * WordPress REST API configuration.
 	 */
-	const siteURL = <?php echo wp_json_encode( esc_url_raw( site_url( '/' ) ) ); ?>;
-	const categoryID = <?php echo wp_json_encode( absint( $category_id ) ); ?>;
-	const language = <?php echo wp_json_encode( $current_language ); ?>;
+	const siteURL =
+		<?php
+		echo wp_json_encode(
+			esc_url_raw(
+				site_url( '/' )
+			)
+		);
+		?>;
+
+
+	const categoryID =
+		<?php
+		echo wp_json_encode(
+			absint( $category_id )
+		);
+		?>;
+
+
+	const language =
+		<?php
+		echo wp_json_encode(
+			$current_language
+		);
+		?>;
+
 
 	const apiURL =
 		siteURL +
@@ -336,25 +534,69 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 		encodeURIComponent(categoryID) +
 		'&per_page=100';
 
+
+
 	/*
 	 * Configuration.
 	 */
 	const itemsPerPage = 15;
 
+
+
 	/*
 	 * DOM elements.
 	 */
-	const facultyGrid = document.getElementById('faculty-grid');
-	const loadingOverlay = document.getElementById('faculty-loading');
-	const filterSelect = document.getElementById('faculty-filter');
-	const pagination = document.getElementById('faculty-pagination');
-	const paginationList = document.getElementById('faculty-pagination-list');
-	const noResults = document.getElementById('faculty-no-results');
+	const facultyGrid =
+		document.getElementById(
+			'faculty-grid'
+		);
 
-	const firstPage = document.getElementById('faculty-first-page');
-	const previousPage = document.getElementById('faculty-prev-page');
-	const nextPage = document.getElementById('faculty-next-page');
-	const lastPage = document.getElementById('faculty-last-page');
+	const loadingOverlay =
+		document.getElementById(
+			'faculty-loading'
+		);
+
+	const filterSelect =
+		document.getElementById(
+			'faculty-filter'
+		);
+
+	const pagination =
+		document.getElementById(
+			'faculty-pagination'
+		);
+
+	const paginationList =
+		document.getElementById(
+			'faculty-pagination-list'
+		);
+
+	const noResults =
+		document.getElementById(
+			'faculty-no-results'
+		);
+
+	const firstPage =
+		document.getElementById(
+			'faculty-first-page'
+		);
+
+	const previousPage =
+		document.getElementById(
+			'faculty-prev-page'
+		);
+
+	const nextPage =
+		document.getElementById(
+			'faculty-next-page'
+		);
+
+	const lastPage =
+		document.getElementById(
+			'faculty-last-page'
+		);
+
+
 
 	/*
 	 * Application state.
@@ -364,52 +606,55 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	let currentPage = 1;
 	let currentLetter = '';
 
+
+
 	/*
 	 * Alphabet.
 	 *
-	 * Kept here for future use if the alphabetical filter
-	 * is enabled again.
+	 * Currently not displayed but kept for
+	 * future alphabetical filtering.
 	 */
 	let alphabet;
 
+
 	if (language === 'en_US') {
 
-		alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+		alphabet =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	} else if (language === 'hi_IN') {
 
-		alphabet = 'अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह'.split('');
+		alphabet =
+			'अआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह'
+				.split('');
 
 	} else {
 
-		alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+		alphabet =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	}
 
 
+
 	/*
-	 * Escape HTML special characters.
-	 *
-	 * We use DOM text nodes instead of inserting API
-	 * values through innerHTML.
+	 * Create a safe text node.
 	 */
 	function createSafeText(text) {
 
-		const node = document.createTextNode(
-			text === null || text === undefined
+		return document.createTextNode(
+			text === null ||
+			text === undefined
 				? ''
 				: String(text)
 		);
 
-		return node;
-
 	}
 
 
+
 	/*
-	 * Validate URL before using it in href/src.
-	 *
-	 * Only http and https URLs are accepted.
+	 * Validate URLs used in href/src.
 	 */
 	function getSafeURL(value) {
 
@@ -417,110 +662,190 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 			return '';
 		}
 
+
 		try {
 
-			const url = new URL(value, window.location.origin);
+			const url =
+				new URL(
+					value,
+					window.location.origin
+				);
+
 
 			if (
 				url.protocol === 'http:' ||
 				url.protocol === 'https:'
 			) {
+
 				return url.href;
+
 			}
 
 		} catch (error) {
 
-			console.warn('Invalid URL:', value);
+			console.warn(
+				'Invalid URL:',
+				value
+			);
 
 		}
+
 
 		return '';
 
 	}
 
 
+
 	/*
-	 * Create a faculty card.
+	 * Create one faculty card.
 	 */
 	function createFacultyCard(faculty) {
 
-		const li = document.createElement('li');
+		const li =
+			document.createElement('li');
 
-		li.className = 'faculty-card';
-		li.setAttribute('role', 'listitem');
+		li.className =
+			'faculty-card';
+
 
 
 		/*
 		 * Faculty image.
 		 */
-		const imageURL = getSafeURL(faculty.image);
+		const imageURL =
+			getSafeURL(
+				faculty.image
+			);
+
 
 		if (imageURL) {
 
-			const image = document.createElement('img');
+			const image =
+				document.createElement(
+					'img'
+				);
 
-			image.src = imageURL;
-			image.alt = faculty.name || '';
-			image.className = 'faculty-image';
+			image.src =
+				imageURL;
 
-			image.style.filter = 'grayscale(100%)';
+			image.alt =
+				faculty.name || '';
 
-			image.loading = 'lazy';
+			image.className =
+				'faculty-image';
 
-			li.appendChild(image);
+			image.style.filter =
+				'grayscale(100%)';
 
-		}
+			image.loading =
+				'lazy';
 
-
-		/*
-		 * Faculty name and link.
-		 */
-		const heading = document.createElement('h3');
-
-		const linkURL = getSafeURL(faculty.link);
-
-		if (linkURL) {
-
-			const link = document.createElement('a');
-
-			link.href = linkURL;
-			link.appendChild(createSafeText(faculty.name));
-
-			heading.appendChild(link);
-
-		} else {
-
-			heading.appendChild(
-				createSafeText(faculty.name)
+			li.appendChild(
+				image
 			);
 
 		}
 
-		li.appendChild(heading);
+
+
+		/*
+		 * Faculty name.
+		 */
+		const heading =
+			document.createElement(
+				'h3'
+			);
+
+
+		const linkURL =
+			getSafeURL(
+				faculty.link
+			);
+
+
+		if (linkURL) {
+
+			const link =
+				document.createElement(
+					'a'
+				);
+
+			link.href =
+				linkURL;
+
+			link.appendChild(
+				createSafeText(
+					faculty.name
+				)
+			);
+
+			heading.appendChild(
+				link
+			);
+
+		} else {
+
+			heading.appendChild(
+				createSafeText(
+					faculty.name
+				)
+			);
+
+		}
+
+
+		li.appendChild(
+			heading
+		);
+
 
 
 		/*
 		 * Designation.
 		 */
-		const designation = document.createElement('p');
+		if (faculty.designation) {
 
-		designation.appendChild(
-			createSafeText(faculty.designation)
-		);
+			const designation =
+				document.createElement(
+					'p'
+				);
 
-		li.appendChild(designation);
+			designation.appendChild(
+				createSafeText(
+					faculty.designation
+				)
+			);
+
+			li.appendChild(
+				designation
+			);
+
+		}
+
 
 
 		/*
 		 * Department.
 		 */
-		const department = document.createElement('p');
+		if (faculty.department) {
 
-		department.appendChild(
-			createSafeText(faculty.department)
-		);
+			const department =
+				document.createElement(
+					'p'
+				);
 
-		li.appendChild(department);
+			department.appendChild(
+				createSafeText(
+					faculty.department
+				)
+			);
+
+			li.appendChild(
+				department
+			);
+
+		}
 
 
 		return li;
@@ -528,64 +853,88 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	}
 
 
+
 	/*
-	 * Render faculty cards for current page.
+	 * Render the current page.
 	 */
 	function renderFaculty() {
 
 		/*
-		 * Remove existing faculty cards.
-		 *
-		 * Keep the loading overlay intact.
+		 * Remove existing dynamically generated cards.
 		 */
 		const existingCards =
-			facultyGrid.querySelectorAll('.faculty-card');
+			facultyGrid.querySelectorAll(
+				'.faculty-card'
+			);
 
-		existingCards.forEach(function (card) {
-			card.remove();
-		});
+
+		existingCards.forEach(
+			function (card) {
+
+				card.remove();
+
+			}
+		);
+
 
 
 		const startIndex =
-			(currentPage - 1) * itemsPerPage;
+			(currentPage - 1) *
+			itemsPerPage;
+
 
 		const endIndex =
-			startIndex + itemsPerPage;
+			startIndex +
+			itemsPerPage;
+
 
 		const currentFaculty =
-			filteredFaculty.slice(startIndex, endIndex);
+			filteredFaculty.slice(
+				startIndex,
+				endIndex
+			);
+
 
 
 		/*
 		 * No results.
 		 */
-		if (currentFaculty.length === 0) {
+		if (
+			currentFaculty.length === 0
+		) {
 
-			noResults.style.display = 'block';
+			noResults.style.display =
+				'block';
 
 		} else {
 
-			noResults.style.display = 'none';
+			noResults.style.display =
+				'none';
 
 		}
 
 
+
 		/*
 		 * Add faculty cards.
+		 *
+		 * Loading overlay is outside the UL,
+		 * therefore simply append LI elements.
 		 */
-		currentFaculty.forEach(function (faculty) {
+		currentFaculty.forEach(
+			function (faculty) {
 
-			const card = createFacultyCard(faculty);
+				const card =
+					createFacultyCard(
+						faculty
+					);
 
-			/*
-			 * Insert before loading overlay.
-			 */
-			facultyGrid.insertBefore(
-				card,
-				loadingOverlay
-			);
+				facultyGrid.appendChild(
+					card
+				);
 
-		});
+			}
+		);
 
 
 		updatePagination();
@@ -593,8 +942,9 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	}
 
 
+
 	/*
-	 * Filter faculty.
+	 * Filter and sort.
 	 */
 	function updateFilteredFaculty() {
 
@@ -603,64 +953,99 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 
 		filteredFaculty =
-			facultyList.filter(function (faculty) {
+			facultyList.filter(
+				function (faculty) {
 
-				const departmentMatch =
-					!selectedDepartment ||
-					faculty.department === selectedDepartment;
-
-
-				const name =
-					faculty.name || '';
+					const departmentMatch =
+						!selectedDepartment ||
+						faculty.department ===
+							selectedDepartment;
 
 
-				const letterMatch =
-					!currentLetter ||
-					name.charAt(0).toUpperCase() ===
-					currentLetter;
+					const name =
+						faculty.name || '';
 
 
-				return departmentMatch && letterMatch;
+					const letterMatch =
+						!currentLetter ||
+						name
+							.charAt(0)
+							.toUpperCase() ===
+							currentLetter;
 
-			});
+
+					return (
+						departmentMatch &&
+						letterMatch
+					);
+
+				}
+			);
+
 
 
 		/*
-		 * Sort by Faculty Category when a programme
-		 * is selected.
-		 *
-		 * Otherwise sort alphabetically.
+		 * Sort by Faculty Category
+		 * when department is selected.
 		 */
 		if (selectedDepartment) {
 
-			filteredFaculty.sort(function (a, b) {
+			filteredFaculty.sort(
+				function (a, b) {
 
-				return (
-					(a.category || 9999) -
-					(b.category || 9999)
-				);
+					const aCategory =
+						Number.isFinite(
+							a.category
+						)
+							? a.category
+							: 9999;
 
-			});
+
+					const bCategory =
+						Number.isFinite(
+							b.category
+						)
+							? b.category
+							: 9999;
+
+
+					return (
+						aCategory -
+						bCategory
+					);
+
+				}
+			);
 
 		} else {
 
-			filteredFaculty.sort(function (a, b) {
+			/*
+			 * Otherwise alphabetical.
+			 */
+			filteredFaculty.sort(
+				function (a, b) {
 
-				return (a.name || '').localeCompare(
-					b.name || '',
-					undefined,
-					{
-						sensitivity: 'base'
-					}
-				);
+					return (
+						(a.name || '')
+							.localeCompare(
+								b.name || '',
+								undefined,
+								{
+									sensitivity:
+										'base'
+								}
+							)
+					);
 
-			});
+				}
+			);
 
 		}
 
 
+
 		/*
-		 * Always return to page 1 when filtering.
+		 * Return to page 1.
 		 */
 		currentPage = 1;
 
@@ -669,51 +1054,127 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	}
 
 
+
 	/*
-	 * Calculate total pages.
+	 * Number of pages.
 	 */
 	function getTotalPages() {
 
 		return Math.ceil(
-			filteredFaculty.length / itemsPerPage
+			filteredFaculty.length /
+			itemsPerPage
 		);
 
 	}
 
 
+
 	/*
-	 * Create pagination.
+	 * Enable / disable pagination control.
+	 */
+	function setPaginationState(
+		element,
+		disabled
+	) {
+
+		const link =
+			element.querySelector('a');
+
+
+		if (disabled) {
+
+			element.classList.add(
+				'disabled'
+			);
+
+
+			if (link) {
+
+				link.setAttribute(
+					'aria-disabled',
+					'true'
+				);
+
+				link.setAttribute(
+					'tabindex',
+					'-1'
+				);
+
+			}
+
+		} else {
+
+			element.classList.remove(
+				'disabled'
+			);
+
+
+			if (link) {
+
+				link.removeAttribute(
+					'aria-disabled'
+				);
+
+				link.removeAttribute(
+					'tabindex'
+				);
+
+			}
+
+		}
+
+	}
+
+
+
+	/*
+	 * Build pagination.
 	 */
 	function updatePagination() {
 
-		const totalPages = getTotalPages();
+		const totalPages =
+			getTotalPages();
+
+
 
 		/*
-		 * Hide pagination if only one page or no results.
+		 * Remove existing page numbers first.
 		 */
-		if ( totalPages <= 1 ) {
+		paginationList
+			.querySelectorAll(
+				'.faculty-page-number'
+			)
+			.forEach(
+				function (item) {
 
-			pagination.style.display = 'none';
+					item.remove();
+
+				}
+			);
+
+
+
+		/*
+		 * Hide pagination for
+		 * zero or one page.
+		 */
+		if (totalPages <= 1) {
+
+			pagination.style.display =
+				'none';
 
 			return;
 
 		}
 
-		pagination.style.display = 'block';
+
+		pagination.style.display =
+			'block';
+
+
 
 		/*
-		 * Remove previously generated page numbers.
-		 */
-		paginationList
-			.querySelectorAll('.faculty-page-number')
-			.forEach(function (item) {
-				item.remove();
-			});
-
-		/*
-		 * Generate page numbers and insert them before
-		 * the Next button. This keeps every page number
-		 * as a direct child of the pagination <ul>.
+		 * Generate page links.
 		 */
 		for (
 			let page = 1;
@@ -721,25 +1182,48 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 			page++
 		) {
 
-			const li = document.createElement('li');
+			const li =
+				document.createElement(
+					'li'
+				);
 
-			li.className = 'faculty-page-number';
+			li.className =
+				'faculty-page-number';
 
-			if ( currentPage === page ) {
-				li.classList.add('active');
+
+			if (
+				currentPage === page
+			) {
+
+				li.classList.add(
+					'active'
+				);
+
 			}
 
-			const link = document.createElement('a');
 
-			link.href = '#';
-			link.dataset.page = page;
+			const link =
+				document.createElement(
+					'a'
+				);
+
+			link.href =
+				'#';
+
+			link.dataset.page =
+				String(page);
+
 
 			link.setAttribute(
 				'aria-label',
-				'<?php echo esc_js( __( 'Go to page', 'srft-theme' ) ); ?> ' + page
+				'<?php echo esc_js( __( 'Go to page', 'srft-theme' ) ); ?> ' +
+				page
 			);
 
-			if ( currentPage === page ) {
+
+			if (
+				currentPage === page
+			) {
 
 				link.setAttribute(
 					'aria-current',
@@ -748,13 +1232,22 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 			}
 
+
 			link.appendChild(
-				createSafeText(page)
+				createSafeText(
+					page
+				)
 			);
 
-			li.appendChild(link);
 
-			/* Insert page number before Next. */
+			li.appendChild(
+				link
+			);
+
+
+			/*
+			 * Insert immediately before Next.
+			 */
 			paginationList.insertBefore(
 				li,
 				nextPage
@@ -762,65 +1255,35 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 
 		}
 
-		/*
-		 * Update disabled state.
-		 */
+
+
 		setPaginationState(
 			firstPage,
 			currentPage === 1
 		);
+
 
 		setPaginationState(
 			previousPage,
 			currentPage === 1
 		);
 
+
 		setPaginationState(
 			nextPage,
-			currentPage === totalPages
+			currentPage ===
+				totalPages
 		);
+
 
 		setPaginationState(
 			lastPage,
-			currentPage === totalPages
+			currentPage ===
+				totalPages
 		);
 
 	}
 
-
-	/*
-	 * Enable/disable pagination controls.
-	 */
-	function setPaginationState(element, disabled) {
-
-		if (disabled) {
-
-			element.classList.add('disabled');
-
-			const link = element.querySelector('a');
-
-			if (link) {
-				link.setAttribute(
-					'aria-disabled',
-					'true'
-				);
-			}
-
-		} else {
-
-			element.classList.remove('disabled');
-
-			const link = element.querySelector('a');
-
-			if (link) {
-				link.removeAttribute(
-					'aria-disabled'
-				);
-			}
-
-		}
-
-	}
 
 
 	/*
@@ -828,121 +1291,211 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	 */
 	function setPage(page) {
 
-		const totalPages = getTotalPages();
+		const totalPages =
+			getTotalPages();
+
 
 		if (
 			page < 1 ||
 			page > totalPages
 		) {
+
 			return;
+
 		}
 
-		currentPage = page;
+
+		currentPage =
+			page;
+
 
 		renderFaculty();
 
-		/*
-		 * Keep the current scroll position close to
-		 * the faculty section.
-		 */
-		const appTop =
-			document.getElementById('faculty-app')
-				.getBoundingClientRect().top +
-			window.scrollY -
-			100;
 
-		window.scrollTo({
-			top: appTop,
-			behavior: 'smooth'
-		});
+
+		const facultyApp =
+			document.getElementById(
+				'faculty-app'
+			);
+
+
+		if (facultyApp) {
+
+			const appTop =
+				facultyApp
+					.getBoundingClientRect()
+					.top +
+				window.scrollY -
+				100;
+
+
+			window.scrollTo({
+				top: appTop,
+				behavior: 'smooth'
+			});
+
+		}
 
 	}
 
 
+
 	/*
-	 * Pagination button events.
+	 * First page.
 	 */
 	firstPage
 		.querySelector('a')
-		.addEventListener('click', function (event) {
+		.addEventListener(
+			'click',
+			function (event) {
 
-			event.preventDefault();
+				event.preventDefault();
 
-			if (currentPage > 1) {
-				setPage(1);
+
+				if (
+					currentPage > 1
+				) {
+
+					setPage(1);
+
+				}
+
 			}
+		);
 
-		});
-
-
-	previousPage
-		.querySelector('a')
-		.addEventListener('click', function (event) {
-
-			event.preventDefault();
-
-			if (currentPage > 1) {
-				setPage(currentPage - 1);
-			}
-
-		});
-
-
-	nextPage
-		.querySelector('a')
-		.addEventListener('click', function (event) {
-
-			event.preventDefault();
-
-			const totalPages = getTotalPages();
-
-			if (currentPage < totalPages) {
-				setPage(currentPage + 1);
-			}
-
-		});
-
-
-	lastPage
-		.querySelector('a')
-		.addEventListener('click', function (event) {
-
-			event.preventDefault();
-
-			const totalPages = getTotalPages();
-
-			if (currentPage < totalPages) {
-				setPage(totalPages);
-			}
-
-		});
 
 
 	/*
-	 * Page-number event delegation.
+	 * Previous page.
+	 */
+	previousPage
+		.querySelector('a')
+		.addEventListener(
+			'click',
+			function (event) {
+
+				event.preventDefault();
+
+
+				if (
+					currentPage > 1
+				) {
+
+					setPage(
+						currentPage - 1
+					);
+
+				}
+
+			}
+		);
+
+
+
+	/*
+	 * Next page.
+	 */
+	nextPage
+		.querySelector('a')
+		.addEventListener(
+			'click',
+			function (event) {
+
+				event.preventDefault();
+
+
+				const totalPages =
+					getTotalPages();
+
+
+				if (
+					currentPage <
+					totalPages
+				) {
+
+					setPage(
+						currentPage + 1
+					);
+
+				}
+
+			}
+		);
+
+
+
+	/*
+	 * Last page.
+	 */
+	lastPage
+		.querySelector('a')
+		.addEventListener(
+			'click',
+			function (event) {
+
+				event.preventDefault();
+
+
+				const totalPages =
+					getTotalPages();
+
+
+				if (
+					currentPage <
+					totalPages
+				) {
+
+					setPage(
+						totalPages
+					);
+
+				}
+
+			}
+		);
+
+
+
+	/*
+	 * Dynamically generated
+	 * page-number links.
 	 */
 	paginationList.addEventListener(
 		'click',
 		function (event) {
 
 			const link =
-				event.target.closest('a[data-page]');
+				event.target.closest(
+					'a[data-page]'
+				);
+
 
 			if (!link) {
 				return;
 			}
 
+
 			event.preventDefault();
 
-			const page =
-				parseInt(link.dataset.page, 10);
 
-			if (!Number.isNaN(page)) {
+			const page =
+				parseInt(
+					link.dataset.page,
+					10
+				);
+
+
+			if (
+				!Number.isNaN(page)
+			) {
+
 				setPage(page);
+
 			}
 
 		}
 	);
+
 
 
 	/*
@@ -958,139 +1511,191 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 	);
 
 
+
 	/*
-	 * Load faculty data from WordPress REST API.
+	 * Fetch Faculty data.
 	 */
 	function loadFaculty() {
 
-		loadingOverlay.style.display = 'flex';
+		loadingOverlay.style.display =
+			'flex';
 
-		fetch(apiURL, {
-			method: 'GET',
-			credentials: 'same-origin',
-			headers: {
-				'Accept': 'application/json'
+
+		fetch(
+			apiURL,
+			{
+				method: 'GET',
+				credentials:
+					'same-origin',
+
+				headers: {
+					'Accept':
+						'application/json'
+				}
 			}
-		})
-		.then(function (response) {
+		)
 
-			if (!response.ok) {
+		.then(
+			function (response) {
 
-				throw new Error(
-					'HTTP error: ' + response.status
+				if (!response.ok) {
+
+					throw new Error(
+						'HTTP error: ' +
+						response.status
+					);
+
+				}
+
+
+				return response.json();
+
+			}
+		)
+
+		.then(
+			function (data) {
+
+				if (
+					!Array.isArray(data)
+				) {
+
+					throw new Error(
+						'Unexpected REST API response.'
+					);
+
+				}
+
+
+
+				facultyList =
+					data.map(
+						function (post) {
+
+							const acf =
+								post.acf || {};
+
+
+							const categoryValue =
+								parseInt(
+									acf[
+										'Faculty-Category'
+									],
+									10
+								);
+
+
+							return {
+
+								name:
+									post.title &&
+									typeof post.title.rendered ===
+										'string'
+										? post.title.rendered
+										: '',
+
+
+								link:
+									typeof post.link ===
+										'string'
+										? post.link
+										: '',
+
+
+								image:
+									typeof acf[
+										'Faculty-Image'
+									] ===
+										'string'
+										? acf[
+											'Faculty-Image'
+										]
+										: '',
+
+
+								designation:
+									typeof acf[
+										'Faculty-Designation'
+									] ===
+										'string'
+										? acf[
+											'Faculty-Designation'
+										]
+										: '',
+
+
+								department:
+									typeof acf[
+										'Faculty-Department'
+									] ===
+										'string'
+										? acf[
+											'Faculty-Department'
+										]
+										: '',
+
+
+								category:
+									Number.isNaN(
+										categoryValue
+									)
+										? 9999
+										: categoryValue
+
+							};
+
+						}
+					);
+
+
+
+				updateFilteredFaculty();
+
+			}
+		)
+
+		.catch(
+			function (error) {
+
+				console.error(
+					'Error fetching faculty data:',
+					error
 				);
 
+
+				facultyList = [];
+				filteredFaculty = [];
+
+
+				noResults.textContent =
+					'<?php echo esc_js( __( 'Unable to load faculty data. Please try again later.', 'srft-theme' ) ); ?>';
+
+
+				noResults.style.display =
+					'block';
+
+
+				pagination.style.display =
+					'none';
+
 			}
+		)
 
-			return response.json();
+		.finally(
+			function () {
 
-		})
-		.then(function (data) {
-
-			/*
-			 * Ensure API response is an array.
-			 */
-			if (!Array.isArray(data)) {
-
-				throw new Error(
-					'Unexpected REST API response.'
-				);
+				loadingOverlay.style.display =
+					'none';
 
 			}
-
-
-			/*
-			 * Map REST API data to our internal structure.
-			 */
-			facultyList = data.map(function (post) {
-
-				const acf =
-					post.acf || {};
-
-
-				return {
-
-					name:
-						post.title &&
-						typeof post.title.rendered === 'string'
-							? post.title.rendered
-							: '',
-
-
-					link:
-						typeof post.link === 'string'
-							? post.link
-							: '',
-
-
-					image:
-						typeof acf['Faculty-Image'] === 'string'
-							? acf['Faculty-Image']
-							: '',
-
-
-					designation:
-						typeof acf['Faculty-Designation'] === 'string'
-							? acf['Faculty-Designation']
-							: '',
-
-
-					department:
-						typeof acf['Faculty-Department'] === 'string'
-							? acf['Faculty-Department']
-							: '',
-
-
-					category:
-						acf['Faculty-Category']
-							? parseInt(
-								acf['Faculty-Category'],
-								10
-							)
-							: 9999
-
-				};
-
-			});
-
-
-			/*
-			 * Initial rendering.
-			 */
-			updateFilteredFaculty();
-
-		})
-		.catch(function (error) {
-
-			console.error(
-				'Error fetching faculty data:',
-				error
-			);
-
-
-			facultyList = [];
-			filteredFaculty = [];
-
-
-			noResults.textContent =
-				'<?php echo esc_js( __( 'Unable to load faculty data. Please try again later.', 'srft-theme' ) ); ?>';
-
-			noResults.style.display = 'block';
-
-			pagination.style.display = 'none';
-
-		})
-		.finally(function () {
-
-			loadingOverlay.style.display = 'none';
-
-		});
+		);
 
 	}
 
 
+
 	/*
-	 * Start application.
+	 * Start.
 	 */
 	loadFaculty();
 
@@ -1098,6 +1703,3 @@ $banner_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 </script>
 
 <?php get_footer(); ?>
-
-</body>
-</html>

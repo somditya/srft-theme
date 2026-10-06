@@ -16,13 +16,12 @@ $post_id = get_the_ID();
         </div>
 </section>
   
-  <div class="container-aligned">
+  <div class="general-content">
   <div class="breadcrumbs-wrapper">
     <?php if ( function_exists( 'yoast_breadcrumb' ) ) { 
       yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' ); 
     } ?>
   </div>
-</div>
 
     <section class="cine-detail">
     <div class="main-content" style="width: 100%;">
@@ -178,7 +177,9 @@ $post_id = get_the_ID();
       </div>   
     </div>
   </div>
+</div>
   </section>
+</div>
 </main>
 
 <?php get_footer(); ?>

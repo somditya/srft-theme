@@ -2471,7 +2471,7 @@ ol.breadcrumb li + li::before {
 /* Contact form 7 */
 
 .wpcf7-form {
-  background-color: var(--feedback-form-color);
+  background-color: #ebeaea;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
