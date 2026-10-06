@@ -263,7 +263,7 @@ wp_reset_postdata();
         <h3><?php echo __('Master of Fine Arts in Cinema', 'srft-theme'); ?> </h3>
         <p><?php echo __('The programme is a 1-Year Bridge Programme + 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>   
         <br role="presentation"/>
-        <div id="accordionGroup" class="accordion">
+        <div id="accordionGroupCinema" class="accordion">
         
          <h4>
          <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
@@ -333,7 +333,7 @@ wp_reset_postdata();
         <p><?php echo __('The programme is a 2-Year Master of Fine Arts(MFA) Programme', 'srft-theme'); ?></p>
         <br/>
         
-<div id="accordionGroup" class="accordion">
+<div id="accordionGroupEDM" class="accordion">
   <h4>
     <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect5" id="accordion5id">
       <span class="accordion-title">
