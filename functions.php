@@ -659,90 +659,232 @@ add_filter('wpcf7_validate_text*', 'custom_cf7_validate_name', 10, 2);
 
 /* This function outputs the url and the size of ACF filed document */
 
-function display_selected_documents($atts) {
+function display_selected_documents( $atts ) {
 
     $atts = shortcode_atts(
         array(
             'id' => '',
         ),
-        $atts
+        $atts,
+        'selected_document'
     );
 
-    $post_id = absint($atts['id']);
+    $input_id = absint( $atts['id'] );
 
-    if (!$post_id) {
-        return '<p>Invalid post ID.</p>';
+    if ( ! $input_id ) {
+        return '';
     }
 
-    $post = get_post($post_id);
+    $file_id       = 0;
+    $document_post = null;
+    $title         = '';
+    $description   = '';
 
-    if (!$post) {
-        return '<p>No document found.</p>';
+    /*
+     * CASE 1:
+     * ID is directly a Media Library attachment.
+     */
+    if ( get_post_type( $input_id ) === 'attachment' ) {
+
+        $file_id = $input_id;
+
+        $title = get_the_title(
+            $file_id
+        );
     }
 
-    // ACF fields
-    $document_file = get_field('document', $post_id);
-    $document_description = get_field('document_description', $post_id);
+    /*
+     * CASE 2:
+     * ID is a Document CPT post.
+     */
+    else {
 
-    if (empty($document_file) || !is_array($document_file)) {
-        return '<p>No document file found.</p>';
-    }
+        $document_post = get_post(
+            $input_id
+        );
 
-    // File details from ACF
-    $file_id  = !empty($document_file['ID']) ? $document_file['ID'] : 0;
-    $file_url = !empty($document_file['url']) ? $document_file['url'] : '';
-
-    if (empty($file_url)) {
-        return '<p>Document URL not found.</p>';
-    }
-
-    // File size
-    if (!empty($document_file['filesize'])) {
-
-        // ACF 6.x provides filesize
-        $file_size_mb = number_format($document_file['filesize'] / 1048576, 2) . ' MB';
-
-    } elseif ($file_id) {
-
-        $file_path = get_attached_file($file_id);
-
-        if ($file_path && file_exists($file_path)) {
-            $file_size_mb = number_format(filesize($file_path) / 1048576, 2) . ' MB';
-        } else {
-            $file_size_mb = 'Unknown';
+        if ( ! $document_post ) {
+            return '';
         }
 
-    } else {
+        /*
+         * Get the actual attachment ID stored
+         * in the ACF "document" field.
+         */
+        $raw_file = get_post_meta(
+            $input_id,
+            'document',
+            true
+        );
 
-        $file_size_mb = 'Unknown';
+        /*
+         * Usually your ACF field stores
+         * the attachment ID here.
+         */
+        if ( is_numeric( $raw_file ) ) {
 
+            $file_id = absint(
+                $raw_file
+            );
+        }
+
+        /*
+         * Fallback if ACF is returning an array.
+         */
+        if ( ! $file_id ) {
+
+            $document_file = get_field(
+                'document',
+                $input_id
+            );
+
+            if ( is_array( $document_file ) ) {
+
+                if ( ! empty( $document_file['ID'] ) ) {
+
+                    $file_id = absint(
+                        $document_file['ID']
+                    );
+                }
+            }
+
+            elseif ( is_numeric( $document_file ) ) {
+
+                $file_id = absint(
+                    $document_file
+                );
+            }
+        }
+
+
+        $title = get_the_title(
+            $input_id
+        );
+
+        $description = get_field(
+            'document_description',
+            $input_id
+        );
     }
+
+
+    /*
+     * Make sure the resulting ID
+     * is actually an attachment.
+     */
+    if (
+        ! $file_id ||
+        get_post_type( $file_id ) !== 'attachment'
+    ) {
+        return '';
+    }
+
+
+    /*
+     * Get file URL.
+     */
+    $file_url = wp_get_attachment_url(
+        $file_id
+    );
+
+    if ( ! $file_url ) {
+        return '';
+    }
+
+
+    /*
+     * Get file size.
+     */
+    $file_size = '';
+
+    $file_path = get_attached_file(
+        $file_id
+    );
+
+    if (
+        $file_path &&
+        file_exists( $file_path )
+    ) {
+
+        $bytes = filesize(
+            $file_path
+        );
+
+        if ( false !== $bytes ) {
+
+            $file_size = size_format(
+                $bytes,
+                2
+            );
+        }
+    }
+
+
+    /*
+     * If direct attachment has no useful title,
+     * use attachment filename.
+     */
+    if ( ! $title ) {
+
+        $title = get_the_title(
+            $file_id
+        );
+    }
+
 
     ob_start();
     ?>
-   <a href="<?php echo esc_url($file_url); ?>"
-   target="_blank"
-   rel="noopener noreferrer">
 
-    <?php echo esc_html(get_the_title($post_id)); ?>
+    <a
+        class="pdf-download-link"
+        href="<?php echo esc_url( $file_url ); ?>"
+        target="_blank"
+        rel="noopener noreferrer"
+        <?php if ( $description ) : ?>
+            title="<?php echo esc_attr( $description ); ?>"
+        <?php endif; ?>
+    >
 
-    <span class="pdf-icon" aria-hidden="true"></span>
+        <?php echo esc_html( $title ); ?>
 
-    (<?php echo esc_html($file_size_mb); ?>)
+        <span
+            class="pdf-icon"
+            aria-hidden="true"
+        ></span>
 
-    <span class="download-icon" aria-hidden="true"></span>
+        <?php if ( $file_size ) : ?>
 
-    <span class="sr-only">
-        <?php echo esc_html__('PDF, opens in a new tab', 'srft-theme'); ?>
-    </span>
+            <span class="file-size">
+                (<?php echo esc_html( $file_size ); ?>)
+            </span>
 
-</a>
+        <?php endif; ?>
+
+        <span
+            class="download-icon"
+            aria-hidden="true"
+        ></span>
+
+        <span class="sr-only">
+            <?php
+            echo esc_html__(
+                'Download PDF, opens in a new tab',
+                'srft-theme'
+            );
+            ?>
+        </span>
+
+    </a>
+
     <?php
 
     return ob_get_clean();
 }
 
-add_shortcode('selected_document', 'display_selected_documents');
+add_shortcode(
+    'selected_document',
+    'display_selected_documents'
+);
 
 
 
