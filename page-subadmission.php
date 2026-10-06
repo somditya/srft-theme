@@ -26,7 +26,7 @@ $current_language = get_locale();
    </div>
    </div>
     <section id="skip-to-content" class="cine-detail">
-    <div class="leftnav" aria-labelledby="sidebar-region">
+    <div class="leftnav" aria-labelledby="sidebar-region" role="navigation">
     <!--<h2 id="sidebar-heading" class="sr-only">Admission Related Information </h2>
      Navigation Section -->
     <nav class="childnavs" aria-label="<?php echo __('Admission', 'srft-theme'); ?>">
