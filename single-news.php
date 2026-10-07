@@ -35,7 +35,7 @@ $post_content = apply_filters('the_content', get_the_content());
                 <!-- Add any additional content here if needed -->
             </div>
             <div style="grid-column: 3/4; line-height: 28px; text-align: left;">
-                <div style="padding: 1rem; text-align: left;">
+                <div style="padding: 1rem; text-align: center;">
                     <?php echo get_field('News-Text'); ?>
                 </div>
             </div>

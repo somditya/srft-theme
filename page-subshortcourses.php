@@ -29,7 +29,7 @@ $current_language = get_locale();
     </section>
 
 
-    <div class="general-content">
+    <div class="container-aligned">
 
         <div class="breadcrumbs-wrapper">
 
