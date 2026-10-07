@@ -265,7 +265,7 @@ $current_language = get_locale();
                     <li role="none" class="dropdown-link">
                     <a role="menuitem" tabindex="-1" href="<?php  if ($current_language === 'en_US') { echo esc_url(site_url('/about-ftii-itanagar/'));} 
                     else 
-                    { echo esc_url(site_url('/संस्थान के बारे में/'));}
+                    { echo esc_url(site_url('/एफटआईआई-ईटनगर/'));}
                     ?>"><?php echo __('FTII Itanagar', 'srft-theme' ); ?></a>
                     </li>
 
