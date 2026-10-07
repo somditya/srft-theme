@@ -24,7 +24,7 @@ if ( defined( 'ABSPATH' ) === false ) {
         <div class="cookie-banner-content">
 
             <div class="cookie-banner-icon" aria-hidden="true">
-                <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="42" height="42" viewBox="0 0 48 48" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#A6E1DA"/>
                     <path d="M24 10C18.5 10 14 14.5 14 20V23C14 30 18.2 36.3 24 38C29.8 36.3 34 30 34 23V20C34 14.5 29.5 10 24 10Z"
                           fill="#005B5C"/>
@@ -98,7 +98,7 @@ if ( defined( 'ABSPATH' ) === false ) {
     aria-label="<?php esc_attr_e('Cookie Settings', 'srft-theme'); ?>"
 >
 
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2L14.09 4.26L17 4L17.74 6.91L20.65 7.65L20 10.56L22.26 12L20 13.44L20.65 16.35L17.74 17.09L17 20L14.09 19.74L12 22L9.91 19.74L7 20L6.26 17.09L3.35 16.35L4 13.44L1.74 12L4 10.56L3.35 7.65L6.26 6.91L7 4L9.91 4.26L12 2Z"
               fill="#005B5C"/>
         <circle cx="12" cy="12" r="3" fill="white"/>
