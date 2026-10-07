@@ -112,6 +112,11 @@ if ( defined( 'ABSPATH' ) === false ) {
                         class="cookie-toggle"
                         for="session-cookies-toggle"
                     >
+
+                        <span class="sr-only">
+                            <?php esc_html_e( 'Session Cookies', 'srft-theme' ); ?>
+                        </span>
+
                         <input
                             type="checkbox"
                             id="session-cookies-toggle"
@@ -119,14 +124,11 @@ if ( defined( 'ABSPATH' ) === false ) {
                             checked
                         >
 
-                        <span class="sr-only">
-                            <?php esc_html_e( 'Session Cookies', 'srft-theme' ); ?>
-                        </span>
-
                         <span
                             class="cookie-toggle-slider"
                             aria-hidden="true"
                         ></span>
+
                     </label>
 
                     <span
@@ -182,6 +184,11 @@ if ( defined( 'ABSPATH' ) === false ) {
                         class="cookie-toggle"
                         for="persistent-cookies-toggle"
                     >
+
+                        <span class="sr-only">
+                            <?php esc_html_e( 'Persistent cookies', 'srft-theme' ); ?>
+                        </span>
+
                         <input
                             type="checkbox"
                             id="persistent-cookies-toggle"
@@ -189,14 +196,11 @@ if ( defined( 'ABSPATH' ) === false ) {
                             checked
                         >
 
-                        <span class="sr-only">
-                            <?php esc_html_e( 'Persistent cookies', 'srft-theme' ); ?>
-                        </span>
-
                         <span
                             class="cookie-toggle-slider"
                             aria-hidden="true"
                         ></span>
+
                     </label>
 
                     <span
@@ -262,11 +266,6 @@ if ( defined( 'ABSPATH' ) === false ) {
                         class="cookie-toggle"
                         for="optional-cookies-toggle"
                     >
-                        <input
-                            type="checkbox"
-                            id="optional-cookies-toggle"
-                            role="switch"
-                        >
 
                         <span class="sr-only">
                             <?php
@@ -277,10 +276,17 @@ if ( defined( 'ABSPATH' ) === false ) {
                             ?>
                         </span>
 
+                        <input
+                            type="checkbox"
+                            id="optional-cookies-toggle"
+                            role="switch"
+                        >
+
                         <span
                             class="cookie-toggle-slider"
                             aria-hidden="true"
                         ></span>
+
                     </label>
 
                     <span
