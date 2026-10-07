@@ -455,10 +455,12 @@ $category_id = get_category_ID($category_name);
 
 
             const apiURL =
-                siteURL +
-                'wp-json/wp/v2/posts?categories=' +
-                encodeURIComponent(categoryID) +
-                '&per_page=100';
+    siteURL +
+    'wp-json/wp/v2/posts?categories=' +
+    encodeURIComponent(categoryID) +
+    '&per_page=100' +
+    '&orderby=title' +
+    '&order=asc';
 
 
             const itemsPerPage = 14;
