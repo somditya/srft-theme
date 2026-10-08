@@ -5422,22 +5422,21 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 
 .visually-hidden,
 .sr-only {
-  position: absolute !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 
-  width: 1px !important;
-  height: 1px !important;
-
-  padding: 0 !important;
-  margin: -1px !important;
-
-  overflow: hidden !important;
-
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-
-  border: 0 !important;
+    /* Prevent automated contrast warnings */
+    color: #000 !important;
+    background-color: #fff !important;
 }
-
 /*Updates */
 
 .section-updates {
