@@ -3195,7 +3195,6 @@ div.wpcf7 span.wpcf7-not-valid-tip {
 .nav-link:hover > a,
 .nav-link:focus-within > a {
     transform: none;
-    background-color: rgb(244, 211, 144) !important;
     color: #000000 !important;
 }
 .dropdown {
@@ -4909,7 +4908,6 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 
     .nav-link:hover > a {
         transform: scale(1);
-        background-color: #8b5b2b;
     }
 
 
@@ -4948,6 +4946,7 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 .menu-bar .dropdown-link:focus-within > .dropdown {
     display: block !important;
 }
+
 
 /* Rotate arrow when submenu is open or focused */
 .nav-link:hover > a > i,
@@ -4991,7 +4990,7 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 
 
     .dropdown-link:hover > a {
-        background-color: #eeeeee;
+        /*background-color: #eeeeee;*/
     }
 
 
