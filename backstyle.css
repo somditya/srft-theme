@@ -3359,6 +3359,176 @@ div.wpcf7 span.wpcf7-not-valid-tip {
   padding: 1.4rem 1rem;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav-link:hover > a,
+.nav-link:focus-within > a {
+    transform: none;
+    color: #000000 !important;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 40rem;
+  transform: translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 5;
+}
+
+.dropdown[hidden] {
+  display: none;
+}
+
+.dropdown ul {
+  position: relative;
+  list-style: none;
+}
+
+.dropdown-link {
+  font-size: 17px;
+}
+
+.dropdown-link > a {
+  display: flex;
+  background-color: #fff;
+  font-size: 1.8rem;
+  /*color: #3498db;*/
+  padding: 1.4rem 1rem;
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  color: #150202;;
+  text-decoration: none;
+  border-bottom: 1px solid #efefef;
+}
+
+.dropdown-link:hover > a,
+.dropdown-link:focus > a {
+  background-color: #8b5b2b;
+  color: #fff;
+}
+
+.dropdown-link i {
+  transform: rotate(-90deg);
+}
+
+.arrow {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  top: -5.5px;
+  left: 32px;
+  background-color: #8b5b2b;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.dropdown-link:first-child:hover ~ .arrow {
+  background-color: #8b5b2b;
+}
+
+.dropdown-link {
+  position: relative;
+  font-size: 26px;
+}
+
+.dropdown.second {
+  top: 0;
+  left: 100%;
+  padding-left: 0.8rem;
+  cursor: pointer;
+  transform: translateX(10px);
+}
+
+.dropdown.second .arrow {
+  top: 10px;
+  left: -5.5px;
+}
+
+
+.menu-bar > .nav-link > a {
+        font-size: 16px !important; /* !important ensures it overrides any existing theme rules during testing */
+    }
+
+   .dropdown-link > a {
+        font-size: 16px !important; 
+    }
+
+.nav-link:hover > .dropdown,
+.dropdown-link:hover > .dropdown {
+  transform: translate(0, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.dropdown-link:last-child a {
+  border-bottom: none; /* remove border only for the last item */
+}
+
+/* Menubar Navigation as per the W3C standard  */
+
+.menu-bar:has(:focus-visible) {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+.menubar-navigation {
+  margin: 0;
+  padding: 2px;
+  font-size: 110%;
+  list-style: none;
+  /*background-color: #eee;
+  border: #eee solid 1px;*/
+}
+
+.menubar-navigation li {
+  margin: 0;
+  padding: 0;
+  border: 0 solid black;
+  list-style: none;
+}
+
+.menubar-navigation > li {
+  /*display: inline-block;*/
+  position: relative;
+}
+
+.menubar-navigation > li li {
+  display: block;
+}
+
+.menubar-navigation > li > [role="menuitem"] {
+  display: inline-block;
+  margin: 2px;
+  /*padding: 4px;
+  padding-bottom: 8px;*/
+  padding: 20px;
+  /*background-color: #eee;
+  border: 0 solid #eee;
+  color: black;*/
+}
+
+.menubar-navigation [role="separator"] {
+  padding-top: 3px;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cline x1='0' y1='6' x2='12' y2='6' style='stroke:black;stroke-width:1' /%3E%3C/svg%3E%0A");
+  background-size: 10px 10px;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+.menubar-navigation [role="menu"] [role="menuitem"],
+.menubar-navigation [role="menu"] [role="separator"] {
+  display: flex;
+  margin: 12px;
+  font-size: 1.4rem;
+  padding: 1.4rem 1rem;
+  align-items: center;
+  justify-content: space-between;
   color: #555;
   background-color: #fff;
   text-decoration: none;
@@ -4757,22 +4927,25 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
    Bootstrap lg breakpoint starts at 992px
    ========================================================== */
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1260px) {
 
     /* ======================================================
        MAIN NAVIGATION
        ====================================================== */
 
-    .main-nav {
-        display: none;
-    }
-
+   .menu-container .hamburger-menu-container {
+    display: flex !important;
+}
     .hamburger-menu-container {
         display: flex;
     }
 
     #check {
         display: block;
+    }
+    #check:checked ~ .menu-btn .nav-link,
+    #check:checked ~ .menu-btn .log-sign {
+    animation: animation 0.5s ease forwards var(--i);
     }
 
 
@@ -4903,8 +5076,7 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 
 
     .nav-link:hover > a {
-        transform: none;
-        background-color: #ffffff;
+        transform: scale(1);
     }
 
 
@@ -4936,11 +5108,22 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
     }
 
 
-    .nav-link:hover > .dropdown,
-    .dropdown-link:hover > .dropdown {
-        display: block;
-    }
+   /* Open submenu on hover or keyboard focus */
+.menu-bar .nav-link:hover > .dropdown,
+.menu-bar .nav-link:focus-within > .dropdown,
+.menu-bar .dropdown-link:hover > .dropdown,
+.menu-bar .dropdown-link:focus-within > .dropdown {
+    display: block !important;
+}
 
+
+/* Rotate arrow when submenu is open or focused */
+.nav-link:hover > a > i,
+.nav-link:focus-within > a > i,
+.dropdown-link:hover > a > i,
+.dropdown-link:focus-within > a > i {
+    transform: rotate(0deg);
+}
 
     .dropdown-link > a {
         display: flex;
@@ -4976,7 +5159,7 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
 
 
     .dropdown-link:hover > a {
-        background-color: #eeeeee;
+        /*background-color: #eeeeee;*/
     }
 
 
@@ -5152,6 +5335,7 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
         border-radius: 3px !important;
     }
 
+/* Open submenu immediately on hover */
 
     /* ======================================================
        HEADER
@@ -10024,18 +10208,27 @@ ul li input[type="checkbox"]:checked ~ i:after {
 /**************************/
 /* BELOW 1344px (Smaller desktops) */
 /**************************/
-@media (max-width: 1500px) {
-  .menu-btn ul {
-    gap: 0rem;
-  }
+/* Compact desktop navigation */
+@media screen and (min-width: 1261px) and (max-width: 1500px) {
 
-  .nav-link {
-    padding: 18px 0px;
-  }
-} 
+    .menu-container .menu-bar {
+        gap: 0;
+        justify-content: space-between;
+    }
 
+    .menu-container .menu-bar > .nav-link {
+        padding: 18px 0;
+    }
+
+    .menu-container .menu-bar > .nav-link > a {
+        font-size: 16px !important;
+        padding-left: 8px;
+        padding-right: 8px;
+        white-space: nowrap;
+    }
+}
 /**************************/
-/* BELOW 1250px (Landscape Tablets) */
+/* BELOW 1200px (Landscape Tablets) */
 /**************************/
 
 @media (max-width: 1200px) {
@@ -10061,7 +10254,8 @@ ul li input[type="checkbox"]:checked ~ i:after {
     min-width: 0 !important; /* Allow shrinking */
   }
 
-  /* Alternative: If the container is wrapping your table, exclude it from flex */
+  /* Alternative: If the container is wrapping your table, exclude it
+  } from flex */
   .container:has(.table-container) {
     display: block !important;
     flex-wrap: initial !important;
@@ -10105,1006 +10299,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }*/
 
-@media (max-width: 1024px) {
-  .main-nav {
-    display: none;
-  }
-
-  .hamburger-menu-container {
-    display: flex;
-  }
-
-  #check {
-    display: block;
-  }
-
-  
-  #check:checked ~ .menu-btn .nav-link,
-  #check:checked ~ .menu-btn .log-sign {
-    animation: animation 0.5s ease forwards var(--i);
-  }
-
-  .nav-links {
-    flex: initial;
-    width: 100%;
-  }
-
-  .nav-links > ul {
-    flex-direction: column;
-  }
-
-  .nav-link {
-    width: 100%;
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  .nav-link > a {
-    font-size: 16px;
-    line-height: 1;
-    padding: 1.6rem 2rem;
-  }
-
-  /*.nav-link:hover > a {
-    transform: scale(1);
-    background-color: #ceb7a0;
-  }*/
-
-  .dropdown,
-  .dropdown.second {
-    position: initial;
-    top: initial;
-    left: initial;
-    transform: initial;
-    opacity: 1;
-    pointer-events: auto;
-    width: 100%;
-    padding: 0;
-    background-color: #a0754a;
-    display: none;
-  }
-
-  .nav-link:hover > .dropdown,
-  .dropdown-link:hover > .dropdown {
-    display: block;
-  }
-
-  .nav-link:hover > a > i,
-  .dropdown-link:hover > a > i {
-    transform: rotate(360deg);
-  }
-
-  .dropdown-link > a {
-    background-color: transparent;
-    color: #000;
-    padding: 1.2rem 2rem;
-    line-height: 1;
-    font-size: 15px;
-  }
-
-  .dropdown.second .dropdown-link > a {
-    padding: 1.2rem 2rem 1.2rem 3rem;
-  }
-
-  .dropdown.second .dropdown.second .dropdown-link > a {
-    padding: 1.2rem 2rem 1.2rem 4rem;
-  }
-
-  .dropdown-link:not(:nth-last-child(2)) {
-    border-bottom: none;
-  }
-
-  .arrow {
-    z-index: 1;
-    background-color: #fff;
-    left: 10%;
-    transform: scale(1.1) rotate(45deg);
-    transition: 0.5s;
-  }
-
-  .nav-link:hover .arrow {
-    background-color: #ceb7a0;
-  }
-
-  .dropdown .dropdown .arrow {
-    display: none;
-  }
-
-  .dropdown-link:hover > a {
-    background-color: #724b26;
-  }
-
-  .dropdown-link:first-child:hover ~ .arrow {
-    background-color: #ceb7a0;
-  }
-
-  .nav-link > a > i {
-    font-size: 1.1rem;
-    transform: rotate(-90deg);
-    transition: 0.7s;
-  }
-
-  .dropdown i {
-    font-size: 1rem;
-    transition: 0.7s;
-  }
-
-  .log-sign {
-    flex: initial;
-    width: 100%;
-    padding: 1.5rem 1.9rem;
-    justify-content: flex-start;
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  .cine-detail {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .leftnav {
-    display: block;
-    width: 100%;
-  }
-
-  .main-content {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .sub-intro {
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-
-  .sub-intro-images {
-    margin-bottom: 20px;
-    max-width: 100%;
-  }
-
-  .sub-intro-text {
-    text-align: left;
-    max-width: 100%;
-  }
-
-  .posttitle {
-    font-size: 5.375rem;
-    font-weight: 500;
-    margin: 0 0 2rem;
-    letter-spacing: -0.0875rem;
-    line-height: 1.1rem;
-    color: #8b5b2b;
-    margin-bottom: 1.25rem; /* Adjusted margin-bottom */
-    padding-bottom: 2.75rem; /* Adjusted padding-bottom */
-    border-bottom: 2px solid #d6d6ce;
-    width: 100%;
-  }
-
-  .box-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .cell {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .grid3cell {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .txt {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .responsive {
-    max-width: 100%;
-    height: auto;
-  }
-  .responsive-iframe {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  }
-
-  .responsive-iframe iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-
-  .slider-bg picture img {
-    max-width: 100%;
-    /*height: auto;*/
-  }
-
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 12px;
-    max-width: 100%;
-  }
-
-  .caption {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 1260px) {
-
-    /* ======================================================
-       MAIN NAVIGATION
-       ====================================================== */
-
-   .menu-container .hamburger-menu-container {
-    display: flex !important;
-}
-    .hamburger-menu-container {
-        display: flex;
-    }
-
-    #check {
-        display: block;
-    }
-    #check:checked ~ .menu-btn .nav-link,
-    #check:checked ~ .menu-btn .log-sign {
-    animation: animation 0.5s ease forwards var(--i);
-    }
-
-
-    /* ======================================================
-       MOBILE DRAWER
-       ====================================================== */
-
-    .menu-container .menu-btn {
-        position: fixed !important;
-
-        top: 0 !important;
-        left: auto !important;
-        right: -120% !important;
-
-        width: 300px !important;
-        max-width: 85vw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-
-        background-color: #ffffff !important;
-
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-
-        padding-top: 70px !important;
-
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15) !important;
-
-        transition: right 0.35s ease-in-out !important;
-
-        z-index: 10000 !important;
-
-        /* Hide scrollbar */
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-    }
-
-    .menu-container .menu-btn::-webkit-scrollbar {
-        display: none !important;
-    }
-
-
-    /* OPEN DRAWER */
-
-    .menu-container #check:checked ~ .menu-btn {
-        right: 0 !important;
-    }
-
-
-    /* ======================================================
-       NAVIGATION CONTENT
-       ====================================================== */
-
-    .menu-container .menu-btn .nav-links,
-    .menu-container .menu-btn nav {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        width: 100% !important;
-
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-
-    .nav-links {
-        flex: initial;
-        width: 100%;
-
-        max-height: 100vh;
-        overflow-y: auto;
-
-        padding-bottom: 50px;
-    }
-
-
-    .nav-links > ul,
-    .menu-bar {
-        display: flex !important;
-        flex-direction: column !important;
-
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-
-    /* ======================================================
-       TOP LEVEL LINKS
-       ====================================================== */
-
-    .nav-link {
-        display: block !important;
-
-        width: 100% !important;
-
-        opacity: 1 !important;
-        transform: none !important;
-
-        border-bottom: 1px solid #e0e0e0 !important;
-    }
-
-
-    .nav-link > a {
-        display: flex !important;
-
-        justify-content: space-between !important;
-        align-items: center !important;
-
-        width: 100%;
-
-        padding: 15px 20px !important;
-
-        color: #333333 !important;
-
-        font-size: 16px;
-        font-weight: 500 !important;
-        line-height: 1.3;
-
-        text-decoration: none !important;
-    }
-
-
-    .nav-link:hover > a {
-        transform: scale(1);
-    }
-
-
-    /* ======================================================
-       DROPDOWN MENU
-       ====================================================== */
-
-    .dropdown,
-    .dropdown.second {
-        position: static !important;
-
-        top: auto;
-        left: auto;
-
-        transform: none;
-
-        opacity: 1;
-        pointer-events: auto;
-
-        width: 100% !important;
-
-        padding: 0 0 0 20px !important;
-
-        background-color: #f9f9f9 !important;
-
-        box-shadow: none !important;
-
-        display: none;
-    }
-
-
-   /* Open submenu on hover or keyboard focus */
-.menu-bar .nav-link:hover > .dropdown,
-.menu-bar .nav-link:focus-within > .dropdown,
-.menu-bar .dropdown-link:hover > .dropdown,
-.menu-bar .dropdown-link:focus-within > .dropdown {
-    display: block !important;
-}
-
-
-/* Rotate arrow when submenu is open or focused */
-.nav-link:hover > a > i,
-.nav-link:focus-within > a > i,
-.dropdown-link:hover > a > i,
-.dropdown-link:focus-within > a > i {
-    transform: rotate(0deg);
-}
-
-    .dropdown-link > a {
-        display: flex;
-
-        align-items: center;
-        justify-content: space-between;
-
-        color: #000000;
-
-        background-color: transparent;
-
-        padding: 1.2rem 2rem;
-
-        line-height: 1.2;
-
-        font-size: 15px;
-    }
-
-
-    .dropdown.second .dropdown-link > a {
-        padding-left: 3rem;
-    }
-
-
-    .dropdown.second .dropdown.second .dropdown-link > a {
-        padding-left: 4rem;
-    }
-
-
-    .dropdown-link:not(:nth-last-child(2)) {
-        border-bottom: none;
-    }
-
-
-    .dropdown-link:hover > a {
-        /*background-color: #eeeeee;*/
-    }
-
-
-    /* ======================================================
-       DROPDOWN ICONS
-       ====================================================== */
-
-    .nav-link > a > i {
-        font-size: 1.1rem;
-
-        transform: rotate(-90deg);
-
-        transition: 0.3s;
-    }
-
-
-    .dropdown i {
-        font-size: 1rem;
-
-        transition: 0.3s;
-    }
-
-
-    .nav-link:hover > a > i,
-    .dropdown-link:hover > a > i {
-        transform: rotate(0deg);
-    }
-
-
-    .arrow {
-        z-index: 1;
-
-        background-color: #ffffff;
-
-        left: 10%;
-
-        transform: scale(1.1) rotate(45deg);
-
-        transition: 0.3s;
-    }
-
-
-    .dropdown .dropdown .arrow {
-        display: none;
-    }
-
-
-    /* ======================================================
-       HAMBURGER / CLOSE BUTTON
-       ====================================================== */
-
-    .menu-container .hamburger-menu-container {
-        z-index: 10005 !important;
-    }
-
-
-    /* Checkbox remains accessible but invisible */
-
-    .menu-container #check {
-        display: block !important;
-
-        position: absolute !important;
-
-        opacity: 0 !important;
-
-        width: 40px !important;
-        height: 40px !important;
-
-        z-index: 10006 !important;
-
-        cursor: pointer !important;
-    }
-
-
-    /* Position checkbox over X when menu is open */
-
-    .menu-container #check:checked {
-        position: fixed !important;
-
-        top: 15px !important;
-        right: 15px !important;
-
-        width: 40px !important;
-        height: 40px !important;
-
-        z-index: 10006 !important;
-    }
-
-
-    /* Move hamburger to drawer top-right */
-
-    .menu-container #check:checked ~ .hamburger-menu-container {
-        position: fixed !important;
-
-        top: 20px !important;
-        right: 20px !important;
-        bottom: auto !important;
-
-        z-index: 10005 !important;
-    }
-
-
-    /* Hide centre hamburger line */
-
-    .menu-container #check:checked
-    ~ .hamburger-menu-container
-    .hamburger-menu div {
-
-        background-color: transparent !important;
-    }
-
-
-    /* First line of X */
-
-    .menu-container #check:checked
-    ~ .hamburger-menu-container
-    .hamburger-menu div::before {
-
-        content: "" !important;
-
-        display: block !important;
-
-        position: absolute !important;
-
-        top: 0 !important;
-        left: 0 !important;
-
-        width: 25px !important;
-        height: 3px !important;
-
-        background-color: #333333 !important;
-
-        transform: rotate(45deg) !important;
-
-        transition: transform 0.3s ease !important;
-    }
-
-
-    /* Second line of X */
-
-    .menu-container #check:checked
-    ~ .hamburger-menu-container
-    .hamburger-menu div::after {
-
-        content: "" !important;
-
-        display: block !important;
-
-        position: absolute !important;
-
-        top: 0 !important;
-        left: 0 !important;
-
-        width: 25px !important;
-        height: 3px !important;
-
-        background-color: #333333 !important;
-
-        transform: rotate(-45deg) !important;
-
-        transition: transform 0.3s ease !important;
-    }
-
-
-    /* Keyboard focus indicator */
-
-    .menu-container #check:focus-visible
-    ~ .hamburger-menu-container {
-
-        outline: 3px solid #005fcc !important;
-        outline-offset: 5px !important;
-
-        border-radius: 3px !important;
-    }
-
-/* Open submenu immediately on hover */
-
-    /* ======================================================
-       HEADER
-       ====================================================== */
-
-    header.sticky {
-        position: relative !important;
-    }
-
-
-    header {
-    max-height: none !important;
-    overflow: visible !important;
-    }
-
-
-    /*.header-text-group {
-        display: none !important;
-    }*/
-
-
-    header > div[style] {
-        gap: 10px !important;
-
-        padding: 10px !important;
-    }
-
-
-    .skillimg {
-        height: 25px !important;
-    }
-
-
-    /* ======================================================
-       CAROUSEL
-       ====================================================== */
-
-    .carousel-tablist {
-        margin-top: 0 !important;
-    }
-
-
-    .alumni-carousel-item {
-        flex: 0 0 33.333333%;
-
-        width: 33.333333%;
-    }
-
-
-    .alumni-carousel-item .alumni-img {
-        width: 150px;
-        height: 150px;
-    }
-
-
-    .slider-bg picture img {
-        max-width: 100%;
-    }
-
-
-    /* ======================================================
-       PAGE CONTENT
-       ====================================================== */
-
-    .cine-detail {
-        display: flex;
-
-        flex-direction: column;
-    }
-
-
-    .leftnav {
-        display: block;
-
-        width: 100%;
-    }
-
-
-    .main-content {
-        width: 100%;
-
-        padding: 20px;
-    }
-
-
-    .sub-intro {
-        flex-direction: column;
-
-        flex-wrap: nowrap;
-    }
-
-
-    .sub-intro-images {
-        max-width: 100%;
-
-        margin-bottom: 20px;
-    }
-
-
-    .sub-intro-text {
-        max-width: 100%;
-
-        text-align: center;
-    }
-
-
-    /* ======================================================
-       PAGE TITLE
-       ====================================================== */
-
-    .posttitle {
-        width: 100%;
-
-        margin: 0 0 1.25rem;
-
-        padding-bottom: 2.75rem;
-
-        border-bottom: 2px solid #d6d6ce;
-
-        color: #8b5b2b;
-
-        font-size: 5.375rem;
-        font-weight: 500;
-
-        letter-spacing: -0.0875rem;
-
-        line-height: 1.1;
-    }
-
-
-    /* ======================================================
-       GRID
-       ====================================================== */
-
-    .box-container {
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 20px;
-    }
-
-
-    .cell,
-    .grid3cell {
-        width: 100%;
-
-        margin-bottom: 20px;
-    }
-
-
-    .txt {
-        display: flex;
-
-        justify-content: space-between;
-        align-items: center;
-    }
-
-
-    /* ======================================================
-       RESPONSIVE MEDIA
-       ====================================================== */
-
-    .responsive {
-        max-width: 100%;
-
-        height: auto;
-    }
-
-
-    .responsive-iframe {
-        position: relative;
-
-        width: 100%;
-
-        padding-bottom: 56.25%;
-    }
-
-
-    .responsive-iframe iframe {
-        position: absolute;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 100%;
-    }
-
-
-    /* ======================================================
-       CONTAINER
-       ====================================================== */
-
-    .container {
-        display: flex;
-
-        flex-wrap: wrap;
-
-        max-width: 100%;
-
-        padding: 12px;
-    }
-
-
-    .caption {
-        font-size: 16px;
-    }
-
-
-    /* ======================================================
-       LOG / SIGN AREA
-       ====================================================== */
-
-    .log-sign {
-        flex: initial;
-
-        width: 100%;
-
-        padding: 1.5rem 1.9rem;
-
-        justify-content: flex-start;
-
-        opacity: 1;
-
-        transform: none;
-    }
-}
-
-
-/**************************/
-/* BELOW 704px (Smaller tablets) */
-/**************************/
-@media only screen and (max-width: 768px) {
-  .swiper,
-  .swiper-wrapper,
-  .swiper-slide {
-    height: auto !important;
-    min-height: unset !important;
-    box-sizing: border-box;
-  }
-
-  .swiper-slide {
-    display: block;
-    padding-left: 0 !important;
-  }
-
-  .slider-bg,
-  .slider-bg img {
-    height: auto !important;
-    position: relative !important;
-    top: auto !important;
-    padding-top: 15px;
-  }
-
-.header-left-group {
-        flex-shrink: 1;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .header-logo {
-        height: 4rem; 
-    }
-    
-    .header-separator {
-        height: 45px;
-    }
-
-    .ministry-sub {
-        font-size: 11px;
-    }
-    
-    .ministry-main {
-        font-size: 13px;
-    }
-
-
-  .slider-bg img {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-  }
-
-  .swipper-title,
-  .swipper-subtitle {
-    position: relative;
-    z-index: 2;
-    padding: 1rem;
-  }
-
-  .hide-on-mobile {
-    display: none;
-  }
-
-  .show-on-mobile {
-    display: block;
-  }
-
-  .top_header li {
-    font-size: 1rem; /* Smaller font size for mobile */
-  }
-
-
-  .filter-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .grid-gallery {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(100px, 1fr)
-    ); /* Ensure images take full width */
-    grid-auto-rows: 1fr; /* Ensures square aspect ratio */
-    gap: 5px;
-  }
-
-  .grid-gallery img {
-    width: 100%; /* Images take up full width of their grid cell */
-    height: auto; /* Allow height to adjust proportionally */
-    aspect-ratio: 1 / 1; /* Forces images to stay square */
-    clip-path: none; /* Remove custom clip-path for simplicity */
-    border-radius: 0; /* Optional: remove border-radius for square corners */
-  }
-
-  .cine-header {
-    height: 300px;
-  }
-
-  .box-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-  }
-
-
-    .grid3cell {
-        width: 100% !important;
-        margin: 0 0 25px 0 !important;
-        overflow: visible;
-
-        display: flex;
-        justify-content: center;
-    }
-
-    .news-item {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        min-height: 450px;
-        margin: 0;
-    }
-
-     /* =========================
-       FEATURED NEWS CAROUSEL
-       ========================= */
 
 @media screen and (max-width: 768px) {
 
@@ -11901,149 +11095,6 @@ ul li input[type="checkbox"]:checked ~ i:after {
   }
 }
 
-/*@media (min-width: 1024px) {
-  .nav {
-    max-height: none;
-    top: 0;
-    position: relative;
-    float: right;
-    width: fit-content;
-    background-color: transparent;
-  }
-  .menu li {
-    float: left;
-  }
-  .menu a:hover {
-    background-color: transparent;
-    color: gray;
-  }
-
-  .hamb {
-    display: none;
-  }
-
-  .mob-header {
-    display: none;
-  }
-}
-
-*/
-
-
-
-/* Prevent desktop navigation menu from clipping */
-
-@media (min-width: 1025px) and (max-width: 1600px) {
-
-    .menu-container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .main-nav {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .main-nav > ul {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    .main-nav > ul > li {
-        flex-shrink: 0;
-    }
-
-    .main-nav > ul > li > a {
-        font-size: 14px;
-        padding-left: 5px;
-        padding-right: 5px;
-        white-space: nowrap;
-    }
-}
-/* Responsive */
-
-/* For print*/
-@media print {
-  .container {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: row; /* Ensure images are arranged in a row */
-    flex-wrap: nowrap; /* Prevent wrapping to the next line */
-    gap: 10px; /* Optional: Add spacing between images */
-    justify-content: center; /* Center images horizontally */
-    align-items: center; /* Align images vertically */
-  }
-  .img_card {
-    display: flex; /* Ensure the image card is flex-enabled */
-    flex-direction: column; /* Stack card content (if any) inside vertically */
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    box-sizing: border-box; /* Include padding in width */
-  }
-
-  .img_card img {
-    max-width: 100%; /* Ensure the image fits its container */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  a {
-    text-decoration: none !important; /* Remove underline from all links */
-  }
-
-  a[href]:after {
-    content: none !important;
-  }
-
-  /* Prevent URLs for images with links */
-  img::after {
-    content: none; /* Same for linked images */
-  }
-
-  .abtimg-box {
-    background-image: url(images/Pg\ 01.jpg) !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    min-height: 400px;
-  }
-
-  .page-break {
-    page-break-before: always;
-  }
-}
-table-cell .Rtable-cell--content a {
-    font-size: 10px;
-  }
-
-  .Rtable-cell.column-heading {
-    background-color: #724b26;
-    color: white;
-    font-size: 10px;
-  }
-
-  .g-recaptcha {
-    transform: scale(0.7);
-  }
-  .rc-anchor-light {
-    background: #f9f9f9;
-  }
-
-  .gallery-album-list {
-    grid-template-columns: 1fr !important; /* Single column */
-    gap: 15px;
-  }
-
-  .phototab {
-    font-size: 14px;
-    padding: 0.4rem 0.6rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .nav {
     max-height: none;
@@ -12074,7 +11125,7 @@ table-cell .Rtable-cell--content a {
 
 
 /* Desktop navigation: prevent horizontal cropping */
-/*@media (min-width: 1025px) {
+@media (min-width: 1025px) {
 
     .menu-container {
         width: 100%;
@@ -12122,7 +11173,7 @@ table-cell .Rtable-cell--content a {
         white-space: nowrap;
     }
 }
-*/
+
 
 
 
