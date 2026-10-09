@@ -329,7 +329,7 @@ function srfti_add_pdf_info_to_course_content( $content ) {
 
             <div
                 style="
-                    text-align: center;
+                    text-align: left;
                 "
             >
 
