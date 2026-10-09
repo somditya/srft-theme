@@ -54,7 +54,7 @@ $current_language = get_locale();
   <div id="live-region" aria-live="polite" class="sr-only"></div>
     <header class="sticky">
     <!-- Main Flexbox Row -->
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 20px; background-color: white; flex-wrap: wrap; gap: 20px;">
+    <div class="srfti-top-header">
         
         <!-- LEFT SIDE: Logo & Ministry Text -->
        <div class="header-left-group">
@@ -84,16 +84,24 @@ $current_language = get_locale();
 </div>
 
         <!-- MIDDLE: Search Box -->
-       <?php
-if (function_exists('pll_current_language') && pll_current_language() === 'hi') {
-    echo do_shortcode('[ivory-search id="11012"]');
-} else {
-    echo do_shortcode('[ivory-search id="3166"]');
-}
-?>
+   <!-- MIDDLE: Search Box -->
+
+<div class="srfti-header-search">
+    <?php
+    if (
+        function_exists('pll_current_language') &&
+        pll_current_language() === 'hi'
+    ) {
+        echo do_shortcode('[ivory-search id="11012"]');
+    } else {
+        echo do_shortcode('[ivory-search id="3166"]');
+    }
+    ?>
+</div>
 
         <!-- RIGHT SIDE: Digital India & Utilities -->
-        <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0;">
+
+<div class="srfti-header-utilities">
             
             <!-- Digital India Logo -->
             <div class="top-item">

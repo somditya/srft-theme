@@ -2063,6 +2063,75 @@ ol.breadcrumb li + li::before {
   border: 0 !important;
 }
 
+/* ======================================================
+   SRFTI TOP HEADER
+   ====================================================== */
+
+.srfti-top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ffffff;
+}
+
+.srfti-header-search {
+    flex: 0 1 260px;
+    min-width: 0;
+}
+
+.srfti-header-search .search-box {
+    width: 100%;
+    max-width: 100%;
+}
+
+.srfti-header-utilities {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+/* Compact desktop header */
+@media screen and (min-width: 1261px) and (max-width: 1600px) {
+
+    .srfti-top-header {
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .srfti-top-header .header-left-group {
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .srfti-top-header .header-text-group {
+        min-width: 0;
+    }
+
+    .srfti-header-search {
+        flex: 0 1 220px;
+        min-width: 125px;
+    }
+
+    .srfti-header-utilities {
+        flex: 0 0 auto;
+        gap: 10px;
+    }
+
+    .srfti-header-utilities .utility-container {
+        gap: 8px !important;
+        flex-wrap: nowrap;
+    }
+}
+
+
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -12178,3 +12247,29 @@ table-cell .Rtable-cell--content a {
 }
 
 
+/* ======================================================
+   COMPACT DESKTOP NAVIGATION: 1261px TO 1600px
+   ====================================================== */
+
+/* Top header only — compact desktop */
+@media screen and (min-width: 1261px) and (max-width: 1600px) {
+
+    #nav-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        gap: 12px;
+    }
+
+    #nav-wrapper .header-left-group {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    #nav-wrapper .search-box {
+        min-width: 125px;
+        max-width: 220px;
+    }
+}
