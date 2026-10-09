@@ -287,7 +287,7 @@ endif;
       <h2 class="section-intro-header-text" style="display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; flex-direction: row;" ><span aria-hidden="true"><!--<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48 " viewBox="0 0 64 64" fill="none" aria-hidden="true" style="display: flex; justify-content: center;">
+    gap: 12px; flex-direction: row;" ><!--<span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48 " viewBox="0 0 64 64" fill="none" aria-hidden="true" style="display: flex; justify-content: center;">
 <path d="M9.33398 29.3335V9.3335H29.334V29.3335H9.33398ZM9.33398 54.6668V34.6668H29.334V54.6668H9.33398ZM34.6673 29.3335V9.3335H54.6673V29.3335H34.6673ZM34.6673 54.6668V34.6668H54.6673V54.6668H34.6673ZM13.334 25.3335H25.334V13.3335H13.334V25.3335ZM38.6673 25.3335H50.6673V13.3335H38.6673V25.3335ZM38.6673 50.6668H50.6673V38.6668H38.6673V50.6668ZM13.334 50.6668H25.334V38.6668H13.334V50.6668Z" fill="#000"/>
 </svg>--><?php echo __('The Institute', 'srft-theme' ); ?>
       </h2>
@@ -505,8 +505,7 @@ else
 <path d="M33.6001 32L23.2001 21.6C22.7112 21.1111 22.4668 20.4889 22.4668 19.7333C22.4668 18.9777 22.7112 18.3555 23.2001 17.8666C23.689 17.3777 24.3112 17.1333 25.0668 17.1333C25.8224 17.1333 26.4446 17.3777 26.9335 17.8666L39.2001 30.1333C39.4668 30.4 39.6557 30.6889 39.7668 31C39.8779 31.3111 39.9335 31.6444 39.9335 32C39.9335 32.3555 39.8779 32.6889 39.7668 33C39.6557 33.3111 39.4668 33.6 39.2001 33.8666L26.9335 46.1333C26.4446 46.6222 25.8224 46.8666 25.0668 46.8666C24.3112 46.8666 23.689 46.6222 23.2001 46.1333C22.7112 45.6444 22.4668 45.0222 22.4668 44.2666C22.4668 43.5111 22.7112 42.8889 23.2001 42.4L33.6001 32Z" fill="currentColor"/>
 </svg>
 
-    <!--<span>  <?php esc_html_e('Next', 'srft-theme'); ?>-->
-   </span>
+    <!--<span>  <?php esc_html_e('Next', 'srft-theme'); ?>-->   
                 </button>
 
             </div>
