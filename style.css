@@ -1213,6 +1213,7 @@ div .spacer {
   line-height: 36px;
   color: #4d4d4d;
   color: #161a1d;
+  color: var(--top-header-color);
   margin-bottom: 2.2rem;
   position: relative;
   /*text-transform: uppercase;*/
