@@ -105,8 +105,8 @@ $current_language = get_locale();
             
             <!-- Digital India Logo -->
             <div class="top-item">
-                <a target="_blank" title="<?php echo __('Digital India portal','srft-theme' ); ?>" onclick="return check_url();" href="https://digitalindia.gov.in/">
-                    <img src="https://www.meity.gov.in/static/uploads/2023/12/3c456855b01bd15e42e99b93982b5c18.svg"  alt="Digital India Logo" style="height: 40px; width: auto;">
+                <a target="_blank" title="<?php echo __('External site that opens in a new window', 'srft-theme' ); ?>" onclick="return check_url();" href="https://swachhbharatmission.ddws.gov.in/">
+                    <img src="https://scdpm.nic.in/SpecialCampaign6/Content/assets/img/login/swacch.png"  alt="Swach Bharat Logo" style="height: 40px; width: auto;">
                 </a> 
             </div>
             
