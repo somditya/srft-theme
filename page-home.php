@@ -98,58 +98,175 @@ if ($post_count > 0) :
 
         $post_type = get_post_type();
 
-        $link   = get_permalink();
-        $target = '_self';
+        $post_type = get_post_type();
+$post_id   = get_the_ID();
 
-        /**
-         * Vacancy*/
-        if ($post_type === 'vacancy') {
+$link   = get_permalink();
+$target = '_self';
 
-            $doc = get_field('Vacancy-Doc', get_the_ID());
+$pdf_url  = '';
+$pdf_size = '';
+$is_pdf   = false;
 
-            if (!empty($doc) && !empty($doc['url'])) {
-                $link   = esc_url($doc['url']);
-                $target = '_blank';
-            }
+/*
+ * Determine whether the ticker should
+ * link directly to a PDF.
+ */
 
+if ( $post_type === 'vacancy' ) {
+
+    $doc = get_field( 'Vacancy-Doc', $post_id );
+
+    if ( is_array( $doc ) && ! empty( $doc['url'] ) ) {
+        $pdf_url = $doc['url'];
+    } elseif ( is_numeric( $doc ) ) {
+        $pdf_url = wp_get_attachment_url( (int) $doc );
+    } elseif ( is_string( $doc ) ) {
+        $pdf_url = $doc;
+    }
+
+} elseif ( $post_type === 'announcement' ) {
+
+    $doc   = get_field( 'Announcement-Doc', $post_id );
+    $image = get_field( 'Announcement-Image', $post_id );
+    $text  = get_field( 'Announcement-Text', $post_id );
+
+    $plain_text = trim(
+        wp_strip_all_tags( (string) $text )
+    );
+
+    /*
+     * Preserve existing ticker behaviour:
+     * Open the PDF directly only when there
+     * is no announcement image or text.
+     */
+    if ( empty( $image ) && empty( $plain_text ) ) {
+
+        if ( is_array( $doc ) && ! empty( $doc['url'] ) ) {
+            $pdf_url = $doc['url'];
+        } elseif ( is_numeric( $doc ) ) {
+            $pdf_url = wp_get_attachment_url( (int) $doc );
+        } elseif ( is_string( $doc ) ) {
+            $pdf_url = $doc;
         }
+    }
+}
 
-        /**
-         * Announcement
-         */
-        elseif ($post_type === 'announcement') {
+/*
+ * Show PDF details only for actual PDF URLs.
+ */
+if (
+    ! empty( $pdf_url ) &&
+    preg_match(
+        '/\.pdf(?:[?#]|$)/i',
+        $pdf_url
+    )
+) {
 
-            $doc   = get_field('Announcement-Doc', get_the_ID());
-            $image = get_field('Announcement-Image', get_the_ID());
-            $text  = get_field('Announcement-Text', get_the_ID());
+    $link   = $pdf_url;
+    $target = '_blank';
+    $is_pdf = true;
 
-            // Remove HTML to check whether text is actually empty
-            $plain_text = trim(wp_strip_all_tags($text));
+    /*
+     * Identify WordPress Media attachment.
+     */
+    $attachment_id = attachment_url_to_postid(
+        strtok( $pdf_url, '?#' )
+    );
 
-            // Open PDF only if:
-            // 1. Document exists
-            // 2. No image
-            // 3. No text
-            if (
-                !empty($doc) &&
-                !empty($doc['url']) &&
-                empty($image) &&
-                empty($plain_text)
-            ) {
-                $link   = esc_url($doc['url']);
-                $target = '_blank';
+    if ( ! $attachment_id ) {
+        $attachment_id = attachment_url_to_postid(
+            set_url_scheme(
+                strtok( $pdf_url, '?#' ),
+                'https'
+            )
+        );
+    }
+
+    /*
+     * Determine file size.
+     */
+    if ( $attachment_id ) {
+
+        $file_path = get_attached_file(
+            $attachment_id
+        );
+
+        if (
+            $file_path &&
+            is_file( $file_path ) &&
+            is_readable( $file_path )
+        ) {
+
+            $bytes = filesize( $file_path );
+
+            if ( false !== $bytes ) {
+                $pdf_size = size_format( $bytes, 2 );
             }
-
         }
-        ?>
+    }
 
-        <a href="<?php echo esc_url($link); ?>"
-           target="<?php echo esc_attr($target); ?>"
-           style="color:white; text-decoration:none; line-height:40px;">
+    /*
+     * If the ACF field returned a file array,
+     * use its file-size metadata as a fallback.
+     */
+    if (
+        empty( $pdf_size ) &&
+        isset( $doc ) &&
+        is_array( $doc ) &&
+        ! empty( $doc['filesize'] ) &&
+        is_numeric( $doc['filesize'] )
+    ) {
+        $pdf_size = size_format(
+            (int) $doc['filesize'],
+            2
+        );
+    }
+}
+?>
 
-            <?php the_title(); ?>
+<a
+    href="<?php echo esc_url( $link ); ?>"
+    target="<?php echo esc_attr( $target ); ?>"
+    <?php if ( $is_pdf ) : ?>
+        rel="noopener noreferrer"
+        class="ticker-pdf-link"
+    <?php endif; ?>
+    style="color:white; text-decoration:none; line-height:40px;"
+>
 
-        </a>
+    <?php echo esc_html( get_the_title() ); ?>
+
+    <?php if ( $is_pdf ) : ?>
+
+        <span
+            class="pdf-icon"
+            aria-hidden="true"
+        ></span>
+
+        <?php if ( $pdf_size ) : ?>
+            <span class="ticker-file-size">
+                (<?php echo esc_html( $pdf_size ); ?>)
+            </span>
+        <?php endif; ?>
+
+        <span
+            class="download-icon"
+            aria-hidden="true"
+        ></span>
+
+        <span class="sr-only">
+            <?php
+            echo esc_html__(
+                'PDF document, opens in a new tab',
+                'srft-theme'
+            );
+            ?>
+        </span>
+
+    <?php endif; ?>
+
+</a>
 
         <?php
 

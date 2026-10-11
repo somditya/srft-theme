@@ -5498,6 +5498,62 @@ html body section.course h2.section-intro-header-text.section-intro-header-text 
         margin-top: 12px;
     }
 }
+
+/* ======================================================
+   TOP HEADER — SMALL SCREENS
+   ====================================================== */
+
+@media screen and (max-width: 767px) {
+
+    .srfti-top-header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 10px 12px;
+    }
+
+    .srfti-top-header .header-left-group {
+        width: 100%;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .srfti-header-search {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+    }
+
+    .srfti-header-utilities {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .srfti-header-utilities .utility-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px !important;
+    }
+
+    /* Restore the two hidden SVG icons */
+    .srfti-header-utilities .skp-to-main,
+    .srfti-header-utilities .language-text {
+        display: inline-flex !important;
+        align-items: center;
+    }
+
+    .srfti-header-utilities .mobile-icon {
+        display: none !important;
+    }
+}
 /* Screen-reader only */
 
 .visually-hidden,
@@ -7439,6 +7495,13 @@ ul li input[type="checkbox"]:checked ~ i:after {
     height: 32px;
 }
 
+/* White PDF and download icons in Announcements ticker */
+
+.acme-news-ticker .ticker-pdf-link .pdf-icon,
+.acme-news-ticker .ticker-pdf-link .download-icon {
+    background-color: transparent;
+    filter: brightness(0) invert(1);
+}
 
   /* Forces clicks to pass through the tooltip contents directly to the button */
   #ticker-toggle .tooltip-box,
@@ -11650,10 +11713,11 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: inline-block; /* Ensure it's inline */
     margin-left: 0px; /* Adjust space between the icon and the dropdown */
   }
-
+/* 
   .language-text {
-    display: none; /* Hide the language text */
+    display: none; 
   }
+    * /
 
   /* Ensure the parent <li> is flex */
 
@@ -11690,9 +11754,9 @@ ul li input[type="checkbox"]:checked ~ i:after {
     display: block;
   }
 
-  .skp-to-main {
+  /*.skp-to-main {
     display: none;
-  }
+  }*/
 
   .mobile-icon {
     display: inline-block; /* Shows the image icon on mobile */
