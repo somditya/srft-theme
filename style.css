@@ -7569,30 +7569,49 @@ ul li input[type="checkbox"]:checked ~ i:after {
 
 @media (max-width: 768px) {
 
-    .acme-news-ticker {
-        flex-wrap: wrap;
-        gap: 10px;
+   .acme-news-ticker {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
     }
 
     .acme-news-ticker-label {
-        flex: 0 0 100%;
-        width: 100%;
-        margin-bottom: 5px;
-        font-size: 16px;
+        flex: 0 0 auto;
+        width: auto;
+        margin: 0;
+        font-size: 14px;
+        white-space: nowrap;
     }
 
     .acme-news-ticker-label .announcement-text {
-        height: 32px;
-        gap: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+    }
+
+    .acme-news-ticker-label .announcement-text svg {
+        width: 20px;
+        height: 20px;
     }
 
     .acme-news-ticker-box {
-        flex: 1;
-        min-width: 200px;
+        flex: 1 1 0;
+        min-width: 0;
+        overflow: hidden;
     }
 
     #ticker-toggle {
-        flex-shrink: 0;
+        flex: 0 0 auto;
+        padding: 5px 7px !important;
+    }
+
+    #ticker-toggle svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
