@@ -1292,10 +1292,15 @@ var swiper = new swiper(".home-slider", {
 
 // Function to show an alert when an external link is clicked
 function check_url() {
-  alert("External link that opens in a new window");
-  return true; // Allow the link to open
-}
+    const lang = document.documentElement.lang.toLowerCase();
 
+    const message = lang.startsWith("hi")
+        ? "बाहरी लिंक जो नई विंडो में खुलता है"
+        : "External link that opens in a new window";
+
+    alert(message);
+    return true;
+}
 // Optional: Ensure the script loads correctly by logging to the console
 console.log("script.js loaded");
 
