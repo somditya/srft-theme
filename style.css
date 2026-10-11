@@ -6496,77 +6496,8 @@ h6 {
   padding: 10px 45px 10px 20px;
 }
 
-/* News List */
 
-.news-grid {
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
-.news-card {
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 40px;
-  width: 50%;
-  box-sizing: border-box;
-  transition: background-color 0.4s ease;
-}
-
-.news-link-left {
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 46%;
-  line-height: 1.2rem;
-  min-width: 0; /* Allows flex items to shrink below content size */
-}
-
-.news-link-left-date {
-  color: #999;
-  margin-bottom: 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 10px;
-}
-
-.news-link-left-text {
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 16px;
-}
-
-.news-link-left-title {
-  width: 90%;
-  color: #161a1d;
-  word-wrap: break-word; /* Break long words */
-  overflow-wrap: break-word;
-}
-
-.news-image-right {
-  width: 50%;
-  overflow: hidden;
-  min-width: 0; /* Allows flex items to shrink */
-}
 
 /* Award */
 
@@ -9312,68 +9243,410 @@ img.emoji {
 
 /* News List */
 
-.news-grid {
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+
+/* ======================================================
+   SRFTI NEWS LIST — GRID & CARD DESIGN
+   Reuses homepage .news-item and View More styling
+   ====================================================== */
+
+/* Main page container */
+#skip-to-content .news-list-container {
+    width: 100%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3.2rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    box-sizing: border-box;
 }
 
-.news-card {
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 40px;
-  width: 50%;
-  transition: background-color 0.4s ease;
+/* News application container */
+#skip-to-content #news-app {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto !important;
+    padding: 0 24px 3.2rem;
+    box-sizing: border-box;
 }
 
-.news-link-left {
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  line-height: 3.2rem;
-  width: 46%;
+/* ======================================================
+   NEWS GRID
+   ====================================================== */
+
+#skip-to-content #news-grid.news-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none;
+    align-items: stretch;
 }
 
-.news-link-left-date {
-  /*color: #999;*/
-  color: #2e2f31;
-  margin-bottom: 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 10px;
+/* NewsList responsive columns */
+
+@media screen and (min-width: 992px) and (max-width: 1399px) {
+    #skip-to-content #news-grid.news-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
 }
 
-.news-link-left-text {
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 16px;
+@media screen and (min-width: 577px) and (max-width: 991px) {
+    #skip-to-content #news-grid.news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
 }
 
-.news-link-left-title {
-  width: 90%;
-  color: #161a1d;
+@media screen and (max-width: 576px) {
+    #skip-to-content #news-grid.news-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
 }
 
-.news-image-right {
-  width: 50%;
-  overflow: hidden;
+/* Reset old horizontal news-card styling */
+#skip-to-content #news-grid > li.news-card {
+    display: block !important;
+    flex: none !important;
+
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none;
+    box-sizing: border-box;
 }
+
+/* ======================================================
+   NEWS CARD — REUSE HOMEPAGE .news-item
+   ====================================================== */
+
+#skip-to-content #news-grid .news-item {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: none;
+
+    min-height: 0;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* Fallback if .news-item is not present */
+#skip-to-content #news-grid .srfti-news-list-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    height: 100%;
+
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+
+    transition: box-shadow 0.2s ease;
+}
+
+/* Card hover effect */
+#skip-to-content #news-grid .srfti-news-list-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+}
+
+/* ======================================================
+   NEWS IMAGE
+   ====================================================== */
+
+#skip-to-content #news-grid .srfti-news-list-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Image link */
+#skip-to-content #news-grid .srfti-news-list-image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Actual news image */
+#skip-to-content #news-grid .srfti-news-list-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.3s ease;
+}
+
+/* Image hover */
+#skip-to-content #news-grid .srfti-news-list-card:hover img {
+    transform: scale(1.03);
+}
+
+/* ======================================================
+   NEWS CARD CONTENT
+   ====================================================== */
+
+#skip-to-content #news-grid .srfti-news-list-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    min-width: 0;
+    gap: 8px;
+
+    padding: 14px;
+    text-align: left;
+}
+
+/* News date */
+#skip-to-content #news-grid .srfti-news-list-date {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: #555555;
+}
+
+/* News title */
+#skip-to-content #news-grid .srfti-news-list-title {
+    margin: 0;
+    padding: 0;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    color: #161a1d;
+    overflow-wrap: anywhere;
+}
+
+/* Title link */
+#skip-to-content #news-grid .srfti-news-list-title a {
+    color: #161a1d;
+    text-decoration: none;
+}
+
+/* Title hover */
+#skip-to-content #news-grid .srfti-news-list-title a:hover {
+    color: #8b5b2b;
+    text-decoration: underline;
+}
+
+/* ======================================================
+   VIEW MORE BUTTON — HOMEPAGE STYLING
+   ====================================================== */
+
+/* Button container */
+#skip-to-content #news-grid .view-more-button {
+    position: static;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    align-self: flex-start;
+
+    width: auto;
+    bottom: auto;
+    right: auto;
+
+    margin: auto 0 0 !important;
+    padding: 12px 0 0;
+       align-self: center;
+    margin: auto 0 0 !important;
+}
+
+/* Button link */
+#skip-to-content #news-grid .view-more-button > a.view-more-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    min-height: 38px;
+
+    margin: 0;
+    padding: 8px 12px;
+
+    background-color: #ffffff;
+    border: 1px solid #161a1d;
+
+    color: #5d3e00 !important;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none !important;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* Button hover */
+#skip-to-content #news-grid .view-more-button > a.view-more-link:hover {
+    background-color: #161a1d;
+    color: #ffffff !important;
+}
+
+/* Existing SVG arrow */
+#skip-to-content #news-grid .chevron-right-icon {
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+}
+
+/* ======================================================
+   KEYBOARD ACCESSIBILITY
+   ====================================================== */
+
+#skip-to-content #news-grid a:focus-visible {
+    outline: 3px solid #8b5b2b;
+    outline-offset: 3px;
+}
+
+#skip-to-content #news-pagination {
+    width: 100%;
+    margin-top: 35px;
+    padding: 10px 0 20px;
+    box-sizing: border-box;
+    clear: both;
+}
+
+/* Pagination list */
+#news-pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pagination items */
+#news-pagination-list > li {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pagination links */
+#news-pagination-list > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 36px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Active page */
+#news-pagination-list > li.active > a {
+    background-color: #8b5b2b;
+    color: #ffffff;
+}
+
+/* Disabled controls */
+#news-pagination-list > li.disabled > a {
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* ======================================================
+   NEWS LIST — STATUS MESSAGES
+   ====================================================== */
+
+.news-loading,
+.news-no-results {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* ======================================================
+   SRFTI NEWS LIST — PAGINATION
+   ====================================================== */
+
+#news-pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#news-pagination-list > li {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+#news-pagination-list > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 36px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#news-pagination-list > li.active > a {
+    background-color: #8b5b2b;
+    color: #ffffff;
+}
+
+#news-pagination-list > li.disabled > a {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ======================================================
+   NEWS LIST — STATUS MESSAGES
+   ====================================================== */
+
+.news-loading,
+.news-no-results {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+
+
 
 /* Award */
 

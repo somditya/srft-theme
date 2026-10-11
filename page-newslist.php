@@ -47,7 +47,7 @@ $banner_image = get_the_post_thumbnail_url(
 
 
 	<!-- Breadcrumbs -->
-	<div class="container-aligned">
+	<div class="general-aligned">
 		<div class="breadcrumbs-wrapper">
 
 			<?php
@@ -62,7 +62,7 @@ $banner_image = get_the_post_thumbnail_url(
 			?>
 
 		</div>
-	</div>
+	
 
 
 	<!-- News Section -->
@@ -70,7 +70,7 @@ $banner_image = get_the_post_thumbnail_url(
 		class="section-home"
 		id="skip-to-content"
 	>
-		<div class="container">
+		<div class="news-list-container">
 
 			<h2
 				class="page-header-text"
@@ -228,71 +228,10 @@ $banner_image = get_the_post_thumbnail_url(
 
 		</div>
 	</section>
+	</div>
 
 </main>
 
-
-<style>
-
-/*
- * News pagination.
- */
-#news-pagination-list {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 0.5rem;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#news-pagination-list > li {
-	display: inline-flex;
-	margin: 0;
-	padding: 0;
-}
-
-#news-pagination-list > li > a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 40px;
-	height: 36px;
-	padding: 0 10px;
-	box-sizing: border-box;
-}
-
-#news-pagination-list > li.active > a {
-	background: #8b5b2b;
-	color: #fff;
-}
-
-#news-pagination-list > li.disabled > a {
-	pointer-events: none;
-	opacity: 0.5;
-}
-
-
-/*
- * Loading message.
- */
-.news-loading {
-	text-align: center;
-	margin: 2rem 0;
-}
-
-
-/*
- * No results message.
- */
-.news-no-results {
-	text-align: center;
-	margin: 2rem 0;
-}
-
-</style>
 
 
 <script>
@@ -499,173 +438,110 @@ $banner_image = get_the_post_thumbnail_url(
 	/*
 	 * Create a single news card.
 	 */
-	function createNewsCard(news) {
+	
 
-		const li =
-			document.createElement('li');
+function createNewsCard(news) {
 
-		li.className = 'news-card';
+    const li = document.createElement('li');
+    li.className = 'news-card';
 
-		li.setAttribute(
-			'role',
-			'listitem'
-		);
+    const card = document.createElement('article');
+    card.className = 'news-item srfti-news-list-card';
 
+    const linkURL = getSafeURL(news.link);
+    const imageURL = getSafeURL(news.image);
 
-		/*
-		 * Left side of news card.
-		 */
-		const left =
-			document.createElement('div');
+    /* Image */
+    const imageBox = document.createElement('div');
+    imageBox.className = 'srfti-news-list-image';
 
-		left.className =
-			'news-link-left';
+    if (imageURL) {
+        const image = document.createElement('img');
+        image.src = imageURL;
+        image.alt = '';
+        image.loading = 'lazy';
+        image.decoding = 'async';
 
+        if (linkURL) {
+            const imageLink = document.createElement('a');
+            imageLink.href = linkURL;
+            imageLink.setAttribute(
+                'aria-label',
+                news.name || 'Read news'
+            );
+            imageLink.appendChild(image);
+            imageBox.appendChild(imageLink);
+        } else {
+            imageBox.appendChild(image);
+        }
+    }
 
-		/*
-		 * News date.
-		 */
-		const date =
-			document.createElement('span');
+    card.appendChild(imageBox);
 
-		date.className =
-			'news-link-left-date';
+    /* Card body */
+    const content = document.createElement('div');
+    content.className = 'srfti-news-list-content';
 
-		date.appendChild(
-			createSafeText(
-				news.formattedDate
-			)
-		);
+    if (news.formattedDate) {
+        const date = document.createElement('p');
+        date.className = 'srfti-news-list-date';
+        date.textContent = news.formattedDate;
+        content.appendChild(date);
+    }
 
-		left.appendChild(date);
+    /* News title */
+    const heading = document.createElement('h3');
+    heading.className = 'srfti-news-list-title';
 
+    if (linkURL) {
+        const titleLink = document.createElement('a');
+        titleLink.href = linkURL;
+        titleLink.textContent = news.name || '';
+        heading.appendChild(titleLink);
+    } else {
+        heading.textContent = news.name || '';
+    }
 
-		/*
-		 * News title and link.
-		 */
-		const heading =
-			document.createElement('h3');
+    content.appendChild(heading);
 
-		heading.className =
-			'news-link-left-title';
+    /* View More — same classes as homepage */
+    if (linkURL) {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'view-more-button';
 
+        const viewMore = document.createElement('a');
+        viewMore.href = linkURL;
+        viewMore.className =
+            'view-more-link align-items-center text-decoration-none';
 
-		const linkURL =
-			getSafeURL(news.link);
+        viewMore.setAttribute(
+            'aria-label',
+            <?php echo wp_json_encode( __( 'View More', 'srft-theme' ) ); ?>
+            + ': ' + (news.name || '')
+        );
 
+        const label = document.createElement('span');
+        label.textContent =
+            <?php echo wp_json_encode( __( 'View More', 'srft-theme' ) ); ?>;
 
-		if (linkURL) {
+        const arrow = document.createElement('span');
+        arrow.className = 'chevron-right-icon';
+        arrow.setAttribute('aria-hidden', 'true');
 
-			const link =
-				document.createElement('a');
+        viewMore.appendChild(label);
+        viewMore.appendChild(arrow);
 
-			link.href = linkURL;
+        buttonContainer.appendChild(viewMore);
+        content.appendChild(buttonContainer);
+    }
 
-			link.appendChild(
-				createSafeText(news.name)
-			);
+    /* Assemble and return the card */
+    card.appendChild(content);
+    li.appendChild(card);
 
-			heading.appendChild(link);
+    return li;
+}
 
-		} else {
-
-			heading.appendChild(
-				createSafeText(news.name)
-			);
-
-		}
-
-
-		left.appendChild(heading);
-
-
-		/*
-		 * News description/designation.
-		 *
-		 * Kept for compatibility with the
-		 * previous AngularJS structure.
-		 */
-		const text =
-			document.createElement('div');
-
-		text.className =
-			'news-link-left-text';
-
-
-		if (news.designation) {
-
-			const designation =
-				document.createElement('span');
-
-			designation.appendChild(
-				createSafeText(
-					news.designation
-				)
-			);
-
-			text.appendChild(
-				designation
-			);
-
-		}
-
-
-		left.appendChild(text);
-
-
-		/*
-		 * Right side image.
-		 */
-		const imageContainer =
-			document.createElement('div');
-
-		imageContainer.className =
-			'news-image-right';
-
-
-		const imageURL =
-			getSafeURL(news.image);
-
-
-		if (imageURL) {
-
-			const image =
-				document.createElement('img');
-
-			image.src = imageURL;
-
-			image.alt =
-				news.name || '';
-
-			image.className =
-				'faculty-image';
-
-			image.loading =
-				'lazy';
-
-			image.decoding =
-				'async';
-
-			imageContainer.appendChild(
-				image
-			);
-
-		}
-
-
-		/*
-		 * Assemble card.
-		 */
-		li.appendChild(left);
-
-		li.appendChild(
-			imageContainer
-		);
-
-
-		return li;
-
-	}
 
 
 	/*
