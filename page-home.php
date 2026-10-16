@@ -942,7 +942,7 @@ else
         <li aria-roledescription="slide">
           
         <div class="news-item">
-          <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt=""  style="display: block;">
+          <img typeof="foaf:Image" class="img-responsive lazyOwl" src="<?php echo get_field('film_still');?>" alt="<?php echo get_field('film_still_alt_text');?>"  style="display: block;">
           <div class="news-item-title">
           <h3><?php echo get_field('Film-Name');?></h3>
           <p><?php echo get_field('award_received');?></p>  
