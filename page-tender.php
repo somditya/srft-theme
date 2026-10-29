@@ -304,7 +304,7 @@ $category_id = get_category_ID( $category_name );
                           data-ng-if="tender.subdate">
 
                        <span class="tender-date">
-    {{ tender.pubdate | date:'dd-MM-yyyy' }}
+    {{ tender.subdate | date:'dd-MM-yyyy' }}
 </span>
 
                         </span>
