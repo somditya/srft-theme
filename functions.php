@@ -1779,6 +1779,8 @@ function srfti_secure_acf_value( $value, $post_id, $field ) {
                 'frameborder'     => true,
                 'allow'            => true,
                 'allowfullscreen' => true,
+                'title' => true,
+                'loading' => true,
             ),
 
             'blockquote' => array(
@@ -1916,6 +1918,8 @@ function srfti_secure_acf_value( $value, $post_id, $field ) {
                 $trusted_hosts = array(
                     'facebook.com',
                     'www.facebook.com',
+                    'www.linkedin.com',
+                    'linkedin.com',
                 );
 
                 if ( ! in_array( $host, $trusted_hosts, true ) ) {
@@ -2236,6 +2240,8 @@ function srfti_acf_sanitize($value, $post_id, $field) {
                 'frameborder'      => true,
                 'allowfullscreen'   => true,
                 'allow'             => true,
+                'title' => true,
+                'loading' => true,
             ),
         );
 
@@ -2256,6 +2262,8 @@ function srfti_acf_sanitize($value, $post_id, $field) {
                 $trusted_hosts = array(
                     'facebook.com',
                     'www.facebook.com',
+                    'www.linkedin.com',
+                    'linkedin.com',
                 );
 
                 if (in_array($host, $trusted_hosts, true)) {
@@ -2392,15 +2400,17 @@ function srfti_render_social_embed($value) {
     $allowed = array(
 
         'iframe' => array(
-            'src'             => true,
-            'width'           => true,
-            'height'          => true,
-            'style'           => true,
-            'scrolling'       => true,
-            'frameborder'     => true,
-            'allowfullscreen' => true,
-            'allow'           => true,
-        ),
+    'src'             => true,
+    'width'           => true,
+    'height'          => true,
+    'style'           => true,
+    'scrolling'       => true,
+    'frameborder'     => true,
+    'allowfullscreen' => true,
+    'allow'           => true,
+    'title'           => true,
+    'loading'         => true,
+),
 
         'blockquote' => array(
             'class'                  => true,
@@ -2476,14 +2486,15 @@ function srfti_render_social_embed($value) {
             );
 
             /*
-             * Facebook only
-             */
-            if (
-                $host === 'facebook.com' ||
-                $host === 'www.facebook.com'
-            ) {
-                return $match[0];
-            }
+ * Allow Facebook and LinkedIn iframe embeds.
+ */
+if (
+    $host === 'facebook.com' ||
+    $host === 'www.facebook.com' ||
+    $host === 'www.linkedin.com'
+) {
+    return $match[0];
+}
 
             /*
              * Remove untrusted iframe.
